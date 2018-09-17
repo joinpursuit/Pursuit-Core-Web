@@ -18,7 +18,7 @@ This is OK for small projects, but it isn't fully taking advantage of what React
 
 The best real-world example of this is Amazon's product search. Take a look at, say, a search for t-shirts:
 
-![amazon]('./assets/amazon_screen.png')
+![amazon](./assets/amazon_screen.png)
 
 Each of these t-shirts represents a separate instance of the **exact same component**. This component (probably called `ProductItem` or something like that) is used in the search, in product recommendations, possibly in advertisements on other sites - it's used everywhere.
 
@@ -130,4 +130,4 @@ Additionally, if we have a parent component that does a single AJAX request and 
 
 Finally, it keeps us organized and it keeps our app consistent. The higher up in our component structure we can store state, and the more components share the same state, the more consistently we present information to the user, and the less we have to update the same information in different places.
 
-![diagram]('./assets/props_diagram.png')
+![diagram](./assets/props_diagram.png)
