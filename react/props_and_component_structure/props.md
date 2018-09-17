@@ -1,6 +1,8 @@
 # Props and Component Structuring
 
 ## Resources
+* [Components and Props](https://reactjs.org/docs/components-and-props.html)
+* [Thinking In React](https://reactjs.org/docs/thinking-in-react.html)
 * [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005)
 * [Separation of Concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)
 
@@ -201,4 +203,53 @@ const listItems = products.map(product => {
 });
 ```
 
-Note that we don't have to
+Note that we don't have to use the same name for the prop that we use when we define a function or object. Just like I could use `myArr` as an argument for a function defined with `arr`, I could also write `buy={this.buySingleProduct}` above. I just don't like to, because I like to keep naming consistent.
+
+Let's take a look at our other component, `ProductItem`:
+
+### Difference 2: `ProductItem` displays the quantity and adds a button that triggers `buySingleProduct`, which sets the state in its parent component
+
+Let's just look at `ProductItem` in its entirety:
+
+```js
+import React from "react";
+
+const ProductItem = props => {
+  const { name, manufacturer, price, quantity, buySingleProduct } = props;
+  return (
+    <li>
+      {" "}
+      {name} - {manufacturer} - ${price} - {quantity} remaining{" "}
+      <button
+        onClick={() => {
+          buySingleProduct(name);
+        }}
+      >
+        Purchase
+      </button>
+    </li>
+  );
+};
+
+export default ProductItem;
+```
+
+We're immediately doing something different here, using object deconstruction to break out our props in the same way we might break out parts of state.
+
+Then, we make sure to include an area for displaying `quantity` to the user. Finally, we add a `button` tag. This `button` contains an anonymous function defined inside its `onClick` attribute.
+
+*Question: Why might this be? Why not simply call buySingleProduct directly?*
+
+The answer is that in order to add an argument to the function (in this case, the product's name), we have to invoke the function. However, we don't want to invoke the function as soon as the page loads - if we did, it'd call `setState` over and over and cause an infinite loop. Whenever we have arguments to pass in an `onClick` or `onChange` function, therefore, we hide it inside an anonymous function declaration. This means it will trigger, true to its word, only on click.
+
+**Let's review what happens when a user clicks on our button:**
+
+* The `onClick` function is called with the product's name as an argument. `buySingleProduct` is called in the parent (`ProductPage`) component.
+* Using the `name` argument, `buySingleProduct` maps through the state, finds the product the user clicks on, and creates a new state where that particular quantity is decreased by 1.
+* `setState` is called with the new object.
+* The `ProductPage` component re-renders, also triggering a re-render of **all** `ProductItem` child components.
+* The user sees the product's quantity decrease by 1.
+
+## Conclusion
+
+Clearly, there's a lot of syntax we're introducing to you here, but there's also a lot of (sort of) creative work that goes into deciding exactly what information should be stored in which component, which component should display what, and so on. We highly recommend thinking about this stuff as early as possible when you get around to building your own full-scale React projects!
