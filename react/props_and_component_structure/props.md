@@ -42,7 +42,7 @@ Let's take a look at a small-scale example of this:
 
 Okay, so let's discuss first how this is different from what we described above:
 
-* There's no AJAX request. We are simply pre-populating the state with an array of products.
+* There's no AJAX request. We are simply pre-populating the state with an array of products. This is just skipping that step - imagine we made an AJAX request and used `setState` to get our `products` default state.
 * There isn't fifty products. There's four. Four versus fifty shouldn't change anything, but it's worth noting.
 
 Besides that, this is more-or-less an unstyled version of exactly we were describing above. Let's look at the `ProductPage` component first:
@@ -130,4 +130,75 @@ Additionally, if we have a parent component that does a single AJAX request and 
 
 Finally, it keeps us organized and it keeps our app consistent. The higher up in our component structure we can store state, and the more components share the same state, the more consistently we present information to the user, and the less we have to update the same information in different places.
 
+At the end of the day, a full-fledged app should have this kind of component structure:
+
 ![diagram](./assets/props_diagram.png)
+
+## Identifying and Overcoming Architectural Problems
+
+Okay, so this architectural pattern has tons of advantages. What are the drawbacks? Well, the main one is that we can no longer use `setState` in the way that we're used to. Functional components can't independently use `setState`, and therefore, will never re-render.
+
+**Or will they?**
+
+The only example of props we've given you so far uses props to pass data between components. But what about **passing functions between components**? It's not as weird as you might think!
+
+So, in this next example, we're going to be as explicit as possible about **container components** versus **display components**.
+
+**Container components** will store the state *and* functions to edit that state. They will then pass their state and, if necessary, those functions to their lower-order *display* components. These components can then include `onClick` or `onChange` functions in their JSX that *fire the functions that were passed as props* in order to change the state of their parents.
+
+Once those functions fire, the *container*, parent component will re-render, triggering a re-render of all components the container is rendering - with **new props** based on the function that was fired.
+
+Let's look at this in action:
+
+## [Props Example 2](https://codesandbox.io/s/rly61lv97p)
+
+At face value, this looks pretty similar to our previous example. However, we've implemented product stock quantities, and the functionality for our user to buy a product and see the stock decrease. Let's observe a few key differences:
+
+### Difference 1: `ProductPage` stores product quantity and function to decrease quantity, passing that function to our `ProductItem` components
+
+So, first in our state we add a key, `quantity`, to each product. Then, we create the function `buySingleProduct`:
+
+```js
+buySingleProduct = name => {
+  let newStateProducts = this.state.products.map(product => {
+    if (product.name === name && product.quantity > 0) {
+      return {
+        name: product.name,
+        manufacturer: product.manufacturer,
+        price: product.price,
+        quantity: product.quantity - 1
+      };
+    } else {
+      return product;
+    }
+  });
+
+  this.setState({
+    products: newStateProducts
+  });
+};
+```
+
+So this function might look a little intense, but let's break it down into smaller pieces. Critically, our function accepts an argument, `name`, which refers to the name of the product we want to buy.
+
+Using the name, we then map through each product in our state, creating a new object. If the product's name is the name we input as our argument, and if the product's quantity is above 0 (can't sell stock we don't have), we decrease the product's `quantity` value by 1. Otherwise, we simply return the product unchanged. Then, we update our state.
+
+But wait - where do we call this function? It wouldn't make a whole lot of sense to call it in this component - this component isn't rendering anything, and it's a tall order to ask our user to click on something that isn't there. So, we don't. We pass the *function itself*, un-invoked, as a prop to each `ProductItem` component.
+
+Remember that `listItems` map we did in the previous example? This can be found there:
+
+```js
+const listItems = products.map(product => {
+  return (
+    <ProductItem
+      name={product.name}
+      manufacturer={product.manufacturer}
+      price={product.price}
+      quantity={product.quantity}
+      buySingleProduct={this.buySingleProduct}
+    />
+  );
+});
+```
+
+Note that we don't have to
