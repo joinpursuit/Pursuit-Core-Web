@@ -30,7 +30,7 @@ But why do we want to use these things? We won't go too deep here, but let's rev
 
 ### Reason 1: SEO, Robots, and You
 
-For those of you who don't know, SEO stands for **Search Engine Optimization**. Search engines index websites for particular queries based on relevance, which they determine via a number of factors. Search engine-crawling programs (A.K.A. robots; A.K.A., occasionally, spiders) go through websites and flag words and phrases that are seen related to whatever search term users are looking for. This is one large part of how websites are indexed - in other words, if you want to be on the front page of Google for a certain term, you want to make sure your website prominently features related terms.
+SEO stands for **Search Engine Optimization**. Search engines index websites for particular queries based on relevance, which they determine via a number of factors. Search engine-crawling programs (A.K.A. robots; A.K.A., occasionally, spiders) go through websites and flag words and phrases that are seen related to whatever search term users are looking for. This is one large part of how websites are indexed - in other words, if you want to be on the front page of Google for a certain term, you want to make sure your website prominently features related terms.
 
 If your website is all `div`s, however, robots have no way of determining what text on your site is important and what isn't. Even if it's visually apparent, robots don't take font size into account. They weight terms based on the perceived importance of the *specific HTML tag* those terms are contained in. For example, terms contained in a `header` tag, or even an `h1`, are way more prominently considered by robots than a `div` or `p` tag.
 
