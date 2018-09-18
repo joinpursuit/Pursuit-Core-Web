@@ -2,6 +2,7 @@
 
 ## Resources
 
+* [In-Depth React Lifecycle](https://developmentarc.gitbooks.io/react-indepth/content/life_cycle/introduction.html)
 * [React Lifecycle Methods](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
 * [Component Lifecycle](https://www.tutorialspoint.com/reactjs/reactjs_component_life_cycle.htm)
 * Advanced reading: [You Probably Don't Need Derived State](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
@@ -76,4 +77,36 @@ It's important to note that this kind of optimization is **pretty granular** - i
 
 Okay. NEXT!
 
-##
+## `componentWillUpdate`
+
+Don't use `componentWillUpdate`. Many full-fledged React developers will have a hard time telling you why `componentWillUpdate` exists. It's like `componentWillReceiveProps`, but if you call `setState` in it, you get an infinite loop.
+
+It's bad. Don't use it.
+
+NEXT!
+
+## `componentDidUpdate`
+
+`componentDidUpdate` is like `componentDidMount` in the update portion of React's lifecycle. Which means it's not as useful. One main application of `componentDidUpdate` is adjusting UI elements after a component receives new props.
+
+Say, for example, you have a third-party library rendering data in a chart. If you want that data to update when the component does, you can add a `componentDidUpdate` and re-initialize the chart with new data. Updating the chart after the component does ensures that the component gets a chance to successfully receive new props and update before the inner element updates.
+
+That being said, this is a niche usage. You shouldn't see `componentDidUpdate` too much in your day-to-day React development practice.
+
+Alrighty! NEXT!
+
+## `componentWillUnmount`
+
+Finally, our component is going away. Maybe we're going to another page, maybe we're leaving the site - who knows?
+
+If you used any third-party UI libraries, put anything on the `window` or other system-level objects, or set up any timers, `componentWillUnmount` is a good place to make sure those processes are killed before the component unmounts.
+
+If you didn't, then congrats - you don't need it!
+
+NEXT! Wait. There is no 'next'. Huh.
+
+## Conclusion
+
+The majority of these methods are super niche, on the verge of deprecation, or just a bad idea to use. Remember `componentDidMount`. We'll see that one again.
+
+Onward!
