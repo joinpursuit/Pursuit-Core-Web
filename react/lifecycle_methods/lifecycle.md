@@ -23,11 +23,11 @@
 
 ![lifecycle](./assets/component_lifecycle.png)
 
-The component lifecycle is a term that refers to a React component's life in your browser. As your needs as a web developer get more complex, you may find yourself unable to rely on the methods you've learned so far to make stuff happen.
+The component lifecycle is a term that refers to a React component's life in your browser. As your needs as a web developer get more complex, you may find yourself unable to rely on the methods you've learned so far (e.g. `setState` and `render`) to make stuff happen.
 
 For example, you'll notice we haven't yet fired off an AJAX request in React. Where would we do it, and how would we stop a page that relies on data from an AJAX request from rendering before it receives the data? In the DOM, you had `DOMContentLoaded`. In React, you have lifecycle methods.
 
-React makes lifecycle methods available to you in any component. Each method fires at a different time in the component's lifecycle. We're going to review each of them, but please note: **if you have too many lifecycle methods in a component, it's a good sign that you aren't using React properly.** Most of these methods are still supported, but many are only really used in legacy code, and many of them are actively discouraged.
+React makes lifecycle methods available to you in any component. Each method fires at a different specific time in the component's lifecycle. We're going to review each of them, but please note: **if you have too many lifecycle methods in a component, it's a good sign that you aren't using React properly.** Most of these methods are still supported, but many are only really used in legacy code, and some of them are actively discouraged.
 
 That being said, it's still important to understand what these are, when they fire, and what they do. Let's get started.
 
@@ -55,7 +55,9 @@ Awesome. NEXT!
 
 ## `componentWillReceiveProps`
 
-This method is, potentially, useful. If a parent component does an AJAX request and passes the result down as props, you might want your child component to do something with those props. You can use `componentWillReceiveProps`, compare `this.props` (your old props) with `nextProps` (which this method makes available to you), and do something based on that comparison.
+This method is the first method in React's update cycle, which happens after the component successfully mounts.
+
+If a parent component does an AJAX request and passes the result down as props, you might want your child component to do something with those props as it updates. You can use `componentWillReceiveProps`, compare `this.props` (your old props) with `nextProps` (which this method makes available to you), and do something based on that comparison.
 
 **Warning**: A common mistake that new React developers make is copying props to the state in every component. Instead of using props directly, they want the added comfort of state. This is a bad idea: It leads to several sources of truth instead of a [single source](https://en.wikipedia.org/wiki/Single_source_of_truth), so if your component ever fails to update its state with new props, you could be displaying inaccurate information to the user.
 
