@@ -103,16 +103,16 @@ The `findIndex` function will return either the index of the found item or `-1` 
     if (index === -1) {
       // adding item to cart with quantity of 1
       // Using the object spread operator
-      newCart.push({ ...this.state.items[id], quantity: 1 });
+      newCart.push({ ...items[id], quantity: 1 });
     } else {
     ...
 ```
 
-Since each `id` corresponds to the index of the item in `this.items`, we can easily access it. Note that we are using the object spread operator above: `...this.items[id]`. This will copy into the new object all the properties from the corresponding object at `this.items[id]`. For example, if the `id` is `1`, then the element at `this.items[1]` is   `{ id: 1, name: "oranges" }`, and the object pushed into the cart will be `{ id: 1, name: "oranges", quantity: 1}`.
+Since each `id` corresponds to the index of the item in `this.items`, we can easily access it. Note that we are using the object spread operator above: `...items[id]`. This will copy into the new object all the properties from the corresponding object at `items[id]`. For example, if the `id` is `1`, then the element at `items[1]` is   `{ id: 1, name: "oranges" }`, and the object pushed into the cart will be `{ id: 1, name: "oranges", quantity: 1}`.
 
 Now we will handle the other case, when the item is in the cart. We have already found the index before, so all we have to do is increase the quantity of at that index.
 
-```jsx
+```js
     ...
     } else {
       // adding 1 to item quantity
@@ -122,7 +122,7 @@ Now we will handle the other case, when the item is in the cart. We have already
 
 Finally, we will call `setState` with the new cart:
 
-```jsx
+```js
     this.setState({
       cart: newCart
     });
@@ -152,9 +152,9 @@ Now, in the `App` component's `render` function, we will map each element from `
 ```jsx
     ...
     <h2> Cart: </h2>
-      <ul style={ulStyle}>
+      <ul}>
         {cart.map(item => (
-          <li style={liStyle}>
+          <li>
             <CartItem name={item.name} quantity={item.quantity} />
           </li>
         ))}
