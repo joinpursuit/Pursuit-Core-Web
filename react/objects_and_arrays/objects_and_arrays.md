@@ -162,4 +162,4 @@ Now, in the `App` component's `render` function, we will map each element from `
     ...
 ```
 
-And for now, our app is done. Of course, there is much additional functionality we could introduce (prices, removing items from the cart, etc.). However, if you are able to understand all the moving parts of the current app, you are quite close to becoming proficient in React.
+And for now, our app is done. Of course, there is lots of additional functionality we could introduce (prices, removing items from the cart, etc.). However, if you are able to understand all the moving parts of the current app, you are quite close to becoming proficient in React.

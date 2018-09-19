@@ -117,4 +117,4 @@ Later on, we will deal with errors in a more public way, so that the user can kn
 
 ## Activity
 
-Fork this sandbox. Add `debugger`s and/or `console.logs` throughout each method to visualize exactly what happens when.
+Fork this sandbox. Add `debugger`s and/or `console.log`s throughout each method to visualize exactly what happens when.
