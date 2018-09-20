@@ -36,7 +36,7 @@ In order to discuss props, first we've got to talk about state. State, as you kn
 
 However, props can allow us to intelligently divide responsibilities between components. We can have components whose only job is to make AJAX requests and store state, and we can have components whose only job is to receive props and render information.
 
-Let's go back to our Amazon search page example. Our `ProductItem` components are the *child components* of a component called, say, `ProductPage`. `ProductPage` makes one large AJAX request on the first render of the page, getting an array with fifty products. It sets a part of state, perhaps `this.state.products`, with this array. Each individual product is then sent down to a `ProductItem` component by way of props, which processes the product's information into something that looks nice for the user.
+Let's go back to our Amazon search page example. Our `ProductItem` components are the *child components* of a component called, say, `ProductPage`. `ProductPage` makes one large AJAX request on the first render of the page, getting an array with fifty products. It sets a part of state, perhaps `this.state.products`, with this array. We map through the array and send each individual product to a `ProductItem` component by way of props, which processes the product's information into something that looks nice for the user.
 
 Let's take a look at a small-scale example of this:
 
