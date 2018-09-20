@@ -106,7 +106,7 @@ render() {
   } = this.state;
 
   return (
-    <body>
+    <React.Fragment>
       <form onSubmit={this.handleFormSubmit}>
         <p>
           Your Name: <input value={name} onInput={this.handleTextChange} />
@@ -167,12 +167,14 @@ render() {
       ) : (
         ""
       )}
-    </body>
+    </React.Fragment>
   );
 }
 ```
 
 At the bottom, you can see, we have a pretty simple `input` of the type "submit". It's important to note that we don't actually put our form submission functionality into this input - that is on the `form` tag itself, using a JSX tag called `onSubmit`. The message and form-submit response is on the bottom.
+
+We also have a new way of packaging our components - `React.Fragment`. `Fragment` is a pretty new React feature that will let us avoid wrapping everything in a `div` tag, which hurts accessibility. While React reads `Fragment` as an acceptable containing tag, it compiles into... nothing at all on the user end. That's right - it's a way for us to include multiple tags in our component's `return` statement. Cheat 'em out, if you will.
 
 The rest of this stuff should be pretty familiar from our earlier projects. Each input updates the state, and our form controls what happens after the user has filled out each input and clicks "submit".
 
