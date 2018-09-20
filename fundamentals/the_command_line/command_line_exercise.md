@@ -1,11 +1,11 @@
-# Command Line Exercies
+# Command Line Exercises
 
 ## Exercise 1
-From the command line: 
+From the command line:
 
 1. Navigate to your Desktop directory.
 2. Create a directory called my_first_direc.
-3. Enter the test directory.
+3. Enter the my_first_direc directory.
 4. Create a file called first.js.
 5. Create a folder called assignments.
 6. Move first.js into assignments.
@@ -16,9 +16,9 @@ From the command line:
 11. Go up to the Desktop directory.
 12. Delete the test folder.
 
-## Exercise 2 
+## Exercise 2
 
-1. Navitgate to the inside of your Documents folder
+1. Navigate to the inside of your Documents folder
 2. Create a file called foo.js
 3. Open the file with Vim (a text editor, Atom)
 4. Add the following text to the file: console.log('hello')
