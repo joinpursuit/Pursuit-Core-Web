@@ -130,7 +130,7 @@ For example, we have this method called `render` that React makes available to u
 * **`render` returns JSX**
   - JSX is a React-specific templating language. Think of it as a cross between JavaScript and HTML. It allows us to do lots of interesting things, like use curly braces to insert JS directly into our HTML. More on this stuff later!
 * **`render` has to return one JSX element**
-  - If you want to return multiple elements, just wrap it in a `div` tag - React will read that as one element. It has to return JSX, but feel free to put some regular old JavaScript logic above the `return` statement if you need to.
+  - If you want to return multiple elements, just wrap it in a containing tag - React will read that as one element. It has to return JSX, but feel free to put some regular old JavaScript logic above the `return` statement if you need to.
 * **`render` is only called under specific conditions**
 	- Essentially, your page still isn't dynamic yet. We'll learn how to call `render` to "re-render" (update) the page soon.
 * **Because of the virtual DOM, `render` as a React component method is different from `render` as a React DOM method - although they are connected**
