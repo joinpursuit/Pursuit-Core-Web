@@ -191,7 +191,7 @@ git config --global user.name "Your Name"
 git config --global user.email "youremail@domain.com"
 ```
 
-[Installing Postgres](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04)
+### [Installing Postgres](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04)
 
 So, this is a little bit more painful than it is on Mac. We'll cross this bridge when we get here, but essentially, you have to verify yourself as a user when installing Postgres on Linux - by default, it creates a user named `postgres`, which you can use, but which you may have trouble using to interface with your apps.
 
