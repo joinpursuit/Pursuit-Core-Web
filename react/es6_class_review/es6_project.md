@@ -1,6 +1,4 @@
-# ES6 Exercise
-
-## Creating a Universe
+# Creating a Universe
 
 * Create ES6 classes for the following items. **Each class should inherit from the class preceding it** using the `extends` keyword.
   - Universe
