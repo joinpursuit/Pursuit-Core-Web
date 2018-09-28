@@ -1,4 +1,4 @@
-# ES6 - Part 1
+# ES6
 
 ## Sources
 
@@ -35,7 +35,7 @@ After ES6, ECMAScript editions are created via a new process and a yearly releas
 
 #### ES5 -> ES6
 
-ES6 is a superset of ES5 (the code we've been writing to this point). All of your ES5 code is automatically ES6 code.
+ES6 is a superset of ES5. All the code you've been writing so far is ES6.
 
 #### Why we still learn ES5
 
