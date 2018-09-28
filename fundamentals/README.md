@@ -21,6 +21,12 @@
 17. [Constructor Functions](./constructor_functions/constructor_functions_update.md)
 18. [Classes](./classes/classes_update.md)
 
+## Bonus Notes
+
+* [User Input](./user_input/user_input_update.md)
+* [Date and Time](./date_and_time/date_and_time.md)
+
+
 ## Resources
 
 * [Practice Problems](./practice_problems/unit_1_practice_problems.md)
