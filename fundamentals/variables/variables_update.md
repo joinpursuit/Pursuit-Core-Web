@@ -223,30 +223,4 @@ num -= 3
 // num is 5
 ```
 
-## Exercises
 
-1. Age Calculator:
-* Store your birth year in a variable.
-* Store a future year in a variable.
-* Calculate your 2 possible ages for that year based on the stored values.
-* For example, if you were born in 1988, then in 2026 you'll be either 37 or 38, depending on what month it is in 2026.
-* Log them to the screen like so: "I will be either NN or NN in YYYY", substituting the values.
-
-2. Snack Supply Calculator:
-* Store your current age in a variable.
-* Store a maximum age in a variable.
-* Store an estimated amount per day (as a number).
-* Calculate how many you would eat total, from your current age until the maximum age.
-* Log the result to the screen like this: "You will need NN to last you until the age of X".
-
-3. Calculate properties of a circle, using the definitions [here](http://math2.org/math/geometry/circles.htm).
-* Use google: find how to get the number `Pi` in JavaScript.
-* Store a radius into a variable.
-* Calculate the circumference based on the radius, and log "The circumference is NN".
-* Calculate the area based on the radius, and log "The area is NN".
-
-4. Temperature Converter:
-* Store a celsius temperature into a variable.
-* Convert it to fahrenheit and output "NN°C is NN°F".
-* Now store a fahrenheit temperature into a variable.
-* Convert it to celsius and output "NN°F is NN°C."
