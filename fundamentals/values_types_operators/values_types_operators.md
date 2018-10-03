@@ -404,18 +404,6 @@ This higher precedence operator is evaluated first:
 
 [microsoft](https://docs.microsoft.com/en-us/scripting/javascript/operator-subtractprecedence-javascript)
 
-## <b> In class Exercises </b>
-
-1. What are the types of the following expressions and what do they evaluate to, and why?
-* `17`
-* `1 + 2 * 3 + 4`
-* `800 / 80 / 8`
-* `400 > 200`
-* `1 !== 1`
-* `true || false`
-* `true && false`
-* `20 % 6`
-* `'a' + 'b'`
 
 
 ## Resources
