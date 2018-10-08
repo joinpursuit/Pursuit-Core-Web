@@ -377,32 +377,3 @@ console.table(["mango", "strawberry", "banana"]);
 
 _NOTE:_ This doesn't currently work in repl but it will in your computer console, or when you run a file with node through your terminal. More on [console](https://developer.mozilla.org/en-US/docs/Web/API/console)
 
-### Exercises
-
-#### Watch List
-
-1. Create an array of films, where each film has the following properties: `title`, `director`, and `watched` (a boolean indicating if you started watching it).
-2. Create a loop that iterates over the array and logs the title and director for each film. (e.g. 'Wonder Woman, directed by Patty Jenkins').
-3. Now change the output depending on whether the film was watched. If it was watched, log a string like 'You watched "Wonder Woman" directed by Patty Jenkins', and if not, log 'You still need to watch "Wonder Woman" by director Patty Jenkins.'
-
-#### Recipe
-
-* Create an object to hold information on your favorite recipe. It should have the following properties: `title`, `numberOfServings`, and `ingredients` (an array).
-* Create a loop that logs the recipe information, so it looks like:
-
-```javascript
-name: Mole
-servings: 2
-ingredients:
-cinnamon
-cumin
-cocoa
-```
-
-* **Bonus**: change the loop to log ingredients on the same line:
-
-```javascript
-name: Mole
-servings: 2
-ingredients: cinnamon, cumin, cocoa
-```
