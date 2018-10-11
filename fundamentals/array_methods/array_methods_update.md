@@ -239,7 +239,7 @@ Like `map`, `filter` also takes in a callback function. Each item in the array w
   return el % 2 !== 1
  })
  
- // => [1, 3, 5]
+ // => [2, 4]
 
 ```
 
