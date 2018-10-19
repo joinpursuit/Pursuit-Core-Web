@@ -46,7 +46,7 @@ class Animal {
   }
 }
 
-Dog.prototype.eat = function() {
+Animal.prototype.eat = function() {
   console.log("nom nom nom")
 }
 
