@@ -21,7 +21,7 @@
 
 ### Display
 
-There are many different display qualities that and element can have. Let's take a look at some of the more common ones that you might come across. 
+There are many different display qualities that an element can have. Let's take a look at some of the more common ones that you might come across. 
 
 #### display: block;
 The element generates a block element box, generating line breaks both before and after the element when in the normal flow.
