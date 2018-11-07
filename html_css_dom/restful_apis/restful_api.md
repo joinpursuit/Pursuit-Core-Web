@@ -14,7 +14,8 @@
   * PUT
   * PATCH
   * DELETE
-* CRUD
+  * CRUD
+  
 ## Resources
 
 * [What is a RESTful API?](https://restfulapi.net/)
@@ -36,7 +37,7 @@ A RESTful API -- also referred to as a RESTful web service -- is based on repres
 1. **Uniform interface** -  You MUST decide APIs interface for resources inside the system which are exposed to API consumers and follow religiously. This means you need to have a **clear vision** for how all of your data will be stored. It must be stored in a logical and scalable way. A resource in the system should have only _one logical_ URL and that should provide a way to fetch related or additional data. Any single resource should not be too large and contain each and everything in its representation.
     * Think about the Dog API--the way to obtain information from it made sense. If you wanted a list of dog breeds you sent a request to https://dog.ceo/api/breeds/list/all and received a list of all dog breeds. This is a logical way to organize data because it is _organized_ and is clear to the user what information will be received. The URLs are defined by **YOU** the developer, so it is important it makes sense to people who are **not you**.
     * Having a clearly organized API makes it incredibly useful to yourself and other developers so do not take this step lightly!! Map out your API before coding it: **If you fail to plan, plan to fail!**
-    
+
 2. **Client–server** – The client is never directly interacting with the server. By separating the user interface concerns from the data storage concerns, we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components. This essentially means that client application and server application MUST be able to evolve **separately** without any dependency on each other.
 
 3. **Stateless** – Session state is kept entirely on the client. Each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. The server will not store anything about latest HTTP request client made. _It will treat each and every request as **new**_. No session, no history.
@@ -79,7 +80,7 @@ The Dog API has been great, but we can only make GET requests. To see how the ot
 
 #### GET Request
 
-Let's start by testing a GET request to https://jsonplaceholder.typicode.com/posts in Postman. As we know, GET requests simply return information stored at a specific endpoint. 
+Let's start by testing a GET request to https://jsonplaceholder.typicode.com/posts in Postman. As we know, GET requests simply return information stored at a specific endpoint.
 
 What do the results of this GET request look like? What data is stored in this API? What are the **keys**?
 
@@ -115,7 +116,7 @@ body: bar
 userId: 1
 ```
 
-Then click "Key-Value Edit" and you should see all your information neatly organized into key-value pairs. We **DID NOT** include quotation marks around our values because Postman (and forms in general) will automatically turn them into strings. If we included quotes, our information would be stored **WITH** quotes around them. 
+Then click "Key-Value Edit" and you should see all your information neatly organized into key-value pairs. We **DID NOT** include quotation marks around our values because Postman (and forms in general) will automatically turn them into strings. If we included quotes, our information would be stored **WITH** quotes around them.
 
 Now click send! What is our response? The same thing as what we sent _plus_ an ID. This response tells us that it was successful (if it were _not_ successful, we would have received an ERROR message) and that our information was added to the database and has an ID of 101. Unfortunately this database doesn't _actually_ store this information so we cannot now make a GET request to [/posts/101]() and see our post. If this were a real API, like Twitter, we would be able to now see the information we sent displayed.
 
@@ -159,9 +160,9 @@ Send a DELETE request to the URL. What is the return value? Why might this be?
 
 ### CRUD
 
-Another acronym you may have heard and will definitely hear in the future is _CRUD_. This stands for *C*reate, *R*ead, *U*pdate, and *D*elete. CRUD represents the basic functionality we have all come to expect from an application. Let's think about this in terms of Instagram. 
+Another acronym you may have heard and will definitely hear in the future is _CRUD_. This stands for *C*reate, *R*ead, *U*pdate, and *D*elete. CRUD represents the basic functionality we have all come to expect from an application. Let's think about this in terms of Instagram.
 
-In terms of CRUD, _create_ means being able to ADD information to whatever application we are using. Write a blog post, post a picture, update your status, whatever. We can _create_ content on Instagram and do this by posting photos. 
+In terms of CRUD, _create_ means being able to ADD information to whatever application we are using. Write a blog post, post a picture, update your status, whatever. We can _create_ content on Instagram and do this by posting photos.
 
 In CRUD _read_ doesn't necessarily mean reading words on the page but instead consuming content in whatever form the application displays it. We can _read_ information from Instagram by scrolling through photos, reading articles on Facebook, reading blog posts. Reading is a passive activity, meaning you are not doing anything to change the content.
 
