@@ -1,23 +1,25 @@
 # APIs
 
 ## Goals
-* Understand what an API is and how we interact with them
-* Retrieve data from an API
-* Read data in JSON format
+
+- Understand what an API is and how we interact with them
+- Retrieve data from an API
+- Read data in JSON format
 
 ## Keywords
-* Application Programming Interface (API)
-* JavaScript Object Notation (JSON)
+
+- Application Programming Interface (API)
+- JavaScript Object Notation (JSON)
 
 ## Lesson
 
 ## APIs
 
-You may have heard the acronym _API_ in your time at C4Q, but what exactly does it mean? **Application Programming Interface** doesn't really explain much. API is actually much broader than you might expect and can mean a number of different things. APIs are  For our purposes and your future career, you can think of APIs as being able to do one of the following:
+You may have heard the acronym _API_ in your time at Pursuit, but what exactly does it mean? **Application Programming Interface** doesn't really explain much. API is actually much broader than you might expect and can mean a number of different things. For our purposes and your future career, you can think of APIs as being able to do one of the following:
 
-* **Manipulating documents in the browser**: The DOM API (that's an API!!? 🤯), as you know, allows you to manipulate HTML and CSS thus styling the page.
-* **Drawing and manipulating graphics**: Allow you to programmatically update the pixel data contained in an HTML `<canvas>` element to create 2D and 3D scenes. Canvas and WebGL are two common tools you may use. Such APIs are often combined with APIs for creating animation loops (such as `window.requestAnimationFrame()`) and others to make constantly updating scenes like cartoons and games.
-* **Fetch data from the server**: This is the **MOST COMMON** use you will find for APIs and is typically what people mean when they say _API_. These APIs can also be used to update small sections of a webpage on their own. This seemingly small detail has had a huge impact on the performance and behavior of sites — if you just need to update a stock listing or list of available new stories, doing it instantly without having to reload the whole entire page from the server can make the site or app feel much more responsive and "snappy". APIs that make this possible include XMLHttpRequest and the Fetch API. You will learn the term Ajax in coming lessons, which describes this technique.
+- **Manipulating documents in the browser**: The DOM API (that's an API!!? 🤯), as you know, allows you to manipulate HTML and CSS, thus changing the page.
+- **Drawing and manipulating graphics**: Allows you to programmatically update the pixel data contained in an HTML `<canvas>` element to create 2D and 3D scenes. Canvas and WebGL are two common tools you may use. Such APIs are often combined with APIs for creating animation loops (such as `window.requestAnimationFrame()`) and others to make constantly updating scenes like cartoons and games.
+- **Fetch data from a server**: This is the **MOST COMMON** use you will find for APIs and is typically what people mean when they say _API_. These APIs can also be used to update small sections of a webpage on their own. This seemingly small detail has had a huge impact on the performance and behavior of sites — if you just need to update a stock listing or list of available new stories, doing it instantly without having to reload the whole entire page from the server can make the site or app feel much more responsive and "snappy". APIs that make this possible include XMLHttpRequest and the Fetch API. You will learn the term Ajax in coming lessons, which describes this technique.
 
 ### How do APIs work?
 
@@ -33,13 +35,13 @@ In a nutshell, that’s an API: _an interface that software uses to access whate
 
 In our example, the ATM makes a connection with the bank **through** the bank API. The API is the gatekeeper between the ATM (the user) and the bank vault. As developers, we use and create APIs all the time. When you are creating an API, you are _defining how you will allow developers to access your information_, typically the information you are storing in your database. These are called **endpoints**. In the case of the bank API, you are allowed to only do a few things from the ATM: check your balance, deposit money, withdraw money. You can't take out a loan, set up a 401(k), or print last year's tax return because the bank set up their API to **only allow** users to access certain information from the ATM.
 
-The same is true of most databases. Think about social media apps, like Twitter. As a user, you can interact with Twitter's database in specific ways: you can post tweets, delete tweets, add/remove photos, etc. You _cannot_ remove other people's tweets (unfortunately!) because Twitter's API makes sure that user's can only modify **their own** property. Imagine if you were able to delete other people's tweets and accounts? That would lead to _chaos_! 
+The same is true of most databases. Think about social media apps, like Twitter. As a user, you can interact with Twitter's database in specific ways: you can post tweets, delete tweets, add/remove photos, etc. You _cannot_ remove other people's tweets (unfortunately!) because Twitter's API makes sure that user's can only modify **their own** property. Imagine if you were able to delete other people's tweets and accounts? That would lead to _chaos_!
 
 Let's look at a _simple_ API and start playing around with it. First, download this [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US) Chrome extension. This will make viewing the data that you receive from APIs much more readable.
 
 #### Dog Breeds API
 
-The first thing every developer needs to do when working with an API is **READ THE DOCUMENTATION!** These are the instructions for how to use the API and what information is available. If you do not read the documentation, you will not know how to use the API and none of your instructors will help you until _after_ you've read the docs. 
+The first thing every developer needs to do when working with an API is **READ THE DOCUMENTATION!** These are the instructions for how to use the API and what information is available. If you do not read the documentation, you will not know how to use the API and none of your instructors will help you until _after_ you've read the docs.
 
 We are going to work with the Dog API because it is free and open. Some APIs cost money (like Google Maps now) and others require multiple levels of authentication (like Spotify), but the Dog API can be used by anyone! Let's go to the [documentation](https://dog.ceo/dog-api/documentation/) and read how this API works. There are only 5 endpoints for this API: list all breeds, random image, by breed, by sub-breed and breeds list (which is the same as random image with a breed list dropdown).
 
@@ -59,5 +61,5 @@ Now if you navigate to https://dog.ceo/api/breeds/image/random you will see that
 
 ## Resources
 
-* [Web APIs - MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
-* [AJAX - W3Schools](https://www.w3schools.com/xml/ajax_intro.asp)
+- [Web APIs - MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+- [AJAX - W3Schools](https://www.w3schools.com/xml/ajax_intro.asp)
