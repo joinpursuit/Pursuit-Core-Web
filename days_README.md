@@ -1,5 +1,5 @@
 # The Flow
-
+Check this out
 Hello everyone and welcome to Pursuit! I hope you're as excited as I am for this year. Let's take a minute to talk about some every day questions and flow.
 
 ## The Typical Day
