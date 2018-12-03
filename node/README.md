@@ -10,10 +10,10 @@
 6. [Express 2: Basic Routing](express/lesson-2.md)
 7. [Express 3: Passing Data](express/lesson-3.md)
 8. [Express 4: Middleware](express/lesson-4.md)
-9. Express 5: Nested Routing & App Structure*
+9. [Express 5: Nested Routing & App Structure](express/lesson-5.md)
 10. [Databases 1: Intro](databases/lesson-1.md)
-11. Databases 2: Postgres & PG-Promise*
-12. Databases 3: SQL Advanced*
-13. Building APIs: Express + Postgres*
-
+11. [Databases 2: Postgres & Seeding Databases](databases/lesson-2.md)
+12. [Building APIs 1: Intro](apis/lesson-1.md)
+13. [Building APIs 2: Express + Postgres](apis/lesson-2.md)
+14. [Advanced SQL](sql/lesson-1.md)
 (* TBD)
