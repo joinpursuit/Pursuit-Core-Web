@@ -102,4 +102,4 @@ app.listen(port, () => {
 
 Test these out using [Postman](https://www.getpostman.com/)!
 
-[Express Two Exercises] (https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/node/express/express_2_exercises.md)
+[Express Two Exercises](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/node/express/express_2_exercises.md)
