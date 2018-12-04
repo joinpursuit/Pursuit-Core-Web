@@ -16,4 +16,8 @@
 12. [Building APIs 1: Intro](apis/lesson-1.md)
 13. [Building APIs 2: Express + Postgres](apis/lesson-2.md)
 14. [Advanced SQL](sql/lesson-1.md)
-(* TBD)
+
+
+## Labs
+
+1. [Lab 1 - Utility Server](labs/lab-1/README.md)
