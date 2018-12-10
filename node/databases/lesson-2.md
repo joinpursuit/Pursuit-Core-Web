@@ -8,7 +8,6 @@
 
 ## Postgres
 
-
 Okay, so we've been learning how to make SQL queries and get information from
 databases using SQLZoo. That's nice, but it's not the full picture. If we're
 developing production apps, we don't just want to be able to ask for and get
@@ -31,7 +30,7 @@ With an API:
 **User** -> _HTTP Request_ -> **Outside API Server** -> _Database SQL Query_ -> **Outside API Database**
 
 With our Database:
-**User** -> *HTTP Request* -> **Our Node Server** -> *Database SQL Query* -> **Our Database**
+**User** -> _HTTP Request_ -> **Our Node Server** -> _Database SQL Query_ -> **Our Database**
 
 ### Installing Postgres
 
@@ -39,5 +38,3 @@ With our Database:
 
 - [Installing Postgres on Linux](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
 - [Postgres Mac App](https://postgresapp.com/)
-
-
