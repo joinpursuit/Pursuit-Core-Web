@@ -190,3 +190,51 @@ PUT /pet/{id}
 DELETE /user/{id}
 DELETE /pet/{id}
 ```
+
+## Structuring and Seeding RESTful Databases
+
+In order to create the corresponding database for these endpoints, we have to create a file that will set up and create a database for our installation of Postgres. In order to do this, we'll create a file with the suffix `.sql`. This file will be set up so that we can run it and it will automatically create our database. If we run it and our database already exists, it will _nuke_ our database and revert it back to our initial configuration.
+
+For this app, our seed file should look something like this:
+
+```sql
+DROP DATABASE IF EXISTS petpedia;
+CREATE DATABASE petpedia;
+
+\c petpedia;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  email VARCHAR NOT NULL,
+  phonenumber INT NOT NULL
+);
+
+CREATE TABLE pets (
+  id SERIAL PRIMARY KEY,
+  owner INT REFERENCES users(id) NOT NULL,
+  type VARCHAR NOT NULL,
+  name VARCHAR NOT NULL,
+  age INT
+);
+```
+
+Let's take a look at this stuff. First, we `DROP (aka delete) DATABASE` on our `petpedia` database if it already exists. This just nukes it. Then, we `CREATE` our new version of `pedpedia` and utilize the command `\c` to check it out.
+
+After we do that, it's a matter of creating our tables with the appropriate columns. To create our columns, we use the following format:
+
+```
+  <name of column> <data type of column> <any other constraints or associations>
+```
+
+So, for example, when we say `name VARCHAR NOT NULL`, what we're actually saying is: "I want to create a column called `name`. I'd like it to contain short strings, and I'd like there to always be something in this column when a new user is added." More on the different column data types available in Postgres can be found [here](http://www.postgresqltutorial.com/postgresql-data-types/).
+
+As you can see, our Foreign Key relationships are maintained in the `owner` column when we create it using the keyword `REFERENCES`. When we build our database from the ground up with these relationships made clear, we're not only making the app easier to understand and access- we're making it faster to perform those look-ups behind the scenes.
+
+Once we set up a file like this, all we have to do is type the following command in the terminal to seed our database:
+
+```bash
+cat seed.sql | psql
+```
+
+Where `seed.sql` is the name of your file storing the above commands.
