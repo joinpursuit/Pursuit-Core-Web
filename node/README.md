@@ -15,7 +15,6 @@
 11. [Databases 2: Postgres & Seeding Databases](databases/lesson-2.md)
 12. [Building APIs 1: Intro](apis/lesson-1.md)
 13. [Building APIs 2: Express + Postgres](apis/lesson-2.md)
-14. [Advanced SQL](sql/lesson-1.md)
 
 
 ## Labs
