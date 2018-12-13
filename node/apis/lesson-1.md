@@ -91,14 +91,14 @@ Now when object model is ready, it’s time to decide the endpoints. At this ste
 
 ```
 // User Endpoints
-/user/all
-/user/{id}
-/user/{id}/pets
+/users
+/users/{id}
+/users/{id}/pets
 
 // Pets Endpoints
-/pet/all
-/pet/{id}
-/pet/{type}
+/pets
+/pets/{id}
+/pets/{type}
 ```
 
 ### Determine Representation
@@ -159,36 +159,36 @@ So our resource endpoints and their representation are fixed now. Let’s decide
 #### CREATING MODELS
 
 ```
-POST /user
-POST /pet
+POST /users
+POST /pets
 ```
 
 #### BROWSING
 
 ```
 // User Endpoints
-GET /user/all
-GET /user/{id}
-GET /user/{id}/pets
+GET /users
+GET /users/{id}
+GET /users/{id}/pets
 
 // Pets Endpoints
-GET /pet/all
-GET /pet/{id}
-GET /pet/{type}
+GET /pets
+GET /pets/{id}
+GET /pets/{type}
 ```
 
 #### UPDATING
 
 ```
-PUT /user/{id}
-PUT /pet/{id}
+PUT /users/{id}
+PUT /pets/{id}
 ```
 
 #### DELETING
 
 ```
-DELETE /user/{id}
-DELETE /pet/{id}
+DELETE /users/{id}
+DELETE /pets/{id}
 ```
 
 ## Structuring and Seeding RESTful Databases
