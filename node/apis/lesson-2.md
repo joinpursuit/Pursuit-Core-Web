@@ -34,8 +34,18 @@ const pgp = require("pg-promise")({});
 const db = pgp("postgres://localhost/puppies");
 
 // Here's an example query to get all pups from the database table "pups."
-function getAllPuppies() {
-  return db.any("select * from pups");
+function getAllPuppies(req, res, next) {
+  db.any("select * from pups")
+    .then(data => {
+      res.status(200).json({
+        status: "success",
+        data: data,
+        message: "Retrieved ALL puppies"
+      });
+    })
+    .catch(function(err) {
+      return next(err);
+    });
 }
 
 // Export all of our connections to the database.
@@ -53,21 +63,103 @@ var express = require("express");
 var router = express.Router();
 var db = require("../db/queries");
 
-router.get("/", (req, res, next) => {
-  db.getAllPuppies()
-    .then(data => {
-      res.status(200).json({
-        status: "success",
-        data: data,
-        message: "Retrieved ALL puppies"
-      });
-    })
-    .catch(function(err) {
-      return next(err);
-    });
-});
+router.get("/", db.getAllPuppies);
 
 module.exports = router;
 ```
 
 Notice that, because `getAllPuppies` returns a Promise, we can chain `.then` immediately afterwards and utilize the data in our response.
+
+## Away From "Get"
+
+We chatted about the different HTTP keywords of RESTful APIs in the previous lesson (e.g. `POST`, `PATCH`, `DELETE`, etc.), but now we have the opportunity to implement those keywords in Express routes and make meaningful SQL statements to accompany them.
+
+### `POST`
+
+Post requests add one or more rows to the relevant table in our database. Hopefully, there is a harmony between the HTTP route, request type, and table name in our database. For example, a POST request on `/users` should add a user.
+
+Here is an example of a post request to add a new puppy:
+
+```js
+const createPuppy = (req, res, next) => {
+  req.body.age = parseInt(req.body.age);
+  db.none(
+    "INSERT INTO pups(name, breed, age, sex)" +
+      "VALUES(${name}, ${breed}, ${age}, ${sex})",
+    req.body
+  )
+    .then(() => {
+      res.status(200).json({
+        status: "success",
+        message: "Inserted one pup"
+      });
+    })
+    .catch(err => {
+      return next(err);
+    });
+};
+```
+
+There are a few things to notice here:
+
+- We are using a new pg-promise function: `db.none`. This means that we don't expect a response from our database, which makes sense, because we're adding a new user, not getting one.
+- Despite not using backtics (e.g. ```) we are still using the interpolation syntax (`${}`) for passing in data. This is because, while pg-promise supports string interpolation, it doesn't recognize backtics as valid string syntax.
+- You can see that `db.none` accepts two arguments. The first is our string containing our SQL statement, and the second is an object containing all of the data we need to interpolate into that string. Each value passed in to our SQL statement (for example, `${name}`) is referencing a key in our object (e.g. req.body.name).
+
+Inside our routes for "Puppies," we simply add:
+
+```js
+router.post("/", db.createPuppy);
+```
+
+### `PATCH`/`PUT`
+
+All of these routes are going to look pretty similar.
+
+```js
+const updatePuppy = (req, res, next) => {
+  db.none(
+    "UPDATE pups SET name=${name}, breed=${breed}, age=${age}, sex=${sex}  WHERE id=${id}",
+    {
+      name: req.body.name,
+      breed: req.body.breed,
+      age: parseInt(req.body.age),
+      sex: req.body.sex,
+      id: parseInt(req.params.id)
+    }
+  )
+    .then(() => {
+      res.status(200).json({
+        status: "success",
+        messsage: "Updated Puppy"
+      });
+    })
+    .catch(err => {
+      return next(err);
+    });
+};
+```
+
+Notice the SQL statement here - that's basically the only thing that's different.
+
+### `DELETE`
+
+```js
+const removePuppy = (req, res, next) => {
+  let pupId = parseInt(req.params.id);
+  db.result("DELETE from pups WHERE id=$1", [pupId])
+    .then(result => {
+      res.status(200).json({
+        status: "success",
+        message: `Removed ${result.rowCount} puppy`
+      });
+    })
+    .catch(err => {
+      return next(err);
+    });
+};
+```
+
+There are a couple of differences here. We're using the function `db.result` to return the full result object, not just the rows from the table. This allows us to get the attribute `rowCount`, which we're using in our response.
+
+Additionally, instead of keying into an object, our second argument is an array, and our string interpolation (`$1`) refers to indices in our array.
