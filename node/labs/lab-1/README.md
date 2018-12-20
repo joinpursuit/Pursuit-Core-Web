@@ -11,8 +11,6 @@
 ```
 // Math Routes
 localhost:3000/math/add?a=2&b=3
-localhost:3000/math/subtract?a=2&b=3
-localhost:3000/math/divide?a=2&b=3
 localhost:3000/math/multiply?a=2&b=3
 
 // Search Gif Route
@@ -21,13 +19,15 @@ localhost:3000/gif/?search=spongebob
 
 ## Math Routes Example
 
+We will building a The user can enter as many query parameters as they want to do the math function on. AND be able to call them whatever they want.
+
 If we entered the following: 
 
 ```
 localhost:3000/math/add?a=2&b=3
 ```
 
-We should get back the following response:
+We should get back the following JSON response:
 
 ```
 {
@@ -48,7 +48,7 @@ A more complex example:
 localhost:3000/math/multiply?cat=50&b=3&zoo=10
 ```
 
-We should get back the following response:
+We should get back the following JSON response:
 
 ```
 {
@@ -62,7 +62,25 @@ We should get back the following response:
 }
 ```
 
-The user can enter as many query parameters as they want to do the math function on. AND be able to call them whatever they want.
+An error example:
+
+```
+localhost:3000/math/multiply?a=hello&b=world
+```
+
+We should get back the following JSON response:
+
+```
+{
+  error: 'You passed a non-number value into the parameters.'
+}
+```
+
+- Really understand the structure of the response. 
+- Remember the user can pass as many paramters into the query string as they want.
+- User can call the keys whatever they want, but the values must properly parse into numbers.
+- Give an error response if any of the passed in values are not numbers
+
 
 ## Gif Search Example
 
