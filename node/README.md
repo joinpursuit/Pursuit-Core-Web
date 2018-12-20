@@ -20,3 +20,4 @@
 ## Labs
 
 1. [Lab 1 - Utility Server](labs/lab-1/README.md)
+2. [Lab 2 - File Based User System](labs/lab-2/README.md)
