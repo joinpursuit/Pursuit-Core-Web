@@ -75,7 +75,7 @@ GET localhost:3000/class/list/?class=physics
 ```
 
 An error response should look like:
-```javascript
+```
 { 
   error: 'Class physicslol doesn't exist.'
 }
@@ -98,7 +98,7 @@ GET localhost:3000/class/listfailing/?class=physics
 ```
 
 An error response should look like:
-```javascript
+```
 { 
   error: 'Class physicslol doesn't exist.'
 }
@@ -113,7 +113,7 @@ GET localhost:3000/class/listfromcity/?class=physics&city=MIA
 - If class file exists show the list of students who are from the entered city
 - If a city is passed that doesn't match any students, just pass an empty array of students
 
-```javascript
+```
 {
   students: [
     { name: 'Bob', age: 30, city: 'MIA', grade: 49 }
@@ -122,7 +122,7 @@ GET localhost:3000/class/listfromcity/?class=physics&city=MIA
 ```
 
 An error response should look like:
-```javascript
+```
 { 
   error: 'Class physicslol doesn't exist.'
 }
