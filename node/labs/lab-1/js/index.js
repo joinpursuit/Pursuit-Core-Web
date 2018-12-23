@@ -164,8 +164,6 @@ app.get('/math/divide', (req, res) => {
     const nan = {};
     let quotient = 1;
     let divString = '';
-    const map = [div, nan, quotient, divString];
-    const json = {};
     for (let i = 0; i < keys.length; i++) {
         const currentVal = req.query[keys[i]];
         if (math.coerce(currentVal)) {
@@ -223,65 +221,20 @@ app.get('/gif', (req, res) => {
                  imgUrl.push(cb.data[0].images.original.url);
             }
 
-            res.json({
+            res.json(
                 imgUrl
-            });
+            );
 
         });
-
-
     } else {
         res.json({
 
             'message': `cannot search '${search}'`,
 
         });
-
     }
 
 });
-
-
-app.get('/test', (req, res) => {
-
-
-        res.send(`
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Utility Server</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="styles/app.css">
-</head>
-
-<body>
-
-
-
-
-
-
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src='js/index.js'></script>
-</body>
-
-</html>
-
-
-
-
-    
-`)
-
-    }
-
-)
 
 
 app.listen(port, (e) => {
