@@ -1,0 +1,18 @@
+{
+  "name": "utility_server",
+  "version": "1.0.0",
+  "description": "Simple server that takes inputs (numbers or strings) and returns results",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robert Abreu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
