@@ -1,0 +1,15 @@
+{
+  "name": "lab-1",
+  "version": "1.0.0",
+  "description": "## Task - You will create an Express server that takes in different routes to do random but COOL things! - Each of the routes are unique and takes in query parameters through GET requests - Each of the individual functionalities should be seperated into modules that you will build - Your routes should test for invalid inputs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  }
+}
