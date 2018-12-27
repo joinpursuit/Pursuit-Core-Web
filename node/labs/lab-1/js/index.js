@@ -50,12 +50,22 @@ app.get('/math/add', (req, res) => {
             }
         }
 
-        res.json({
-            'Valid Input': add,
-            'Invalid Input': nan,
-            sumString,
-            sum,
-        });
+        keys = Object.keys(nan);
+        if (keys.length > 0) {
+            res.json({
+                'Valid Input': add,
+                'Invalid Input': nan,
+                sumString,
+                sum,
+            });
+        } else {
+            res.json({
+                'Input': add,
+                sumString,
+                sum,
+            });
+        }
+
 
     } else {
         res.json({
@@ -95,12 +105,22 @@ app.get('/math/subtract', (req, res) => {
             }
         }
 
-        res.json({
-            'Valid Input': sub,
-            'Invalid Input': nan,
-            differenceString,
-            difference,
-        });
+        keys = Object.keys(nan);
+        if (keys.length > 0) {
+            res.json({
+                'Valid Input': sub,
+                'Invalid Input': nan,
+                differenceString,
+                difference,
+            });
+        } else {
+            res.json({
+                'Input': sub,
+                differenceString,
+                difference,
+            });
+        }
+
 
     } else {
         res.json({
@@ -141,12 +161,22 @@ app.get('/math/multiply', (req, res) => {
             }
         }
 
-        res.json({
-            'Valid Input': mul,
-            'Invalid Input': nan,
-            prodString,
-            product,
-        });
+        keys = Object.keys(nan);
+        if (keys.length > 0) {
+            res.json({
+                'Valid Input': mul,
+                'Invalid Input': nan,
+                prodString,
+                product,
+            });
+        } else {
+            res.json({
+                'Input': mul,
+                prodString,
+                product,
+            });
+        }
+       
     } else {
         res.json({
             error: 'You passed a non-number value into the parameters.'
@@ -187,14 +217,23 @@ app.get('/math/divide', (req, res) => {
             }
         }
 
+        keys = Object.keys(nan);
+        if (keys.length > 0) {
+            res.json({
+                'Valid Input': div,
+                'Invalid Input': nan,
+                divString,
+                quotient,
+            });
+        } else {
+            res.json({
+                'Input': div,
+                divString,
+                quotient,
+            });
+        }
 
-
-        res.json({
-            'Valid Input': div,
-            'Invalid Input': nan,
-            divString,
-            quotient,
-        });
+     
 
     } else {
         res.json({
@@ -207,18 +246,21 @@ app.get('/math/divide', (req, res) => {
 app.get('/gif', (req, res) => {
     console.log(`get gif was called`);
 
-    const {search, num} = req.query;
+    const {
+        search,
+        num
+    } = req.query;
 
     if (search) {
 
         giphy.getGif(search, num, cb => {
             const imgUrl = [];
             if (num >= 2) {
-                for(let i = 0; i < cb.data.length; i++) {
+                for (let i = 0; i < cb.data.length; i++) {
                     imgUrl.push(cb.data[i].images.original.url);
                 }
             } else {
-                 imgUrl.push(cb.data[0].images.original.url);
+                imgUrl.push(cb.data[0].images.original.url);
             }
 
             res.json(
