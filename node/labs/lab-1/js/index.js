@@ -67,6 +67,10 @@ app.get('/math/add', (req, res) => {
         }
 
 
+    } else if (keys.length < 2 && (Object.keys(nan).length === 0)) {
+        res.json({
+            error: 'You must enter at least 2 valid inputs.'
+        });
     } else {
         res.json({
             error: 'You passed a non-number value into the parameters.'
@@ -122,6 +126,10 @@ app.get('/math/subtract', (req, res) => {
         }
 
 
+    } else if (keys.length < 2 && (Object.keys(nan).length === 0)) {
+        res.json({
+            error: 'You must enter at least 2 valid inputs.'
+        });
     } else {
         res.json({
             error: 'You passed a non-number value into the parameters.'
@@ -177,6 +185,10 @@ app.get('/math/multiply', (req, res) => {
             });
         }
        
+    } else if (keys.length < 2 && (Object.keys(nan).length === 0)) {
+        res.json({
+            error: 'You must enter at least 2 valid inputs.'
+        });
     } else {
         res.json({
             error: 'You passed a non-number value into the parameters.'
@@ -235,6 +247,10 @@ app.get('/math/divide', (req, res) => {
 
      
 
+    } else if (keys.length < 2 && (Object.keys(nan).length === 0)) {
+        res.json({
+            error: 'You must enter at least 2 valid inputs.'
+        });
     } else {
         res.json({
             error: 'You passed a non-number value into the parameters.'
