@@ -53,14 +53,14 @@ app.get('/math/add', (req, res) => {
         keys = Object.keys(nan);
         if (keys.length > 0) {
             res.json({
-                'Valid Input': add,
-                'Invalid Input': nan,
+                'valid input': add,
+                'invalid input': nan,
                 sumString,
                 sum,
             });
         } else {
             res.json({
-                'Input': add,
+                'input': add,
                 sumString,
                 sum,
             });
@@ -112,14 +112,14 @@ app.get('/math/subtract', (req, res) => {
         keys = Object.keys(nan);
         if (keys.length > 0) {
             res.json({
-                'Valid Input': sub,
-                'Invalid Input': nan,
+                'valid input': sub,
+                'invalid input': nan,
                 differenceString,
                 difference,
             });
         } else {
             res.json({
-                'Input': sub,
+                'input': sub,
                 differenceString,
                 difference,
             });
@@ -172,14 +172,14 @@ app.get('/math/multiply', (req, res) => {
         keys = Object.keys(nan);
         if (keys.length > 0) {
             res.json({
-                'Valid Input': mul,
-                'Invalid Input': nan,
+                'valid input': mul,
+                'invalid input': nan,
                 prodString,
                 product,
             });
         } else {
             res.json({
-                'Input': mul,
+                'input': mul,
                 prodString,
                 product,
             });
@@ -232,14 +232,14 @@ app.get('/math/divide', (req, res) => {
         keys = Object.keys(nan);
         if (keys.length > 0) {
             res.json({
-                'Valid Input': div,
-                'Invalid Input': nan,
+                'valid input': div,
+                'invalid input': nan,
                 divString,
                 quotient,
             });
         } else {
             res.json({
-                'Input': div,
+                'input': div,
                 divString,
                 quotient,
             });
@@ -282,6 +282,13 @@ app.get('/gif', (req, res) => {
             res.json(
                 imgUrl
             );
+
+        });
+    } else if (search === undefined) {
+
+        res.json({
+
+            'message': `enter a search argument using the parameter (search=) and the quantity you want returned (num=)'`,
 
         });
     } else {
