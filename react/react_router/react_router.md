@@ -2,13 +2,13 @@
 
 ## Resources
 
-* [React Router - Official Website](https://reacttraining.com/react-router/)
-* [React Router - github](https://github.com/ReactTraining/react-router)
-* [react-router-dom - github](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
-* [A Simple React Router v4 Tutorial - Paul Sherman](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf)
-  * [Live Example](https://codesandbox.io/s/vVoQVk78)
-* [All About React Router 4 - CSS Tricks](https://css-tricks.com/react-router-4/)
-* [Composition vs Inheritance - React Docs](https://reactjs.org/docs/composition-vs-inheritance.html)
+- [React Router - Official Website](https://reacttraining.com/react-router/)
+- [React Router - github](https://github.com/ReactTraining/react-router)
+- [react-router-dom - github](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+- [A Simple React Router v4 Tutorial - Paul Sherman](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf)
+  - [Live Example](https://codesandbox.io/s/vVoQVk78)
+- [All About React Router 4 - CSS Tricks](https://css-tricks.com/react-router-4/)
+- [Composition vs Inheritance - React Docs](https://reactjs.org/docs/composition-vs-inheritance.html)
 
 ## Introduction
 
@@ -22,9 +22,7 @@ We will start with an example of a simple personal website. This app consists of
 
 Of these, `About.js`, `Skills.js` and `Welcome.js` are stateless components, each representing a "page" in the website. `index.js` is where the routing logic happens.
 
-Note that we are also adding `react-router-dom` as a dependency to our project via the NPM packages:
-
-![dependencies](assets/dependecies.png?raw=true)
+Note that we are also adding `react-router-dom` as a dependency to our project via the NPM packages.
 
 In addition to importing the `React` library and the `render` function from the `react-dom` library, we are importing `BrowserRouter`, `Route` and `Link` from `react-router-dom`:
 
