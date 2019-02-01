@@ -27,7 +27,6 @@ Your evening flow should be as following:
 * Read tomorrows planned lecture.
 * We will let you know if there is any additional work outside of this flow.
 
-
 ## What do I do if I get stuck?
 * Search for a solution on Google.  
 * Ask a peer.
