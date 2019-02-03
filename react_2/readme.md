@@ -6,6 +6,6 @@
 2.  [Project Ideation](./project_ideation/project_ideation.md)
 3.  [Redux 1](./redux_1/redux_1.md)
 4.  [Redux 2](./redux_2/redux_2.md)
-5.  Redux 3
+5.  [Redux 3](,/redux_3/redux_3.md)
 6.  User Authentication
 7.  Deployment

@@ -1,7 +1,8 @@
 # Express, Postgres, and React
 
 ### Resources
-* [Create React App with Express backend](https://daveceddia.com/create-react-app-express-backend/) - Don't rely on this for everything. He doesn't use SQL servers - instead, he just sends some boilerplate JSON. But this is the idea, and it's a great starting point.
+
+- [Create React App with Express backend](https://daveceddia.com/create-react-app-express-backend/) - Don't rely on this for everything. He doesn't use SQL servers - instead, he just sends some boilerplate JSON. But this is the idea, and it's a great starting point.
 
 Today, we'll finally be building a full stack app, tip to toe. This is a little scary and a little difficult to get your head around at first - it is for everyone. Bear with us, brush up on your SQL and Express, and don't forget React - we'll be bringing all of that knowledge to bear today.
 
@@ -13,10 +14,10 @@ Looking inside the client folder might be a bit troubling. You have a separate `
 
 Don't fret. Let's break it down. There are two main places you'll want to pay attention to:
 
-  * The **main folder** ('react-backend') is for the Express/SQL side of your app. It includes database methods (inside 'db') and backend routing (inside `app.js`). Without the 'client' folder, this would be virtually **identical** to the other Express apps that you've already made. By itself, it serves JSON objects - it is, literally, an API connected to a database.
-    - In the 'bin' folder, you'll notice that we changed the default port our app is running on from `3000` to `3100`. This is because we're running our app on **two distinct ports**. More on this later.
-  * The **client folder** ('client'), which handles all elements of frontend presentation using React. It makes database calls to our backend API (from lifecycle methods and form submissions), updates our state to reflect those changes, and makes our data all pretty. Critically, our React files have **no idea** what data to render without the backend. Without the backend, they're just scaffolding, much like what you see before `componentDidMount` runs in your Codesandbox apps. However, they're set up to process and represent information in the specific way our backend grabs data from columns and serves it up as JSON.
-    - By default, our React apps run on port `3000`. This app is no different. However, in the `package.json` file, you'll notice an unusual key, `proxy`, pointing to port `3100` - the port our Express app is running on. This sets the default URL that we query in our AJAX requests to `http://localhost:3100/`, so that instead of saying:
+- The **main folder** ('react-backend') is for the Express/SQL side of your app. It includes database methods (inside 'db') and backend routing (inside `app.js`). Without the 'client' folder, this would be virtually **identical** to the other Express apps that you've already made. By itself, it serves JSON objects - it is, literally, an API connected to a database.
+  - In the 'bin' folder, you'll notice that we changed the default port our app is running on from `3000` to `3100`. This is because we're running our app on **two distinct ports**. More on this later.
+- The **client folder** ('client'), which handles all elements of frontend presentation using React. It makes database calls to our backend API (from lifecycle methods and form submissions), updates our state to reflect those changes, and makes our data all pretty. Critically, our React files have **no idea** what data to render without the backend. Without the backend, they're just scaffolding, much like what you see before `componentDidMount` runs in your Codesandbox apps. However, they're set up to process and represent information in the specific way our backend grabs data from columns and serves it up as JSON.
+  - By default, our React apps run on port `3000`. This app is no different. However, in the `package.json` file, you'll notice an unusual key, `proxy`, pointing to port `3100` - the port our Express app is running on. This sets the default URL that we query in our AJAX requests to `http://localhost:3100/`, so that instead of saying:
 
 
     ```js
@@ -41,7 +42,7 @@ What does this mean? Well, it means we `npm start` twice to start this app up - 
 
 ![screenshot](./assets/screen1.jpg)
 
-This is what our *backend routing* gives us when we query the route '/users'. This is our frontend:
+This is what our _backend routing_ gives us when we query the route '/users'. This is our frontend:
 
 ![screenshot](./assets/screen2.jpg)
 
@@ -57,16 +58,15 @@ In the 'db' file, you can see we're using good old Postgres and pg-promise. We'r
 
 ```js
 function getAllUsers(req, res, next) {
-  db.any('select * from users')
-    .then(function (data) {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ALL users'
-        });
+  db.any("select * from users")
+    .then(function(data) {
+      res.status(200).json({
+        status: "success",
+        data: data,
+        message: "Retrieved ALL users"
+      });
     })
-    .catch(function (err) {
+    .catch(function(err) {
       return next(err);
     });
 }
@@ -98,5 +98,3 @@ Even though, normally, our fetch request wouldn't know where to go without a ful
 Let's take a look at our React routing now. Observe that even though the component that we're calling `componentDidMount` from is `http://localhost:3000/users`, we're actually sending requests to two routes on two servers when we render the component. We're pinging our React route to get our JSX template and JavaScript logic, and we're pinging our Express route to get the data to fill it in from our database.
 
 And that's about it! With the React skills you've gained and the Express/SQL skills you'll reclaim, you're in a great position to start building full-stack apps. Yay!
-
-[**Project**](../../projects/react_fullstack/react_fullstack.md)
