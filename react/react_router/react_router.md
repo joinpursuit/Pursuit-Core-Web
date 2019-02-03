@@ -45,7 +45,7 @@ render(
 
 The `BrowserRouter` is a component imported (along with `Route` and `Link`) from the `react-router-dom` library. What we are seeing above is an instance of [component composition](https://reactjs.org/docs/composition-vs-inheritance.html).
 
-### Component Composition
+### Review: Component Composition
 
 Component composition is similar to function composition, in which the output of one function is given as input to another:
 
@@ -55,7 +55,7 @@ const square = n => n * n;
 square(add(2, 1) /* => 3 */); // => 9
 ```
 
-In React, we compose components by nesting one within the other. The value returned by the nested (or _child_) component's render function will be passed as a prop to the _parent_ component. Let's see it in action in the [following example](https://codesandbox.io/s/pk7wn5vvoj).
+In React, we compose components by nesting one within the other. The value returned by the nested (or _child_) component's render function will be passed to the _parent_ component. Let's see it in action in the [following example](https://codesandbox.io/s/pk7wn5vvoj).
 
 ### [Fancy Border](https://codesandbox.io/s/pk7wn5vvoj)
 
@@ -149,6 +149,7 @@ const App = () => (
 ### `Link`
 
 The `Link` component works in a similar fashion to an `<a>` element, except that it **does not** result in a page reload. Instead, with React Router, the link simply changes the URL in the address bar which then tells Browser Router which component to display. The page **does not** do a full reload.
+
 Note that when you click on any of the rendered links, the route changes. This may be easier to see on the [separate-page live-code](https://1r165o97o7.codesandbox.io/). Click that and inspect.
 
 Every click still results in a re-render, and as a result our components will be able to access the new `url`. The `Route` components are the ones that determine what will get rendered.
