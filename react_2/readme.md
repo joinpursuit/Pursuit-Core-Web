@@ -7,5 +7,6 @@
 3.  [Redux 1](./redux_1/redux_1.md)
 4.  [Redux 2](./redux_2/redux_2.md)
 5.  [Redux 3](,/redux_3/redux_3.md)
-6.  User Authentication
-7.  Deployment
+6.  [User Authentication - Backend](./user_authentication_backend/user_authentication_backend.md)
+7.  User Authentication - Frontend
+8.  Deployment
