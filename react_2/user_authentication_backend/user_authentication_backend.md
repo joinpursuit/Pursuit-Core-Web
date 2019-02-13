@@ -3,7 +3,7 @@
 ## Resources
 
 - [Passport Docs](http://www.passportjs.org/docs/)
-- [Example using pg-promise](https://github.com/crymall/express_fullstack_example)
+- [Example using pg-promise](https://github.com/crymall/user_auth_example)
 
 ## The skinny
 
