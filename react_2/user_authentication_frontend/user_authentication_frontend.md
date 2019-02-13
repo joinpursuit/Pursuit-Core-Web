@@ -32,27 +32,27 @@ Let's take a look at the functions making this whole app tick, starting with `Au
 ```js
 const Auth = {
   authenticateUser: token => {
-    sessionStorage.setItem("token", token);
+    localStorage.setItem("token", token);
   },
   isUserAuthenticated: () => {
-    return sessionStorage.getItem("token") !== null;
+    return localStorage.getItem("token") !== null;
   },
   deauthenticateUser: () => {
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("token");
   },
   getToken: () => {
-    return sessionStorage.getItem("token");
+    return localStorage.getItem("token");
   }
 };
 
 export default Auth;
 ```
 
-Auth is an object with several methods, all of them referring to or affecting something called `sessionStorage`. Huh! But we aren't getting `sessionStorage` _from_ anywhere, it seems. No imports, no variables, nowhere.
+Auth is an object with several methods, all of them referring to or affecting something called `localStorage`. Huh! But we aren't getting `localStorage` _from_ anywhere, it seems. No imports, no variables, nowhere.
 
-This is because `sessionStorage` is a built-in functionality that our browsers make available to us. We can use methods to set, retrieve, and remove items from our session storage object as we need them.
+This is because `localStorage` is a built-in functionality that our browsers make available to us. We can use methods to set, retrieve, and remove items from our local storage object as we need them.
 
-What we're doing with the arguments of `setItem`, then, is actually defining key-value pairs for the `sessionStorage` object. `removeItem` and `getItem` only have one argument, because we just need the key that we want to remove or retrieve the value for.
+What we're doing with the arguments of `setItem`, then, is actually defining key-value pairs for the `localStorage` object. `removeItem` and `getItem` only have one argument, because we just need the key that we want to remove or retrieve the value for.
 
 We use these methods all over the place, starting with `AuthRouting`, where we define a function called `PrivateRoute`:
 
@@ -107,9 +107,19 @@ class App extends Component {
   }
 
   checkAuthenticateStatus = () => {
-    this.setState({
-      isLoggedIn: Auth.isUserAuthenticated(),
-      username: Auth.getToken()
+    axios.get("/users/isLoggedIn").then(user => {
+      if (user.data.username === Auth.getToken()) {
+        this.setState({
+          isLoggedIn: Auth.isUserAuthenticated(),
+          username: Auth.getToken()
+        });
+      } else {
+        if (user.data.username) {
+          this.logoutUser();
+        } else {
+          Auth.deauthenticateUser();
+        }
+      }
     });
   };
 
@@ -137,6 +147,11 @@ So. What are these functions doing? Well, `logoutUser` is pretty clear about wha
 `logoutUser` has an interesting flow. First, it logs out our user on the backend via an Axios request to the route `/users/logout`. Then, it removes our session from our session storage by way of `Auth.deauthenticateUser`. Finally, it asks the component to check to see whether the user exists in our session storage, updating the React state to reflect our new logged-out status. It handles every aspect of logging out, step by step, from the backend all the way to presentation.
 
 Although the login function is not included in this component, rest assured it'll follow a similar pattern.
+
+`checkAuthenticateStatus` is querying a backend route to see if our user is logged in. If they are, it then checks to see if the user on the backend is the same as the token we're putting on our frontend. If it isn't, or if we aren't logged in on the frontend, it logs us out. This is to make sure two things are consistent between the backend and the frontend:
+
+- That both of them know **whether or not** we're logged in.
+- That both of them understand and agree on **who** is logged in.
 
 Let's see what our app is rendering:
 
@@ -184,4 +199,125 @@ render() {
 
 Note that a lot of stuff here is just because we don't have a `Navbar` class. We render a greeting and a logout button conditionally depending on whether or not a user is logged in.
 
-Underneath our navbar is where the really interesting stuff happens. Notice we have a `PrivateRoute` pointing to our `Users` component.
+Underneath our navbar is where the really interesting stuff happens. Notice we have a `PrivateRoute` pointing to our `Users` component. This is to make sure that our user is logged in before they can access that route!
+
+However, the `Users` component itself isn't too interesting. Right now, it's just a simple `h1` tag in a functional component. It's the components inside our `login/` directory that contain most of our app's logic...
+
+### `login/`
+
+Let's take a look at the `AuthForm` component. This component is handling the behavior for both logging in **and** registering our user.
+
+Let's look at the functions we define on the class first:
+
+```js
+state = {
+  username: "",
+  password: ""
+};
+
+handleChange = e => {
+  this.setState({
+    [e.target.name]: e.target.value
+  });
+};
+
+registerUser = e => {
+  e.preventDefault();
+  const { username, password } = this.state;
+
+  axios
+    .post("/users/new", { username, password })
+    .then(() => {
+      Auth.authenticateUser(username);
+      axios.post("/users/login", { username, password });
+    })
+    .then(() => {
+      this.props.checkAuthenticateStatus();
+    })
+    .then(() => {
+      this.setState({
+        username: "",
+        password: ""
+      });
+    });
+};
+
+loginUser = e => {
+  e.preventDefault();
+  const { username, password } = this.state;
+
+  axios
+    .post("/users/login", { username, password })
+    .then(() => {
+      Auth.authenticateUser(username);
+    })
+    .then(() => {
+      this.props.checkAuthenticateStatus();
+    })
+    .then(() => {
+      this.setState({
+        username: "",
+        password: ""
+      });
+    });
+};
+```
+
+There are two major things going on here:
+
+- We're processing our user's form input to accept a username and password.
+- We're defining logic to log in and register our user on **both** the frontend and backend.
+
+`loginUser` sends a POST request to the backend with the user's inputted username and password. If those come back correct, _then_ it authenticates the user on the frontend. _Then_ it calls `checkAuthenticateStatus`, which it receives as a prop from `App`, to make sure that the user is logged in in the global state. Finally, it sets the username and password inputs to become empty.
+
+`registerUser` does the **exact same thing**, except first it sends a POST request to `/users/new` to create a new user on the backend first.
+
+We pass all of these methods down to the functional component `Form`, utilizing a different method depending on what our route is. If it's `/auth/register`, it'll fire the `registerUser` method on submit, and if it's `/auth/login`, it'll fire `loginUser`.
+
+Let's see that functional component, just for good measure:
+
+```js
+import React from "react";
+import { withRouter } from "react-router";
+
+const Form = ({
+  match,
+  username,
+  password,
+  isLoggedIn,
+  loginUser,
+  registerUser,
+  handleChange
+}) => {
+  const path = match.path;
+  return (
+    <React.Fragment>
+      <h1> {path === "/auth/login" ? "Login" : "Register"} </h1>
+      <form onSubmit={path === "/auth/login" ? loginUser : registerUser}>
+        <input
+          type="text"
+          value={username}
+          name="username"
+          placeholder="username"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={password}
+          name="password"
+          placeholder="password"
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <p>{isLoggedIn ? "Logged In!" : ""}</p>
+    </React.Fragment>
+  );
+};
+
+export default withRouter(Form);
+```
+
+Note that we aren't explicitly getting `match` from the props in `AuthForm` - we're sending it down via the router by exporting this component `withRouter`.
+
+Now we have a full loop - when our user logs in on the frontend, they're logged in on the backend. Any discrepancies are discovered and resolved by logging the user out and giving them the opportunity to log back in. We've fully set up and implemented user authentication!
