@@ -79,15 +79,3 @@
 [submodule "html_css_dom/async_and_await/gifSearchEngine"]
 	path = html_css_dom/async_and_await/gifSearchEngine
 	url = git@github.com:FEWDMaterials/gifSearchEngine.git
-[submodule "node/intro/NodeJS-Intro-PSET"]
-	path = node/intro/NodeJS-Intro-PSET
-	url = git@github.com:mmosayed/NodeJS-Intro-PSET.git
-[submodule "node/express/Express-Intro-PSET"]
-	path = node/express/Express-Intro-PSET
-	url = git@github.com:mmosayed/Express-Intro-PSET.git
-[submodule "html_css_dom/axios/PCNW-Promises-Axios"]
-	path = html_css_dom/axios/PCNW-Promises-Axios
-	url = git@github.com:mmosayed/PCNW-Promises-Axios.git
-[submodule "node/express/Middleware-Simple-Auth"]
-	path = node/express/Middleware-Simple-Auth
-	url = git@github.com:mmosayed/Middleware-Simple-Auth.git
