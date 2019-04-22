@@ -1,3 +1,39 @@
 [submodule "fundamentals/the_command_line/PCNWLab-Command-Line"]
 	path = fundamentals/the_command_line/PCNWLab-Command-Line
 	url = git@github.com:mottaquikarim/PCNWLab-Command-Line.git
+[submodule "Pursuit-Core-NW-Web"]
+	path = Pursuit-Core-NW-Web
+	url = https://github.com/joinpursuit/Pursuit-Core-NW-Web.git
+[submodule "fundamentals/git_and_github/PCNWLab-Github"]
+	path = fundamentals/git_and_github/PCNWLab-Github
+	url = git@github.com:mottaquikarim/PCNWLab-Github.git
+[submodule "fundamentals/values_types_operators/PCNWLab-Types"]
+	path = fundamentals/values_types_operators/PCNWLab-Types
+	url = git@github.com:mottaquikarim/PCNWLab-Types.git
+[submodule "fundamentals/variables/PCNWLab-Variables"]
+	path = fundamentals/variables/PCNWLab-Variables
+	url = git@github.com:mottaquikarim/PCNWLab-Variables.git
+[submodule "fundamentals/functions/PCNWLab-Functions_and_Scope"]
+	path = fundamentals/functions/PCNWLab-Functions_and_Scope
+	url = git@github.com:mottaquikarim/PCNWLab-Functions_and_Scope.git
+[submodule "fundamentals/conditionals/PCNWLab-Conditionals"]
+	path = fundamentals/conditionals/PCNWLab-Conditionals
+	url = git@github.com:mottaquikarim/PCNWLab-Conditionals.git
+[submodule "fundamentals/strings/PCNWLab-Strings"]
+	path = fundamentals/strings/PCNWLab-Strings
+	url = git@github.com:mottaquikarim/PCNWLab-Strings.git
+[submodule "fundamentals/arrays/PCNWLab-Arrays"]
+	path = fundamentals/arrays/PCNWLab-Arrays
+	url = git@github.com:mottaquikarim/PCNWLab-Arrays.git
+[submodule "fundamentals/loops/PCNWLab-Loops"]
+	path = fundamentals/loops/PCNWLab-Loops
+	url = git@github.com:mottaquikarim/PCNWLab-Loops.git
+[submodule "fundamentals/array_methods/PCNWLab-Loops"]
+	path = fundamentals/array_methods/PCNWLab-Loops
+	url = git@github.com:mottaquikarim/PCNWLab-Loops.git
+[submodule "fundamentals/objects/PCNWLab-Object-Literals"]
+	path = fundamentals/objects/PCNWLab-Object-Literals
+	url = git@github.com:mottaquikarim/PCNWLab-Object-Literals.git
+[submodule "fundamentals/classes/PCNWLab-Classes"]
+	path = fundamentals/classes/PCNWLab-Classes
+	url = git@github.com:mmosayed/PCNWLab-Classes.git
