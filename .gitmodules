@@ -212,3 +212,63 @@
 [submodule "html_css_dom/axios/lab"]
 	path = html_css_dom/axios/lab
 	url = https://github.com/joinpursuit/axios_assignment.git
+[submodule "node/express/lab_middleware"]
+	path = node/express/lab_middleware
+	url = https://github.com/joinpursuit/middleware_exercises.git
+[submodule "node/express/lab_nested_routing"]
+	path = node/express/lab_nested_routing
+	url = https://github.com/joinpursuit/nested_routing_assignment.git
+[submodule "node/express/mini_project"]
+	path = node/express/mini_project
+	url = https://github.com/joinpursuit/mini_project.git
+[submodule "node/apis/lab"]
+	path = node/apis/lab
+	url = https://github.com/joinpursuit/apis1_assignment.git
+[submodule "node/practice_assessment"]
+	path = node/practice_assessment
+	url = https://github.com/joinpursuit/practice_unit_3.git
+[submodule "react/es6_class_review/lab"]
+	path = react/es6_class_review/lab
+	url = https://github.com/joinpursuit/class_inheritance_assignment.git
+[submodule "react/forms_1/lab"]
+	path = react/forms_1/lab
+	url = https://github.com/joinpursuit/forms_1.git
+[submodule "react/forms_2/lab"]
+	path = react/forms_2/lab
+	url = https://github.com/joinpursuit/forms_2.git
+[submodule "react/forms_3/lab_2"]
+	path = react/forms_3/lab_2
+	url = https://github.com/joinpursuit/forms_3.git
+[submodule "react/props_and_component_structure/lab_2"]
+	path = react/props_and_component_structure/lab_2
+	url = https://github.com/joinpursuit/props_assignment.git
+[submodule "react/ajax/lab"]
+	path = react/ajax/lab
+	url = https://github.com/joinpursuit/react_ajax_assignment.git
+[submodule "react/objects_and_arrays/lab"]
+	path = react/objects_and_arrays/lab
+	url = https://github.com/joinpursuit/react_objects_assignment.git
+[submodule "react/todos_1/lab"]
+	path = react/todos_1/lab
+	url = https://github.com/joinpursuit/todos_1_assignment.git
+[submodule "react/react_router_2/lab"]
+	path = react/react_router_2/lab
+	url = https://github.com/joinpursuit/router_2_assignment.git
+[submodule "react/practice_assessment"]
+	path = react/practice_assessment
+	url = https://github.com/joinpursuit/unit_4_practice.git
+[submodule "react/react_router/lab"]
+	path = react/react_router/lab
+	url = https://github.com/joinpursuit/router_1_assignment.git
+[submodule "react_2/react_express/lab"]
+	path = react_2/react_express/lab
+	url = https://github.com/joinpursuit/react_express_assignment.git
+[submodule "react_2/project_ideation/project_requirements"]
+	path = react_2/project_ideation/project_requirements
+	url = https://github.com/joinpursuit/personal_project.git
+[submodule "react_2/redux_3/lab"]
+	path = react_2/redux_3/lab
+	url = https://github.com/joinpursuit/redux_assignment.git
+[submodule "react_2/practice_assessment"]
+	path = react_2/practice_assessment
+	url = https://github.com/joinpursuit/Web_Final_Practice.git
