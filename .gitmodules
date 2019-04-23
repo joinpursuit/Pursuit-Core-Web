@@ -1,0 +1,84 @@
+[submodule "fundamentals/the_command_line/--force"]
+	path = fundamentals/the_command_line/--force
+	url = https://github.com/joinpursuit/PCNWLab-Command-Line.git
+[submodule "Pursuit-Core-NW-Web"]
+	path = Pursuit-Core-NW-Web
+	url = https://github.com/joinpursuit/Pursuit-Core-NW-Web.git
+[submodule "fundamentals/git_and_github/PCNWLab-Github"]
+	path = fundamentals/git_and_github/PCNWLab-Github
+	url = https://github.com/joinpursuit/PCNWLab-Github.git
+[submodule "fundamentals/values_types_operators/--pset"]
+	path = fundamentals/values_types_operators/--pset
+	url = https://github.com/joinpursuit/PCNWLab-Types.git
+[submodule "fundamentals/variables/pset"]
+	path = fundamentals/variables/pset
+	url = https://github.com/joinpursuit/PCNWLab-Variables.git
+[submodule "fundamentals/functions/pset"]
+	path = fundamentals/functions/pset
+	url = https://github.com/joinpursuit/PCNWLab-Functions_and_Scope.git
+[submodule "fundamentals/conditionals/pset"]
+	path = fundamentals/conditionals/pset
+	url = https://github.com/joinpursuit/PCNWLab-Conditionals.git
+[submodule "fundamentals/strings/pset"]
+	path = fundamentals/strings/pset
+	url = https://github.com/joinpursuit/PCNWLab-Strings.git
+[submodule "fundamentals/arrays/pset"]
+	path = fundamentals/arrays/pset
+	url = https://github.com/joinpursuit/PCNWLab-Arrays.git
+[submodule "fundamentals/loops/pset"]
+	path = fundamentals/loops/pset
+	url = https://github.com/joinpursuit/PCNWLab-Loops.git
+[submodule "fundamentals/array_methods/pset"]
+	path = fundamentals/array_methods/pset
+	url = https://github.com/joinpursuit/PCNWLab-Loops.git
+[submodule "fundamentals/objects/pset"]
+	path = fundamentals/objects/pset
+	url = https://github.com/joinpursuit/PCNWLab-Object-Literals.git
+[submodule "fundamentals/classes/pset"]
+	path = fundamentals/classes/pset
+	url = https://github.com/joinpursuit/PCNWLab-Classes.git
+[submodule "html_css_dom/html_tables_forms/lab"]
+	path = html_css_dom/html_tables_forms/lab
+	url = https://github.com/joinpursuit/cookie-recipe-starter.git
+[submodule "html_css_dom/html_tables_forms/lab_2"]
+	path = html_css_dom/html_tables_forms/lab_2
+	url = https://github.com/joinpursuit/PCNWLab_batman_profile.git
+[submodule "html_css_dom/css_intro/pset"]
+	path = html_css_dom/css_intro/pset
+	url = https://github.com/joinpursuit/RelativePathsReview.git
+[submodule "html_css_dom/css_selectors/pset"]
+	path = html_css_dom/css_selectors/pset
+	url = https://github.com/joinpursuit/CSSSelectorsReview.git
+[submodule "html_css_dom/css_box_model/pset"]
+	path = html_css_dom/css_box_model/pset
+	url = https://github.com/joinpursuit/basicLayoutsReview.git
+[submodule "html_css_dom/css_reset/lab"]
+	path = html_css_dom/css_reset/lab
+	url = https://github.com/joinpursuit/WendyBite_BEM.git
+[submodule "html_css_dom/css_review/pset"]
+	path = html_css_dom/css_review/pset
+	url = https://github.com/joinpursuit/layoutPractice.git
+[submodule "html_css_dom/css_review/lab_2"]
+	path = html_css_dom/css_review/lab_2
+	url = https://github.com/joinpursuit/FEWD_Developer_Matchmaker.git
+[submodule "html_css_dom/dom_2/pset"]
+	path = html_css_dom/dom_2/pset
+	url = https://github.com/joinpursuit/PCNWDOM-Intro.git
+[submodule "html_css_dom/events_2/pset"]
+	path = html_css_dom/events_2/pset
+	url = https://github.com/joinpursuit/UI_PSETS.git
+[submodule "html_css_dom/event_loop/pset"]
+	path = html_css_dom/event_loop/pset
+	url = https://github.com/joinpursuit/UIReview.git
+[submodule "html_css_dom/promises/pset"]
+	path = html_css_dom/promises/pset
+	url = https://github.com/joinpursuit/PCNWLab-Promises.git
+[submodule "html_css_dom/async_and_await/lab"]
+	path = html_css_dom/async_and_await/lab
+	url = https://github.com/joinpursuit/gifSearchEngine.git
+[submodule "node/intro/pset"]
+	path = node/intro/pset
+	url = https://github.com/joinpursuit/NodeJS-Intro-PSET.git
+[submodule "node/express/pset"]
+	path = node/express/pset
+	url = https://github.com/joinpursuit/Express-Intro-PSET.git
