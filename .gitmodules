@@ -1,15 +1,10 @@
-[submodule "fundamentals/the_command_line/--force"]
-	path = fundamentals/the_command_line/--force
-	url = https://github.com/joinpursuit/PCNWLab-Command-Line.git
+
 [submodule "Pursuit-Core-NW-Web"]
 	path = Pursuit-Core-NW-Web
 	url = https://github.com/joinpursuit/Pursuit-Core-NW-Web.git
 [submodule "fundamentals/git_and_github/PCNWLab-Github"]
 	path = fundamentals/git_and_github/PCNWLab-Github
 	url = https://github.com/joinpursuit/PCNWLab-Github.git
-[submodule "fundamentals/values_types_operators/--pset"]
-	path = fundamentals/values_types_operators/--pset
-	url = https://github.com/joinpursuit/PCNWLab-Types.git
 [submodule "fundamentals/variables/pset"]
 	path = fundamentals/variables/pset
 	url = https://github.com/joinpursuit/PCNWLab-Variables.git
@@ -82,3 +77,33 @@
 [submodule "node/express/pset"]
 	path = node/express/pset
 	url = https://github.com/joinpursuit/Express-Intro-PSET.git
+[submodule "fundamentals/the_command_line/pset"]
+	path = fundamentals/the_command_line/pset
+	url = https://github.com/joinpursuit/PCNWLab-Command-Line.git
+[submodule "fundamentals/values_types_operators/pset"]
+	path = fundamentals/values_types_operators/pset
+	url = https://github.com/joinpursuit/PCNWLab-Types.git
+[submodule "html_css_dom/axios/pset"]
+	path = html_css_dom/axios/pset
+	url = https://github.com/joinpursuit/PCNW-Promises-Axios.git
+[submodule "node/express/pset_middleware"]
+	path = node/express/pset_middleware
+	url = https://github.com/joinpursuit/Middleware-Simple-Auth.git
+[submodule "react/props_and_component_structure/lab"]
+	path = react/props_and_component_structure/lab
+	url = https://github.com/joinpursuit/Donation-React-App.git
+[submodule "react/lifecycle_methods/lab"]
+	path = react/lifecycle_methods/lab
+	url = https://github.com/joinpursuit/PCNW-U4-Lab1.git
+[submodule "react/forms_3/lab"]
+	path = react/forms_3/lab
+	url = https://github.com/joinpursuit/PCNW-U4-Lab2.git
+[submodule "react_2/firebase/lab_1"]
+	path = react_2/firebase/lab_1
+	url = https://github.com/joinpursuit/React-Image-Feed-Uploader-w-Firebase.git
+[submodule "react_2/firebase/lab_2"]
+	path = react_2/firebase/lab_2
+	url = https://github.com/joinpursuit/React-Auth-W-Firebase.git
+[submodule "react_2/user_authentication_frontend/lab"]
+	path = react_2/user_authentication_frontend/lab
+	url = https://github.com/joinpursuit/React-Auth-w-Context.git
