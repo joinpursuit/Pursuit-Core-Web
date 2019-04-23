@@ -107,3 +107,108 @@
 [submodule "react_2/user_authentication_frontend/lab"]
 	path = react_2/user_authentication_frontend/lab
 	url = https://github.com/joinpursuit/React-Auth-w-Context.git
+[submodule "fundamentals/values_types_operators/pset_2"]
+	path = fundamentals/values_types_operators/pset_2
+	url = https://github.com/joinpursuit/values_types_operators_assignment.git
+[submodule "fundamentals/variables/pset_2"]
+	path = fundamentals/variables/pset_2
+	url = https://github.com/joinpursuit/variable_assignment.git
+[submodule "fundamentals/conditionals/pset_2"]
+	path = fundamentals/conditionals/pset_2
+	url = https://github.com/joinpursuit/conditional_assignment.git
+[submodule "fundamentals/loops/pset_2"]
+	path = fundamentals/loops/pset_2
+	url = https://github.com/joinpursuit/loops_assignment.git
+[submodule "fundamentals/strings/pset_2"]
+	path = fundamentals/strings/pset_2
+	url = https://github.com/joinpursuit/string_assignment/
+[submodule "fundamentals/arrays/pset_2"]
+	path = fundamentals/arrays/pset_2
+	url = https://github.com/joinpursuit/arrays_and_object_assignment.git
+[submodule "fundamentals/functions/pset_2"]
+	path = fundamentals/functions/pset_2
+	url = https://github.com/joinpursuit/functions_and_scope_assignment.git
+[submodule "fundamentals/function_arguments_and_closures/pset"]
+	path = fundamentals/function_arguments_and_closures/pset
+	url = https://github.com/joinpursuit/arguments_and_closure_assignment.git
+[submodule "fundamentals/array_methods/pset_2"]
+	path = fundamentals/array_methods/pset_2
+	url = https://github.com/joinpursuit/array_methods_assignment.git
+[submodule "fundamentals/practice_assessment"]
+	path = fundamentals/practice_assessment
+	url = https://github.com/joinpursuit/Web_Unit1_mid_exam.git
+[submodule "fundamentals/callbacks/pset_2"]
+	path = fundamentals/callbacks/pset_2
+	url = https://github.com/joinpursuit/callback_assignment.git
+[submodule "fundamentals/callbacks/lab"]
+	path = fundamentals/callbacks/lab
+	url = https://github.com/joinpursuit/timers_assignment.git
+[submodule "fundamentals/constructor_functions/pset"]
+	path = fundamentals/constructor_functions/pset
+	url = https://github.com/joinpursuit/constructor_assignment.git
+[submodule "fundamentals/classes/pset_2"]
+	path = fundamentals/classes/pset_2
+	url = https://github.com/joinpursuit/classes_assignment.git
+[submodule "html_css_dom/html_paragraph_and_headings/pset"]
+	path = html_css_dom/html_paragraph_and_headings/pset
+	url = https://github.com/joinpursuit/paragraph_and_heading_exercises.git
+[submodule "html_css_dom/html_lists_links_imgs/pset"]
+	path = html_css_dom/html_lists_links_imgs/pset
+	url = https://github.com/joinpursuit/links_lists_images_exercise.git
+[submodule "html_css_dom/html_tables_forms/pset"]
+	path = html_css_dom/html_tables_forms/pset
+	url = https://github.com/joinpursuit/tables_exercise.git
+[submodule "html_css_dom/html_tables_forms/pset_2"]
+	path = html_css_dom/html_tables_forms/pset_2
+	url = https://github.com/joinpursuit/form_exercise.git
+[submodule "html_css_dom/css_intro/pset_2"]
+	path = html_css_dom/css_intro/pset_2
+	url = https://github.com/joinpursuit/css_intro_exercises.git
+[submodule "html_css_dom/css_box_model/pset_2"]
+	path = html_css_dom/css_box_model/pset_2
+	url = https://github.com/joinpursuit/css_box_model_exercise.git
+[submodule "html_css_dom/css_selectors/pset_2"]
+	path = html_css_dom/css_selectors/pset_2
+	url = https://github.com/joinpursuit/css_selector_exercise.git
+[submodule "html_css_dom/css_flexbox/pset"]
+	path = html_css_dom/css_flexbox/pset
+	url = https://github.com/joinpursuit/css_flexbox_exercise.git
+[submodule "html_css_dom/css_reset/pset"]
+	path = html_css_dom/css_reset/pset
+	url = https://github.com/joinpursuit/css_reset_exercise.git
+[submodule "html_css_dom/css_grid/pset"]
+	path = html_css_dom/css_grid/pset
+	url = https://github.com/joinpursuit/css_grid_exercise.git
+[submodule "html_css_dom/css_display_position_zind/lab"]
+	path = html_css_dom/css_display_position_zind/lab
+	url = https://github.com/joinpursuit/css_display_exercise.git
+[submodule "html_css_dom/dom_1/lab"]
+	path = html_css_dom/dom_1/lab
+	url = https://github.com/joinpursuit/dom_1_exercise.git
+[submodule "html_css_dom/dom_2/lab"]
+	path = html_css_dom/dom_2/lab
+	url = https://github.com/joinpursuit/dom_2_exercise.git
+[submodule "html_css_dom/events_1/lab"]
+	path = html_css_dom/events_1/lab
+	url = https://github.com/joinpursuit/events_1_exercise.git
+[submodule "html_css_dom/events_2/lab"]
+	path = html_css_dom/events_2/lab
+	url = https://github.com/joinpursuit/events_2_exercise.git
+[submodule "html_css_dom/api_intro/lab"]
+	path = html_css_dom/api_intro/lab
+	url = https://github.com/joinpursuit/API_Intro.git
+[submodule "html_css_dom/restful_apis/lab"]
+	path = html_css_dom/restful_apis/lab
+	url = https://github.com/joinpursuit/restfulapi_exercise.git
+[submodule "html_css_dom/promises/lab"]
+	path = html_css_dom/promises/lab
+	url = https://github.com/joinpursuit/promise_exercise.git
+[submodule "html_css_dom/ajax/lab"]
+	path = html_css_dom/ajax/lab
+	url = https://github.com/joinpursuit/ajax_intro.git
+[submodule "html_css_dom/fetch/lab"]
+	path = html_css_dom/fetch/lab
+	url = https://github.com/joinpursuit/fetch_exercise.git
+[submodule "html_css_dom/axios/lab"]
+	path = html_css_dom/axios/lab
+	url = https://github.com/joinpursuit/axios_assignment.git
