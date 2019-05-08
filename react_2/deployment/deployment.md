@@ -85,7 +85,7 @@ We are pretty close! In Express, all that's left is to set up our `package.json`
 ```js
 "scripts": {
     "start": "node ./bin/www",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=prod && npm run build"
   }
 ```
 
@@ -93,7 +93,8 @@ In the other (`frontend/` + `backend/`) configuration, your scripts might look l
 
 ```js
 "scripts": {
-    "heroku-postbuild": "cd frontend && npm install --only=dev && cd backend && npm install && npm run build"
+    "start": "node ./backend/bin/www",
+    "heroku-postbuild": "cd backend && npm install && cd ../frontend && npm install --only=prod && npm run build"
   }
 ```
 
