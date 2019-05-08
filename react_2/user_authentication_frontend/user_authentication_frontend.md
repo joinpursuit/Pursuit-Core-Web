@@ -1,6 +1,6 @@
 # User Authentication: Frontend
 
-- [Same Example](https://github.com/crymall/express_fullstack_example)
+- [Same Example](https://github.com/crymall/user_auth_example)
 
 Okay, so we've done authentication on the backend, which should prevent our users from fetching data that they aren't authorized to fetch. However, we still don't have a way (currently) to prevent users from accessing routes on the frontend.
 
