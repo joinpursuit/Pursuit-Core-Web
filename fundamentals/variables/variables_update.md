@@ -1,13 +1,16 @@
 # Variables
 
-## Goals
+## Standards
+LF.2
 
-* Understand the difference between a statement and an expression. 
-* Independently define, assign value to, and modify variables. 
-* Understand what `state` means 
+## Objectives
+
+* Understand the difference between a statement and an expression.
+* Independently define, assign value to, and modify variables.
+* Understand what `state` means
 * Differentiate between `var`, `let` and `const` for variable declaration
 
-## Vocabulary
+## Keywords
 
 * expression vs statement
 * variable
@@ -44,7 +47,7 @@ console.log("bat" + "man")
 // => undefined
 ```
 
-1. Create a folder called variables 
+1. Create a folder called variables
 <details>
   <summary>
   Hint   
@@ -52,9 +55,9 @@ console.log("bat" + "man")
  mkdir variabls
 </details>
 
-2. cd into the directory and then create a file called test.js. 
-3. Copy the previous code into the file. 
-4. Now run your file by entering `node test.js` in your terminal. 
+2. cd into the directory and then create a file called test.js.
+3. Copy the previous code into the file.
+4. Now run your file by entering `node test.js` in your terminal.
 
 ## Creating a variable
 
@@ -222,5 +225,3 @@ num += 6
 num -= 3
 // num is 5
 ```
-
-

@@ -1,6 +1,9 @@
 # Array Methods
 
-## Goals 
+## Standards
+FSW.1.a, FSW.1.b
+
+## Objectives
 * Understand how to use array methods.
   * forEach
   * map
@@ -40,7 +43,7 @@ names.forEach(function(name){
     console.log(name)
 })
 
-ES6 
+ES6
 names.forEach(name => {
   console.log(name)
 })
@@ -48,7 +51,7 @@ names.forEach(name => {
 
 The `forEach` method lets us specify what we want to happen to each item in the array, but hides how the array is traversed.
 
-If we'd like to keep track of the index we can add a second argument to our forEach callback, often called `i`. 
+If we'd like to keep track of the index we can add a second argument to our forEach callback, often called `i`.
 
 ```js
 
@@ -124,7 +127,7 @@ let arr = [1, 2, 3]
 arr.sayHello()
 // => "hello"
 ```
-A more realistic example: 
+A more realistic example:
 
 ```js
 Array.prototype.doubler = function() {
@@ -137,14 +140,14 @@ Array.prototype.doubler = function() {
 
 
 let arr = [1,2 ,3]
-arr.doubler() 
+arr.doubler()
 // => [2, 4, 6]
 
 ```
 
 The above is **not**  something we would usually want to do. Extending the basic functionalities of a JavaScript type can lead to unexpected bugs and errors in our code. Even more so when we are working with other programmers, who may not know what functionalities we have added. In todays exercises, we will be re-implementing methods that already exist in javascript arrays.
 
-The **this** in the above function refers to the array that the method will be called upon. That means we can index into  **this** if desired. Let pretend we wanted an array method that returned only the odd values. We could add this method to the Array.prototype like this: 
+The **this** in the above function refers to the array that the method will be called upon. That means we can index into  **this** if desired. Let pretend we wanted an array method that returned only the odd values. We could add this method to the Array.prototype like this:
 
 ```js
 Array.prototype.odds = function() {
@@ -159,7 +162,7 @@ Array.prototype.odds = function() {
 
 
 let arr = [1,2 ,3]
-arr.odds() 
+arr.odds()
 // => [1, 3]
 
 // OR
@@ -195,7 +198,7 @@ let idAndTitlePairs = films.map(film => {
 };
 ```
 
-Let's look at another example. Let's say I want to double the values of my array. 
+Let's look at another example. Let's say I want to double the values of my array.
 
 ```js
 let arr = [1, 2, 3];
@@ -231,14 +234,14 @@ Like `map`, every `filter` operation shares some things in common:
 
 #### Filtering using the `filter` method
 
-Like `map`, `filter` also takes in a callback function. Each item in the array will be passed into the callback and tested against a condition. It will then return a new array of the elements that passed the conditional. Let's use filter to get an array of only the odd numbers. 
+Like `map`, `filter` also takes in a callback function. Each item in the array will be passed into the callback and tested against a condition. It will then return a new array of the elements that passed the conditional. Let's use filter to get an array of only the odd numbers.
 
 ```js
  let arr = [1, 2, 3, 4, 5]
  arr.filter(el => {
   return el % 2 !== 1
  })
- 
+
  // => [2, 4]
 
 ```
@@ -258,7 +261,7 @@ let bestFilmIds = films
     });
 ```
 
-Let's look at another example. We want only the odds in an array and then we want those values double. 
+Let's look at another example. We want only the odds in an array and then we want those values double.
 
 ```js
 let arr = [1, 2, 3, 4, 5];
@@ -275,7 +278,7 @@ let arr = [1, 3, 5];
 arr.every( el => {
    return el % 2 !== 0
 })
-// => true 
+// => true
 ```
 
 ### Reducing Arrays
@@ -344,7 +347,7 @@ let largestBoxart = boxarts.reduce((acc,curr) => {
         })
 ```
 
-Let's use `reduce` to find the sum of all the numbers in an array. 
+Let's use `reduce` to find the sum of all the numbers in an array.
 
 ```js
  let arr = [1, 2, 3, 4]
@@ -356,7 +359,7 @@ Let's use `reduce` to find the sum of all the numbers in an array.
 
 ```
 
-If we wanted to find the sum of all the number in an array and have 5 added to that number, we could do this by passing in a second argument to the reduce function. 
+If we wanted to find the sum of all the number in an array and have 5 added to that number, we could do this by passing in a second argument to the reduce function.
 
 ```js
  let arr = [1, 2, 3, 4]
@@ -367,31 +370,31 @@ If we wanted to find the sum of all the number in an array and have 5 added to t
 // => 15
 
 ```
-Let's take a look at what's going on in the examples above. 
-We've started off by declaring a variable called `arr`. We will call `reduce` on this array. Reduce takes in two arguments: a callback function and an optional initial value. In our first and second example our callback function is the anonymous adding function. That function is taking in two arguments (`acc`, `el`). This is the same as if we'd declared it with a name like: 
-```js 
+Let's take a look at what's going on in the examples above.
+We've started off by declaring a variable called `arr`. We will call `reduce` on this array. Reduce takes in two arguments: a callback function and an optional initial value. In our first and second example our callback function is the anonymous adding function. That function is taking in two arguments (`acc`, `el`). This is the same as if we'd declared it with a name like:
+```js
 const adder = (num1, num2) => {
  return num1 + num2
 }
 ```
-This is essentially the function that we're passing as the first argument into  `reduce`. 
+This is essentially the function that we're passing as the first argument into  `reduce`.
 
-The second argument that we're passing into `reduce` is optional. This argument will become the staring point for the accumulator. In the first example we've decided NOT to pass in a second argument. Because of this, the accumulator is defaulted to the first element in our array (1). 
+The second argument that we're passing into `reduce` is optional. This argument will become the staring point for the accumulator. In the first example we've decided NOT to pass in a second argument. Because of this, the accumulator is defaulted to the first element in our array (1).
 
-Reduce will then iterate through the array and continuously reassign the value of the accumulator to the result of our callback being called with the accumulator and the current element as arguments. 
+Reduce will then iterate through the array and continuously reassign the value of the accumulator to the result of our callback being called with the accumulator and the current element as arguments.
 
-In our first example the iteration will begin on the second element (2) of the array because the first element has already been used as the accumulator. 
-`acc = adder(1, 2)` 
-The accumulator will now have the value of 3. 
-We then called the callback function (`adder`) with the next element (3) in the array and reassign the accumlator's value to that output. 
+In our first example the iteration will begin on the second element (2) of the array because the first element has already been used as the accumulator.
+`acc = adder(1, 2)`
+The accumulator will now have the value of 3.
+We then called the callback function (`adder`) with the next element (3) in the array and reassign the accumlator's value to that output.
 `acc = adder(3, 3)`
-The accumulator will now have the value of 6. 
-We then called the callback function (`adder`) with the next element (4) in the array and reassign the accumlator's value to that output. 
+The accumulator will now have the value of 6.
+We then called the callback function (`adder`) with the next element (4) in the array and reassign the accumlator's value to that output.
 `acc = adder(6, 4)`
 
 Because we have finished iterating over our array, the accumulator (10) is returned.
 
-Our second example works in the same way as our first but instead we are passing in a 5 as the second argument in `reduce`. This will result in the accumulator starting off with a value of 5. Because we've passed in a starting accumulator value, we will also iterate the array starting with first element. 
+Our second example works in the same way as our first but instead we are passing in a 5 as the second argument in `reduce`. This will result in the accumulator starting off with a value of 5. Because we've passed in a starting accumulator value, we will also iterate the array starting with first element.
 
 ```js
 // acc = 5    currEl = 1    return 5 + 1 -> 6

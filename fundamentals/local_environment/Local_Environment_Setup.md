@@ -1,7 +1,12 @@
 # Pursuit Core Environment Setup
- Welcome to Pursuit! We can't wait to begin this journey with you. Before we dive right in and begin programming it is
- important that we first get our machines up to date and setup. Please follow the instructions below so we can all start with the
- same setup.
+
+## Objectives
+
+## Standards
+EF.1.b, EF.1.c, EF.1.d, EF.1.e, EF.4.a, EF.3
+
+## Intro
+Welcome to Pursuit! We can't wait to begin this journey with you. Before we dive right in and begin programming it is important that we first get our machines up to date and setup. Please follow the instructions below so we can all start with the same setup.
 
 ## Chrome
 Here at Access Code the Browser of choice is [Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en). Chrome will be especially useful when we get to frontend debugging. It has wonderful tools that are already built in.
@@ -37,7 +42,7 @@ $ cd ~
 $ mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 ```
 
-```bash 
+```bash
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ```

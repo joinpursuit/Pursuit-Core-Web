@@ -1,11 +1,14 @@
 # Functions & Scope
 
-## Goals
+## Standards
+LF.5, LF.5.a, LF.5.b
+
+## Objectives
 * Know how to declare and write a function
 * Know some of the key differences between ES5 and ES6 syntax
 * Have an understanding of scope.
 
-## Vocabulary
+## Keywords
 
 * Function Definition
 * Function Call

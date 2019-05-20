@@ -1,15 +1,18 @@
-# Objects 
+# Objects
 
-## Goals
+## Standards
+LF.1, LF.1.a
+
+## Objectives
 
 * Understand what a JavaScript object is and how to create one
 * Know object properties
-  * Keys 
+  * Keys
   * Values
 * Create and modify properties of an object
 * Iterate through an object
 
-## Vocabulary
+## Keywords
 
 * objects
 * dot-notation
@@ -26,7 +29,7 @@ An **Object** is a collection of **key/value pairs**. The pairs are also known a
 {key: value} // This is a key/value pair
 ```
 
-JavaScript is **object-based**, like many languages (e.g. Python, Ruby, Java). According to Wikipedia, that means the 
+JavaScript is **object-based**, like many languages (e.g. Python, Ruby, Java). According to Wikipedia, that means the
 language "uses the idea of encapsulating state and operations inside objects."
 
 In other words, objects are extremely powerful and fundamental to JavaScript.
@@ -35,7 +38,7 @@ More on that in another lesson, but for now, think of them as similar to real-wo
 ### Real-world Example
 
 In English, you might refer to an apple as an object. Similarly to a JavaScript object, an apple has properties,
-like *type* (e.g. "Gala", "Honeycrisp"), *color*, *ripeness* (e.g. "ripe", "rotten", "unripe") and owner 
+like *type* (e.g. "Gala", "Honeycrisp"), *color*, *ripeness* (e.g. "ripe", "rotten", "unripe") and owner
 (e.g. "Tomer", "Maria").
 
 You might represent this in JavaScript like so (syntax explained in next section):
@@ -55,7 +58,7 @@ The above JavaScript object represents a single apple. You could represent many 
 
 ### Syntax
 
-As in the above apple examples, JavaScript objects are often represented using curly braces. 
+As in the above apple examples, JavaScript objects are often represented using curly braces.
 The syntax is simple: the pairs are separated by commas, the keys are separated from values by colons,
 and the entire thing is surrounded by curly braces (Note: an **empty object** is just `{}`).
 
@@ -72,7 +75,7 @@ let person = {
 
 ### Programming Example
 
-Are we going to create apples in our apps? Maybe, for example if you wanted to create an app that tracks inventory 
+Are we going to create apples in our apps? Maybe, for example if you wanted to create an app that tracks inventory
 for a grocery store, or an app that tracks the contents of your refrigerator.
 
 But digital examples can also use objects. For example, a Facebook `post` could be an object, as could an Airbnb `reservation`.
@@ -80,7 +83,7 @@ Can you imagine some properties these objects might have?
 
 ### Getting & Setting Properties
 
-Once you have an object, what might you want to do with it? For starters, you may want to create new properties as well as 
+Once you have an object, what might you want to do with it? For starters, you may want to create new properties as well as
 read and update existing ones.
 
 #### Getting Properties
@@ -123,7 +126,7 @@ console.log(person.firstName + ' ' + person.lastName);
 
 #### Setting Properties
 
-Now that we know how to *get* an object's properties -- how do we *set* them? In other words, how do we 
+Now that we know how to *get* an object's properties -- how do we *set* them? In other words, how do we
 add or change properties of an object?
 
 Let's revisit our basic person object:
@@ -146,8 +149,8 @@ If it already exists, we can change it like this:
 
   person.firstName = 'Jane'; // Changes firstName property
   console.log(person.firstName); // Logs 'Jane'
-  
- console.log(person) 
+
+ console.log(person)
  // {
  //   firstName: 'Jane',
  //   lastName: 'Kim',
@@ -173,8 +176,8 @@ If it doesn't already exist, the same notation adds a property:
 
 ### Arrays vs Objects
 
-Arrays and object are closely related to each other. 
-An array is really a special kind of object, where the keys are the numbered indices. 
+Arrays and object are closely related to each other.
+An array is really a special kind of object, where the keys are the numbered indices.
 
 ```javascript
   let myArray = ['firstValue', 'secondValue'];
@@ -212,7 +215,7 @@ let films = [
 ]
 ```
 
-Now, we could access any of the films just as we do any values in an array, 
+Now, we could access any of the films just as we do any values in an array,
 and then access that object's properties. In the below example, we access the name of the first film.
 
 ```javascript
@@ -220,23 +223,23 @@ console.log(films[0].name);
 // Logs 'Psycho'
 ```
 
-So if I wanted to print to the console all of the films I could write a loop like this: 
+So if I wanted to print to the console all of the films I could write a loop like this:
 
-```js 
+```js
   for(let i = 0; i < films.length; i++) {
     console.log(films[i].name);
   }
 ```
 
-### Objects in Objects 
-  The value of an object can be practically anything; it could even be another object! This is called __nested objects__. We 
-  can key into these objects just like any other object. 
-  
+### Objects in Objects
+  The value of an object can be practically anything; it could even be another object! This is called __nested objects__. We
+  can key into these objects just like any other object.
+
  ```js
    let closet = {
     winter: { hands: "gloves",
               head: "beenie"
-              }, 
+              },
     summer: { hands: "rings",
               head: "baseball cap"
               }
@@ -244,8 +247,8 @@ So if I wanted to print to the console all of the films I could write a loop lik
 
   console.log(closet["winter"]["hands"]) // => "gloves"
   console.log(closet.winter.hands) // => "gloves"
- 
- 
+
+
  ```
 
 
@@ -271,7 +274,7 @@ It's not enough for them to just look the same.
 
 As mentioned earlier, an array is like an object where the keys are consecutive numbers.
 
-Iterating through an array is simple: we only need a loop of some kind that goes, for example, from `0` to `array.length - 1`, 
+Iterating through an array is simple: we only need a loop of some kind that goes, for example, from `0` to `array.length - 1`,
 because you know those numbers are `key`s of the array.
 
 But with an object, you don't know what those keys are. They may not be numbers, but instead may be `firstName` and `age`,
@@ -310,31 +313,31 @@ Okay so that's how we get the keys. How do we get the values? We can simply key 
 
 ```
 
-### Get objects keys and values 
- 
-If I wanted to get all the keys of an object and store them as an array. I can call `Object.keys(obj)` and pass in `obj` that I want the keys from. 
+### Get objects keys and values
+
+If I wanted to get all the keys of an object and store them as an array. I can call `Object.keys(obj)` and pass in `obj` that I want the keys from.
 
 ```javascript
   let cat = {
     name: 'Tom',
     type: 'Domestic'
   }
-  
+
   let catKeys = Object.keys(cat)
   console.log(catKeys) // => ['name', 'type']
   ```
-  
-  I can follow a similar format if I want the values in an array. 
-  
+
+  I can follow a similar format if I want the values in an array.
+
   ```js
    let cat = {
     name: 'Tom',
     type: 'Domestic'
   }
-  
+
   let catValues = Object.values(cat)
   console.log(catValues) // => ['Tom', 'Domestic']
-  
+
   ```
 
 ### Order in Objects
@@ -376,4 +379,3 @@ console.table(["mango", "strawberry", "banana"]);
 ```
 
 _NOTE:_ This doesn't currently work in repl but it will in your computer console, or when you run a file with node through your terminal. More on [console](https://developer.mozilla.org/en-US/docs/Web/API/console)
-

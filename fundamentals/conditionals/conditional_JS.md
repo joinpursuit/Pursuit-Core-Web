@@ -1,13 +1,16 @@
 # Conditionals
 
-## Goals
+## Standards
+LF.4, LF.1
+
+## Objectives
 
  * Understand control flow
  * Effectively write `if`/`else`/`else if` statements
  * Understand Ternary Operators
  * Be able to write a Switch statement
 
-## Vocabulary
+## Keywords
 
 * control flow -  the order in which the computer executes statements. Sources: [mdn](https://developer.mozilla.org/en-US/docs/Glossary/Control_flow)
 * `if`, `else`, `else if`

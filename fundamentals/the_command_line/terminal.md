@@ -1,6 +1,11 @@
 # The Command Line Cheat Sheet
 
-## Vocabulary
+## Standards
+EF.2.a, EF.2.b, EF.2.c, EF.2.d, EF.3
+
+## Objectives
+
+## Keywords
 
 * Operating System (OS)
 * Graphical User Interface (GUI)
@@ -139,4 +144,3 @@ atom foo.js
 * Use tab to autocomplete. for example, if the current folder has subfolders titled `games`, `photos` and `photography`, typing `pho` and pressing the tab key will result in displaying `photo` and `photography`. If we then type the letter `g` to get `photog`,and press the tab key - the command will be autocomplete to `photography`.
 
 * You can also use the up and down keys to step through the commands typed before.
-

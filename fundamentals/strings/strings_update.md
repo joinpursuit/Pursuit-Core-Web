@@ -1,12 +1,15 @@
 # Strings
 
-## Goals
+## Standards
+LF.1, LF.1.a
+
+## Objectives
 
 * Understand what a string is
 * Explore properties of strings
 * Utilize built in methods and properties to manipulate strings
 
-## Vocabulary
+## Keywords
 
 * string
 * sequence
