@@ -27,9 +27,11 @@
 
 ## Bonus Notes
 
-* [User Input](./user_input/user_input_update.md)
-* [Date and Time](./date_and_time/date_and_time.md)
-* [Regular Expressions](./regex/regex.md)
+* [User Input](./user_input/README.md)
+* [Date and Time](./date_and_time/README.md)
+* [Regular Expressions](./regex/README.md)
+* [Error Handling](./error_handling/README.md)
+* [Factory Functions](./factory_functions/README.md)
 
 ## Resources
 
