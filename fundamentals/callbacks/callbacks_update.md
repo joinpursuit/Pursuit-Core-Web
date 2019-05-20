@@ -1,11 +1,14 @@
 # Callbacks
 
-## Goals
+## Standards
+FSW.1.b
+
+## Objectives
 * Understand what callback functions are and why we use them
 * Write your own callback function
 * Begin to understand asynchronous programming
 
-## Terms
+## Keywords
 
 * Callback
 * Functions as values
@@ -200,4 +203,3 @@ setInterval(function(){
   console.log('hello')
 }, 1000)
 ```
-

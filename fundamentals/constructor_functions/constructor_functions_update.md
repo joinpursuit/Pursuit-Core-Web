@@ -1,6 +1,9 @@
 # Constructor Functions
 
-## Goals
+## Standards
+FSW.1
+
+## Objectives
 * Understand what constructor functions are and why they are useful
 * Create your own constructor functions
 
@@ -87,7 +90,7 @@ function Dog(name, breed, weight) {
 ```
 
 
-Let's break down what that did. `this.name = name;` tells the `Dog` object that `this.name` (this `Dog` object's name) is **equal** to the `name` argument passed. `this.breed = breed;` tells the `Dog` object that `this.breed` (this `Dog` object's breed) is **equal** to the `breed` argument passed. `this.weight = weight;` tells the `Dog` object that `this.weight` (this `Dog` object's weight) is **equal** to the `weight` argument passed. 
+Let's break down what that did. `this.name = name;` tells the `Dog` object that `this.name` (this `Dog` object's name) is **equal** to the `name` argument passed. `this.breed = breed;` tells the `Dog` object that `this.breed` (this `Dog` object's breed) is **equal** to the `breed` argument passed. `this.weight = weight;` tells the `Dog` object that `this.weight` (this `Dog` object's weight) is **equal** to the `weight` argument passed.
 
 While a constructor function looks like a regular function, note the following:
 
@@ -176,14 +179,14 @@ console.log(add1.name) // => "add1"
 ```
 
 ### The Three Main Ways to invoke a function
-1. **Function-style**: fun(arg1) 
+1. **Function-style**: fun(arg1)
     * While _unbound_, function-style will set `this` to the _global_ context (`global` or `window`).
-2. **Method-style**: obj.method(arg1) 
-    * Will set `this` to the obj 
-3. **Constructor-style**: new ClassName(arg1) 
-    * The ClassName function is called with `this` set to the blank object. 
-    
-Please note: callback functions are almost always called function style. 
+2. **Method-style**: obj.method(arg1)
+    * Will set `this` to the obj
+3. **Constructor-style**: new ClassName(arg1)
+    * The ClassName function is called with `this` set to the blank object.
+
+Please note: callback functions are almost always called function style.
 Consider this example:
 ```js
 function times(num, callback) {
@@ -198,10 +201,10 @@ const dog = {
   }
 };
 dog.ageOneYear(); // works
-times(5, dog.ageOneYear); // ReferenceError; this.age is not defined. 
+times(5, dog.ageOneYear); // ReferenceError; this.age is not defined.
 ```
- 
-The reason this ReferenceError is occurring is because times calls dog.ageOneYear _function-style_. This is then changing the `this` to a _global_ context. 
+
+The reason this ReferenceError is occurring is because times calls dog.ageOneYear _function-style_. This is then changing the `this` to a _global_ context.
 There are two ways around this problem. The first is to introduce an **anonymous closure** to capture `dog`:
 ```js
 // Function argument is different:
@@ -267,7 +270,7 @@ To repeat: the reason this solution works is because `sumCalculator`
 is a normal variable captured according to typical rules, while `this`
 is a special variable **which is never captured and is reset on every
 function call**.
-ES6 gives us a solution to this problem with Fat Arrow Functions. 
+ES6 gives us a solution to this problem with Fat Arrow Functions.
 Arrow functions, unlike normal functions, do not create a new scope. In other words, `this` means the same thing inside an arrow function that it does outside of it. Consider the following scenario with a normal function:
 ```javascript
 function Cat(name) {
@@ -297,7 +300,7 @@ garfield plays with string
 garfield plays with ball
 garfield plays with balloon
 ```
-**Bonus** 
+**Bonus**
 There are two more final ways of calling a function.They incude `apply` and `call`. `apply` takes two arguments: an object to bind `this` to, and an array of argumetns to be passed the method apply is being called on. `call` is very similar to `apply` but instead of taking in an array of parameters, it takes them individually. Please feel free to read more about them [here](https://www.undefinednull.com/2014/06/26/explaining-call-and-apply-in-javascript-through-mr-dot-dave/)
 
 ### The `prototype` property
@@ -456,4 +459,3 @@ var dog = {
 
 dog.talk() // logs 'Woof!'
 ```
-

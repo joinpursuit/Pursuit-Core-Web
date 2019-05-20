@@ -1,10 +1,13 @@
 # Loops
 
-## Goals
+## Standards
+LF.4
+
+## Objectives
 * Know and understand how to write a `while` loop.
 * Know and understand how to write a `for` loop.
 
-## Vocabulary
+## Keywords
 
 * `while` loops
   * condition
@@ -63,9 +66,9 @@ while (num < 10) {
  <summary>
   Solution
  </summary>
- 
- 
- ```js 
+
+
+ ```js
 let num = 0;
 while(num <= 100) {
   if(num % 2 === 0) {
@@ -80,9 +83,9 @@ while(num <= 100) {
  <summary>
   Solution
  </summary>
- 
- 
- ```js 
+
+
+ ```js
 let num = 100;
 while(num > 0) {
   if(num % 2) {
@@ -188,9 +191,9 @@ for (let i = 50; i >= 5; i -= 5){
  <summary>
   Solution
  </summary>
- 
- 
- ```js 
+
+
+ ```js
 for(let i = 10; i <= 100; i += 10) {
   console.log(i)
 }
@@ -202,12 +205,11 @@ for(let i = 10; i <= 100; i += 10) {
  <summary>
   Solution
  </summary>
- 
- 
- ```js 
+
+
+ ```js
 for(let i = 100; i >= 0; i -= 10) {
   console.log(i)
 }
  ```
 </details>
-

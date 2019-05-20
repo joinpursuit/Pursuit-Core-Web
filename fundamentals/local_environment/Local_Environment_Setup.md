@@ -1,6 +1,12 @@
 # Pursuit Core Environment Setup
 
-Welcome to Pursuit! We can't wait to begin this journey with you. Before we dive right in and begin programming, it'simportant that we first get our **development environment** set up. In other words, we've got to install a bunch of stuff. Please follow the instructions below so we can all start on the same page.
+## Objectives
+
+## Standards
+EF.1.b, EF.1.c, EF.1.d, EF.1.e, EF.4.a, EF.3
+
+## Intro
+Welcome to Pursuit! We can't wait to begin this journey with you. Before we dive right in and begin programming it is important that we first get our machines up to date and setup. Please follow the instructions below so we can all start with the same setup.
 
 ## Table of Contents
 
@@ -52,6 +58,7 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 ```
 
 After this process finishes, **quit out of the terminal** (_command + q_) and reopen to finish the installation.
+
 
 ### Node
 

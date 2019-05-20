@@ -1,5 +1,11 @@
 # ES6
 
+## Standards
+FSW.1
+
+## Objectives
+
+
 ## Sources
 
 * [ES6 Features](http://es6-features.org)

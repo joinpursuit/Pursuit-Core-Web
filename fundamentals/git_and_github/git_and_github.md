@@ -1,6 +1,9 @@
 # Git and Github
 
-## Goals
+## Standards
+EF.4.a, EF.4.b, EF.4.c, EF.4.d, EF.4.e
+
+## Objectives
 
 * Understand what _Git_ and _GitHub_ are and why they are important to the development process
 * Create GitHub account
@@ -194,7 +197,7 @@ $ git remote add origin <url>
 $ git push -u origin master
 ```
 
-`git remote add` is doing the same thing as `git add` was doing before but this time we are adding to a _remote repository_, which just means one that is **not** stored locally on our computer. `origin` is a name we give our own computer--you can call this anything you'd like (your name) but the standard name people use is `origin`. Lastly `<url>` is the GitHub url where your repository is located--this is where our _local_ repo will be pushed into. 
+`git remote add` is doing the same thing as `git add` was doing before but this time we are adding to a _remote repository_, which just means one that is **not** stored locally on our computer. `origin` is a name we give our own computer--you can call this anything you'd like (your name) but the standard name people use is `origin`. Lastly `<url>` is the GitHub url where your repository is located--this is where our _local_ repo will be pushed into.
 
 After establishing our remote repo with `git remote add origin <url>` we `push` our changes to the remote repository on GitHub. This is done by running the command `git push -u origin master`. `git push` takes everything we have locally on our computer and sends it to our remote repo on GitHub. The `-u` adds a tracking reference to the remote repo so we can `pull` or download information from this repo later. And lastly `origin master` is saying we are using the information on our computer ("origin") and pushing it to the remote repo on `master`.
 
@@ -353,10 +356,10 @@ ea24eb6 - lizraeli, 4 hours ago : Add a # tag
 38aeeb2 - lizraeli, 5 hours ago : initialize
 ```
 
-### Git Branch 
+### Git Branch
 
-When building a larger application (especially when you're working with others), it is important to create different branches to do work on. This way, you won't mess with the main branch (master) while you're building something out like a new feature. It's important to always have a working application, and to not change things that other people on your team could be working on. 
+When building a larger application (especially when you're working with others), it is important to create different branches to do work on. This way, you won't mess with the main branch (master) while you're building something out like a new feature. It's important to always have a working application, and to not change things that other people on your team could be working on.
 
-To create a new branch type the command: `git checkout -b <new-branch>`. You can change to a different branch by writing: `git checkout <branch-name>`. 
+To create a new branch type the command: `git checkout -b <new-branch>`. You can change to a different branch by writing: `git checkout <branch-name>`.
 
-Once your feature is fully implemented and everything works, you can then `merge` your branch with `master`. First, go to the master branch; then enter `git merge <branch-you-made-your-feature>`. 
+Once your feature is fully implemented and everything works, you can then `merge` your branch with `master`. First, go to the master branch; then enter `git merge <branch-you-made-your-feature>`.

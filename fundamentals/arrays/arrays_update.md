@@ -1,6 +1,9 @@
 # Arrays
 
-## Goals
+## Standards
+LF.3, LF.3.a
+
+## Objectives
 * Understand how to create an array, and why you'd want to.
 * Know basic array property length.
 * Know how to index / key into an array.

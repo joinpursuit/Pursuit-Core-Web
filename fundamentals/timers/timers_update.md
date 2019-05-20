@@ -1,9 +1,12 @@
 # Timers
 
-## Goals 
+## Standards
+FSW.1.b
+
+## Objectives
   * Understand how to use setTimeout and setInterval.
   * Use callbacks
-  * Gain a deeper understanding of asynchronicity. 
+  * Gain a deeper understanding of asynchronicity.
 
 ## Keywords
 
@@ -32,11 +35,11 @@ setTimeout(() => console.log("three seconds have passed"), 3000);
 
 ```
 In this example we are passing setTimeout two arguments. The first argument is an anonymous function that logs "three seconds have passed",
-the second argument is the number of milliseconds we want to pass before our first argument is fired. 
+the second argument is the number of milliseconds we want to pass before our first argument is fired.
 
 ## .setInterval(callback, time)
 
-`.setInterval()` will run indefinitely, and will execute the callback function every _time_ milliseconds. In this way, you can run 
+`.setInterval()` will run indefinitely, and will execute the callback function every _time_ milliseconds. In this way, you can run
 an infinite loop with a "pulse" or "heartbeat". A real life example for using `setInterval` would be writing a program for a clock.
 
 Let's see an example of setInterval:
@@ -46,7 +49,7 @@ setInterval(() => console.log("Hello forever"), 1000);
 
 ```
 
-If you run the above function you will see that we print "Hello forever" every second to the console. 
+If you run the above function you will see that we print "Hello forever" every second to the console.
 
 ## .clearInterval(id) and .clearTimeout(id)
 
@@ -54,10 +57,10 @@ Both `.setInterval()` and `.setTimeout()` immediately return a numeric id
 referencing their unique instance that can be used to later halt their execution.
 To halt the indefinite execution of `.setInterval()`, you must assign its return value to a variable and then use that variable
  as an argument to `.clearInterval()`.
- 
+
 Although it is less common, `.clearTimeout()` is used in the same way.
 
-This next example is a little strange to look at but see if you can understand what is happening. 
+This next example is a little strange to look at but see if you can understand what is happening.
 
 ```js
 let stopInterval = setInterval(counter, 1000);
@@ -73,26 +76,26 @@ function counter() {
     console.log(count)
     count++
   }, 1000);
-  
+
 }
 
 ```
 
-The first thing we're doing is declaring a variable that will be the return statement of our setInterval. Out setInterval will call 
-the function counter every 1000 milliseconds. 
+The first thing we're doing is declaring a variable that will be the return statement of our setInterval. Out setInterval will call
+the function counter every 1000 milliseconds.
 
-The next line has another variable declaration called count. 
+The next line has another variable declaration called count.
 
 Then we have our counter function. Our function checks to see if our count is equal to ten. If it is, we want to stop our setInterval
-as well as our setTimeout. 
+as well as our setTimeout.
 
-The next part of our counter function is a setTimeout and prints our count and increments it by one. It waits 1000 milliseconds to do so. 
+The next part of our counter function is a setTimeout and prints our count and increments it by one. It waits 1000 milliseconds to do so.
 
-Try changing things around and seeing what happens. If you're getting some unexpected results, it's because we haven't yet learned 
-about the _Event Loop_ and what's going on under the hood. 
+Try changing things around and seeing what happens. If you're getting some unexpected results, it's because we haven't yet learned
+about the _Event Loop_ and what's going on under the hood.
 
 setTimeout and setInterval are both examples of asynchronous behavior in JS. We will cover this more later, but for now just make
-a mental note that they are asynchronous and non-blocking. 
+a mental note that they are asynchronous and non-blocking.
 
 ## Resources
 * [w3 schools](https://www.w3schools.com/js/js_timing.asp)
