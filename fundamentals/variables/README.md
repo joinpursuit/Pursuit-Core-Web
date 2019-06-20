@@ -49,10 +49,14 @@ console.log("bat" + "man")
 
 1. Create a folder called variables
 <details>
-  <summary>
-  Hint   
- </summary>
- mkdir variabls
+  <summary> Hint </summary>
+  <p>
+
+  ```
+  mkdir variables
+  ```
+
+  </p> 
 </details>
 
 2. cd into the directory and then create a file called test.js.
@@ -73,8 +77,9 @@ What do you think would be logged if we ran `console.log(myVarVariable)`?
 What about `console.log(myLetVariable)` and `console.log(myConstVariable)`?
 
 <details>
-<summary> Answer </summary>
-`myVarVariable` and `myLetVariable` both currently log `undefined`. Then we have `myConstVariable` that logs the string, "I used const!". What gives?
+  <summary> Answer </summary>
+
+  `myVarVariable` and `myLetVariable` both currently log `undefined`. Then we have `myConstVariable` that logs the string, "I used const!". What gives?
 </details>
 
 ### Assigning a value
@@ -133,8 +138,9 @@ let myNumber = 2 * 4 + 2
 console.log(myNumber)
 ```
 <details>
-<summary>What do you think `myNumber` will be equal to?</summary>
-When running the code above, the expression to the right of the `=` operator will first be evaluated to `10` and then assigned to the variable `myNumber`. We can also use the value of existing variables to create new ones.
+  <summary>What do you think <code>myNumber</code> will be equal to?</summary>
+
+  When running the code above, the expression to the right of the `=` operator will first be evaluated to `10` and then assigned to the variable `myNumber`. We can also use the value of existing variables to create new ones.
 </details>
 
 ```js
@@ -143,7 +149,7 @@ let num2 = 8
 let sum = num1 + num2
 ```
 <details>
-<summary>What do you think `sum` will be equal to?</summary>
+<summary>What do you think <pre>sum</pre> will be equal to?</summary>
 `sum` will equal 12 because 4 + 8 is equal to 12.
 <summary>What do you think `sum` will equal if we changed the value of `num1` to 10?</summary>
 `sum` will still equal 10! When we declared `sum`, `num1` was equal to 4 so no matter how many times we change `num1` or `num2`, `sum` will not change.
