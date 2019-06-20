@@ -149,13 +149,18 @@ let num2 = 8
 let sum = num1 + num2
 ```
 <details>
-<summary>What do you think <pre>sum</pre> will be equal to?</summary>
-`sum` will equal 12 because 4 + 8 is equal to 12.
-<summary>What do you think `sum` will equal if we changed the value of `num1` to 10?</summary>
+  <summary>What do you think <code>sum</code> will be equal to?</summary>
+
+  `sum` will equal 12 because 4 + 8 is equal to 12.
+</details>
+
+<details>
+<summary>What do you think <code>sum</code> will equal to if we changed the value of <code>num1</code> to 10 after calculating <code>sum</code>?</summary>
+
 `sum` will still equal 10! When we declared `sum`, `num1` was equal to 4 so no matter how many times we change `num1` or `num2`, `sum` will not change.
 </details>
 
-> In the following code, what would be logged to the screen?
+In the following code, what would be logged to the screen?
 
 ```js
 let string = 'My favorite number is '
