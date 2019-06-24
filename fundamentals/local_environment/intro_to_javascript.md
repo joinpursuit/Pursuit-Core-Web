@@ -21,5 +21,8 @@
     - [Genesis - Make your car](https://www.genesis.com/us/en/genesis.html/#/car-configurator/G70)
     - [Bagan - Google experiment](https://artsexperiments.withgoogle.com/bagan)
 
+- Explore other possibilities for yourself at [Awwwards](https://www.awwwards.com/)
+    - What did you like/attracted you attention?
+
 ## Exit ticket
 Please fill out [this exit ticket](https://canvas.instructure.com/courses/1605748/quizzes/3937197/)
