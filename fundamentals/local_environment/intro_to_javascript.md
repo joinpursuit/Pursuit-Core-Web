@@ -1,6 +1,5 @@
-# What is possible with JavaScript
+# Brief History of JavaScript and its capabilities
 
-## History
 - When: in 1995 at Netscape Communications
 - By Whom: [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich)
 - Why: Netscape Navigator wanted to compete with Microsoft for user adoption of Web technologies and platforms. They had to make the web more attractive and interactive. At the time that could be accomplished with Java and Netscape wanted to create a language prototype that could complement Java.
@@ -10,10 +9,10 @@
     - [Amazon](https://www.amazon.com)
 
 - The Web before JS
-    - http://www.cnn.com/US/OJ/
-    - http://www.arngren.net/
+    - [CNN - Yesterday](http://www.cnn.com/US/OJ/)
+    - [Arngren](http://www.arngren.net/)
 
-- The Web at Pursuit
+- The Web you will build at Pursuit
     - [Foobar](http://foobar-sports-and-beer.herokuapp.com)
     - [Elevate](http://www.elevate.careers/)
     - [Starfall](https://starfall.netlify.com/)
