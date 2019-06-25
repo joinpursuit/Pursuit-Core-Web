@@ -7,38 +7,41 @@ EF.2.a, EF.2.b, EF.2.c, EF.2.d, EF.3
 
 ## Keywords
 
-* Operating System (OS)
-* Graphical User Interface (GUI)
-* Command Line Interface (CLI) = Terminal = Shell
-* Folder = directory
-* `pwd` - print working directory
-* `cd ..` - go to parent directory (aka up)
-* `cd [folder]` - go into folder
-* `~` - your home folder
-* `ls` - list files and subfolders in current folder
-* `touch [filename]` - create a new file
-* `mkdir [directory name]` - make a new directory
-* `rm [filename]` - remove (delete) a file
-* `rm -r [directory name]` - remove (recursively) a folder, all files, subfolder, subfiles, etc. Will prompt if trying to remove special files.
-* `mv [filename] [foldername]` - move a file to a different folder
-* `mv [filename] [new filename]` - rename a file
-* `atom [filename]` - open the atom editor
+- Operating System (OS)
+- Graphical User Interface (GUI)
+- Command Line Interface (CLI) = Terminal = Shell
+- Folder = directory
+- `pwd` - print working directory
+- `cd ..` - go to parent directory (aka up)
+- `cd [folder]` - go into folder
+- `~` - your home folder
+- `ls` - list files and subfolders in current folder
+- `touch [filename]` - create a new file
+- `mkdir [directory name]` - make a new directory
+- `rm [filename]` - remove (delete) a file
+- `rm -r [directory name]` - remove (recursively) a folder, all files, subfolder, subfiles, etc. Will prompt if trying to remove special files.
+- `mv [filename] [foldername]` - move a file to a different folder
+- `mv [filename] [new filename]` - rename a file
+- `atom [filename]` - open the atom editor
 
 ## Resources
 
-* Tree House: [Introduction to the Mac OS X Command Line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
-* Git Tower: [Command Line 101](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101)
-* TuxRadar: [The Command Line](http://tuxradar.com/content/lpi-learn-linux-and-get-certified-part-5-command-line)
+- Oracle: [CLI versus GUI](https://docs.oracle.com/cd/E19683-01/806-7612/startup-78447/index.html)
+- Tree House: [Introduction to the Mac OS X Command Line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+- Git Tower: [Command Line 101](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101)
+- TuxRadar: [The Command Line](http://tuxradar.com/content/lpi-learn-linux-and-get-certified-part-5-command-line)
 
-## What is the terminal (= command line)
+## What is the terminal?
 
-One way people interact daily with their operating system (be it Mac OS, Windows or Linux) is through the Graphical User Interface, or in short - GUI. A graphical user interface uses graphics, along with a keyboard and a mouse, to provide an easy-to-use interface to the OS. A GUI provides windows, pull-down menus, buttons, scrollbars, icons, and the mouse to enable users to interact with the operating system or application.
+One way people interact with their operating system (be it Mac OS, Windows, or Linux) is through the Graphical User Interface - or, in short, the GUI. GUIs use graphics, along with a keyboard and a mouse, to provide an easy-to-use interface. They provide windows, pull-down menus, buttons, scrollbars, and icons, enabling the user to interact with the operating system or application.
 
-A command line interface (CLI) enables users to type commands in a terminal or console window to interact with an operating system. Users respond to a visual prompt by typing a command on a specified line, and receive a response back from the system. Users type a command or series of commands for each task they want to perform. [Oracle](https://docs.oracle.com/cd/E19683-01/806-7612/startup-78447/index.html)
+A command line interface (CLI) enables users to type commands in a terminal or console window to interact with an operating system. Users input commands and (usually) receive responses back from the system.
+
+A note for folks who might ask: We utilize "terminal" and "command line" interchangeably here - they are, basically, the same thing.
 
 ## Getting Started
 
-To open the terminal On OS X, open your Applications folder, then open the Utilities folder. Open the Terminal application. You may want to add this to your dock. You could also use the Spotlight to search for `terminal`. [Tree House](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+To open the terminal on Mac, open your Applications folder, then open the Utilities folder. Open the Terminal application. Pin it to your dock. You could also use Spotlight to search for `terminal`.
 
 When it’s launched, we see something like this:
 
@@ -50,7 +53,7 @@ The `~` symbol stands for your home directory.
 
 ## Where We Are
 
-In the console, you are always working in a directory (=folder). We call this the working directory. You can see where you are using pwd (=print working directory)
+In the console, you are always working in a directory (AKA folder). The terminal's currently selected directory is called the working directory. You can see where you are using `pwd` (AKA "print working directory").
 
 ```bash
 pwd
@@ -58,45 +61,47 @@ pwd
 
 ## Navigation
 
-You can change your directory with cd (= change directory). If you follow this command with a name, it will move you to that location, if it exists. Without an argument, it will take you to your home directory (~).
+You can change your directory with cd ("change directory"). If you follow this command with a name, it will move you to that directory. Without an argument, it will take you to your home directory (~).
 
 ```bash
 cd Downloads
 ```
 
-I was in my home directory, which contains the a directory called `Downloads`. This is relative path, because I specified my destination relative to my current directory. I can provide a full path beginning starting with my home directory (~) such as:
+I was in my home directory, which contains the a directory called `Downloads`. This is called a _relative path_, because I specified my destination relative to my current directory. In other words, `Downloads` exists inside my home (~) directory. I can provide a full path starting with my home directory (~) like this:
 
 ```bash
 cd ~/Downloads
 ```
 
-If you want to navigate “up”, to the directory that contains your current directory, you can use the special name `..`. From the `Documents` directory, this command will take us up to the home directory.
+If you want to navigate “up”, to the directory that contains your current directory, you can use the special name `..`. From the `Documents` directory, this command will take us back up to the home directory.
 
 ```bash
 cd ..
 ```
 
+...And we're back home!
+
 ### Creating Files and Folders
 
-* the `touch` command creates a new file with the provided name. For example:
+The `touch` command creates a new file with the provided name. For example:
 
 ```bash
-touch foo
+touch foo.js
 ```
 
-Will create a new file with the name `foo` in the current directory.
+Will create a new JavaScript file with the name `foo.js` in the current directory.
 
-* the `mkdir` command creates a new folder with the provided name. For example:
+The `mkdir` command creates a new folder with the provided name. For example:
 
 ```bash
-touch js
+mkdir js
 ```
 
-Will create a new folder named `js`.
+Will create a folder named `js`.
 
 ## Editing Files and Folders
 
-* The `cp` command creates a copy of a file. For example:
+- The `cp` command creates a copy of a file. For example:
 
 ```bash
 cp bar foo
@@ -104,7 +109,7 @@ cp bar foo
 
 Will make an exact copy of `bar` and name it `foo`.
 
-* The `mv` command will move a file to a different location or will rename a file. For example:
+- The `mv` command will move a file to a different location or will rename a file. For example:
 
 ```bash
 mv bar foo
@@ -112,7 +117,7 @@ mv bar foo
 
 Will rename the file `bar` to `foo`. `mv foo ~/Downloads` will move the file `foo` to the `Downloads` directory, but it will not rename it.
 
-* The `rm` command removes a file. For example:
+- The `rm` command removes a file. For example:
 
 ```bash
 rm foo
@@ -120,9 +125,9 @@ rm foo
 
 Will remove a file named foo in the current directory.
 
-* The `rmdir` command will delete an empty directory. To delete a directory and all of its contents recursively, use `rm -r` instead.
+- The `rmdir` command will delete an empty directory. To delete a directory and all of its contents recursively, use `rm -r` instead. Note that **this is extremely dangerous** to do for larger files. Only do it whan you really mean it!
 
-* The mkdir command creates a new directory. For example:
+- The mkdir command creates a new directory. For example:
 
 ```bash
 mkdir music
@@ -132,12 +137,13 @@ will create a new directory called `Music`.
 
 ## Opening Files
 
-To open a file (such as a text file) to view its contents, type the name of the app you would like to use to open it. For example, we will use a text editor called **atom** to open a text file:
+To open a file and view its contents, type the name of the app you would like to use to open it. For example, we will use a text editor called **atom** to open a text file:
 
 ```bash
 atom foo.js
 ```
 
+The keyword **open** will open a file/folder in the Finder (on Mac) or the GUI-based file manager (on Linux).
 
 ## Tips
 

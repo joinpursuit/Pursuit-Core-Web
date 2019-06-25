@@ -5,21 +5,24 @@ EF.4.a, EF.4.b, EF.4.c, EF.4.d, EF.4.e
 
 ## Objectives
 
-* Understand what _Git_ and _GitHub_ are and why they are important to the development process
-* Create GitHub account
-* Create a git repo, add to the repo and push it to GitHub
+- Understand what _Git_ and _GitHub_ are and why they are important to the development process
+- Create a GitHub account
+- Create a git repo, add to the repo and push it to GitHub
 
 ## Resources
 
-* [Try Git](http://try.github.io)
-* [Pro Git ebook](https://git-scm.com/book/en/v2)
-* [Learn Enough Git To Be Dangerous](https://www.learnenough.com/git-tutorial)
+- [Try Git](http://try.github.io)
+- [Pro Git ebook](https://git-scm.com/book/en/v2)
+- [Learn Enough Git To Be Dangerous](https://www.learnenough.com/git-tutorial)
+- [Oh Shit, Git!](https://ohshitgit.com/)
 
 ## Lesson
 
-A version control system (or VCS) provides an automatic way to track changes in software projects, giving creators the power to view previous versions of files and directories, develop speculative features without disrupting the main development, securely back up the project and its history, and collaborate easily and conveniently with others. In addition, using version control also makes deploying production websites and web applications much easier. We will commonly refer to this as _Git_ and the purpose of _Git_ is to manage a project, or set of files, as they change over time.
+A **version control system** (or VCS) provides an automatic way to track changes in software projects, giving creators the power to view previous versions of files and directories, develop speculative features without disrupting the primary codebase, securely back up the project and its history, and collaborate easily and conveniently with others. Think of it like the "Save" feature on a local document, except every time you click "Save", you create a snapshot of your project that you can return to, or share with others, anytime.
 
-Let's say Corey and Matt are working on a project together and the code is on Matt's computer. If Matt is out, Corey can't work on the code because it's on Matt's computer. Git and GitHub solve this problem by allowing the code to be stored in the cloud on GitHub and available for download. With GitHub, Matt and Corey's code lives in the cloud so if Matt is out, Corey can easily download the latest code from GitHub and work on it. Corey would also be able to see all the previous versions of code, from when they first started the project to it's current state.
+In addition, using version control also makes deploying production websites and web applications much easier. The version control system that we (and most developers) use is called **Git**. Git is an open standard that lets individual developers and large organizations alike manage a project as it changes over time.
+
+Let's say Corey and Matt are working on a project together and the code is on Matt's computer. If Matt is out, Corey can't work on the code because it's on Matt's computer. Git and GitHub solve this problem by allowing the code to be stored in the cloud on GitHub and available for download. With GitHub, Matt and Corey's code lives in the cloud so if Matt is out, Corey can easily download the latest code from GitHub and work on it. Corey would also be able to see all the previous versions of code, from when they first started the project to its current state.
 
 ### Getting started
 
@@ -36,36 +39,39 @@ If the result is empty or if it says the command is not found, it means you have
 
 ### Set Your Identity
 
+First, a quick clarification. **Git** is the open-source standard that manages the version control for our projects. **GitHub** is one of many options to remotely store your Git projects in the cloud. It's one of the most common and popular websites to do this, but keep in mind - Git and GitHub are not the same.
+
 GitHub uses the email you set in your Git configuration to associate commits to
-your GitHub account. (This is how you get green squares!)
+your GitHub account.
 
 Test if you have your email set by running `git config --global user.email` in
-your terminal. If it's blank, type `git config --global user.email
-"example@email.com"` to set it. You will only ever need to run this once. Git
+your terminal. If it's blank, type `git config --global user.email "example@email.com"` (where "example" is your GitHub account's associated email) to set it. You will only ever need to run this once. Git
 will always use this information for anything you do on your computer.
 
-To set your email for a single repository, simply leave off the `--global` flag.
+You won't have to do this much at all, but to set your email for a single repository, simply leave off the `--global` flag.
 Run `git config user.email "example@email.com"` inside your repository. Check
 that this was set up correctly by typing `git config user.email`. Also check
 that the global user was not changed by typing `git config --global user.email`.
 
 ### Initializing a Repo
 
-We’ll begin by making a directory with the name `git-test`. To make a directory, or folder, we use the command `mkdir` which is short for _**m**a**k**e **dir**ectory_. Then you will run the command `cd git-test` which **c**hanges **d**irectory or folder into the git-test folder we just created.
+We’ll begin by making a directory with the name `git-test`. To make a directory, or folder, we use the command `mkdir` which is short for _**m**a**k**e **dir**ectory_. Then you will run the command `cd git-test` which _**c**hanges **d**irectory_ (or folder) to the git-test folder we just created. In short:
 
 ```bash
 $ mkdir git-test
 $ cd git-test
 ```
 
-Now that we're in the folder, we are going to create a [_repository_](https://www.sbf5.com/~cduan/technical/git/git-1.shtml). A Git repository, or "repo", is essentially a folder that stores your Git files. The way to create a new repository with Git is with the `init` command (short for _**init**ialize_), which creates a special hidden directory where Git stores the information it needs to track our project’s changes.
+Now that we're in the folder, we are going to create a [_repository_](https://www.sbf5.com/~cduan/technical/git/git-1.shtml). A Git repository, or "repo", represents a single project managed via Git. Practically, it's a series of Git files living in your top-level folder. These files (invisible by default, but visible with `ls -a`) keep track of each change you make and save in a project.
+
+The way to create a new repository with Git is with the `init` command (short for _**init**ialize_), which creates a special hidden directory where Git stores the information it needs to track our project’s changes.
 
 ```bash
 $ git init
 Initialized empty Git repository in  /home/lev/git-test/.git/
 ```
 
-We now have an empty Git repo that we can store our files in and track their changes over time 💯
+We now have a boilerplate Git repo that we can store our files in and track their changes over time 💯.
 
 ### Initial Commit
 
@@ -79,11 +85,11 @@ We see here that the README.md file is “untracked”, which means Git doesn’
 $ git add .
 ```
 
-Here the `.` tells Git to add **all** untracked files from the current folder, even if in this case there’s only one, to the repo thus updating the status of each file in the repo. Now if we write `git status` again:
+Here the `.` tells Git to add **all** untracked files from the current folder (even if, in this case, there’s only one) to the repo, thereby updating the status of each file in the repo. Now if we write `git status` again:
 
 ![002](screenshots/002.png)
 
-As implied by the word *unstage*, the status of the file has been promoted from untracked to *staged*, which means the file is ready to be _committed_ to the repository. Untracked / unstaged and staged are two of the four states commonly used by Git.
+As implied by the word _unstage_, the status of the file has been promoted from untracked to _staged_, which means the file is ready to be _committed_ to the repository. Untracked / unstaged and staged are two of the four states commonly used by Git.
 
 ![git status sequence](assets/git_status_sequence.png)
 
@@ -107,7 +113,7 @@ Date:   Tue Oct 3 18:40:20 2017 -0400
     initialize repo
 ```
 
-The commit is identified by a hash, which is a unique string of letters and numbers that Git uses to label the commit and which lets Git retrieve the commit’s changes.
+The commit is identified by a unique string of letters and numbers that Git uses to label the commit and which lets Git retrieve the commit’s changes.
 
 ### Viewing the diff
 
@@ -121,7 +127,7 @@ The `git diff` shows the difference between the last commit and unstaged changes
 
 ![003](screenshots/003.png)
 
-We can commit this change by passing the `-a` option (for “all”) to `git commit`, which arranges to commit all the changes in currently existing files.
+We can add and commit this change by passing the `-a` option (for “all”) to `git commit`, which arranges to commit all the changes in currently existing files.
 
 ```bash
 $ git commit -a -m "add content to readme"
@@ -138,7 +144,7 @@ $ git diff
 $
 ```
 
-In fact, simply adding the changes is sufficient; running `git add -A` would also lead to there being no diff. To see the difference between staged changes and the previous version of the repo, use `git diff --staged`.
+In fact, simply adding the changes is sufficient; running `git add -a` would also lead to there being no diff. To see the difference between staged changes and the previous version of the repo, use `git diff --staged`.
 
 We can confirm that the change went through by running `git log`:
 
@@ -184,13 +190,13 @@ As usual, we can see the changes represented by our addition using `git diff`:
 
 ### GitHub (our remote repository)
 
-Go to [GitHub](https://github.com) and sign up for an account if you have not already done so. GitHub is a great online resource for keeping your code. You can save your code files here, track changes, and have multiple people working on the same code separately. So if I wanted to work on one code file and Corey wanted to work on another, we could do so on our own laptops and then _push_ both our changes to GitHub where we would then be able to see what each other has done.
+Go to [GitHub](https://github.com) and sign up for an account if you have not already done so. GitHub is a great online resource for keeping your code and sharing it with others. So if I wanted to work on one code file and Corey wanted to work on another, we could do so on our own laptops and then _push_ both our changes to GitHub where we would then be able to see what each other has done.
 
-Most dev and engineering teams use GitHub to store their code because it is simple, free and can be accessed from anywhere in the world! GitHub is an important tool for you to be comfortable with in your new career as a developer.
+Most engineering teams use GitHub to store their code because it is simple, free, and can be accessed from anywhere in the world. GitHub is an important tool for you to be comfortable with in your new career as a developer.
 
 ### Push (to a remote repository)
 
-On the [github home page](https://github.com), click on the green **New Repository** button. In the next screen, give a name to the repository (`git-test`) and click on the green **Create Repository** button. In the following screen, copy the url under **Quick Setup**. It should look like `https://github.com/<user>/git-test.git`, where `<user>` is your username. Now run the following two commands, replacing `<url>` with the one you copied from the github website. Following the second command you may be prompted for your github username and password.
+On the [GitHub home page](https://github.com), click on the green **New Repository** button. In the next screen, give a name to the repository (`git-test`) and click on the green **Create Repository** button. In the following screen, copy the url under **Quick Setup**. It should look like `https://github.com/<user>/git-test.git`, where `<user>` is your username. Now run the following two commands, replacing `<url>` with the one you copied from the github website. Following the second command you may be prompted for your github username and password.
 
 ```bash
 $ git remote add origin <url>
@@ -199,7 +205,7 @@ $ git push -u origin master
 
 `git remote add` is doing the same thing as `git add` was doing before but this time we are adding to a _remote repository_, which just means one that is **not** stored locally on our computer. `origin` is a name we give our own computer--you can call this anything you'd like (your name) but the standard name people use is `origin`. Lastly `<url>` is the GitHub url where your repository is located--this is where our _local_ repo will be pushed into.
 
-After establishing our remote repo with `git remote add origin <url>` we `push` our changes to the remote repository on GitHub. This is done by running the command `git push -u origin master`. `git push` takes everything we have locally on our computer and sends it to our remote repo on GitHub. The `-u` adds a tracking reference to the remote repo so we can `pull` or download information from this repo later. And lastly `origin master` is saying we are using the information on our computer ("origin") and pushing it to the remote repo on `master`.
+After establishing our remote repo with `git remote add origin <url>` we `push` our changes to the remote repository on GitHub. This is done by running the command `git push -u origin master`. `git push` takes everything we have locally on our computer and sends it to our remote repo on GitHub. The `-u` adds a tracking reference to the remote repo so we can `pull` or download information from this repo later. And lastly `origin master` is saying we are pushing our current branch to the main remote repo (`origin`) on the master branch.
 
 You can now easily add information to and download information from your remote repo on GitHub.
 
@@ -216,17 +222,17 @@ To https://github.com/lizraeli/git-test.git
 Branch master set up to track remote branch master from origin.
 ```
 
-Now, reload the page on github. It should now look like this:
+Now, reload the page on GitHub. It should now look like this:
 
 ![008](screenshots/008.png)
 
 ### The Readme File
 
-By default, github renders the markdown content of the Readme file in your repository home folder. Let's create a new file titled `hello.js`, with the following content:
+By default, GitHub renders the markdown content of the Readme file in your repository's home folder. Let's create a new file titled `hello.js`, with the following content:
 
 ```js
-function hello(){
-    console.log('hello world');
+function hello() {
+  console.log("hello world");
 }
 ```
 
@@ -234,7 +240,7 @@ The `git status` command should show the `hello.js` file as untracked. Now run t
 
 ```bash
 $ git add .
-$ git commit -am "added file hello.js"
+$ git commit -m "add file hello.js"
 [master 6254e59] added file hello.js
  1 file changed, 3 insertions(+)
  create mode 100644 hello.js
@@ -255,15 +261,15 @@ To https://github.com/lizraeli/git-test.git
    ea24eb6..6254e59  master -> master
 ```
 
-Refreshing the page on github should show the new file, and clicking on the file will lead to a new screen where the file's code is rendered.
+Refreshing the page on GitHub should show the new file, and clicking on the file will lead to a new screen where the file's code is rendered.
 
 ![009](screenshots/009.png)
 
 ### Clone
 
-As an example of a common collaboration workflow, we’ll simulate the case of two developers working on the same project, Peter and Lev. Lev would need to add Peter as a collaborator on the website repository, by going to the repo web page and clicking on Settings > Collaborators, and then putting Peter's GitHub username in the *Add collaborator* box.
+As an example of a common collaboration workflow, we’ll simulate the case of two developers working on the same project, Peter and Lev. Lev will need to add Peter as a collaborator on the remote repository by going to the repo's page and clicking on Settings > Collaborators. Then, Lev will put Peter's GitHub username in the _Add collaborator_ box.
 
-Once Peter gets the notification that he’s been added to the website repository, he can go to GitHub to get its url. This URL lets Peter make a full copy of the repository, including its history, using `git clone`. For now we will create a `temp` folder in our home directory, and `cd` into it.
+Once Peter gets the notification that he’s been added to the repository, he can go to GitHub to get the repository's URL. This URL lets Peter make a full copy of the repository, including its history, using `git clone`. For now, we will create a `temp` folder in our home directory and `cd` into it.
 
 ```bash
 (xenial)lev@localhost:~/git-test$ cd ..
@@ -284,7 +290,7 @@ Unpacking objects: 100% (12/12), done.
 Checking connectivity... done.
 ```
 
-Now we have a copy of our repo has been created in a new `~/temp/git-test` directory. Now we will `cd` into the directory, and modify the `README.md` file:
+Now we have a copy of our repo has been created in a new `~/temp/git-test` directory. Now, we will `cd` into the directory and modify the `README.md` file:
 
 ```markdown
 # Test Repo
@@ -296,7 +302,7 @@ The syntax above is a link: the text between the square brackets is the text, an
 
 ![010](screenshots/010.png)
 
-We see that the `hello, world` line has been removed, and  three new lines have been added. Now we will run `git commit`:
+We see that the `hello, world` line has been removed, and three new lines have been added. Now we will run `git commit`:
 
 ```bash
 $ git commit -am "added a link in readme to hello.js"
@@ -348,7 +354,7 @@ The `git log` command can show the entire commit history of our repo. For each c
 We can also format the output using `--pretty=format:` followed by some arguments. The following show all commits made in an easily readable form.
 
 ```markdown
-$ git log --pretty=format:"%h - %an, %ar : %s"
+\$ git log --pretty=format:"%h - %an, %ar : %s"
 9fbf058 - lizraeli, 34 minutes ago : added a link in readme to hello.js
 6254e59 - lizraeli, 70 minutes ago : added file hello.js
 ea24eb6 - lizraeli, 4 hours ago : Add a # tag
@@ -362,4 +368,12 @@ When building a larger application (especially when you're working with others),
 
 To create a new branch type the command: `git checkout -b <new-branch>`. You can change to a different branch by writing: `git checkout <branch-name>`.
 
-Once your feature is fully implemented and everything works, you can then `merge` your branch with `master`. First, go to the master branch; then enter `git merge <branch-you-made-your-feature>`.
+Once your feature is fully implemented and everything works, you can then create a **pull request** to merge your branch with master. Simply go:
+
+```bash
+$ git push origin <branch-name>
+```
+
+And then navigating to your GitHub repo in the browser. You should see a new dialogue to create a pull request. Follow the instructions and submit the pull request.
+
+This lets your collaborators see your branch's changes before they merge it into master.
