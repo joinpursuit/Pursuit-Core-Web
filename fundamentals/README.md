@@ -1,31 +1,37 @@
-# Fundamentals
+# Unit 1: Fundamentals
 
 ## Contents
 
-1. [Local Environment Setup](./local_environment/Local_Environment_Setup.md)
-2. [The Command Line](./the_command_line/terminal.md)
-3. [Git and GitHub](./git_and_github/git_and_github.md)
-4. [Values, Types, and Operators](./values_types_operators/values_types_operators.md)
-5. [Variables](./variables/variables_update.md)
-6. [Conditionals](./conditionals/conditional_JS.md)
-7. [Loops](./loops/loops.md)
-8. [Strings](./strings/strings_update.md)
-9. [Arrays](./arrays/arrays_update.md)
-10. [Objects](./objects/objects_update.md)
-11. [Functions and Scope](./functions/functions_update.md)
-12. [Function Arguments and Closures](./function_arguments_and_closures/arguments_and_closures_update.md)
-13. [ES6 vs. ES5](./es6_vs_es5/es6_part1.md)
-14. [Callbacks](./callbacks/callbacks_update.md)
-15. [Timers](./timers/timers_update.md)
-16. [Array Methods](./array_methods/array_methods_update.md)
-17. [Constructor Functions](./constructor_functions/constructor_functions_update.md)
-18. [Classes](./classes/classes_update.md)
+1. [Local Environment Setup](./local_environment/README.md)
+2. [The Command Line](./the_command_line/README.md)
+3. [Git and GitHub](./git_and_github/README.md)
+4. [Values, Types, and Operators](./values_types_operators/README.md)
+5. [Variables](./variables/README.md)
+6. [Conditionals](./conditionals/README.md)
+7. [Loops](./loops/README.md)
+8. [Strings](./strings/README.md)
+9. [DSA: Intro to Whiteboarding](https://github.com/joinpursuit/DSA-Curriculum/blob/master/intro_to_whiteboarding/README.md)
+10. [Arrays](./arrays/README.md)
+11. [Objects](./objects/README.md)
+12. [DSA: Logic](https://github.com/joinpursuit/DSA-Curriculum/blob/master/logic_problems/README.md)
+13. [Functions and Scope](./functions/README.md)
+14. [Function Arguments and Closures](./function_arguments_and_closures/README.md)
+15. [ES6 vs. ES5](./es6_vs_es5/README.md)
+16. [Timers](./timers/README.md)
+17. [DSA: Simple Loops](https://github.com/joinpursuit/DSA-Curriculum)
+18. [Array Methods](./array_methods/README.md)
+19. [Callbacks](./callbacks/README.md)
+20. [Constructor Functions](./constructor_functions/README.md)
+21. [Classes](./classes/README.md)
+22. [Tic Tac Toe Project](./tic_tac_toe_project/README.md)
 
 ## Bonus Notes
 
-* [User Input](./user_input/user_input_update.md)
-* [Date and Time](./date_and_time/date_and_time.md)
-* [Regular Expressions](./regex/regex.md)
+* [User Input](./user_input/README.md)
+* [Date and Time](./date_and_time/README.md)
+* [Regular Expressions](./regex/README.md)
+* [Error Handling](./error_handling/README.md)
+* [Factory Functions](./factory_functions/README.md)
 
 ## Resources
 
