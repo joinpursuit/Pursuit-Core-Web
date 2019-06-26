@@ -25,7 +25,7 @@ LF.1, LF.1.a, LF.4
 - Arithmetic operators, string concatenation, comparison operators, the negation operator, the typeof operator.
 - Logical Operators: [IBM](https://www.ibm.com/support/knowledgecenter/en/SSLVMB_20.0.0/com.ibm.spss.statistics.help/syn_transformation_expressions_and_or_logical_operators.htm)
 - Literals: [Wikipedia](https://en.wikipedia.org/wiki/Literal_%28computer_programming%29)
-- Expressions: [Wikipedia](https://en.wikipedia.org/wiki/Expression_(computer_science)
+- Expressions: [Wikipedia](https://en.wikipedia.org/wiki/Expression_(computer_science))
 - Truth tables: [Medium](https://medium.com/i-math/intro-to-truth-tables-boolean-algebra-73b331dd9b94)
 
 ## Lesson
