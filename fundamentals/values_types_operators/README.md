@@ -1,4 +1,4 @@
-#Values Types and operators
+# Values Types and operators in JavaScript
 
 ## Standards
 LF.1, LF.1.a, LF.4
