@@ -53,10 +53,7 @@ console.log("bat" + "man") === "bat" + "man";
 // => false, because we're comparing undefined to "batman"
 ```
 
-<<<<<<< HEAD:fundamentals/variables/variables_update.md
-1. Create a folder called `variables`.
-=======
-1. Create a folder called variables
+1. Create a folder called `variables`
 <details>
   <summary> Hint </summary>
   <p>
@@ -68,7 +65,6 @@ console.log("bat" + "man") === "bat" + "man";
   </p> 
 </details>
 
->>>>>>> 6_2:fundamentals/variables/README.md
 2. cd into the directory and then create a file called test.js.
 3. Copy the previous code into the file.
 4. Now run your file by entering `node test.js` in your terminal.
