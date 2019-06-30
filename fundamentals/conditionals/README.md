@@ -204,7 +204,7 @@ question mark is the value returned if the conditional is truthy. The final part
 ```js
 > 1 === 1 ? 1 : 2
 // => 1
-> 1 ==== 2 ? 1 : 2
+> 1 === 2 ? 1 : 2
 // => 2
 ```
 
