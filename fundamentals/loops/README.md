@@ -59,6 +59,7 @@ while (num < 10) {
 ```
 
 * Ex 1. Write a `while` loop that logs all the even numbers between 0 and 100.
+  > **Hint**: Can the `%` operator help you here?
 
   <details>
   <summary>
