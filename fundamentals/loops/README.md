@@ -194,28 +194,42 @@ for (let i = 50; i >= 5; i -= 5) {
 ```
 
 - Ex. Log all multiples of 10 between 10 and 100
-  - <details>
- <summary>
-  Solution
- </summary>
+  <details>
+    <summary>
+      Solution
+    </summary>
 
-```js
-for (let i = 10; i <= 100; i += 10) {
-  console.log(i);
-}
-```
+    ```js
+    for (let i = 10; i <= 100; i += 10) {
+      console.log(i);
+    }
+    ```
+  </details>
 
-</details>
 - Ex. Log all multiples of 10 between 100 and 0, descending
-  - <details>
- <summary>
-  Solution
- </summary>
+  <details>
+    <summary>
+      Solution
+    </summary>
 
+    Did you write your own first?
 
- ```js
-for(let i = 100; i >= 0; i -= 10) {
-  console.log(i)
-}
- ```
-</details>
+    <details>
+      <summary>
+        Yes
+      </summary>
+
+      ```
+      for(let i = 100; i >= 0; i -= 10) {
+        console.log(i)
+      }
+      ```
+    </details>
+
+    <details>
+      <summary>
+        No
+      </summary>
+      **Go do it**
+    </details>
+  </details>
