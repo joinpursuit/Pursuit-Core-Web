@@ -219,11 +219,9 @@ for (let i = 50; i >= 5; i -= 5) {
         Yes
       </summary>
 
-      ```
       for(let i = 100; i >= 0; i -= 10) {
         console.log(i)
       }
-      ```
     </details>
 
     <details>
