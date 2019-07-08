@@ -301,4 +301,6 @@ console.log(b); // 1
 ```
 
 ### Resources
+[w3schools - Arrays](https://www.w3schools.com/jsref/jsref_obj_array.asp)
+[MDN - Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 [MDN - destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
