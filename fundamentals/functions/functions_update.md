@@ -110,8 +110,8 @@ function sum(num1, num2) {
 Though these two functions look similar, they are very different.  Here's how:
 
 ```js
-console.log("Twice the sum of 4 and 6 is " + "logSum(4,6) * 2")
-console.log("Twice the sum of 4 and 6 is " + "sum(4,6) * 2")
+console.log("Twice the sum of 4 and 6 is " + logSum(4,6) * 2)
+console.log("Twice the sum of 4 and 6 is " + sum(4,6) * 2)
 ```
 
 The first line will log "NaN", and the second line will log 20.  This is because logSum(4,6) __returns__ undefined, even though it happens to log the sum.
