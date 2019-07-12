@@ -195,13 +195,6 @@ const printArray = (arr) => {
 }
 ```
 
-```js
-const double = function(num) { return num + num }
-
-double(5)
-// => 10
-```
-
 All of the above printArray functions will be treated the same.
 
 
