@@ -200,11 +200,10 @@ All of the above printArray functions will be treated the same.
 
 ## A note on logging
 
-As you may have realized, `console.log`, is also a function - one that is provided for us. The dot in it's name is meaningful, and will be discussed at a later point. `console.log` differs from our `double` function in two other ways:
+As you may have realized, `console.log`, is also a function - one that is provided for us. `console.log` differs from our `double` function in two other ways:
 
 1. It does not produce an output (ie it returns undefined).
 2. It leads to something else happening - the value passed to it gets logged to the screen.
-
 
 
 Again, in JavaScript, a function that does not have a return statement will return the value `undefined`.
