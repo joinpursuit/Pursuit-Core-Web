@@ -1,4 +1,4 @@
-# Pursuit 5.0 Web Curriculum
+# Pursuit 6.0 Web Curriculum
 
 ## Introduction
 
@@ -16,6 +16,4 @@ The core curriculum is separated into five units:
 
 Please refrain from reading ahead until you feel as though you've mastered all concepts in a section.
 
-## Class-Specific Notes
 
-* [5.1 Readme](./days_README.md)
