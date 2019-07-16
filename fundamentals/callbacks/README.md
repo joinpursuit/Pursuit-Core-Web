@@ -5,19 +5,17 @@ FSW.1.b
 
 ## Objectives
 * Understand what callback functions are and why we use them
-* Write your own callback function
-* Begin to understand asynchronous programming
+* Write functions that use callbacks
 
 ## Keywords
 
 * Callback
 * Functions as values
 * Functions as input to other functions
-* Asynchronous programming
 
 ## Lesson
 
-### Syntax for Declaring Functions
+## Function Syntax Review
 
 We've learned that many different types of data that can be stored in variables -- for example, numbers, strings, arrays and objects.
 
@@ -46,93 +44,129 @@ function(num1, num2) {
 ```
 
 This isn't very useful if we'd like to invoke the function later on, so we could also store this function in a variable:
+
 ```js
 const add = function(num1, num2) {
   return num1 + num2;
 }
 ```
-And now we can invoke it like we would any function: `add(1,2) //=> 3`. Really all functions are variables, it's just more clearly shown in this example, so we can treat `add` like we would any variable, but with slightly different results:
+And now we can invoke it like we would any function: `add(1,2) //=> 3`.
+
+In JavaScript, a function is actually a type of object.  Among other things, this means that we can use functions in similar ways to how we can use objects.  For example, we can log functions that we've created.
+
+
+What is the difference between the two code blocks below?
+
 ```js
-console.log(add)
-// calling console.log on add will return:
-//  ƒ (num1, num2) {
-//    return num1 + num2;
-//  }
-// undefined
+console.log(add(1,2))
 ```
 
-Just like if we'd passed in a variable that held a string, console.log is merely printing to the screen what the variable holds. In this case the variable is holding a function, so that's what is printed.
+```js
+console.log(add)
+```
 
-### Callback Functions
 
-As demonstrated above, a variable can hold a function just like any other data type (e.g. array, integer, string).
+<details>
+<summary>Solution</summary>
 
-Similarly, as is the case with other variables, we can pass a functions as an argument to other functions. A function that is passed as an argument to another function is called a **callback function**, or just **callback**.
+The first line will log `3` to the console.  The second line will log something like `[Function: add]` to the console.  We aren't calling the function, so we are logging the function itself.
+
+</details>
+
+
+## Callback Functions - Basics
+
+We see above that we can log functions that we've created.  We can also pass functions as arguments to other functions. A function that is passed as an argument to another function is called a **callback function**, or a **callback**.
 
 Let's create a simple function `caller` that calls whatever function it is given as an argument:
 
 ```js
 function caller(callback) {
-  return callback()
+  callback()
 }
 
 function sayHello() {
-  return "Hello!"
+  console.log("Hello!")
 }
 
 function sayGoodbye() {
-  return "Goodbye!"
+  console.log("Goodbye!")
 }
 
 caller(sayHello)
-// => "Hello!"
+// "Hello!"
 caller(sayGoodbye)
-// => "Goodbye!"
+// "Goodbye!"
 ```
 
-We invoke `caller` with `sayHello` passed in as a variable. `sayHello` without the parentheses acts like a variable while `sayHello()` would invoke the function and return `Hello!`. The same is true when we invoke `caller` with `sayGoodbye`. If you tried to pass `caller` something that was _not_ a function, it would return an error.
 
-Now for a more advanced callback that accepts two numbers and a function:
+We invoke `caller` with `sayHello` passed in as a variable.  
+
+What would happen if we tried to run the code below?
+
 ```js
-function caller(arg1, arg2, callback){
-  callback(arg1, arg2)
+caller(sayHello())
+```
+
+<details>
+<summary>Solution</summary>
+
+"Hello!" will be logged to the console, and an error will occur.  
+
+`sayHello()` will log out "Hello!" to the console, then return `undefined`
+
+We then invoke caller and pass in `undefined`.  Because `undefined` is not a function, trying to invoke it with `()` will cause an error.
+
+</details>
+
+
+## Callback Functions - Additional Instructions
+
+While the example above is interesting, it doesn't do anything more than call a function we give it.  We can use callbacks in more powerful ways to change the behavior of functions.
+
+### Example: Combining
+
+A common function that we want to write is one that combines two numbers.  We've written functions that add, subtract, multiply, divide and average two numbers.  Using callbacks, we can write a single function that will be able to do all of those things.
+
+This function will need three arguments:
+
+1. The first number
+2. The second number
+3. Instructions about how to combine the two numbers
+
+These "instructions" are the callback.
+
+```js
+function combine(arg1, arg2, combiningCallback) {
+  return combiningCallback(ar1, arg2)
 }
 
-function add(num1, num2){
+function add(num1, num2) {
   return num1 + num2;
 }
 
-caller(2, 4, add)
+combine(2, 4, add)
 // => 6
 ```
 
-The function `caller` takes two arguments and a function (the callback), and invokes the callback with the provided arguments.
-Basically when we invoke `caller` with 2, 4, and add it becomes:
+The function `combine` takes two arguments and a function (the callback), and invokes the callback with the provided arguments.
+
+Now that we have our `combine` method, we can pass it different callbacks to combine the two numbers differently
+
+
 ```js
-caller(2, 4, add) {
-  add(2, 4){
-    return 2 + 4;
-  }
-}
-```
-
-`arg1` is replaced with 2 and `arg2` is replaced with 4. `callback` is replaced with our `add` function, which gets invoked _inside_ our `caller` function. When `add` gets invoked by `caller`, `num1` is replaced with 2 and `num2` is replaced with 4 in the `add` function. Then we have 2 + 4 returned to us by the `add` function. This is why 6 is the result of invoking `caller(2, 4, add)`.
-
-Let's try this again but with a function we'll call `product` that will instead return the _product_ of the two arguments when multiplied together:
-```js
-function caller(arg1, arg2, callback){
-  callback(arg1, arg2)
+function multiply(num1, num2) {
+  return num1 * num2
 }
 
-function product(num1, num2){
-  return num1 * num2;
-}
+combine(2, 4, multiply)
 
-caller(2, 4, product)
 // => 8
 ```
 
-Those examples are nice but let's try something more useful. The function `forEachElem` below takes an array and a callback function as arguments, and call the callback function for each element of the array.
+### Example: forEach
+
+Callbacks give additional instructions about how a function should execute.  Let's look at another example.  Here, we will write a function which does something to every element in an array.  The "something" will be defined by the callback.
 
 ```js
 function forEachElem(arr, callback) {
@@ -143,43 +177,31 @@ function forEachElem(arr, callback) {
   }
 }
 
-function logDouble(num) {
-  console.log(num * 2);
+function logValue(num) {
+  console.log(num)
 }
 
-function logTriple(num) {
+const logTriple = function(num) {
   console.log(num * 3);
+}
+
+function logDollarFormattedNum(num) {
+  console.log("$" + num)
 }
 
 let arr = [1, 2, 3];
 
-forEachElem(arr, logDouble);
-// will log: 2, 4, 6
+forEachElem(arr, logValue);
+// will log: 1, 2, 3
 
 forEachElem(arr, logTriple);
 // will log: 3, 6, 9
+
+forEachElem(arr, logDollarFormattedNum)
+// will log: $1, $2, $3
 ```
 
-We pass to the `forEachElem` function:
-1. an array of numbers
-2. a function `logDouble` that takes a number as an argument and logs its value times two or `logTriple` that takes a number as an argument and logs its value times three.
-
-The `forEachElem` functions invokes the callback (in this case, `logDouble` or `logTriple`) on each element of the array. This displays the doubled or tripled value of each element.
-
-### Anonymous Callbacks
-
-When a function is needed only as a callback, it is common to just define it on the spot and not give it a name (i.e. create it as an **anonymous function**).
-
-```js
-forEachElem(arr, function(num) {
-  console.log(num * 2);
-})
-```
-
-The code above works the same as the earlier code. The function definition looks the same as when we define a function using the `const` keyword. The only difference is instead of storing the function into a variable, we are immediately passing it as an argument. **Remember, a function in JavaScript is a value, just like a string or an integer.**
-
-
-### setInterval
+### Example: setInterval
 
 Let's examine a built-in function `setInterval`, which is available on the browser window. This function takes as arguments:
 
@@ -196,10 +218,101 @@ function sayHello() {
 setInterval(sayHello, 1000)
 ```
 
-Or with an anonymous function:
+## Anonymous Callback Functions
+
+In all the above examples, we created functions for each of the callbacks, but only called them once.
+
+When a function is needed only as a callback, it is common to define it on the spot and not give it a name.  These are called **anonymous functions**.  Let's use an anonymous function instead of `sayHello`:
 
 ```js
+function sayHello() {
+  console.log('hello')
+}
+
+setInterval(sayHello, 1000)
+
 setInterval(function(){
   console.log('hello')
 }, 1000)
 ```
+
+Both calls to `setInterval` above will produce the same result.  
+
+
+## ES6 Syntax for Callbacks
+
+The new ES6 syntax makes writing callbacks more concise.  All of the following examples will produce the same result:
+
+```js
+forEachElem(arr, function(num) {
+  console.log(num);
+})
+
+forEachElem([1,2,3,4], (num) => {
+  console.log(num)
+})
+
+forEachElem([1,2,3,4], (num) => { console.log(num) })
+```
+
+
+## Map
+
+So far, our callbacks have only been logging information to the console.  We can also write functions where the console changes the return value.
+
+Let's write a function that takes an array and a callback, and returns an array with each value changed by the callback
+
+```
+// Input: [1,2,3,4], (num) => { return num * 3 }
+
+// Output: [3,6,9,12]
+```
+
+```js
+function mapValues(arr, callback) {
+  let mappedArr = []
+  for (let element of arr) {
+    mappedArr.push(callback(element))
+  }
+  return mappedArr
+}
+```
+
+### Exercise:
+
+Given the array of users below, use `mapValues` to return an array of only their email addresses.
+
+```js
+let users = [
+  {
+    name: "Oziel",
+    email: "Oziel@pursuit.org",
+    userId: 24601
+  },
+  {
+    name: "Senka",
+    email: "Senka@pursuit.org",
+    userId: 38217
+  },
+  {
+    name: "Erika",
+    email: "Erika@pursuit.org",
+    userId: 18104
+  },
+  {
+    name: "Evan",
+    email: "Evan@pursuit.org",
+    userId: 78293
+  }
+]
+```
+
+
+<details>
+<summary>Solution</summary>
+
+```js
+const names = mapValues(users, user => user.name)
+```
+
+</details>
