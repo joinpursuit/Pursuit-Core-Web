@@ -11,11 +11,11 @@ FSW.1.a, FSW.1.b
   * reduce
   * every
 
-## Lesson
+## 1. Introduction
 
 Last lesson, you worked with a new concept called a "callback".  A callback is a way of giving additional information to a function.  When you implemented your `myFilter` function in the lab, you gave it two arguments: an array and a callback.  The array is the thing you want to filter, and the callback is **how** you want it to be filtered.  Using callbacks and arrays together is something that we want to do very frequently in programming.  Because it's so common, JavaScript has some built in methods in arrays that let us use callbacks directly.  We'll review 5 different methods that use callbacks and are built into arrays.
 
-## ForEach
+## 2. ForEach
 
 ForEach is a method on Arrays that iterates over the array and applies a callback to each element.
 
@@ -46,18 +46,19 @@ for(let i = 0; i < names.length; i++) {
 
 Given that these produce the same result, why would we want to use a `forEach` method?
 
-<details>
-<title>Solution</title>
+
+<details><summary>Solution</summary>
 
 - It saves time by not having to write the for loop out ourselves
 - It is more *expressive*.  By looking at the method name used `forEach`, anyone reading your code know that you want to do something with each element in an array.  Someone would have to read the whole for loop to make sure that you aren't only using every other element or starting at i = 4.
 
 </details>
 
-If we'd like to keep track of the index we can add a second argument to our forEach callback, often called `i`.
+<p>
+
+The closure that we pass into the `forEach` method has a first mandatory argument that represents the element in the array that we are looking at.  It accepts another optional argument which tracks the `index` that we are looking at.
 
 ```js
-
 names.forEach((name, i) => {
   console.log(`My name is ${name} and I am index number ${i}`)
 })
@@ -117,76 +118,7 @@ Most array transformations share two operations in common:
 2. Add each item's transformed value to a new array.
 
 
-### Adding methods to the Array type
-
-When we add a property or method to `Array.prototype`, we can then call this method with any array. This is the same as adding a method to the _Array class_
-
-```js
-Array.prototype.sayHello = function(){
-    return "hello";
-}
-
-let arr = [1, 2, 3]
-arr.sayHello()
-// => "hello"
-```
-A more realistic example:
-
-```js
-Array.prototype.doubler = function() {
-  let output = [];
-  this.forEach(num => {
-    output.push(num * 2)
-  })
-  return output
-}
-
-
-let arr = [1,2 ,3]
-arr.doubler()
-// => [2, 4, 6]
-
-```
-
-The above is **not**  something we would usually want to do. Extending the basic functionalities of a JavaScript type can lead to unexpected bugs and errors in our code. Even more so when we are working with other programmers, who may not know what functionalities we have added. In todays exercises, we will be re-implementing methods that already exist in javascript arrays.
-
-The **this** in the above function refers to the array that the method will be called upon. That means we can index into  **this** if desired. Let pretend we wanted an array method that returned only the odd values. We could add this method to the Array.prototype like this:
-
-```js
-Array.prototype.odds = function() {
-  let output = [];
-  this.forEach(num => {
-   if(num % 2 !== 0) {  
-    output.push(num)
-   }
-  })
-  return output
-}
-
-
-let arr = [1,2 ,3]
-arr.odds()
-// => [1, 3]
-
-// OR
-
-Array.prototype.odds = function() {
-  let output = [];
-  for(let i = 0; i < this.length; i++) {
-    if(this[i] % 2 !== 0) {
-      output.push(this[i]);
-    }
-  }
-  return output;
-}
-
-
-let arr = [1,2 ,3];
-arr.odds();
-
-```
-
-## Map
+## 3. Map
 
 `Map` takes a transformation function (callback) as an argument, applies it to each element in the source array, and returns the new transformed array.
 
@@ -208,9 +140,10 @@ let arr = [1, 2, 3];
 arr.map(el => {
  return el * 2;
 });
-
-
 ```
+
+## 4. Filter
+
 
 ### Filtering Arrays
 
@@ -249,8 +182,7 @@ Like `map`, `filter` also takes in a callback function. Each item in the array w
 
 ```
 
-
-### Chaining Method Calls
+#### Chaining Method Calls
 
 Since both `filter` and `map` return an array, we can chain these two methods. We can do this to collect the ids of videos that have a rating of 5.0.
 
@@ -272,19 +204,7 @@ arr.filter(el => el % 2).map(el => el * 2);
 // => [ 2, 6, 10 ];
 ```
 
-## Every
-
-`every` is another JS array method that checks to see if every single element in the array meets a certain condition. Like `forEach`, `map`, and `filter` it also takes in a callback function. Let's check to see if all the values in an array or odd.
-
-```js
-let arr = [1, 3, 5];
-arr.every( el => {
-   return el % 2 !== 0
-})
-// => true
-```
-
-### Reducing Arrays
+## 5. Reduce
 
 Let's say we need to find the largest integer in an array. We can't use `filter`, because it only examines one element item at a time. To find the largest integer we need to compare elements in the array to each other.
 
@@ -420,6 +340,17 @@ let sumOfSquares = numbers
     }, 0);
 ```
 
+## 6. Every
+
+`every` is another JS array method that checks to see if every single element in the array meets a certain condition. Like `forEach`, `map`, and `filter` it also takes in a callback function. Let's check to see if all the values in an array or odd.
+
+```js
+let arr = [1, 3, 5];
+arr.every( el => {
+   return el % 2 !== 0
+})
+// => true
+```
 
 
 ## Resources
