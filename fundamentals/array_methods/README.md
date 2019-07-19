@@ -13,27 +13,12 @@ FSW.1.a, FSW.1.b
 
 ## Lesson
 
-# ForEach, Map, Filter, Every, Reduce
+Last lesson, you worked with a new concept called a "callback".  A callback is a way of giving additional information to a function.  When you implemented your `myFilter` function in the lab, you gave it two arguments: an array and a callback.  The array is the thing you want to filter, and the callback is **how** you want it to be filtered.  Using callbacks and arrays together is something that we want to do very frequently in programming.  Because it's so common, JavaScript has some built in methods in arrays that let us use callbacks directly.  We'll review 5 different methods that use callbacks and are built into arrays.
 
-### Working with Arrays
+## ForEach
 
-The Array is JavaScript's only collection type. Arrays are everywhere and we use them often. Luckily for us, JS already has some built-in array methods like, `map`, `filter`, `every` and `reduce`. In this lesson we are going to learn how to use these methods.
+ForEach is a method on Arrays that iterates over the array and applies a callback to each element.
 
-In this lesson we will be transforming array into new arrays. We will first do so using loops and statements. Then we will implement one of the functions, and then use it to solve the same problem without loops. We will also see how to combine `filter`, `map` and `reduce` to solve more complex problems.
-
-### Logging elements using a loop
-
-Given an array of names, we can easily print all of its elements using a loop:
-
-```js
-let names = ["Ben", "Elle", "Matt", "Corey", "Joanne"];
-
-for(let i = 0; i < names.length; i++) {
-    console.log(names[i]);
-}
-```
-
-We can also log the elements using the built-in `forEach` array method.  `forEach` takes a callback function as an argument, and calls it for each element in the array.
 
 ```js
 let names = ["Ben", "Elle", "Matt", "Corey", "Joanne"];
@@ -49,7 +34,25 @@ names.forEach(name => {
 })
 ```
 
-The `forEach` method lets us specify what we want to happen to each item in the array, but hides how the array is traversed.
+Each of the above `forEach` methods will produce the same result as the code below.
+
+```js
+let names = ["Ben", "Elle", "Matt", "Corey", "Joanne"];
+
+for(let i = 0; i < names.length; i++) {
+    console.log(names[i]);
+}
+```
+
+Given that these produce the same result, why would we want to use a `forEach` method?
+
+<details>
+<title>Solution</title>
+
+- It saves time by not having to write the for loop out ourselves
+- It is more *expressive*.  By looking at the method name used `forEach`, anyone reading your code know that you want to do something with each element in an array.  Someone would have to read the whole for loop to make sure that you aren't only using every other element or starting at i = 4.
+
+</details>
 
 If we'd like to keep track of the index we can add a second argument to our forEach callback, often called `i`.
 
