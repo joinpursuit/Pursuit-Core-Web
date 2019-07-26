@@ -23,6 +23,20 @@ FSW.1
 
 ## Lesson
 
+## 1. Objects can have functions are values
+
+```js
+var dog = {
+    name: 'Pluto',
+    talk: function () {
+        console.log('Woof!');
+    }
+}
+
+dog.talk() // logs 'Woof!'
+```
+
+
 ### Object Methods
 
 As we've seen, _objects_ are a pretty neat data structure. They can hold information in very organized ways and are useful in solving problems. One unique property of an object is that it can point to a function, because functions are just data. Properties that point to functions are also called **methods** and they can be invoked just like we invoke any other function. The only difference is we need to use dot notation to connect the method with its parent object. In the following example, `talk` is a method. We call this function by typing `dog.talk()` because `dog` is the object that _contains_ the `talk` function. If we try to call `talk` without `dog` we get an error because the only `talk` function that exists is the one within `dog`:
@@ -39,7 +53,8 @@ dog.talk // logs function => ƒ () { console.log('Woof!'); }
 dog.talk() // invokes function => 'Woof!'
 ```
 
-### The `this` keyword
+
+## 2. The `this` keyword
 
 When **inside** an object method, there is a way to refer to the object the method belongs to: by using the special value `this`.
 
@@ -60,7 +75,7 @@ dog.getFullName() // => 'Pluto Pup'
 
 In the example above, we cannot just say `firstName` and `lastName` in the `getFullName` function because `firstName` and `lastName` **do not** exist on their own. They are _built into_ the `dog` object and since we are referring to them _inside_ the `dog` object, we use `this` to tell JavaScript, "Hey, we're talking about the `dog` method `firstName` and calling it `this` because WE IN **THIS** object!" In later units `this` and object methods will become _very important_ so get used to seeing them!
 
-### Adding functions
+### Adding properties that have functions as their values
 
 We can also _add_ information and functions to an object that already exists through dot notation. This is useful because you can easily add more information to objects that already exist without having to recreate the entire object new.
 
@@ -77,7 +92,7 @@ dog // => {firstName: "Pluto", lastName: "Pup", talk: ƒ, getFullName: ƒ, breed
 dog.getBreed() // => "I am a Cartoon!"
 ```
 
-### Creating Constructor Functions
+## 3. Constructor Functions
 
 Functions have a second role as **Constructor Functions**. These allow us to create multiple objects that share the same properties and methods. For example, we may want to create multiple *dog* objects and we know each `dog` will have a name, breed and weight. Rather than having to write out what the name, breed and weight of each dog every time, we can utilize constructor functions so that `Dog` accepts name, breed and weight as arguments, which are then set to `Dog.name`, `Dog.breed` and `Dog.weight`. This means to create a new `Dog`, we just need to pass the three arguments and our function will do the rest of the work! :100:
 
@@ -103,18 +118,6 @@ Also, note the following conventions:
 1. Constructor functions start with a **capital first letter**.
 2. Parameter/argument names match the **keys** (property names) of the object we will create.
 
-The ES6 equivalent looks like this:
-
-```js
-class Dog {
-  constructor(name, breed, weight) {
-    this.name = name;
-    this.breed = breed;
-    this.weight = weight;
-  }
-}
-
-```
 
 ### Using Constructor Functions
 
@@ -165,6 +168,98 @@ for(let i = 0; i < dogs.length; i++) {
 // Sergeant is a 140 lb  Newfoundland
 // Alice is a 60 lb  Golden Retriever
 ```
+
+
+## 4. The `prototype` property
+
+Every function also has a property called `prototype`. By default, the value of the `prototype` property is an object.
+
+```js
+function add1(num){
+    return num + 1;
+}
+console.log(add1.prototype)
+// add1 {}
+```
+
+The result of logging `add1.prototype` looks a little different then if we logged a regular empty object.
+
+```js
+let obj = {};
+console.log(obj)
+// {}
+```
+
+Logging `add1.prototype` displays not only the (empty) object, but also the function that the object is linked to. In this case, that function is `add1`.
+
+### The Constructor Prototype link
+
+Each `prototype` object is initially empty, except for a hidden property called `constructor`. This `constructor` holds the function that the object is linked to. Let's look at a `Rabbit` constructor (similar to our `Dog` example):
+
+```js
+function Rabbit() {}
+
+/* default prototype
+Rabbit.prototype = { constructor: Rabbit };
+*/
+```
+
+This may be easier to visualize with a diagram:
+
+![constructor <-> prototype](assets/cc.png)
+
+We can verify this:
+
+```js
+console.log(Rabbit.prototype.constructor === Rabbit)
+// => true
+```
+
+### `this` in the constructor
+
+Whenever we call a function with the `new` keyword, the `this` value inside the function is linked to the function's `prototype` property. So, every object created with the `Rabbit` constructor will be linked to `Rabbit.prototype`.
+
+```js
+function Rabbit(type) {
+  this.type = type;
+}
+
+let killerRabbit = new Rabbit("killer");
+let blackRabbit = new Rabbit("black");
+```
+
+![two rabbits](assets/bk_rabbits.png)
+
+### Adding methods to the prototype
+
+The `Rabbit` constructor and the `Rabbit.prototype` Object prototypes lie behind killerRabbit as a kind of backdrop, where properties that are not found in the object itself can be looked up.
+
+So to add a `speak` method to rabbits created with the Rabbit constructor, we can simply do this:
+
+```js
+Rabbit.prototype.speak = function(line) {
+  console.log("The " + this.type + " rabbit says '" +
+              line + "'");
+};
+blackRabbit.speak("Doom...");
+// → The black rabbit says 'Doom...'
+```
+
+The diagram would now look like this:
+
+![prototype method](assets/rabbit_prototype_method.png)
+
+
+### The instanceof operator
+
+If we try to use the `typeof` operator with any of the above created objects, we will always get back the string `"object"`. As far as types are concerned, JavaScript considers all objects to be the same. We *can*, however, check if an object was created using a specific constructor function. This is done using the `instanceof` operator:
+
+```js
+console.log(killerRabbit instanceof Rabbit) // => true
+```
+
+
+# Appendix / Extra Reading:
 
 ### Function Properties
 
@@ -219,6 +314,7 @@ times(10, dog.ageOneYear.bind(dog));
 ```
 `bind` works just like the closure we made, in which `dog#ageOneYear` is called method style on the `dog`
 object. `dog.ageOneYear.bind(dog)` returns a closure that will still be called function-style, but which calls `dog.ageOneYear` method-style inside of it.
+
 
 ### Common Problem With `this`  
 ```js
@@ -303,93 +399,10 @@ garfield plays with balloon
 **Bonus**
 There are two more final ways of calling a function.They incude `apply` and `call`. `apply` takes two arguments: an object to bind `this` to, and an array of argumetns to be passed the method apply is being called on. `call` is very similar to `apply` but instead of taking in an array of parameters, it takes them individually. Please feel free to read more about them [here](https://www.undefinednull.com/2014/06/26/explaining-call-and-apply-in-javascript-through-mr-dot-dave/)
 
-### The `prototype` property
 
-Every function also has a property called `prototype`. By default, the value of the `prototype` property is an object.
+### Omitting the `new` keyword
 
-```js
-function add1(num){
-    return num + 1;
-}
-console.log(add1.prototype)
-// add1 {}
-```
-
-The result of logging `add1.prototype` looks a little different then if we logged a regular empty object.
-
-```js
-let obj = {};
-console.log(obj)
-// {}
-```
-
-Logging `add1.prototype` displays not only the (empty) object, but also the function that the object is linked to. In this case, that function is `add1`.
-
-### The Constructor Prototype link
-
-Each `prototype` object is initially empty, except for a hidden property called `constructor`. This `constructor` holds the function that the object is linked to. Let's look at a `Rabbit` constructor (similar to our `Dog` example):
-
-```js
-function Rabbit() {}
-
-/* default prototype
-Rabbit.prototype = { constructor: Rabbit };
-*/
-```
-
-This may be easier to visualize with a diagram:
-
-![constructor <-> prototype](assets/cc.png)
-
-We can verify this:
-
-```js
-console.log(Rabbit.prototype.constructor === Rabbit)
-// => true
-```
-
-### `this` in the constructor
-
-Whenever we call a function with the `new` keyword, the `this` value inside the function is linked to the function's `prototype` property. So, every object created with the `Rabbit` constructor will be linked to `Rabbit.prototype`.
-
-```js
-function Rabbit(type) {
-  this.type = type;
-}
-
-let killerRabbit = new Rabbit("killer");
-let blackRabbit = new Rabbit("black");
-```
-
-![two rabbits](assets/bk_rabbits.png)
-
-### Adding methods to the prototype
-
-The `Rabbit` constructor and the `Rabbit.prototype` Object prototypes lie behind killerRabbit as a kind of backdrop, where properties that are not found in the object itself can be looked up.
-
-So to add a `speak` method to rabbits created with the Rabbit constructor, we can simply do this:
-
-```js
-Rabbit.prototype.speak = function(line) {
-  console.log("The " + this.type + " rabbit says '" +
-              line + "'");
-};
-blackRabbit.speak("Doom...");
-// → The black rabbit says 'Doom...'
-```
-
-The diagram would now look like this:
-
-![prototype method](assets/rabbit_prototype_method.png)
-
-### Getting an object's prototype
-
-While The `__proto__` property can be used to access an objects prototype, it is a non-standard feature. The recommended way of getting and object's prototype is the `Object.getPrototypeOf()` method:
-
-```js
-Object.getPrototypeOf(killerRabbit)
-//  Rabbit { speak: [Function] }
-```
+When the `new` keyword is omitted, you may or may not see an error -  one way to ensure an error in this case is to include the keywords: `"use strict";` at the top of your javascript file. A constructor without `new` will be called like a regular function that does not return anything.
 
 ### logging a constructed object
 
@@ -400,17 +413,16 @@ console.log(killerRabbit)
 // Rabbit { type: 'killer' }
 ```
 
-### Omitting the `new` keyword
 
-When the `new` keyword is omitted, you may or may not see an error -  one way to ensure an error in this case is to include the keywords: `"use strict";` at the top of your javascript file. A constructor without `new` will be called like a regular function that does not return anything.
+### Getting an object's prototype
 
-### The instanceof operator
-
-If we try to use the `typeof` operator with any of the above created objects, we will always get back the string `"object"`. As far as types are concerned, JavaScript considers all objects to be the same. We *can*, however, check if an object was created using a specific constructor function. This is done using the `instanceof` operator:
+The recommended way of getting and object's prototype is the `Object.getPrototypeOf()` method:
 
 ```js
-console.log(killerRabbit instanceof Rabbit) // => true
+Object.getPrototypeOf(killerRabbit)
+//  Rabbit { speak: [Function] }
 ```
+
 
 ### Overriding Prototype properties
 
@@ -439,23 +451,4 @@ Rabbit.prototype.dance = function() {
 };
 killerRabbit.dance();
 // → The killer rabbit dances a jig.
-```
-
-### Quotes
-
-"If you add [a property] to the parent, the children will all get it. If a child already has one, it will use its own" - Aiden
-
-A property of an object can point to a function, because functions are just data.
-Properties that point to functions are also called methods. In the following example,
-talk is a method:
-
-```js
-var dog = {
-    name: 'Pluto',
-    talk: function () {
-        console.log('Woof!');
-    }
-}
-
-dog.talk() // logs 'Woof!'
 ```
