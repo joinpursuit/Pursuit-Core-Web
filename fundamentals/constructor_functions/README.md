@@ -10,9 +10,9 @@ FSW.1
 ## Keywords
 
 * Constructor Functions
-* Date Objects
-* Error Objects
-
+* [`prototype`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+* [`new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
+* [`this`](https://www.w3schools.com/js/js_this.asp)
 ## Resources
 
 * [A Dript Of Javascript - Constructors in JavaScript](http://adripofjavascript.com/blog/drips/constructors-in-javascript.html)
