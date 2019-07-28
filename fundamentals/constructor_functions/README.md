@@ -73,7 +73,7 @@ let dog = {
 dog.getFullName() // => 'Pluto Pup'
 ```
 
-In the example above, we cannot just say `firstName` and `lastName` in the `getFullName` function because `firstName` and `lastName` **do not** exist on their own. They are _built into_ the `dog` object and since we are referring to them _inside_ the `dog` object, we use `this` to tell JavaScript, "Hey, we're talking about the `dog` method `firstName` and calling it `this` because WE IN **THIS** object!" In later units `this` and object methods will become _very important_ so get used to seeing them!
+In the example above, we cannot just say `firstName` and `lastName` in the `getFullName` function because `firstName` and `lastName` **do not** exist on their own. They are _built into_ the `dog` object and since we are referring to them _inside_ the `dog` object, we use `this` to tell JavaScript, "Hey, we're talking about the `dog` property `firstName` and referring to it with `this` because WE IN **THIS** object!". In later units `this` and object methods will become _very important_ so get used to seeing them!
 
 ### Adding properties that have functions as their values
 
