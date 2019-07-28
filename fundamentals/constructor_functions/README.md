@@ -23,7 +23,7 @@ FSW.1
 
 ## Lesson
 
-## 1. Objects can have functions are values
+## 1. Objects can have functions as values
 
 ```js
 var dog = {
