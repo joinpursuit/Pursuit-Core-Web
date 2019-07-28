@@ -1,7 +1,28 @@
 # Objects
 
 ## Standards
-LF.1, LF.1.a
+<details>
+  <summary>
+    LF.1.a
+  </summary>
+  Understand that data types are the foundation of all code, different ways of storing information drastically changes the way you approach code, example: Int 1 compared to String "1", and native data types are in every language.
+</details>
+
+<details>
+  <summary>
+    LF.3
+  </summary>
+
+  Understand that data structures are ways of storing multiple elements of associated data. Access individual elements within sets of information, either directly, by iteration, or using methods.
+</details>
+
+
+<details>
+  <summary>
+    LF.3.c Objects a.k.a. Dictionaries or Maps:
+  </summary>
+  Able to declare and use Dictionaries. Understand common uses of Dictionaries. Contrast and compare Dictionaries with Arrays. Understand that a dictionary stores associations between keys of the same type and values of the same type in a collections with no defining ordering.
+</details>
 
 ## Objectives
 
@@ -16,6 +37,7 @@ LF.1, LF.1.a
 
 * objects
 * dot-notation
+* square bracket-notation
 * keys/values
 * properties
 
