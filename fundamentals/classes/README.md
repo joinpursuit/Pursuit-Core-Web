@@ -8,10 +8,10 @@ FSW.1, EF.7, EF.7.a
 * Be able to inherit  qualities from a class.
 
 ## Keywords
-* class
-* constructor
-* super
-* extends
+* [class](https://www.w3schools.com/js/js_classes.asp)
+* [constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
+* [super](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/constructor)
+* [extends](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends)
 
 ## 1. Constructor Function Review
 
