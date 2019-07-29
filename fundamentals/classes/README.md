@@ -34,7 +34,7 @@ let userThree = {
 }
 ```
 
-While this will create 3 reasonable user objects, it increases the possibility that you might make a mistake.  For example, you might make a type when making userFour:
+While this will create 3 reasonable user objects, it increases the possibility that you might make a mistake. For example, you might make a typo when making userFour:
 
 ```js
 let userFour = {
@@ -43,19 +43,19 @@ let userFour = {
 }
 ```
 
-Here, we made a  typo and capitalized the `d` in `ID` by mistake.  Now when we go to use the userIds, we will have undesired behavior:
+Here, we made a typo and capitalized the `d` in `ID` by mistake.  Now when we go to use the userIds, we will have undesired behavior:
 
 ```js
 let allUserIds = [userOne, userTwo, userThree, userFour].map( user => user.userId )
 console.log(allUserIds) //[ 6021, 6022, 6023, undefined ]
 ```
 
-We were replying on remembering the right way to make a user, but we didn't have a standard to guide us.  Constructor functions can help us by providing a unified standard for objects we want to create a lot of.
+We were relying on remembering the right way to make a user, but we didn't have a standard to guide us.  Constructor functions can help us by providing a unified standard for objects we want to create a lot of.
 
 ```js
 function User(name, userId) {
   this.name = name
-  this.userId = userID
+  this.userId = userId
 }
 ```
 
