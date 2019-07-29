@@ -115,17 +115,15 @@ ES5 Syntax:
 ```js
 function Animal(name) {
     this.name = name;
-    this.speak = function() {console.log(this.name + " makes a noise")};
 }
 
-Animal.prototype.eat = function() {
-  console.log("nom nom nom");
+Animal.prototype.speak = function() {
+  console.log(this.name + " makes a noise");
 }
 
 let corey = new Animal("corey")
 
 corey.speak() // => "corey makes a noise"
-corey.eat() // => "nom nom nom"
 ```
 
 ES6 Syntax:
@@ -140,15 +138,9 @@ class Animal {
   }
 }
 
-Animal.prototype.eat = function() {
-  console.log("nom nom nom")
-}
-
 let corey = new Animal("corey")
 
-
 corey.speak() // => "corey makes a noise"
-corey.eat() // => "nom nom nom"
 ```
 
 ## 4. Static methods
