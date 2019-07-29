@@ -105,7 +105,7 @@ initializing an object created with a class. There can only be one special metho
 
 ## 3. Methods
 
-The next difference we see a syntactic difference on how we write methods in that class.
+The next thing you may notice is a syntactic difference on how we write methods in that class.
 
 If you wish to add methods to the prototype and aren't able to add them directly inside of the class object, you must
 still use the className.prototype syntax.
