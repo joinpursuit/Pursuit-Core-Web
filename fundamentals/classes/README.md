@@ -13,13 +13,105 @@ FSW.1, EF.7, EF.7.a
 * super
 * extends
 
-## Lesson
+## 1. Constructor Function Review
 
-JavaScript classes, are primarily syntactical sugar (introduced in ES6) over JavaScript's existing prototype-based inheritance.
+*Constructor Functions* are ways of storing a prototype of common objects that we want to make. For example, you might find yourself writing the following code a lot:
 
-Let's take a look at some of the differences:
+```js
+let userOne = {
+  name: "Anne",
+  userId: 6021
+}
+
+let userTwo = {
+  name: "Ben",
+  userId: 6022
+}
+
+let userThree = {
+  name: "Cal",
+  userId: 6023
+}
+```
+
+While this will create 3 reasonable user objects, it increases the possibility that you might make a mistake.  For example, you might make a type when making userFour:
+
+```js
+let userFour = {
+  name: "Dan",
+  userID: 6024
+}
+```
+
+Here, we made a  typo and capitalized the `d` in `ID` by mistake.  Now when we go to use the userIds, we will have undesired behavior:
+
+```js
+let allUserIds = [userOne, userTwo, userThree, userFour].map( user => user.userId )
+console.log(allUserIds) //[ 6021, 6022, 6023, undefined ]
+```
+
+We were replying on remembering the right way to make a user, but we didn't have a standard to guide us.  Constructor functions can help us by providing a unified standard for objects we want to create a lot of.
+
+```js
+function User(name, userId) {
+  this.name = name
+  this.userId = userID
+}
+```
+
+```js
+let userOne = new User("Anne", 6021)
+let userTwo = new User("Ben", 6022)
+let userThree = new User("Cal", 6023)
+let userFour = new User("Dan", 6024)
+let allUserIds = [userOne, userTwo, userThree, userFour].map( user => user.userId )
+console.log(allUserIds) //[ 6021, 6022, 6023, 6024 ]
+```
+
+## 2. Constructor Functions in ES6 using Classes
+
+Constructor functions help us create templates for objects that we want to create multiple times.  This concept is very common in other programming languages as well, but most of them use a different *syntax* to make their constructor functions.  In ES6, JavaScript introduced a new way of writing constructor functions that make them look more like how they appear in other programming languages.  We'll review the new syntax, and some new things that we can do with them.
 
 Old way:
+
+```js
+function Animal(name) {
+    this.name = name;
+}
+
+let corey = new Animal("corey")
+```
+
+New way:
+
+```js
+class Animal {
+  constructor(name) {
+      this.name = name;
+  }
+}
+
+let corey = new Animal("corey")
+```
+
+What's changed?
+
+Instead of creating a constructor function that looks like most other functions, we have the new `class` word.
+__NOTE:__ function declarations are hoisted, class declarations are not.
+
+The next difference we see is the `constructor` method. The constructor method is a special method for creating and
+initializing an object created with a class. There can only be one special method with the name "constructor" in a class.
+
+
+## 3. Methods
+
+The next difference we see a syntactic difference on how we write methods in that class.
+
+If you wish to add methods to the prototype and aren't able to add them directly inside of the class object, you must
+still use the className.prototype syntax.
+
+ES5 Syntax:
+
 ```js
 function Animal(name) {
     this.name = name;
@@ -34,10 +126,9 @@ let corey = new Animal("corey")
 
 corey.speak() // => "corey makes a noise"
 corey.eat() // => "nom nom nom"
-
 ```
 
-New way:
+ES6 Syntax:
 
 ```js
 class Animal {
@@ -60,23 +151,36 @@ corey.speak() // => "corey makes a noise"
 corey.eat() // => "nom nom nom"
 ```
 
-What's changed?
+## 4. Static methods
 
-Instead of creating a constructor function that looks like most other functions, we have the new `class` word.
-__NOTE:__ function declarations are hoisted, class declarations are not.
+Using ES6 syntax, we can write methods that are true about the class as a whole, not just an individual instance.  We use the keyword `static` to indicate the a method is called on the name of the class, not on a particular instance.
 
-The next difference we see is the `constructor` method. The constructor method is a special method for creating and
-initializing an object created with a class. There can only be one special method with the name "constructor" in a class.
+```js
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 
-The next difference we see a syntactic difference on how we write methods in that class.
+  static distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
 
-Lastly, if you wish to add methods to the prototype and aren't able to add them directly inside of the class object, you must
-still use the className.prototype syntax.
+    return Math.hypot(dx, dy);
+  }
+}
 
-## Extends
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+
+console.log(Point.distance(p1, p2)); // 7.0710678118654755
+```
+
+## 5. Inheritance
+
 The extends keyword is used in class declarations or class expressions to create a class as a child of another class.
 Let's see this in action by pretending we want to create another class called Dog. We want dog to have all the same methods as Animal
-but make it's speak be woof woof and add a new method called fetch.
+but make its speak be woof woof and add a new method called fetch.
 
 ```js
 class Dog extends Animal {
