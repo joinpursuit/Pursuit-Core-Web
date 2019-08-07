@@ -48,7 +48,7 @@
 
 HTML stands for "Hyper Text Markup Language".  It's a special way of writing that tells web browsers how to display the text you want people to see on your website.
 
-HTML uses *tags* inside angle brackets to tell the browser how to display information (e.g <h1></h>).
+HTML uses *tags* inside angle brackets to tell the browser how to display information (e.g `<h1>Heading</h1>`).
 
 HTML is not a programming language.  You can't write code in HTML, only give instructions about how to display information.  You can, however, combine HTML and JavaScript to build websites that both show text, and allow for user interaction.
 
