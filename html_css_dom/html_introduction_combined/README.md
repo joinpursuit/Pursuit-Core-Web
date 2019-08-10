@@ -319,7 +319,7 @@ This would render a blank text box on the page, which isn't terribly helpful. Th
 ```html
 <form>
   First name:<br>
-  <input type="text" name="firstname" value="First name"><br>
+  <input type="text" name="firstname" placeholder="First name"><br>
   Last name:<br>
   <input type="text" name="lastname" placeholder="Last name"><br>
 </form>
