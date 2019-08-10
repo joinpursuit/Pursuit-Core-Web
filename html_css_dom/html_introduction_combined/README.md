@@ -180,7 +180,7 @@ Our website above has the text separated out, but doesn't have a way to differen
 
 ![headingImage](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6-2-combined-html-lesson/html_css_dom/html_introduction_combined/htmlHeader.png)
 
-In HTML there are five different types of headings, h1 to h5, with h1 having the largest default font size/line spacing and h5 having the smallest default font size/line spacing. Typically heading tags are used for titles and subtitles on a page, with large bold fonts.
+In HTML there are five different types of headings, h1 to h6, with h1 having the largest default font size/line spacing and h6 having the smallest default font size/line spacing. Typically heading tags are used for titles and subtitles on a page, with large bold fonts.
 
 # 6. Styling Tags
 
