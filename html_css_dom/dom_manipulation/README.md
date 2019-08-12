@@ -214,16 +214,14 @@ We can also delete HTML elements from the DOM using the `removeChild` method.  T
       <p id="para2">This is the second paragraph</p>
     </div>
     <button onclick="deleteFirstParagraph()">Delete the first paragraph</button>
-    <body>
-      <script type="text/javascript">
+    <script type="text/javascript">
       function deleteFirstParagraph() {
         let divisionOne = document.getElementById("div1")
         let paraOne = document.getElementById("para1")
         divisionOne.removeChild(paraOne)
       }
-      </script>
+    </script>
     </body>
-  </body>
 </html>
 ```
 
@@ -238,14 +236,12 @@ It is a little annoying to have to get both the parent node and the child node. 
       <p id="para2">This is the second paragraph</p>
     </div>
     <button onclick="deleteFirstParagraph()">Delete the first paragraph</button>
-    <body>
-      <script type="text/javascript">
+    <script type="text/javascript">
       function deleteFirstParagraph() {
         let paraOne = document.getElementById("para1")
         paraOne.parentNode.removeChild(paraOne)
       }
-      </script>
-    </body>
+    </script>
   </body>
 </html>
 ```
@@ -264,16 +260,14 @@ We can also edit the DOM by replacing nodes using the `replaceChild()` method.  
       <p id="para2">This is the second paragraph</p>
     </div>
     <button onclick="replaceFirstParagraph()">Replace the first paragraph</button>
-    <body>
-      <script type="text/javascript">
+    <script type="text/javascript">
       function replaceFirstParagraph() {
         let firstPara = document.querySelector("p")
         let newNode = document.createElement("p")
         newNode.innerText = "Here's a new random number: " + Math.random()
         firstPara.parentNode.replaceChild(newNode, firstPara)
       }
-      </script>
-    </body>
+    </script>
   </body>
 </html>
 ```
