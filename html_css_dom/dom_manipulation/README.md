@@ -2,6 +2,7 @@
 
 ## Goals
 
+- Use querySelector and querySelectorAll to get HTML elements
 - Insert new HTML elements
 - Delete HTML elements
 - Replace HTML elements
@@ -9,7 +10,10 @@
 ## Readings
 
 - https://www.w3schools.com/js/js_htmldom_nodes.asp
+- https://www.w3schools.com/jsref/met_document_createelement.asp
 - https://www.w3schools.com/jsref/met_document_queryselector.asp
+- https://www.w3schools.com/jsref/met_document_queryselectorall.asp
+- https://www.w3schools.com/tags/tag_div.asp
 
 # 1. Using querySelector to get elements
 
@@ -199,6 +203,77 @@ Additionally, when we get data from online, it will usually look something like 
 
 # 3. Deleting HTML elements
 
-We can also delete HTML elements from the DOM using the `removeChild` method.  To delete an element, we need to know both the parent object, and its child.  
+We can also delete HTML elements from the DOM using the `removeChild` method.  To delete an element, we need to know both the parent object, and its child.
+
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <div id="div1">
+      <p id="para1">This is the first paragraph</p>
+      <p id="para2">This is the second paragraph</p>
+    </div>
+    <button onclick="deleteFirstParagraph()">Delete the first paragraph</button>
+    <body>
+      <script type="text/javascript">
+      function deleteFirstParagraph() {
+        let divisionOne = document.getElementById("div1")
+        let paraOne = document.getElementById("para1")
+        divisionOne.removeChild(paraOne)
+      }
+      </script>
+    </body>
+  </body>
+</html>
+```
+
+It is a little annoying to have to get both the parent node and the child node.  Fortunately, HTML elements have a `.parentNode` property that we can use to get the parent node.
+
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <div id="div1">
+      <p id="para1">This is the first paragraph</p>
+      <p id="para2">This is the second paragraph</p>
+    </div>
+    <button onclick="deleteFirstParagraph()">Delete the first paragraph</button>
+    <body>
+      <script type="text/javascript">
+      function deleteFirstParagraph() {
+        let paraOne = document.getElementById("para1")
+        paraOne.parentNode.removeChild(paraOne)
+      }
+      </script>
+    </body>
+  </body>
+</html>
+```
+
 
 # 4. Replacing HTML elements
+
+We can also edit the DOM by replacing nodes using the `replaceChild()` method.  `replaceChild()` takes in two arguments, the child node to get rid of, and the new node that you are replacing it with.
+
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+    <div id="div1">
+      <p id="para1">This is the first paragraph</p>
+      <p id="para2">This is the second paragraph</p>
+    </div>
+    <button onclick="replaceFirstParagraph()">Replace the first paragraph</button>
+    <body>
+      <script type="text/javascript">
+      function replaceFirstParagraph() {
+        let firstPara = document.querySelector("p")
+        let newNode = document.createElement("p")
+        newNode.innerText = "Here's a new random number: " + Math.random()
+        firstPara.parentNode.replaceChild(newNode, firstPara)
+      }
+      </script>
+    </body>
+  </body>
+</html>
+```
