@@ -4,7 +4,6 @@
 
 | Lesson | Exit Ticket | Lab |
 | --- | --- | --- |
-
 | 1. [HTML Introduction](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/html_introduction_combined) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4100854) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-HTML-Introduction-Lab) |
 | 2. [Combining HTML and JavaScript + Introduction to the DOM](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6_2/html_css_dom/dom_1/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4107336) | [link](https://github.com/joinpursuit/combining-html-and-javascript-plus-dom)
 | 3. [DOM Manipulation with JavaScript](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/dom_manipulation) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4116399) | [link](https://github.com/joinpursuit/adding_elements_to_the_dom_lab)
