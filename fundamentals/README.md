@@ -4,7 +4,6 @@
 
 | Lesson | Exit Ticket | Lab |
 | --- | --- | --- |
-
 1. [Local Environment Setup](./local_environment/README.md) | n/a | lab |
 2. [The Command Line](./the_command_line/README.md) | n/a | lab |
 3. [Git and GitHub](./git_and_github/README.md) | n/a | lab |
