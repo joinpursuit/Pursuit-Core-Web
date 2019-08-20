@@ -2,24 +2,22 @@
 
 ## Contents
 
-1. [HTML Intro](./html_intro/README.md)
-2. [HTML Tags - Paragraphs and Headings](./html_paragraph_and_headings/README.md)
-3. [HTML Tags - Lists, Links, and Images](./html_lists_links_imgs/README.md)
-4. [HTML Tags - Tables and Forms](./html_tables_forms/README.md)
-5. [DSA: Recursion](https://github.com/joinpursuit/DSA-Curriculum/blob/master/Recursion/lesson-js.md)
-6. [CSS Intro](./css_intro/README.md)
-7. [CSS - Box Model](./css_box_model/README.md)
-8. [CSS - Selectors](./css_selectors/README.md)
+| Lesson | Exit Ticket | Lab |
+| --- | --- | --- |
+
+| 1. [HTML Introduction](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/html_introduction_combined) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4100854) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-HTML-Introduction-Lab) |
+| 2. [Combining HTML and JavaScript + Introduction to the DOM](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6_2/html_css_dom/dom_1/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4107336) | [link](https://github.com/joinpursuit/combining-html-and-javascript-plus-dom)
+| 3. [DOM Manipulation with JavaScript](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/dom_manipulation) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4116399) | [link](https://github.com/joinpursuit/adding_elements_to_the_dom_lab)
+| 4. [Events](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/events) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4129211) | [link](https://github.com/joinpursuit/events_lab)
+| 5. [CSS Introduction](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/css_intro) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4143418) | [link](https://github.com/joinpursuit/Pursuit-Core-CSS-Intro-Lab/blob/master/README.md) |
+| 6. [CSS Selectors](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_selectors/css_selectors.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4151828) | [link](https://github.com/joinpursuit/Pursuit-Core-CSS-Selectors-Lab/blob/master/README.md)
+
+Upcoming:
+
 9. [CSS - Flexbox](./css_flexbox/README.md)
 10. [CSS - Reset](./css_reset/README.md)
 11. [CSS - Grid](./css_grid/README.md)
 12. [CSS - Display, Z-index, Position](./css_display_position_zind/README.md)
-13. [Document Object Model](./dom_1/README.md)
-14. [Document Object Model II](./dom_2/README.md)
-15. [Events](./events_1/README.md)
-16. [Events II](./events_2/README.md)
-17. [DSA: Stacks](https://github.com/joinpursuit/DSA-Curriculum/blob/master/Stacks/lesson-js.md)
-18. [DSA: Queues](https://github.com/joinpursuit/DSA-Curriculum/blob/master/Queues/lesson-js.md)
 19. [Event Loop](./event_loop/README.md)
 20. [API Intro](./api_intro/README.md)
 21. [RESTful APIs](./restful_apis/README.md)
@@ -28,4 +26,3 @@
 24. [Promises](./promises/README.md)
 25. [Axios](./axios/README.md)
 26. [Async/Await](./async_and_await/README.md)
-27. [DSA: Bubble Sort](https://github.com/joinpursuit/DSA-Curriculum/blob/master/Sorting%20Algorithms/lesson-bubble-js.md)
