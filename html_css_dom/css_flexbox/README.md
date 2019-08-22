@@ -52,7 +52,7 @@ Let's layout an image gallery using the HTML below:
 
 Not that we've wrapped the `img` tags inside of a `div` tag (for division).  This will help keep our different sections organized.
 
-![NoCSSImages]()
+![NoCSSImages](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/NoCSSImages.png)
 
 All of our images are loaded, one after the other.  But what if we wanted to have them be in a column instead of a row?  We could do it with `br` tags, but as our websites become more complicated, we don't want to have to manage that by ourselves.  Let's add the following CSS to display this using a Flexbox:
 
@@ -62,7 +62,7 @@ All of our images are loaded, one after the other.  But what if we wanted to hav
 }
 ```
 
-![FlexImages]()
+![FlexImages](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexImages.png)
 
 We see that the borders between the images go away, and that they are all on a single line.  Let's make it so that the images wrap to the next line using the `flex-wrap` property:
 
@@ -73,7 +73,7 @@ We see that the borders between the images go away, and that they are all on a s
 }
 ```
 
-![FlexWrap]()
+![FlexWrap](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexWrap.png)
 
 The `flex-wrap` properties are:
 - nowrap (default): all flex items appear on the same line
@@ -98,7 +98,7 @@ The `flex-direction` properties are:
 - column-reverse: bottom to top
 
 
-![FlexColumn]()
+![FlexColumn](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumn.png)
 
 That doesn't look right!  By default, the width of any elements in a column is set to stretch to the width of their parent element.  Here, that means it will mess up the aspect ratio of the images.  Let's fix it by using the `align-items` property:
 
@@ -115,15 +115,15 @@ This diagram from css-tricks shows all of the align-items properties:
 
 ![align-items](https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg)
 
-![FlexColumnFlexStart]()
+![FlexColumnFlexStart](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnFlexStart.png)
 
 We can also pin the pictures to the right of the page:
 
-![FlexColumnFlexEnd]()
+![FlexColumnFlexEnd](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnFlexEnd.png)
 
 And to the center:
 
-![FlexColumnCenter]()
+![FlexColumnCenter](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnCenter.png)
 
 
 We can also use the `justify-content` property to align the content along the main axis.  From css-tricks:
@@ -247,7 +247,8 @@ Try moving the page around and see how the UI updates.
 
 You can modify how items act inside your flex container with several properties. This can be useful if you'd like to specify the order of items or width of one particular item. You can explore how to to modify specific elements in more detail on the incredible [CSS-Tricks page](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) on flexbox.
 
-### Media Queries
+
+# 4. Media Queries
 
 Our site is looking pretty good! We can make our window very small and our `div`s stack on top of one another into a neat column. This is great--if it works well with my browser window being small, then it will look great on a mobile device! Let's have a look.
 
