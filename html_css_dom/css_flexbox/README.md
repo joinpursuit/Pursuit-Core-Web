@@ -102,6 +102,7 @@ The `flex-direction` properties are:
 
 That doesn't look right!  By default, the width of any elements in a column is set to stretch to the width of their parent element.  Here, that means it will mess up the aspect ratio of the images.  Let's fix it by using the `align-items` property:
 
+
 ```css
 .imagesDiv {
     display: flex;
@@ -111,11 +112,14 @@ That doesn't look right!  By default, the width of any elements in a column is s
 }
 ```
 
+![FlexColumnFlexStart](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnFlexStart.png)
+
+<br>
+<br>
+
 This diagram from css-tricks shows all of the align-items properties:
 
 ![align-items](https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg)
-
-![FlexColumnFlexStart](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnFlexStart.png)
 
 We can also pin the pictures to the right of the page:
 
