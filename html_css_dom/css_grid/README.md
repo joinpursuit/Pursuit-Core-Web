@@ -63,7 +63,7 @@ Add this styling to your CSS file:
 }
 ```
 
-![htmlNoGrid](/images/htmlNoGrid.png)
+![htmlNoGrid](./images/htmlNoGrid.png)
 
 Now, let's see how we can use grid to style our display further.
 
@@ -88,7 +88,7 @@ To see something that looks more like a grid we can add some columns. Add the gr
 }
 ```
 
-![gridTwoColumns](/images/gridTwoColumns.png)
+![gridTwoColumns](./images/gridTwoColumns.png)
 
 Using the `grid-template-columns` property, we specified that we needed exactly 2 columns, both with a width of 200 pixels.  We can add additional columns by adding more values to the property.  They can even be different sizes:
 
@@ -99,7 +99,7 @@ Using the `grid-template-columns` property, we specified that we needed exactly 
 }
 ```
 
-![gridFourColumns](/images/gridFourColumns.png)
+![gridFourColumns](./images/gridFourColumns.png)
 
 We can also use different units instead of pixels.  `fr` stands for "fraction" and allows us to set the relative size of each column.  The css below will make 3 columns, where the first one is twice as big as the other two:
 
@@ -111,7 +111,7 @@ We can also use different units instead of pixels.  `fr` stands for "fraction" a
 ```
 
 
-![gridFr](/images/gridFr.png)
+![gridFr](./images/gridFr.png)
 
 Note that as you adjust the size of the window, the columns stretch or shrink to fill up the window.
 
@@ -162,7 +162,7 @@ Just like we saw with flexbox, we can further set how content should be laid out
 }
 ```
 
-![gridGap](/images/gripGap.png)
+![gridGap](./images/gripGap.png)
 
 These gaps can be any length unit or percentage except `fr`.
 
@@ -178,7 +178,7 @@ So far we have only been working with columns, and rows have automatically been 
 }
 ```
 
-![gridAutoRows](/images/gridAutoRows.png)
+![gridAutoRows](./images/gridAutoRows.png)
 
 This looks good, but what happens if we were to have an item that was taller than 100px?
 
@@ -234,7 +234,7 @@ The CSS and HTML below illustrate an example:
   }
 ```
 
-![autoRowOverFlow](/images/autoRowOverFlow.png)
+![autoRowOverFlow](./images/autoRowOverFlow.png)
 
 We can solve this by using the `minmax(min, max)` function:
 
@@ -247,7 +247,7 @@ We can solve this by using the `minmax(min, max)` function:
 }
 ```
 
-![autoRowMinMax](/images/autoRowMinMax.png)
+![autoRowMinMax](./images/autoRowMinMax.png)
 
 
 Sometimes it is helpful to be able to ask grid to create as many columns as will fit into the container. We can do this by combining several of the techniques above:
@@ -263,7 +263,7 @@ Change your css for the container class to the following.  Here, we use `auto-fi
 }
 ```
 
-![autoFillingGrid](/images/autoFillingGrid.gif)
+![autoFillingGrid](./images/autoFillingGrid.gif)
 
 # 4. Placement items inside of a grid
 
@@ -305,7 +305,7 @@ Using `grid-row` and `grid-column`, we can specify how much space in the grid a 
 }
 ```
 
-![placingGridItemOne](/images/placingGridItemOne.png)
+![placingGridItemOne](./images/placingGridItemOne.png)
 
 How would you make 1 take up the entire 3rd row?
 
