@@ -162,7 +162,7 @@ Just like we saw with flexbox, we can further set how content should be laid out
 }
 ```
 
-![gridGap](./images/gripGap.png)
+![gridGap](./images/gridGap.png)
 
 These gaps can be any length unit or percentage except `fr`.
 
@@ -318,6 +318,7 @@ How would you make 1 take up the entire 3rd row?
   grid-column: 1 / 4;
 }
 ```
+</details>
 
 There are many more CSS Grid properties and resources.  To experiment further, check out the links in the resources section below.
 
