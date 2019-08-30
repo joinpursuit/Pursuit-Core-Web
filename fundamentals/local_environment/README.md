@@ -182,19 +182,30 @@ node -v
 
 If you don't see anything, let us know.
 
-### [Visual Studio Code](https://code.visualstudio.com/)
+### [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux)	### [Visual Studio Code](https://code.visualstudio.com/)
 
-Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
 
-Open your Terminal and type `code`, VS Code should launch.
+ In your terminal, go ahead and type (again, one line at a time):	Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
 
-VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
 
-We recommend you to download these [extensions](http://celine.tech/vs-code-extension/).
+ ```	Open your Terminal and type `code`, VS Code should launch.
+curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -	
+ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'	
 
-VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
 
-You're all set.
+ sudo apt-get update	VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
+```	
+
+
+ Then, type:	We recommend you to download these [extensions](http://celine.tech/vs-code-extension/).
+
+
+ ```	VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
+sudo apt-get install atom	
+```	
+
+
+ And you're all set.
 
 ### [Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04-quickstart)
 
