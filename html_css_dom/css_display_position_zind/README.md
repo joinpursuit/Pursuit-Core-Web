@@ -19,7 +19,7 @@
 
 # 1. Introduction
 
-Elements have a vareity of different display qualities that we can use to customize its appearance and position on the screen. Here, take a look at some of the more common ones that you might come across, as well as looking further into the `z-index`.
+Elements have a variety of different display qualities that we can use to customize its appearance and position on the screen. Here, take a look at some of the more common ones that you might come across, as well as looking further into the `z-index`.
 
 # 2. The display property
 
