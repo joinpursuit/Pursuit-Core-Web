@@ -32,8 +32,8 @@ for(let i = 0; i < array1.length; i++) {
 
 let array2 = [11, 12, 13, 14, 15, 16, 17, 18]
 
-for(let i = 0; i < array1.length; i++) {
-  console.log(array1[i])
+for(let i = 0; i < array2.length; i++) {
+  console.log(array2[i])
 }
 ```
 
