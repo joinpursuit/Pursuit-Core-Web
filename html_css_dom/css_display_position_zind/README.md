@@ -17,13 +17,14 @@
 * position
 * z-index
 
-## Lesson 
+# 1. Introduction
 
-### Display
+Elements have a vareity of different display qualities that we can use to customize its appearance and position on the screen. Here, take a look at some of the more common ones that you might come across, as well as looking further into the `z-index`.
 
-There are many different display qualities that an element can have. Let's take a look at some of the more common ones that you might come across. 
+# 2. The display property
 
-#### display: block;
+## display: block;
+
 The element generates a block element box, generating line breaks both before and after the element when in the normal flow.
 To see this, paste the following code into a display.html file and display.css file. You should see that each element stretches all the way across the screen. A block will always try to have a width of 100% inside its parent container.
 
@@ -81,14 +82,16 @@ span {
 
 ```
 
-#### display: inline;
+## display: inline;
+
 Now change your display inside of span to `inline`. What happened?
 
 Inline element boxes do not generate line breaks before or after themselves. In normal flow, the next element will be on the same line if there is space
 
 
 
-#### display: none;
+## display: none;
+
 Defines whether an element generates a display box at all.  
 By adding the `display: none;` property the element will not appear on the page. Try adding `display: none;` to `.second` and examine the html of the page. Next, move your `display: none;` to `.first`. What changed? 
 
@@ -99,7 +102,8 @@ By adding the `display: none;` property the element will not appear on the page.
  The div with class `.first` was removed from the DOM as well as all of it's children elements. 
 </details>
 
-### Position 
+# 3. The position property
+
 The position CSS property specifies how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.
 
 Before we begin, remove the inner text of the html from the last exercise and use the following css:
@@ -137,31 +141,36 @@ span {
 ```
  You should be seeing four rectangles all colored differently. 
  
- #### position: static; 
+## position: static; 
+
 The element is positioned according to the normal flow of the document. The top, right, bottom, left, and z-index properties have no effect. This is the default value.
 
 Try adding `top: 20px;` inside of your `.inner-container`. You will see that there is no change to your screen. 
 
-#### position: relative;
+## position: relative;
+
 The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements.
 
 Inside or your `.inner-container` add `top: 20px;` and `position: relative;`
 
 What happens when you move those attributes into `.second`? Notice that the red square didn't change positions?
 
-#### position: absolute;
+## position: absolute;
+
 The element is positioned relative to its first positioned (not static) ancestor element. 
 
 Let's see this in action. Inside of `.inner-container` give it a position of absolute and lets move it `left: 20px;`.
 You'll see the element moves left. Now, lets give it's parent (`.first`) a `position: relative`. Although the movement is slight, you'll see that it's absolute position has changed. 
 
-#### position: fixed;
+## position: fixed;
+
 The element is positioned relative to the browser window. 
 To see this, inside of `.inner-container` give it a position of fixed and lets move it `right: 20px;`. 
 Now, as before, give it's parent element a `position: relative`. See how it no longer cares about it's parents? :-(
 
 
-### Z-Index 
+# 4. The Z-Index 
+
 The z-index CSS property specifies the z-order of a positioned element and its descendants. The hight the z-index the closer the element is to _you_ the user. By default an elements z-index is 0. 
 
 For a positioned box (that is, one with any position other than static), the z-index property specifies:
