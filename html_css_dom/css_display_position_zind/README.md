@@ -171,7 +171,7 @@ Now, as before, give it's parent element a `position: relative`. See how it no l
 
 # 4. The Z-Index 
 
-The z-index CSS property specifies the z-order of a positioned element and its descendants. The hight the z-index the closer the element is to _you_ the user. By default an elements z-index is 0. 
+The z-index CSS property specifies the z-order of a positioned element and its descendants. The higher the z-index the closer the element is to _you_ the user. By default an elements z-index is 0. 
 
 For a positioned box (that is, one with any position other than static), the z-index property specifies:
 * The stack level of the box in the current stacking context.
