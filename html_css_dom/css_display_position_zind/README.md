@@ -38,16 +38,16 @@ To see this, paste the following code into a display.html file and display.css f
     <link rel="stylesheet" href="./display.css">
   </head>
   <body>
-    <span class="first outercontainer">
+    <span class="first outer-container">
       outer first
       <span class="inner-container">
         inner
       </span>
    </span>
-   <span class="second outercontainer">
+   <span class="second outer-container">
      second
    </span>
-   <span class="third outercontainer">
+   <span class="third outer-container">
      third
    </span>
   </body>
@@ -110,7 +110,7 @@ Before we begin, remove the inner text of the html from the last exercise and us
 
 ```css 
 
-.outercontainer {
+.outer-container {
   height: 100px;
   width: 100px;
 }
