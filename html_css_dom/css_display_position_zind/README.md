@@ -203,6 +203,15 @@ Where did all our blocks go and why did that happen?
  
  By giving our first element a higher z-index than the default we have moved it higher on the stack and 'closer' to us the user. Try playing around with different z-index's. Do negatives work? 
 
+<details>
+<summary>
+<b>Exercise</b>
+</summary>
+
+  Replicate this. You shouldn't have to modify you HTML at all. Edit you CSS.
+  ![three 2d squares over lapping](./assets/exercise_zindex.png)
+</details>
+
 # Summary
 
 With the CSS properties `display`, `position`, `top`, `left` and `z-index` among others we can control how an HTML element is displayed and positioned inside a page or a container element. We can also think of a webpage (or any html container element like a `div`) as a [2 dimensional space](https://en.wikipedia.org/wiki/Two-dimensional_space). We can control how big that space is with properties like `height` and `width`, and we specify where the element and its children is positioned in this '2D plane' with the `position` property combined with the `top`, `bottom`, `left` and `right` properties. The `z-index` allow us to think of this space as somewhat of a 3D space, letting us place elements on top or behind one another as if the space had a depth quality to it. So we could think of `top` and `bottom` as properties that determine an element's position in the **Y** axis and `left` and `right` determine the elements position in the **X** axis in a [Cartesian Plane](https://www.statisticshowto.datasciencecentral.com/what-is-a-cartesian-plane/). The last piece, the `z-index` determines the position of the element in the **Z** axis. That is how close or far a given element is from a viewer (the user or you). Now why do we say that we can think of an html page or container element as 'somewhat' of a 3D space and not a 'full fledged' 3D space. That is because in the CSS and HTML we have seen so far there are `width` and `height` but **no** way to give an element a defined depth say `100px`. What `z-index` allow us to specify is the stacking order of the elements overlapping not their depth.
