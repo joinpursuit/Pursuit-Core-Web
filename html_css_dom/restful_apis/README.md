@@ -15,7 +15,7 @@
   * PATCH
   * DELETE
   * CRUD
-  
+
 ## Resources
 
 * [What is a RESTful API?](https://restfulapi.net/)
@@ -24,15 +24,13 @@
 * [REST - Wikipedia](https://www.wikiwand.com/en/Representational_state_transfer)
 * [HTTP Requests - W3Schools](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
-## Lesson
-
-## REST
+## 1. REST Introduction
 
 A **RESTful API** is an application program interface (API) that uses HTTP requests to GET, PUT, POST, PATCH and DELETE data. When we were interacting with the Dog API, we were using _GET_ requests: we were _getting_ data from a source. But there are other methods that you can use when interacting with APIs such as updating (PUT), adding (POST), and removing (DELETE). The Dog API has been written in such a way where we, random users, cannot update, add or remove information from the database. This is a safety measure because you don't want _random users_ deleting your information!
 
 A RESTful API -- also referred to as a RESTful web service -- is based on representational state transfer (REST) technology, an architectural style and approach to communications often used in web services development. As explained by [resfulapi.net](https://restfulapi.net/rest-architectural-constraints/), there are **six guiding principles** for a RESTful API.
 
-### API Principles
+## 2. API Principles
 
 1. **Uniform interface** -  You MUST decide APIs interface for resources inside the system which are exposed to API consumers and follow religiously. This means you need to have a **clear vision** for how all of your data will be stored. It must be stored in a logical and scalable way. A resource in the system should have only _one logical_ URL and that should provide a way to fetch related or additional data. Any single resource should not be too large and contain each and everything in its representation.
     * Think about the Dog API--the way to obtain information from it made sense. If you wanted a list of dog breeds you sent a request to https://dog.ceo/api/breeds/list/all and received a list of all dog breeds. This is a logical way to organize data because it is _organized_ and is clear to the user what information will be received. The URLs are defined by **YOU** the developer, so it is important it makes sense to people who are **not you**.
@@ -48,7 +46,7 @@ A RESTful API -- also referred to as a RESTful web service -- is based on repres
 
 6. **Code on demand** (optional) - Most of the time you will be sending the static representations of resources in form of  JSON. But when you need to, you are free to return _executable code_ to support a part of your application e.g. clients may call your API to get a UI widget rendering code. It is permitted.
 
-### RESTful API Endpoints
+## 3. RESTful API Endpoints
 
 In REST, primary data representation is called **Resource** or **Endpoint**.  Having a strong and consistent REST endpoint naming strategy will definitely help the usefulness and scalability of your API in the long term. An endpoint can be a singleton or a collection. For example, “breeds” is a collection resource and “breed” is a singleton resource (in the Dog API domain). We can identify “breeds” collection resource using the URI [“/breeds”](). We can identify a single “breed” resource using the URI [“/breed/{breedName}”](). Another acceptable way to structure this would be to use the URI ["/breeds/{breedName}"]() or even ["/breeds/{breedId}"]().
 
@@ -63,7 +61,7 @@ http://api.example.com/user-management/users => _What would we expect here?_<br>
 http://api.example.com/user-management/users/{id} => _What would we expect here?_<br>
 
 
-### Interacting with APIs
+## 4. Interacting with APIs
 
 To fully interact with APIs, we will need a new tool. Postman is a common tool developers use to test the functionality of an API: _"If I send this POST request to the API, will it work? What is the result from this GET request?"_ These are questions you will be asking yourself over and over, so it is very important that you use tools like Postman because it allows you to understand how an API works **before** you put it into your code and plan accordingly. **Remember: If you fail to plan, plan to fail!**
 
@@ -158,9 +156,9 @@ Like with PUT and PATCH, a DELETE request can only be sent to a _singleton resou
 
 Send a DELETE request to the URL. What is the return value? Why might this be?
 
-### CRUD
+## 5. CRUD
 
-Another acronym you may have heard and will definitely hear in the future is _CRUD_. This stands for *C*reate, *R*ead, *U*pdate, and *D*elete. CRUD represents the basic functionality we have all come to expect from an application. Let's think about this in terms of Instagram.
+Another acronym you may have heard and will definitely hear in the future is _CRUD_. This stands for <b>C</b>reate, <b>R</b>ead, <b>U</b>pdate, and <b>D</b>elete. CRUD represents the basic functionality we have all come to expect from an application. Let's think about this in terms of Instagram.
 
 In terms of CRUD, _create_ means being able to ADD information to whatever application we are using. Write a blog post, post a picture, update your status, whatever. We can _create_ content on Instagram and do this by posting photos.
 
