@@ -15,7 +15,7 @@
   * PATCH
   * DELETE
   * CRUD
-  
+
 ## Resources
 
 * [What is a RESTful API?](https://restfulapi.net/)
@@ -24,15 +24,13 @@
 * [REST - Wikipedia](https://www.wikiwand.com/en/Representational_state_transfer)
 * [HTTP Requests - W3Schools](https://www.w3schools.com/tags/ref_httpmethods.asp)
 
-## Lesson
-
-## REST
+## 1. REST Introduction
 
 A **RESTful API** is an application program interface (API) that uses HTTP requests to GET, PUT, POST, PATCH and DELETE data. When we were interacting with the Dog API, we were using _GET_ requests: we were _getting_ data from a source. But there are other methods that you can use when interacting with APIs such as updating (PUT), adding (POST), and removing (DELETE). The Dog API has been written in such a way where we, random users, cannot update, add or remove information from the database. This is a safety measure because you don't want _random users_ deleting your information!
 
-A RESTful API -- also referred to as a RESTful web service -- is based on representational state transfer (REST) technology, an architectural style and approach to communications often used in web services development. As explained by [resfulapi.net](https://restfulapi.net/rest-architectural-constraints/), there are **six guiding principles** for a RESTful API.
+A RESTful API -- also referred to as a RESTful web service -- is based on REpresentational State Transfer (REST) technology, an architectural style and approach to communications often used in web services development. As explained by [resfulapi.net](https://restfulapi.net/rest-architectural-constraints/), there are **six guiding principles** for a RESTful API.
 
-### API Principles
+## 2. API Principles
 
 1. **Uniform interface** -  You MUST decide APIs interface for resources inside the system which are exposed to API consumers and follow religiously. This means you need to have a **clear vision** for how all of your data will be stored. It must be stored in a logical and scalable way. A resource in the system should have only _one logical_ URL and that should provide a way to fetch related or additional data. Any single resource should not be too large and contain each and everything in its representation.
     * Think about the Dog API--the way to obtain information from it made sense. If you wanted a list of dog breeds you sent a request to https://dog.ceo/api/breeds/list/all and received a list of all dog breeds. This is a logical way to organize data because it is _organized_ and is clear to the user what information will be received. The URLs are defined by **YOU** the developer, so it is important it makes sense to people who are **not you**.
@@ -48,7 +46,7 @@ A RESTful API -- also referred to as a RESTful web service -- is based on repres
 
 6. **Code on demand** (optional) - Most of the time you will be sending the static representations of resources in form of  JSON. But when you need to, you are free to return _executable code_ to support a part of your application e.g. clients may call your API to get a UI widget rendering code. It is permitted.
 
-### RESTful API Endpoints
+## 3. RESTful API Endpoints
 
 In REST, primary data representation is called **Resource** or **Endpoint**.  Having a strong and consistent REST endpoint naming strategy will definitely help the usefulness and scalability of your API in the long term. An endpoint can be a singleton or a collection. For example, “breeds” is a collection resource and “breed” is a singleton resource (in the Dog API domain). We can identify “breeds” collection resource using the URI [“/breeds”](). We can identify a single “breed” resource using the URI [“/breed/{breedName}”](). Another acceptable way to structure this would be to use the URI ["/breeds/{breedName}"]() or even ["/breeds/{breedId}"]().
 
@@ -63,20 +61,11 @@ http://api.example.com/user-management/users => _What would we expect here?_<br>
 http://api.example.com/user-management/users/{id} => _What would we expect here?_<br>
 
 
-### Interacting with APIs
+## 4. Interacting with APIs
 
-To fully interact with APIs, we will need a new tool. Postman is a common tool developers use to test the functionality of an API: _"If I send this POST request to the API, will it work? What is the result from this GET request?"_ These are questions you will be asking yourself over and over, so it is very important that you use tools like Postman because it allows you to understand how an API works **before** you put it into your code and plan accordingly. **Remember: If you fail to plan, plan to fail!**
+To fully interact with APIs, we will use Postman. Postman is a common tool developers use to test the functionality of an API: _"If I send this POST request to the API, will it work? What is the result from this GET request?"_ These are questions you will be asking yourself over and over, so it is very important that you use tools like Postman because it allows you to understand how an API works **before** you put it into your code and plan accordingly. **Remember: If you fail to plan, plan to fail!**
 
-[Download Postman for Mac here!](https://app.getpostman.com/app/download/osx64) After downloading and installing, make sure you drag the Postman icon into your Applications folder to save it to your computer then open it up!
-
-Let's use Postman to make a request to the Dog API. Paste the link for all breeds (https://dog.ceo/api/breeds/list/all
-) into Postman and press Send. What happens?
-
-We get the _exact same thing_ as when we put the list into our browser 🤔 which is not very exciting but that's what should have happened! The GET request to the Dog API returns the same result regardless of when or how we send it--RESTful APIs!
-
-The Dog API has been great, but we can only make GET requests. To see how the other methods work, we are going to use a different API that allows random users (like us!) to also send POST, PUT and DELETE requests. These requests are built into the _World Wide Web_ and are collectively called HTTP Requests. Go to https://jsonplaceholder.typicode.com/ and **read** the documentation. We'll wait.
-
-🕐🕑🕒🕓🕕🕖🕗🕘
+The Dog API from last lesson has been great, but we can only make GET requests. To see how the other methods work, we are going to use a different API that allows random users (like us!) to also send POST, PUT and DELETE requests. These requests are built into the _World Wide Web_ and are collectively called HTTP Requests.  The documentation can be found here: https://jsonplaceholder.typicode.com/.
 
 #### GET Request
 
@@ -127,7 +116,7 @@ Let's try sending the same information to https://jsonplaceholder.typicode.com/p
 PUT and PATCH requests are both requests that can be sent to _edit/update_ specific information in the API. Since these both refer to specific information, they are only applicable with singleton resources (like one dog breed or one specific blog post). While PUT and PATCH both _edit_ information contained within the database, they are different.
 
 * **PUT** edits the _entire_ data point. If you make a PUT request to [/posts/1]() it would edit everything about that post. You need to send updated values for each key stored at that data point, otherwise the value will be `undefined`.
-* **PATCH** edits _specified_ parts of the data point. If you make a PATCH request to [posts/1](), you could only send and update to `title` and it would _only_ update title.
+* **PATCH** edits _specified_ parts of the data point. If you make a PATCH request to [posts/1](), you could only send and update `title` and it would _only_ update title.
 
 Let's send a PUT and PATCH request to blog post 1:
 
@@ -158,9 +147,9 @@ Like with PUT and PATCH, a DELETE request can only be sent to a _singleton resou
 
 Send a DELETE request to the URL. What is the return value? Why might this be?
 
-### CRUD
+## 5. CRUD
 
-Another acronym you may have heard and will definitely hear in the future is _CRUD_. This stands for *C*reate, *R*ead, *U*pdate, and *D*elete. CRUD represents the basic functionality we have all come to expect from an application. Let's think about this in terms of Instagram.
+Another acronym you may have heard and will definitely hear in the future is _CRUD_. This stands for <b>C</b>reate, <b>R</b>ead, <b>U</b>pdate, and <b>D</b>elete. CRUD represents the basic functionality we have all come to expect from an application. Let's think about this in terms of Instagram.
 
 In terms of CRUD, _create_ means being able to ADD information to whatever application we are using. Write a blog post, post a picture, update your status, whatever. We can _create_ content on Instagram and do this by posting photos.
 
