@@ -28,7 +28,7 @@
 
 A **RESTful API** is an application program interface (API) that uses HTTP requests to GET, PUT, POST, PATCH and DELETE data. When we were interacting with the Dog API, we were using _GET_ requests: we were _getting_ data from a source. But there are other methods that you can use when interacting with APIs such as updating (PUT), adding (POST), and removing (DELETE). The Dog API has been written in such a way where we, random users, cannot update, add or remove information from the database. This is a safety measure because you don't want _random users_ deleting your information!
 
-A RESTful API -- also referred to as a RESTful web service -- is based on representational state transfer (REST) technology, an architectural style and approach to communications often used in web services development. As explained by [resfulapi.net](https://restfulapi.net/rest-architectural-constraints/), there are **six guiding principles** for a RESTful API.
+A RESTful API -- also referred to as a RESTful web service -- is based on REpresentational State Transfer (REST) technology, an architectural style and approach to communications often used in web services development. As explained by [resfulapi.net](https://restfulapi.net/rest-architectural-constraints/), there are **six guiding principles** for a RESTful API.
 
 ## 2. API Principles
 
@@ -63,18 +63,9 @@ http://api.example.com/user-management/users/{id} => _What would we expect here?
 
 ## 4. Interacting with APIs
 
-To fully interact with APIs, we will need a new tool. Postman is a common tool developers use to test the functionality of an API: _"If I send this POST request to the API, will it work? What is the result from this GET request?"_ These are questions you will be asking yourself over and over, so it is very important that you use tools like Postman because it allows you to understand how an API works **before** you put it into your code and plan accordingly. **Remember: If you fail to plan, plan to fail!**
+To fully interact with APIs, we will use Postman. Postman is a common tool developers use to test the functionality of an API: _"If I send this POST request to the API, will it work? What is the result from this GET request?"_ These are questions you will be asking yourself over and over, so it is very important that you use tools like Postman because it allows you to understand how an API works **before** you put it into your code and plan accordingly. **Remember: If you fail to plan, plan to fail!**
 
-[Download Postman for Mac here!](https://app.getpostman.com/app/download/osx64) After downloading and installing, make sure you drag the Postman icon into your Applications folder to save it to your computer then open it up!
-
-Let's use Postman to make a request to the Dog API. Paste the link for all breeds (https://dog.ceo/api/breeds/list/all
-) into Postman and press Send. What happens?
-
-We get the _exact same thing_ as when we put the list into our browser 🤔 which is not very exciting but that's what should have happened! The GET request to the Dog API returns the same result regardless of when or how we send it--RESTful APIs!
-
-The Dog API has been great, but we can only make GET requests. To see how the other methods work, we are going to use a different API that allows random users (like us!) to also send POST, PUT and DELETE requests. These requests are built into the _World Wide Web_ and are collectively called HTTP Requests. Go to https://jsonplaceholder.typicode.com/ and **read** the documentation. We'll wait.
-
-🕐🕑🕒🕓🕕🕖🕗🕘
+The Dog API from last lesson has been great, but we can only make GET requests. To see how the other methods work, we are going to use a different API that allows random users (like us!) to also send POST, PUT and DELETE requests. These requests are built into the _World Wide Web_ and are collectively called HTTP Requests.  The documentation can be found here: https://jsonplaceholder.typicode.com/.
 
 #### GET Request
 
@@ -125,7 +116,7 @@ Let's try sending the same information to https://jsonplaceholder.typicode.com/p
 PUT and PATCH requests are both requests that can be sent to _edit/update_ specific information in the API. Since these both refer to specific information, they are only applicable with singleton resources (like one dog breed or one specific blog post). While PUT and PATCH both _edit_ information contained within the database, they are different.
 
 * **PUT** edits the _entire_ data point. If you make a PUT request to [/posts/1]() it would edit everything about that post. You need to send updated values for each key stored at that data point, otherwise the value will be `undefined`.
-* **PATCH** edits _specified_ parts of the data point. If you make a PATCH request to [posts/1](), you could only send and update to `title` and it would _only_ update title.
+* **PATCH** edits _specified_ parts of the data point. If you make a PATCH request to [posts/1](), you could only send and update `title` and it would _only_ update title.
 
 Let's send a PUT and PATCH request to blog post 1:
 
