@@ -182,30 +182,32 @@ node -v
 
 If you don't see anything, let us know.
 
-### [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux)	### [Visual Studio Code](https://code.visualstudio.com/)
+### [Visual Studio Code](https://code.visualstudio.com/)
+
+Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
 
 
- In your terminal, go ahead and type (again, one line at a time):	Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
+ Open your Terminal and type `code .`, VS Code should launch.
 
+VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
 
- ```	Open your Terminal and type `code`, VS Code should launch.
-curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -	
- sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'	
+We recommend installing the below extensions:
+- [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/): real-time collaborative development.
 
+- [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): VS Code package to format your JavaScript / TypeScript / CSS using Prettier.
 
- sudo apt-get update	VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
-```	
+- [Auto rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag): automatically rename paired HTML/XML tag, same as Visual Studio IDE does.
 
+- [Settings sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): Synchronize Settings, Snippets, Themes, File Icons, Launch, Keybindings, Workspaces and Extensions Across Multiple Machines Using GitHub Gist.
 
- Then, type:	We recommend you to download these [extensions](http://celine.tech/vs-code-extension/).
+- [Babel JavaScript](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel)
 
+- [TODO Highlit](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight): highlight TODO, FIXME and other annotations within your code.
 
- ```	VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
-sudo apt-get install atom	
-```	
+- [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek): Allow peeking to css ID and class strings as definitions from html files to respective CSS.
 
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 
- And you're all set.
 
 ### [Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04-quickstart)
 
