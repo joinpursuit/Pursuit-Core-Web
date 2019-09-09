@@ -26,9 +26,9 @@
 
 ## 1. REST Introduction
 
-A **RESTful API** is an application program interface (API) that uses HTTP requests to GET, PUT, POST, PATCH and DELETE data. When we were interacting with the Dog API, we were using _GET_ requests: we were _getting_ data from a source. But there are other methods that you can use when interacting with APIs such as updating (PUT), adding (POST), and removing (DELETE). The Dog API has been written in such a way where we, random users, cannot update, add or remove information from the database. This is a safety measure because you don't want _random users_ deleting your information!
+A **RESTful API** is an application programming interface (API) that uses HTTP requests to `GET`, `PUT`, `POST`, `PATCH` and `DELETE` data. When we were interacting with the Dog API, we were using _GET_ requests: we were _getting_ data from a source. But there are other methods that you can use when interacting with APIs such as updating (PUT), adding (POST), and removing (DELETE). The Dog API has been written in such a way where we, random users, cannot update, add or remove information from the database. This is a safety measure because you don't want _random users_ deleting your information!
 
-A RESTful API -- also referred to as a RESTful web service -- is based on REpresentational State Transfer (REST) technology, an architectural style and approach to communications often used in web services development. As explained by [resfulapi.net](https://restfulapi.net/rest-architectural-constraints/), there are **six guiding principles** for a RESTful API.
+A RESTful API -- also referred to as a RESTful web service -- is based on REpresentational State Transfer (REST) ideology, an architectural style and approach to communications often used in web services development. As explained by [resfulapi.net](https://restfulapi.net/rest-architectural-constraints/), there are **six guiding principles** for a RESTful API.
 
 ## 2. API Principles
 
@@ -38,7 +38,7 @@ A RESTful API -- also referred to as a RESTful web service -- is based on REpres
 
 2. **Client–server** – The client is never directly interacting with the server. By separating the user interface concerns from the data storage concerns, we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components. This essentially means that client application and server application MUST be able to evolve **separately** without any dependency on each other.
 
-3. **Stateless** – Session state is kept entirely on the client. Each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. The server will not store anything about latest HTTP request client made. _It will treat each and every request as **new**_. No session, no history.
+3. **Stateless** – Session state is kept entirely on the client. Each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. The server will not store anything about the latest HTTP request the client made. _It will treat each and every request as **new**_. No session, no history.
 
 4. **Cacheable** – Cache constraints require that the data within a response to a request be implicitly or explicitly labeled as cacheable or non-cacheable. If a response is cacheable, then a client cache is given the right to reuse that response data for later, equivalent requests.
 
@@ -48,9 +48,9 @@ A RESTful API -- also referred to as a RESTful web service -- is based on REpres
 
 ## 3. RESTful API Endpoints
 
-In REST, primary data representation is called **Resource** or **Endpoint**.  Having a strong and consistent REST endpoint naming strategy will definitely help the usefulness and scalability of your API in the long term. An endpoint can be a singleton or a collection. For example, “breeds” is a collection resource and “breed” is a singleton resource (in the Dog API domain). We can identify “breeds” collection resource using the URI [“/breeds”](). We can identify a single “breed” resource using the URI [“/breed/{breedName}”](). Another acceptable way to structure this would be to use the URI ["/breeds/{breedName}"]() or even ["/breeds/{breedId}"]().
+In REST, primary data representation is called **Resource** that is reached through an **Endpoint** (url).  Having a strong and consistent REST endpoint naming strategy will definitely help the usefulness and scalability of your API in the long term. An endpoint can be a singleton or a collection. For example, “breeds” is a collection resource and “breed” is a singleton resource (in the Dog API domain). We can identify “breeds” collection resource using the URI `/breeds`. We can identify a single “breed” resource using the URI `/breed/{breedName}`. Another acceptable way to structure this would be to use the URI `/breeds/{breedName}` or even `/breeds/{breedId}`.
 
-A resource may also contain sub-collection resources. For example, sub-collection resource “sub-breeds” of a particular “breed” can be identified using the URN [“/breeds/{breedName}/sub-breeds”]() (in the Dog API domain). Similarly, a singleton resource “subBreedName” inside the sub-collection resource “sub-breeds” can be identified as follows: [“/breeds/{breedName}/sub-breed/{subBreedName}”]().
+A resource may also contain sub-collection resources. For example, sub-collection resource “sub-breeds” of a particular “breed” can be identified using the URN `/breeds/{breedName}/sub-breeds` (in the Dog API domain). Similarly, a singleton resource “subBreedName” inside the sub-collection resource “sub-breeds” can be identified as follows: `/breeds/{breedName}/sub-breed/{subBreedName}`.
 
 Regardless of how you decide to structure your own API or when you're using a third-party API, the forward slash (/) indicates a hierarchical relationships. You can also use hyphens (`-`) to improve readability but **do not** use underscores (`_`) because they are not always clearly visible with certain fonts.
 
@@ -107,7 +107,7 @@ userId: 1
 
 Then click "Key-Value Edit" and you should see all your information neatly organized into key-value pairs. We **DID NOT** include quotation marks around our values because Postman (and forms in general) will automatically turn them into strings. If we included quotes, our information would be stored **WITH** quotes around them.
 
-Now click send! What is our response? The same thing as what we sent _plus_ an ID. This response tells us that it was successful (if it were _not_ successful, we would have received an ERROR message) and that our information was added to the database and has an ID of 101. Unfortunately this database doesn't _actually_ store this information so we cannot now make a GET request to [/posts/101]() and see our post. If this were a real API, like Twitter, we would be able to now see the information we sent displayed.
+Now click send! What is our response? The same thing as what we sent _plus_ an ID. This response tells us that it was successful (if it were _not_ successful, we would have received an ERROR message) and that our information was added to the database and has an ID of 101. Unfortunately this database doesn't _actually_ store this information so we cannot now make a GET request to `/posts/101` and see our post. If this were a real API, like Twitter, we would be able to now see the information we sent displayed.
 
 Let's try sending the same information to https://jsonplaceholder.typicode.com/posts/1, which **does not** accept POST requests. What is our response now?
 
@@ -115,8 +115,8 @@ Let's try sending the same information to https://jsonplaceholder.typicode.com/p
 
 PUT and PATCH requests are both requests that can be sent to _edit/update_ specific information in the API. Since these both refer to specific information, they are only applicable with singleton resources (like one dog breed or one specific blog post). While PUT and PATCH both _edit_ information contained within the database, they are different.
 
-* **PUT** edits the _entire_ data point. If you make a PUT request to [/posts/1]() it would edit everything about that post. You need to send updated values for each key stored at that data point, otherwise the value will be `undefined`.
-* **PATCH** edits _specified_ parts of the data point. If you make a PATCH request to [posts/1](), you could only send and update `title` and it would _only_ update title.
+* **PUT** edits the _entire_ data point. If you make a PUT request to `/posts/1` it would edit everything about that post. You need to send updated values for each key stored at that data point, otherwise the value will be `undefined`.
+* **PATCH** edits _specified_ parts of the data point. If you make a PATCH request to `posts/1`, you could only send and update `title` and it would _only_ update title.
 
 Let's send a PUT and PATCH request to blog post 1:
 
@@ -161,10 +161,10 @@ Lastly, _delete_, which is also straightforward. This means the user can _delete
 
 Every application you use and create should be a CRUD app. If you cannot update information in your app, it is not a great user experience. Imagine if when you posted something to Instagram, it was there ***FOREVER*** or you were unable to edit your caption and remove a typo. This would not be ideal! Here's a list of which CRUD actions align with which RESTful API HTTP requests:
 
-HTTP METHOD	| CRUD | Route (e.g. [/users]())
+HTTP METHOD	| CRUD | Route (e.g. `/users`)
 -------- | ------ | -----
-POST | Create | [/users/{id}]() containing new ID.
-GET | Read | [/users/{id}]() to get info for user with ID={id}
-PUT | Update | [/users/{id}]() to update ALL info for user with ID={id}
-PATCH | Update | [/users/{id}]() to update PARTIAL info for user with ID={id}
-DELETE | Delete | [/users/{id}]() to remove user with ID={id}
+POST | Create | `/users/{id}` containing new ID.
+GET | Read | `/users/{id}` to get info for user with ID={id}
+PUT | Update | `/users/{id}` to update ALL info for user with ID={id}
+PATCH | Update | `/users/{id}` to update PARTIAL info for user with ID={id}
+DELETE | Delete | `/users/{id}` to remove user with ID={id}
