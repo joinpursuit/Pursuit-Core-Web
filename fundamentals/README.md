@@ -1,32 +1,43 @@
-# Fundamentals
+# Unit 1: Fundamentals
 
-## Contents
+## Lessons
 
-1. [Local Environment Setup](./local_environment/Local_Environment_Setup.md)
-2. [The Command Line](./the_command_line/terminal.md)
-3. [Git and GitHub](./git_and_github/git_and_github.md)
-4. [Values, Types, and Operators](./values_types_operators/values_types_operators.md)
-5. [Variables](./variables/variables_update.md)
-6. [Conditionals](./conditionals/conditional_JS.md)
-7. [Loops](./loops/loops.md)
-8. [Strings](./strings/strings_update.md)
-9. [Arrays](./arrays/arrays_update.md)
-10. [Objects](./objects/objects_update.md)
-11. [Functions and Scope](./functions/functions_update.md)
-12. [Function Arguments and Closures](./function_arguments_and_closures/arguments_and_closures_update.md)
-13. [ES6 vs. ES5](./es6_vs_es5/es6_part1.md)
-14. [Callbacks](./callbacks/callbacks_update.md)
-15. [Timers](./timers/timers_update.md)
-16. [Array Methods](./array_methods/array_methods_update.md)
-17. [Constructor Functions](./constructor_functions/constructor_functions_update.md)
-18. [Classes](./classes/classes_update.md)
+| Lesson | Exit Ticket | Lab |
+| --- | --- | --- |
+| 1. [Local Environment Setup](./local_environment/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/3937197) | lab |
+| 2. [The Command Line](./the_command_line/README.md) | n/a | [link](https://github.com/joinpursuit/PCNWLab-Command-Line/tree/454ec68e8986c55a977637f161991a1c02605f21) |
+| 3. [Git and GitHub](./git_and_github/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/3869510) | lab |
+| 4. [Values, Types, and Operators](./values_types_operators/README.md) | n/a | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
+| 5. [Variables](./variables/README.md) | n/a | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
+| 6. [Conditionals](./conditionals/README.md) | n/a | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
+| 7. [Loops](./loops/README.md) | n/a | [link](https://github.com/joinpursuit/loops_assignment/blob/master/README.md) |
+| 8. [Strings](./strings/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/3988761) | [link](https://github.com/joinpursuit/string_assignment/blob/master/README.md) |
+| 9. [Arrays](./arrays/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/3996803) | [link](https://github.com/joinpursuit/arrays_assignment) |
+| 10. [Objects](./objects/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4005988) | [link](https://github.com/joinpursuit/objects_assignment) |
+| 11. [Functions and Scope](./functions/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4006749) | [link](https://github.com/joinpursuit/functions_and_scope_assignment/blob/master/README.md) |
+| 12. [Callbacks](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6_2/fundamentals/callbacks/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4012741) | [link](https://github.com/joinpursuit/callback_assignment/blob/master/README.md) |
+| 13. [Array Methods](./array_methods/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4026758) | [link](https://github.com/joinpursuit/array_methods_assignment/blob/master/README.md) |
+| 14. [Constructor Functions](./constructor_functions/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4046242) | [link](https://github.com/joinpursuit/constructor_assignment/blob/master/README.md) |
+| 15. [Classes](./classes/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4046241) | [link](https://github.com/joinpursuit/classes_assignment/blob/master/README.md) |
+
+## Projects
+
+- https://github.com/joinpursuit/Pursuit-Core-Web-Hangman
+
+## Review Labs
+
+- https://github.com/joinpursuit/web-functions-and-objects-review
+- https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Review
+
+## Assessments
+
+- https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Assessment
 
 ## Bonus Notes
 
-* [User Input](./user_input/user_input_update.md)
-* [Date and Time](./date_and_time/date_and_time.md)
-* [Regular Expressions](./regex/regex.md)
-
-## Resources
-
+* [User Input](./user_input/README.md)
+* [Date and Time](./date_and_time/README.md)
+* [Regular Expressions](./regex/README.md)
+* [Error Handling](./error_handling/README.md)
+* [Factory Functions](./factory_functions/README.md)
 * [Practice Problems](./practice_problems/unit_1_practice_problems.md)
