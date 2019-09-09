@@ -14,7 +14,7 @@
   * PUT
   * PATCH
   * DELETE
-  * CRUD
+* CRUD
 
 ## Resources
 
