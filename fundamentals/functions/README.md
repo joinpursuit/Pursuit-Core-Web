@@ -32,8 +32,8 @@ for(let i = 0; i < array1.length; i++) {
 
 let array2 = [11, 12, 13, 14, 15, 16, 17, 18]
 
-for(let i = 0; i < array2.length; i++) {
-  console.log(array2[i])
+for(let i = 0; i < array1.length; i++) {
+  console.log(array1[i])
 }
 ```
 
@@ -67,7 +67,7 @@ Let's look in depth at this new syntax with another example:
 
 ![functions](./assets/function_composition.png)
 
- * The above syntax is called **function declaration**.
+ * The above syntax is called **function expression**.
 The word `function` tells JS that we are **declaring** a function. Just like const lets JS know we are about to declare a variable.
 
  * squareNumber is the **name** of the function. Not all functions need a name. Some functions are anonymous and don't have a name. But for now, we will be dealing with functions that do have name.
