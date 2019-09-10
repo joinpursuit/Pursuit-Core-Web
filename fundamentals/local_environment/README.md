@@ -87,29 +87,7 @@ This will download a .zip file, double click it. A window will open up a warning
 
 You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
 
-We recommend you to download these [extensions](http://celine.tech/vs-code-extension/).
-
 VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
-
-
-### **Atom** ***(OPTIONAL)***
-***We are going to use VSCode but Atom is another option***
-
-Go to [atom.io](http://www.atom.io), then **download and install Atom**. No command line here, just good old-fashioned drag-to-Applications-folder Mac stuff.
-
-To verify that Atom's shell commands were installed correctly, restart your terminal and run `atom -v`. You should see a version number.
-
-If you don't, open the Atom editor and go to Atom > Install Shell commands. This allows you to easily open files in Atom from the Terminal using the `atom` command followed by a file or directory.
-
-Let's **install some linters** to help us write clean code while working in atom.
-Run the following:
-
-```sh
-# apm is the 'atom package manager'
-apm install linter linter-eslint prettier-atom linter-jscs highlight-selected react
-```
-
-Linters automatically highlight syntax errors in our code - we don't even need to compile and run it. Pretty cool, huh?
 
 ### Git
 
@@ -197,14 +175,6 @@ node -v
 
 If you don't see anything, let us know.
 
-### [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux)	
-
-```
-sudo apt-get install atom	
-
-curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -	
- sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'	
-```
 
 ### [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -214,7 +184,7 @@ In your terminal, go ahead and type (again, one line at a time):	Go to [code.vis
 
 Open your Terminal and type `code`, VS Code should launch.
 
-We recommend you to download these [extensions](http://celine.tech/vs-code-extension/).
+We recommend you to download these [extensions](#Visual-Studio-Code-AKA-(VSCode)).
 
 `sudo apt-get update`	VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
 
