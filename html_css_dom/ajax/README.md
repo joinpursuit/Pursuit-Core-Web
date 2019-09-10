@@ -30,6 +30,94 @@ A very, very common use of the AJAX technique is to interact with RESTful APIs t
 
 # 3. Using XMLHttpRequest to get data
 
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random Users</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Random Users</h1>
+    <button id="loadUsersButton">Load 10 random users</button>
+</body>
+</html>
+```
+
+```js
+document.addEventListener("DOMContentLoaded", () => {
+    let button = document.querySelector('#loadUsersButton')
+    button.addEventListener('click', loadUsers)
+})
+
+function loadUsers() {
+    console.log("Loading Users...")
+}
+```
+
+```js
+document.addEventListener("DOMContentLoaded", () => {
+    let button = document.querySelector('#loadUsersButton')
+    button.addEventListener('click', loadUsers)
+})
+
+function loadUsers() {
+    let xml = new XMLHttpRequest()
+    xml.onreadystatechange = function() {
+        console.log(this.readyState)
+        this.
+        if (this.readyState === this.DONE) {
+            console.log(JSON.parse(this.response))
+        }
+    }
+    xml.open("GET", "https://randomuser.me/api/?results=10")
+    xml.send(null)
+}
+```
+
+
+```
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+```
+
+
+```js
+document.addEventListener("DOMContentLoaded", () => {
+    let button = document.querySelector('#loadUsersButton')
+    button.addEventListener('click', loadUsers)
+})
+
+function loadUsers() {
+    let xml = new XMLHttpRequest()
+    xml.onreadystatechange = function() {
+        console.log(this.readyState)
+        if (this.readyState === this.DONE) {
+            let usersJSON = JSON.parse(this.response)            
+            let randomUsers = usersJSON.results
+            addUsersToDOM(randomUsers)
+        }
+    }
+    xml.open("GET", "https://randomuser.me/api/?results=10")
+    xml.send(null)
+}
+
+function addUsersToDOM(users) {
+    let userList = document.querySelector("#userList")
+    for (user of users) {
+        let newListItem = document.createElement("li")
+        console.log(user)
+        newListItem.innerText = `${user.name.title} ${user.name.first} ${user.name.last}`
+        userList.append(newListItem)
+    }
+}
+```
+
+
 So how do we use this magical AJAX? Nowadays there's lots of ways. You may have already heard about JQuery's $.ajax, or the fetch api, or axios. These are all great ways to handle Ajax requests and each have their positives and negatives. Today though, we're going to touch upon the original way to make AJAX requests. Don't worry if it doesn't all make perfect sense, it's definitely confusing the first time you see it.
 
 Browsers provide the [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)  object to make AJAX calls. The documentation is very helpful for this.
