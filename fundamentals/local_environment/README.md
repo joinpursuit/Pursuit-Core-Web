@@ -79,9 +79,9 @@ $ node -v
 You should see your Node installation's version number.
 
 
-### ***Visual Studio Code AKA(VSCode)***
+### ***Visual Studio Code***
 
-Go to [Visual Studio](https://code.visualstudio.com/), and ***download button and install Visual Studio Code***
+Go to [Visual Studio](https://code.visualstudio.com/) - AKA VSCode, and ***download button and install Visual Studio Code***
 
 This will download a .zip file, double click it. A window will open up a warning window, accept to open it.
 
@@ -197,11 +197,7 @@ If you don't see anything, let us know.
 
 Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
 
-VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
-
-We recommend you to download these [extensions](#Visual-Studio-Code-AKA-(VSCode)).
-
-`sudo apt-get update`	VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
+We recommend you to download these [extensions](#Visual-Studio-Code).
 
 VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
 
