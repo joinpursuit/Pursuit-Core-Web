@@ -117,6 +117,7 @@ Now we can see all of the users!  Go in the console and look at the structure of
 
 <details>
 <summary>Expand JSON</summary>
+    
 ```js
 // 20190911122412
 // https://randomuser.me/api/?results=10
