@@ -1,7 +1,11 @@
 # Git and Github
 
 ## Standards
-EF.4.a, EF.4.b, EF.4.c, EF.4.d, EF.4.e
+EF.4.a: Create GitHub accounts
+EF.4.b: Use basic Git commands
+EF.4.c: Underestand Git workflow
+EF.4.d: Be a proficient GitHub user
+EF.4.e: Use frequent, descriptive, small commits
 
 ## Objectives
 
