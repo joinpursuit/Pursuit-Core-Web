@@ -291,10 +291,7 @@ false
 #### The NOT (`!`) Operator
 
 The `!` operator, like `typeof` takes a single value to its right. It returns the opposite value
-<<<<<<< HEAD:fundamentals/values_types_operators/values_types_operators.md
 
-=======
->>>>>>> 6_2:fundamentals/values_types_operators/README.md
 - given `true`, it returns `false`; given `false`, it returns `true`
 
 ```js
