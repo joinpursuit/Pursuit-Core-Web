@@ -1,7 +1,11 @@
 # Git and Github
 
 ## Standards
-EF.4.a, EF.4.b, EF.4.c, EF.4.d, EF.4.e
+EF.4.a: Create GitHub accounts
+EF.4.b: Use basic Git commands
+EF.4.c: Underestand Git workflow
+EF.4.d: Be a proficient GitHub user
+EF.4.e: Use frequent, descriptive, small commits
 
 ## Objectives
 
@@ -93,7 +97,9 @@ As implied by the word _unstage_, the status of the file has been promoted from 
 
 ![git status sequence](assets/git_status_sequence.png)
 
-After adding changes in the staging area we can make them part of the local repository by _committing_ them using `git commit`. We also add the command-line option `-m` to include a message indicating the purpose of the commit. **Commit messages are very important because it tells your collaborators what you changed!** They should be short and clear. If your commit message is multiple sentences, you are probably committing _too much_ and should be committing more often. For our example, the purpose is to initialize the new repository, which we can indicate as follows:
+After adding changes in the staging area we can make them part of the local repository by _committing_ them using `git commit`. We also add the command-line option `-m` to include a message indicating the purpose of the commit. **Commit messages are very important because it tells your collaborators what you changed!** They should be short and clear. If your commit message is multiple sentences, you are probably committing _too much_ and should be committing more often. The preference for commit message is **present-tense**, imperative-style. Example of verbs to use: create, merge, update, delete, refactor, extract, fix
+
+For our example, the purpose is to initialize the new repository, which we can indicate as follows:
 
 ```bash
 $ git commit -m "initialize repo"

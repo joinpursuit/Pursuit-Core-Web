@@ -78,23 +78,33 @@ $ node -v
 
 You should see your Node installation's version number.
 
-### **Atom**
 
-Go to [atom.io](http://www.atom.io), then **download and install Atom**. No command line here, just good old-fashioned drag-to-Applications-folder Mac stuff.
+### ***Visual Studio Code***
 
-To verify that Atom's shell commands were installed correctly, restart your terminal and run `atom -v`. You should see a version number.
+Go to [Visual Studio](https://code.visualstudio.com/) - AKA VSCode, and ***download button and install Visual Studio Code***
 
-If you don't, open the Atom editor and go to Atom > Install Shell commands. This allows you to easily open files in Atom from the Terminal using the `atom` command followed by a file or directory.
+This will download a .zip file, double click it. A window will open up a warning window, accept to open it.
 
-Let's **install some linters** to help us write clean code while working in atom.
-Run the following:
+You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
 
-```sh
-# apm is the 'atom package manager'
-apm install linter linter-eslint prettier-atom linter-jscs highlight-selected react
-```
+We recommend installing the below extensions:
+- [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/): real-time collaborative development.
 
-Linters automatically highlight syntax errors in our code - we don't even need to compile and run it. Pretty cool, huh?
+- [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): VS Code package to format your JavaScript / TypeScript / CSS using Prettier.
+
+- [Auto rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag): automatically rename paired HTML/XML tag, same as Visual Studio IDE does.
+
+- [Settings sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): Synchronize Settings, Snippets, Themes, File Icons, Launch, Keybindings, Workspaces and Extensions Across Multiple Machines Using GitHub Gist.
+
+- [Babel JavaScript](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel)
+
+- [TODO Highlit](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight): highlight TODO, FIXME and other annotations within your code.
+
+- [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek): Allow peeking to css ID and class strings as definitions from html files to respective CSS.
+
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+
+VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
 
 ### Git
 
@@ -182,30 +192,16 @@ node -v
 
 If you don't see anything, let us know.
 
-### [Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux)	### [Visual Studio Code](https://code.visualstudio.com/)
 
+### [Visual Studio Code](https://code.visualstudio.com/)
 
- In your terminal, go ahead and type (again, one line at a time):	Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
+Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
 
+We recommend you to download these [extensions](#Visual-Studio-Code).
 
- ```	Open your Terminal and type `code`, VS Code should launch.
-curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -	
- sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'	
+VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
 
-
- sudo apt-get update	VS Code extensions let you add tools to your installation to support your development workflow. You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
-```	
-
-
- Then, type:	We recommend you to download these [extensions](http://celine.tech/vs-code-extension/).
-
-
- ```	VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
-sudo apt-get install atom	
-```	
-
-
- And you're all set.
+And you're all set.
 
 ### [Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04-quickstart)
 
