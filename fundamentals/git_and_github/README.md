@@ -15,6 +15,7 @@ EF.4.e: Use frequent, descriptive, small commits
 
 ## Resources
 
+- [Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
 - [Try Git](http://try.github.io)
 - [Pro Git ebook](https://git-scm.com/book/en/v2)
 - [Learn Enough Git To Be Dangerous](https://www.learnenough.com/git-tutorial)
