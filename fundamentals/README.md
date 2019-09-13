@@ -5,9 +5,9 @@
 | Lesson | Exit Ticket | Lab |
 | --- | --- | --- |
 | 1. [Local Environment Setup](./local_environment/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/3937197) | lab |
-| 2. [The Command Line](./the_command_line/README.md) | n/a | [link](https://github.com/joinpursuit/PCNWLab-Command-Line/tree/454ec68e8986c55a977637f161991a1c02605f21) |
+| 2. [The Command Line](./the_command_line/README.md) | [link](https://canvas.instructure.com/courses/1705731/quizzes/4239876) | [link](https://github.com/joinpursuit/PCNWLab-Command-Line/tree/454ec68e8986c55a977637f161991a1c02605f21) |
 | 3. [Git and GitHub](./git_and_github/README.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/3869510) | [lab](https://github.com/joinpursuit/git_github_assignment) | 
-| 4. [Values, Types, and Operators](./values_types_operators/README.md) | n/a | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
+| 4. [Values, Types, and Operators](./values_types_operators/README.md) | [link](https://canvas.instructure.com/courses/1705731/quizzes/4254541) | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
 | 5. [Variables](./variables/README.md) | n/a | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
 | 6. [Conditionals](./conditionals/README.md) | n/a | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
 | 7. [Loops](./loops/README.md) | n/a | [link](https://github.com/joinpursuit/loops_assignment/blob/master/README.md) |
