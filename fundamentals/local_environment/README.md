@@ -83,7 +83,12 @@ You should see your Node installation's version number.
 
 Go to [Visual Studio](https://code.visualstudio.com/) - AKA VSCode, and ***download button and install Visual Studio Code***
 
-This will download a .zip file, double click it. A window will open up a warning window, accept to open it.
+This will download a .zip file, double click it. A window will open up a warning window, click accept.
+
+The Visual Studio icon will appear on the directory you downloaded it next to the .zip file. Drag this icon to your application folder.
+
+Open VSCode, and press (⇧⌘P), this will open up a prompt, type 'shell command'. The option to download 'Shell Command: Install 'code' command in PATH' will open up. Click on it and it will download it for you. This will enable you to type `code <name of file>` on your command line and open through your command line.
+
 
 You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
 
