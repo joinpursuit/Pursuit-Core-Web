@@ -22,7 +22,7 @@ EF.2.a, EF.2.b, EF.2.c, EF.2.d, EF.3
 - `rm -r [directory name]` - remove (recursively) a folder, all files, subfolder, subfiles, etc. Will prompt if trying to remove special files.
 - `mv [filename] [foldername]` - move a file to a different folder
 - `mv [filename] [new filename]` - rename a file
-- `atom [filename]` - open the atom editor
+- `code [filename]` - open the VSCode editor
 
 ## Resources
 
@@ -139,10 +139,10 @@ will create a new directory called `Music`.
 
 ## Opening Files
 
-To open a file and view its contents, type the name of the app you would like to use to open it. For example, we will use a text editor called **atom** to open a text file:
+To open a file and view its contents, type the name of the app you would like to use to open it. For example, we will use a text editor called **Visual Studio Code** to open a text file:
 
 ```bash
-atom foo.js
+code foo.js
 ```
 
 The keyword **open** will open a file/folder in the Finder (on Mac) or the GUI-based file manager (on Linux).
