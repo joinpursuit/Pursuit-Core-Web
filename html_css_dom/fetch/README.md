@@ -31,6 +31,7 @@ Using promises allows us to wait for certain code to finish execution prior to r
 Pretend that you had a website that loads data from an API call, and then process that data to display for the user. If we tried to process the data before actually getting any data back we'd end up with a blank website or an error. With with promises we can ensure synchronicity.
 
 ### The States Of a Promise
+
 Promises have three states:
 1. _Fulfilled_ - The action relating to the promise succeeded.
 2. _Rejected_ - The action relating to the promise failed.
@@ -100,7 +101,6 @@ Run this code in your console and see how promises are chained:
 ```js
 new Promise(function(resolve, reject) {
   setTimeout(() => resolve(1), 2000);
-
 }).then((result) => {
   alert(result);
   return result + 2;
