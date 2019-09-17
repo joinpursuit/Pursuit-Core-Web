@@ -9,19 +9,12 @@
 | 3. [DOM Manipulation with JavaScript](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/dom_manipulation) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4116399) | [link](https://github.com/joinpursuit/adding_elements_to_the_dom_lab)
 | 4. [Events](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/events) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4129211) | [link](https://github.com/joinpursuit/events_lab)
 | 5. [CSS Introduction](https://github.com/joinpursuit/Pursuit-Core-Web/tree/6_2/html_css_dom/css_intro) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4143418) | [link](https://github.com/joinpursuit/Pursuit-Core-CSS-Intro-Lab/blob/master/README.md) |
-| 6. [CSS Selectors](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_selectors/css_selectors.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4151828) | [link](https://github.com/joinpursuit/Pursuit-Core-CSS-Selectors-Lab/blob/master/README.md)
-
-Upcoming:
-
-9. [CSS - Flexbox](./css_flexbox/README.md)
-10. [CSS - Reset](./css_reset/README.md)
-11. [CSS - Grid](./css_grid/README.md)
-12. [CSS - Display, Z-index, Position](./css_display_position_zind/README.md)
-19. [Event Loop](./event_loop/README.md)
-20. [API Intro](./api_intro/README.md)
-21. [RESTful APIs](./restful_apis/README.md)
-22. [AJAX](./ajax/README.md)
-23. [Fetch](./fetch/README.md)
-24. [Promises](./promises/README.md)
-25. [Axios](./axios/README.md)
-26. [Async/Await](./async_and_await/README.md)
+| 6. [CSS Selectors](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_selectors/css_selectors.md) | [link](https://canvas.instructure.com/courses/1605748/quizzes/4151828) | [link](https://github.com/joinpursuit/Pursuit-Core-CSS-Selectors-Lab/blob/master/README.md) |
+| 7. [CSS Flexbox](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/css_flexbox) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4174615) | [link](https://github.com/joinpursuit/css_flexbox_exercise) |
+| 8. [CSS Grid](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/css_grid) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4179035) | [link](https://github.com/joinpursuit/css_grid_exercise)
+| 9. [CSS - Display, z-index, Position](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/css_display_position_zind) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4217753) | [link](https://github.com/joinpursuit/css_display_position_zindex_exercise) |
+| 10. [Introduction to APIs](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/api_intro) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4245201) | [link](https://github.com/joinpursuit/Pursuit-Core-Introduction-To-Networking-and-APIs-Lab/blob/master/README.md) |
+| 11. [REST and CRUD](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/restful_apis) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4245541) | [link](https://github.com/joinpursuit/restfulapi_exercise) |
+| 12. [GET requests with AJAX](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/ajax) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4262503) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-AJAX-Lab) |
+| 13. [Promises and Fetch](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/fetch/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4271116) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Promises-Fetch-Lab/blob/master/README.md) |
+| 14. [Axios and Async Await](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/axios%2Basync-await) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4282554) | [link](https://github.com/joinpursuit/axios_assignment/blob/master/axios_exercise.md) |
