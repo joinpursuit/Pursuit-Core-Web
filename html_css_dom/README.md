@@ -18,3 +18,9 @@
 | 12. [GET requests with AJAX](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/ajax) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4262503) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-AJAX-Lab) |
 | 13. [Promises and Fetch](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/fetch/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4271116) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Promises-Fetch-Lab/blob/master/README.md) |
 | 14. [Axios and Async Await](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/axios%2Basync-await) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4282554) | [link](https://github.com/joinpursuit/axios_assignment/blob/master/axios_exercise.md) |
+
+## Projects
+
+- [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md)
+- [Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment)
+- [Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md)
