@@ -148,7 +148,7 @@ We'll use the `https://restcountries.eu` resource to load a list of countries ba
 
 ### index.html
 
-```js
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
