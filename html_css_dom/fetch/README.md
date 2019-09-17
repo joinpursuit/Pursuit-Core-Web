@@ -183,7 +183,7 @@ function configureInputListeners() {
 function loadCountries() {
     const searchTerm = getCountryInput().value
     if (!searchTerm) { return }
-    var result = fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
+    fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
         .then(response => {
             return response.json()
         })
@@ -191,9 +191,8 @@ function loadCountries() {
             // remove Previous Cards
             countries.forEach(country => {
               console.log(country)
-                // create Card From Country
+              // create Card From Country
             })
-            return countries
         })
         .catch(error => {
             console.log(error)
@@ -201,7 +200,7 @@ function loadCountries() {
 }
 ```
 
-We are using `fetch`, which returns a Promise that we store in our result variable.  For now, we're just printing the countries that come back to us.  Test it out with different search terms and make sure that you're getting back data.  Let's go ahead now and add in our remaining functionality to create cards for each country that we load and add them to the DOM:
+We are using `fetch`, which returns a Promise that we that we can immediately attach a `.then` to to process the response once the promise is fulfilled.  For now, we're just printing the countries that come back to us.  Test it out with different search terms and make sure that you're getting back data.  Let's go ahead now and add in our remaining functionality to create cards for each country that we load and add them to the DOM:
 
 ```js
 document.addEventListener('DOMContentLoaded', () => {
@@ -215,7 +214,7 @@ function configureInputListeners() {
 function loadCountries() {
     const searchTerm = getCountryInput().value
     if (!searchTerm) { return }
-    var result = fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
+    fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
         .then(response => {
             return response.json()
         })
