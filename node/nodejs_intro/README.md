@@ -120,7 +120,7 @@ After installation go to your console and try the following command:
 
 ```
 >> node --version
-v9.10.0
+v12.4.0
 ```
 
 If you get this that means your installation was successful.

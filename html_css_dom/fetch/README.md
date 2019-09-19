@@ -31,6 +31,7 @@ Using promises allows us to wait for certain code to finish execution prior to r
 Pretend that you had a website that loads data from an API call, and then process that data to display for the user. If we tried to process the data before actually getting any data back we'd end up with a blank website or an error. With with promises we can ensure synchronicity.
 
 ### The States Of a Promise
+
 Promises have three states:
 1. _Fulfilled_ - The action relating to the promise succeeded.
 2. _Rejected_ - The action relating to the promise failed.
@@ -100,7 +101,6 @@ Run this code in your console and see how promises are chained:
 ```js
 new Promise(function(resolve, reject) {
   setTimeout(() => resolve(1), 2000);
-
 }).then((result) => {
   alert(result);
   return result + 2;
@@ -148,7 +148,7 @@ We'll use the `https://restcountries.eu` resource to load a list of countries ba
 
 ### index.html
 
-```js
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,7 +183,7 @@ function configureInputListeners() {
 function loadCountries() {
     const searchTerm = getCountryInput().value
     if (!searchTerm) { return }
-    var result = fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
+    fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
         .then(response => {
             return response.json()
         })
@@ -191,9 +191,8 @@ function loadCountries() {
             // remove Previous Cards
             countries.forEach(country => {
               console.log(country)
-                // create Card From Country
+              // create Card From Country
             })
-            return countries
         })
         .catch(error => {
             console.log(error)
@@ -201,7 +200,7 @@ function loadCountries() {
 }
 ```
 
-We are using `fetch`, which returns a Promise that we store in our result variable.  For now, we're just printing the countries that come back to us.  Test it out with different search terms and make sure that you're getting back data.  Let's go ahead now and add in our remaining functionality to create cards for each country that we load and add them to the DOM:
+We are using `fetch`, which returns a Promise that we that we can immediately attach a `.then` to to process the response once the promise is fulfilled.  For now, we're just printing the countries that come back to us.  Test it out with different search terms and make sure that you're getting back data.  Let's go ahead now and add in our remaining functionality to create cards for each country that we load and add them to the DOM:
 
 ```js
 document.addEventListener('DOMContentLoaded', () => {
@@ -215,7 +214,7 @@ function configureInputListeners() {
 function loadCountries() {
     const searchTerm = getCountryInput().value
     if (!searchTerm) { return }
-    var result = fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
+    fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
         .then(response => {
             return response.json()
         })
