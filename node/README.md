@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | 1. [NodeJS Intro](./nodejs_intro/README.md) | tbd | tbd |
 | 2. [NPM](./intro_to_npm/README.md) | tbd | tbd |
-| 3. [Modules: Imports & Exports](./modules_imports_and_exports/README.md | tbd | [link](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/node/modules_imports_and_exports/project.md) |
+| 3. [Modules: Imports & Exports](./modules_imports_and_exports/README.md) | tbd | [link](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/node/modules_imports_and_exports/project.md) |
 | 4. [The Internet](./how_the_internet_works/README.md) and [Express Servers](./express_intro_to_servers/README.md) | tbd | tbd
 | 5. [Express Basic Routing](./express_basic_routing/README.md) | tbd | tbd |
 | 6. [Express Passing Data](express_passing_data/README.md) | tbd | tbd |
