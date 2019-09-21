@@ -142,6 +142,13 @@ sudo mkdir -p /etc/paths.d &&
 echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
 ```
 
+Afterwards, install the CLI by configuring your path. 
+
+```sh
+sudo mkdir -p /etc/paths.d &&
+echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
+```
+
 ### After installation
 
 Close and reopen your terminal to gain access to the `psql` command. Let's try it out.
