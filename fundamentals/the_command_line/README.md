@@ -144,6 +144,11 @@ To open a file and view its contents, type the name of the app you would like to
 ```bash
 code foo.js
 ```
+To open all files in a folder enter the following. 
+
+```bash 
+code .
+```
 
 The keyword **open** will open a file/folder in the Finder (on Mac) or the GUI-based file manager (on Linux).
 
