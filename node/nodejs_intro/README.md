@@ -63,9 +63,11 @@ Javascript ONLY works if a computer program such as a Web browser interprets it.
 
 Let's take a look at the official Chrome V8 website: [https://developers.google.com/v8/](https://developers.google.com/v8/)
 
-```
-V8 is Google’s open source high-performance JavaScript engine, written in C++ and used in Google Chrome, the open source browser from Google, and in Node.js, among others. It implements ECMAScript as specified in ECMA-262, and runs on Windows 7 or later, macOS 10.5+, and Linux systems that use IA-32, ARM, or MIPS processors. V8 can run standalone, or can be embedded into any C++ application. More information can be found on V8's public wiki.
-```
+
+> V8 is Google’s open source high-performance JavaScript engine, written in C++ and used in Google Chrome, the open source 
+> browser from Google, and in Node.js, among others. It implements ECMAScript as specified in ECMA-262, and runs on Windows 
+> 7 or later, macOS 10.5+, and Linux systems that use IA-32, ARM, or MIPS processors. V8 can run standalone, or can be 
+> embedded into any C++ application. More information can be found on V8's public wiki.
 
 This is basically Google's open source engine that runs and interprets Javascript on all our Google Chrome web browsers.
 
