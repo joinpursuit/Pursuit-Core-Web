@@ -133,13 +133,6 @@ module.exports.multiply = multiply;
 ```js
 module.exports.sum = (a, b) => a + b;
 module.exports.multiply = (a, b) => a * b;
-```
-## Project
-
-- [Create a module](project.md)
-
-## Project
-* [Create a module](project.md)
 
 ## Resources
 
