@@ -1,6 +1,7 @@
 # Conditionals
 
 ## Standards
+
 LF.4, LF.1
 
 ## Objectives
@@ -20,11 +21,11 @@ LF.4, LF.1
 - ternary
 - switch statement
 
-## Lesson
+# 1. Introduction
 
 So far, our programs have been running line-by-line, from top to bottom. Conditionals allow us to execute some lines of code in some cases, but not in others.
 
-### The `if` statement
+# 2. `if` and `else`
 
 #### Only `if`
 
@@ -142,7 +143,7 @@ if (num === 1) {
 
 Remember, only **one** of the code blocks will be executed.
 
-### Checking for range
+# 3. Checking for range
 
 One way we can utilize `if - else if - else` statements is to check for different ranges.
 For example, we may want to perform a different action depending on the user's age group.
@@ -161,7 +162,7 @@ if (userAge < 18) {
 
 > What are the ranges that the code above is checking for? How can we rewrite the statement with the **larger than** (`>`) operator?
 
-### Using logical operators
+# 4. Using logical operators
 
 So far in our `if ...` statements we have been checking for a single condition. It is also possible to check for multiple conditions using the `&&` and `||` boolean operators.
 For example, we may want to perform the same action when the day is Saturday or Sunday.
@@ -178,7 +179,7 @@ if (day === "Saturday" || day === "Sunday") {
 }
 ```
 
-We can use the && operator to check for ranges. For example, say we want to check if a user's age is between 18-45.
+We can use the `&&` operator to check for ranges. For example, say we want to check if a user's age is between 18-45.
 This is how we will express this in JavaScript: if age is larger than 18 **AND** age is smaller than 45,
 then {...}. In JavaScript, the opening curly bracket stands in place of the word `then`, and the closing one stand in place of the period at the end of the sentence.
 
@@ -192,7 +193,7 @@ if (userAge > 18 && userAge < 45) {
 
 > How would you write a conditional statement that outputs the same message if a user's age is either smaller than 18 **OR** larger than 45?
 
-## The Ternary Operator
+# 5. The Ternary Operator
 
 ```js
 conditional ? true : false;
@@ -210,7 +211,7 @@ question mark is the value returned if the conditional is truthy. The final part
 
 > Try it yourself! Experiment with different conditionals and outcomes.
 
-## Switch Statements
+# 6. Switch Statements
 
 Switch statemes evaluate similarly to `if - else if - else` statements. They take in an expression and, depending on the value of
 that expression, run a specific code block.
