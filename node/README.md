@@ -5,7 +5,7 @@
 | Lesson | Exit Ticket | Lab |
 | --- | --- | --- |
 | 1. [NodeJS Intro + Event Loop](./nodejs_intro/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12664524) | n/a |
-| 2. [npm and Modules](./npm_and_modules/README.md) | tbd | [link](https://github.com/joinpursuit/Pursuit-Core-npm-and-Modules-Lab/blob/master/README.md) |
+| 2. [npm and Modules](./npm_and_modules/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4320674) | [link](https://github.com/joinpursuit/Pursuit-Core-npm-and-Modules-Lab/blob/master/README.md) |
 | 3. [The Internet and Introduction to Servers](./how_the_internet_works/README.md) | tbd | tbd
 | 4. [Express Servers](./express_intro_to_servers/README.md) | tbd | tbd |
 | 5. [Express Basic Routing](./express_basic_routing/README.md) | tbd | tbd |
