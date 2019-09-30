@@ -1,24 +1,24 @@
-# NodeJS Intro + The Event Loop
+# Node.js Intro + The Event Loop
 
 # Topics
-- What is NodeJS?
+- What is Node.js?
 - Diving deeper into Programming Languages
 - Google's Javascript Engine: V8
 - Know and understand the event loop.
 - Know the different phases of the event loop.
 
 
-# 1. What is NodeJS?
+# 1. What is Node.js?
 
 ### Why not just call it Javascript for Server?
 
-If we go to the NodeJS (Node, for short) [website](https://nodejs.org/en/) we get the following definition:
+If we go to the Node.js (Node, for short) [website](https://node.js.org/en/) we get the following definition:
 
 ```
 Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 ```
 
-At first glance that is a very confusing and technical description of what NodeJS really is. This lesson we will go through these technical concepts and finally run our first NodeJS code!
+At first glance that is a very confusing and technical description of what Node.js really is. This lesson we will go through these technical concepts and finally run our first Node.js code!
 
 We will also understand why it's different from browser based Javascript we've been working with so far.
 
@@ -71,19 +71,19 @@ Let's take a look at the official Chrome V8 website: [https://developers.google.
 
 This is basically Google's open source engine that runs and interprets Javascript on all our Google Chrome web browsers.
 
-The very smart people at Google then thought: What if we just run this standalone without a browser on a computer? That's how NodeJS was born.
+The very smart people at Google then thought: What if we just run this standalone without a browser on a computer? That's how Node.js was born.
 
-### NodeJS Environment
+### Node.js Environment
 
 A web server is just a computer serving data on the internet.
 
 Google decided, with it's V8 Javascript Engine, it's possible to serve webpages, connect to databases, manage files all on the server side.
 
-### NodeJS: Addons to Javascript
+### Node.js: Addons to Javascript
 
 Stand alone Javascript on the browser does not have a lot of the capabilities we need to handle Server Side programming.
 
-NodeJS includes many new libraries and tools to allow us to do the following:
+Node.js includes many new libraries and tools to allow us to do the following:
 
 1. Input/Output Buffers: Handle binary data
 2. File System: Manage file system on your machine
@@ -91,7 +91,7 @@ NodeJS includes many new libraries and tools to allow us to do the following:
 4. Streams and Pipes: Allows you to handle data in chunks as it comes in. (Example: Video streaming)
 5. Access to the Operating System
 
-These are some of many new things you can do with Javascript in the NodeJS environment. Essentially, now Javascript can directly interface with your machine thanks to the V8 Engine.
+These are some of many new things you can do with Javascript in the Node.js environment. Essentially, now Javascript can directly interface with your machine thanks to the V8 Engine.
 
 
 # 4. The Event Loop
