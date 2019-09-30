@@ -13,8 +13,10 @@
   - initialization
   - condition
   - increment
+- `break`
+- `continue`
 
-## Lesson
+# 1. Introduction
 
 Consider a program that logs the numbers between 1 and 10:
 
@@ -27,7 +29,7 @@ console.log(3)
 
 This program isn't much fun to write, and it isn't very practical either. What if we wanted to log the numbers between 1 and 1000? There is a better solution than writing this by hand: **loops**. Loops are a solution for repetitive tasks.
 
-## The `while` loop
+# 2. The `while` loop
 
 Now that we know why loops can be a good idea, let's write our first **while** loop. A **while** loop is similar to an **if** statement, in that we will check if some condition is true. Unlike an **if** statement, we will execute the code block following the while loop again and again **as long as the condition is true**. Whenever we reach the bottom of the code block, we go right back up and check the condition again.
 
@@ -38,7 +40,9 @@ while (num <= 10) {
 }
 ```
 
-If you try to run the code above, the number `1` will be logged repeatedly. Eventually, your computer will freeze or you will see an error message. This is because we are repeatedly checking if the value of `num` is smaller than 10. If it is smaller, we log the value of `num`, and check again. Since the value of `num` never changes, we just keep logging `1`, until the computer runs out of memory. To fix this, we need to change the value of `num` inside the code block. In this instance, we will increase the value by `1` every time.
+If you try to run the code above, the number `1` will be logged repeatedly. Eventually, your computer will freeze or you will see an error message. This is because we are repeatedly checking if the value of `num` is smaller than 10. If it is smaller, we log the value of `num`, and check again. Since the value of `num` never changes, we just keep logging `1`, until the computer runs out of memory.
+
+To fix this, we need to change the value of `num` inside the code block. In this instance, we will increase the value by `1` every time.
 
 ```js
 let num = 1;
@@ -59,6 +63,7 @@ while (num < 10) {
 ```
 
 * Ex 1. Write a `while` loop that logs all the even numbers between 0 and 100.
+  > Bonus: Can you do it while only incrementing num by one each time?
   > **Hint**: Can the `%` operator help you here?
 
   <details>
@@ -98,9 +103,9 @@ while (num < 10) {
 
   </details>
 
-### The `for` loop
+# 3. The `for` loop
 
-Another kind of loop, the `for` loop, is just a condensed version of the while loop. With the `for` loop we create a variable, check a condition, and change the variable's value, all in one line.
+Another kind of loop, the `for` loop, is a condensed version of the while loop. With the `for` loop we create a variable, check a condition, and change the variable's value, all in one line.
 
 ```js
 for (let num = 1; num < 10; num += 1) {
@@ -120,7 +125,7 @@ More formally, this is what each part is called:
 for ([initialization]; [condition]; [increment]) {}
 ```
 
-### More complex problems
+# 4. Using loops to solve complex problems
 
 Loops can be used to solve pretty complex problems. Earlier, when we wanted to log only even or only odd values, we changed the increment from `1` to `2`. But what if we want to count both even and odd numbers and do something different for each?
 
@@ -173,7 +178,7 @@ We can write a chart to see what's going on more closely:
 
 You may have noticed that to find the value of `sum` in every new row, we take the existing value of sum and add it to the value of `i` in the next row. It is often useful to write things out this way. It can help clear things up.
 
-### Changing the increment
+# 5. Changing the increment in loops
 
 So far we've been incrementing a variable by `1` on each iteration of the loop. We can increment by other numbers as well.
 
@@ -231,3 +236,56 @@ for (let i = 50; i >= 5; i -= 5) {
       **Go do it**
     </details>
   </details>
+
+
+# 6. `break` and `continue`
+
+### `break`
+
+Sometimes, we want to stop a loop when a certain condition is met.  For example, let's say that we want to count over a range of numbers, and stop once we get to five:
+
+```js
+for (i = 0; i < 10; i++) {
+  if (i === 5) { break; }
+  console.log(`I am looking at the number ${i}`)
+}
+```
+
+This will log the following to the console:
+
+```
+I am looking at the number 0
+I am looking at the number 1
+I am looking at the number 2
+I am looking at the number 3
+I am looking at the number 4
+```
+
+As soon as `i` is equal to 5, we immediately stop and don't execute the rest of the loop.
+
+### `continue`
+
+Alternatively, we might hit a condition where we want to ignore the rest of the code inside the body of the loop, but continue incrementing our iterator to its next value:
+
+```js
+for (i = 0; i < 10; i++) {
+  if (i === 5) { continue; }
+  console.log(`I am looking at the number ${i}`)
+}
+```
+
+This will log the following to the console:
+
+```
+I am looking at the number 0
+I am looking at the number 1
+I am looking at the number 2
+I am looking at the number 3
+I am looking at the number 4
+I am looking at the number 6
+I am looking at the number 7
+I am looking at the number 8
+I am looking at the number 9
+```
+
+Note that we skip the line where it would log "I am looking at the number 5" because we `continue` in the line above it.
