@@ -9,8 +9,8 @@
 | 3. [Git and GitHub](./git_and_github/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/3869510) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465190) | [link](https://github.com/joinpursuit/git_github_assignment) | 
 | 4. [Values, Types, and Operators](./values_types_operators/README.md) | [6.2](https://canvas.instructure.com/courses/1705731/quizzes/4254541) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12501906) | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
 | 5. [Variables](./variables/README.md) | [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4276467) | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
-| 6. [Conditionals](./conditionals/README.md) | n/a | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
-| 7. [Loops](./loops/README.md) | n/a | [link](https://github.com/joinpursuit/loops_assignment/blob/master/README.md) |
+| 6. [Conditionals](./conditionals/README.md) | [6.4](https://canvas.instructure.com/courses/1705731/assignments/12565344) | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
+| 7. [Loops](./loops/README.md) | [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4283869) | [link](https://github.com/joinpursuit/loops_assignment/blob/master/README.md) |
 | 8. [Strings](./strings/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/3988761) | [link](https://github.com/joinpursuit/string_assignment/blob/master/README.md) |
 | 9. [Arrays](./arrays/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/3996803) | [link](https://github.com/joinpursuit/arrays_assignment) |
 | 10. [Objects](./objects/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4005988) | [link](https://github.com/joinpursuit/objects_assignment) |
