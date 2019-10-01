@@ -26,6 +26,19 @@ You can use the `require` keyword to import other modules. You'll typically save
 const mathModule = require('./math-module.js');
 ```
 
+Let's try to import a module that is built into Node.js called [`assert`](https://nodejs.org/dist/latest-v10.x/docs/api/assert.html)
+
+```js
+const assert = require('assert');
+
+let a = 1;
+let b = 1;
+
+// Use the module
+assert.strictEqual(a, b) // Assert/compare if a is equal to b. Try make them not equal and run again. What do you get
+
+```
+
 Note: you can name the variable whatever you want. Also, you can optionally omit the `.js` string at the end of the filename, and it will still work.
 
 ## Exporting in Node's Module System
