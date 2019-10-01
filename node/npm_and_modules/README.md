@@ -8,37 +8,7 @@
 
 # Lesson
 
-# 1. What is NPM?
-
-Npm (which stands for **n**ode **p**ackage **m**anager) is the best way to install, share and distribute those modules (aka packages). You can checkout the [npm website here](https://www.npmjs.com/) and a list of some of the [most popular packages here](https://www.npmjs.com/browse/star).
-
-One of the most powerful features of Node.js is its package management system. You will how easy it is to create modules. Thousands of people have taken advantage of this by creating their own modules and sharing them with the world via npm.
-
-# 2. Adding Package Dependencies
-
-Often times you will want/need to install many 3rd Party modules from NPM (unless you want to write all the code you need yourself). There is a special file called `package.json` which will hold all your dependencies. There's two ways package.json can be created.
-
-### npm init
-
-To use npm, begin by creating a new folder and navigating to it with the terminal. Now run the command `npm init`, which will create a `package.json` file in the current folder. The `package.json` file keeps track of all of the packages you have installed.
-
-### npm install
-
-To install a package, you need to enter `npm install <name-of-package> --save`, where you replaced <name-of-package> with the specific package you want to install. You can find the package names on the npm website.
-
-This install action will also create your `package.json` if it doesn't exist already.
-
-Let's check out a few npm packages:
-
-* [chalk](https://www.npmjs.com/package/chalk)
-* [figlet](https://www.npmjs.com/package/figlet)
-
-## package.json file
-
-The `package.json` file is automatically created when you run the  `npm init` command. The `package.json` file basically just keeps track of all of the node modules that you've installed. When you run the `npm install` command with the special `--save` argument those modules will automatically be saved in your `package.json` file.
-
-
-# 3. Node Modules
+# 1. Node Modules
 
 A module in Node.js is a simple or complex functionality organized into its own file. It can be a library that does intense math calculations or a library that does cryptography. Each module plays its own purpose and role. Each module solves unique problems.
 
@@ -46,14 +16,7 @@ As your node apps start getting bigger and more complex, organizing them starts 
 
 Basically, the module system lets one `.js` file interact with another `.js` file, and do things like share functions, objects, and variables. Let's take a look at how it works.
 
-
-## Types of Node.js Modules
-
-1. **Core Modules:** These are modules you can import without any special installation. It already comes packaged with Node.js.
-2. **Local Modules:** These are modules you define and create. You then can break your project up into modular components and include functionality when needed.
-3. **3rd Party Modules:** These are modules made and published by other developers. You install them to your project and utilize them when needed.
-
-# 4. Importing in Node's Module System
+## Importing in Node's Module System
 
 There are two key concepts for importing and exporting modules: `require` and `module.exports`.
 
@@ -65,8 +28,7 @@ const mathModule = require('./math-module.js');
 
 Note: you can name the variable whatever you want. Also, you can optionally omit the `.js` string at the end of the filename, and it will still work.
 
-# 5. Exporting in Node's Module System
-
+## Exporting in Node's Module System
 
 Importantly, you also need to export things from the files that you want to import in. To export modules you'll need to use the special `module.exports` keyword. Every time you export something you are exporting an object.
 
@@ -134,6 +96,40 @@ module.exports.multiply = multiply;
 module.exports.sum = (a, b) => a + b;
 module.exports.multiply = (a, b) => a * b;
 ```
+
+## Types of Node.js Modules
+
+1. **Core Modules:** These are modules you can import without any special installation. It already comes packaged with Node.js.
+2. **Local Modules:** These are modules you define and create. You then can break your project up into modular components and include functionality when needed.
+3. **3rd Party Modules:** These are modules made and published by other developers. You install them to your project and utilize them when needed.
+
+# 1. What is NPM?
+
+Npm (which stands for **n**ode **p**ackage **m**anager) is the best way to install, share and distribute those modules (aka packages). You can checkout the [npm website here](https://www.npmjs.com/) and a list of some of the [most popular packages here](https://www.npmjs.com/browse/star).
+
+One of the most powerful features of Node.js is its package management system. You will how easy it is to create modules. Thousands of people have taken advantage of this by creating their own modules and sharing them with the world via npm.
+# 2. Adding Package Dependencies
+
+Often times you will want/need to install many 3rd Party modules from NPM (unless you want to write all the code you need yourself). There is a special file called `package.json` which will hold all your dependencies. There's two ways package.json can be created.
+
+### npm init
+
+To use npm, begin by creating a new folder and navigating to it with the terminal. Now run the command `npm init`, which will create a `package.json` file in the current folder. The `package.json` file keeps track of all of the packages you have installed.
+
+### npm install
+
+To install a package, you need to enter `npm install <name-of-package> --save`, where you replaced <name-of-package> with the specific package you want to install. You can find the package names on the npm website.
+
+This install action will also create your `package.json` if it doesn't exist already.
+
+Let's check out a few npm packages:
+
+* [chalk](https://www.npmjs.com/package/chalk)
+* [figlet](https://www.npmjs.com/package/figlet)
+
+## package.json file
+
+The `package.json` file is automatically created when you run the  `npm init` command. The `package.json` file basically just keeps track of all of the node modules that you've installed. When you run the `npm install` command with the special `--save` argument those modules will automatically be saved in your `package.json` file.
 
 ## Resources
 
