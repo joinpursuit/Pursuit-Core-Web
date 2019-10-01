@@ -12,7 +12,7 @@
 
 Npm (which stands for **n**ode **p**ackage **m**anager) is the best way to install, share and distribute those modules (aka packages). You can checkout the [npm website here](https://www.npmjs.com/) and a list of some of the [most popular packages here](https://www.npmjs.com/browse/star).
 
-One of the most powerful features of NodeJS is its package management system. You will how easy it is to create modules. Thousands of people have taken advantage of this by creating their own modules and sharing them with the world via npm.
+One of the most powerful features of Node.js is its package management system. You will how easy it is to create modules. Thousands of people have taken advantage of this by creating their own modules and sharing them with the world via npm.
 
 # 2. Adding Package Dependencies
 
@@ -40,16 +40,16 @@ The `package.json` file is automatically created when you run the  `npm init` co
 
 # 3. Node Modules
 
-A module in NodeJS is a simple or complex functionality organized into its own file. It can be a library that does intense math calculations or a library that does cryptography. Each module plays its own purpose and role. Each module solves unique problems.
+A module in Node.js is a simple or complex functionality organized into its own file. It can be a library that does intense math calculations or a library that does cryptography. Each module plays its own purpose and role. Each module solves unique problems.
 
 As your node apps start getting bigger and more complex, organizing them starts becoming more important. Luckily, `node.js` has a built-in module system that makes it easy to organize large apps and pieces of code into multiple files. In node.js, each separate `js` file is essentially a separate module.
 
 Basically, the module system lets one `.js` file interact with another `.js` file, and do things like share functions, objects, and variables. Let's take a look at how it works.
 
 
-## Types of NodeJS Modules
+## Types of Node.js Modules
 
-1. **Core Modules:** These are modules you can import without any special installation. It already comes packaged with NodeJS.
+1. **Core Modules:** These are modules you can import without any special installation. It already comes packaged with Node.js.
 2. **Local Modules:** These are modules you define and create. You then can break your project up into modular components and include functionality when needed.
 3. **3rd Party Modules:** These are modules made and published by other developers. You install them to your project and utilize them when needed.
 
