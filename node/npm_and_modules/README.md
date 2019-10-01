@@ -16,7 +16,7 @@ One of the most powerful features of Node.js is its package management system. Y
 
 # 2. Adding Package Dependencies
 
-Often times you will need to install many 3rd Party modules from NPM. There is a special file called `package.json` which will hold all your dependencies. There's two ways package.json can be created.
+Often times you will want/need to install many 3rd Party modules from NPM (unless you want to write all the code you need yourself). There is a special file called `package.json` which will hold all your dependencies. There's two ways package.json can be created.
 
 ### npm init
 
