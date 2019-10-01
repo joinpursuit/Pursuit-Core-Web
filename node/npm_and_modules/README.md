@@ -10,7 +10,7 @@
 
 # 1. What is NPM?
 
-One of the most powerful features of NodeJS is its package management system. You've seen how easy it is to create modules. Thousands of people have taken advantage of this by creating their own modules and sharing them with the world via npm.
+One of the most powerful features of NodeJS is its package management system. You will how easy it is to create modules. Thousands of people have taken advantage of this by creating their own modules and sharing them with the world via npm.
 
 npm (which stands for node package manager) is the best way to install, share and distribute those modules (aka packages). You can checkout the [npm website here](https://www.npmjs.com/) and a list of some of the [most popular packages here](https://www.npmjs.com/browse/star).
 
