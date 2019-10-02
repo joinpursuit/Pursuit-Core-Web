@@ -24,9 +24,7 @@ LF.1, LF.1.a
 * Eloquent Javascript: [Chapter 1, Under **Strings**](http://eloquentjavascript.net/01_values.html)
 * Speaking JS: [Chapter 12](http://speakingjs.com/es5/ch12.html)
 
-## Lesson
-
-### Introduction
+# 1. Strings Introduction
 
 In the previous lesson on loops, we dealt with a lot of numbers which can get quite boring sometimes. **Strings** can provide a refreshing change. We have seen string values already and you can think of them as any characters that are contained within single (') or double (") quotes. Strings can also sometimes be referred to as a _string literal_.
 
@@ -49,7 +47,7 @@ To make part of a string begin on a new line, use \'n.
 
 **Try it yourself!** Make a string variable that includes _quotation marks_ and _a new line_.
 
-## String Properties
+# 2. String Properties
 
 Strings have many properties _built into_ them that we can access to find out specific information about it. These properties are part of the JavaScript language, so every string we create in JavaScript will have the _same_ built-in properties. We access a property using a dot (`.`) followed by the property name. Properties that are functions are called `methods`. We can apply the same methods to any character in the string (using its index number). This is because each character is also of type string - a string with the length of `1`.
 
@@ -108,7 +106,7 @@ console.log(str2[str.length - 1])
 ```
 
 
-## Modifying Strings
+# 3. Modifying Strings
 
 Just like numbers, we can **modify** string variables after declaring them. We can add characters to the end of a string by using the `+` operator. This is called _concatenation_ which means "to link things together." The shorthand `+` and `+=` work in the same way for strings as they do for numbers.
 
@@ -268,7 +266,7 @@ typeof parseInt(stringToNumber) //=> 'number'
 typeof Number(stringToNumber) //=> 'number'
 ```
 
-### String Interpolation
+# 4. String Interpolation
 
 As you've seen, when we want to add a variable to a sentence, we have to add it in using the `+` sign like so:
 
