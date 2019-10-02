@@ -15,7 +15,7 @@ The Internet is the backbone of the Web, the infrastructure that makes the Web p
 
 What started in the 1960s as a US military research project, soon evolved into a public infrastructure. The various technologies that support the Internet have evolved over time, but the way it works hasn't changed that much: Internet is a way to connect computers all together.
 
-![Internet](assets/internet.jpg)
+![Internet](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/node/how_the_internet_works/assets/internet.jpg)
 
 # 2. Clients and Servers
 
