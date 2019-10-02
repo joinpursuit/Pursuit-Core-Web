@@ -7,15 +7,14 @@
 | 1. [NodeJS Intro + Event Loop](./nodejs_intro/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12664524) | n/a |
 | 2. [npm and Modules](./npm_and_modules/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4320674) | [link](https://github.com/joinpursuit/Pursuit-Core-npm-and-Modules-Lab/blob/master/README.md) |
 | 3. [The Internet and Introduction to Servers](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/node/intro_to_servers) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4357588) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Server-Intro-Lab/blob/master/README.md)
-| 4. [Express Servers](./express_intro_to_servers/README.md) | tbd | tbd |
-| 5. [Express Basic Routing](./express_basic_routing/README.md) | tbd | tbd |
-| 6. [Express Passing Data](express_passing_data/README.md) | tbd | tbd |
-| 7. [Express Middleware](express_middleware/README.md) | tbd | tbd |
-| 8. [Express Nested Routing & App Structure](express_nested_routing_and_app_structure/README.md) | tbd | tbd |
-| 9. [Intro to Databases](./intro_to_databases/README.md) | tbd | tbd |
-| 10. [Postgres & Seeding Databases](./postgres_and_seeding_databases/README.md) | tbd | tbd |
-| 11. [Intro to Building APIs](./intro_to_building_apis/README.md) | tbd | tbd |
-| 12. [Building APIs with Express and Postgres](./building_apis_with_express_and_postgres/README.md) | tbd | tbd |
+| 4. [Intro to Express and routing](./intro_to_express_and_routing/README.md) | tbd | tbd |
+| 5. [Express Passing Data](express_passing_data/README.md) | tbd | tbd |
+| 6. [Express Middleware](express_middleware/README.md) | tbd | tbd |
+| 7. [Express Nested Routing & App Structure](express_nested_routing_and_app_structure/README.md) | tbd | tbd |
+| 8. [Intro to Databases](./intro_to_databases/README.md) | tbd | tbd |
+| 9. [Postgres & Seeding Databases](./postgres_and_seeding_databases/README.md) | tbd | tbd |
+| 10. [Intro to Building APIs](./intro_to_building_apis/README.md) | tbd | tbd |
+| 11. [Building APIs with Express and Postgres](./building_apis_with_express_and_postgres/README.md) | tbd | tbd |
 
 
 ## Assignments
