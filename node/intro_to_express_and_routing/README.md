@@ -177,7 +177,7 @@ Whenever we submit a URL into our browser that is a `GET` request.
 There is a very important tool we use as server side developers. It is known as [Postman](https://www.getpostman.com/). Please download it and install it on your systems.
 
 
-## Components of Routing with Express
+# 6. Routing with Express
 
 One of Express's strengths is the ability to seamlessly create routes as you need it.
 
