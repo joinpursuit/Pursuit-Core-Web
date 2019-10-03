@@ -219,3 +219,34 @@ app.listen(port, () => {
 ```
 
 Test these out using [Postman](https://www.getpostman.com/)!
+
+### JSON
+
+Express can also return json:
+
+
+```javascript
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+});
+
+app.get('/users', (req, res) => {
+  res.json({"users": ["Amy", "Bob", "Cat"]});
+})
+
+
+app.get('/smallPrimes', (req, res) => {
+  res.json({"smallPrimes": [2, 3, 5, 7]});
+})
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}!`)
+});
+```
+
+
+
