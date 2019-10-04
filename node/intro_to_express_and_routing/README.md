@@ -257,7 +257,9 @@ const express = require('express')
 const app = express()
 app.get("/users/:userID", (req, res) => {
   console.log(req.params)  
-  res.json({'user': {'name': 'Anne', id: req.params.id}})
+  // Fetch a real user using the userID
+  let user = {name: 'Sample User', id: req.params.userID}
+  res.json({'user': user))
 })
 
 const portNum = 8000
