@@ -248,5 +248,23 @@ app.listen(port, () => {
 });
 ```
 
+# 7. Reading parameters
 
+When defining an endpoint, you can also specify what parameters you are expecting:
+
+```js
+const express = require('express')
+const app = express()
+app.get("/users/:userID", (req, res) => {
+  console.log(req.params)  
+  res.json({'user': {'name': 'Anne', id: req.params.id}})
+})
+
+const portNum = 8000
+
+app.listen(portNum, function(){
+    console.log(`Server starting on port ${portNum}`);
+});
+
+```
 
