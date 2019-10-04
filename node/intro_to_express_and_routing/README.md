@@ -1,4 +1,4 @@
-# Express 1: Intro to Servers
+# Intro to Express and Routing
 
 # Topics
 - Express
@@ -270,3 +270,20 @@ app.listen(portNum, function(){
 
 ```
 
+# 8. CORS
+
+If you want to be making asyncronous requests to your server, you need to make sure that Cross Origin Resource Sharing is enabled.  To do so, you can use the `cors` npm package.
+
+```bash
+npm install --save cors
+```
+
+Then in your server:
+
+```js
+const express = require('express')
+const cors = require('cors')
+
+const app = express()
+app.use(cors())
+```
