@@ -255,7 +255,7 @@ console.log(arr1 === arr2)
 For now, if you'd like to compare arrays convert them to strings and then compare them. **Note** this will not always be 100% effective.
 For more information on the best way to compare [arrays](https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript)
 
-# 5. Multidimensional Array
+# 5. Multidimensional Arrays
 
 Multidimensional arrays are arrays that contain arrays as their elements.
 If an array is filled with arrays it is considered to be 2 dimensional (also often referred to as a matrix).
