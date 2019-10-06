@@ -19,7 +19,7 @@ What started in the 1960s as a US military research project, soon evolved into a
 
 # 2. Clients and Servers
 
-Computers connected to the web are called **clients** and **servers**. A simplified diagram of how they interact might look like this:
+Computers connected in a network, the largest network of them all being the internet, become **clients** and **servers**. A computer that has a resource and wants to share it will be a **server**, and a computer or program that wants to access or consume such resource we call a **client**. A simplified diagram of how they interact might look like this:
 
 ![](https://mdn.mozillademos.org/files/8973/Client-server.jpg)
 
