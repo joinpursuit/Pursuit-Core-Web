@@ -313,21 +313,21 @@ console.log(b); // 1
 The `...` operator can be used to combine arrays:
 
 ```js
-var params = [ "hello", true, 7 ]
-var other = [ 1, 2, ...params ] // [ 1, 2, "hello", true, 7 ]
+let params = [ "hello", true, 7 ]
+let other = [ 1, 2, ...params ] // [ 1, 2, "hello", true, 7 ]
 ```
 
 ```js
-var arr1 = [0, 1, 2];
-var arr2 = [3, 4, 5];
+let arr1 = [0, 1, 2];
+let arr2 = [3, 4, 5];
 arr1 = [...arr2, ...arr1]; // arr1 is now [3, 4, 5, 0, 1, 2]
 ```
 
 It can also be used to split up strings:
 
 ```js
-var str = "foo"
-var chars = [ ...str ] // [ "f", "o", "o" ]
+let str = "foo"
+let chars = [ ...str ] // [ "f", "o", "o" ]
 ```
 
 
