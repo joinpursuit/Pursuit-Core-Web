@@ -23,7 +23,7 @@ Computers connected in a network, the largest network of them all being the inte
 
 ![](https://mdn.mozillademos.org/files/8973/Client-server.jpg)
 
-- Clients are the web user's internet-connected devices (phone, computer, etc.) and the web-accessing software available on those devices (chrome, firefox, etc.).
+- Clients are user's internet-connected devices (phone, computer, etc.) and the web-accessing software available on those devices (chrome, firefox, etc.).
 - Servers are computers that store webpages, sites, or apps. When a client device wants to access a webpage, a copy of the webpage is downloaded from the server onto the client machine to be displayed in the user's web browser.
 
 ### So what happens, exactly?
