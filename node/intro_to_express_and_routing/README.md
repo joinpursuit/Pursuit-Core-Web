@@ -125,7 +125,7 @@ We use `-g` because we want to save nodemon *globally*. So that in the future we
 Now, if we navigate to the root folder of the app, we can start the server with the following command:
 
 ```js
-nodemon
+nodemon index.js
 ```
 
 # 4. Routing
