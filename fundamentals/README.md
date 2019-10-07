@@ -22,6 +22,7 @@
 
 ## Projects
 
+- https://github.com/joinpursuit/Pursuit-Core-Web-Text-Based-Adventure-Project
 - https://github.com/joinpursuit/Pursuit-Core-Web-Hangman
 
 ## Review Labs
