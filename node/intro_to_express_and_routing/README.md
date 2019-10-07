@@ -1,19 +1,19 @@
-# Intro to Express and Routing
+# Intro to Express.js and Routing
 
 # Topics
-- Express
+- Express.js
 - nodemon
 - What is Routing?
 - What are HTTP Request Methods?
 - Postman
-- Components of Routing with Express
+- Components of Routing with Express.js
 - Basic Routing
 
-# 1. Express
+# 1. Express.js
 
 ### Server-Side Web Frameworks
 
-Express is a server-side web framework for nodeJS.
+Express.js is a server-side web framework for Node.js.
 
 Server-side web frameworks are software that make it easier to write, maintain and scale web applications. They provide tools and libraries that simplify common web development tasks, including:
 
@@ -23,7 +23,7 @@ Server-side web frameworks are software that make it easier to write, maintain a
 - Formatting output (e.g. HTML, JSON, XML).
 - Improving security against web attacks.
 
-# 2. Getting Started with Express
+# 2. Getting Started with Express.js
 
 ### Adding dependencies
 
@@ -58,13 +58,13 @@ When we open the **package.json** file, we will see the defaults that we accepte
 }
 ```
 
-3. Now we  install the _Express_ library in the **myapp** directory. The package will automatically be saved to the dependencies list in our **package.json** file.
+3. Now we  install the _Express.js_ library in the **myapp** directory. The package will automatically be saved to the dependencies list in our **package.json** file.
 
 ```bash
 npm install --save express
 ```
 
-The dependencies section of our **package.json** will now appear at the end of the **package.json** file and will include _Express_.
+The dependencies section of our **package.json** will now appear at the end of the **package.json** file and will include _Express.js_.
 
 ```json
 {
@@ -99,7 +99,7 @@ app.listen(port, () => {
 }) // asks our server to listen for requests on port 8000, logging to the console to confirm that things are working
 ```
 
-The code above a minimal "HelloWorld" Express web application. This imports the "express" module and uses it to create a server (`app`) that listens for HTTP requests on port 8000 and prints a message to the console explaining what browser URL you can use to test the server. The `app.get()` function only responds to HTTP `GET` requests with the specified URL path ('/'), in this case by calling a function to send our _Hello World!_ message.
+The code above a minimal "HelloWorld" Express.js web application. This imports the "express" module and uses it to create a server (`app`) that listens for HTTP requests on port 8000 and prints a message to the console explaining what browser URL you can use to test the server. The `app.get()` function only responds to HTTP `GET` requests with the specified URL path ('/'), in this case by calling a function to send our _Hello World!_ message.
 
 5. You can start the server by calling node with the script in your command prompt:
 
@@ -177,9 +177,9 @@ Whenever we submit a URL into our browser that is a `GET` request.
 There is a very important tool we use as server side developers. It is known as [Postman](https://www.getpostman.com/). Please download it and install it on your systems.
 
 
-# 6. Routing with Express
+# 6. Routing with Express.js
 
-One of Express's strengths is the ability to seamlessly create routes as you need it.
+One of Express.js's strengths is the ability to seamlessly create routes as you need it.
 
 Route definition takes the following structure:
 
@@ -222,7 +222,7 @@ Test these out using [Postman](https://www.getpostman.com/)!
 
 ### JSON
 
-Express can also return json:
+Express.js can also return json:
 
 
 ```javascript
