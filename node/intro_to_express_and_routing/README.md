@@ -275,7 +275,7 @@ app.listen(portNum, function(){
 If you want to be making asyncronous requests to your server, you need to make sure that Cross Origin Resource Sharing is enabled.  To do so, you can use the `cors` npm package.
 
 ```bash
-npm install --save cors
+npm install cors
 ```
 
 Then in your server:
