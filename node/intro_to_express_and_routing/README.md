@@ -61,7 +61,7 @@ When we open the **package.json** file, we will see the defaults that we accepte
 3. Now we  install the _Express.js_ library in the **myapp** directory. The package will automatically be saved to the dependencies list in our **package.json** file.
 
 ```bash
-npm install --save express
+npm install express
 ```
 
 The dependencies section of our **package.json** will now appear at the end of the **package.json** file and will include _Express.js_.
