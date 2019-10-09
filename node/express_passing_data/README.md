@@ -22,7 +22,7 @@ There are many reasons to want to pass data to a Server. Here are a few but not 
 
 There are several ways you can pass data to a server. Some ways are best suited for particular cases than others. For example, some ways are more secure. Other ways you want to give the client some control over your server side logic.
 
-1. `URL Paramaters`: Websites use this all the time, to show user specific
+1. `URL Paramaters`: Websites use this all the time, to show user specific information
 2. `URL Query Strings`: Shopping websites may use this to indicate what page you're on
 3. `Request Body`: These are considered safer and are used for more sensitive and larger amounts of data.
 
