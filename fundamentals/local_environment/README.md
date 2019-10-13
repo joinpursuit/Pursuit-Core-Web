@@ -127,6 +127,9 @@ git config --global user.name "your name here"
 
 # use the email associated with your GitHub account
 git config --global user.email your_email_here
+
+# use vscode as default editor 
+git config --global core.editor "code --wait"
 ```
 
 ### PostgreSQL
