@@ -25,7 +25,11 @@ With an API:
 With our Database:
 **User** -> _HTTP Request_ -> **Our Node Server** -> _Database SQL Query_ -> **Our Database**
 
-### Installing Postgres
+### Installing Postgres and setting up a server:
+
+https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/
+
+
 
 #### Resources
 
