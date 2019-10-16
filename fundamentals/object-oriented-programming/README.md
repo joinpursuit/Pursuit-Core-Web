@@ -12,14 +12,38 @@
 
 # 1. Introduction
 
-- Constructor function review
-- Class review
-- Classes save us time
+In previous lessons, we've seen that we can use constructor functions and classes to create objects:
+
+```js
+function Dog(name, breed, weight) {
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+    this.bark = () => console.log("Woof!")
+}
+```
+
+```js
+class Dog {
+  constructor(name, breed, weight) {
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+  }
+  bark() {
+    console.log("Woof!")
+  }
+}
+```
+
+If we need to be making a lot of Dogs for an application that we are building, using either of the methods above will save us time.
 
 # 2. Object Oriented Programming
 
-- Object = class (confusing)
-- Separation of concerns
+Object Oriented Programming is the process of using classes to organize code.  Somewhat confusingly, the "object" in Object Oriented Programming refers to a `class` or `constructor function`, not to a JavaScript object.  
+
+We use classes `encapsulate` functionality, which means hiding things that we don't want other people to be able to access easily.  By using classes, we can also modularize our code, and make it so that every class is responsible for its own functionality.  Not using classes to do this can means that your logic becomes distributed over your whole application which can make it harder to read and maintain.
+
 
 # 3. Creating a simple shopping using Object Oriented Programming
 
