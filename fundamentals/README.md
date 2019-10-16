@@ -19,7 +19,7 @@
 | 13. [Array Methods](./array_methods/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4026758) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465195) | [link](https://github.com/joinpursuit/array_methods_assignment/blob/master/README.md) |
 | 14. [Constructor Functions](./constructor_functions/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4046242) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465191) | [link](https://github.com/joinpursuit/constructor_assignment/blob/master/README.md) |
 | 15. [Classes](./classes/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4046241) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465184) | [link](https://github.com/joinpursuit/classes_assignment/blob/master/README.md) |
-| 16. [Object Oriented Programming](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/fundamentals/object-oriented-programming) | [6.4]() | tbd |
+| 16. [Object Oriented Programming](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/fundamentals/object-oriented-programming) | [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4393030) | tbd |
 
 ## Projects
 
