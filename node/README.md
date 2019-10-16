@@ -11,7 +11,7 @@
 | 5. [Express Passing Data](express_passing_data/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12813678) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Express-Passing-Data-Lab) |
 | 6. [Express Middleware](express_middleware/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12821054) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Middleware-Lab/blob/master/README.md) |
 | 7. [Express Nested Routing & App Structure](express_nested_routing_and_app_structure/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12826976) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Nested-Routing-App-Structure-Lab) |
-| 8. [Intro to Databases](./intro_to_databases/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12861300 | [link](https://sqlzoo.net/) |
+| 8. [Intro to Databases](./intro_to_databases/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12861300) | [link](https://sqlzoo.net/) |
 | 9. [Postgres & Seeding Databases](./postgres_and_seeding_databases/README.md) | tbd | tbd |
 | 10. [Intro to Building APIs](./intro_to_building_apis/README.md) | tbd | tbd |
 | 11. [Building APIs with Express and Postgres](./building_apis_with_express_and_postgres/README.md) | tbd | tbd |
