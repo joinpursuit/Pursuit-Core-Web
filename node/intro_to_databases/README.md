@@ -145,7 +145,6 @@ Without an OUTER JOIN, we'd never see Steve Leavitt. That's because his `school_
 
 **Resources**
 * [Wikipedia on Databases](https://en.wikipedia.org/wiki/Database)
-* [How websites work with databases](https://developer.mozilla.org/en-US/docs/Learn/Drafts/How_websites_work_with_databases)
 * [SQL in Simple English](http://www.codecoffee.com/articles/sql1.html)
 * [SQL Tutorial](http://www.sqltutorial.org/)
 
