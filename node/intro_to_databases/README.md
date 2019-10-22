@@ -19,13 +19,13 @@ Relational databases are sometimes referred to as RDBMS, or Relational Database 
 
 For example:
 
-| id            | title          | year  |
-| ------------- | ------------- | ----- |
-|1|Reservoir Dogs|1992|
-|2|Pulp Fiction|1994|
-|3|Jackie Brown|1997|
-|4|Kill Bill Vol. 1|2003|
-|5|Kill Bill Vol. 2|2004|
+| id  | title            | year |
+| --- | ---------------- | ---- |
+| 1   | Reservoir Dogs   | 1992 |
+| 2   | Pulp Fiction     | 1994 |
+| 3   | Jackie Brown     | 1997 |
+| 4   | Kill Bill Vol. 1 | 2003 |
+| 5   | Kill Bill Vol. 2 | 2004 |
 
 True to their name, relational databases *relate* tables to one another. For example, above is our movies table, and there may be a directors table, and directors can have many movies. With this relationship in place, we can **query** our database to extract (in an easy way, without messy if/else statements or string comparison) all the movies a particular director has made.
 
@@ -35,13 +35,13 @@ In the above example, the **id** column is key to accomplishing this. In fact, i
 
 Let's see how that might look:
 
-| id            | title          | year  | director_id  |
-| ------------- | ------------- | ----- | --------- |
-|1|Reservoir Dogs|1992|32|
-|2|Pulp Fiction|1994|32|
-|3|Jackie Brown|1997|32|
-|4|Kill Bill Vol. 1|2003|32|
-|5|Kill Bill Vol. 2|2004|32|
+| id  | title            | year | director_id |
+| --- | ---------------- | ---- | ----------- |
+| 1   | Reservoir Dogs   | 1992 | 32          |
+| 2   | Pulp Fiction     | 1994 | 32          |
+| 3   | Jackie Brown     | 1997 | 32          |
+| 4   | Kill Bill Vol. 1 | 2003 | 32          |
+| 5   | Kill Bill Vol. 2 | 2004 | 32          |
 
 In this table's case, we are just referring to Quentin Tarantino movies, so the director_id would be the same. However, we can store all sorts of movies this way, from all sorts of different directors, without a problem.
 
@@ -144,7 +144,10 @@ Without an OUTER JOIN, we'd never see Steve Leavitt. That's because his `school_
 
 
 **Resources**
-* [Literally the Wikipedia entry for databases](https://en.wikipedia.org/wiki/Database)
+* [Wikipedia on Databases](https://en.wikipedia.org/wiki/Database)
 * [How websites work with databases](https://developer.mozilla.org/en-US/docs/Learn/Drafts/How_websites_work_with_databases)
 * [SQL in Simple English](http://www.codecoffee.com/articles/sql1.html)
+
+**Practice & Exercises**
+* [SQLBolt](https://sqlbolt.com)
 * [SQL Zoo](https://sqlzoo.net/)
