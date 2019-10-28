@@ -166,7 +166,7 @@ We said that a Database is a collection of Tables where the information is actua
 
 
 #### Resources
-
-- [Postgres Data Types](https://www.postgresql.org/docs/11/datatype.html)
+- [Postgres Data Types on Postgres Tutorial](http://www.postgresqltutorial.com/postgresql-data-types/)
+- [Postgres Data Types on the official Docs](https://www.postgresql.org/docs/11/datatype.html)
 - [Installing Postgres on Linux](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
 - [Postgres Mac App](https://postgresapp.com/)
