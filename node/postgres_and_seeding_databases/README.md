@@ -8,6 +8,7 @@
 - Define columns in a Postgres table.
 - Understand basic Postgres data types.
 - Build a small Postgres database.
+- Understand Primary Key and Foreign Key constraints and how to create them.
 
 # Lesson
 
