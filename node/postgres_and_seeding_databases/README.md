@@ -34,9 +34,9 @@ You should be familiar with the **Client-Server model** from our work with HTTP.
 ### Where Postgres fits in our stack
 ![fullstack diagram](./assets/fullstack_diagram.png)
 
-### Postgres Intro
+### The problem Databases solve
 
-Previously, if we wanted to store data to be displayed we needed to keep it in our state. If you refreshed the page, the state was reset and the data was lost. Also, the saved information in state could only be viewed on one computer. With a database, we can save our information forever and it can be viewed by anyone. What's different now is we need to _request_ the data from the database by sending a request to our server. Similar to how we would get data from an API except the data is coming from a database _we_ create and manage.
+Previously, if we wanted to store data to be displayed we needed to keep it in 'state' in the form of variables (sometimes global) that will be put in our computer's memory RAM. If you refreshed the page or restarted the Express.js server the 'state' was reset and the data was lost. Also, the saved information in 'state' could only be viewed on one computer. With a database, we can save our information forever, somewhere else and it can be viewed by anyone. What's different now is that our information will be saved not in our App's 'state' as variables but on a persisting storage, a **Database**. Our Front-end apps will _request_ the data from the database by sending a request to our back-end/server and display such information. Similar to how we would get data from a 3rd Party API except the data is coming from a database _we_ create and manage.
 
 ### Installing Postgres and setting up a server:
 
