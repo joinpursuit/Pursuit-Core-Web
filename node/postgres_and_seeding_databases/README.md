@@ -1,8 +1,13 @@
-# Databases 2: Postgres & PG-Promise
+# Databases 2: Creating Databases & Tables in Postgres
 
-# Topics
+# Goals
 
-- What is Postgres?
+- Know what Postgres is.
+- Learn to create a Postgres Database.
+- Learn to create tables in a Postgres Database.
+- Define columns in a Postgres table.
+- Understand basic Postgres data types.
+- Build a small Postgres database.
 
 # Lesson
 
