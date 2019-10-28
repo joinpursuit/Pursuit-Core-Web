@@ -63,7 +63,39 @@ fellow_name=#
 
 If you see anything else make sure your Postgres is running. Search for it on your applications and start it. If you don't find it you might not have Postgres installed. [Instructions for installing Postgres are here](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md#postgresql). If you need help reach out to one of your instructors.
 
+### `psql` and SQL code
+Just like we wrote some SQL code to retrieve information from a Database in the past, we will be writing some SQL code to create a Postgres Database.
+All this code we will be writing in `psql`, the [PostgreSQL interactive terminal](https://www.postgresql.org/docs/9.3/app-psql.html). Later we will learn to put our SQL code on a `.sql` file and execute it with `psql`.
+
+Execute the Postgres interactive terminal with:
+
+```
+psql
+```
+
 ### Creating a Database
+While being in `psql`, to create a database called `pursuit_fellows_db` type and execute:
+
+```sql
+CREATE DATABASE pursuit_fellows_db;
+```
+
+`psql` should have replied with:
+
+```
+CREATE DATABASE
+```
+
+Let's double check that the database was created by listing all the databases that exist on our Postgres Database Server:
+```
+\l
+```
+The database we just created should be in the list of databases that appeared.
+
+**Questions**:
+* What happens if you try to create another database with the same name? Try it!
+* What if we want to delete the database we just created? Google "how to delete database postgres".
+* What happens if you forget the semicolon on the `CREATE DATABASE` statement?
 
 ### Creating Tables
 
