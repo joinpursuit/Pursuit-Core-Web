@@ -151,6 +151,7 @@ We said that a Database is a collection of Tables where the information is actua
 * `PRIMARY KEY`
 * `UNIQUE`
 * `NOT NULL`
+* `REFERENCES`
 
 ##### Exercises
 * Complete the creating tables tutorial on [SQLBolt](https://sqlbolt.com/lesson/creating_tables)
