@@ -15,9 +15,12 @@
 
 ## Postgres
 
-Okay, so we've been learning how to make SQL queries and get information from databases using SQLZoo. That's nice, but it's not the full picture. If we're developing production apps, we don't just want to be able to ask for and get data—we want to create, update, and delete information from our own databases.
+Okay, so we've been learning how to make SQL queries and get information from databases using SQLZoo. That's nice, but it's not the full picture. If we're developing production apps, we don't just want to be able to ask for and get data. We want to create, update, and delete information from our own databases.
 
-In order to do this, we need something called a **database server**, which is handled by an **RDBMS** or a Relational Database Management System. In this case, we're going to use a service called **PostgreSQL** (AKA Postgres).
+In order to do this, we need something called a **Database Server**, which is handled by an **RDBMS** or a Relational Database Management System. In this case, we're going to use a service called **PostgreSQL** (AKA Postgres).
+
+### Where Postgres fits in our stack
+![fullstack diagram](./assets/fullstack_diagram.png)
 
 ### Postgres Intro
 
