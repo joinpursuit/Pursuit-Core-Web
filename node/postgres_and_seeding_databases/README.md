@@ -43,9 +43,7 @@ Previously, if we wanted to store data to be displayed we needed to keep it in '
 https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/
 
 
-### pg-promise
 
-https://github.com/vitaly-t/pg-promise
 
 #### Resources
 
