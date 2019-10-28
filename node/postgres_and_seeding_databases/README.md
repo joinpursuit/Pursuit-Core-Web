@@ -1,4 +1,4 @@
-# Databases 2: Creating Databases & Tables in Postgres
+# Databases 2: Creating Databases and manipulating data in Postgres
 
 # Goals
 
