@@ -90,7 +90,7 @@ Let's double check that the database was created by listing all the databases th
 ```
 \l
 ```
-The database we just created should be in the list of databases that appeared.
+The database we just created should be in the list of databases that appeared. To exit the list of databases just type the `q` key.
 
 **Questions**:
 * What happens if you try to create another database with the same name? Try it!
@@ -98,12 +98,75 @@ The database we just created should be in the list of databases that appeared.
 * What happens if you forget the semicolon on the `CREATE DATABASE` statement?
 
 ### Creating Tables
+We said that a Database is a collection of Tables where the information is actually kept. Lets create our first table. 
+
+* Connect to our recently created database with:
+  ```sql
+  \c pursuit_fellows_db
+  ```
+* List the tables on the `pursuit_fellows_db` (none at first)
+  ```sql
+  \dt
+  ```
+
+  `psql` should have said:
+  ```
+  Did not find any relations.
+  ```
+  That is because our database doesn't have any tables, yet. **Relations** here is another name for **Tables**.
+
+* Create a `fellows` table by typing the following lines one by one. Hit the `Enter`/`Return` key at the end of each line. You could also copy and past it from here:
+  ```sql
+  CREATE TABLE fellows(
+  id SERIAL,
+  firstname VARCHAR,
+  lastname VARCHAR
+  );
+  ```
+  This created a table `fellows` with three columns `id`, `firstname` and `lastname`. List your tables with `\dt` again and see your table.
+
+* To remove a.k.a "drop" a table:
+  ```sql
+  DROP TABLE fellows
+  ```
+
+**Exercises:**
+* Delete the `fellows` tables, list all the tables and create the `fellows` table again.
+* Crate any table of your liking with as many columns as you want, then drop it.
+* Create a table `classes` with three columns `id`, `class_num`, `class_stack`, `instructor_name`
+  * This table will have store information like
+    | class_num | class_stack | instructor_name  |
+    | --------- | ----------- | ---------------- |
+    | 6.2       | Web         | Alejandro Franco |
+    | 6.1       | iOS         | David Rifkin     |
+
+#### Column Data Types
+* `SERIAL`
+* `VARCHAR`
+* `INT`
+* `DECIMAL`
+* `timestamptz`
+
+#### Table Constraints
+* `PRIMARY KEY`
+* `UNIQUE`
+* `NOT NULL`
+
+##### Exercises
+* Complete the creating tables tutorial on [SQLBolt](https://sqlbolt.com/lesson/creating_tables)
 
 ### Adding data to the Database
+* `INSERT`
+* `UPDATE`
+* `DELETE`
+
+##### Exercises
+* Complete the [inserting, updating and deleting data tutorial on SQLBolt](https://sqlbolt.com/lesson/inserting_rows)
 
 
 
 #### Resources
 
+- [Postgres Data Types](https://www.postgresql.org/docs/11/datatype.html)
 - [Installing Postgres on Linux](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
 - [Postgres Mac App](https://postgresapp.com/)
