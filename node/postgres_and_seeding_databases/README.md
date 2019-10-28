@@ -21,18 +21,22 @@ In order to do this, we need something called a **Database Server**, which is ha
 
 You should be familiar with the **Client-Server model** from our work with HTTP. It turns out that when we are interacting with our database we are still operating in this model. When you are writing a SQL query you will be using a client, in our case the client will be `psql`, `pgAdmin` or `Postico`. The client will send the SQL query we want to execute to the **Database Server**, the database server receives our query, executes it and returns back a result. We can send queries to the the database server to get, update, or delete information. 
 
+### Fullstack request flow 
+
+* With an 3rd Party API:
+
+  **User** -> _HTTP Request_ -> **Outside API Server** -> _Database SQL Query_ -> **Outside API Database**
+
+* With our Server/API & Database:
+
+  **User** -> _HTTP Request_ -> **Our Node Server** -> _Database SQL Query_ -> **Our Database**
+
 ### Where Postgres fits in our stack
 ![fullstack diagram](./assets/fullstack_diagram.png)
 
 ### Postgres Intro
 
 Previously, if we wanted to store data to be displayed we needed to keep it in our state. If you refreshed the page, the state was reset and the data was lost. Also, the saved information in state could only be viewed on one computer. With a database, we can save our information forever and it can be viewed by anyone. What's different now is we need to _request_ the data from the database by sending a request to our server. Similar to how we would get data from an API except the data is coming from a database _we_ create and manage.
-
-With an API:
-**User** -> _HTTP Request_ -> **Outside API Server** -> _Database SQL Query_ -> **Outside API Database**
-
-With our Database:
-**User** -> _HTTP Request_ -> **Our Node Server** -> _Database SQL Query_ -> **Our Database**
 
 ### Installing Postgres and setting up a server:
 
