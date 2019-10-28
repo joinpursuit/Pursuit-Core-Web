@@ -38,10 +38,36 @@ You should be familiar with the **Client-Server model** from our work with HTTP.
 
 Previously, if we wanted to store data to be displayed we needed to keep it in 'state' in the form of variables (sometimes global) that will be put in our computer's memory RAM. If you refreshed the page or restarted the Express.js server the 'state' was reset and the data was lost. Also, the saved information in 'state' could only be viewed on one computer. With a database, we can save our information forever, somewhere else and it can be viewed by anyone. What's different now is that our information will be saved not in our App's 'state' as variables but on a persisting storage, a **Database**. Our Front-end apps will _request_ the data from the database by sending a request to our back-end/server and display such information. Similar to how we would get data from a 3rd Party API except the data is coming from a database _we_ create and manage.
 
-### Installing Postgres and setting up a server:
+## Hands-On 
 
-https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/
+### Setup
 
+You probably already have Postgres installed and running on your computer. Do you remember our first day of class [when we installed a bunch of stuff?](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md). One of the things you installed is [Postgres](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md#postgresql).
+
+Verify that Postgres is running. 
+
+Open a terminal window and type:
+
+```
+psql
+```
+
+The result should be something like this:
+
+```
+psql (11.5)
+Type "help" for help.
+
+fellow_name=# 
+```
+
+If you see anything else make sure your Postgres is running. Search for it on your applications and start it. If you don't find it you might not have Postgres installed. [Instructions for installing Postgres are here](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md#postgresql). If you need help reach out to one of your instructors.
+
+### Creating a Database
+
+### Creating Tables
+
+### Adding data to the Database
 
 
 
