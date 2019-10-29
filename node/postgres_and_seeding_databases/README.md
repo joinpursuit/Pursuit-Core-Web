@@ -135,6 +135,7 @@ We said that a Database is a collection of Tables where the information is actua
 * Crate any table of your liking with as many columns as you want, then drop it.
 * Create a table `classes` with three columns `id`, `class_num`, `class_stack`, `instructor_name`
   * This table will have store information like
+  
     | class_num | class_stack | instructor_name  |
     | --------- | ----------- | ---------------- |
     | 6.2       | Web         | Alejandro Franco |
