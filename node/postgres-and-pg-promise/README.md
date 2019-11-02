@@ -45,21 +45,13 @@ First, let's configure our database using postgres.  Our data will have the foll
   - `poster_id`: integer, **foreign key** referencing the column `id` in Users.
   - `body`: string
 
-First, let's create the database:
+Let's create and [seed our Database](https://en.wikipedia.org/wiki/Database_seeding):
+> Seeding a database is a process in which an initial set of data is provided to a database when it is being installed.
 
-```bash
-➜ ~: psql
-psql (11.5)
-Type "help" for help.
+Use the following `sql` code to create and seed your database.  Save it in a file as `facebook_db.sql`.
 
-benjaminstone=# CREATE DATABASE facebook_db;
-```
-
-Then, use the following `sql` file to seed your database.  Save it as `facebook_db.sql`
 
 ```sql
-\c template1
-
 DROP DATABASE IF EXISTS facebook_db;
 
 CREATE DATABASE facebook_db;
@@ -79,6 +71,7 @@ CREATE TABLE posts(
     body VARCHAR
 );
 
+-- Add some users
 INSERT INTO users(firstname, lastname, age)
     VALUES('Adam', 'Addams', 40),
           ('Beth', 'Brown', 51),
@@ -86,6 +79,7 @@ INSERT INTO users(firstname, lastname, age)
           ('Don', 'Donner', 33),
           ('Eve', 'Edwards', 83);
 
+-- Add some posts
 INSERT INTO posts (poster_id, body)
     VALUES(1, 'I am Adam! Hello!'),
           (1, 'I like pancakes'),
@@ -98,14 +92,15 @@ INSERT INTO posts (poster_id, body)
           (5, 'I like turtles'),
           (5, 'My favorite number is 8');
 
+-- Let's verify that the users and posts were inserted 
 SELECT * FROM users;
 SELECT * FROM posts;
 ```
 
-The command below will then seed your `facebook_db` database.  Note that this is NOT run inside psql.
+Then execute the `facebook_db.sql` file with `psql`:  
 
-```bash
-psql facebook_db < facebook_db.sql
+```
+psql -f facebook_db.sql
 ```
 
 Once you verify that your tables are correct, let's continue on to build the Express app that will connect with our database.
