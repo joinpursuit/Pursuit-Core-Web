@@ -202,7 +202,7 @@ const db = pgp(connectionString);
 
 There are a few different ways you can connect to your database with `pg-promise`. See [alternative ways here](https://github.com/vitaly-t/pg-promise/wiki/Connection-Syntax).
 
-The variable `db` now has a reference to the database, we can query it for information.  Let's get all the users first.  `db` has a method called `any` which takes a SQL string as an argument.  It will then query the database using the SQL command, and return "any" number of responses that it gets back.  
+The variable `db` now has a reference to the database, we can query it for information.  Let's get all the users first.  `db` has a method called `.any` which takes a SQL string as an argument.  It will then query the database using the SQL command, and return "any" number of responses that it gets back.  
 
 Below we get all the users:
 
@@ -221,7 +221,7 @@ router.get('/all', (req, res) => {
 });
 ```
 
-For inserting values, we can the `none` method of `db`.  We call `none` with two arguments:
+For inserting values, we usually use the `.none` method of `db`.  We call `.none` with two arguments:
 
 1. A `sql` string
 2. Query formatting parameters. This will contain any values you want to use in your `sql`.
