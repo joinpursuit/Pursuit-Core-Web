@@ -296,8 +296,8 @@ With our server complete, run it with `nodemon app.js` or `node app.js`
 
 Now, we can build a simple front end for interacting with our server and database:
 
-index.html
-```js
+## `index.html`
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -323,7 +323,7 @@ index.html
 </html>
 ```
 
-index.js
+## `index.js`
 ```js
 document.addEventListener('DOMContentLoaded', () => {
     loadUsers();
