@@ -1,4 +1,4 @@
-# Interacting with our Postgres Database with `pg-promise`
+# Postgres & Express.js with `pg-promise`
 
 ## Objectives
 
