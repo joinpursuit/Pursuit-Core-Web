@@ -109,8 +109,8 @@ Once you verify that your tables are correct, let's continue on to build the Exp
 
 Now that our database is seeded with information, we need to build an API that will allow users to access and add to our database.  For now, let's focus on creating two routes:
 
-- /users/all
-- /users/register
+- `/users/all`
+- `/users/register`
 
 To begin, let's create an `app.js` file where our Express server will live.  We will need to install the following packages:
 
