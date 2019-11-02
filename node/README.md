@@ -13,7 +13,7 @@
 | 7. [Express Nested Routing & App Structure](express_nested_routing_and_app_structure/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12826976) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Nested-Routing-App-Structure-Lab) |
 | 8. [Intro to Databases](./intro_to_databases/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12861300) | [link](https://sqlzoo.net/) |
 | 9. [Postgres & Seeding Databases](./postgres_and_seeding_databases/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12863766) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Postgres-Lab/blob/master/README.md) |
-| 10. [Postgres & pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/node/postgres-and-pg-promise) | tbd | [link](https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Lab/blob/master/README.md) |
+| 10. [Postgres & pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/node/postgres-and-pg-promise) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4429633) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Lab/blob/master/README.md) |
 
 
 ## Assignments
