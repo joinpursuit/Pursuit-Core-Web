@@ -3,8 +3,8 @@
 ## Objectives
 
 - Explain what problem pg-promise solves
-- Use pg-promise to query for information
-- Use pg-promise to persist information
+- Use `pg-promise` to query for information
+- Use `pg-promise` to persist information
 
 ## Resources
 
@@ -26,9 +26,9 @@ In this lesson, we'll learn how to combine these two elements to build a databas
 
 In order to link them, we will make use of the [pg-promise](https://github.com/vitaly-t/pg-promise) library.
 
-pg-promise provides an interface for easily communicating with our database.
+`pg-promise` is a **PostgreSQL interface for Node.js**. It provides an interface for easily communicating with our database from Node.js.
 
-In this lesson, we will build am application that adds new users to be persisted to a database, and displays a list of those users.
+In this lesson, we will build an application that adds new users to be persisted to a database, and displays a list of those users.
 
 # 2. Configuring the database
 
