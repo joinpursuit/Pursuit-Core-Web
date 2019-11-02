@@ -160,6 +160,7 @@ app.listen(port, () => {
 We promised above that we will have a `routes` directory that contains our `users` routes.  Go ahead and create that file so that you have the following structure:
 
 ```
+.
 ├── app.js
 └── routes/
     └── users.js
@@ -191,19 +192,19 @@ In order to connect the database, we'll need to bring in the new `pg-promise` li
 npm install pg-promise
 ```
 
-First, we'll need to get a reference to our database.  To do so, we will tell `pg-promise` the configuration of our database:
+Then we can get a reference to our database.  To do so, we will tell `pg-promise` to connect to our database:
 
 ```js
 const pgp = require('pg-promise')();
-const connection = {
-    host: 'localhost',
-    port: 5432,
-    database: 'facebook_db',
-}
-const db = pgp(connection);
+const connectionString = "postgres://localhost:5432/facebook_db"
+const db = pgp(connectionString);
 ```
 
-Now that we have a reference to the database, we can query it for information.  Let's get all the users first.  `db` has a method called `any` which takes a SQL string as an argument.  It will then query the database using the SQL command, and return "any" number of responses that it gets back.  Below we get all the users:
+There are a few different ways you can connect to your database with `pg-promise`. See [alternative ways here](https://github.com/vitaly-t/pg-promise/wiki/Connection-Syntax).
+
+The variable `db` now has a reference to the database, we can query it for information.  Let's get all the users first.  `db` has a method called `any` which takes a SQL string as an argument.  It will then query the database using the SQL command, and return "any" number of responses that it gets back.  
+
+Below we get all the users:
 
 ```js
 router.get('/all', (req, res) => {
@@ -222,10 +223,10 @@ router.get('/all', (req, res) => {
 
 For inserting values, we can the `none` method of `db`.  We call `none` with two arguments:
 
-- a SQL string
-- any values you want to use in your SQL
+1. A `sql` string
+2. Query formatting parameters. This will contain any values you want to use in your `sql`.
 
-We can also call `one` in this manner if we want to build more complex queries.  `pg-promise` separates these to protect against SQL injection attacks.  The placeholder values (eg. $1) in the SQL string can only reflect simple values.
+`pg-promise` separates these to protect against SQL injection attacks.  The placeholder values (eg. `$1`) in the SQL string can only reflect simple values.
 
 ```js
 router.post('/register', (req, res) => {
@@ -243,8 +244,9 @@ router.post('/register', (req, res) => {
 });
 ```
 
-The complete file:
+Other methods besides `.none` and `.any` exits. Explore their use and [reasoning here](http://vitaly-t.github.io/pg-promise/Database.html#any)
 
+The completed file:
 <details>
 <summary>Expand</summary>
 
