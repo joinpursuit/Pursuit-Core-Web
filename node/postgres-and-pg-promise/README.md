@@ -112,15 +112,30 @@ Now that our database is seeded with information, we need to build an API that w
 - `/users/all`
 - `/users/register`
 
-To begin, let's create an `app.js` file where our Express server will live.  We will need to install the following packages:
+To begin, let's create an `app.js` file where our Express server will live.  We will need to install the following pakages:
 
-```bash
-npm install express
-npm install cors
-npm install body-parser
+* express
+* cors`
+
+**Exercise:** With your neighbor discuss what are this packages used for and why do we need this packages.
+
+## Steps
+
+### 1. Initialize an `npm` project/app
+
+In a folder called `server` or `backend` whichever your prefer. Initialize an npm project with:
+```
+npm init -y
 ```
 
-Then, let's put together an Express server that listens on port 3000.
+### 2. Install dependencies
+Install two packages `express` & `cors` with:
+```
+npm install express cors
+```
+
+### 3. Code a simple Express.js Server
+Let's put together an Express server that listens on port 3000.
 
 ```js
 const express = require('express');
@@ -141,12 +156,13 @@ app.listen(port, () => {
 });
 ```
 
-We promise above that we will have a `routes` directory that contains our `users` routes.  Go ahead and create that file so that you have the following structure:
+### 4. Set up the users router
+We promised above that we will have a `routes` directory that contains our `users` routes.  Go ahead and create that file so that you have the following structure:
 
 ```
----app.js
----routes
-------users.js
+├── app.js
+└── routes/
+    └── users.js
 ```
 
 First, let's create the routes to view all users and register a particular user:
@@ -168,6 +184,7 @@ router.post('/register', (req, res) => {
 module.exports = router;
 ```
 
+### 5. Setup `pg-promise`
 In order to connect the database, we'll need to bring in the new `pg-promise` library:
 
 ```
