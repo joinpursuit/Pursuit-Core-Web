@@ -226,7 +226,7 @@ router.get('/all', (req, res) => {
 For inserting values, we usually use the `.none` method of `db`.  We call `.none` with two arguments:
 
 1. A `sql` string
-2. Query formatting parameters. This will contain any values you want to use in your `sql`.
+2. Query [formatting parameters](https://github.com/vitaly-t/pg-promise#query-formatting). This will contain any values you want to use in your `sql`.
 
 `pg-promise` separates these to protect against SQL injection attacks.  The placeholder values (eg. `$1`) in the SQL string can only reflect simple values.
 
