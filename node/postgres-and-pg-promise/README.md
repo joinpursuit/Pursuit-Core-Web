@@ -244,7 +244,7 @@ router.post('/register', (req, res) => {
 });
 ```
 
-Other methods besides `.none` and `.any` exists. Explore their use and [reasoning here](http://vitaly-t.github.io/pg-promise/Database.html#any)
+Other methods besides `.none` and `.any` exist. Explore their use and [reasoning here](http://vitaly-t.github.io/pg-promise/Database.html#any)
 
 The completed file:
 <details>
@@ -255,12 +255,8 @@ const express = require('express');
 const router = express.Router();
 
 const pgp = require('pg-promise')();
-const connection = {
-    host: 'localhost',
-    port: 5432,
-    database: 'facebook_db',
-}
-const db = pgp(connection);
+const connectionString = "postgres://localhost:5432/facebook_db"
+const db = pgp(connectionString);
 
 router.get('/all', (req, res) => {
     db.any('SELECT * FROM users')
