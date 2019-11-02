@@ -244,7 +244,7 @@ router.post('/register', (req, res) => {
 });
 ```
 
-Other methods besides `.none` and `.any` exits. Explore their use and [reasoning here](http://vitaly-t.github.io/pg-promise/Database.html#any)
+Other methods besides `.none` and `.any` exists. Explore their use and [reasoning here](http://vitaly-t.github.io/pg-promise/Database.html#any)
 
 The completed file:
 <details>
