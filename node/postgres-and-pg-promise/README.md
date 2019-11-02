@@ -7,9 +7,11 @@
 - Use `pg-promise` to persist information
 
 ## Resources
-
-- [pg-promise: Learn by Example](https://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example)
-- [pg-promise: Docs](https://github.com/vitaly-t/pg-promise/blob/master/README.md)
+* pg-promise
+    - [Learn by Example](https://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example)
+    - [Docs](https://github.com/vitaly-t/pg-promise/blob/master/README.md)
+    - [`db` methods](http://vitaly-t.github.io/pg-promise/Database.html#any)
+    - [Query Formatting](https://github.com/vitaly-t/pg-promise#query-formatting)
 
 ## Project Link
 
