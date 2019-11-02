@@ -246,9 +246,8 @@ router.post('/register', (req, res) => {
 
 Other methods besides `.none` and `.any` exist. Explore their use and [reasoning here](http://vitaly-t.github.io/pg-promise/Database.html#any)
 
-The completed file:
 <details>
-<summary>Expand</summary>
+<summary>Complete File routes/users.js</summary>
 
 ```js
 const express = require('express');
@@ -288,6 +287,8 @@ router.post('/register', (req, res) => {
 module.exports = router;
 ```
 </details>
+
+### 6. Run the Server
 
 With our server complete, run it with `nodemon app.js` or `node app.js`
 
