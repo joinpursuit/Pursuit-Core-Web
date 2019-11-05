@@ -62,7 +62,7 @@ While many websites use more complicated tools, [Craigslist](https://newyork.cra
 
 To look at the HTML that's powering this website, right click on "new york city" and click "inspect".
 
-![imageOne](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6-2-combined-html-lesson/html_css_dom/html_introduction_combined/craigslistInspect.png)
+![imageOne](./craigslistInspect.png)
 
 On the right side, you can see the HTML.  Now that you can see the inner workings, you can edit it.  Delete the text that says "new york city" and replace it with some other text.  Then click enter.
 
