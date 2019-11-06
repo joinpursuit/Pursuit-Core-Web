@@ -62,11 +62,11 @@ While many websites use more complicated tools, [Craigslist](https://newyork.cra
 
 To look at the HTML that's powering this website, right click on "new york city" and click "inspect".
 
-![imageOne](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6-2-combined-html-lesson/html_css_dom/html_introduction_combined/craigslistInspect.png)
+![imageOne](./craigslistInspect.png)
 
 On the right side, you can see the HTML.  Now that you can see the inner workings, you can edit it.  Delete the text that says "new york city" and replace it with some other text.  Then click enter.
 
-![imageTwo](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6-2-combined-html-lesson/html_css_dom/html_introduction_combined/craigslistEdit.png)
+![imageTwo](./craigslistEdit.png)
 
 Neat!  Now try a few more on your own.  
 
@@ -135,7 +135,7 @@ We just made our first website!  Not a lot of content there yet though, so let's
 </html>
 ```
 
-![oneLineImage](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6-2-combined-html-lesson/html_css_dom/html_introduction_combined/htmlOneLine.png)
+![oneLineImage](./htmlOneLine.png)
 
 When we view our website in a browser, all the text is there, but it's only on one line.  HTML doesn't respect new lines that you add manually in the `<body>`.  In order to tell the browser how to display your website, you'll need to use more HTML tags.  
 
@@ -156,7 +156,7 @@ The `<p>` tag stands for paragraph and is used for telling the browser that ever
 </html>
 ```
 
-![paragraphSeparatedImage](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6-2-combined-html-lesson/html_css_dom/html_introduction_combined/htmlParagraphs.png)
+![paragraphSeparatedImage](./htmlParagraphs.png)
 
 # 5. HTML: Headings
 
@@ -178,7 +178,7 @@ Our website above has the text separated out, but doesn't have a way to differen
 </html>
 ```
 
-![headingImage](https://github.com/joinpursuit/Pursuit-Core-Web/blob/6-2-combined-html-lesson/html_css_dom/html_introduction_combined/htmlHeader.png)
+![headingImage](./htmlHeader.png)
 
 In HTML there are five different types of headings, h1 to h6, with h1 having the largest default font size/line spacing and h6 having the smallest default font size/line spacing. Typically heading tags are used for titles and subtitles on a page, with large bold fonts.
 
