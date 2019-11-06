@@ -23,4 +23,5 @@
 
 ## Additional Resources
 
+- [Full Stack App Building Review](https://github.com/Pursuit-Core-6-2/Full-Stack-App-Building-Review)
 - [Building APIs with Express and Postgres](./building_apis_with_express_and_postgres/README.md)
