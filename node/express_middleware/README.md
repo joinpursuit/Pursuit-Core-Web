@@ -11,11 +11,10 @@
 
 A server is basically just a computer program that takes in an input and returns an output. Middlewares are a series of functions in between the request and response.
 
-Middlewares are functions executed in the middle after the incoming request then produces an output which could be the final output passed or could be used by the next middleware until the cycle is completed, meaning we can have more than one middleware and they will execute in the order they are declared. middleware A below will execute before middleware B, middleware Bbefore middleware C.We can pass variable from one middleware to another.
+Middlewares are functions executed in the middle after the incoming request then produces an output which could be the final output passed or could be used by the next middleware until the cycle is completed, meaning we can have more than one middleware and they will execute in the order they are declared. middleware A below will execute before middleware B, middleware B before middleware C.  We can pass variables from one middleware to another.
 
-![Middleware](assets/middleware.png)
+![middleware diagram](./assets/middleware.png)
 
-We've actually already used a middleware! Refer back to the `body-parser` library. 
 
 ## Basic Middleware in a Route
 

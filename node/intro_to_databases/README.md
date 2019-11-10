@@ -19,13 +19,13 @@ Relational databases are sometimes referred to as RDBMS, or Relational Database 
 
 For example:
 
-| id            | title          | year  |
-| ------------- | ------------- | ----- |
-|1|Reservoir Dogs|1992|
-|2|Pulp Fiction|1994|
-|3|Jackie Brown|1997|
-|4|Kill Bill Vol. 1|2003|
-|5|Kill Bill Vol. 2|2004|
+| id  | title            | year |
+| --- | ---------------- | ---- |
+| 1   | Reservoir Dogs   | 1992 |
+| 2   | Pulp Fiction     | 1994 |
+| 3   | Jackie Brown     | 1997 |
+| 4   | Kill Bill Vol. 1 | 2003 |
+| 5   | Kill Bill Vol. 2 | 2004 |
 
 True to their name, relational databases *relate* tables to one another. For example, above is our movies table, and there may be a directors table, and directors can have many movies. With this relationship in place, we can **query** our database to extract (in an easy way, without messy if/else statements or string comparison) all the movies a particular director has made.
 
@@ -35,13 +35,13 @@ In the above example, the **id** column is key to accomplishing this. In fact, i
 
 Let's see how that might look:
 
-| id            | title          | year  | director_id  |
-| ------------- | ------------- | ----- | --------- |
-|1|Reservoir Dogs|1992|32|
-|2|Pulp Fiction|1994|32|
-|3|Jackie Brown|1997|32|
-|4|Kill Bill Vol. 1|2003|32|
-|5|Kill Bill Vol. 2|2004|32|
+| id  | title            | year | director_id |
+| --- | ---------------- | ---- | ----------- |
+| 1   | Reservoir Dogs   | 1992 | 32          |
+| 2   | Pulp Fiction     | 1994 | 32          |
+| 3   | Jackie Brown     | 1997 | 32          |
+| 4   | Kill Bill Vol. 1 | 2003 | 32          |
+| 5   | Kill Bill Vol. 2 | 2004 | 32          |
 
 In this table's case, we are just referring to Quentin Tarantino movies, so the director_id would be the same. However, we can store all sorts of movies this way, from all sorts of different directors, without a problem.
 
@@ -93,8 +93,61 @@ WHERE
   conditions
 ```
 
+## Advanced SQL - JOINs
+
+A quick refresher: databases, at their core, are made up of tables. Those tables can point to one another by way of _foreign keys_. For example, in a database of teachers in a school district, each teacher might have a column indicating their `school_id`. These integers would point to IDs in a `schools` table. That way, we can query the `teachers` table for teachers that come from a particular school.
+
+This method of querying presents a problem. Database queries are expensive operations. In the modern web, querying a database is frequently a computational _bottleneck_, which simply means it's one of the more time-consuming actions our apps can perform. This means, if we want to query for information across multiple tables, it doesn't make sense for us to send multiple queries to our database.
+
+Enter **joins**.
+
+Joins are a way for us to grab information from two tables at once. Think of them as a way to grab all of the information that you'll find relevant from each table. This presents opportunities and problems, which is why different types of joins prove useful.
+
+Take a look at the article in the Resources section, [A Visual Understanding of SQL Joins](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/). Here, you'll find the different types of joins, which I'll list below:
+
+- `INNER JOIN` -OR- `JOIN`
+- `FULL OUTER JOIN` -OR- `FULL JOIN`
+- `LEFT OUTER JOIN` -OR- `LEFT JOIN`
+- `CROSS JOIN`
+
+There's a `RIGHT OUTER JOIN`, too, which works the same way as `LEFT OUTER JOIN`. Largely, we'll want to be doing the first three types of joins. Don't worry about `CROSS JOIN` for now.
+
+In order to produce nice, orderly data, you'll want to join `ON` particular columns. To use our earlier example, let's say you wanted to get the school's name next to the teacher. You could do something like this:
+
+```sql
+SELECT first_name, last_name
+FROM teachers
+INNER JOIN schools
+ON teachers.school_id = schools.id
+```
+
+This would produce a list of teachers with their corresponding schools next to their names. It would only include teachers that have `school_id`s that correspond to entries in the `schools` table-that's what our `INNER JOIN` is doing.
+
+## `NULL`
+
+So, what's the real difference between "outer" and "inner" joins?
+
+The answer has something to do with `NULL`. `NULL` is SQL's way of saying that a piece of data does not exist in the database. INNER JOINs hate `NULL` values. In our above example, if a teacher didn't have a `school_id` (i.e. if it was `NULL`), it wouldn't show up in our response.
+
+However, if we did a FULL OUTER JOIN, teachers without a `school_id` would show up. We might get something like this:
+
+| id  | fname    | lname    | school_id | id  | name                   |
+| --- | -------- | -------- | --------- | --- | ---------------------- |
+| 1   | James    | Simpson  | 12        | 12  | Lapham Elementary      |
+| 2   | Rita     | May      | 12        | 12  | Lapham Elementary      |
+| 3   | Godfrey  | Paterson | 14        | 14  | O'Keeffe Middle School |
+| 3   | Steve    | Leavitt  |           |     |                        |
+| 5   | Eva      | Orton    | 16        | 16  | East High School       |
+| 6   | Patricia | Clark    | 12        | 12  | Lapham Elementary      |
+
+Without an OUTER JOIN, we'd never see Steve Leavitt. That's because his `school_id` is `NULL`. Keep this in mind!
+
+
 **Resources**
-* [Literally the Wikipedia entry for databases](https://en.wikipedia.org/wiki/Database)
-* [How websites work with databases](https://developer.mozilla.org/en-US/docs/Learn/Drafts/How_websites_work_with_databases)
+* [Wikipedia on Databases](https://en.wikipedia.org/wiki/Database)
 * [SQL in Simple English](http://www.codecoffee.com/articles/sql1.html)
+* [SQL Tutorial](http://www.sqltutorial.org/)
+
+**Practice & Exercises**
+* [SQLBolt](https://sqlbolt.com)
 * [SQL Zoo](https://sqlzoo.net/)
