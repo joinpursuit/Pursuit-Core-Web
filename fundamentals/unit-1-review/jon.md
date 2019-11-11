@@ -36,3 +36,28 @@ output => 300
 input => 600, 'sec'
 output => 10 
 ```
+
+Create a function that takes in an array of numbers, returns all the non-zero numbers in front of all the zeros in the array, then return the new array and the count of non-zero numbers.
+
+```js
+input => [2,0,3,0,5,0,7,1,0]
+output => [2,3,5,7,1,0,0,0,0,], 4
+```
+
+Create a function that takes in array of integer, find the two numbers that when multiplied together give the greatest product, and return that product.
+
+```js
+input => [2,7,5,8,3,9,1]
+output => 72
+```
+
+Create a function that returns the number of argument it was called with.
+
+```js
+input => howManyArgs()
+output => 0
+input => howManyArgs(1,3,5)
+output => 3
+input => howManyArgs(false,'maybe','perhaps', 'nah bruh',true)
+output => 5
+```
