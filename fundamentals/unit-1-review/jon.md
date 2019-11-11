@@ -61,3 +61,41 @@ output => 3
 input => howManyArgs(false,'maybe','perhaps', 'nah bruh',true)
 output => 5
 ```
+Create a function that converts an object into an array, where each element represents a key-value pair.
+
+```js
+input => { a: 1, b: 2 }
+output => [["a", 1], ["b", 2]]
+input => { shrimp: 15, tots: 12 } 
+output => [["shrimp", 15], ["tots", 12]]
+input => {}
+output => []
+  ```
+
+Create a function that takes a string and calculates the number of letters and digits within it. Return the result as an object.
+
+```js
+input =>"Hello World" 
+output => {"LETTERS":  10, "DIGITS": 0}
+input => "H3ll0 Wor1d"
+output => {"LETTERS":  7, "DIGITS": 3}
+input =>"149990" 
+output => {"LETTERS": 0, "DIGITS": 6}
+```
+Create a function that given an object containing the names and ages of a group of people, return the name of the oldest person.
+
+```js
+input => {
+  Emma: 71,
+  Jack: 45,
+  Amy: 15,
+  Ben: 29}
+output => "Emma"
+
+input => {
+  Max: 9,
+  Josh: 13,
+  Sam: 48,
+  Anne: 33}
+output => "Sam"
+```
