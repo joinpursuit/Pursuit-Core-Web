@@ -16,3 +16,23 @@ Solve using:
 input => [2,5,7,8,1,2,57,99]
 output => [5,7,1,57,99]
 ```
+
+Create a function that given a string of odd length, return the string length 3 from its middle, so "Candy" yields "and". The string length will be at least 3.
+
+
+```js
+input =>'Candy' 
+output => 'and'
+input =>'and'
+output => 'and'
+input => 'solving'
+output => 'lvi'
+```
+
+Create a function that takes two arguments an integer and either 'min' or 'sec' that converts minutes to second or seconds to minutes.
+```js 
+input => 5,'min'
+output => 300
+input => 600, 'sec'
+output => 10 
+```
