@@ -123,9 +123,27 @@ This diagram from css-tricks shows all of the align-items properties:
 
 We can also pin the pictures to the right of the page:
 
+```css
+.imagesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+}
+```
+
 ![FlexColumnFlexEnd](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumnFlexEnd.png)
 
 And to the center:
+
+```css
+.imagesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+```
 
 ![FlexColumnCenter](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumnCenter.png)
 
