@@ -360,7 +360,7 @@ function App() {
 
 Add some borders and margins around the other components as well to see how it's laid out.  Then you should see the following screen:
 
-![styledApp](./images/styledApp.css)
+![styledApp](./images/styledApp.png)
 
 
 # Extra Content: Render Notes
