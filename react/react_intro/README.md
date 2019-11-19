@@ -144,7 +144,7 @@ From the JSX in the return statement, we see another interesting bit of syntax:
 
 Much like how string interpolation is used to embed variables in strings, JSX uses `{}` to embed expressions.  Here, `logo` is the string `./logo.svg`
 
-![React](https://reactjs.org/docs/introducing-jsx.html) gives the following example of how JSX can be used:
+[React](https://reactjs.org/docs/introducing-jsx.html) gives the following example of how JSX can be used:
 
 ```js
 function formatName(user) {
