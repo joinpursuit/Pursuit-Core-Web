@@ -4,7 +4,7 @@
 
 | Lesson | Exit Ticket | Lab |
 | --- | --- | --- |
-| 1. [React Introduction](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_intro) | tbd | tbd |
+| 1. [React Introduction](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_intro) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4462121) | tbd |
 | 2. [React and State] | tbd | tbd |
 | 3. [React Forms] | tbd | tbd |
 | 4. [React Props] | tbd | tbd |
