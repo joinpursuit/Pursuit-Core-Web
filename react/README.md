@@ -2,6 +2,17 @@
 
 ## Contents
 
+| Lesson | Exit Ticket | Lab |
+| --- | --- | --- |
+| 1. [React Introduction](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_intro) | tbd | tbd |
+| 2. [React and State] | tbd | tbd |
+| 3. [React Forms] | tbd | tbd |
+| 4. [React Props] | tbd | tbd |
+| 5. [React Lifecycle Methods] | tbd | tbd |
+| 6. [Routing in React] | tbd | tbd
+
+## All Links
+
 1.  [Why React?](https://reactjs.org/blog/2013/06/05/why-react.html)
 2.  [ES6 Class Review](./es6_class_review/README.md)
 3.  [React Introduction](./react_intro/README.md)
