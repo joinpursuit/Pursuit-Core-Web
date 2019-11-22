@@ -136,7 +136,7 @@ constructor() {
 
 We're defining two parts of state here: `colorIndex`, which corresponds to the index of the `possibleColors` array that we want our element's class to be. By default, `colorIndex` is at 0, which corresponds to the zero-th index of `possibleColors` - in this case, red.
 
-The user will change the `colorIndex` by clicking a button - but what function will fire when that button is clicked? Let's look at the function `changeColor`:
+The user will change the `colorIndex` by clicking a button.  What function will fire when that button is clicked? Let's look at the function `changeColor`:
 
 ```js
 changeColor = () => {
@@ -163,7 +163,7 @@ render() {
 }
 ```
 
-First, of course, we use object destructuring to break out our parts of state. Then, we immediately use both parts in our `div` element. You'll notice that HTML's `class` tag is, here, replaced by `className`. They are identical - we just can't use `class` in JSX because it's a protected term in JavaScript, so we use `className` instead. Here, the `className` reflects the index (`colorIndex`) of our colors array (`possibleColors`). So, by default, it would be `'red'`, but as `colorIndex` updates, it would cycle through the `possibleColors` array.
+First, we use object destructuring to break out our parts of state. Then, we immediately use both parts in our `div` element. You'll notice that HTML's `class` tag is, here, replaced by `className`. They are identical - we just can't use `class` in JSX because it's a protected term in JavaScript, so we use `className` instead. Here, the `className` reflects the index (`colorIndex`) of our colors array (`possibleColors`). Its initial value is `red`, then as `colorIndex` updates, it cycles through the `possibleColors` array.
 
 We then insert a single `button` tag into our `div`, which we add `onClick` functionality to fire the `changeColor` function we wrote earlier. Click the button a couple of times to see this in action!
 
@@ -173,14 +173,12 @@ We then insert a single `button` tag into our `div`, which we add `onClick` func
 
 You might be wondering: Okay. We've updated a counter and changed color on a page. Why? What's the point?
 
-To describe how we might use these basic tools in a production app, here's a quick example. Let's say you were building an e-commerce site for sneakers. When somebody clicks on a size, you'd like to pop out a menu with sneakers in their size (say, size 10). To do this, you'd want to use state to both:
+To describe how we might use these basic tools in a production app, here's a quick example. Let's say you were building an e-commerce site for sneakers. When somebody clicks on a size, you'd like to display a menu with sneakers available in the selected size. To do this, you'd want to use state to both:
 
-* Update some kind of `selectedSneakers` part of state with all the sneakers in-stock in a size 10.
-* Toggle a `sneakerPopout` part of state (from  `false` to `true`, perhaps) in order to update the JSX/CSS so that the `selectedSneakers` render in the proper place.
+* Update a `selectedSneakers` part of state with all the sneakers in-stock in a size 10.
+* Update a `showSneakerMenu` part of state from `false` to `true`, updating the JSX/CSS so that the `selectedSneakers` render in the proper place.
 
-State lets you do both of these things! Remember: If you want something to change, visibly, in a React app, you're going to use `setState`.
-
-
+`state` lets you do both of these things! Remember: If you want something to change, visibly, in a React app, you're going to use `setState`.
 
 # 5. State anti-pattern
 
