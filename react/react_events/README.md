@@ -8,29 +8,30 @@
 * Event handler
 * `className`
 
-## Introduction
+## Objectives
 
-So, we can render JSX from our React components. That's pretty cool, but for now, isn't any different from sticking HTML right in our `.html` files. In order to understand the power of React, we need to understand how React handles user input.
+- Understand what `state` does in a React application
+- Instantiate `state` in a constructor
+- Call `setState` to update state
+- Refer to state using the `{}` JSX syntax
 
-Spoiler alert: It's fast, and once you get the hang of it, easier than direct DOM manipulation. Which is pretty nice.
+# 1.  Introduction
 
-## State
+In the previous lesson, we saw how to create a static web page using React components.  In this lesson, we will start to review the strategy that React uses to handle user input, using the `state` property.
+
 
 React has a few ways of storing, handling, and using information. Of course, as a JavaScript framework, it has access to variables. However, updating a variable in React won't change what the user sees. The page won't re-render to reflect that updated information.
 
-Enter **state**. State is a way of storing information in a component and rendering it to the user. When we update state, the entire component re-renders, showing the user different information depending on what the state is and how our component is using it. You might think that re-rendering an entire component would be an inefficient process, but because of the virtual DOM, it's also (*notice a trend here?*) fast.
+Enter **state**. State is a way of storing information in a component and rendering it to the user. When we update state, the entire component re-renders, showing the user different information depending on what the state is and how our component is using it. You might think that re-rendering an entire component would be an inefficient process, but because of the virtual DOM, it's also fast.
 
-## [Our First Stateful App](https://codesandbox.io/s/p9mq34yr1j)
+# 2. Building a Counter App
 
-This is a very simple app to count up from zero. Let's take a look at what's going on here. The only files we really need to look at are:
+[Our First Stateful App](https://codesandbox.io/s/react-counter-bzxo7)
 
-### `index.js`
+This is a very simple app to count up from zero. Let's take a look at what's going on here.
 
-This is nearly identical to our previous example. Instead of the component `Hello`, we now are importing and utilizing the component `Counter`. Remember, we've made an HTML file with a div with the `root` id, which we are then inserting this app into.
 
-### `counter.js`
-
-This is where the meat of our app is. The first thing you might notice is our constructor function:
+The first thing you might notice is our constructor function:
 
 ```js
 constructor() {
@@ -41,19 +42,11 @@ constructor() {
 }
 ```
 
-After calling `super()` to inherit all those nice React features, you can see we instantiate a property called `this.state` with an object. However, this is no ordinary property and no ordinary object. React makes the state available to us, understands what it is, and uses the state to render (and re-render) the function.
+We first call `super()` to inherit the typical React component functionality.  
 
-You might be tempted, at first, to change the state directly. For example, if you wanted to increase `this.state.count` by one, you might write a function like this:
+Then, we assign `this.state` to be equal to an object.  In React, `state` is a very special property that your application uses to render the view.  Whenever the state changes, React will redraw your component to reflect its new state.
 
-```js
-badFunctionPlusOne = () => {
-  this.state.count += 1;
-}
-```
-
-Don't do this. **Never, ever access the state directly.** This will not cause your component to re-render, will not cause anything in your app to change, and will only confuse you.
-
-React makes available a function for us called `setState`. `setState` takes one argument - an object with the part (or parts) of state you'd like to change. So, if you wanted to write a function to increase the count by one, consider the `handleClick` function in our component:
+How can we change the state?  React makes available a function for us called `setState`. `setState` takes one argument - an object with the part (or parts) of state you'd like to change.  We define a method `handleClick` that calls `setState` and increments it by one.
 
 ```js
 handleClick = () => {
@@ -92,7 +85,9 @@ To see this in action, go ahead and click the button. Our `count` part of state 
 
 Let's check out another example with state being used in a different way:
 
-## [Our Second Stateful App](https://codesandbox.io/s/nn9zov9jqm)
+# 3. Building a color-changing app
+
+ [Our Second Stateful App](https://codesandbox.io/s/nn9zov9jqm)
 
 This is an app that changes the color of our background depending on the values contained in the state. We do this by using React to *change the class of our HTML/JSX elements* when the state updates, which we then define styling for in our CSS file. Therefore, let's start with our CSS:
 
@@ -174,7 +169,7 @@ We then insert a single `button` tag into our `div`, which we add `onClick` func
 
 *Discussion topic: Is a button the only thing we can add `onClick` functionality to? Test this by removing the button and adding the `onClick` tag to the containing `div`.*
 
-## What's the point?
+# 4. Conclusion
 
 You might be wondering: Okay. We've updated a counter and changed color on a page. Why? What's the point?
 
@@ -183,4 +178,18 @@ To describe how we might use these basic tools in a production app, here's a qui
 * Update some kind of `selectedSneakers` part of state with all the sneakers in-stock in a size 10.
 * Toggle a `sneakerPopout` part of state (from  `false` to `true`, perhaps) in order to update the JSX/CSS so that the `selectedSneakers` render in the proper place.
 
-State lets you do both of these things! Remember: If you want something (anything!) to change, visibly, in a React app, you're going to use `setState`.
+State lets you do both of these things! Remember: If you want something to change, visibly, in a React app, you're going to use `setState`.
+
+
+
+# 5. State anti-pattern
+
+You might be tempted, at first, to change the state directly. For example, if you wanted to increase `this.state.count` by one, you might write a function like this:
+
+```js
+badFunctionPlusOne = () => {
+  this.state.count += 1;
+}
+```
+
+Don't do this. **Never, ever access the state directly.** This will not cause your component to re-render, will not cause anything in your app to change, and will only confuse you.
