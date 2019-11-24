@@ -1,16 +1,22 @@
-# React 1
+# Introduction to React
 
-## Sources
+## Objectives
+
+- Understand what React is and what problem it solves
+- Create an application that uses React to render its front-end
+
+## Readings
 
 * [Why React?](https://reactjs.org/blog/2013/06/05/why-react.html)
 * [React - Official Website](https://reactjs.org/)
+* [W3Schools Introduction](https://www.w3schools.com/react/)
 * [The Virtual DOM](https://www.codecademy.com/articles/react-virtual-dom)
 * [Rendering Elements - React Docs](https://reactjs.org/docs/rendering-elements.html)
 * [React.Component - React Docs](https://reactjs.org/docs/react-component.html)
 * [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
 * [CodeSandbox - An online code editor for React](https://codesandbox.io)
 
-## Terms
+## Vocabulary
 
 * Virtual DOM
 * Components
@@ -18,112 +24,346 @@
 * `render`
 * JSX
 
-## Introduction
+## Demo app
 
-React is described as "a JavaScript library for building user interfaces." When you read that description, it probably doesn't mean much. Here's the real takeaway: Once you learn React, you'll never want to go back to the DOM. It's a convenient, well-maintained frontend framework for making websites - websites as simple as the little apps we'll make today, and as complicated as Facebook.
+- [link](https://github.com/joinpursuit/Pursuit-Core-Web-React-Introduction-Project)
 
-## Why Not the DOM?
+# 1. Introduction
 
-Thus far, your frontend learning has consisted largely of **DOM manipulation**. This is nice to learn, because not only is it the foundation of how JavaScript and HTML/CSS work together on the Internet, there's a pretty clear 1:1 relationship between HTML elements, DOM nodes, and your JavaScript code.
+## React
 
-React works a bit differently. We include an HTML file in our React apps, but it isn't doing much - it contains a single `div` element, usually with the id `root`. We use React to *render our entire app* inside this element.
+React is a JavaScript library that was created by Facebook.  It is used to build the UI components of applications.  Up until now, we have been building our UI by writing a single large HTML file, then linking it to a JavaScript file.  The JavaScript file uses DOM manipulation to edit, add, and remove elements in response to user interaction.  This approach has worked well for us so far, but has some challenges when scaling to larger applications.  Consider the following image:
 
-But, wait. How can we hold a whole app inside a single HTML element? Well, React assembles an entire app - HTML and all - and eventually, inserts it into the element. In order to update the page, it doesn't over-utilize DOM manipulation, which is relatively inefficient. Instead, it creates a **virtual DOM** which renders and updates elements before it inserts them inside the root element in our HTML page.
+![Facebook homepage redesign](https://cdn.vox-cdn.com/thumbor/0KnV_DIxDm00kPsX8hR0f4ZzMIU=/0x0:2048x1410/920x613/filters:focal(861x542:1187x868):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63696407/facebook_website_redesign_1.9.jpg)
 
-It's not too important to know how this works - just know that React looks different, but at the core, it's still manipulating the DOM. It's an interface for us, as programmers, to more efficiently do that stuff.
 
-## From Classes To Components
+There are at least four entirely distant components that are on the page including:
 
-In React, we define classes, but we do not need to create instances of them (i.e. no use of `new`). React will create instances of our classes automatically without our prompting. It knows how to do this, partially, because of *class inheritance*.
+- the top bar
+- the left sidebar
+- the stories feed
+- the contacts list.  
 
-When we create a class in React, usually, we add `extends React.Component` to tell it to inherit from React's Component class. Because React is an NPM module, we can't see this Component class unless we poke around in our `node_modules` folder. However, having our React classes inherit from the Component class lets us do a ton of cool stuff. In fact, we usually don't refer to React classes as classes - we refer to them as **components**.
+Using our DOM manipulation approach, we would have all of these different elements in a single html file.  This would be challenging to maintain because we a bug in one area could easily affect the rest of the page.  
 
-Components are the basic building blocks of React websites. We use components for a lot of different things. Components can store information on the frontend and render it to the user. They can accept user input and fire AJAX requests to APIs. **Very little happens in React without a component making it happen**. Learning how to structure and delegate responsibilities between components is one of the most important things we can do as frontend developers.
+React solves this problem by introducing `Components`.  Instead of laying out all of our HTML in a single file, we can separate it into separate classes and combine those classes together.
 
-Initially, we're going to be making React apps that consist of a single component. This is so that we can get familiar with how React looks and works. However, please keep in mind that most React apps consist of **dozens** of components, each performing different functions and working together to render a complete, seamless web app to our users.
+## Virtual DOM
 
-### The Code Sandbox
+How does React build a single HTML page from multiple different components?  A first approach might be that whenever a component adds an HTML element (e.g creating a new comment), it redraws the entire DOM.  While this would work, the process would be quite slow.  The solution that React uses is to create a **virtual DOM** that represents the DOM.  Whenever one component changes, it updates that virtual DOM.  The VDOM then sees what changes were made, then only updates the DOM with those changes.  This way, the whole DOM doesn't need to be recreated.
 
-For the time being, we will be using an online code editor for React called [Code Sandbox](https://codesandbox.io/). We're going to learn how to set up React locally soon, but for the time being, Code Sandbox is really convenient. To save your work, you will need to sign in with Github.
+Now that we have a better understanding of the motivations of React, let's create an app that uses React.
 
-The files for the current project are available in the menu to the left. These may also available as tabs, although the tabs may be closed. To keep a tab open, click on a file from the left-side menu and then press `<ctrl> + <s>`.
+# 2. Setting up a Project with React
 
-## [Our First React Example](https://codesandbox.io/s/k3wxk25km7)
+In this lesson, we'll create a React application that statically displays a very simple social media page.  To get started, navigate to the directory where you want your project, and run the following command:
 
-So. Let's get acquainted here.
-
-![files](./assets/files.png)
-
-### package.json
-
-We've got four files in this project. First is our old friend `package.json`, which lets us know that we're importing two NPM dependencies: `react-dom` and `react`. More on the difference between these packages soon.
-
-### index.html
-
-Next, let's look at our `index.html` file. The body of the file, as you can see, is pretty sparse:
-
-```html
-<body>
-	<div id="root"></div>
-</body>
+```bash
+npx create-react-app simple-social-media-app
 ```
 
-In fact, it's empty. An empty `div` with an `id` attribute of "root". If all we have is an empty `div`, you might ask, how will this app render anything to the user?
+`npx` will execute the package without installing it.  Read [stackOverflow](https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm) for more information.  It will take a couple minutes for your application to be installed.  Navigate into your project, and you will see that it already has git setup with a single commit reading "Initial commit from Create React App". It has also created the following files:
 
-JavaScript, React, and the virtual DOM to the rescue!
+- README.md         
+- package-lock.json
+- package.json      
 
-### index.js
+And the following directories:
 
-Let's take a look at this eight-line file:
+- public
+- src
+- node_modules      
 
-```js
-const React = require("react");
-const ReactDom = require("react-dom");
-import Hello from './hello.js';
+Inside `src` are the following `js` and `css` files:
 
-ReactDom.render(
-  <Hello />,
-  document.getElementById("root")
-);
+- App.css          
+- App.test.js      
+- index.js         
+- serviceWorker.js
+- App.js           
+- index.css
+
+`App.js` contains the code of our Application component, and `index.js` contains the code that renders our application.
+
+Run the following command to view your application:
+
+```bash
+npm start
 ```
 
-So, first we're importing three things: `react` and `react-dom`, our two NPM modules, and something called `Hello`, which, because it's capitalized, we suspect is an ES6 class.
+It will host a website on port 3000 that looks like this:
 
-Then we call a function from our `react-dom` module called `render`. This function takes two arguments: Something that looks like a weird combination of JavaScript and HTML (`<Hello />`), and a DOM node, referring to the "root" div in our HTML file.
+![createReactAppInitial](./images/createReactAppInitial.png)
 
-This points to the difference between the React and React DOM libraries. React contains all the good virtual DOM stuff we need to get our components to assemble and function. React DOM actually interacts with the DOM to render our components on the page.
+Let's dig into the project and get a better understanding of how it works.
 
-`Hello` refers to a React component called `Hello`. So in this case, what `render` is doing is inserting the `Hello` component inside the `root` div in our HTML.
+# 3. JSX Syntax
 
-But what does the `Hello` component look like? Well, let's take a look:
-
-### hello.js
-
-Let's see what ES6 class syntax does for us in this app:
+Open the `App.js` file.  You should see the code below:
 
 ```js
 import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-class Hello extends React.Component {
-  constructor() {
-    super();
-  };
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
 
-  render() {
-    return(
-      <p>hello world!</p>
-    )
-  }
-};
-
-export default Hello;
+export default App;
 ```
 
-So, we create our `Hello` class, extending `React.Component` (which we get by importing React on line 1) to let our app know that we're defining the behavior for a component.
+`App` is a function with an odd-looking return value.  Inside the `()`, we see code that looks like a mixture of JavaScript and HTML.  This is a special syntax for React called `JSX`.  It is an extension to JavaScript that makes it easy to build React elements.  The following line is perfectly valid in JSX:
 
-Our constructor, at this point, isn't particularly useful, but we have it there just in case we need it, and we're sure to include `super()` so that we have the full capabilities that React's Component class gives us.
+```js
+const element = <h1>Hello, world!</h1>;
+```
 
-For example, we have this method called `render` that React makes available to us. `render` is true to its name - the return value of `render` is what our component actually shows to the user.
+From the JSX in the return statement, we see another interesting bit of syntax:
+
+```js
+<img src={logo} className="App-logo" alt="logo" />
+```
+
+Much like how string interpolation is used to embed variables in strings, JSX uses `{}` to embed expressions.  Here, `logo` is the string `./logo.svg`
+
+[React](https://reactjs.org/docs/introducing-jsx.html) gives the following example of how JSX can be used:
+
+```js
+function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+  firstName: 'Harper',
+  lastName: 'Perez'
+};
+
+const element = (
+  <h1>
+    Hello, {formatName(user)}!
+  </h1>
+);
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+# 4. React Class Components
+
+This `App` function is called from the `index.js` file:
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+```
+
+Because our `App` function returns a React element, it can be rendered to the virtual DOM.  Inside our `App.js` function, we can reference other React components, just like we can refer to `<p>` or `<img>`.
+
+Let's create a new component that our `App.js` will use.  This will list all of our Contacts:
+
+`ContactList.js`
+```js
+import React from 'react';
+
+class ContactList extends React.Component {
+    render() {
+        return (
+            <div>
+                <p>Contacts</p>
+                <ul>
+                    <li>Andrew Clark</li>
+                    <li>Brian Vaughn</li>
+                    <li>Dan Abramov</li>
+                    <li>Flarnie Marchan</li>
+                </ul>
+            </div>
+        )
+    }
+}
+
+export default ContactList
+```
+
+The React element that we return must be children of a single element, so we wrap everything inside of a `div` tag.
+
+Returning to our `App.js` file, we can now display our new component:
+
+```js
+import React from 'react';
+import './App.css';
+import ContactList from './ContactList.js';
+
+function App() {
+  return (
+    <ContactList />
+  );
+}
+
+export default App;
+```
+
+Every time that you save your application, the browser window will reload the changes that you've made.  You should now see the following screen:
+
+![reactContacts](./images/reactContacts.png)
+
+Now, we can build the `Feed` component.  The feed should have some number of `FeedPost` inside of it.  We can nest components inside of each other to create more complex, dynamic structures.
+
+The `FeedPost` class below uses `{}` to embed values from its stored `postInfo` property.  In later lessons, we'll see how we can pass in different properties for different posts:
+
+`FeedPost.js`
+```js
+import React from 'react';
+
+class FeedPost extends React.Component {
+    postInfo = {
+        title: "Sample Post Title",
+        imageLink: "https://www.stockvault.net/data/2007/03/01/100169/preview16.jpg",
+        description: "This is the description of the post"
+    }
+    render() {
+        return (
+            <div>
+                <p>{this.postInfo.title}</p>                
+                <img src ={this.postInfo.imageLink} alt='post' width='200' height='200'></img>
+                <p>{this.postInfo.description}</p>
+            </div>
+        )        
+    }
+}
+
+export default FeedPost;
+```
+
+With a `FeedPost` class constructed, we can build a `Feed` class that contains multiple `FeedPost`s.
+
+`Feed.js`
+```js
+import React from 'react';
+import FeedPost from './FeedPost.js';
+
+class Feed extends React.Component {
+    render() {
+        return (
+            <div>
+                <h2>Feed</h2>
+                <FeedPost />
+                <FeedPost />
+            </div>
+        )
+    }
+}
+
+export default Feed;
+```
+
+Returning to your browser, you should see the following image:
+
+![feedImgNoCSS](./images/feedImgNoCSS.png)
+
+We have multiple components rendered on the page all at once!  Now we can add our own styling by configuring separate CSS files.
+
+# 5. CSS and React
+
+Because each of our components is its own separate module, we can create CSS files for each individual component.  This will help make it easier to work with individual components without worrying about the rest of the app.  Let's put a border around our `ContactList` and change the font to cursive.  First, we'll need to add the `className` to our `div`:
+
+`ContactList.js`
+
+```js
+class ContactList extends React.Component {
+    render() {
+        return (
+            <div className='ContactList'>
+						...
+				)
+   }
+}
+```
+
+Next, create a `ContactList.css` file:
+
+`ContactList.css`
+
+```css
+.ContactList {
+  font-family: cursive;
+  margin: 50px;
+  border: 8px solid;
+}
+```
+
+Return to your `ContactList.js` and import your new CSS file:
+
+`ContactList.js`
+
+```js
+import React from 'react';
+import './ContactList.css';
+
+class ContactList extends React.Component {
+	...
+}
+```
+
+Your application should now be styling the contacts component:
+
+![styledContacts](./images/styledContacts.png)
+
+Now we want our Contacts to appear on the right instead of below.  We can use `CSSFlex` to lay out our `div` in `App.js`:
+
+`App.js`
+```js
+function App() {
+  return (
+    <div className='App-Div'>
+		...
+	)
+}
+```
+
+`App.css`
+```css
+.App-Div {
+  display: flex;
+  border: 8px solid;
+}
+```
+
+Add some borders and margins around the other components as well to see how it's laid out.  Then you should see the following screen:
+
+![styledApp](./images/styledApp.png)
+
+
+# Extra Content: Render Notes
 
 `render` has a few rules and quirks, which we'll review now:
 
@@ -135,9 +375,3 @@ For example, we have this method called `render` that React makes available to u
 	- Essentially, your page still isn't dynamic yet. We'll learn how to call `render` to "re-render" (update) the page soon.
 * **Because of the virtual DOM, `render` as a React component method is different from `render` as a React DOM method - although they are connected**
   - Remember in `index.js` when we called `ReactDom.render` to insert our React app into our HTML page? Well, that's not quite what we're doing here. We are putting together JSX so that we can *eventually* insert it into our HTML page, but we are doing it in a much more granular way, just for the component that we're in. It's a matter of the virtual DOM (React) versus the actual DOM (ReactDom). Think of React's `render` as painting an artwork and `ReactDom.render` as sending it to a gallery.
-
-## Conclusion
-
-We've managed to render 'hello world!' in the browser using React! We've learned about the virtual DOM, basic React file structure, and the essential functions that React uses to render in the browser.
-
-Tune in text time for event handling and updating the page!

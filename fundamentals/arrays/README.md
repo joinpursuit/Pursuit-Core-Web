@@ -1,9 +1,9 @@
 # Arrays
 
 ## Standards
-<details> 
+<details>
   <summary>
-    LF.3 
+    LF.3
   </summary>
 
   Understand that data structures are ways of storing multiple elements of associated data. Access individual elements within sets of information, either directly, by iteration, or using methods.
@@ -12,7 +12,7 @@
 
 <details>
   <summary>
-    LF.3.a Arrays: 
+    LF.3.a Arrays:
   </summary>
 
   Understand the Array data structure. Know that Arrays stores values of the same type in an ordered list. Understand the following:
@@ -36,7 +36,7 @@
 * Know what destructuring assignment is and how to use it.
 
 
-## Lesson
+# 1. Array Introduction
 
 An array provides a convenient way to store a collection of __things__. Say we want to keep the numbers `2`, `3`, `5`, `7`, and `11` - all in one place.
 Instead of creating five separate variables we can create an array to store all these values.
@@ -77,7 +77,7 @@ console.log(animals[0])
 console.log(animals[animals.length -1])
 ```
 
-## Adding, Removing and Modifying Elements
+# 2. Adding, Removing and Modifying Elements
 
 Unlike with strings, we can modify array elements:
 
@@ -133,7 +133,9 @@ numbers.shift()
 **Helpful trick**
 Sometimes it can be hard to remember which methods do what. Here's a helpful trick. Push and pop are fairly easy. Pushing into the array, and popping off. Now with shift and unshift try and remember that unshift is like push but at the beginning. You can __tell__ they are similar because they both have the letter 'u' in them. The ones with the 'u' add to the array, the other two are removing.
 
-## Built-In Methods
+# 3. Built-In Methods
+
+The following are useful methods that come with arrays that let us manipulate them.
 
 ### Slice
 Arrays have a `slice` method that works by taking a slice of the array. The method takes in two arguments. The first is the starting index (inclusive), the second argument is the ending index (exclusive).
@@ -218,7 +220,7 @@ let arr = str.split('')
 ```
 
 
-## Array Equality Test
+# 4. Array Equality Test
 
 When we were dealing with strings and numbers, we could compare them by simply using the `===` operator. With arrays this will not work as expected:
 
@@ -253,7 +255,8 @@ console.log(arr1 === arr2)
 For now, if you'd like to compare arrays convert them to strings and then compare them. **Note** this will not always be 100% effective.
 For more information on the best way to compare [arrays](https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript)
 
-### Multidimensional Array
+# 5. Multidimensional Arrays
+
 Multidimensional arrays are arrays that contain arrays as their elements.
 If an array is filled with arrays it is considered to be 2 dimensional (also often referred to as a matrix).
 If those arrays that are filling the array are also filled with arrays it becomes a 3 dimensional array or multidimensional.
@@ -275,7 +278,12 @@ console.log(matrix[0][1]) // => 2
 console.log(matrix[2][2]) // => 9
 ```
 
+# 6. New Array Functionality in ES6
+
+[ES6](http://es6-features.org/#Constants) added some helpful features that we now have access to:
+
 ### Destructuring assignment
+
 The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays into distinct variables.
 
 ```js
@@ -300,7 +308,31 @@ console.log(a); // 3
 console.log(b); // 1
 ```
 
+### The spread operator
+
+The `...` operator can be used to combine arrays:
+
+```js
+let params = [ "hello", true, 7 ]
+let other = [ 1, 2, ...params ] // [ 1, 2, "hello", true, 7 ]
+```
+
+```js
+let arr1 = [0, 1, 2];
+let arr2 = [3, 4, 5];
+arr1 = [...arr2, ...arr1]; // arr1 is now [3, 4, 5, 0, 1, 2]
+```
+
+It can also be used to split up strings:
+
+```js
+let str = "foo"
+let chars = [ ...str ] // [ "f", "o", "o" ]
+```
+
+
 ### Resources
 * [w3schools - Arrays](https://www.w3schools.com/jsref/jsref_obj_array.asp)
 * [MDN - Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [MDN - destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* [MDN - Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)

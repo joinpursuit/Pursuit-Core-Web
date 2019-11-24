@@ -204,7 +204,28 @@ arr.filter(el => el % 2).map(el => el * 2);
 // => [ 2, 6, 10 ];
 ```
 
-## 5. Reduce
+## 5. Every
+
+`every` is another JS array method that checks to see if every single element in the array meets a certain condition. Like `forEach`, `map`, and `filter` it also takes in a callback function. Let's check to see if all the values in an array or odd.
+
+```js
+let arr = [1, 3, 5];
+arr.every( el => {
+   return el % 2 !== 0
+})
+// => true
+```
+
+
+## Resources
+
+* [Functional Programming in JavaScript](http://reactivex.io/learnrx/)
+* [Eloquent Javascript - Higher Order Functions](http://eloquentjavascript.net/05_higher_order.html)
+
+
+## Extra content
+
+## Reduce
 
 Let's say we need to find the largest integer in an array. We can't use `filter`, because it only examines one element item at a time. To find the largest integer we need to compare elements in the array to each other.
 
@@ -340,20 +361,3 @@ let sumOfSquares = numbers
     }, 0);
 ```
 
-## 6. Every
-
-`every` is another JS array method that checks to see if every single element in the array meets a certain condition. Like `forEach`, `map`, and `filter` it also takes in a callback function. Let's check to see if all the values in an array or odd.
-
-```js
-let arr = [1, 3, 5];
-arr.every( el => {
-   return el % 2 !== 0
-})
-// => true
-```
-
-
-## Resources
-
-* [Functional Programming in JavaScript](http://reactivex.io/learnrx/)
-* [Eloquent Javascript - Higher Order Functions](http://eloquentjavascript.net/05_higher_order.html)

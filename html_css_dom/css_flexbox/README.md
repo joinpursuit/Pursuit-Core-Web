@@ -52,7 +52,7 @@ Let's layout an image gallery using the HTML below:
 
 Not that we've wrapped the `img` tags inside of a `div` tag (for division).  This will help keep our different sections organized.
 
-![NoCSSImages](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/NoCSSImages.png)
+![NoCSSImages](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/NoCSSImages.png)
 
 All of our images are loaded, one after the other.  But what if we wanted to have them be in a column instead of a row?  We could do it with `br` tags, but as our websites become more complicated, we don't want to have to manage that by ourselves.  Let's add the following CSS to display this using a Flexbox:
 
@@ -62,7 +62,7 @@ All of our images are loaded, one after the other.  But what if we wanted to hav
 }
 ```
 
-![FlexImages](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexImages.png)
+![FlexImages](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexImages.png)
 
 We see that the borders between the images go away, and that they are all on a single line.  Let's make it so that the images wrap to the next line using the `flex-wrap` property:
 
@@ -73,7 +73,7 @@ We see that the borders between the images go away, and that they are all on a s
 }
 ```
 
-![FlexWrap](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexWrap.png)
+![FlexWrap](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexWrap.png)
 
 The `flex-wrap` properties are:
 - nowrap (default): all flex items appear on the same line
@@ -98,7 +98,7 @@ The `flex-direction` properties are:
 - column-reverse: bottom to top
 
 
-![FlexColumn](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumn.png)
+![FlexColumn](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumn.png)
 
 That doesn't look right!  By default, the width of any elements in a column is set to stretch to the width of their parent element.  Here, that means it will mess up the aspect ratio of the images.  Let's fix it by using the `align-items` property:
 
@@ -112,7 +112,7 @@ That doesn't look right!  By default, the width of any elements in a column is s
 }
 ```
 
-![FlexColumnFlexStart](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnFlexStart.png)
+![FlexColumnFlexStart](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumnFlexStart.png)
 
 <br>
 <br>
@@ -123,11 +123,29 @@ This diagram from css-tricks shows all of the align-items properties:
 
 We can also pin the pictures to the right of the page:
 
-![FlexColumnFlexEnd](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnFlexEnd.png)
+```css
+.imagesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+}
+```
+
+![FlexColumnFlexEnd](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumnFlexEnd.png)
 
 And to the center:
 
-![FlexColumnCenter](https://github.com/joinpursuit/Pursuit-Core-Web/blob/css-edits/html_css_dom/css_flexbox/assets/FlexColumnCenter.png)
+```css
+.imagesDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+```
+
+![FlexColumnCenter](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumnCenter.png)
 
 
 We can also use the `justify-content` property to align the content along the main axis.  From css-tricks:

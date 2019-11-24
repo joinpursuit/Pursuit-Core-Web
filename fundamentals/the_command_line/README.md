@@ -22,14 +22,16 @@ EF.2.a, EF.2.b, EF.2.c, EF.2.d, EF.3
 - `rm -r [directory name]` - remove (recursively) a folder, all files, subfolder, subfiles, etc. Will prompt if trying to remove special files.
 - `mv [filename] [foldername]` - move a file to a different folder
 - `mv [filename] [new filename]` - rename a file
-- `atom [filename]` - open the atom editor
+- `code [filename]` - open the VSCode editor
 
 ## Resources
 
 - Oracle: [CLI versus GUI](https://docs.oracle.com/cd/E19683-01/806-7612/startup-78447/index.html)
 - Tree House: [Introduction to the Mac OS X Command Line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
 - Git Tower: [Command Line 101](https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/command-line-101)
-- TuxRadar: [The Command Line](http://tuxradar.com/content/lpi-learn-linux-and-get-certified-part-5-command-line)
+- Command Line Cheat Sheet : [Cheat Sheet](https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/)
+- Linux command line for beginners : [Beginner tutorial](https://tutorials.ubuntu.com/tutorial/command-line-for-beginners#0)
+
 
 ## What is the terminal?
 
@@ -137,10 +139,15 @@ will create a new directory called `Music`.
 
 ## Opening Files
 
-To open a file and view its contents, type the name of the app you would like to use to open it. For example, we will use a text editor called **atom** to open a text file:
+To open a file and view its contents, type the name of the app you would like to use to open it. For example, we will use a text editor called **Visual Studio Code** to open a text file:
 
 ```bash
-atom foo.js
+code foo.js
+```
+To open all files in a folder enter the following. 
+
+```bash 
+code .
 ```
 
 The keyword **open** will open a file/folder in the Finder (on Mac) or the GUI-based file manager (on Linux).
@@ -150,3 +157,6 @@ The keyword **open** will open a file/folder in the Finder (on Mac) or the GUI-b
 * Use tab to autocomplete. for example, if the current folder has subfolders titled `games`, `photos` and `photography`, typing `pho` and pressing the tab key will result in displaying `photo` and `photography`. If we then type the letter `g` to get `photog`,and press the tab key - the command will be autocomplete to `photography`.
 
 * You can also use the up and down keys to step through the commands typed before.
+
+
+

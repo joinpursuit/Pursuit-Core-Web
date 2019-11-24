@@ -1,15 +1,13 @@
 # Express 5: Nested Routing & App Structure
 
-# Topics
-- Why nest routes?
-- `express.Router()` and creating modular routing systems
-- Intro to Application Structure
+# Objectives
+- Understand why to nest routes
+- Use `express.Router()` and create modular routing systems
+- Understand different ways of structuring an application
 
-# Lesson
+# 1. Why nest routes?
 
-## Why nest routes?
-
-Many times our applications/servers will handle many different feature sets. We've been working with simple examples so far, but in the real world, in production ready application there are usually many complex functionalities siloed. As good developers we need to be able to modularize our applications. 
+Many times our applications/servers will handle many different feature sets. In production ready applications, there are usually many complex functionalities siloed. As good developers we need to be able to modularize our applications. 
 
 #### Working with others
 
@@ -96,7 +94,7 @@ PHEW. Now that is LONG. Imagine how much longer it will get if we actually imple
 
 This is why we MODULARIZE our routes while nesting them!
 
-## `express.Router()` and creating modular routing systems
+# 2. `express.Router()` and creating modular routing systems
 
 The `express.Router` class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.
 
@@ -224,7 +222,7 @@ app.listen(port, () => {
 1. **Step 1:** We are importing each router file just like any other NodeJS module. Please refer back to each router file and notice how we are module exporting the router object.
 2. **Step 2:** Each imported router object is a Middleware! Express built it this way! So we are globally assigning these middleware using `use()`. We are stating the route for each router. Any routes we define in the router will automatically be nested within these routes.
 
-## Intro to Application Structure
+# 3. Intro to Application Structure
 
 Structuring your application properly can really help you design scalable products. It's important understand the needs of your poject. 
 - What are the moving pieces? 
