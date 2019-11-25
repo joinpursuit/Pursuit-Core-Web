@@ -128,7 +128,7 @@ handleSelectChange = (event) => {
 Finally, we can add a select inside of our `render()` method:
 
 ```js
-<p>
+<div>
   <select value={title} onChange={this.handleSelectChange}>
     <option value=''></option>
     <option value='mr'>Mr.</option>
@@ -137,7 +137,7 @@ Finally, we can add a select inside of our `render()` method:
     <option value='mx'>Mx.</option>
     <option value='dr'>Dr.</option>
   </select>
-</p>
+</div>
 ```
 
 
@@ -158,10 +158,15 @@ Then, we add methods to handle the text in the inputs changing:
 
 ```js
 handleLastNameChange = (event) => {
-  this.setState({lastName: event.target.value})
+  this.setState({
+    lastName: event.target.value
+  })
 }
+
 handleFirstNameChange = (event) => {
-  this.setState({firstName: event.target.value})
+  this.setState({
+    firstName: event.target.value
+  })
 }
 ```
 
@@ -171,12 +176,12 @@ And add our inputs to the `render` method:
 <input
   value={firstName}
   placeholder="First Name"
-  onInput={this.handleFirstNameChange}
+  onChange={this.handleFirstNameChange}
 />
 <input
   value={lastName}
   placeholder="Last Name"
-  onInput={this.handleLastNameChange}
+  onChange={this.handleLastNameChange}
 />
 ```
 
@@ -185,7 +190,7 @@ And add our inputs to the `render` method:
 When the submit button is pressed, `handleFormSubmit` is called, and reads from the state to ensure that the form can be submitted.  In a future lesson, we'll see how to react to the state changing to ensure that the user isn't able submit the form until all fields are valid.
 
 ```js
-handleFormSubmit = event => {
+handleFormSubmit = (event) => {
   event.preventDefault();
   if (this.allFieldsValid()) {
     alert("Form submitted!");
@@ -193,6 +198,7 @@ handleFormSubmit = event => {
     alert("Please complete the form");
   }
 };
+
 allFieldsValid = () => {
   return (
     this.state.notARobot &&
