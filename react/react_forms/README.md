@@ -36,7 +36,8 @@ class UserInfoForm extends React.Component {
       </form>
     );
   }
-  handleFormSubmit = event => {
+
+  handleFormSubmit = (event) => {
     event.preventDefault();
     alert("Form submitted!");
   };
@@ -64,28 +65,34 @@ class UserInfoForm extends React.Component {
     };
   }
 
+  handleCheckboxChange = (event) => {
+    this.setState({
+      notARobot: event.target.checked
+    });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    alert("Form submitted!");
+  };
+
   render() {
     const { notARobot } = this.state;
     return (
       <form onSubmit={this.handleFormSubmit}>
         <h2>User Information</h2>
-        <p>I am not a robot
-           <input type='checkbox'
-           checked={notARobot}
-           onChange={this.handleCheckboxChange}/>
-           <p hidden={!notARobot}>Confirmed human!</p>
-        </p>
+        <label>I am not a robot
+          <input 
+            type='checkbox'
+            checked={notARobot}
+            onChange={this.handleCheckboxChange}
+          />
+        <label/>
+        <p hidden={!notARobot}>Confirmed human!</p>
         <button>Submit</button>
       </form>
     );
   }
-  handleCheckboxChange = (event) => {
-    this.setState({notARobot:event.target.checked});
-  };
-  handleFormSubmit = event => {
-    event.preventDefault();
-    alert("Form submitted!");
-  };
 }
 
 export default UserInfoForm;
