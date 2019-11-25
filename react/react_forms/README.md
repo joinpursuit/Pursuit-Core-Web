@@ -57,14 +57,11 @@ The first input we'll add is a checkbox.  As the box is checked, we want to upda
 import React from "react";
 
 class UserInfoForm extends React.Component {
-
-  initialState = {
-    notARobot: false
-  };
-
   constructor() {
     super();
-    this.state = this.initialState;
+    this.state = {
+      notARobot: false
+    };
   }
 
   render() {
@@ -105,7 +102,7 @@ It is best to have inputs manipulate your state, rather than trying to keep the 
 We now add a `select` for the title (e.g Ms. or Dr.).  First, we need to add the property `title` to the state.  This represents the `value` property of the `option` tag.
 
 ```js
-initialState = {
+this.state = {
   notARobot: false,
   title: ""
 };
@@ -140,7 +137,7 @@ Finally, we can add a select inside of our `render()` method:
 We want now to add text inputs for the first name and the last name of the user.  First, we modify our state:
 
 ```js
-initialState = {
+this.state = {
   notARobot: false,
   title: "empty",
   firstName: "",
