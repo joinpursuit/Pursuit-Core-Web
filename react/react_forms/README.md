@@ -24,7 +24,7 @@ Let's put together a form using the `form` tag:
 To handle submission, we will use the `onSubmit` in property of the form:
 
 `UserImportForm.js`
-```js
+```jsx
 import React from "react";
 
 class UserInfoForm extends React.Component {
@@ -54,7 +54,7 @@ With the structure of our form built, we can now include other opportunities for
 
 The first input we'll add is a checkbox.  As the box is checked, we want to update our state.  
 
-```js
+```jsx
 import React from "react";
 
 class UserInfoForm extends React.Component {
@@ -108,7 +108,7 @@ It is best to have inputs manipulate your state, rather than trying to keep the 
 
 We now add a `select` for the title (e.g Ms. or Dr.).  First, we need to add the property `title` to the state.  This represents the `value` property of the `option` tag.
 
-```js
+```jsx
 this.state = {
   notARobot: false,
   title: ""
@@ -117,7 +117,7 @@ this.state = {
 
 Next, we add a function `handleSelectChange` that will update our state when the user selects a different option.
 
-```js
+```jsx
 handleSelectChange = (event) => {
   this.setState({
     title: event.target.value
@@ -127,7 +127,7 @@ handleSelectChange = (event) => {
 
 Finally, we can add a select inside of our `render()` method:
 
-```js
+```jsx
 <div>
   <select value={title} onChange={this.handleSelectChange}>
     <option value=''></option>
@@ -145,7 +145,7 @@ Finally, we can add a select inside of our `render()` method:
 
 We want now to add text inputs for the first name and the last name of the user.  First, we modify our state:
 
-```js
+```jsx
 this.state = {
   notARobot: false,
   title: "empty",
@@ -156,7 +156,7 @@ this.state = {
 
 Then, we add methods to handle the text in the inputs changing:
 
-```js
+```jsx
 handleLastNameChange = (event) => {
   this.setState({
     lastName: event.target.value
@@ -172,7 +172,7 @@ handleFirstNameChange = (event) => {
 
 And add our inputs to the `render` method:
 
-```js
+```jsx
 <input
   value={firstName}
   placeholder="First Name"
@@ -189,7 +189,7 @@ And add our inputs to the `render` method:
 
 When the submit button is pressed, `handleFormSubmit` is called, and reads from the state to ensure that the form can be submitted.  In a future lesson, we'll see how to react to the state changing to ensure that the user isn't able submit the form until all fields are valid.
 
-```js
+```jsx
 handleFormSubmit = (event) => {
   event.preventDefault();
   if (this.allFieldsValid()) {
