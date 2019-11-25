@@ -112,7 +112,9 @@ Next, we add a function `handleSelectChange` that will update our state when the
 
 ```js
 handleSelectChange = (event) => {
-  this.setState({title:event.target.value});
+  this.setState({
+    title: event.target.value
+  });
 };
 ```
 
