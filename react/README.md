@@ -9,7 +9,8 @@
 | 3. [React Forms](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_forms) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13127884) | [Array Statistics](https://github.com/joinpursuit/Pursuit-Core-Web-React-Forms-Lab) |
 | 4. [React Props] | tbd | tbd |
 | 5. [React Lifecycle Methods] | tbd | tbd |
-| 6. [Routing in React] | tbd | tbd
+| 6. [Networking in React] | tbd | tbd |
+| 7. [Routing in React] | tbd | tbd |
 
 ## All Links
 
