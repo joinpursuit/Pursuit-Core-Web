@@ -47,7 +47,7 @@ Let's take a look at a small-scale example of this:
 
 Here, we will build a simple application that uses props to display a list of shoes.
 
-![reactPropsAppOne](./images/reactPropsAppOne.png)
+![reactPropsAppOne](./assets/reactPropsAppOne.png)
 
 ### `ProductPage.js`
 
@@ -163,7 +163,7 @@ Let's look at this in action:
 
 We will return to our app from earlier, this time adding a `quantity`, and `purchase` button that decrements the quantity as long as it is greater than zero.  In order to change the quantity number, we will use the strategy of passing a function as props from a container component to a display component.
 
-![reactPropsAppTwoGif](./images/reactPropsAppTwoGif.gif)
+![reactPropsAppTwoGif](./assets/reactPropsAppTwoGif.gif)
 
 ## `ProductPage.js`
 
