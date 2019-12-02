@@ -103,7 +103,6 @@ import React from "react";
 const ProductItem = props => {
   return (
     <li>
-      {" "}
       {props.name} - {props.manufacturer} - ${props.price}
     </li>
   );
