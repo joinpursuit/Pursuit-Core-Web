@@ -268,3 +268,9 @@ In order to add an argument to the function (in this case, the product's name), 
 ## Conclusion
 
 Clearly, there's a lot of syntax we're introducing to you here, but there's also a lot of creative work that goes into deciding exactly what information should be stored in which component, which component should display what, and so on. We highly recommend thinking about this stuff as early as possible when you get around to building your own full-scale React projects!
+
+### Different components types
+| Written As | Purpose                                                                                                                                                 | A.K.A                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| Function   | Display information, minimal logic (if statements, loops etc). Receives information through `props` from its parent (who is often a Stateful component) | Functional, Stateless |
+| Class      | Heavier Logic like fetching information from an API and keeping it in state                                                                             | Stateful, Container   |
