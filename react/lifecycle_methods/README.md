@@ -87,7 +87,7 @@ this.handleClick = this.handleClick.bind(this)
 
 The constructor thus has two purposes (1) setting initial state and (2) binding methods.  From the React documentation:
 
-> If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your > React component.
+> If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.
 
 ## [render()](https://reactjs.org/docs/react-component.html#render)
 
@@ -131,7 +131,7 @@ componentDidUpdate(prevProps) {
 }
 ```
 
->>You may call setState() immediately in componentDidUpdate() but note that it must be wrapped in a condition like in the example above, or you’ll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance.
+>You may call setState() immediately in componentDidUpdate() but note that it must be wrapped in a condition like in the example above, or you’ll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance.
 
 # 4. Unmounting
 
