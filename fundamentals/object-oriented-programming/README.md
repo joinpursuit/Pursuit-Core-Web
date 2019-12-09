@@ -78,7 +78,7 @@ class ShoppingCart {
 
 Now, let's make our cart able to add and remove items:
 
-```
+```js
 class ShoppingCart {
     constructor(items = []) {
         this.items = items
