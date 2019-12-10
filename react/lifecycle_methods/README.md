@@ -1,114 +1,178 @@
 # The Component Lifecycle
 
 ## Resources
-
-* [In-Depth React Lifecycle](https://developmentarc.gitbooks.io/react-indepth/content/life_cycle/introduction.html)
-* [React Lifecycle Methods](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
-* [Component Lifecycle](https://www.tutorialspoint.com/reactjs/reactjs_component_life_cycle.htm)
-* Advanced reading: [You Probably Don't Need Derived State](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+* [New Lifecycle Methods](https://blog.logrocket.com/the-new-react-lifecycle-methods-in-plain-approachable-language-61a2105859f3/)
+* [React Documentation](https://reactjs.org/docs/react-component.html)
+* [Interactive lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 ## Terms
-
 * Component Lifecycle
 * Lifecycle Methods
-  - `componentWillMount`
-  - `componentDidMount`
-  - `componentWillReceiveProps`
-  - `shouldComponentUpdate`
-  - `componentWillUpdate`
-  - `componentDidUpdate`
-  - `componentWillUnmount`
 
-## Introduction
+## Objectives
+* Explain the lifecycle methods that a React component goes through
+* Explain why you have access to those methods
+* Build an app that showcases key React component lifecycle methods
 
-![lifecycle](./assets/component_lifecycle.png)
+## Sample App
 
-The component lifecycle is a term that refers to a React component's life in your browser. As your needs as a web developer get more complex, you may find yourself unable to rely on the methods you've learned so far (e.g. `setState` and `render`) to make stuff happen.
+- [https://codesandbox.io/s/clever-curie-8t9l1](https://codesandbox.io/s/clever-curie-8t9l1)
 
-For example, you'll notice we haven't yet fired off an AJAX request in React. Where would we do it, and how would we stop a page that relies on data from an AJAX request from rendering before it receives the data? In the DOM, you had `DOMContentLoaded`. In React, you have lifecycle methods.
+# 1. Introduction
 
-React makes lifecycle methods available to you in any component. Each method fires at a different specific time in the component's lifecycle. We're going to review each of them, but please note: **if you have too many lifecycle methods in a component, it's a good sign that you aren't using React properly.** Most of these methods are still supported, but many are only really used in legacy code, and some of them are actively discouraged.
+The component lifecycle is a term that refers to a React component's life in your browser.  Components are created, render content to be visible, are updating and are destroyed.  At each of these stages, you may want to influence or change the behavior of you component.  By default, React has its own behavior for what it will do at each of these stages.  You can choose to implement your own methods that change how your component will behave.
 
-That being said, it's still important to understand what these are, when they fire, and what they do. Let's get started.
+![lifecycle](./assets/lifecycleMethods.png)
 
-## `componentWillMount`
 
-This method runs **before the component first renders**.
+There are two *phases* during a component's lifecycle: the `Render phase` and the `Commit phase`.
 
-`componentWillMount` is a perfect example of a method that you shouldn't really ever need. The problem with `componentWillMount` is that the component hasn't yet mounted, so you can't really change anything that it's doing - it hasn't done anything yet!
+## Render Phase
 
-The `constructor` function is where you should be setting up/configuring your component before it mounts, anyways.
+The render phase has no side effects and is solely responsible for establishing the changes that you want to make to the DOM.  This is called `pure`.  It means that React may call the `constructor()` of `render()` methods multiple times, and it should be the same as it calling it once.  This means that you should make sure that these methods won't have unexpected behavior if called multiple times.  After the render phase is completed, React has established the changes that it wants to make.
 
-NEXT!
+## Commit Phase
 
-## `componentDidMount`
+During the commit phase, React takes the the changes identified during the render phase, and actually manipulates the DOM to make the UI reflect the created, removed or updated component.  Very rarely, it is useful to step in at this point with the `getSnapshotBeforeUpdate()` method, but for the most part, React will handle the updating completely.
 
-Perfect. Our component has rendered for the first time, and is available for us to do stuff with. `componentDidMount` is, hands-down, the most useful lifecycle method. Most of your AJAX requests are going to go here.
+## Lifecycle
 
-You might ask: Why put AJAX requests here and not in `componentWillMount`? Wouldn't `componentWillMount` finish the request sooner?
+Lifecycle methods cut across both phases.  They are divided into 3 main categories:
 
-Well, yes, it will - and that's the problem. If the AJAX request in `componentWillMount` finishes before the component mounts for the first time, and you try to, say, `setState` with information from your completed request (a very common pattern), then the component will break - there'll be no state to set!
+1. Mounting
+1. Updating
+1. Unmounting
 
-`componentDidMount` makes sure everything is ready for action before it fires, which makes it just the right place to put synchronous setup functionalities.
+We will look at the lifecycle methods in each category.
 
-Awesome. NEXT!
+# 2. Mounting
 
-## `componentWillReceiveProps`
+Mounting refers to a component being created and inserted into the DOM.  There are 3 main lifecycle methods that get called during the mounting stage:
 
-This method is the first method in React's update cycle, which happens after the component successfully mounts.
+1. constructor()
+1. render()
+1. componentDidMount()
 
-If a parent component does an AJAX request and passes the result down as props, you might want your child component to do something with those props as it updates. You can use `componentWillReceiveProps`, compare `this.props` (your old props) with `nextProps` (which this method makes available to you), and do something based on that comparison.
+## [constructor()](https://reactjs.org/docs/react-component.html#constructor)
 
-**Warning**: A common mistake that new React developers make is copying props to the state in every component. Instead of using props directly, they want the added comfort of state. This is a bad idea: It leads to several sources of truth instead of a [single source](https://en.wikipedia.org/wiki/Single_source_of_truth), so if your component ever fails to update its state with new props, you could be displaying inaccurate information to the user.
+The constructor is called for a component before it is mounted.  Most commonly, you set the initial state inside the constructor as in the example below:
 
-In other words, if you're going to use this to change your component's state, make sure you have a good reason to.
+```js
+constructor(props) {
+  super(props);
+  this.state = { displayValue: 0 }  
+}
+```
 
-**Other warning**: `componentWillReceiveProps` has no way of determining whether `this.props` and `nextProps` are different. Therefore, by default, it'll run **every time** the component updates, *even if the old props and the new props are the same*. This is not performant and can lead to issues down the road.
+The constructor can also be used to bind methods:
 
-Main takeaway: Make sure you *really* need this one if you're going to use it.
+```js
+constructor(props) {
+  super(props);
+  this.state = { display: "" }
+  this.handleClick = this.handleClick.bind(this)
+}
+handleClick() {
+  console.log('click!')
+}
+```
 
-Alright. NEXT!
+Without the line:
 
-## `shouldComponentUpdate`
+```js
+this.handleClick = this.handleClick.bind(this)
+```
 
-This is an interesting one. As we hinted at in the last section, React doesn't deeply compare the previous state/props with the new state or props - it re-renders no matter what, even if the previous state/props are the same.
+`handleClick` will be undefined when you try to use it later.
 
-`shouldComponentUpdate` allows you to make your component slightly more efficient by returning a boolean based on whether or not, by your reckoning, the component should actually update and re-render. By default, this is set to `true`, so most folks use this to return `false` under specific circumstances.
+The constructor thus has two purposes (1) setting initial state and (2) binding methods.  From the React documentation:
 
-It's important to note that this kind of optimization is **pretty granular** - it's a nice-to-have rather than a must-have. You won't see it in a lot of codebases in the wild, and you shouldn't have to implement it unless you're really putting the finishing touches on your app.
+> If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.
 
-Okay. NEXT!
+## [render()](https://reactjs.org/docs/react-component.html#render)
 
-## `componentWillUpdate`
+`render()` is the The only *required* lifecycle method.  As we've seen in previous lessons, `render()` typically will return a React element created with JSX (such as `<div />`).  The following are also valid to return in the `render()` method:
 
-Don't use `componentWillUpdate`. Many full-fledged React developers will have a hard time telling you why `componentWillUpdate` exists. It's like `componentWillReceiveProps`, but if you call `setState` in it, you get an infinite loop.
+- Arrays and [fragments](https://reactjs.org/docs/fragments.html)
+- [portals](https://reactjs.org/docs/portals.html)
+- String and numbers (render as text nodes)
+- Booleans and null (render nothing)
 
-It's bad. Don't use it.
+Render is called automatically during the mounting phase after `constructor()`
 
-NEXT!
+## [componentDidMount()](https://reactjs.org/docs/react-component.html#componentdidmount)
 
-## `componentDidUpdate`
+After render has been called, the DOM is updated and `componentDidMount` is called.  This is the best time to do things like set up subscriptions, and kick off network requests.  One reason to not start network requests in the `constructor()` is that it is would make your `constructor()` have a side effect.  It is best practice to ensure that lifecycle methods in the "Render phase" don't generate side effects, because they may be restarted by React.
 
-`componentDidUpdate` is like `componentDidMount` in the update portion of React's lifecycle. Which means it's not as useful. One main application of `componentDidUpdate` is adjusting UI elements after a component receives new props.
+# 3. Updating
 
-Say, for example, you have a third-party library rendering data in a chart. If you want that data to update when the component does, you can add a `componentDidUpdate` and re-initialize the chart with new data. Updating the chart after the component does ensures that the component gets a chance to successfully receive new props and update before the inner element updates.
+Once your component has already been mounted, you may want to change how it looks to user.  For example: clicking a button to increment a counter, guessing a letter in Hangman, or clicking a button on a calculator app.  For each of these, you would want to display to update after the component has been mounted.
 
-That being said, this is a niche usage. You shouldn't see `componentDidUpdate` too much in your day-to-day React development practice.
+## [render()](https://reactjs.org/docs/react-component.html#render)
 
-Alrighty! NEXT!
+After the component has been mounted, there are three ways that render can be called:
 
-## `componentWillUnmount`
+1. The props change
+2. `setState()` is called
+3. `forceUpdate()` is called (try to avoid using this)
 
-Finally, our component is going away. Maybe we're going to another page, maybe we're leaving the site - who knows?
+Any of these will automatically call the `render()` method.
 
-If you used any third-party UI libraries, put anything on the `window` or other system-level objects, or set up any timers, `componentWillUnmount` is a good place to make sure those processes are killed before the component unmounts.
+## [componentDidUpdate()](https://reactjs.org/docs/react-component.html#componentdidupdate)
 
-If you didn't, then congrats - you don't need it!
+After rendering, `componentDidUpdate` will be called.  This is not called after the first render, when `componentDidMount` is called instead.  This is an opportunity to do things like make additional network calls.  From the React documentation:
 
-NEXT! Wait. There is no 'next'. Huh.
+```js
+componentDidUpdate(prevProps) {
+  // Typical usage (don't forget to compare props):
+  if (this.props.userID !== prevProps.userID) {
+    this.fetchData(this.props.userID);
+  }
+}
+```
 
-## Conclusion
+>You may call setState() immediately in componentDidUpdate() but note that it must be wrapped in a condition like in the example above, or you’ll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance.
 
-The majority of these methods are super niche, on the verge of deprecation, or just a bad idea to use. Remember `componentDidMount`. We'll see that one again.
+# 4. Unmounting
 
-Onward!
+Components are unmounted when they removed from the DOM during [reconciliation](https://reactjs.org/docs/reconciliation.html).  Right before a component is removed, you can implement a lifecycle method to do any required cleanup.
+
+## [componentWillUnmount()](https://reactjs.org/docs/react-component.html#componentwillunmount)
+
+Inside this method, you should remove subscriptions, cancel network requests, and invalidate timers.  If those don't apply to your component, then you don't need to implement this method.
+
+Note that you shouldn't call `setState()` here.  The component is about to unmount, so it will never be re-rendered.
+
+# 5. Less Common Lifecycle Methods
+
+The lifecycle methods covered above should cover the vast majority of use cases.  React does make several more available to you if your application is a bit more complicated.  The full picture of lifecycle methods is show here:
+
+![allLifecycleMethods](./assets/allLifecycleMethods.png)
+
+### [getDerivedStateFromProps()](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+
+Implement this method if you want to change how the state is generated, and make it dependent on changes in props.  It is rare that you would want to do this, because props and state should be unrelated.
+
+### [shouldComponentUpdate()](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)
+
+This method is to be used only for performance optimization, and let's you skip updates if you know there is nothing to re-render.  Using the built-in [PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent) solves most of the problems that this lifestyle method attempts to address.
+
+### [getSnapshotBeforeUpdate()](https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate)
+
+This method is invoked right before the changes to the DOM are made.  The most common reason to want to use this would be to handle scrolling down in a chat app if the new chat bubble will be off the screen.
+
+# 6. Legacy lifecycle Methods
+
+You may see references to the following lifecycle methods in older code:
+
+- componentWillMount()
+- componentWillUpdate()
+- componentWillReceiveProps()
+
+These have all been renamed:
+
+- UNSAFE_componentWillMount()
+- UNSAFE_componentWillUpdate()
+- UNSAFE_componentWillReceiveProps()
+
+Do not use these.  They have been renamed with the `UNSAFE` prefix because using them leads to bugs and bad code.  Consult the documentation if you need to maintain an application that uses them, and try to avoid following tutorials, blogs or resources that implement these methods.
