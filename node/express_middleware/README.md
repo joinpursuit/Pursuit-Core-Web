@@ -1,4 +1,4 @@
-# Express 4: Middleware
+# Express: Middleware
 
 # Topics
 - What is a Middleware?
