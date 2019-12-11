@@ -1,4 +1,4 @@
-# Express 5: Nested Routing & App Structure
+# Express: Nested Routing & App Structure
 
 # Objectives
 - Understand why to nest routes
