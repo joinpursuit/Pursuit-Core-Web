@@ -38,7 +38,7 @@ function fireRequest() {
 
 # 3. Making a component that makes a network call
 
-[Project Link](https://codesandbox.io/s/random-dog-pictures-h6gmx)
+[Project Link](https://codesandbox.io/s/random-dog-pictures-yuo8x)
 
 We will start by making an app that loads an image of a dog, with a button to load a new image.
 
