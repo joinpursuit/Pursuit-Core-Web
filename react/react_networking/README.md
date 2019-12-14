@@ -262,7 +262,7 @@ export default Dog;
 
 # 4. Making a component passes down results of a network call
 
-[Project Link](https://codesandbox.io/s/random-dogs-by-breed-r7j11)
+[Project Link](https://codesandbox.io/s/random-dogs-by-breed-1frs3)
 
 We've just made a component that can make a network call.  Another useful strategy is to make a component that makes a network call, then passes the results of that call through props.  Here, we'll use Dog API to load a list of breeds into a `select`, then load 10 random dogs of that given breed.
 
