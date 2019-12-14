@@ -36,7 +36,7 @@ function fireRequest() {
 ```
 
 
-# 3. Making a component that makes a network call
+# 3. Making a component that makes a network call. Random Dog Pictures v1
 
 [Project Link](https://codesandbox.io/s/random-dog-pictures-yuo8x)
 
@@ -261,9 +261,9 @@ const styles = {
 
 export default Dog;
 ```
-</details
+</details>
 
-# 4. Making a component passes down results of a network call
+# 4. Making a component that passes down results of a network call. Random Dog Pictures v2
 
 [Project Link](https://codesandbox.io/s/random-dogs-by-breed-1frs3)
 
