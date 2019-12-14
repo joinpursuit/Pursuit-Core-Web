@@ -282,20 +282,18 @@ Our `Dog` class will be similar to our our example above, except it won't need a
 
 ```js
 import React from "react";
-
 import "./DogStyles.css";
 
-class Dog extends React.PureComponent {
-  render() {
-    return (
-      <div class="Dog">
-        <img alt="Dog" src={this.props.imgURL} />
-      </div>
-    );
-  }
-}
+const Dog = props => {
+  return (
+    <div className="gog">
+      <img alt="gog" src={props.imgURL} />
+    </div>
+  );
+};
 
-export default Dog;```
+export default Dog;
+```
 
 ### DogStyles.css
 
@@ -329,6 +327,7 @@ class DogsContainer extends React.PureComponent {
       imageURLs: []
     };
   }
+
   render() {
     const { imageURLs } = this.state;
     return (
@@ -346,62 +345,48 @@ export default DogsContainer;
 
 Our constructor sets the initial state to have 10 dogs to display, and an empty array of imageURLs.  Our render method then maps the array to `Dog` components.
 
-When our component mounts or updates, we want to get ten random URLs for dogs that match the breed in the `DogsContainers` props:
+When our updates(because a new breed was selected), we want to get ten random URLs for dogs that match the breed in the `DogsContainers` props:
 
 ```js
-componentDidMount() {
-  const { numberOfDogs } = this.state;
-  this.getRandomURLsMatchingBreed(numberOfDogs, this.props.breed);
-}
-componentDidUpdate(prevProps) {
-  const oldBreed = prevProps.breed;
-  const newBreed = this.props.breed;
-  if (oldBreed !== newBreed) {
-    const { numberOfDogs } = this.state;
-    this.getRandomURLsMatchingBreed(numberOfDogs, this.props.breed);
+  componentDidUpdate(prevProps) {
+    const oldBreed = prevProps.selectedBreed;
+    const newBreed = this.props.selectedBreed;
+    const numberOfDogs = this.state.numberOfDogs;
+
+    if (oldBreed !== newBreed) {
+      this.getRandomDogImagesByBreed(newBreed, numberOfDogs);
+    }
   }
-}
 ```
 
-Note that in `componentDidUpdate` we only make a state changing network call if the breed has changed.  This is to prevent an infinite loop, because `componentDidUpdate` is called each time the component renders itself.  Now we can implement the `getRandomURLsMatchingBreed` method:
+Note that in `componentDidUpdate` we only make a state changing network call if the breed has changed.  This is to prevent an infinite loop, because `componentDidUpdate` is called each time the component renders itself.  Now we can implement the `getRandomDogImagesByBreed` method:
 
 ```js
-getRandomURLsMatchingBreed(numberOfDogs, breed) {
-  if (!breed) {
-    return;
-  }
-  const breedURL = "https://dog.ceo/api/breed/" + breed + "/images";
-  console.log(breedURL);
-  axios
-    .get(breedURL)
-    .then(response => {
-      const allImageURLs = response.data.message;
-      const randomImageURLs = this.getNRandomBreeds(
-        allImageURLs,
-        numberOfDogs
-      );
-      this.setState({
-        imageURLs: randomImageURLs
+ getRandomDogImagesByBreed(breed, numberOfDogs) {
+    if (!breed) {
+      return;
+    }
+
+    const breedURL = `https://dog.ceo/api/breed/${breed}/images/random/${numberOfDogs}`;
+    console.log(breedURL);
+
+    axios
+      .get(breedURL)
+      .then(response => {
+        const allImageURLs = response.data.message;
+
+        this.setState({
+          imageURLs: allImageURLs
+        });
+      })
+      .catch(error => {
+        console.log(error);
       });
-    })
-    .catch(error => {
-      console.log(error);
-    });
-}
-```
-
-This makes an axios call to get all URLs matching a given breed, then set the state to ten of them selected at random.  Our `getRandomBreeds` method is defined here:
-
-```js
-getNRandomBreeds(array, n) {
-  //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/18650169#18650169
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
   }
-  return array.slice(0, n);
-}
 ```
+
+This makes an axios call to get 10 radom Dog pictures URLs matching a given breed, then set the state with them saving them to the `imageURLs` array.
+
 
 Finally, we can add some styles to line up the `Dog` components:
 
@@ -426,7 +411,6 @@ class DogBreedSelector extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      selectedBreed: "",
       breeds: []
     };
   }
@@ -435,21 +419,24 @@ class DogBreedSelector extends React.PureComponent {
 export default DogBreedSelector;
 ```
 
-Staring off our class, we will take in a method `dogBreedSelected` into props that we can call to inform the parent component which breed the user selected.  We then set the initial state with a "selectedBreed" to track the selection, and a "breeds" array where we will store all of the dog breeds we get back from the network call.
+Staring off our class, we will take in a method `handleSelectedBreed` into props that we can call to inform the parent component which breed the user selected.  We then set the initial state with a "selectedBreed" to track the selection, and a "breeds" array where we will store all of the dog breeds we get back from the network call.
 
 When the select changes, we will set the state to the new value, and call the method passed into props so that the parent component can handle the new breed.
 
 ```js
 handleSelectChange = event => {
   const newBreed = event.target.value;
-  this.setState({ selectedBreed: newBreed });
-  this.props.dogBreedSelected(event.target.value);
+  this.props.handleSelectedBreed(newBreed);
 };
 ```
 
 Next, we can implement a loadBreeds method that updates the state with all of the breeds from the API:
 
 ```js
+componentDidMount() {
+  this.loadBreeds();
+}
+
 loadBreeds = () => {
   axios
     .get("https://dog.ceo/api/breeds/list/all")
@@ -460,16 +447,15 @@ loadBreeds = () => {
       console.log(`An error occurred: ${error}`);
     });
 };
-componentDidMount() {
-  this.loadBreeds();
-}
 ```
 
 And finally we can build our `render()` method to render the select:
 
 ```js
 render() {
-  const { selectedBreed, breeds } = this.state;
+  const { breeds } = this.state;
+  const { selectedBreed } = this.props;
+
   return (
     <React.Fragment>
       <p>Select a Dog Breed</p>
@@ -504,28 +490,35 @@ class App extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      breed: ""
+      selectedBreed: ""
     };
   }
+
+  handleSelectedBreed = breed => {
+    this.setState({ selectedBreed: breed });
+  };
+
   render() {
     return (
       <div className="App">
-        <h1>Random Dogs by Breed </h1>
-        <DogBreedSelector dogBreedSelected={this.dogBreedSelected} />
-        <DogsContainer breed={this.state.breed} />
+        <div>
+          <h1>Random Dogs by Breed </h1>
+          <DogBreedSelector
+            selectedBreed={this.state.selectedBreed}
+            handleSelectedBreed={this.handleSelectedBreed}
+          />
+        </div>
+        <DogsContainer selectedBreed={this.state.selectedBreed} />
       </div>
     );
   }
-  dogBreedSelected = breed => {
-    this.setState({ breed: breed });
-  };
 }
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 ```
 
-The breed is saved as state, then passed into the `DogsContainer` as props.  When the user selects a new breed in the `DogBreedSelector` component, it will call the `dogBreedSelected` method which updates the state, thus trigging a re-render of the `DogsContainer` with the new breed.
+The breed is saved as state, then passed into the `DogsContainer` as props.  When the user selects a new breed in the `DogBreedSelector` component, it will call the `handleSelectedBreed` method which updates the state, thus trigging a re-render of the `DogsContainer` with the new breed.
 
 # 5. Wrap-up
 
