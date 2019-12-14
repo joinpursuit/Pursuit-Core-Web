@@ -55,7 +55,7 @@ We will be making AJAX `GET` requests to the [/api/breeds/image/random](https://
 
 ## Create a CodeSandbox scaffold
 
-Create a new [React sandbox](https://codesandbox.io/explore).
+Create a new [React Sandbox](https://codesandbox.io/explore).
 
 To use axios on CodeSandbox, we need add it as a dependency to our project. We do this in he left-hand side menu, by clicking on `dependencies` -> `Add Package`, typing _axios_ in the new window and clicking on the first result. Then, we import the _axios_ library to our project by adding an `import` statement:
 
@@ -115,7 +115,7 @@ You should see the image below:
 
 ![dogV1InitialScaffold](./assets/dogV1InitialScaffold.png)
 
-Now we want to get an image loaded instead of the `p` tag.  How should we change the image each time the button is pressed?  The most "Reacty" to do this is to use state.  We can have the state track the current url for the img src, and use JSX to set the img src property.
+Now we want to get an image loaded instead of the `p` tag.  How should we change the image each time the button is pressed?  The way to do this is in React is to use state.  We can have the state track the current url for the img src, and use JSX to set the img src property.
 
 The constructor below will set our initial state:
 
@@ -144,7 +144,7 @@ render() {
 }
 ```
 
-Now, whenever the imgURL in the state changes, render will be called again and update the UI with the new image.  Right now, our imgURL is always set to an empty string.  We need to add a method that our component calls that loads the a random URL:
+Now, whenever the imgURL in the state changes, render will be called again and update the UI with the new image.  Right now, our imgURL is always set to an empty string.  We need to add a method that our component calls that loads the random URL:
 
 ```js
 getRandomImage = () => {
@@ -185,10 +185,10 @@ render() {
 }
 ```
 
-Great!  Now we've got images loading.  They're all different sizes though.  We can standardize that a little by setting the `img`'s `style` property:
+Great!  Now we've got images loading.  They're all different sizes though.  We can handle this with CSS. In React there are different ways to deal with CSS [see here to learn about them](https://reactjs.org/docs/faq-styling.html). Let's apply some CSS inline to see an example. We can define a variable `styles` like the one below and pass `styles.img` as the `style` attribute to the `img` element. Inline styling has its tradeoffs to learn more see [here](https://reactjs.org/docs/dom-elements.html#style).
 
 ```js
-styles = {
+const styles = {
   img: {
     height: "15em"
   }
@@ -198,7 +198,7 @@ render() {
   const { imgURL } = this.state;
   return (
     <React.Fragment>
-      <img style={this.styles.img} alt="Dog" src={imgURL} />
+      <img style={styles.img} alt="Dog" src={imgURL} />
       <p>
         <button onClick={this.getRandomImage}>Load new dog</button>
       </p>
@@ -206,25 +206,25 @@ render() {
   );
 }
 ```
-
-Whole component together:
+<details>
+<summary>
+  <strong>See the whole component put together</strong>
+</summary>
 
 ```js
 import React from "react";
 import axios from "axios";
 
 class Dog extends React.PureComponent {
-  styles = {
-    img: {
-      height: "15em"
-    }
-  };
-
   constructor() {
     super();
     this.state = {
       imgURL: ""
     };
+  }
+
+  componentDidMount() {
+    this.getRandomImage();
   }
 
   getRandomImage = () => {
@@ -240,15 +240,11 @@ class Dog extends React.PureComponent {
       });
   };
 
-  componentDidMount() {
-    this.getRandomImage();
-  }
-
   render() {
     const { imgURL } = this.state;
     return (
       <React.Fragment>
-        <img style={this.styles.img} alt="Dog" src={imgURL} />
+        <img style={styles.img} alt="Dog" src={imgURL} />
         <p>
           <button onClick={this.getRandomImage}>Load new dog</button>
         </p>
@@ -257,8 +253,15 @@ class Dog extends React.PureComponent {
   }
 }
 
+const styles = {
+  img: {
+    height: "15em"
+  }
+};
+
 export default Dog;
 ```
+</details
 
 # 4. Making a component passes down results of a network call
 
