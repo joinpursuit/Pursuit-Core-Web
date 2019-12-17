@@ -12,7 +12,7 @@ The core curriculum is separated into five units:
 * Unit 2 - [HTML, CSS, and DOM](./html_css_dom/README.md)
 * Unit 3 - [Node, Express, and SQL](./node/README.md)
 * Unit 4 - [React 1](./react/README.md)
-* Unit 5 - [React 2](./advanced_react/README.md)
+* Unit 5 - [React 2](./react_2/README.md)
 
 ## Resources
 
