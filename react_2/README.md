@@ -9,6 +9,7 @@
 | [Redux One]() | tbd | tbd |
 | [Redux Two]() | tbd | tbd |
 | [User Authentication]() | tbd | tbd |
+| [Firebase]() | tbd | tbd |
 | [Deploying Web Apps](./deployment/README.md) | tbd | tbd |
 
 ## All links
