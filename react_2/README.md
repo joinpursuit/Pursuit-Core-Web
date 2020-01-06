@@ -4,7 +4,6 @@
 
 | Lesson | Quiz | Lab |
 | --- | --- | --- |
-| [React and Express](./react_express/README.md) | tbd | tbd |
 | [React Hooks]() | tbd | tbd |
 | [Redux One]() | tbd | tbd |
 | [Redux Two]() | tbd | tbd |
@@ -12,8 +11,9 @@
 | [User Authentication Frontend]() | tbd | tbd |
 | [Deploying Web Apps](./deployment/README.md) | tbd | tbd |
 
-## All links
 
+## All links
+1.  [React and Express](./react_express/README.md)
 2.  [Project Ideation](./project_ideation/README.md)
 3.  [Redux 1](./redux_1/README.md)
 4.  [Redux 2](./redux_2/README.md)
