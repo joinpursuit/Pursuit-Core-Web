@@ -8,7 +8,8 @@
 | [React Hooks]() | tbd | tbd |
 | [Redux One]() | tbd | tbd |
 | [Redux Two]() | tbd | tbd |
-| [User Authentication]() | tbd | tbd |
+| [User Authentication Backend]() | tbd | tbd |
+| [User Authentication Frontend]() | tbd | tbd |
 | [Deploying Web Apps](./deployment/README.md) | tbd | tbd |
 
 ## All links
