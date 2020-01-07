@@ -1,8 +1,8 @@
 # Unit 1: Fundamentals
 
-## Lessons
+## Lessons, Quizzes and Labs
 
-| Lesson | Exit Ticket | Lab |
+| Lesson | Quiz | Lab |
 | --- | --- | --- |
 | 1. [Local Environment Setup](./local_environment/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/3937197) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465198) | n/a |
 | 2. [The Command Line](./the_command_line/README.md) | [6.2](https://canvas.instructure.com/courses/1705731/quizzes/4239876) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465189) | [link](https://github.com/joinpursuit/PCNWLab-Command-Line/tree/454ec68e8986c55a977637f161991a1c02605f21) |
@@ -23,17 +23,20 @@
 
 ## Projects
 
-- https://github.com/joinpursuit/Pursuit-Core-Web-Text-Based-Adventure-Project
-- https://github.com/joinpursuit/Pursuit-Core-Web-Hangman
+| Project | Standards |
+| --- | --- |
+| [Text-based Adventure](https://github.com/joinpursuit/Pursuit-Core-Web-Text-Based-Adventure-Project) | - |
+| [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman) | - |
+
+## Assessments
+
+| Assessment | Standards |
+| [6.2](https://canvas.instructure.com/courses/1605748/assignments/12008695) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465282) | - |
 
 ## Review Labs
 
 - https://github.com/joinpursuit/web-functions-and-objects-review
 - https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Review
-
-## Assessments
-
-- https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Assessment
 
 ## Bonus Notes
 
