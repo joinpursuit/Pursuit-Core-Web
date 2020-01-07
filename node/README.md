@@ -15,6 +15,14 @@
 | 9. [Postgres & Seeding Databases](./postgres_and_seeding_databases/README.md)                                                    | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12863766) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494954) | [Social Media Database](https://github.com/joinpursuit/Pursuit-Core-Web-Postgres-Lab/blob/master/README.md)                        |
 | 10. [Postgres & pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/node/postgres-and-pg-promise)            | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4429633) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494957)      | [Social Media Database Part Two](https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Lab/blob/master/README.md)             |
 
+## Standards
+
+
+
+## Reassessed Standards
+
+
+
 ## Individual Project
 
 | Project | Standards |
@@ -27,7 +35,7 @@
 | --- | --- |
 | [6.3 Marine Database](https://canvas.instructure.com/courses/1605748/assignments/13033302) / [6.4 Marine Database](https://canvas.instructure.com/courses/1705731/assignments/13241074) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li><li>FSW.15: Build a full-stack application</li><li>FSW.1: Write clean, readable JavaScript code</li></ul> |
 
-## Group Projects
+## Group Project
 
 - [Social Media Website](https://github.com/joinpursuit/Pursuit-Core-Web-Express-Group-Project/blob/master/README.md)
 
