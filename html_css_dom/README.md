@@ -19,6 +19,14 @@
 | 13. [Promises and Fetch](./fetch/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4271116) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494814) | [Official Joke API Web App](https://github.com/joinpursuit/Pursuit-Core-Web-Promises-Fetch-Lab/blob/master/README.md) |
 | 14. [Axios and Async Await](./axios%2Basync-await) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4282554) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494815) | [Deck of Cards API Web App](https://github.com/joinpursuit/axios_assignment/blob/master/axios_exercise.md) |
 
+## New Standards
+
+<ul><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>FSW.3.b: Use appropriate, semantic HTML to aid accessibility</li><li>FSW.3.e: Create a responsive UI</li><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.3.a: Use common HTML tags to build a UI</li></ul>
+
+## Reassessed Standards
+
+<ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li><li>LF.5: Use functions to keep code DRY</li><li>FSW.1: Write clean, readable JavaScript code</li></ul>
+
 ## Projects
 
 | Project | Standards |
