@@ -25,7 +25,7 @@
 
 | Project | Standards |
 | --- | --- |
-| [Text-based Adventure](https://github.com/joinpursuit/Pursuit-Core-Web-Text-Based-Adventure-Project) | - |
+| [Text-based Adventure](https://github.com/joinpursuit/Pursuit-Core-Web-Text-Based-Adventure-Project) | <ul><li>EF.2.e: Build a command line application</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>LF.1.a: Use different types of data</li><li>LF.2: Use variables and constants to store information</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li></ul> |
 | [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman) | - |
 
 ## Assessments
