@@ -23,12 +23,12 @@
 
 | Project | Standards |
 | --- | --- |
-| [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md) | - |
-| [Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment) | - |
-| [Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md) | - |
+| [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li><li>LF.5: Use functions to keep code DRY</li></ul> |
+| [Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment) | <ul><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.b: Use appropriate, semantic HTML to aid accessibility</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li></ul> |
+| [Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md) | <ul><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.b: Use appropriate, semantic HTML to aid accessibility</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>LF.5: Use functions to keep code DRY</li></ul> |
 
 ## Assessments
 
 | Assessment | Standards |
 | --- | --- |
-| [6.2 Ghibli](https://canvas.instructure.com/courses/1605748/assignments/12619628) / [6.4 Ghibli](https://canvas.instructure.com/courses/1705731/assignments/13240950) | - |
+| [6.2 Ghibli](https://canvas.instructure.com/courses/1605748/assignments/12619628) / [6.4 Ghibli](https://canvas.instructure.com/courses/1705731/assignments/13240950) | <ul><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>LF.5: Use functions to keep code DRY</li></ul> |
