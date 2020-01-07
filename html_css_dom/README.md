@@ -21,6 +21,14 @@
 
 ## Projects
 
-- [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md)
-- [Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment)
-- [Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md)
+| Project | Standards |
+| --- | --- |
+| [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md) | - |
+| [Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment) | - |
+| [Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md) | - |
+
+## Assessments
+
+| Assessment | Standards |
+| --- | --- |
+| [6.2 Ghibli](https://canvas.instructure.com/courses/1605748/assignments/12619628) / [6.4 Ghibli](https://canvas.instructure.com/courses/1705731/assignments/13240950) | - |
