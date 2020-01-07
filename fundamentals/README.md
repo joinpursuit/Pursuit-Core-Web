@@ -32,7 +32,7 @@
 
 | Assessment | Standards |
 | --- | --- |
-| [6.2](https://canvas.instructure.com/courses/1605748/assignments/12008695) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465282) | - |
+| [6.2](https://canvas.instructure.com/courses/1605748/assignments/12008695) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465282) | n/a |
 
 ## Review Labs
 
