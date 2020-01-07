@@ -21,6 +21,8 @@
 | 15. [Classes](./classes/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4046241) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465184) | [link](https://github.com/joinpursuit/classes_assignment/blob/master/README.md) |
 | 16. [Object Oriented Programming](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/fundamentals/object-oriented-programming) | [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4393030) | tbd |
 
+## New Standards
+
 ## Projects
 
 | Project | Standards |
