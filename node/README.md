@@ -17,11 +17,11 @@
 
 ## Standards
 
-
+<ul><li>FSW.11.b: Use middleware to inject code</li><li>FSW.1.d: Manipulate and access objects and objects in arrays</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.10.a: Create an Express app</li><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>LF.6: Proper use and understanding of Higher order functions & closures or callbacks</li><li>FSW.15: Build a full-stack application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li></ul>
 
 ## Reassessed Standards
 
-
+<ul><li>LF.5: Use functions to keep code DRY</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.c: Use HTML input and forms</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.3.e: Create a responsive UI</li></ul>
 
 ## Individual Project
 
