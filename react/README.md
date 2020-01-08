@@ -22,7 +22,7 @@
 
 | Assessment | Standards |
 | --- | --- |
-| [6.2 React App](https://canvas.instructure.com/courses/1605748/assignments/13393999) / 6.4 React App | - |
+| [6.2 React Video App](https://canvas.instructure.com/courses/1605748/assignments/13393999) / 6.4 React Video App | - |
 
 ## Group Project
 
