@@ -14,11 +14,11 @@
 
 ## New Standards
 
-<ul><li>FSW.5.e: Use create-react-app to build React applications</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.6.a: Use react-router to render components for specific URL extensions</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>FSW.5.h: Use props to pass data between React components</li><li>FSW.5.b: Use JSX to create components</li></ul>
+<ul><li>FSW.5.b: Use JSX to create components</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.5.e: Use create-react-app to build React applications</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>FSW.5.h: Use props to pass data between React components</li><li>FSW.6.a: Use react-router to render components for specific URL extensions</li></ul>
 
 ## Reassessed Standards
 
-<ul><li>LF.5: Use functions to keep code DRY</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.1: Write clean, readable JavaScript code</li></ul>
+<ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>LF.5: Use functions to keep code DRY</li></ul>
 
 ## Individual Project
 
@@ -30,7 +30,7 @@
 
 | Assessment | Standards |
 | --- | --- |
-| [6.2 React Video App](https://canvas.instructure.com/courses/1605748/assignments/13393999) / 6.4 React Video App | <ul><li>EF.10.c: Make requests to APIs</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.5.b: Use JSX to create components</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>FSW.5.h: Use props to pass data between React components</li><li>FSW.6.a: Use react-router to render components for specific URL extensions</li></ul> |
+| [6.2 React Video App](https://canvas.instructure.com/courses/1605748/assignments/13393999) / 6.4 React Video App | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.5.b: Use JSX to create components</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>FSW.5.h: Use props to pass data between React components</li><li>FSW.6.a: Use react-router to render components for specific URL extensions</li></ul> |
 
 ## Group Project
 
