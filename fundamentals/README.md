@@ -23,7 +23,7 @@
 
 ## New Standards
 
-<ul><li>EF.2.e: Build a command line application</li><li>FSW.1: Write clean, readable JavaScript code</li><li>LF.2: Use variables and constants to store information</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>LF.1.a: Use different types of data</li><li>LF.5: Use functions to keep code DRY</li></ul>
+<ul><li>EF.2.e: Build a command line application</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>LF.1.a: Use different types of data</li><li>LF.2: Use variables and constants to store information</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li><li>LF.5: Use functions to keep code DRY</li></ul>
 
 ## Projects
 
