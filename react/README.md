@@ -12,6 +12,14 @@
 | 6. [Networking in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_networking) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13261311) | [Blackjack](https://github.com/joinpursuit/Pursuit-Core-Web-React-Networking-Lab) |
 | 7. [Routing in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_routing) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13262987) | [Cats and Dogs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Routing-Lab/blob/master/README.md) |
 
+## New Standards
+
+<ul><li>FSW.5.e: Use create-react-app to build React applications</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.6.a: Use react-router to render components for specific URL extensions</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>FSW.5.h: Use props to pass data between React components</li><li>FSW.5.b: Use JSX to create components</li></ul>
+
+## Reassessed Standards
+
+<ul><li>LF.5: Use functions to keep code DRY</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.1: Write clean, readable JavaScript code</li></ul>
+
 ## Individual Project
 
 | Project | Standards |
