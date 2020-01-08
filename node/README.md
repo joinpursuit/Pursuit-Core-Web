@@ -15,7 +15,7 @@
 | 9. [Postgres & Seeding Databases](./postgres_and_seeding_databases/README.md)                                                    | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12863766) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494954) | [Social Media Database](https://github.com/joinpursuit/Pursuit-Core-Web-Postgres-Lab/blob/master/README.md)                        |
 | 10. [Postgres & pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/node/postgres-and-pg-promise)            | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4429633) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494957)      | [Social Media Database Part Two](https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Lab/blob/master/README.md)             |
 
-## Standards
+## New Standards
 
 <ul><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.1.d: Manipulate and access objects and objects in arrays</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.11.b: Use middleware to inject code</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li><li>FSW.15: Build a full-stack application</li><li>LF.6: Proper use and understanding of Higher order functions & closures or callbacks</li></ul>
 
