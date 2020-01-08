@@ -16,7 +16,7 @@
 
 | Project | Standards |
 | --- | --- |
-| [Calculator](https://github.com/joinpursuit/Pursuit-Core-Web-React-Calculator-Lab) | - |
+| [Calculator](https://github.com/joinpursuit/Pursuit-Core-Web-React-Calculator-Lab) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.5.b: Use JSX to create components</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.5.e: Use create-react-app to build React applications</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>LF.5: Use functions to keep code DRY</li></ul> |
 
 ## Assessment
 
