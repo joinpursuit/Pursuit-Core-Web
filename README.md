@@ -8,7 +8,7 @@ Welcome to Pursuit's full-stack web development course. This course is constantl
 
 The core curriculum is separated into five units:
 
-| Unit | Standards |
+| Unit | New Standards |
 | --- | --- |
 | Unit 1 - [Fundamentals](./fundamentals/README.md) | <ul><li>EF.2.e: Build a command line application</li><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>LF.1.a: Use different types of data</li><li>LF.2: Use variables and constants to store information</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li><li>LF.5: Use functions to keep code DRY</li></ul> |
 | Unit 2 - [HTML, CSS, and DOM](./html_css_dom/README.md) | <ul><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.b: Use appropriate, semantic HTML to aid accessibility</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>FSW.4.b: Use DOM Events and Event Listeners</li></ul> |
