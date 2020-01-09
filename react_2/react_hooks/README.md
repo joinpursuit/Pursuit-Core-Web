@@ -265,7 +265,7 @@ useEffect(() => {
 
 Just like `useState` can be called multiple times, we can call `useEffect` multiple times to add multiple different event listeners or anything else that would typically be done in a class component's lifecycle method.
 
-## 4. Summary
+# 4. Summary
 
 React hooks are a powerful new tool you can use to write cleaner, more functional React programs.  Hooks solve two problems with React components: (1) They can get complex with a lot of different lifecycle methods, and (2) `this` can be confusing when writing code.
 
