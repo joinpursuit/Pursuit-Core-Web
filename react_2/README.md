@@ -4,11 +4,11 @@
 
 | Lesson | Quiz | Lab |
 | --- | --- | --- |
-| [React Hooks]() | tbd | tbd |
-| [Redux One]() | tbd | tbd |
-| [Redux Two]() | tbd | tbd |
-| [User Authentication Backend]() | tbd | tbd |
-| [User Authentication Frontend]() | tbd | tbd |
+| [React Hooks](./react_hooks/README.md) | tbd | tbd |
+| [Redux One](./redux_1/README.md) | tbd | tbd |
+| [Redux Two](./redux_2/README.md) | tbd | tbd |
+| [User Authentication Backend](./user_authentication_backend/README.md) | tbd | tbd |
+| [User Authentication Frontend](./user_authentication_frontend/README.md) | tbd | tbd |
 | [Deploying Web Apps](./deployment/README.md) | tbd | tbd |
 
 
