@@ -4,7 +4,7 @@
 
 | Lesson | Quiz | Lab |
 | --- | --- | --- |
-| [React Hooks](./react_hooks/README.md) | tbd | [Refactor React Labs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Hooks-Lab/blob/master/README.md) |
+| [React Hooks](./react_hooks/README.md) | [6.1](https://canvas.instructure.com/courses/1605748/assignments/13445542) | [Refactor React Labs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Hooks-Lab/blob/master/README.md) |
 | [Redux One](./redux_1/README.md) | tbd | tbd |
 | [Redux Two](./redux_2/README.md) | tbd | tbd |
 | [User Authentication Backend](./user_authentication_backend/README.md) | tbd | tbd |
