@@ -1,21 +1,28 @@
-# Redux 1
+# Redux Part One
 
-## Links
+## Objectives
 
-* [Redux - Official Site](https://redux.js.org/)
-* [React Component Lifecycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle)
-* [Leveling Up With React: Redux - CSS Tricks](https://css-tricks.com/learning-react-redux/)
-* [Question: How to choose between Redux's store and React's state? github redux repo](https://github.com/reactjs/redux/issues/1287)
+- Explain what Redux is and what problem it solves
+- Diagram the state of an application
+- Build a counter app using Redux
 
-## Lesson
+## Resources
+
+- [Redux - Official Site](https://redux.js.org/)
+- [React Component Lifecycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle)-
+- [Leveling Up With React: Redux - CSS Tricks](https://css-tricks.com/learning-react-redux/)
+- [Question: How to choose between Redux's store and React's state? github redux repo](https://github.com/reactjs/redux/issues/1287)
+
+
+# 1. Introduction
 
 Redux is a library for managing application state. When used with React, Redux provides a single state object (commonly referred to as _the store_) that exists at the root of our app. This is especially useful when building large-scale React applications, as it prevents the problems of *prop drilling* and *state duplication*.
 
-### A Birds-Eye View
+## A Birds-Eye View
 
 When we start building React applications that feature multiple components, we inevitably run into issues regarding state and prop drilling. We often want the state of a component to be preserved throughout our app. However, this will not always be the case. Consider the following app:
 
-### [Show / Hide Animal Selector](https://codesandbox.io/s/py858r28j0)
+## [Show / Hide Animal Selector](https://codesandbox.io/s/py858r28j0)
 
 The `App` component conditionally renders a nested component `AnimalSelector`. The animal selector will display either "giraffe" or "moose" - we click on the `change animal` button to switch between the two. `AnimalSelector` stores the selected animal in its own state as `selectedAnimal`, with "giraffe" being the default value.
 
@@ -27,7 +34,9 @@ In this simple app, if we wanted to keep the value of the selected animal, we co
 
 > Exercise: Rewrite the app so that the selected animal value will be in the state of `App`.
 
-This is a good solution for smaller apps, but this can get quite difficult to do for larger-scale apps that have components rendering other components. We pass props to a child component, and they pass those same props to grandchildren, and great-grandchildren, and so on. It's like making a chain - if you miss a single link, the whole thing falls apart.
+# 2. Adding Redux to Manage State
+
+The solution outlined above works well for smaller apps, but this can get quite difficult to do for larger-scale apps that have components rendering other components. We pass props to a child component, and they pass those same props to grandchildren, and great-grandchildren, and so on. It's like making a chain - if you miss a single link, the whole thing falls apart.
 
 ### [Dog Pictures](https://codesandbox.io/s/8z91lzo50)
 
@@ -45,7 +54,7 @@ Redux helps us fix the above problems. With Redux, we can keep state in a `store
 
 ![react redux dogs](assets/react_redux_dogs.png?raw=true)
 
-Note that while the store is at the root of our app, we can think of it as communicating directly with certain components. These components - `RandomDog` and `DogBreeds` - communicate with the store using _actions_. Actions are JavaScript objects that describe how, specifically, we want to update the state. Think of them sort of like RESTful routes - we know what a GET request to `/users` means even if we aren't looking at the code we set up for that request. 
+Note that while the store is at the root of our app, we can think of it as communicating directly with certain components. These components - `RandomDog` and `DogBreeds` - communicate with the store using _actions_. Actions are JavaScript objects that describe how, specifically, we want to update the state. Think of them sort of like RESTful routes - we know what a GET request to `/users` means even if we aren't looking at the code we set up for that request.
 
 The `"SET_IMAGE_URL"` action from `RandomDog` also contains a string with the image URL we'd like to render, and the `"SET_DOG_BREEDS"` action from `DogBreeds` also contains an array with the dog breeds we'd like the user to select from. The store will use the action type to determine what needs to be changed. Once a change is made, the app will be re-rendered from the root `App` component all the way down. We say that an action is _dispatched_ when it is send from a component to the store.
 
@@ -53,7 +62,7 @@ Adding a _favorites_ functionality to the redux app may involve adding a `favori
 
 Redux does not force us to put _all_ of our state in the store. For example, if a component has a search bar that we don't need available globally, we can keep the search input in the state of that component. This is a common pattern for form inputs. It is up to us to decide how much of the state we want to put in the global store. There is a great discussion on this point in the [redux github repo](https://github.com/reactjs/redux/issues/1287).
 
-### Getting Started With Redux
+# 3. Building a counter app with Redux
 
 Having looked at redux from a birds-eye view, we will now start learning how to use Redux. While the benefits discussed above will not be apparent in the small examples discussed today, these will lay the foundations for more complex use-cases of Redux.
 
@@ -120,7 +129,3 @@ This object will be the global state in our store. When an action is dispatched,
 ```
 
 The combined reducers are imported in `index.js` as `reducer` and used to create the redux store with the provided `createStore` function. To set up the store to work with React, we set `<Provider>` at the the root of the app in `ReactDom.render`, taking the initial `App` component as a child. The `App` component renders the `CounterContainer`, imported from `containers/CounterContainer.js`. `CounterContainer` is the component that actively connects to the redux store and dispatches actions to it. It receives as props from the store both a `dispatch` function and the `count`. It renders the `Counter` component from `components/Counter`, which is a simple functional component. To connect `CounterContainer` to the store, we use the `connect` method provided by the `react-redux` library. The use of this method will look strange. In practice it is used differently. We will discuss this in more detail in later lessons.
-
-## Exercise
-
-Using the counter app as a strating point, add three buttons: `increment if even`, `increment if odd`, and `increment async` which will increment after one second has passed. These will only require additons to the `CounterContainer` and `Counter` components.
