@@ -33,7 +33,7 @@
 
 | Assessment | Standards |
 | --- | --- |
-| [6.3 Marine Database](https://canvas.instructure.com/courses/1605748/assignments/13033302) / [6.4 Marine Database](https://canvas.instructure.com/courses/1705731/assignments/13241074) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li><li>FSW.15: Build a full-stack application</li></ul> |
+| [6.2 Marine Database](https://canvas.instructure.com/courses/1605748/assignments/13033302) / [6.4 Marine Database](https://canvas.instructure.com/courses/1705731/assignments/13241074) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li><li>FSW.15: Build a full-stack application</li></ul> |
 
 ## Group Project
 
