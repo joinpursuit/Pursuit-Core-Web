@@ -1,8 +1,8 @@
 # Unit 3: NodeJS, Express, and SQL
 
-## Contents
+## Lessons, Quizzes, and Labs
 
-| Lesson                                                                                                                           | Exit Ticket                                                                                                                                        | Lab                                                                                                                                |
+| Lesson                                                                                                                           | Quiz                                                                                                                                        | Lab                                                                                                                                |
 | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | 1. [NodeJS Intro + Event Loop](./nodejs_intro/README.md)                                                                         | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12664524) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494960) | n/a                                                                                                                                |
 | 2. [npm and Modules](./npm_and_modules/README.md)                                                                                | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4320674) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494961)      | [Use Chalk / Build Math and String Modules](https://github.com/joinpursuit/Pursuit-Core-npm-and-Modules-Lab/blob/master/README.md) |
