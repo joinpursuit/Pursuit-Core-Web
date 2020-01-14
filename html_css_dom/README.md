@@ -1,8 +1,8 @@
 # Unit 2: HTML, CSS, and the DOM
 
-## Contents
+## Lessons, Quizzes, and Labs
 
-| Lesson | Exit Ticket | Lab |
+| Lesson | Quiz | Lab |
 | --- | --- | --- |
 | 1. [HTML Introduction](./html_introduction_combined) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4100854) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4239868) | [Sundial / Recipe / Payment Form](https://github.com/joinpursuit/Pursuit-Core-Web-HTML-Introduction-Lab)  |
 | 2. [Combining HTML and JavaScript + DOM Introduction](./dom_1/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4107336) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4239883) | [Algorithm Web Apps](https://github.com/joinpursuit/combining-html-and-javascript-plus-dom)
