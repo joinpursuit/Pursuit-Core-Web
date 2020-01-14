@@ -90,7 +90,7 @@ We start with the traditional counter app. This `src/` folder of the app has the
 
 `counterActions` processes the action type with an optional payload (not provided here, because we're just incrementing, but this is where we'd put the user object if we wanted to add a new one). We utilize another Redux function, `dispatch`, in our React components to pass these actions into our reducers and update our global state.
 
-**Reducers**, then, process actions, assemble a new state based on what the actions tell them to do, and send that new state to the store. They are the middleman between our actions and our store. Remember in previous assignments when we copied the state, assembled a new one, and only *then* passed it into setState? Reducers are where we do that stuff.
+**Reducers**, then, process actions, assemble a new state based on what the actions tell them to do, and send that new state to the store. They are the middleman between our actions and our store.
 
 To keep ourselves organized, we can have multiple reducers representing different parts of our global state. Currently, there is only one, called `count`. Looking inside `count.js`, we will see a single function being exported:
 
