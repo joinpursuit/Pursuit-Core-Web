@@ -1,9 +1,15 @@
 # Redux 2
 
-## Links
+## Objectives
+
+- Build a more complex Redux app using the JSON Placeholder API
+
+## Resources
+
 - [React Redux Beginner Tutorial](https://www.valentinog.com/blog/redux/) - Take this with a grain of salt and you don't have to read *all* of it, but this is a great little walkthrough of an example project that's pretty close to our preferred Redux architecture.
 
-## Introduction
+
+# 1. JSON Placeholder API App Introduction
 
 Now that we've implemented our traditional Counter app, let's go ahead and build an app using the JSON Placeholder API. Today, we're going to build the basic infrastructure for our app, render a list of post titles, and add functionality to add new posts via a form.
 
@@ -13,7 +19,9 @@ Clone this repo, switch to the "Redux2" branch, npm install, and start. You can 
 
 Clicking that link takes you to a different route: `/posts/new`. A form renders. You add a title, click `Submit`, and the form clears. When you navigate back (re-mounting the other component) you can see your new post at the bottom of the list.
 
-Gasp! If we stored our Posts in the component rendered by `/posts`, this wouldn't be possible. However, with the magic of Redux, we can go anywhere we want and our new post will be preserved.
+If we stored our Posts in the component rendered by `/posts`, this wouldn't be possible. However, with the magic of Redux, we can go anywhere we want and our new post will be preserved.
+
+# 2. App Architecture
 
 To see how we accomplish this, let's take a look at our architecture. The `src/` folder's structure is as follows:
 
@@ -36,11 +44,9 @@ To see how we accomplish this, let's take a look at our architecture. The `src/`
 - `index.js`
 - `reduxUtils.js`
 
-We've come a long way from putting all our logic inside `App`, huh? Okay, let's break this down, file by file, folder by folder:
+# 3. `store/` and `index.js`
 
-### `store/` and `index.js`
-
-While we could create our store inside of `index.js`, it's nicer to create it in advance and import it - it just looks better, especially because now we're wrapping our `App` with `BrowserRouter` *and* `Provider`. Inside of our `store` index file, you can see us importing the root reducer, creating a store, and then immediately exporting: 
+While we could create our store inside of `index.js`, it's nicer to create it in advance and import it - it just looks better, especially because now we're wrapping our `App` with `BrowserRouter` *and* `Provider`. Inside of our `store` index file, you can see us importing the root reducer, creating a store, and then immediately exporting:
 
 ```js
 import { createStore } from "redux";
@@ -55,7 +61,7 @@ Not *too* bad, eh?
 
 But where does our reducer come from?
 
-### `reducers/`
+# 4. `reducers/`
 
 While we are still only using one reducer, `postsReducer`, we thought it'd be good for us to start this app off the proper way. `index` inside this folder imports `postsReducer` and then uses `combineReducers` - meaning, if we wanted to, we could import more than one reducer and combine them all into one big state for our store.
 
@@ -84,13 +90,13 @@ const postsReducer = (state = initialState, action) => {
 export default postsReducer;
 ```
 
-Our `postsReducer` contains two actions - the types we import from `actionTypes` - and processes them in the body of the function. Our initial state is an empty array, which we are going to fill with objects representing posts. If the action we submitted to our reducer was `ADD_POST` (for a single post), then we concat our payload onto our state. If it was `ADD_POSTS`, then we reassign `posts` using object destructuring to combine our old array and our new array provided by `action.payload`.
+Our `postsReducer` contains two actions - types imported from `actionTypes` - and processes them in the body of the function. Our initial state is an empty array, which we are going to fill with objects representing posts. If the action we submitted to our reducer was `ADD_POST` (for a single post), then we concat our payload onto our state. If it was `ADD_POSTS`, then we reassign `posts` using object destructuring to combine our old array and our new array provided by `action.payload`.
 
 Please notice that we aren't using **any** dangerous methods here - `push` is a no-no. Just like our React states, we aren't ever going to directly modify our Redux state. We copy it, apply changes, and then reset it with our newly modified copy.
 
 Where are these actions coming from, though?
 
-### `actions/`
+# 5. `actions/`
 
 `actionTypes.js` is a two-liner, so we aren't going to get into that too much. Just remember that the reason we do what we're doing in `actionTypes` is to make absolutely sure we're applying the right actions to our reducers.
 
@@ -112,7 +118,7 @@ Even though these functions just return objects, creating functions for them is 
 
 The usefulness of this pattern will be more apparent when we get into the React side of our application. Which - wouldn't you know it! - is happening now:
 
-### `Posts` and `PostsContainer`
+# 6. `Posts` and `PostsContainer`
 
 On the React side, we have a really interesting new pattern for our component architecture and organization. Every component requires access to our Redux store we now separate into *two* components - a container component and a presentational component. In fact, right now, *all of our components* in the `components/` folder are stateless.
 
@@ -178,5 +184,3 @@ const Posts = ({ posts }) => {
 
 export default Posts;
 ```
-
-Pretty neat, huh? Next week, we'll get into adding a new post to our Redux store based on user input.
