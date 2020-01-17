@@ -1,11 +1,11 @@
-# Registering Users: Backend
+# User Authentication: Backend
 
 ## Resources
 
 - [Passport Docs](http://www.passportjs.org/docs/)
 - [Example using pg-promise](https://github.com/crymall/user_auth_example)
 
-## The skinny
+# Introduction
 
 User registration and authentication is fairly difficult to wrap your head around. Thankfully, **it can stay that way** for now. If you want to do Serious Backend Security Development stuff, you can go super deep into these concepts, but for most of us, we just need to have the **boilerplate available** and know how to use it.
 
