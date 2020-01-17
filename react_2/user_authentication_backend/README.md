@@ -5,7 +5,7 @@
 - [Passport Docs](http://www.passportjs.org/docs/)
 - [Example using pg-promise](https://github.com/crymall/user_auth_example)
 
-# Introduction
+# 1. Introduction
 
 User registration and authentication is fairly difficult to wrap your head around. Thankfully, **it can stay that way** for now. If you want to do Serious Backend Security Development stuff, you can go super deep into these concepts, but for most of us, we just need to have the **boilerplate available** and know how to use it.
 
@@ -13,7 +13,7 @@ That's not to say this won't be a test of your core JavaScript and Express skill
 
 Let's take a look at the provided example above, starting with the root-level `package.json`:
 
-## More modules
+# 2. Auth modules
 
 ```js
 "dependencies": {
@@ -42,7 +42,7 @@ The other three are all about user authentication:
 - `passport-local` is the specific _strategy_ we're applying to our Passport authentication. There are many different strategies you can employ to manage your sessions. For example, the `passport-google` package lets you authenticate to other sites using your Google login. _Local_ means that we're handling everything in-house - we're managing usernames and passwords, we're giving session tokens, and we're processing registration and authentication.
 - `express-session` works with `passport` to help Express recognize and process session tokens. It's a little piece of middleware that we need in order to properly process these objects.
 
-## A new folder: `auth/`
+# 3. A new folder: `auth/`
 
 In this folder, we have three files:
 
@@ -136,7 +136,7 @@ Our frontend provides a username and password in the request body, and this func
 
 Notice, finally, that we imported our `serializeUser` and `deserializeUser` functions as `init`, and called `init()` at the end to apply these behaviors onto our instance of Passport, too.
 
-## `app.js` - Ensuring that authentication occurs
+# 4. `app.js` - Ensuring that authentication occurs
 
 We add several bits to app.js to ensure that requests to the database are properly authenticated:
 
@@ -161,7 +161,7 @@ app.use(passport.session());
 
 **Note:** Our session token stores a hash, too, and hashing functions often require a seed to get started. The `secret` part is that seed, and could be anything. It's not generally best-practice to shove it right in there - when we deploy to production, we'll want to hide it in a similar way that we'd hide our API keys.
 
-## `queries.js` - Creating a user
+# 5. `queries.js` - Creating a user
 
 In `queries.js`, we import some auth files and use them to rewrite our addUser function, creating a function called `createUser`:
 
@@ -215,7 +215,7 @@ function logoutUser(req, res, next) {
 }
 ```
 
-## Putting it all together
+# 6. Putting it all together
 
 So, when our frontend sends a request to create a user, here's what happens on the backend:
 
