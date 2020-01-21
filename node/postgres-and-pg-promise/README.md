@@ -117,9 +117,9 @@ Now that our database is seeded with information, we need to build an API that w
 To begin, let's create an `app.js` file where our Express server will live.  We will need to install the following pakages:
 
 * express
-* cors`
+* cors
 
-**Exercise:** With your neighbor discuss what are this packages used for and why do we need this packages.
+**Exercise:** With your neighbor, discuss what these packages are used for, and we we need them here.
 
 ## Steps
 
