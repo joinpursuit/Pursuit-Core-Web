@@ -1,6 +1,6 @@
 # User Authentication: Frontend
 
-- [Same Example](https://github.com/crymall/user_auth_example)
+- [Passport Auth](https://github.com/joinpursuit/Pursuit-Core-Web-Passport-Auth)
 
 Okay, so we've done authentication on the backend, which should prevent our users from fetching data that they aren't authorized to fetch. However, we still don't have a way (currently) to prevent users from accessing routes on the frontend.
 
@@ -16,7 +16,7 @@ Let's see this in practice. This app handles user login and registration. It als
   - `AuthForm.js` - Perhaps better referred to as `FormContainer`. Contains the functionality for interfacing with user authentication methods.
   - `Form.js` - Contains the presentational logic for both our register and login forms.
 - `users/` - Contains protected user component.
-  - `Users.js` - This is a very simple functional component. However, it can **only** be accessed if a user is logged in.
+  - `Users.js` - This is a simple component that displays all users in the database. However, it can **only** be accessed if a user is logged in.
 - `utils/` - Contains login utilities.
   - `Auth.js` - Contains functions to login, logout, and check the login status of a user.
   - `AuthRouting.js` - Contains a function that replaces `Route` in the situations where we'd like to ensure a user is logged in.
@@ -50,7 +50,7 @@ export default Auth;
 
 Auth is an object with several methods, all of them referring to or affecting something called `localStorage`. Huh! But we aren't getting `localStorage` _from_ anywhere, it seems. No imports, no variables, nowhere.
 
-This is because `localStorage` is a built-in functionality that our browsers make available to us. We can use methods to set, retrieve, and remove items from our local storage object as we need them.
+This is because `localStorage` is a built-in functionality that our browsers make available to us. The global object in a browser is called `window`, we can access it by doing `window.localStorage`, or just leave off the `window`. We can use methods to set, retrieve, and remove items from our local storage object as we need them.
 
 What we're doing with the arguments of `setItem`, then, is actually defining key-value pairs for the `localStorage` object. `removeItem` and `getItem` only have one argument, because we just need the key that we want to remove or retrieve the value for.
 
@@ -82,7 +82,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 export default PrivateRoute;
 ```
 
-`PrivateRoute`, as you can see, accepts a component and a bunch of properties, just like `Route` does. It assembles a `render` function that uses one of our `Auth` methods, `isUserAuthenticated`, to make sure the user is logged in. If they are, it renders the component they want. If they aren't, it redirects them to the login page. Pretty cool, huh?
+`PrivateRoute`, as you can see, accepts a component and a bunch of properties, just like `Route` does. It assembles a `render` function that uses one of our `Auth` methods, `isUserAuthenticated`, to make sure the user is logged in. If they are, it renders the component they want. If they aren't, it renders a `redirect` component to the login page. Pretty cool, huh?
 
 ### Components part 1: `App.js`
 
@@ -197,11 +197,9 @@ render() {
 }
 ```
 
-Note that a lot of stuff here is just because we don't have a `Navbar` class. We render a greeting and a logout button conditionally depending on whether or not a user is logged in.
+Note that a lot of stuff here is just because we don't have a `Navbar` component. We render a greeting and a logout button conditionally depending on whether or not a user is logged in.
 
-Underneath our navbar is where the really interesting stuff happens. Notice we have a `PrivateRoute` pointing to our `Users` component. This is to make sure that our user is logged in before they can access that route!
-
-However, the `Users` component itself isn't too interesting. Right now, it's just a simple `h1` tag in a functional component. It's the components inside our `login/` directory that contain most of our app's logic...
+Underneath our nav is where the really interesting stuff happens. Notice we have a `PrivateRoute` pointing to our `Users` component. This is to make sure that our user is logged in before they can access that route!
 
 ### `login/`
 

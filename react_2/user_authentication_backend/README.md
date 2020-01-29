@@ -3,9 +3,9 @@
 ## Resources
 
 - [Passport Docs](http://www.passportjs.org/docs/)
-- [Example using pg-promise](https://github.com/crymall/user_auth_example)
+- [Example using pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web-Passport-Auth)
 
-# 1. Introduction
+## Introduction
 
 User registration and authentication is fairly difficult to wrap your head around. Thankfully, **it can stay that way** for now. If you want to do Serious Backend Security Development stuff, you can go super deep into these concepts, but for most of us, we just need to have the **boilerplate available** and know how to use it.
 
@@ -13,7 +13,7 @@ That's not to say this won't be a test of your core JavaScript and Express skill
 
 Let's take a look at the provided example above, starting with the root-level `package.json`:
 
-# 2. Auth modules
+## New Modules
 
 ```js
 "dependencies": {
@@ -21,28 +21,38 @@ Let's take a look at the provided example above, starting with the root-level `p
   "body-parser": "~1.18.2",
   "cookie-parser": "~1.4.3",
   "debug": "~2.6.9",
-  "express": "~4.15.5",
+  "express": "^4.17.1",
   "express-session": "^1.15.6",
-  "jade": "~1.11.0",
-  "morgan": "~1.9.0",
+  "morgan": "^1.9.1",
+  "nodemon": "^1.14.12",
   "passport": "^0.4.0",
   "passport-local": "^1.0.0",
-  "pg-promise": "^7.3.3",
-  "serve-favicon": "~2.4.5",
-  "supervisor": "^0.12.0"
+  "pg-promise": "^7.4.1",
+  "serve-favicon": "~2.4.5"
 }
 ```
 
-New ones include `bcryptjs`, `express-session`, `passport`, and `passport-local`. The first one, a JavaScript-y extension of bcrypt, provides the functionality to put user passwords through a hashing function and salt them for our database.
+New ones include `bcryptjs`, `express-session`, `passport`, and `passport-local`. The first one, a JavaScript-y extension of bcrypt, provides the functionality to put user passwords through a hashing function and salt them for our database. This is important for our users' security, because we don't want to store passwords in "plaintext".
 
-The other three are all about user authentication:
+The other three are all about user authentication.
 
-- `passport` is the biggest package we're installing. It contains the logic for creating and processing _sessions_. You know when you leave a website, return, and are still logged in? Yep, that's because there's a _session token_ containing part of your unique user information. Passport checks this piece of information against your stored information on the backend. If everything is good, you stay logged in and can fetch your private information from protected endpoints.
-  - **Note**: Separate session management will also happen on the frontend. Requiring a session to be utilized at both ends will ensure that your user will never access data that you don't want them to.
-- `passport-local` is the specific _strategy_ we're applying to our Passport authentication. There are many different strategies you can employ to manage your sessions. For example, the `passport-google` package lets you authenticate to other sites using your Google login. _Local_ means that we're handling everything in-house - we're managing usernames and passwords, we're giving session tokens, and we're processing registration and authentication.
-- `express-session` works with `passport` to help Express recognize and process session tokens. It's a little piece of middleware that we need in order to properly process these objects.
+## Concepts time!
 
-# 3. A new folder: `auth/`
+### Passport Strategies
+
+- `passport` is a node module that creates some nice abstractions around the authentication process for us. It contains the logic for creating and processing _sessions_. You know when you leave a website, return, and are still logged in? Yep, that's because there's a _session token_ containing part of your unique user information. Passport checks this piece of information against your stored information on the backend. If everything is good, you stay logged in and can fetch your private information from protected endpoints. Passport is written in a way that allows it to be plugged into most any express application, and because of that, we have to tell it what we want it to do at certain times, which is where the `strategy` concept comes in.
+
+- `passport-local` is the specific strategy we're applying to our Passport authentication. There are many different strategies you can employ to manage your sessions. For example, the `passport-google` package lets you authenticate to other sites using your Google login. _Local_ means that we're handling everything in-house (as opposed to using another service, like Firebase) - we're managing usernames and passwords, we're giving session tokens, and we're processing registration and authentication.
+
+- `express-session` works with `passport` to help Express recognize and process session tokens. It's a little piece of middleware that we need in order to properly process these objects. Sessions are stored in-memory in express and "signed" cryptographically so that hackers can't send requests pretending to be someone they're not.
+
+- `bcrypt` contains methods that perform encryption and hashing. Hashing is the process of turning an input string (like a password) into a longer, unreadable string. This process is mathematically _deterministic_, which means that given the same input string, it will produce the same result every time. It also can't be reversed - so you can't take a hashed password and un-hash it. You can only check to see if your input string matches the hash.
+
+- **Serializing** processes a user token into plain text, which is how it can be assigned to our request header. In this case, we're putting our username onto our request header to represent that user's session.
+- **Deserializing** takes a plain text request header, converts it into a JavaScript-readable format, and checks our database to make sure that user actually exists. This accomplishes two things: It lets us process a session token, and it makes sure a hacker isn't throwing together a request header without an actual user account to back it up.
+
+
+## More code structure: `auth/`
 
 In this folder, we have three files:
 
@@ -54,32 +64,33 @@ In this folder, we have three files:
 
 - `helpers.js` is where we use `bcrypt` to create and verify users. We also create a piece of middleware here, `loginRequired`, that makes sure a session token is on our request header. We'll use this in routes that we want a user to be logged in to access.
 - `passport.js` is where we set up how passport will _serialize_ and _deserialize_ users.
-  - **Serializing** processes a user token into plain text, which is how it can be assigned to our request header. In this case, we're putting our username onto our request header to represent that user's session.
-  - **Deserializing** takes a plain text request header, converts it into a JavaScript-readable format, and checks our database to make sure that user actually exists. This accomplishes two things: It lets us process a session token, and it makes sure a hacker isn't throwing together a request header without an actual user account to back it up.
-- `local.js` determines whether or not we will, in fact, assign a session token to a user who is logging in - in other words, we make sure to check whether the user exists in the database and whether the provided password is correct.
+- `local.js` is where we define our `strategy` for passport.
 
-## A deeper dive into `auth/`
+> Note that this project structure isn't required. Express and passport don't care where each of these pieces live, as long as they're all there.
+
+## Coding time
 
 ### `helpers.js`
+
+Let's add a couple functions here that we'll use elsewhere.
 
 ```js
 function comparePass(userPassword, databasePassword) {
   return bcrypt.compareSync(userPassword, databasePassword);
 }
 
-function createUser(req) {
+function createHash(password) {
   const salt = bcrypt.genSaltSync();
-  const hash = bcrypt.hashSync(req.body.password, salt);
-  return db.none(
-    "INSERT INTO users (username, password_digest) VALUES (${username}, ${password})",
-    { username: req.body.username, password: hash }
-  );
+  const hash = bcrypt.hashSync(password, salt);
+  return hash;
 }
 ```
 
 We define two functions here - `comparePass`, which (as the name implies) hashes its first (plain) argument and compares it to the second (hashed) argument. We have to hash instead of decrypt because **it is impossible** to decrypt hashes.
 
-The second function does what its name implies - it salts and hashes an inputted password and adds the user to the database.
+The second function does what its name implies - creates a hash from a "plaintext" password input, then returns it. We'll use this function to create hashes that get stored in the database.
+
+We'll also add a third function:
 
 ```js
 function loginRequired(req, res, next) {
@@ -94,6 +105,7 @@ function loginRequired(req, res, next) {
 `loginRequired` is a little bit different. It's a piece of middleware that we add to routes to make sure there's a user token in the request. We utilize it in our routing like this (this snippet is from the `users.js` file in the routes folder):
 
 ```js
+router.get("/", loginRequired, db.getUsers)
 router.post("/logout", loginRequired, db.logoutUser);
 ```
 
@@ -103,20 +115,50 @@ Because after all, you have to login to log out!
 
 This file works in tandem with `local.js` to configure Passport. It adds the logic to `serialize` and `deserialize` the user, which we've described above.
 
+```js
+const passport = require("passport");
+const db = require('../db/connection');
+
+module.exports = () => {
+  passport.serializeUser((user, done) => {
+    done(null, user.username);
+  });
+
+  passport.deserializeUser((username, done) => {
+    db.one("SELECT * FROM users WHERE username = ${username}", {
+      username: username
+    })
+      .then(user => {
+        done(null, user.username);
+      })
+      .catch(err => {
+        done(err, null);
+      });
+  });
+};
+```
+
+Notice, finally, that we imported our `serializeUser` and `deserializeUser` functions as `init`, and called `init()` at the end to apply these behaviors onto our instance of Passport, too.
+
+
 ### `local.js`
 
 This file is to configure Passport to verify users in our database.
 
 ```js
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const init = require("./passport");
+const helpers = require("./helpers");
+
+const db = require('../db/connection')
+
 passport.use(
   new LocalStrategy((username, password, done) => {
     db.one("SELECT * FROM users WHERE username = ${username}", {
       username: username
     })
       .then(user => {
-        if (!user) {
-          return done(null, false);
-        }
         if (!helpers.comparePass(password, user.password_digest)) {
           return done(null, false);
         } else {
@@ -128,15 +170,17 @@ passport.use(
       });
   })
 );
+
+init();
+
+module.exports = passport;
 ```
 
 We use `.use` on our instance of Passport to configure it. Essentially, what we're doing here is defining a set of behaviors that Passport is going to utilize when we add it as middleware to our `app.js` file.
 
-Our frontend provides a username and password in the request body, and this function looks in our database for that user based on username (`db.one`). If the username exists, it then checks to see if the password is correct. If both the username and the password are correct, it returns our user. Otherwise, it returns `false`, which throws an error from Express.
+Our frontend provides a username and password in the request body, and this function looks in our database for that user based on username (`db.one`). If the username exists, it then checks to see if the password is correct. If both the username and the password are correct, it returns our user object. Otherwise, it returns `false`, which tells passport that this isn't the correct combination.
 
-Notice, finally, that we imported our `serializeUser` and `deserializeUser` functions as `init`, and called `init()` at the end to apply these behaviors onto our instance of Passport, too.
-
-# 4. `app.js` - Ensuring that authentication occurs
+### `app.js` - Ensuring that authentication occurs
 
 We add several bits to app.js to ensure that requests to the database are properly authenticated:
 
@@ -145,6 +189,9 @@ const session = require("express-session");
 const passport = require("passport");
 
 // other middleware stuff
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser("never gonna give u up"));
 
 app.use(
   session({
@@ -159,9 +206,9 @@ app.use(passport.session());
 
 `session` here is used in two different contexts - `session` by itself represents our instance of `express-session`, whereas `passport.session` is passport's processing of that session token.
 
-**Note:** Our session token stores a hash, too, and hashing functions often require a seed to get started. The `secret` part is that seed, and could be anything. It's not generally best-practice to shove it right in there - when we deploy to production, we'll want to hide it in a similar way that we'd hide our API keys.
+**Note:** Our session token stores a hash, too, and hashing functions often require a seed to get started. The `secret` part is that seed, and could be anything. It's not generally best-practice to shove it right in there - when we deploy to production, we'll want to hide it in a similar way that we'd hide our API keys, using environment variables.
 
-# 5. `queries.js` - Creating a user
+### `queries.js` - Creating a user
 
 In `queries.js`, we import some auth files and use them to rewrite our addUser function, creating a function called `createUser`:
 
@@ -215,23 +262,59 @@ function logoutUser(req, res, next) {
 }
 ```
 
-# 6. Putting it all together
+Finally, we want to create a method that shows all the registered users in the database. This is a simple query.
 
-So, when our frontend sends a request to create a user, here's what happens on the backend:
+```js
+function getUsers(req, res) {
+  db.manyOrNone("SELECT * FROM users").then(
+    results => {
+      res.json(results)
+    }
+  ).catch(err =>{
+    res.status(500).json({
+      message: err
+    });
+  })
+}
+```
 
-- We accept the username and password from the request body.
-- We hash the password and insert the username and password into a new row via a SQL request.
-- We send a response indicating that a user was successfully created.
+## Putting it all together
 
-When our user logs into that account, here's what happens:
+Here's the general process of what needs to happen for a user to be authenticated. We haven't touched the front-end yet but we can just use our imaginations for now.
 
-- Passport steps in and, in partnership with bcrypt, makes sure that the username and password are correct.
-- If they are correct, Passport creates (_serializes_) a session token, which is placed on any requests from the client from that user until the user logs out or the session expires.
-- The user is now able to access routes protected by `loginRequired` because they have a session token that is _deserialized_ and processed for every new request.
+### New User Registration
 
-And when they log out:
+* React - load the registration form
+* React - POST the form with username and password as JSON
+* Express - receive the POST request and call db.createUser
+* Express - hash the password, then insert the username and hashed password into psql
+* Express - Send response confirmation
+* React - Receive response and notify user of success
 
-- Passport makes sure they are logged in - you can't log out if you aren't logged in.
-- We remove the session token from their request.
+### User logging in
 
-And that's it!
+* React - load the login form
+* React - POST the form with username and password as JSON
+* Express - Receive the POST request and forward to passport middleware
+* Passport - call passport.authenticate which looks up the user in psql
+* Passport - if username is found
+  * hash the incoming password against the stored password
+    * if password matches, create session and send response
+    * if password doesn't match, send response as unauthorized
+* Passport - if username not found, send response as unauthorized
+* React - receive response, create localstorage token
+* React - send GET request to express to verify user is logged in
+* Express - receive GET request and verify session exists by deserializing user
+  * If session exists, serialize user & respond with username
+  * If session does not exist, respond with `null`
+* React - receive response
+  * if username matches session token, setState with username & loggedIn: true
+  * if username does not match session token, delete localstorage token & send request to de-authenticate express session
+
+### User logging out
+
+* React - send request to log user out 
+* Express - receive request, delete session token, send response confirmation
+* React - receive response, delete localstorage token
+* React - send GET request to verify user is logged in
+  * see above for remaining steps
