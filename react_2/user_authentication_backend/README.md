@@ -3,7 +3,8 @@
 ## Resources
 
 - [Passport Docs](http://www.passportjs.org/docs/)
-- [Example using pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web-Passport-Auth)
+- [Example using pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web-Passport-Auth) 
+  - checkout the solution branch for a completed, working example. Start from the master branch to just have boilerplate.
 
 ## Introduction
 
