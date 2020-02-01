@@ -18,18 +18,18 @@ Let's take a look at the provided example above, starting with the root-level `p
 
 ```js
 "dependencies": {
-  "bcrypt": "^3.0.7", //new
-  "cookie-parser": "~1.4.4",
+  "bcryptjs": "^2.4.3",
+  "body-parser": "~1.18.2",
+  "cookie-parser": "~1.4.3",
   "debug": "~2.6.9",
-  "express": "~4.16.1",
-  "express-session": "^1.17.0",
-  "morgan": "~1.9.1",
-  "passport": "^0.4.1", // new
-  "passport-local": "^1.0.0", // new 
-  "pg-promise": "^10.4.0" 
-},
-"devDependencies": {
-  "nodemon": "^2.0.2"
+  "express": "^4.17.1",
+  "express-session": "^1.15.6",
+  "morgan": "^1.9.1",
+  "nodemon": "^1.14.12",
+  "passport": "^0.4.0",
+  "passport-local": "^1.0.0",
+  "pg-promise": "^7.4.1",
+  "serve-favicon": "~2.4.5"
 }
 ```
 
@@ -55,10 +55,11 @@ The other three are all about user authentication.
 
 ## More code structure: `auth/`
 
-In this folder, we have two files:
+In this folder, we have three files:
 
 ```
 -helpers.js
+-local.js
 -passport.js
 ```
 
@@ -75,47 +76,36 @@ In this folder, we have two files:
 Let's add a couple functions here that we'll use elsewhere.
 
 ```js
-const bcrypt = require('bcrypt');
-
-const hashPassword = async (plainPassword) => {
-  try {
-    let passwordDigest = await bcrypt.hash(plainPassword, 10);
-    return passwordDigest;
-  }
-  catch (err) {
-    throw (err)
-  }
+function comparePass(userPassword, databasePassword) {
+  return bcrypt.compareSync(userPassword, databasePassword);
 }
 
-const comparePasswords = (plainPassword, passwordDigest) => {
-  return bcrypt.compare(plainPassword, passwordDigest)
+function createHash(password) {
+  const salt = bcrypt.genSaltSync();
+  const hash = bcrypt.hashSync(password, salt);
+  return hash;
 }
-
-// ... other helper functions
 ```
 
-We define two functions here - `comparePasswords`, which (as the name implies) hashes its first (plain) argument and compares it to the second (hashed) argument. We have to hash instead of decrypt because **it is impossible** to decrypt hashes.
+We define two functions here - `comparePass`, which (as the name implies) hashes its first (plain) argument and compares it to the second (hashed) argument. We have to hash instead of decrypt because **it is impossible** to decrypt hashes.
 
 The second function does what its name implies - creates a hash from a "plaintext" password input, then returns it. We'll use this function to create hashes that get stored in the database.
 
 We'll also add a third function:
 
 ```js
-const loginRequired = (req, res, next) => {
-  if (req.user) return next(); // If the user is logged in just call the next middleware
-  res.status(401).json({
-    payload: {
-      message: "Unauthorized - To Access this route you have to be logged in."
-    },
-    error: true
-  })
+function loginRequired(req, res, next) {
+  if (!req.user) {
+    res.status(401).json({ status: "Forbidden - please log in." });
+    return;
+  }
+  next();
 }
 ```
 
 `loginRequired` is a little bit different. It's a piece of middleware that we add to routes to make sure there's a user token in the request. We utilize it in our routing like this (this snippet is from the `users.js` file in the routes folder):
 
 ```js
-// routes/users.js
 router.get("/", loginRequired, db.getUsers)
 router.post("/logout", loginRequired, db.logoutUser);
 ```
@@ -124,52 +114,72 @@ Because after all, you have to login to log out!
 
 ### `passport.js`
 
-This file we configure Passport. It adds the logic to `serialize` and `deserialize` the user to/from the session. Here we also setup the passport strategy to use. The strategy will be run every time a user logs in. 
+This file works in tandem with `local.js` to configure Passport. It adds the logic to `serialize` and `deserialize` the user, which we've described above.
 
 ```js
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const { comparePasswords } = require('../auth/helpers');
-const usersQueries = require('../db/queries/users');
+const passport = require("passport");
+const db = require('../db/connection');
 
-passport.use(new LocalStrategy(async (username, password, done) => {
-  try {
-    const user = await usersQueries.getUserByUsername(username);
-    if (!user) {
-      return done(null, false)
-    }
+module.exports = () => {
+  passport.serializeUser((user, done) => {
+    done(null, user.username);
+  });
 
-    const passMatch = await comparePasswords(password, user.password_digest);
-    if (!passMatch) {
-      return done(null, false)
-    }
+  passport.deserializeUser((username, done) => {
+    db.one("SELECT * FROM users WHERE username = ${username}", {
+      username: username
+    })
+      .then(user => {
+        done(null, user.username);
+      })
+      .catch(err => {
+        done(err, null);
+      });
+  });
+};
+```
 
-    delete user.password_digest; // Delete password_diggest from user object to not expose it accidentally
-    done(null, user);
+Notice, finally, that we imported our `serializeUser` and `deserializeUser` functions as `init`, and called `init()` at the end to apply these behaviors onto our instance of Passport, too.
 
-  } catch (err) {
-    done(err)
-  }
-}))
 
-passport.serializeUser((user, done) => {
-  done(null, user)
-})
+### `local.js`
 
-passport.deserializeUser(async (user, done) => {
-  try {
-    let retrievedUser = await usersQueries.getUserByUsername(user.username)
-    delete retrievedUser.password_digest;
-    done(null, retrievedUser)
-  } catch (err) {
-    done(err, false)
-  }
-})
+This file is to configure Passport to verify users in our database.
+
+```js
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const init = require("./passport");
+const helpers = require("./helpers");
+
+const db = require('../db/connection')
+
+passport.use(
+  new LocalStrategy((username, password, done) => {
+    db.one("SELECT * FROM users WHERE username = ${username}", {
+      username: username
+    })
+      .then(user => {
+        if (!helpers.comparePass(password, user.password_digest)) {
+          return done(null, false);
+        } else {
+          return done(null, user);
+        }
+      })
+      .catch(err => {
+        return done(err);
+      });
+  })
+);
+
+init();
 
 module.exports = passport;
 ```
 
-When a user provides a username and password in the request body, and the passport strategy looks in our database for that user based on his/her username hence the `userQueries.getUserByUsername()` above. If the user is found in the database, it then checks to see if the password is correct. If both the username and the password are correct, it returns our user object. Otherwise, it returns `false`, which tells passport that this isn't the correct combination.
+We use `.use` on our instance of Passport to configure it. Essentially, what we're doing here is defining a set of behaviors that Passport is going to utilize when we add it as middleware to our `app.js` file.
+
+Our frontend provides a username and password in the request body, and this function looks in our database for that user based on username (`db.one`). If the username exists, it then checks to see if the password is correct. If both the username and the password are correct, it returns our user object. Otherwise, it returns `false`, which tells passport that this isn't the correct combination.
 
 ### `app.js` - Ensuring that authentication occurs
 
@@ -179,155 +189,94 @@ We add several bits to app.js to ensure that requests to the database are proper
 const session = require("express-session");
 const passport = require("passport");
 
-// ... other routers
-const authRouter = require('./routes/auth');
-
-// ... other middleware stuff
+// other middleware stuff
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser("NOT_A_GOOD_SECRET"));
+app.use(cookieParser("never gonna give u up"));
 
 app.use(
   session({
-    secret: "NOT_A_GOOD_SECRET",
+    secret: "never gonna give u up",
     resave: false,
     saveUninitialized: true
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use('/users', usersRouter);
-app.use('/auth', authRouter);
-// ... other endpoints and routers setup below
 ```
 
 `session` here is used in two different contexts - `session` by itself represents our instance of `express-session`, whereas `passport.session` is passport's processing of that session token.
 
 **Note:** Our session token stores a hash, too, and hashing functions often require a seed to get started. The `secret` part is that seed, and could be anything. It's not generally best-practice to shove it right in there - when we deploy to production, we'll want to hide it in a similar way that we'd hide our API keys, using environment variables.
 
-### `queries/userQueries.js` - Creating/Signing-Up a user
+### `queries.js` - Creating a user
 
-In `routes/auth.js` we have the following;
+In `queries.js`, we import some auth files and use them to rewrite our addUser function, creating a function called `createUser`:
 
 ```js
-const express = require('express');
-const router = express.Router();
-const usersQueries = require('../db/queries/users');
-const passport = require('../auth/passport');
+function createUser(req, res, next) {
+  const hash = authHelpers.createHash(req.body.password);
 
-router.post('/signup', async (req, res, next) => {
-  try {
-    const user = req.body;
-    const newUser = await usersQueries.createUser(user)
-    res.send({
-      payload: newUser,
-      msg: "New user signup success",
-      err: false
+  db.none(
+    "INSERT INTO users (username, password_digest) VALUES (${username}, ${password})",
+    { username: req.body.username, password: hash }
+  )
+    .then(() => {
+      res.status(200).json({
+        message: "Registration successful."
+      });
     })
-  } catch (err) {
-    next(err)
-  }
-});
-```
-
-`userQueries.createUser` comes from `db/queries/userQueries.js`, we import some auth files and use them to rewrite our create function, creating a function called `createUser`:
-
-```js
-// db/queries/userQueries.js
-const db = require('../db')
-const authHelpers = require("../../auth/helpers");
-
-const createUser = async (user) => {
-  const passwordDigest = await authHelpers.hashPassword(user.password);
-
-  const insertUserQuery = `
-      INSERT INTO users (username, password_digest) 
-        VALUES ($/username/, $/password/)
-        RETURNING *
-    `
-
-  const newUser = await db.one(insertUserQuery, {
-    username: user.username,
-    password: passwordDigest
-  })
-
-  delete newUser.password_digest // Do not return the password_digest and accidentally expose it
-  return newUser
+    .catch(err => {
+      res.status(500).json({
+        message: err
+      });
+    });
 }
-
-// ... other user queries
 ```
 
 The order here is important:
 
-- First, we use our `authHelpers.hashPassword` method to process and hash the user's password.
+- First, we use our `authHelpers.createHash` method to process and hash the user's password.
 - Then, we add our user to the database.
 - Finally, we return a message to indicate that we've successfully registered the user.
 
-Once a user signs up the client can send another request to the backend to log our user in. Lets look at what the `/login` endpoint will look like:
+Afterwards, our client can send another request to the backend to log our user in. Speaking of:
 
 ```js
-// routes/auth.js
-router.post("/login", passport.authenticate("local"), (req, res) => {
-  // If this ever runs it's because authentication went well
-  res.json({
-    payload: req.user,
-    msg: "User login success",
-    err: false
-  })
-});
+function loginUser(req, res) {
+  res.json(req.user);
+}
 ```
 
-Note here how we are handling the Passport stuff in the route as middleware _before it even gets_ to our route handler function. 
-
-This tells passport to use the local strategy we defined in the `passport.js` file. Luckily, we have a function `logout` on the request that makes logging out a breeze, even without middleware:
+What?? Why don't we have any Passport-specific stuff here? Well, we're handling the Passport stuff in the route as middleware _before it even gets_ to this function. In `routes/users/js`:
 
 ```js
-//  routes/auth.js
-router.post('/logout', authHelpers.loginRequired, (req, res, next) => {
+router.post("/login", passport.authenticate("local", {}), db.loginUser);
+```
+
+This tells passport to use the local strategy we defined in the `local.js` file. Luckily, we have a function `logout` on the request that makes logging out a breeze, even without middleware:
+
+```js
+function logoutUser(req, res, next) {
   req.logout();
-  res.json({
-    msg: "User logout success",
-    err: false
-  })
+  res.status(200).send("log out success");
+}
 ```
-Recall our `loginRequired` in `auth/helpers.js`. Here it is used.
 
 Finally, we want to create a method that shows all the registered users in the database. This is a simple query.
 
 ```js
-// queries/users.js
-// ... other user queries
-const getAllUsers = async () => {
-  const users = await db.any("SELECT * FROM users")
-  return users;
+function getUsers(req, res) {
+  db.manyOrNone("SELECT * FROM users").then(
+    results => {
+      res.json(results)
+    }
+  ).catch(err =>{
+    res.status(500).json({
+      message: err
+    });
+  })
 }
-
-// ... exports
-```
-
-And now we can protect our endpoint like so
-```js
-// routes/users.js
-
-// ... other routes and handlers
-
-router.get('/', authHelpers.loginRequired, async (req, res, next) => {
-  try {
-    const users = await usersQueries.getAllUsers()
-    res.send({
-      payload: users,
-      msg: "Retrieved all users",
-      err: false
-    })
-  } catch (err) {
-    next(err)
-  }
-});
-
-
-module.exports = router;
 ```
 
 ## Putting it all together
