@@ -2,13 +2,27 @@
 
 ## Resources
 
-_Note: We are not following any of these guides precisely. These are the resources we used and remixed to deploy in a way that makes sense to us._
-
-- [Example on Reed's GitHub](https://github.com/crymall/react-aws-image-example)
+- [Book-e JSON API](https://github.com/joinpursuit/Pursuit-Core-Web-book-e)
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-- [Deploy React and Express app to Heroku](https://daveceddia.com/deploy-react-express-app-heroku/)
-- [Deploy a Postgresql database to Heroku](https://medium.com/@HalahSalih/how-to-deploy-an-express-app-to-heroku-with-postgresql-database-using-git-266e100d59ff)
 - [Stack Overflow question on seeding a Heroku database with a .sql file](https://stackoverflow.com/questions/15237366/how-to-execute-a-sql-script-on-heroku)
+
+# Outline
+
+explain 
+* environment variables
+* Backend vs cra deployment
+  * surge/netlify vs heroku
+
+do
+* create heroku app
+* create psql database
+* set up environment vars
+  * port
+  * psql connection
+  * ??
+* seed db
+
+
 
 ## Introduction
 
@@ -16,19 +30,63 @@ Welcome to the fun, awesome world of deployment. You made stuff that lives in th
 
 A couple things to remember:
 
-- Don't just copy + paste stuff. I mean, you can copy + paste SOME stuff. Just try to develop a real understanding of what each step is doing.
-- Your app is going to break a lot. Either you'll see Heroku-branded errors, or you'll see a blank screen. Don't get upset - expect it and handle it.
-- This guide is made assuming you have one way of organizing your files - that is, it assumes your root folder contains your backend files and your frontend folder is a subfolder called `client`. If you are utilizing the organizing principle by which you have two top-level folders, `frontend` and `backend`, then you basically do the same thing as this guide - you just change the pathing in places to accurately reflect where your files are, and you add a `package.json` to your root folder to trigger your build on Heroku. Therefore, your file structure at the root directory will look something like this:
+- Don't just copy + paste everything. You can copy + paste SOME stuff. But don't copy + paste someone else's username and password, or connection url. Just try to develop a real understanding of what each step is doing.
+- Your app is going to break a lot. Either you'll see Heroku-branded errors, or you'll see a blank screen. Don't get upset - expect it and debug it.
 
+
+## Heroku deployment vs. static deployment
+
+Heroku is a hosting provider that does a lot of work for you. Rather than providing a whole server that you have to configure yourself, it hides all that away and just lets you focus on deploying a standalone app.
+
+Heroku is intended for whole applications, like `node` or `python` or even `ruby` apps. Anything that requires a process or command to run is what heroku specializes in.
+
+Contrast this with front-end technologies, like plain old html, css, and JS. Even react! You should not use heroku for these. There are other platforms that specialize in static file hosting, like [surge](https://surge.sh/) and [netlify](https://www.netlify.com/) that are much more efficient and easy to use.
+
+React though, really? Yes, even react. So far your exposure to react has mostly been using `create-react-app` to host a server. That's great for development, but remember react is just front-end javascript. `create-react-app` does a lot of the work of bundling all the various javascript files together for you, but you don't want to deploy an entire `create-react-app` repository. Instead, check out the documentation for [producing a build bundle](https://create-react-app.dev/docs/production-build). The directory that gets created when you do an `npm run build` is all that needs to get deployed. No `node` required.
+
+## Environment Variables
+
+So far we've just had our applications running locally on our laptop. In order to get them online, we have to make sure they can run on other machines. For example, while running express on our machine we want to connect to a database on `localhost`, which is also on our machine. But on a server, we might want to connect to a database on a completely different server. Instead of writing a bunch of `if` statements in our code, we can just replace the connection string with a variable that comes from **outside** of our application. In this case, a variable that comes from the **environment**. 
+
+When the `node` process starts, node loads all of its environment variables into an object called `process.env`. We can then access them globally using that object. We can also _define_ our own variables using the terminal:
+
+```bash
+export CUSTOM_NODE_ENV="test"
 ```
-- frontend/
-- backend/
-- package.json
+
+This gives us:
+
+```js
+console.log(process.env.CUSTOM_NODE_ENV)
+// "test"
 ```
 
-We'll have a few examples of how your paths may look different, so stay tuned for that.
+This is cool, but kind of useless because we'd have to do that every time before we launch our app (environment variables written and exported in this way only live until you close that terminal).
 
-With that said, let's get started.
+### More permanent environment variables
+
+A convention many node apps follow is by storing environment variables in a file called `.env` in the root directory of the project.
+
+```plain
+CUSTOM_NODE_ENV="test"
+DATABASE_URL="postgres://localhost/book-e"
+```
+
+We can then use a package called `dotenv` to read the variables locally!
+```
+npm install dotenv
+```
+
+In index.js:
+```js
+const dotenv = require('dotenv')
+dotenv.config()
+
+console.log(process.env.DATABASE_URL)
+// "postgres://localhost/book-e"
+```
+
+Heroku provides its own environment variables to node applications for us to use. All we have to do is configure our app to use them, which means we make some code changes.
 
 ## Step 1: Make a Heroku account and install the Heroku CLI
 
@@ -38,6 +96,10 @@ Heroku uses Git to manage its projects, so we're going to do a fair amount of st
 
 Next, close your terminal, open a new terminal window, and type `which heroku`. You should see a directory. That's where your Heroku files are installed.
 
+## Step 2: Edit your Express app
+
+To start, we're all going to deploy a JSON api called [book-e](https://github.com/joinpursuit/Pursuit-Core-Web-book-e). It's already built, but we need to configure it to read some environment variables. Clone it down and `cd` to the directory.
+
 Then, go to your project's root folder in the terminal and throw out a quick:
 
 ```
@@ -46,19 +108,8 @@ heroku create
 
 ...And we're on our way.
 
-## Step 2: Edit your Express app
 
-We're going to assume here that you are using create-react-app and express-generator. This also assumes that you are creating your React app **inside your Express app (as a subfolder)**. Don't fret if you have "frontend" and "backend" folders separate - all you have to do is change the paths that we'll outline here, and it should work just fine.
 
-Your first task is to edit a few basic elements of express-generator. Take a look at `app.js`. You know that big chunk of middleware? Where you set up logger and bodyParser? We are going to edit the pathing of that very slightly:
-
-```js
-app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "client/build"))); //this is the only thing that's different - 'client/build'
-```
 
 This simply says 'okay, Express - don't render your Express views here, we want our React app to render instead.' Basically, we're making React and Express work together on a single port.
 
