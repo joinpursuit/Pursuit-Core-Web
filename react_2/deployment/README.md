@@ -6,6 +6,7 @@
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 - [Stack Overflow question on seeding a Heroku database with a .sql file](https://stackoverflow.com/questions/15237366/how-to-execute-a-sql-script-on-heroku)
 - [Deploy a React App to Netlify](https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/)
+- [Understanding Heroku Deployments](https://albasfdc.com/2019/03/19/understanding-heroku-git-deployments/)
 
 ## Outline
 
@@ -13,14 +14,18 @@
 * Backend vs CRA deployment
   * surge/netlify vs heroku
 * Intro to Environment Variables
-* Steps to Follow
+* Backend Deployment to Heroku
   * Getting a heroku account
   * Creating a heroku app
   * Setting up a Postgres Database on heroku
   * Editing our backend
   * Deploying
-* Troubleshooting
-
+  * Troubleshooting
+* Frontend Deployment to Netlify
+  * Signup and logging
+  * Build/bundle the React App
+  * Deploy
+  * Alternatives
 
 ## Introduction
 
