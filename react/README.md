@@ -10,7 +10,7 @@
 | 4. [React Props](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/props_and_component_structure) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4491891) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4655724) | [Go Fund Me](https://github.com/joinpursuit/Pursuit-Core-Web-Props-Lab) |
 | 5. [React Lifecycle Methods](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/lifecycle_methods) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4501660) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4655722) | [Todos with toasts](https://github.com/joinpursuit/Pursuit-Core-Web-React-Lifecycles-Lab/tree/master) |
 | 6. [Networking in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_networking) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13261311) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4655723) | [Blackjack](https://github.com/joinpursuit/Pursuit-Core-Web-React-Networking-Lab) |
-| 7. [Routing in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_routing) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13262987) | [Cats and Dogs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Routing-Lab/blob/master/README.md) |
+| 7. [Routing in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_routing) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13262987) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4655721) | [Cats and Dogs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Routing-Lab/blob/master/README.md) |
 
 ## New Standards
 
