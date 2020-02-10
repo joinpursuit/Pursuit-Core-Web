@@ -1,4 +1,4 @@
-# Full-Stack App Deployment Cheatsheet
+# Deployment Cheatsheet
 
 ## Commands
 
