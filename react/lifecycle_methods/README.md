@@ -33,7 +33,7 @@ The render phase has no side effects and is solely responsible for establishing 
 
 ## Commit Phase
 
-During the commit phase, React takes the the changes identified during the render phase, and actually manipulates the DOM to make the UI reflect the created, removed or updated component.  Very rarely, it is useful to step in at this point with the `getSnapshotBeforeUpdate()` method, but for the most part, React will handle the updating completely.
+During the commit phase, React takes the changes identified during the render phase, and actually manipulates the DOM to make the UI reflect the created, removed or updated component.  Very rarely, it is useful to step in at this point with the `getSnapshotBeforeUpdate()` method, but for the most part, React will handle the updating completely.
 
 ## Lifecycle
 
