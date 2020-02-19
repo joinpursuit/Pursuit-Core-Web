@@ -58,6 +58,22 @@ The about page is where you get to talk about yourself. Write a bio. Show a pict
 
 This section is where you put the projects you've worked on during your time at Pursuit. Link to each project's github, include a screenshot, and write a description. If the project is deployed, include a link to the live version.
 
+### Responsive Design
+
+Mobile devices make up more than half of all web traffic now. If your site isn't responsive, you're under-serving a whole lot of users. 
+
+Additionally, employers want to see that you can build a site responsively, especially if you're going for a front-end job. Get out those media queries and flex (box)!
+
+Use the developer tools and resize your browser to see how your site looks at various widths.
+
+One suggestion: design your site with mobile in mind first. It's much easier to expand things than it is to squish them.
+
+## Linked Projects
+
+Any projects you link to from your portfolio site should have a readme file in the repo.
+
+See [Writing Good Readmes](./WritingGoodReadmes.md) for a good summary of why you should care.
+
 ## Personal site inspiration
 
 Not sure how to design or lay out your site? Just steal some ideas from the internet!
@@ -66,12 +82,6 @@ Not sure how to design or lay out your site? Just steal some ideas from the inte
 * https://www.awwwards.com/websites/portfolio/
 * https://www.alispit.tel/
 * https://chriscoyier.net/
-
-## Linked Projects
-
-Any projects you link to from your portfolio site should have a readme file in the repo.
-
-See [Writing Good Readmes](./WritingGoodReadmes.md) for a good summary of why you should care.
 
 ## Technologies
 
