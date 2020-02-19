@@ -16,6 +16,17 @@ The core curriculum is separated into five units:
 | Unit 4 - [React 1](./react/README.md) | <ul><li>FSW.5.b: Use JSX to create components</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.5.e: Use create-react-app to build React applications</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>FSW.5.h: Use props to pass data between React components</li><li>FSW.6.a: Use react-router to render components for specific URL extensions</li></ul> |
 | Unit 5 - [React 2](./react_2/README.md) | tbd |
 
+
+--- 
+
+## Projects
+
+### [Portfolio Site](./projects/Portfolio.md)
+
+Fellows will build their own portfolio site at the end of the course, before starting on their capstones. See the readme for more details.
+
+---
+
 ## Resources
 
 [6.4 Highlights](https://docs.google.com/document/d/1vJQab8Jx7ehoMPw2nqG7cQNvErjvZQOyLAcbVnPB6CI/edit?ts=5db755ed)
