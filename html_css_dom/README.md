@@ -21,19 +21,57 @@
 
 ## New Standards
 
-<ul><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.b: Use appropriate, semantic HTML to aid accessibility</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>FSW.4.b: Use DOM Events and Event Listeners</li></ul>
+* EF.10.c: Make requests to APIs
+* EF.10.f: Parse and represent data from an API request
+* FSW.3.a: Use common HTML tags to build a UI
+* FSW.3.b: Use appropriate, semantic HTML to aid accessibility
+* FSW.3.c: Use HTML input and forms
+* FSW.3.d: Use Flexbox and Grid to layout a page
+* FSW.3.e: Create a responsive UI
+* FSW.3.f: Create a webpage based on mockups/an existing website
+* FSW.4: Manipulate the DOM using JavaScript
+* FSW.4.b: Use DOM Events and Event Listeners
 
 ## Reassessed Standards
 
-<ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li><li>LF.5: Use functions to keep code DRY</li></ul>
+* EF.4.e: Use frequent, descriptive, small commits
+* FSW.1: Write clean, readable JavaScript code
+* LF.4: Use control flow in a clear, concise way to determine which code executes
+* LF.5: Use functions to keep code DRY
 
 ## Projects
 
-| Project | Standards |
-| --- | --- |
-| [Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>LF.4: Use control flow in a clear, concise way to determine which code executes</li><li>LF.5: Use functions to keep code DRY</li></ul> |
-| [Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment) | <ul><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.b: Use appropriate, semantic HTML to aid accessibility</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li></ul> |
-| [Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.b: Use appropriate, semantic HTML to aid accessibility</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>LF.5: Use functions to keep code DRY</li></ul> |
+[Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md) 
+
+* EF.4.e: Use frequent, descriptive, small commits
+* FSW.1: Write clean, readable JavaScript code
+* FSW.3.a: Use common HTML tags to build a UI
+* FSW.3.c: Use HTML input and forms
+* FSW.4: Manipulate the DOM using JavaScript
+* FSW.4.b: Use DOM Events and Event Listeners
+* LF.4: Use control flow in a clear, concise way to determine which code executes
+* LF.5: Use functions to keep code DRY
+
+[Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment) 
+
+* FSW.3.a: Use common HTML tags to build a UI
+* FSW.3.b: Use appropriate, semantic HTML to aid accessibility
+* FSW.3.c: Use HTML input and forms
+* FSW.3.d: Use Flexbox and Grid to layout a page
+* FSW.3.e: Create a responsive UI
+* FSW.3.f: Create a webpage based on mockups/an existing website
+
+[Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md) 
+
+* EF.4.e: Use frequent, descriptive, small commits
+* EF.10.c: Make requests to APIs
+* EF.10.f: Parse and represent data from an API request
+* FSW.1: Write clean, readable JavaScript code
+* FSW.3.b: Use appropriate, semantic HTML to aid accessibility
+* FSW.3.f: Create a webpage based on mockups/an existing website
+* FSW.4: Manipulate the DOM using JavaScript
+* FSW.4.b: Use DOM Events and Event Listeners
+* LF.5: Use functions to keep code DRY
 
 ## Assessments
 
