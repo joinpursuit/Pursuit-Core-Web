@@ -14,11 +14,20 @@
 
 ## New Standards
 
-<ul><li>FSW.5.b: Use JSX to create components</li><li>FSW.5.d: Use the state property to build stateful React applications</li><li>FSW.5.e: Use create-react-app to build React applications</li><li>FSW.5.f: Respond to user input to update the views in a React app</li><li>FSW.5.h: Use props to pass data between React components</li><li>FSW.6.a: Use react-router to render components for specific URL extensions</li></ul>
+* FSW.5.b: Use JSX to create components
+* FSW.5.d: Use the state property to build stateful React applications
+* FSW.5.e: Use create-react-app to build React applications
+* FSW.5.f: Respond to user input to update the views in a React app
+* FSW.5.h: Use props to pass data between React components
+* FSW.6.a: Use react-router to render components for specific URL extensions
 
 ## Reassessed Standards
 
-<ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.d: Use Flexbox and Grid to layout a page</li><li>LF.5: Use functions to keep code DRY</li></ul>
+* EF.4.e: Use frequent, descriptive, small commits
+* EF.10.c: Make requests to APIs
+* FSW.1: Write clean, readable JavaScript code
+* FSW.3.d: Use Flexbox and Grid to layout a page
+* LF.5: Use functions to keep code DRY
 
 ## Individual Project
 

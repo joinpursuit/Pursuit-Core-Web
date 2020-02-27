@@ -17,11 +17,23 @@
 
 ## New Standards
 
-<ul><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.1.d: Manipulate and access objects and objects in arrays</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.11.b: Use middleware to inject code</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li><li>FSW.15: Build a full-stack application</li><li>LF.6: Proper use and understanding of Higher order functions & closures or callbacks</li></ul>
+* FSW.1.b: Understanding of Callbacks
+* FSW.1.d: Manipulate and access objects and objects in arrays
+* FSW.10.a: Create an Express app
+* FSW.10.b: Use routes to send responses and errors
+* FSW.11.b: Use middleware to inject code
+* FSW.13: Design, structure, and seed a database for a full stack CRUD application
+* FSW.14.c: Build an Express application that utilizes Postgres and pg-promise
+* FSW.15: Build a full-stack application
+* LF.6: Proper use and understanding of Higher order functions & closures or callbacks
 
 ## Reassessed Standards
 
-<ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.e: Create a responsive UI</li><li>LF.5: Use functions to keep code DRY</li></ul>
+* EF.4.e: Use frequent, descriptive, small commits
+* FSW.1: Write clean, readable JavaScript code
+* FSW.3.c: Use HTML input and forms
+* FSW.3.e: Create a responsive UI
+* LF.5: Use functions to keep code DRY
 
 ## Individual Project
 
