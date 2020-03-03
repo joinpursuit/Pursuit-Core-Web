@@ -22,8 +22,8 @@ We suggest deploying using [Netlify](https://www.netlify.com/) or [Github Pages]
 
 There are lots of sites out there that will sell you a domain name! Here are a couple we suggest:
 
-* hover.com
-* name.com
+* [hover.com](https://hover.com)
+* [name.com](https://name.com)
 * google domains (https://domains.google/)
 
 Most domains are around $15 a year.
