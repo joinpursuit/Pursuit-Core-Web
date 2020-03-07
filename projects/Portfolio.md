@@ -1,4 +1,4 @@
-# Portfolio Project
+# Personal & Project Portfolio Website 
 
 ## Intro
 
@@ -12,35 +12,57 @@ Making your portfolio site should be fun - it's going to be an extension of your
 
 The following items are required for your portfolio site to be considered complete.
 
-### 1. Deployed online
+### A) Pages or sections
 
-Your portfolio site must be deployed on the internet! The easiest way to get people to look at your work is to send them a link that showcases everything.
+You can choose to make your site one long page broken up into sections. Your website should have the following sections/pages/components.
+
+1. **Nav Bar**:
+A navigation bar with links that takes the user to other pages in your website. If your website is one long page make sure the user gets scrolled down when clicking on section links. You can get creative here!
+
+2. **Landing/Home Page**:
+Your homepage is the first page that appears when the site loads. You know what a homepage is. You can put whatever you want here!
+
+3. **About/Intro**:
+The about page is where you get to talk about yourself. Do you have a pop pitch? This is the place to put it. Write a bio. Show a picture. Talk about your love of cats, books, or milkshakes. Make this part personal. You can have combine this section wit your landing page if it makes sense.
+
+4. **Projects**:
+This section is where you put projects you've worked on during your time at Pursuit and personal projects you may have. Link to each project's GitHub repo, include a screenshot, and write a description. If the project is deployed, include a link to the live version.
+
+  Any projects you link to from your portfolio site should have a readme file in the repo. See [Writing Good Readmes](./WritingGoodReadmes.md) for an explanation of why you should care.
+
+5. **Skills and/or Technologies**:
+Here include a list of skills and technologies you are familiar with, like: JavaScript, Node, React, Express PostgreSQL etc. You can find icon images to accompany this.
+
+6. **Contact links**:
+Include icon links to your GitHub, LinkedIn, Resume and email. This is generally put at the bottom of your page as a footer or in a contact me section. A good font with tons of icons is [FontAwesome](https://fontawesome.com/)
+
+1. **Other**: (Optional) Anything else with things you may want to include, if you write, then a blog section, if you paint or photograph then a gallery section etc.
+
+### B) Deployed online
+
+Your portfolio site must be deployed on the internet! The easiest way to get people to look at your work is to send them a link that showcases everything. Once you have online link make sure to put it on your resume, LinkedIn and GitHub profiles.
 
 We suggest deploying using [Netlify](https://www.netlify.com/) or [Github Pages](https://pages.github.com/). You can also use heroku, but unless you're building a backend (which isn't required) it's easier not to.
 
-### 2. Use a custom domain 
+### C) Use a custom domain 
 
 There are lots of sites out there that will sell you a domain name! Here are a couple we suggest:
 
-* [hover.com](https://hover.com)
-* [name.com](https://name.com)
-* google domains (https://domains.google/)
+* [Google Domains](https://domains.google/)
+* [GoDaddy](https://www.godaddy.com/domains/domain-name-search)
+* [Hover.com](https://hover.com)
+* [Name.com](https://name.com)
 
 Most domains are around $15 a year.
 
-Your domain should be professional-sounding and could even have your name in it! There are tons of TLDs to choose from - .com, .dev, .pizza, .restaurant. Find a creative, interesting combination.
+Your domain should be professional-sounding and could even have your name in it! There are tons of TLDs to choose from - .com, .dev, .io, .restaurant. Find a creative, interesting combination.
 
-Some bad examples:
-
-* divapixie.party
-* tuffguy4.dev
-* angelicgrrl.com
-
-Some good examples:
-
-* josecampos.dev
-* jacobshaba.zz
-* erik-codes.com
+#### Personal Website Names Examples:
+| Bad ✗           | Good ✔         |
+| --------------- | -------------- |
+| divapixie.party | josecampos.dev |
+| tuffguy4.dev    | jacobshaba.zz  |
+| angelicgrrl.com | erik-codes.com |
 
 When in doubt, ask an instructor or PM! 
 
@@ -57,23 +79,8 @@ See the following links for an overview of how to do that:
 * [Hover - Managing DNS records](https://help.hover.com/hc/en-us/articles/217282457-Managing-DNS-records-)
 * [Name.com - All help (see DNS section)](https://www.name.com/support/categories/200296808-Domains)
 
-### 3. Required pages or sections
 
-You can choose to make your site one long page broken up into sections, or if you're using a framework like Gatsby, it's easy to generate multiple routes / pages.
-
-**Homepage**
-
-Your homepage is the first page that appears when the site loads. You know what a homepage is. You can put whatever you want here!
-
-**About**
-
-The about page is where you get to talk about yourself. Write a bio. Show a picture. Talk about your love of cats, books, or milkshakes. Make this part personal.
-
-**Projects**
-
-This section is where you put the projects you've worked on during your time at Pursuit. Link to each project's github, include a screenshot, and write a description. If the project is deployed, include a link to the live version.
-
-### 4. Responsive Design
+### D) Responsive Design
 
 Mobile devices make up more than half of all web traffic now. If your site isn't responsive, you're under-serving a whole lot of users. 
 
@@ -83,29 +90,15 @@ Use the developer tools and resize your browser to see how your site looks at va
 
 One suggestion: design your site with mobile in mind first. It's much easier to expand things than it is to squish them.
 
-You can also use a framework to help with the layout. Since they are all using flexbox and grid internally you don't NEED to use any of these, but they do have some nice features. 
+You can also use a framework to help with the layout. Since they are all using flexbox and grid internally you don't NEED to use any of these, but they do have some nice features. These are the three most popular: [Bulma](https://bulma.io/), [Bootstrap](https://getbootstrap.com/) & [Foundation](https://get.foundation/)
 
-There are many more out there, but these are the three most popular.
+## Personal website inspiration
 
-* https://bulma.io/
-* https://getbootstrap.com/
-* https://get.foundation/
+Not sure how to design or lay out your site? Get some inspiration from Pursuit alumni or steal some ideas from the internet!
 
-## Linked Projects
-
-Any projects you link to from your portfolio site should have a readme file in the repo.
-
-See [Writing Good Readmes](./WritingGoodReadmes.md) for an explanation of why you should care.
-
-## Personal site inspiration
-
-Not sure how to design or lay out your site? Just steal some ideas from the internet!
-
-* https://www.awwwards.com/awwwards/collections/freelance-portfolio/
-* https://www.awwwards.com/websites/portfolio/
-* https://www.alispit.tel/
-* https://chriscoyier.net/
-
-## Technologies
-
-You can use any technologies you want, but since you're already familiar with React, we suggest using [Gatsby](https://www.gatsbyjs.org/) or something similar, and deploying your site on [Netlify](https://www.netlify.com/) or [Github Pages](https://pages.github.com/)
+* Pursuit [Alumni Websites here](https://gist.github.com/alejo4373/b2d899ecf45fadb564f24a84b9f59a4a)
+* Elsewhere
+  * [awwwards.com freelance-portfolio websites](https://www.awwwards.com/awwwards/collections/freelance-portfolio/)
+  * [awwwards.com portfolio websites](https://www.awwwards.com/websites/portfolio/)
+  * [alispi.tel](https://www.alispit.tel/)
+  * [chriscoyier.net](https://chriscoyier.net/)
