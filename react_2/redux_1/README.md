@@ -14,51 +14,80 @@
 - [Question: How to choose between Redux's store and React's state? github redux repo](https://github.com/reactjs/redux/issues/1287)
 
 
-# 1. Introduction
+## Introduction
 
 Redux is a library for managing application state. When used with React, Redux provides a single state object (commonly referred to as _the store_) that exists at the root of our app. This is especially useful when building large-scale React applications, as it prevents the problems of *prop drilling* and *state duplication*.
 
 ## A Birds-Eye View
 
-When we start building React applications that feature multiple components, we inevitably run into issues regarding state and prop drilling. We often want the state of a component to be preserved throughout our app. However, this will not always be the case. Consider the following app:
+When we start building React applications that feature multiple components, we inevitably run into issues regarding state and passing props down through many components (sometimes called prop drilling). 
 
-## [Show / Hide Animal Selector](https://codesandbox.io/s/py858r28j0)
+![prop drilling](./assets/prop_drilling.png)
 
-The `App` component conditionally renders a nested component `AnimalSelector`. The animal selector will display either "giraffe" or "moose" - we click on the `change animal` button to switch between the two. `AnimalSelector` stores the selected animal in its own state as `selectedAnimal`, with "giraffe" being the default value.
+> You can see here how we need our state and props to flow through many levels of components.
 
-The `App` component renders a button that toggles the animal selector. This is done by changing the value `showAnimalSelector` in the state of the `App` component. The `AnimalSelector` component will only be rendered if the value of `showAnimalSelector` is `true`. When `App` stops rendering `AnimalSelector`, the latter will be unmounted - the instance of that component will be discarded, and its internal state will be forgotten. So, when `App` renders `AnimalSelector` again, it will display "giraffe", regardless of the value that was being displayed before.
+Additionally, we often want the state of a component to be preserved throughout our app. Consider the following app:
 
-Let's run that back for a second - **when a component is unmounted, its internal state is forgotten.** If we go to a new route, or if, for any reason, our component isn't included in our app's final render, that component's state is lost. That's why state management is so important.
+## [Show / Hide Animal Selector](https://codesandbox.io/s/mounting-unmounting-4p6eo)
 
-In this simple app, if we wanted to keep the value of the selected animal, we could do that by putting the `selectedAnimal` property inside the state of the `App` component, and make `AnimalSelector` a stateless component that receives a callback function from `App` to change the animal.
+Take a look at the `App` component's render method. It renders a button that toggles whether the `AnimalSelector` component is displayed or not. Clicking the button sets the state to either show or hide it. This state is stored locally in the `App` component.
+
+Now look at `AnimalSelector`. It has its own state, separate from `App`. This state just decides whether to show one of two strings: "giraffe" or "moose". The it also has a button that toggles between them. Note that the default state is `"giraffe"`.
+
+Click the `change animal` button to switch to `"moose"`. Then hide the component. Then show it again. See how the state has reset? 
+
+Let's run that back for a second - **when a component is unmounted, its internal state is forgotten.** If we go to a new route, or if, for any reason, our component isn't included in our app's final render, that component's state is lost. That's why having a centralized state can be really useful.
+
+In this simple app, if we wanted to keep the value of the selected animal, we could do that by moving the `selectedAnimal` property to the `App` component's state, then make `AnimalSelector` a stateless component that receives a callback function from `App` to change the animal.
 
 > Exercise: Rewrite the app so that the selected animal value will be in the state of `App`.
 
-# 2. Adding Redux to Manage State
+## A larger example
 
 The solution outlined above works well for smaller apps, but this can get quite difficult to do for larger-scale apps that have components rendering other components. We pass props to a child component, and they pass those same props to grandchildren, and great-grandchildren, and so on. It's like making a chain - if you miss a single link, the whole thing falls apart.
 
-### [Dog Pictures](https://codesandbox.io/s/8z91lzo50)
+### [Dog Pictures](https://codesandbox.io/s/react-router-dog-breeds-koxz1)
 
 This dog picture app can be represented using the following diagram:
 
 ![dog pictures](assets/react_dogs.png?raw=true)
 
-There is an arrow from each component to a component that is renders. Props are represented along the arrows. Each component that communicates with the dog API has a cloud next to it.
+There is an arrow from each component to the component that it renders. Props are represented along the arrows. Each component that communicates with the dog API has a cloud next to it.
 
-If we want to add a _favorites_ feature to the dog picture app, things can get tricky. The `Dogs` component seems like a good candidate to hold the array of favorite dogs, but this means it will need to pass a callback to `RandomDog` (and `RandomDogWithBreed`), and these components could in turn pass it to the `Dog` component. Another problem is that if the `App` component can render something that follows a different route than `/dogs/...`, the favorites will be forgotten - `App` will no longer be rendering the `Dogs` component, so this component will be unmounted.
+Let's say we want to add a _favorites_ feature to this app.
 
-### Centralized State
+The `Dogs` component seems like a good candidate to hold the array of favorite dogs. Let's walk through what that might look like.
+
+If `Dogs` held the favorites in state (an array of strings matching dog breeds):
+
+* `Dogs` would need to pass a callback that modifies the array in `Dogs` down to `RandomDog` and `DogBreeds`.
+  * These components could in turn pass it to the `Dog` component.
+* Once the route changes (back to `/` to render `Home`) then the `Dogs` component is unmounted and our state, along with all our favorites, is lost.
+
+What if we moved our favorites up to `App` instead? well, we'd still have to pass callbacks down everywhere to modify that state, and pass the state down through multiple components where it's needed.
+
+## Centralizing State
 
 Redux helps us fix the above problems. With Redux, we can keep state in a `store` at the root of our app. The following is a possible diagram for the dogs app with react and redux:
 
 ![react redux dogs](assets/react_redux_dogs.png?raw=true)
 
-Note that while the store is at the root of our app, we can think of it as communicating directly with certain components. These components - `RandomDog` and `DogBreeds` - communicate with the store using _actions_. Actions are JavaScript objects that describe how, specifically, we want to update the state. Think of them sort of like RESTful routes - we know what a GET request to `/users` means even if we aren't looking at the code we set up for that request.
+Note that while the store is at the root of our app, we can think of it as communicating directly with certain components. These components - `RandomDog` and `DogBreeds` - communicate with the store directly using _actions_. 
 
-The `"SET_IMAGE_URL"` action from `RandomDog` also contains a string with the image URL we'd like to render, and the `"SET_DOG_BREEDS"` action from `DogBreeds` also contains an array with the dog breeds we'd like the user to select from. The store will use the action type to determine what needs to be changed. Once a change is made, the app will be re-rendered from the root `App` component all the way down. We say that an action is _dispatched_ when it is send from a component to the store.
+Actions are JavaScript objects that describe how, specifically, we want to update the state. Think of them sort of like RESTful routes - we know what a GET request to `/users` means even if we aren't looking at the code we set up for that request.
 
-Adding a _favorites_ functionality to the redux app may involve adding a `favorites` property to the store, and possibly two actions: `"ADD_TWO_FAVORITES"` and `"REMOVE_FROM_FAVORITES"`. We will discuss the implementation details in further lectures.
+An action looks like this:
+
+```js
+{ type: "SET_IMAGE_URL", dataValueOfSomeKind }
+```
+
+The `"SET_IMAGE_URL"` action from `RandomDog` also contains a string with the image URL we'd like to render, and the `"SET_DOG_BREEDS"` action from `DogBreeds` also contains an array with the dog breeds we'd like the user to select from. The store will use the action type to determine what needs to be changed. Once a change is made, the app will be re-rendered from the root `App` component all the way down. We say that an action is _dispatched_ when it is sent from a component to the store.
+
+Adding a _favorites_ functionality to the redux app may involve adding a `favorites` property to the store, and possibly two actions: `"ADD_TO_FAVORITES"` and `"REMOVE_FROM_FAVORITES"`. 
+
+Once the action is received by the store, it gets ingested by what's called a **reducer**. A reducer is a function that modifies the state in the store.
+
 
 Redux does not force us to put _all_ of our state in the store. For example, if a component has a search bar that we don't need available globally, we can keep the search input in the state of that component. This is a common pattern for form inputs. It is up to us to decide how much of the state we want to put in the global store. There is a great discussion on this point in the [redux github repo](https://github.com/reactjs/redux/issues/1287).
 
