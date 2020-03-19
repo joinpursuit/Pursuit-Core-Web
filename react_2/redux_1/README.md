@@ -40,7 +40,7 @@ Let's run that back for a second - **when a component is unmounted, its internal
 
 In this simple app, if we wanted to keep the value of the selected animal, we could do that by moving the `selectedAnimal` property to the `App` component's state, then make `AnimalSelector` a stateless component that receives a callback function from `App` to change the animal.
 
-> Exercise: Rewrite the app so that the selected animal value will be in the state of `App`.
+> Optional Exercise: Rewrite the app so that the selected animal value will be in the state of `App`.
 
 ## A larger example
 
@@ -79,7 +79,7 @@ Actions are JavaScript objects that describe how, specifically, we want to updat
 An action looks like this:
 
 ```js
-{ type: "SET_IMAGE_URL", dataValueOfSomeKind }
+{ type: "SET_IMAGE_URL", optionalDataValueOfSomeKind }
 ```
 
 The `"SET_IMAGE_URL"` action from `RandomDog` also contains a string with the image URL we'd like to render, and the `"SET_DOG_BREEDS"` action from `DogBreeds` also contains an array with the dog breeds we'd like the user to select from. The store will use the action type to determine what needs to be changed. Once a change is made, the app will be re-rendered from the root `App` component all the way down. We say that an action is _dispatched_ when it is sent from a component to the store.
@@ -88,16 +88,23 @@ Adding a _favorites_ functionality to the redux app may involve adding a `favori
 
 Once the action is received by the store, it gets ingested by what's called a **reducer**. A reducer is a function that modifies the state in the store.
 
+So we have three new concepts in redux: `actions`, `reducers`, and the `store`. Dispatching an action is similar to calling `setState()`. The function that updates the state is the `reducer`. And the `store` is the state object itself, that lives separately from any components.
 
 Redux does not force us to put _all_ of our state in the store. For example, if a component has a search bar that we don't need available globally, we can keep the search input in the state of that component. This is a common pattern for form inputs. It is up to us to decide how much of the state we want to put in the global store. There is a great discussion on this point in the [redux github repo](https://github.com/reactjs/redux/issues/1287).
 
-# 3. Building a counter app with Redux
+Now let's actually see all this stuff in action!
 
-Having looked at redux from a birds-eye view, we will now start learning how to use Redux. While the benefits discussed above will not be apparent in the small examples discussed today, these will lay the foundations for more complex use-cases of Redux.
+# Building a counter app with Redux
 
-### [Redux-Counter](https://codesandbox.io/s/2lkk7484y)
+Having looked at redux from a birds-eye view, we will now start learning how to use Redux. Redux is most beneficial for larger projects where there are many different components, but we'll start small to understand the fundamentals and patterns.
 
-We start with the traditional counter app. This `src/` folder of the app has the following structure:
+## A working example
+
+[Redux-Counter](https://github.com/joinpursuit/FSW-Redux-Counter)
+
+Clone down the repo, `cd` to the cloned directory, run `npm install`, then `npm start` to launch it.
+
+This is a basic counter app. This `src/` folder of the app has the following structure:
 
 - actions/
   - actionTypes.js
@@ -111,19 +118,55 @@ We start with the traditional counter app. This `src/` folder of the app has the
   - index.js
 - index.js
 
+### Component Structure
+
+To set up the store to work with React, we wrap our `App` component with a `<Provider>` at the top level of the app.
+
+The `App` component renders the `CounterContainer`.
+
+`CounterContainer` is the component that actively connects to the redux store and dispatches actions to it. It renders the `Counter` component, which is a functional (stateless) component.
+
+`CounterContainer` is communicates directly with the store using two hooks - `useDispatch()` and `useSelector()`.
+
+These two hooks are critical! `useDispatch` is how we fire actions - think of it as similar to `setState()`. And `useSelector()` is how we retrieve the state values we want from the store.
+
+### Redux Terminology 
+
 `actions`, `containers`, and `reducers` are terms from the react/redux world. You'll also see `createStore` inside of our root-level `index.js` file. Let's get into all of these concepts.
 
 **Store** is the most important part of our Redux app. The store is the centralized state that all of our components have access to. We wrap our `App` component, inside of `index.js`, with a class `Provider` from the library `react-redux` and we pass our store as a prop. `Provider`, for the most part, does what it says - it *provides* our React app with a centralized state from Redux.
 
-**Actions** are how we tell the store to update. You'll notice we have two files in our `actions/` folder. Action types tell Redux how it's going to process the information we give - think RESTful routes again. POST `/user` means we want to add a new user to our Express apps. If we wanted to add a user to our `users` part of state in our Redux store, we'd fire an action with the string `ADD_NEW_USER`.  `actionTypes` is a very small file, and its use may not be initially apparent. Basically, it's so we *always* apply consistent actions to our store. We never let typos get in our way, because we aren't manually re-writing our action string every time.
+**Actions** are how we tell the store to update. You'll notice we have two files in our `actions/` folder. Action types tells redux which `reducer` it's going to run - think of how RESTful actions work. For example, POST `/user` adds a new user to the database. Here, if we wanted to add a user to our `users` part of state in our Redux store, we'd create an action with the string `ADD_NEW_USER`. 
 
-`counterActions` processes the action type with an optional payload (not provided here, because we're just incrementing, but this is where we'd put the user object if we wanted to add a new one). We utilize another Redux function, `dispatch`, in our React components to pass these actions into our reducers and update our global state.
+`actionTypes` is a very small file, and its use may not be initially apparent. Basically, it's so we *always* apply consistent actions to our store. This is just a good convention to follow, since we use these types in multiple files, we can avoid making any typos.
 
-**Reducers**, then, process actions, assemble a new state based on what the actions tell them to do, and send that new state to the store. They are the middleman between our actions and our store.
+```js
+// actionTypes.js
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+```
+
+`counterActions` processes the action type with an optional payload (not provided here, because we're just adding one to the current value). This is where we'd put an object or value if we wanted to pass a value to the reducer. We utilize `useDispatch` in our React components to pass these actions into our reducers and update our global state.
+
+```js
+// counterActions.js
+import { INCREMENT, DECREMENT } from "./actionTypes";
+
+export const incrementCount = () => {
+  return { type: INCREMENT };
+};
+
+export const decrementCount = () => {
+  return { type: DECREMENT };
+};
+```
+
+**Reducers**, then, process actions, assemble a new state based on what the actions tell them to do, and send that new state to the store. They are the middlemen between our actions and our store.
 
 To keep ourselves organized, we can have multiple reducers representing different parts of our global state. Currently, there is only one, called `count`. Looking inside `count.js`, we will see a single function being exported:
 
 ```js
+// count.js
 export default (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
@@ -136,7 +179,11 @@ export default (state = 0, action) => {
 };
 ```
 
-This function is a reducer. It describes the initial value of `count` (`0`) and how it will change when an action is dispatched to the store, based on the action type. Each reducer exists in isolation and describes its own state. In the world of count, the state is just a number. This number is incremented by one on an `INCREMENT` type action, and decremented by one on a `DECREMENT` type action (both imported from our `actionTypes` file). Actions of any other type (if there are any) will result in returning the current state unchanged.
+This function is a reducer. It takes two parameters - the initial value of `count` (`0`) and the action object. 
+
+Since the whole reducer function is called every time `useDispatch()` is called, we have to make sure that we only run a single action - this is why we use a switch statement and switch on the action type.
+
+> Reducers must be `pure functions` meaning they don't mutate any values. See [redux three principles](https://redux.js.org/introduction/three-principles/)
 
 The other file in the `reducers/` folder, `index.js`, imports all the reducers (currently just `count`) and exports them as a single object using a function provided by redux: `combineReducers`. The properties of the object correspond to the names of the reducers. So, in our case, the object will initially look like this:
 
@@ -148,13 +195,39 @@ The other file in the `reducers/` folder, `index.js`, imports all the reducers (
 
 This object will be the global state in our store. When an action is dispatched, a new state will be generated. For example:
 
-```text
-// store state
+```js
+// initial store state
 { count: 0 }
-// action:
+
+// action gets fired
 { type: "INCREMENT" }
+
 // new store state
 { count: 1 }
 ```
 
-The combined reducers are imported in `index.js` as `reducer` and used to create the redux store with the provided `createStore` function. To set up the store to work with React, we set `<Provider>` at the the root of the app in `ReactDom.render`, taking the initial `App` component as a child. The `App` component renders the `CounterContainer`, imported from `containers/CounterContainer.js`. `CounterContainer` is the component that actively connects to the redux store and dispatches actions to it. It receives as props from the store both a `dispatch` function and the `count`. It renders the `Counter` component from `components/Counter`, which is a simple functional component. To connect `CounterContainer` to the store, we use the `connect` method provided by the `react-redux` library. The use of this method will look strange. In practice it is used differently. We will discuss this in more detail in later lessons.
+The combined reducers are imported in `index.js` as `reducer` and used to create the redux store with the provided `createStore` function. 
+
+## Adding more components
+
+Now that we have an overview, let's add something to our app.
+
+We want to add another input that lets us set the state to any number that we type in. What's required for us to do that?
+
+<details>
+<summary>Answer</summary>
+
+* Add a new component with an input field
+  * Connect that input field using onChange to the store
+  * Connect that input field's internal state to the store
+* Add a reducer that sets the state value to whatever is typed into the field
+* Add an action type
+* Add a counterAction function
+* Dispatch that action whenever the input field changes
+</details>
+
+## Add a new input field
+
+Try it yourself! Add a text input field that is rendered by `CounterContainer`. The text input field should change the state whenever you type into it. It should also be connected to the same state value as the counters - so clicking on + or - will change what's in the field.
+
+If you get extremely stuck, check out the solution branch on the example repo.
