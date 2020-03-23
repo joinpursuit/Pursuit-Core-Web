@@ -30,6 +30,8 @@ Additionally, we often want the state of a component to be preserved throughout 
 
 ## [Show / Hide Animal Selector](https://codesandbox.io/s/mounting-unmounting-4p6eo)
 
+  [with hooks](https://codesandbox.io/s/mounting-unmounting-with-hooks-m4kd5)
+
 Take a look at the `App` component's render method. It renders a button that toggles whether the `AnimalSelector` component is displayed or not. Clicking the button sets the state to either show or hide it. This state is stored locally in the `App` component.
 
 Now look at `AnimalSelector`. It has its own state, separate from `App`. This state just decides whether to show one of two strings: "giraffe" or "moose". The it also has a button that toggles between them. Note that the default state is `"giraffe"`.
