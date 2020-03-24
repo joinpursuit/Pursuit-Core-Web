@@ -62,7 +62,7 @@ Some teams use timers to keep everyone on track. Others toss a ball across the t
 * **Purpose**: Sprint planning sets up the entire team for success throughout the sprint. Coming into the meeting, the team will prioritize to-dos or tasks. Each item is discussed, and the group collectively estimates the effort involved. The development team will then make a sprint forecast outlining how much work the team can complete from the product backlog. That body of work then becomes the sprint to-do list or backlog.
 * **Pro tip**: Use the sprint planning meeting to flesh out intimate details of the work that needs to get done. Encourage team members to sketch out tasks for all stories, bugs, and tasks that come into the sprint. Foster discussions and gather consensus on the plan of action. Effective planning significantly increases the team's chances of success meeting the commitments of the sprint. 
 
-### Sprint review & new features
+### Sprint review & new features demo
 * At end of sprint
 * About 30-60 minutes
 * **Purpose**: Iteration review is a time to showcase the work of the team. They can be in a casual format like "demo Fridays", or in a more formal meeting structure. This is the time for the team to celebrate their accomplishments, demonstrate work finished within the iteration, and get immediate feedback from project stakeholders. Remember, work should be fully demonstrable and meet the team's quality bar to be considered complete and ready to showcase in the review.
