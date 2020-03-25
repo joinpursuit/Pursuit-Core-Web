@@ -11,16 +11,14 @@ Or, how to make a website look good on all devices.
 
 ### Standards
 
-TBD
-
-<!-- - FSW6.1.a
-- EF1.5
-- etc -->
+* FSW.3.a
+* FSW.3.d
+* FSW.3.e
 
 ### Prerequisites
 
 - HTML
-- CSS
+- CSS Grid & Flexbox
 - CSS Media Queries
 
 ---
@@ -42,7 +40,6 @@ It's 2020 - all websites should be responsive and work well on phones, tablets, 
 - The problem
 - Media Queries
 - Breakpoints
-
 
 # The problem
 
@@ -84,15 +81,6 @@ This is not ideal for users. But at least nothing appears broken or hidden.
 ### Worst Case Scenario
 
 The worst case scenario is like the squished image above. All of the content formatting is basically unreadable because it's still 1/3 of the screen, but the screen is only 375px wide now.
-
-## Live example
-
-Fork and clone the
-[starter code for this lesson]()
-
-Open up the directory in your code editor and open the HTML in your browser. 
-
-Resize your browser width and see what happens to the content.
 
 ## Bad solutions
 
@@ -151,7 +139,7 @@ Depending on the content, you can either completely hide (`display: none`) an it
 
 Because there wasn't enough space for all the Opinions content, the WaPo devs decided to push it down vertically instead of hiding it. 
 
-They did this by making both the original section and the opinions section 100% width. When something is 100% width, it is forced to "wrap" and gets pushed down.
+They did this by making both the original section and the opinions section 100% width. When two items add up to more than 100% width, one is forced to "wrap" and gets pushed down below. The order that content appears on the page is (generally) based on the order that it appears in the HTML itself.
 
 <details>
   <summary>
@@ -166,7 +154,7 @@ Now let's look at the same website but on a mobile device. Almost all mobile dev
 
 ![wapo-sm](./images/wapo-sm.png)
 
-What's different now? Lots of stuff went missing, especially images. And there is only one main column of content now.
+What's different now? Lots of stuff went missing, mostly images. And there is only one main column of content now. 
 
 ### Other responsive sites
 
@@ -190,6 +178,8 @@ Now open one of those responsive sites again (either the verge or washingtonpost
 Most sites have 3 or 4 ranges of widths that they are supporting. This is so that they can cover computers (desktops and laptops), tablets, and smartphones. You will probably notice at least 3 times when the content "jumps". This jump is called a breakpoint.
 
 Breakpoints are just pre-defined pixel widths that you use in conjunction with media queries. Ideally, you use these breakpoints consistently in every area of your site, so your page responds predictably.
+
+When looking at a responsive website like one of the previous examples, open your inspector tools. While resizing (slowly!), look at the top right corner - it will tell you the viewport dimensions. Now pay attention to when the content jumps and you'll have discovered that website's breakpoints.
 
 Here's what [bootstrap 4](https://getbootstrap.com/docs/4.1/layout/overview/), the most popular CSS framework uses for its breakpoint sizes:
 
@@ -215,136 +205,208 @@ Here's what [bootstrap 4](https://getbootstrap.com/docs/4.1/layout/overview/), t
 }
 ```
 
+## A live example
 
+We'll use media queries and breakpoints together to make sure that our website looks nice on all sized devices!
 
-## Let's use all this stuff now
+### Setup
 
-We'll use these media queries and breakpoints together to make sure that our
-website looks nice on all sized devices!
+* Clone the [starter code for this lesson](https://github.com/joinpursuit/FSW-Responsive-Design-Starter)
+* Open up the directory in your code editor and open the HTML in your browser.
+* Resize your browser width and see what happens to different parts of the page.
+
+### Making it responsive
 
 Let's make some changes to the starter code to make our site responsive.
 
-The first thing we should do is get a sense of all the different components that
-we want to affect using media queries.
+The first thing we should do is get a sense of all the different components that we want to change at different resolutions.
 
-In this case, we'll start with the `.text` and `.sidebar` classes, because as we
-saw before, they have fixed widths and are full of content that gets squished on
-small screen sizes.
+In this case, we'll start with the `.content` and `.sidebar` classes, because as we saw before, they have fixed widths and are full of content that gets squished on small screen sizes.
 
-Since we've decided on our breakpoints above, let's write a media query and
-create a new class. We'll put this new class on whatever elements we want to
-change with the media query.
+Now, what should we make our breakpoint? Generally, when a piece of content starts looking squished, that's a good place to start. In our case, let's go with a nice, round 700px.
 
-We could also just modify the classes we already have by wrapping them in media
-queries, but that's less flexible, and way more repetitive.
-
-> Note: we're using max-width here instead of the min-width examples that
-> bootstrap has.
+What we want to do is make the `.content` and `.sidebar` classes take up the whole screen when the browser width gets below 700 pixels. This will cause them to stack. So our code should look like this:
 
 ```css
-@media screen and (max-width: 576px) {
-  .small-100 {
+@media (max-width: 700px) {
+  .content {
+    width: 100%;
+  }
+  .sidebar {
     width: 100%;
   }
 }
 ```
 
-Now go ahead and add that class to the appropriate elements. Resize the window.
-WHAT IS HAPPENING??!
+Awesome, this should keep our content from looking too smushed, but there's still a lot of empty space where the sidebar now is. It doesn't look super great. 
 
-The sidebar should pop down below the text content when the viewport width gets
-smaller than 572px.
+Let's make the sidebar cards flow from left to right, instead of each one being on its own row.
 
-Feel free to add more media queries at different widths and use them to create
-different classes!
-
-## What else can we do with media queries?
-
-Obviously, width isn't the only property we can change using a media query. We
-can change **any** css property.
-
-Add a new class to the small media query called `hidden-small`
+Add this to the above media query:
 
 ```css
-@media screen and (max-width: 576px) {
-  .small-100 {
-    width: 100%;
+.sidebar-card {
+  display: inline-block;
+}
+```
+
+That looks very bad! Maybe we should add a margin? And center everything?
+
+```css
+.sidebar-card {
+  display: inline-block;
+  margin: 5px 10px;
+}
+
+.sidebar {
+  width: 100%;
+  text-align: center;
+}
+```
+
+Well that's better. But as you can see, there are only 4 cards, and at some widths one is left hanging on its own row. Sometimes that is the case - when dealing with an unknown amount of content, this can happen. Pretend these are loaded dynamically, and there can be anywhere between 4 and 10 of them. Designing with this in mind is important.
+
+### Other responsive methods
+
+Playing with widths is fairly straightforward, but it can get tricky when the site grows in complexity. 
+
+What if we used CSS layout tools, like grid and flexbox, and adjusted them with media queries?
+
+If you're ready, undo the changes you just made `git reset HEAD --hard` (they're available in the `width-solution` branch) and let's start by making our `<main>` tag grid.
+
+```css
+main {
+  display: grid;
+  grid-template: none / 75% 25%;
+}
+```
+
+This gives us a grid area with no defined rows (or 1, technically) and 2 columns. The left column is 75% of the available width, the right is 25%. Since `<main>` has two child elements, they slot in to the 75/25 grid template in the order they're written on the page.
+
+If we just make this change, our page will look a little funny. Remove the widths from `.content` and `.sidebar` so that they aren't fighting with the new grid.
+
+```diff
+.sidebar {
+  border: 1px solid #ccc;
+  padding: 20px;
+- width: 30%;
+  vertical-align: top;
+  display: inline-block;
+  background-color: white;
+}
+
+.content {
+  padding: 15px;
+- width: 70%;
+  display: inline-block;
+  font-size: 16px;
+}
+```
+
+Now instead of changing the widths of the individual elements, we can change the whole grid layout for different screen sizes.
+
+Make another media query at the bottom of the css file, and this time we'll rearrange the grid layout.
+
+```css
+@media(max-width: 700px) {
+  main {
+    grid-template: 1fr auto / none;
   }
-  .hidden-small {
+}
+```
+
+Now we're saying: create two **rows** and no columns (or one column, by default). The first row should take up one fraction of the space, and the second row should take up the remainder. If we set both to `1fr` then they will be the same height, which isn't necessarily what we want.
+
+This solution might be harder to understand at first, but it's more powerful. Instead of targeting individual elements by class names and messing with their widths, we're changing the whole structure of the grid.
+
+> Grid isn't the only way to make your site responsive. Flexbox also has a lot of power! Experiment with both and see which one makes sense for each use case.
+
+### Hiding stuff with media queries
+
+What about the navbar up top? Maybe the number of items isn't dynamic, but there isn't enough room for all of them to display horizontally on mobile devices.
+
+Sometimes the best course of action is just to hide things.
+
+Instead of making a whole media query and awkwardly trying to target specific items, we can make a new class that we can apply to the HTML of any items to hide them.
+
+```css
+@media(max-width: 500px) {
+  .hidden-mobile {
     display: none;
   }
 }
 ```
 
-Now go apply that class to a couple of the `.navbar-item` elements, and watch
-them disappear when you shrink your browser window.
+Now add this class to a few items that we don't want to see.
 
-**AMAZING!!!**
+```html
+<nav class="navbar">
+  <ul class="navbar-items">
+    <li class="navbar-item">Logo</li>
+    <li class="navbar-item">Home</li>
+    <li class="navbar-item hidden-mobile">Item 1</li>
+    <li class="navbar-item hidden-mobile">Item 2</li>
+    <li class="navbar-item hidden-mobile">About</li>
+    <li class="navbar-item">Profile</li>
+  </ul>
+</nav>
+```
 
-You can also do this in reverse - hiding stuff on large screens and only showing
-on mobile. Think about the hamburger menu that appears on mobile navbars.
+Go check out the site and voila! Hidden.
 
-## Thinking responsively
+## Bonus: EM and REMs
 
-When planning your site, don't think about a piece of paper on a desk with stuff
-drawn on it. That's a fixed layout! Instead, think in components and think about
-how those components will look on different devices.
+One thing we can also do is set our font sizes to be **relative** based on the screen width. We do this with `em` and `rem` instead of using `px`.
 
-Start from the mobile layout and scale up when designing your page. Most CSS
-frameworks are mobile-first, mobile is a huge portion of web traffic, and it's
-easier to scale up and add items than cram stuff into a small space.
+Both `em` and `rem` are relative measurements. `em` means "the font size of the parent element". `rem` means "the font size of the HTML root element". Yes, the one at the very top of the document, that wraps `<body>` and `<head>`.
 
-It's 2019. We don't build non-responsive websites anymore!
+For most browsers, the default font size is `16px` so `1em` is equal to `16px`. In our stylesheet we have it set to `14px`.
 
-## Bonus Aside: the Grid
+Let's make the `<p>` tags `rem` and the `<h1>` an `em`.
 
-Working with random percentages is great and all, but having consistency will
-take you much further and keep you from pulling your hair out.
+```css
+.content h1 {
+  font-size: 2em;
+}
 
-Enter: the GRID
+.content p {
+  font-size: 1.25rem;
+}
+```
 
-![THE GRID](./images/tron_grid.jpg)
+Now in our media query, change the font size of the html element and of `.content`!
 
-Instead of picking 40, 50, 60, whatever percent, many frameworks use 12 columns.
+```css
+@media(max-width: 700px) {
+  .content {
+    font-size: 20px;
+  }
+  html {
+    font-size: 12px;
+  }
+}
+```
 
-The basic idea is that columns are equal to n divided by 12. So an element that
-is 3 columns wide === 3/12, which equals 25% width.
-
-5 columns === 5 / 12, or 41.6666667% width.
-
-Don't worry about the weird numbers, the browser does the math for us.
-
-Bootstrap uses this to generate CSS classes for each breakpoint and column
-combo. Example css classes:
-
-- `col-xs-12` means 12 columns wide at xtra small width
-- `col-md-4` means 4 columns wide at medium width
-- `col-lg-2` means 2 columns wide at large width
-
-We can apply these classes to any elements that we want. Generally, we apply
-them to elements that we want to act as containers. Then those elements resize
-depending on the screen size.
-
-
-## EM and REMs
-
-talk about scaling font size with rems based on screen size
+You'll probably want to experiment with the sizing, but this is an easy way to scale all the fonts on your entire site up and down really easily.
 
 ## Summary
 
-Do a quick review at the end of the lesson to talk about what you covered.
+Today we talked about:
 
-
-
-
-
+* How to think about websites as fluid, instead of fixed pieces of paper
+* Good and bad solutions to mobile layouts
+* Real Websites in the Real World and how they function on different screen sizes
+* Media queries
+* Breakpoints
+* Using widths to change layouts
+* Using CSS Grid to change layouts
+* Hiding elements when there's not enough space
+* Scaling font sizes using `em` and `rem`
 
 ## Resources
 
 - A list of device viewport sizes: http://viewportsizes.com/
-- [Solution branch for the starter code](https://git.generalassemb.ly/dc-wdi-fundamentals/responsive-web-design-starter-code/tree/solution-responsive)
-  - can also run `git checkout solution-responsive` in the repo we forked and
-    clone earlier.
+
 
 
 
