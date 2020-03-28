@@ -288,11 +288,11 @@ If you're ready, undo the changes you just made `git reset HEAD --hard` (they're
 ```css
 main {
   display: grid;
-  grid-template: none / 75% 25%;
+  grid-template-columns: 75% 25%;
 }
 ```
 
-This gives us a grid area with no defined rows (or 1, technically) and 2 columns. The left column is 75% of the available width, the right is 25%. Since `<main>` has two child elements, they slot in to the 75/25 grid template in the order they're written on the page.
+This gives us a grid area with 2 columns. Since we didnt' defined `grid-template-rows` it will gives us 1 row by default. The left column is 75% of the available width, the right is 25%. Since `<main>` has two child elements, they slot in to the 75/25 grid template in the order they're written on the page.
 
 If we just make this change, our page will look a little funny. Remove the widths from `.content` and `.sidebar` so that they aren't fighting with the new grid.
 
@@ -321,14 +321,14 @@ Make another media query at the bottom of the css file, and this time we'll rear
 ```css
 @media(max-width: 700px) {
   main {
-    grid-template: 1fr auto / none;
+    grid-template-columns: none;
   }
 }
 ```
 
-Now we're saying: create two **rows** and no columns (or one column, by default). The first row should take up one fraction of the space, and the second row should take up the remainder. If we set both to `1fr` then they will be the same height, which isn't necessarily what we want.
+Now we're saying: Don't set any columns. Let the content flow as normal. Since our `.content` and `.sidebar` are `block` elements they will be put on separate lines creating 2 rows (implicitly) for the grid.
 
-This solution might be harder to understand at first, but it's more powerful. Instead of targeting individual elements by class names and messing with their widths, we're changing the whole structure of the grid.
+This `grid` solution might be harder to understand at first, but it's more powerful. Instead of targeting individual elements by class names and messing with their widths, we're changing the whole structure of the grid.
 
 > Grid isn't the only way to make your site responsive. Flexbox also has a lot of power! Experiment with both and see which one makes sense for each use case.
 
