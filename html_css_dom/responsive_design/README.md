@@ -136,7 +136,8 @@ Notice that we have one section that takes up about 2/3 of the screen, and a sid
 
 What happens to those sections when we shrink the browser down a bit?
 
-![tablet](./images/wapo-med.png)
+
+<img alt="tablet" src="./images/wapo-med.png" width="500px" />
 
 
 The section that previously took up 2/3 of the page now takes up all of the page. Otherwise it looks the same.
@@ -145,7 +146,7 @@ BUT ALSO! The side bar goes away. Where does it go?
 
 Depending on the content, you can either completely hide (`display: none`) an item, or "stack" it. In this case, if you scroll down a bit you'll see that the sidebar stacked.
 
-![tablet scrolled](./images/wapo-med-down.png)
+<img alt="tablet scrolled" src="./images/wapo-med-down.png" width="500px" />
 
 Because there wasn't enough space for all the Opinions content, the WaPo devs decided to push it down vertically instead of hiding it. 
 
@@ -162,7 +163,7 @@ They did this by making both the original section and the opinions section 100% 
 
 Now let's look at the same website but on a mobile device. Almost all mobile devices will be between 320-400px.
 
-![wapo-sm](./images/wapo-sm.png)
+<img alt="wapo-sm" src="./images/wapo-sm.png" width="375px" />
 
 What's different now? Lots of stuff went missing, mostly images. And there is only one main column of content now. 
 
@@ -191,7 +192,7 @@ Breakpoints are just pre-defined pixel widths that you use in conjunction with m
 
 When looking at a responsive website like one of the previous examples, open your inspector tools. While resizing (slowly!), look at the top right corner - it will tell you the viewport dimensions. Now pay attention to when the content jumps and you'll have discovered that website's breakpoints.
 
-Here's what [bootstrap 4](https://getbootstrap.com/docs/4.1/layout/overview/), the most popular CSS framework uses for its breakpoint sizes:
+Here's what [Bootstrap 4](https://getbootstrap.com/docs/4.1/layout/overview/), the most popular CSS framework uses for its breakpoint sizes. Since Bootstrap is developed to be mobile first note how they always use `min-width` and we can speculate that their styling is incremental starting from smallest/mobile:
 
 ```css
 /* Small devices (landscape phones, 576px and up) */
