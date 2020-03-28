@@ -43,18 +43,18 @@ It's 2020 - all websites should be responsive and work well on phones, tablets, 
 
 # The problem
 
-Websites are often built with a desktop environment in mind. Think about a long sheet of paper in portrait mode - it's got a specific width, and you scroll up and down the page. 
+Websites are often built with a desktop environment in mind, that's because initially only desktop computers could access the web. 
 
-Many aspects of websites were built with this idea of print in mind - fixed sizes on a piece of paper.
+Many aspects of websites were built with this idea of print in mind - fixed sizes on a piece of paper. Think about a long sheet of paper that has all the content - it's got a specific width, and height and you as the user scroll up and down the page through this sort of frame called the **viewport**.
 
-The part of the site that you can see at any given time is what's inside the `viewport`. It's just like it sounds. You can think of the viewport as the window to the site - the whole site is there, but you can only look at a little bit at a time.
+The part of the site that you can see at any given time is what's inside the **viewport**. It's just like it sounds. You can think of the viewport as the window to the site - the whole site is there, but you can only look at a little bit at a time.
 
 ![viewport](./images/viewport.png)
 
-Building websites for a desktop environment means, generally, you're operating with a minimum width of 900 pixels. It also means the content inside that 900px is either:
+Building websites for a desktop environment means, generally, you're operating with a minimum width around 1366 pixels. It also means the content inside that 1366px is either:
 
 - A percentage of the width (e.g. 50%)
-- A fixed width (e.g. 450px)
+- A fixed width (e.g. 683px)
 
 Here's a basic example of a site with a sidebar:
 
@@ -68,11 +68,11 @@ Let's think about what might happen when we look at this page on a smaller scree
 
 The phone will render the page with all of its features at normal proportions, just super zoomed out. If you've ever used a website like this you understand the frustrations - horizontal scrolling, tiny text, everything looks like it's made for ants.
 
+Here's a screenshot of the Space Jam website, which is obviously a website that you would visit on a regular basis.
+
+<img alt="space-jam" src="./images/space-jam.png" width="375px" />
+
 ![websiteforants](./images/what-is-this-a-website-for-ants.jpg)
-
-Here's a screenshot of the Space Jam website, which is obviously a website that you would visit on a regular basis. ANTS!
-
-![space-jam](./images/space-jam.png)
 
 This site is pretty hard to deal with on a mobile device. Pull out your phones, open up spacejam.com, and go take a look around. In order to read the text you wind up doing a lot of pinching-and-zooming-and-scrolling-back-and-forth.
 
@@ -82,7 +82,11 @@ This is not ideal for users. But at least nothing appears broken or hidden.
 
 The worst case scenario is like the squished image above. All of the content formatting is basically unreadable because it's still 1/3 of the screen, but the screen is only 375px wide now.
 
-## Bad solutions
+<img alt="space-jam" src="./images/worst-in-mobile.jpeg" width="375px" />
+
+In fact you can see it for yourself at [pursuit-core-6-2.github.io/website-responsiveness](https://pursuit-core-6-2.github.io/website-responsiveness/)
+
+## Old Unmaintainable Solution
 
 In the olden days, some websites had two versions: desktop and mobile.
 
@@ -109,12 +113,18 @@ Let's break it down:
 - `@media` is the start of the declaration. required.
 - `screen` tells the browser to only use this on the screen. Another option is
   `print` for pdfs or printing out html pages. optional.
-- `(max-width: 500px)` is one of the parameters you can specify. There are lots. This tells the browser to only apply this query when the screen width is BELOW 500px. required.
+- `(max-width: 500px)` is one of the parameters you can specify. There are lots. This tells the browser to only apply this query when the screen width is **BELOW** 500px. required.
 
-You'll most often use `min-width` and `max-width` but there are many more properties you can query on:
+You'll most often use `min-width` and `max-width` but there are many more properties you can query on. Take a look at [MDN - Using Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) for those.
 
-> For reference:
-> https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+Mnemonics:
+
+| Attribute   | if CSS was JS | Description              | Example              |
+| ----------- | ------------- | ------------------------ | -------------------- |
+| `max-width` | `<=`          | Less than or equal to    | `(max-width: 375px)` |
+| `min-width` | `>=`          | Greater than or equal to | `(min-width: 576px)` |
+| `width`     | `===`         | Is exactly equal to      | `(width: 300px)`     |
+
 
 ## Responsive website examples
 
@@ -126,7 +136,8 @@ Notice that we have one section that takes up about 2/3 of the screen, and a sid
 
 What happens to those sections when we shrink the browser down a bit?
 
-![tablet](./images/wapo-med.png)
+
+<img alt="tablet" src="./images/wapo-med.png" width="500px" />
 
 
 The section that previously took up 2/3 of the page now takes up all of the page. Otherwise it looks the same.
@@ -135,7 +146,7 @@ BUT ALSO! The side bar goes away. Where does it go?
 
 Depending on the content, you can either completely hide (`display: none`) an item, or "stack" it. In this case, if you scroll down a bit you'll see that the sidebar stacked.
 
-![tablet scrolled](./images/wapo-med-down.png)
+<img alt="tablet scrolled" src="./images/wapo-med-down.png" width="500px" />
 
 Because there wasn't enough space for all the Opinions content, the WaPo devs decided to push it down vertically instead of hiding it. 
 
@@ -152,7 +163,7 @@ They did this by making both the original section and the opinions section 100% 
 
 Now let's look at the same website but on a mobile device. Almost all mobile devices will be between 320-400px.
 
-![wapo-sm](./images/wapo-sm.png)
+<img alt="wapo-sm" src="./images/wapo-sm.png" width="375px" />
 
 What's different now? Lots of stuff went missing, mostly images. And there is only one main column of content now. 
 
@@ -181,7 +192,7 @@ Breakpoints are just pre-defined pixel widths that you use in conjunction with m
 
 When looking at a responsive website like one of the previous examples, open your inspector tools. While resizing (slowly!), look at the top right corner - it will tell you the viewport dimensions. Now pay attention to when the content jumps and you'll have discovered that website's breakpoints.
 
-Here's what [bootstrap 4](https://getbootstrap.com/docs/4.1/layout/overview/), the most popular CSS framework uses for its breakpoint sizes:
+Here's what [Bootstrap 4](https://getbootstrap.com/docs/4.1/layout/overview/), the most popular CSS framework uses for its breakpoint sizes. Since Bootstrap is developed to be mobile first note how they always use `min-width` and we can speculate that their styling is incremental starting from smallest/mobile:
 
 ```css
 /* Small devices (landscape phones, 576px and up) */
@@ -277,11 +288,11 @@ If you're ready, undo the changes you just made `git reset HEAD --hard` (they're
 ```css
 main {
   display: grid;
-  grid-template: none / 75% 25%;
+  grid-template-columns: 75% 25%;
 }
 ```
 
-This gives us a grid area with no defined rows (or 1, technically) and 2 columns. The left column is 75% of the available width, the right is 25%. Since `<main>` has two child elements, they slot in to the 75/25 grid template in the order they're written on the page.
+This gives us a grid area with 2 columns. Since we didnt' defined `grid-template-rows` it will gives us 1 row by default. The left column is 75% of the available width, the right is 25%. Since `<main>` has two child elements, they slot in to the 75/25 grid template in the order they're written on the page.
 
 If we just make this change, our page will look a little funny. Remove the widths from `.content` and `.sidebar` so that they aren't fighting with the new grid.
 
@@ -310,14 +321,14 @@ Make another media query at the bottom of the css file, and this time we'll rear
 ```css
 @media(max-width: 700px) {
   main {
-    grid-template: 1fr auto / none;
+    grid-template-columns: none;
   }
 }
 ```
 
-Now we're saying: create two **rows** and no columns (or one column, by default). The first row should take up one fraction of the space, and the second row should take up the remainder. If we set both to `1fr` then they will be the same height, which isn't necessarily what we want.
+Now we're saying: Don't set any columns. Let the content flow as normal. Since our `.content` and `.sidebar` are `block` elements they will be put on separate lines creating 2 rows (implicitly) for the grid.
 
-This solution might be harder to understand at first, but it's more powerful. Instead of targeting individual elements by class names and messing with their widths, we're changing the whole structure of the grid.
+This `grid` solution might be harder to understand at first, but it's more powerful. Instead of targeting individual elements by class names and messing with their widths, we're changing the whole structure of the grid.
 
 > Grid isn't the only way to make your site responsive. Flexbox also has a lot of power! Experiment with both and see which one makes sense for each use case.
 
