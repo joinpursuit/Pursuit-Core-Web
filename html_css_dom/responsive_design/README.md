@@ -104,7 +104,9 @@ Here's what a media query looks like in its simplest form:
 
 ```css
 @media screen and (max-width: 500px) {
-  width: 100%;
+  .container {
+    width: 100%;
+  }
 }
 ```
 
