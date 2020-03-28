@@ -43,11 +43,11 @@ It's 2020 - all websites should be responsive and work well on phones, tablets, 
 
 # The problem
 
-Websites are often built with a desktop environment in mind. Think about a long sheet of paper in portrait mode - it's got a specific width, and you scroll up and down the page. 
+Websites are often built with a desktop environment in mind, that's because initially only desktop computers could access the web. 
 
-Many aspects of websites were built with this idea of print in mind - fixed sizes on a piece of paper.
+Many aspects of websites were built with this idea of print in mind - fixed sizes on a piece of paper. Think about a long sheet of paper that has all the content - it's got a specific width, and height and you as the user scroll up and down the page through this sort of frame called the **viewport**.
 
-The part of the site that you can see at any given time is what's inside the `viewport`. It's just like it sounds. You can think of the viewport as the window to the site - the whole site is there, but you can only look at a little bit at a time.
+The part of the site that you can see at any given time is what's inside the **viewport**. It's just like it sounds. You can think of the viewport as the window to the site - the whole site is there, but you can only look at a little bit at a time.
 
 ![viewport](./images/viewport.png)
 
