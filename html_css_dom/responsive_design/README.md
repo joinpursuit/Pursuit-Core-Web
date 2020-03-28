@@ -51,10 +51,10 @@ The part of the site that you can see at any given time is what's inside the **v
 
 ![viewport](./images/viewport.png)
 
-Building websites for a desktop environment means, generally, you're operating with a minimum width of 900 pixels. It also means the content inside that 900px is either:
+Building websites for a desktop environment means, generally, you're operating with a minimum width around 1366 pixels. It also means the content inside that 1366px is either:
 
 - A percentage of the width (e.g. 50%)
-- A fixed width (e.g. 450px)
+- A fixed width (e.g. 683px)
 
 Here's a basic example of a site with a sidebar:
 
@@ -72,7 +72,7 @@ The phone will render the page with all of its features at normal proportions, j
 
 Here's a screenshot of the Space Jam website, which is obviously a website that you would visit on a regular basis. ANTS!
 
-![space-jam](./images/space-jam.png)
+![space-jam](./images/space-jam.png | width=375)
 
 This site is pretty hard to deal with on a mobile device. Pull out your phones, open up spacejam.com, and go take a look around. In order to read the text you wind up doing a lot of pinching-and-zooming-and-scrolling-back-and-forth.
 
