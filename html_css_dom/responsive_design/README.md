@@ -86,7 +86,7 @@ The worst case scenario is like the squished image above. All of the content for
 
 In fact you can see it for yourself at [pursuit-core-6-2.github.io/website-responsiveness](https://pursuit-core-6-2.github.io/website-responsiveness/)
 
-## Bad solutions
+## Old Unmaintainable Solution
 
 In the olden days, some websites had two versions: desktop and mobile.
 
@@ -113,12 +113,18 @@ Let's break it down:
 - `@media` is the start of the declaration. required.
 - `screen` tells the browser to only use this on the screen. Another option is
   `print` for pdfs or printing out html pages. optional.
-- `(max-width: 500px)` is one of the parameters you can specify. There are lots. This tells the browser to only apply this query when the screen width is BELOW 500px. required.
+- `(max-width: 500px)` is one of the parameters you can specify. There are lots. This tells the browser to only apply this query when the screen width is **BELOW** 500px. required.
 
-You'll most often use `min-width` and `max-width` but there are many more properties you can query on:
+You'll most often use `min-width` and `max-width` but there are many more properties you can query on. Take a look at [MDN - Using Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) for those.
 
-> For reference:
-> https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+Mnemonics:
+
+| Attribute   | if CSS was JS | Description              | Example              |
+| ----------- | ------------- | ------------------------ | -------------------- |
+| `max-width` | `<=`          | Less than or equal to    | `(max-width: 375px)` |
+| `min-width` | `>=`          | Greater than or equal to | `(min-width: 576px)` |
+| `width`     | `===`         | Is exactly equal to      | `(width: 300px)`     |
+
 
 ## Responsive website examples
 
