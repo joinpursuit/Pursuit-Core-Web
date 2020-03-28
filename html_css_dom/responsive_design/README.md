@@ -68,11 +68,11 @@ Let's think about what might happen when we look at this page on a smaller scree
 
 The phone will render the page with all of its features at normal proportions, just super zoomed out. If you've ever used a website like this you understand the frustrations - horizontal scrolling, tiny text, everything looks like it's made for ants.
 
+Here's a screenshot of the Space Jam website, which is obviously a website that you would visit on a regular basis.
+
+<img alt="space-jam" src="./images/space-jam.png" width="375px" />
+
 ![websiteforants](./images/what-is-this-a-website-for-ants.jpg)
-
-Here's a screenshot of the Space Jam website, which is obviously a website that you would visit on a regular basis. ANTS!
-
-![space-jam](./images/space-jam.png | width=375)
 
 This site is pretty hard to deal with on a mobile device. Pull out your phones, open up spacejam.com, and go take a look around. In order to read the text you wind up doing a lot of pinching-and-zooming-and-scrolling-back-and-forth.
 
@@ -81,6 +81,10 @@ This is not ideal for users. But at least nothing appears broken or hidden.
 ### Worst Case Scenario
 
 The worst case scenario is like the squished image above. All of the content formatting is basically unreadable because it's still 1/3 of the screen, but the screen is only 375px wide now.
+
+<img alt="space-jam" src="./images/worst-in-mobile.jpeg" width="375px" />
+
+In fact you can see it for yourself at [pursuit-core-6-2.github.io/website-responsiveness](https://pursuit-core-6-2.github.io/website-responsiveness/)
 
 ## Bad solutions
 
