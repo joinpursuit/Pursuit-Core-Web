@@ -50,6 +50,8 @@ The solution outlined above works well for smaller apps, but this can get quite 
 
 ### [Dog Pictures](https://codesandbox.io/s/react-router-dog-breeds-koxz1)
 
+[with Hooks](https://codesandbox.io/s/react-router-dog-breeds-l22kx)
+
 This dog picture app can be represented using the following diagram:
 
 ![dog pictures](assets/react_dogs.png?raw=true)
