@@ -292,7 +292,7 @@ main {
 }
 ```
 
-This gives us a grid area with 2 columns. Since we didnt' defined `grid-template-rows` it will gives us 1 row by default. The left column is 75% of the available width, the right is 25%. Since `<main>` has two child elements, they slot in to the 75/25 grid template in the order they're written on the page.
+This gives us a grid area with 2 columns. Since we didn't define `grid-template-rows`, it will gives us 1 row by default. The left column is 75% of the available width, the right is 25%. Since `<main>` has two child elements, they slot in to the 75/25 grid template in the order they're written on the page.
 
 If we just make this change, our page will look a little funny. Remove the widths from `.content` and `.sidebar` so that they aren't fighting with the new grid.
 
