@@ -3,8 +3,8 @@
 ## Objectives
 
 - Explain what Redux is and what problem it solves
-- Diagram the state of an application
-- Build a counter app using Redux
+- Diagram the state flow of an application
+- Examine & modify a counter app using Redux
 
 ## Resources
 
@@ -16,7 +16,7 @@
 
 ## Introduction
 
-Redux is a library for managing application state. When used with React, Redux provides a single state object (commonly referred to as _the store_) that exists at the root of our app. This is especially useful when building large-scale React applications, as it prevents the problems of *prop drilling* and *state duplication*.
+Redux is a library for managing application state. When used with React, Redux provides a single state object (commonly referred to as _the store_) that exists at the root of our app. This is especially useful when building large-scale React applications, as it prevents the problems of *prop drilling* and *state duplication*. It also allows state to be used by multiple components regardless of application architecture.
 
 ## A Birds-Eye View
 
@@ -28,9 +28,9 @@ When we start building React applications that feature multiple components, we i
 
 Additionally, we often want the state of a component to be preserved throughout our app. Consider the following app:
 
-## [Show / Hide Animal Selector](https://codesandbox.io/s/mounting-unmounting-4p6eo)
+## Show / Hide Animal Selector
 
-  [with hooks](https://codesandbox.io/s/mounting-unmounting-with-hooks-m4kd5)
+[Example with hooks](https://codesandbox.io/s/mounting-unmounting-with-hooks-m4kd5)
 
 Take a look at the `App` component's render method. It renders a button that toggles whether the `AnimalSelector` component is displayed or not. Clicking the button sets the state to either show or hide it. This state is stored locally in the `App` component.
 
@@ -48,9 +48,9 @@ In this simple app, if we wanted to keep the value of the selected animal, we co
 
 The solution outlined above works well for smaller apps, but this can get quite difficult to do for larger-scale apps that have components rendering other components. We pass props to a child component, and they pass those same props to grandchildren, and great-grandchildren, and so on. It's like making a chain - if you miss a single link, the whole thing falls apart.
 
-### [Dog Pictures](https://codesandbox.io/s/react-router-dog-breeds-koxz1)
+### Dog Pictures
 
-[with Hooks](https://codesandbox.io/s/react-router-dog-breeds-l22kx)
+[Example with Hooks](https://codesandbox.io/s/react-router-dog-breeds-l22kx)
 
 This dog picture app can be represented using the following diagram:
 
@@ -142,7 +142,7 @@ These two hooks are critical! `useDispatch` is how we fire actions - think of it
 
 **Actions** are how we tell the store to update. You'll notice we have two files in our `actions/` folder. Action types tells redux which `reducer` it's going to run - think of how RESTful actions work. For example, POST `/user` adds a new user to the database. Here, if we wanted to add a user to our `users` part of state in our Redux store, we'd create an action with the string `ADD_NEW_USER`. 
 
-`actionTypes` is a very small file, and its use may not be initially apparent. Basically, it's so we *always* apply consistent actions to our store. This is just a good convention to follow, since we use these types in multiple files, we can avoid making any typos.
+`actionTypes` is a very small file, and its use may not be initially apparent. Basically, it's so we *always* apply consistent actions to our store. This is just a good convention to follow, since we use these types in multiple files, we can import them as variables instead of risking typos by just re-typing strings everywhere.
 
 ```js
 // actionTypes.js
@@ -189,7 +189,7 @@ Since the whole reducer function is called every time `useDispatch()` is called,
 
 > Reducers must be `pure functions` meaning they don't mutate any values. See [redux three principles](https://redux.js.org/introduction/three-principles/)
 
-The other file in the `reducers/` folder, `index.js`, imports all the reducers (currently just `count`) and exports them as a single object using a function provided by redux: `combineReducers`. The properties of the object correspond to the names of the reducers. So, in our case, the object will initially look like this:
+The other file in the `reducers/` folder, `index.js`, imports all the reducers (currently just `count`) and exports them as a single object using a function provided by redux: `combineReducers`. The properties of the object correspond to the names of the reducers. The "shape" of the store is going to reflect what this object looks like. So, in our case, the store will initially look like this:
 
 ```js
 {
