@@ -9,7 +9,7 @@
 | Context API | tbd | tbd |
 | [Redux One](./redux_1/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13486716) | [Add Functionality to Redux Counter](https://github.com/joinpursuit/FSW-Redux-One-Lab) |
 | [Redux Two](./redux_2/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4596400) | [Redux ToDos](https://github.com/joinpursuit/FSW-Redux-Two-Lab) |
-| Redux Three | tbd | tbd |
+| Redux Three | tbd | [TVMaze Integration](https://github.com/joinpursuit/FSW-Redux-Three-Lab) |
 | Redux Four | tbd | tbd |
 | Redux Toolkit One | tbd | tbd |
 | Redux Toolkit Two | tbd | tbd |
