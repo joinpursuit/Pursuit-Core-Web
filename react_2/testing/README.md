@@ -250,11 +250,11 @@ These are four test cases that are all related to the `squareArray()` function. 
 
 ```js
 describe("square an array", () => {
-  test("Rejects non-array types", () => {})
+  test("Rejects non-arrays, returns null", () => {})
 
   test("Returns an array", () => {})
 
-  test("Returns an array that's the same length as the original", () => {})
+  test("Returns an array that's the same length as the one passed in", () => {})
 
   test("Returns the right value", () => {})
 })
@@ -266,7 +266,9 @@ Go ahead and wrap your three `multiply()` test cases with a `describe()` as well
 
 ### Exercise (20 minutes)
 
-Fill out the test cases! Here are a couple matchers that you may find useful:
+Fill out the test cases! The descriptions should tell you what you want to try to do. 
+
+Here are a couple matchers that you may find useful:
 
 * `.toBeInstanceOf(Array)`
 * `.toBe()`
@@ -274,12 +276,31 @@ Fill out the test cases! Here are a couple matchers that you may find useful:
 
 > What's the difference between `toBe()` and `toEqual()`? They don't do exactly the same thing.
 
-<!-- ## Snapshot testing with Jest and React!
+## Snapshot testing with Jest and React
 
+Snapshot testing is a way of testing react components, making sure that the components don't unpredictably change what they render. 
 
-* Create a sample react app
-* Create two or three components
-* Snapshot  -->
+The basic idea behind a snapshot is:
+
+* Write a test for a component that creates a snapshot
+* Run the test. This creates a snapshot file, which looks a bit like JSON. The snapshot file will be committed with all our other code into git.
+* The next time the test runs, we can compare it to the existing snapshot. If they are different, the test fails.
+
+Snapshot testing is only one way of testing react components. It doesn't allow us to look for specific properties or values, only that the component hasn't changed unexpectedly. We'll talk about another method as well.
+
+### Snapshot Setup
+
+Clone down the [example repo here](https://github.com/joinpursuit/FSW-Jest-Testing-React). Install the dependencies with `npm install`.
+
+In order to make snapshots, we have to use `react-test-renderer`
+
+In create react app projects, the convention is to put our tests into a folder with a funny looking name, called `__tests__`. So go ahead and create that folder in the `/src` directory. We'll also create a test file that corresponds to the name of the component file that we want to create.
+
+```bash
+mkdir ./src/__tests__
+touch ./src/__tests__/ItemContainer.test.js
+```
+
 
 
 
