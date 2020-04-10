@@ -16,7 +16,7 @@
 | [User Authentication Backend](./user_authentication_backend/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4639393) | [Full-Stack User Auth App](https://github.com/joinpursuit/Pursuit-Core-Web-FullStack-User-Authentication-Lab) |
 | [User Authentication Frontend](./user_authentication_frontend/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4635841) | [Full-Stack User Auth App](https://github.com/joinpursuit/Pursuit-Core-Web-FullStack-User-Authentication-Lab) |
 | [Deploying Web Apps](./deployment/README.md) | n/a | n/a |
-
+| [Testing with Jest](./testing/README.md) | n/a | [Testing Lab](https://github.com/joinpursuit/FSW-Testing-Lab) | 
 
 ## All links
 1.  [React and Express](./react_express/README.md)
