@@ -22,11 +22,13 @@ If you have a need to centrally manage state in your application, redux is an ex
 
 ## Using rtk
 
-Most of the benefits of redux toolkit come in the form of reduced boilerplate code. Meaning: we can now write less repetitive code to accomplish the same thing. This means the pattern in which we write code is changed slightly.
+Most of the benefits of redux toolkit come in the form of reduced boilerplate code. Meaning: we can now write less repetitive code to accomplish the same thing. This also means the pattern in which we write code is changed slightly.
 
 Let's look at some typical redux code. Right now, this is all one file (which is totally allowed!), but the convention is to split up our actions, action types, reducers, and store into 4 files.
 
 ```js
+// old school typical redux code
+
 // action types
 const INCREMENT = "INCREMENT"
 const DECREMENT = "DECREMENT"
@@ -40,7 +42,7 @@ function decrement() {
   return { type: DECREMENT }
 }
 
-// reducer
+// reducer function
 function counter(state = 0, action) {
   switch (action.type) {
     case INCREMENT:
@@ -84,7 +86,8 @@ But we don't get to see any of that happening, which can be a little confusing! 
 
 ### Actions
 
-The old way of writing actions was to write both the `action type` and the `action` by hand.
+The old way of writing actions was to write both the `action type` and the `action` by hand. And generally, we kept them in separate files to help encourage importing and re-using the types everywhere.
+
 Now there's one simple way!
 
 ```js
@@ -136,7 +139,7 @@ const counter = createReducer(0, {
 })
 ```
 
-Isn't that so much easier than what we were doing before? With the whole long switch statement shenanigans?
+Isn't that so much easier than what we were doing before? With the whole long switch statement shenanigans? To remember the old way, just take a look at this:
 
 ```js
 function counter(state = 0, action) {
@@ -150,6 +153,8 @@ function counter(state = 0, action) {
   }
 }
 ```
+
+The new way is much more concise.
 
 ### Slices
 
@@ -192,8 +197,12 @@ Here's what you can imagine the slice object structure looking like:
 ```js
 let counterSlice = {
   actions: {
-    increment : () => { return { type: 'increment' } },
-    decrement : () => { return { type: 'decrement' } },
+    increment: () => {
+      return { type: "increment" }
+    },
+    decrement: () => {
+      return { type: "decrement" }
+    },
   },
   reducer: () => {},
 }
@@ -234,23 +243,28 @@ const { reducer } = counterSlice
 
 </details>
 
-
 ### Async actions
 
 Async actions are still the same, all they do is dispatch a non-async action after a period of time. Here's an example of a standalone one that calls the regular increment action after 1 second:
 
 ```js
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState: {
     value: 0,
   },
   reducers: {
-    increment: state => { state.value += 1 },
-    decrement: state => { state.value -= 1; },
-    incrementByAmount: (state, action) => { state.value += action.payload },
+    increment: (state) => {
+      state.value += 1
+    },
+    decrement: (state) => {
+      state.value -= 1
+    },
+    incrementByAmount: (state, action) => {
+      state.value += action.payload
+    },
   },
-});
+})
 
 export const incrementAsync = (amount) => (dispatch) => {
   setTimeout(() => {
@@ -265,21 +279,92 @@ Because this is referencing another action thats originally declared in the slic
 
 The hooks that you're used to using inside components stay the same. This includes both `useSelector()` and `useDispatch()`.
 
+A selector is just a function that returns the state value that you're trying to access. You can write the selector function and save it to its own variable, or you can write it inline when you declare the hook.
 
-### Pure reducer functions
+```js
+// put selector function into its own variable
+const selectCount = (state) => state.counter.value
+const count = useSelector(selectCount)
 
-- RTK uses a thing called immer that allows you to write impure functions
+// or maybe you're used to seeing it written inline
+const count = useSelector((state) => state.counter.value)
 
-### intermediate
+// both of these are equivalent
+```
 
-convert [redux todos](https://github.com/joinpursuit/FSW-Redux-Todos) into rtk
+`useDispatch()` stays the same as well. You assign it to a variable, then pass in the action you want to dispatch.
+
+```js
+const dispatch = useDispatch();
+
+<button className="button" onClick={() => dispatch(decrement())} >
+```
+
+### Bonus: Pure reducer functions
+
+Maybe the last (but very underrated) benefit to using RTK is that you get to write simpler reducer functions. RTK uses a JS library under the hood called `Immer` that ensures you can't write code with side effects.
+
+For example, the old way to write a reducer function that added something to state was like this:
+
+```js
+const todoReducer = (state = [], action) => {
+  switch (action.type) {
+    case "ADD":
+      return [
+        ...state,
+        {
+          todoId: 99,
+          value: "whatever you want to accomplish",
+          completed: false,
+        },
+      ]
+  }
+}
+```
+
+Note that we're spreading the state value by doing `...state`, then putting the new toDo on the end of the list. We never want to modify state itself (by doing something like state.push(), this would be considered a side-effect), so we make a copy of the state array into a new array, and add the todo on the end.
+
+But, thanks to the magic of RTK and `Immer`, we can write sloppy impure code and not worry about it!
+
+```js
+const todoReducer = (state = [], action) => {
+  switch (action.type) {
+    case "ADD":
+      return state.push({
+        todoId: 99,
+        value: "whatever you want to accomplish",
+        completed: false,
+      })
+  }
+}
+```
+
+
+### Setting up a new RTK project
+
+Thanks to `create-react-app`, we can bootstrap a whole `redux toolkit` project with just one command!
+
+```bash
+npx create-react-app my-app-name-here --template redux
+```
+
+## Work time!
+
+Clone down the [redux todos](https://github.com/joinpursuit/FSW-Redux-Todos) repo. It's a fully working project with redux already set up in it. 
+
+See the readme on that repo for more instructions.
 
 ## Summary
 
-Do a quick review at the end of the lesson to talk about what you covered.
+Today we talked about all the various ways that redux toolkit can help you get started developing react projects with redux. RTK is opinionated and encourages you to follow specific patterns in your code.
+
+There are a few benefits to RTK:
+
+* Less boilerplate code & setup
+* Allows you to write state mutating reducer code without side-effects
+* Automatically generates actions for you if you use `createSlice()`
 
 ### Resources
 
-- [A link to relevant documentation](https://www.google.com/)
-- Or another [free practice resource](https://www.google.com/)
-- etc.
+- [RTK basic tutorial](https://redux-toolkit.js.org/tutorials/basic-tutorial)
+- [Redux Todos app lab/exercise](https://github.com/joinpursuit/FSW-Redux-Todos)
