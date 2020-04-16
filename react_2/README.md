@@ -11,7 +11,7 @@
 | [Redux Two](./redux_2/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4596400) | [Redux ToDos](https://github.com/joinpursuit/FSW-Redux-Two-Lab) |
 | Redux Three | tbd | [TVMaze Integration](https://github.com/joinpursuit/FSW-Redux-Three-Lab) |
 | Redux Four | tbd | tbd |
-| Redux Toolkit One | tbd | tbd |
+| [Redux Toolkit One](./redux_toolkit/README.md) | tbd | [Redux Toolkit Todos](https://github.com/joinpursuit/FSW-Redux-Toolkit-Todos) |
 | Redux Toolkit Two | tbd | tbd |
 | [User Authentication Backend](./user_authentication_backend/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4639393) | [Full-Stack User Auth App](https://github.com/joinpursuit/Pursuit-Core-Web-FullStack-User-Authentication-Lab) |
 | [User Authentication Frontend](./user_authentication_frontend/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4635841) | [Full-Stack User Auth App](https://github.com/joinpursuit/Pursuit-Core-Web-FullStack-User-Authentication-Lab) |
