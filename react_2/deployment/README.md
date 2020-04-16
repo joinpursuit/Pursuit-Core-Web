@@ -98,7 +98,7 @@ Clone it down and `cd` to the directory.
 Then, in the terminal throw out a quick:
 
 ```
-heroku create <your_app_name>
+heroku create <your-app-name>
 ```
 
 **Things to note**:
