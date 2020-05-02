@@ -1,7 +1,16 @@
 # API or Backend Testing
 The API Testing we will be doing here today is considered a form of Integration Testing because we are testing the contract between our route handlers, queries and database. And making sure they work well together in turn assuring us that our backend works as we expect it.
 
-Today we will be testing a Backend Application that handles users and notes. Some feature of this backend include:
+## Objectives
+By the end of this session you should be able to:
+* Explain what is integration test is and how it compares to a unit test
+* Know how to test a GET endpoint using supertest
+* Know how to test a POST endpoint sending data to the server using supertest
+* Setup backend testing for any of your backend projects
+* Talk about the pitfalls of sharing state between tests
+
+## Backed to be tested
+Today we will be testing the [UserAuth & Notes](https://github.com/joinpursuit/Pursuit-Core-Web-Backend-Testing-Starter) Backend Application that handles users and notes. Some feature of this backend include:
 
 * User Authentication:
   * A user can signup with username and password
@@ -13,8 +22,6 @@ Today we will be testing a Backend Application that handles users and notes. Som
   * Authenticated users can add a note.
   * Authenticated users can get the notes they have added.
   * Anonymous notes are public by default.
-
-[This is the Backend](https://github.com/joinpursuit/Pursuit-Core-Web-Backend-Testing-Starter) we will use, take a look at its README as well its files, make sure there is nothing surprising or confusing about it. Try a few requests with Postman.
 
 ## Setup
 
@@ -36,7 +43,7 @@ Today we will be testing a Backend Application that handles users and notes. Som
   * [`@types/jest`](https://www.npmjs.com/package/@types/jest) - Jest Typescript Typings. This is nice to give use intellisense/autocomplete for jest
   * [`supertest`](https://github.com/visionmedia/supertest) - HTTP client for making HTTP assertions. You can think of this as the `axios` for `testing`. 
 
-3. Create and Save `jest.config.js`
+3. Create and Save `jest.config.js` a the root of your project
 
   ```js
   // Set test database DATABASE_URL for testing so that our development database 
@@ -101,7 +108,8 @@ psql -f db/seed.sql -d users_notes_api_dev_db
 
 ## Hands On
 ### Explore the Backend to be Tested
-Once you have cloned the starter App take 15 minutes to read the Backend Docs and familiarize yourself with the endpoints and requests.
+
+Once you have cloned the starter App take 15 minutes to read its [README Doc](https://github.com/joinpursuit/Pursuit-Core-Web-Backend-Testing-Starter) and familiarize yourself with the endpoints and requests. Also take a look at the files, make sure there is nothing surprising or confusing about it. Try a few requests with Postman.
 
 ### Our First Test. `/api/notes/public` retrieves all notes
 Let us test endpoints or routes that do not require a user to be logged in first. We will test that a client can retrieve all public  notes when a `GET` request to `/api/notes/public` is made.
@@ -146,7 +154,7 @@ describe('/api/notes endpoints', () => {
 ```
 
 #### Explanation
-* `beforeEach` will execute the callback provided after each test. In this case the callback invokes `resetDb()` to reset our database after each test. Remember that we don't want to share state (data, variables etc) between tests as possibnle. Read the `beforEach` docs [here](https://jestjs.io/docs/en/api#beforeeachfn-timeout)
+* `beforeEach` will execute the callback provided after each test. In this case the callback invokes `resetDb()` to reset our database after each test. Remember that we don't want to share state (data, variables etc) between tests as possible. Read the `beforeEach` docs [here](https://jestjs.io/docs/en/api#beforeeachfn-timeout)
 * `afterAll`. After all the tests make sure our database is reset and does not contain any test data.
 * `reqAgent.get('/api/notes/public')`. Is what will fire the request to our our app's endpoint. Kind of like `axios` but for testing. You can see that `reqAgent` is made by importing `request` from `supertest` and creating an agent by passing in our app.
 * `const { status, body }` is destructuring the status and body of the response so that we can make assertions on them.
