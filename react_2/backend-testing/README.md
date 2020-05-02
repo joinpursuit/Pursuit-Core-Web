@@ -36,16 +36,20 @@ Today we will be testing a Backend Application that handles users and notes. Som
   * [`@types/jest`](https://www.npmjs.com/package/@types/jest) - Jest Typescript Typings. This is nice to give use intellisense/autocomplete for jest
   * [`supertest`](https://github.com/visionmedia/supertest) - HTTP client for making HTTP assertions. You can think of this as the `axios` for `testing`. 
 
-3. Save `jest.config.js`
+3. Create and Save `jest.config.js`
 
   ```js
+  // Set test database DATABASE_URL for testing so that our development database 
+  // does not get reset in between test
+  process.env.DATABASE_URL = "postgres://localhost:5432/users_notes_api_test_db"
+
   module.exports = {
     setupFilesAfterEnv: ["jest-extended"],
     testEnvironment: "node"
   }
   ```
-
-  This ensures that we get the additional matchers from `jest-extended`. Also sets the jest test environment config to be `node` (default is `jsdom`)
+  This sets the environment variable `DATABASE_URL` to our database `users_notes_api_test_db` which is the database that we want to user for our tests and which we will create next.
+  This file also ensures that we get the additional matchers from `jest-extended` and sets the jest test environment config to be `node` (default is `jsdom`)
 
 4. Set/add `test` script to `package.json` as shown here:
 
@@ -55,21 +59,37 @@ Today we will be testing a Backend Application that handles users and notes. Som
 
  This makes sure that our tests run serially (`--runInBand`). Normally for unit testing Jest will run tests in parallel for speed and efficiently but since our tests will share the same database if one test modifies a record another might utilize the results of the previous test or conflict with it giving us have hard to debug issues. `--watch` will keep jest running so that we get hot test reload when we change a source file or test file.
 
-5. Create a database and seed it for the first time
+5. Usually you will have two databases one for testing (`*_test_db`) and another one for development manual manual testing (`*_dev_db`). When one gets reset or reseeded you don't want the other to be modified.
+
+Create a new `test` database and seed it for the first time.
 ```
-createdb backend_testing_users_db
-psql -f db/seed.sql -d backend_testing_users_db 
+createdb users_notes_api_test_db
+psql -f db/seed.sql -d users_notes_api_test_db 
+```
+
+Its a good idea to spin our `development` database as well too so that we don't forget later
+```
+createdb users_notes_api_dev_db
+psql -f db/seed.sql -d users_notes_api_dev_db 
 ```
 
 6. Create a `resetDb.js` file with the following content. Save it to the `db/` directory
   ```js
+  /*
+  * resetDb.js
+  * File used to reset and reseed database tables when testing 
+  */
+
   const { execSync } = require('child_process')
 
   const SEED_FILE_PATH = __dirname + "/seed.sql"
-  const DATABASE_NAME = "backend_testing_users_db"
+
+  // Having into account that DATABASE_URL = "postgres://localhost:5432/users_notes_api_test_db"
+  // was set in jest.config.js
+  const DATABASE_NAME = process.env.DATABASE_URL.split('/')[3]
 
   const resetDb = () => {
-    execSync(`psql -f ${SEED_FILE_PATH} -d ${DATABASE_NAME}`)
+    execSync(`psql -d ${DATABASE_NAME} -f ${SEED_FILE_PATH}`)
   }
 
   module.exports = resetDb;
