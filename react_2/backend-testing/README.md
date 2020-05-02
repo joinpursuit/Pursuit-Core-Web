@@ -1,5 +1,5 @@
-# Backend Testing
-Backend Testing will be considered a form of Integration Testing we are testing the contract between our route handlers, queries and database. And making sure they work well together in turn assuring us that our backend works as we expect it.
+# API or Backend Testing
+The API Testing we will be doing here today is considered a form of Integration Testing because we are testing the contract between our route handlers, queries and database. And making sure they work well together in turn assuring us that our backend works as we expect it.
 
 Today we will be testing a Backend Application that handles users and notes. Some feature of this backend include:
 
