@@ -87,7 +87,7 @@ will be rendered as...
 
 You can also write plain html in your markdown and it will be rendered as you expect.
 
-For example, a common thing is to use the solution tag to enable interactive dropdowns.
+For example, a common thing is to use the details and summary tags to enable interactive dropdowns.
 
 ```html
 <details>
