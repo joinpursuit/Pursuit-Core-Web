@@ -89,7 +89,11 @@ This will be rendered as...
 
 You can also write plain html in your markdown and it will be rendered as you expect. The images above are written using `<img>` tags. 
 
+<<<<<<< HEAD
 Another useful thing is to use the solution tag to enable interactive dropdowns.
+=======
+For example, a common thing is to use the details and summary tags to enable interactive dropdowns.
+>>>>>>> ffd7dad52236dff7e2c010612d151141ae0b6211
 
 ```html
 <details>
