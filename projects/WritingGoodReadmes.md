@@ -60,7 +60,7 @@ When adding content to GitHub, you have access to some additional features in Ma
 
 Of these, the most important one to use is the code formatting. Backticks <code>```</code> are part of Markdown's original syntax and should be used when adding code snippets to any readme, issue, or comment. GitHub adds language-specific syntax highlighting to code snippets in Markdown if you specify the language in the snippet. For example, this code in markdown:
 
-<img alt="backticks example" style="max-width: 350px" src="./assets/backticks-example.png"/>
+<img alt="backticks example" width="350px" src="./assets/backticks-example.png"/>
 
 will be rendered as...
 
@@ -76,7 +76,7 @@ function foo(arr) {
 You can also specify a **diff** syntax by adding - or + before each line and setting the language to `diff`
 
 
-<img alt="github diff example" style="max-width: 350px" src="./assets/gh-md-diff.png"/>
+<img alt="github diff example" width="350px" src="./assets/gh-md-diff.png"/>
 
 This will be rendered as...
 
