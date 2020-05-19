@@ -112,3 +112,7 @@ The rest of the content, only shown when expanded
 ## Markdown Cheatsheet
 
 See the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for quick and easy reference!
+
+## Examples
+
+[Here is a great resource](https://github.com/matiassingers/awesome-readme) for examples of good readmes. It has various kinds of projects, as well as links on how to make gifs for your readme and links to guides on writing good readmes.
