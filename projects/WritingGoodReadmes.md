@@ -58,11 +58,12 @@ When adding content to GitHub, you have access to some additional features in Ma
 
 > A full guide on these GitHub-specific features can be found [here](https://guides.github.com/features/mastering-markdown/)
 
-Of these, the most important one to use is the code formatting. Backticks <code>```</code> are part of Markdown's original syntax and should be used when adding code snippets to any readme, issue, or comment. GitHub adds language-specific syntax highlighting to code snippets in Markdown. For example:
+Of these, the most important one to use is the code formatting. Backticks <code>```</code> are part of Markdown's original syntax and should be used when adding code snippets to any readme, issue, or comment. GitHub adds language-specific syntax highlighting to code snippets in Markdown if you specify the language in the snippet. For example, this code in markdown:
 
-![backticks example](./assets/backticks-example.png)
+<img alt="backticks example" width="350px" src="./assets/backticks-example.png"/>
 
 will be rendered as...
+
 ```js
 function foo(arr) {
   arr.forEach((el) => {
@@ -72,11 +73,12 @@ function foo(arr) {
 }
 ```
 
----
+You can also specify a **diff** syntax by adding - or + before each line and setting the language to `diff`
 
-![backticks example](./assets/gh-md-diff.png)
 
-will be rendered as...
+<img alt="github diff example" width="350px" src="./assets/gh-md-diff.png"/>
+
+This will be rendered as...
 
 ```diff
 -var x = function(a, b){ return a + b }
@@ -85,9 +87,9 @@ will be rendered as...
 
 ## Extras
 
-You can also write plain html in your markdown and it will be rendered as you expect.
+You can also write plain html in your markdown and it will be rendered as you expect. The images above are written using `<img>` tags. 
 
-For example, a common thing is to use the solution tag to enable interactive dropdowns.
+Another useful thing is to use the solution tag to enable interactive dropdowns.
 
 ```html
 <details>
@@ -110,3 +112,7 @@ The rest of the content, only shown when expanded
 ## Markdown Cheatsheet
 
 See the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for quick and easy reference!
+
+## Examples
+
+[Here is a great resource](https://github.com/matiassingers/awesome-readme) for examples of good readmes. It has various kinds of projects, as well as links on how to make gifs for your readme and links to guides on writing good readmes.
