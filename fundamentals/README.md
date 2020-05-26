@@ -33,7 +33,7 @@
 
 ## Projects
 
-[Text-based Adventure](https://github.com/joinpursuit/Pursuit-Core-Web-Text-Based-Adventure-Project)
+[Text-based Adventure](https://github.com/joinpursuit/FSW-Text-Based-Adventure)
 * EF.2.e: Build a command line application 
 * EF.4.e: Use frequent, descriptive, small commits 
 * FSW.1: Write clean, readable JavaScript code 
@@ -41,7 +41,7 @@
 * LF.2: Use variables and constants to store information 
 * LF.4: Use control flow in a clear, concise way to determine which code executes 
 
-[Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman) 
+[Hangman](https://github.com/joinpursuit/FSW-CLI-Hangman) 
 * EF.2.e: Build a command line application 
 * EF.4.e: Use frequent, descriptive, small commits
 * FSW.1: Write clean, readable JavaScript code

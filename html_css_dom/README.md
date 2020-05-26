@@ -41,7 +41,7 @@
 
 ## Projects
 
-[Hangman](https://github.com/joinpursuit/Pursuit-Core-Web-Hangman-Weekly-Assignment/blob/master/README.md) 
+[Hangman](https://github.com/joinpursuit/FSW-CLI-Hangman) 
 
 * EF.4.e: Use frequent, descriptive, small commits
 * FSW.1: Write clean, readable JavaScript code
@@ -52,7 +52,7 @@
 * LF.4: Use control flow in a clear, concise way to determine which code executes
 * LF.5: Use functions to keep code DRY
 
-[Twitter CSS](https://github.com/joinpursuit/Pursuit-Core-Web-Twitter-CSS-Assignment) 
+[Twitter CSS](https://github.com/joinpursuit/FSW-Twitter-CSS)
 
 * FSW.3.a: Use common HTML tags to build a UI
 * FSW.3.b: Use appropriate, semantic HTML to aid accessibility
