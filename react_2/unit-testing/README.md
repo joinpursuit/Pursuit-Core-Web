@@ -62,7 +62,7 @@ Integration testing operates at a slightly higher level - it verifies the **cont
 
 It can also mean verifying the interoperability between components, whether that means specific React components, node modules, or any other logical separation of code. In general, integration testing is making sure that several pieces of your program are functioning together properly.
 
-### System, or end-to-end (E2E), testing
+### System or end-to-end (E2E) testing
 
 E2E testing involves verifying that your application works from a user level. This can look something like the following:
 
