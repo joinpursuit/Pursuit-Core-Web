@@ -21,7 +21,11 @@ The core curriculum is separated into five units:
 
 ## Projects
 
-### [Portfolio Site](./projects/Portfolio.md)
+[Projects Overview](./Projects/Readme.md)
+
+A listing of all the projects that we currently have.
+
+[Portfolio Site](./projects/Portfolio.md)
 
 Fellows will build their own portfolio site at the end of the course, before starting on their capstones. See the readme for more details.
 
