@@ -39,7 +39,7 @@
 
 | Project | Standards |
 | --- | --- |
-| [Simple School Management System](https://github.com/joinpursuit/Pursuit-Core-Web-Express-Project) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1.d: Manipulate and access objects and objects in arrays</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.11.b: Use middleware to inject code</li><li>LF.5: Use functions to keep code DRY</li><li>LF.6: Proper use and understanding of Higher order functions & closures or callbacks</li></ul> |
+| [Simple School Management System](https://github.com/joinpursuit/FSW-School-Classes) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1.d: Manipulate and access objects and objects in arrays</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.11.b: Use middleware to inject code</li><li>LF.5: Use functions to keep code DRY</li><li>LF.6: Proper use and understanding of Higher order functions & closures or callbacks</li></ul> |
 
 ## Assessment
 
