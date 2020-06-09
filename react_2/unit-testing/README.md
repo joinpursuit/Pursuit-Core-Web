@@ -50,7 +50,7 @@ There are many different types of testing, but here are the most common ones:
 
 ### Unit Testing
 
-Unit testing means verifying the code at the smallest possible unit - usually by testing each function individually. In the that classes exist, this can be mean testing the whole class, or testing the class's methods separately.
+Unit testing means verifying the code at the smallest possible unit - usually by testing each function individually. In the case that classes exist, this can be mean testing the whole class, or testing the class's methods separately.
 
 Most commonly, unit testing is done _by the developer_ while they are writing the application code. 
 
