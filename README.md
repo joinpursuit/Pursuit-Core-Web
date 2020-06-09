@@ -21,7 +21,7 @@ The core curriculum is separated into five units:
 
 ## Projects
 
-[Projects Overview](./projects/Readme.md)
+[Projects Overview](./projects/README.md)
 
 A listing of all the projects that we currently have.
 
