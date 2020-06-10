@@ -69,9 +69,7 @@ This does a couple of things. It:
 Type `heroku config` to see your unique database URL. This `DATABASE_URL` will be used by `pg-promise` to connect to your database in Heroku, other than that you are not going to do anything directly with it just see that it exists.
 
 #### Seed your Database on Heroku
-First, we have to edit our `.sql` file very slightly. No longer are we `DROP DATABASE`-ing, nor do we have to `CREATE` one or `\c` into our Database, because we will already be accessing a database we created in Heroku.
-
-Instead make sure to comment out or remove those lines and instead place `DROP TABLE IF exists` statements.
+First, we have to edit our `.sql` file very slightly. No longer are we `DROP DATABASE`-ing, nor do we have to `CREATE` one or `\c` into our Database, because we will already be accessing a database we created in Heroku. Instead make sure to comment out or remove those lines and place `DROP TABLE IF exists` statements.
 
 ```sql
 -- DROP DATABASE IF EXISTS my_database_name;
@@ -95,7 +93,7 @@ heroku pg:psql -f file.sql
 
 Where `file.sql` is our .sql file's name.
 
-Barring any issues, your database should be seeded! There's only one last thing to do. We go to our `db.js` file or wherever you instantiated `pg-promise` and make sure that we use `process.env.DATABASE_URL` in the connection string (for when running on Heroku) or our local database for when there's no `DATABASE_URL` in the environment. Like so:
+Barring any issues, your database should be seeded! There's only one last thing to do. We go to our `db.js` file or wherever you instantiated `pg-promise` and make sure that we use `process.env.DATABASE_URL` in the connection string or our local database like so: 
 
 ```js
 var pgp = require("pg-promise")({});
@@ -103,7 +101,7 @@ var connectionString = process.env.DATABASE_URL || "postgres://localhost:5432/my
 var db = pgp(connectionString);
 ```
 
-...And we are all set!
+This ensures that when we are running our app locally and there's no `DATABASE_URL` we connect to our local database at `postgres://localhost:5432/my_database_name` but when our app is running in Heroku we connect to the database Heroku provisioned at `DATABASE_URL` environment variable.
 
 ### Step 4: Create a `package.json` in the root directory
 Before we can deploy we need to create a `package.json` file in the root directory for Heroku to understand, configure and know how to run our app.  We need provide commands for Heroku to install our dependencies for the frontend and backend and instruct it how to run our app.
@@ -123,7 +121,7 @@ This gives you a template `package.json`. Modify it for your project and pay att
   "main": "index.js",
   "scripts": {
     "start": "cd backend && npm start",
-    "heroku-prebuild": "cd backendh && npm install && cd ../frontend && npm install && npm run build",
+    "heroku-prebuild": "cd backend && npm install && cd ../frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
