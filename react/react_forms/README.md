@@ -33,15 +33,6 @@ This means _managing the form state in a react component_. In order to do this w
 
 This means _not managing the form state_ in a component. Not having react hold the state makes it simpler to implement, but we need a way to retrieve the values from the form. Usually we do this when the form submits, or we click a button.
 
-## Lesson Outline
-
-* Controlled components using forms
-  * checkboxes
-  * selects
-  * inputs
-  * etc
-* Do all the same uncontrolled
-
 ## Code Example
 
 Clone down this repo, open it in your code editor, and run `npm install`
@@ -64,10 +55,12 @@ With the structure of our form built, we can now include other opportunities for
 
 ## 1. Checkboxes
 
+Right now we just have an empty form with a submit button, which isn't super useful.
+
 The first input we'll add is a checkbox.  As the box is checked, we want to update our state. 
 
 ```jsx
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -196,11 +189,13 @@ return (
     </div>
 
     <input
+      type="text"
       value={firstName}
       placeholder="First Name"
       onChange={handleFirstNameChange}
     />
     <input
+      type="text"
       value={lastName}
       placeholder="Last Name"
       onChange={handleLastNameChange}
@@ -242,12 +237,126 @@ const handleFormSubmit = (event) => {
 }
 ```
 
+Normally on submit we would probably send a POST request to the server with the form data. But for this example, we just pop up an alert.
+
+We can also show the form data in the alert, just to demonstrate that we have access to all the data in the form.
+
+```js
+const handleFormSubmit = (event) => {
+  event.preventDefault();
+  if(allFieldsValid()) {
+    alert(`Form submitted! \n ${notARobot} \n ${title} \n ${firstName} \n ${lastName}`);
+  }
+  else {
+    alert("Please fill out the form completely")
+  }
+}
+```
+
+> You can see the final product in the `solution` branch on the example repo.
+
+## Uncontrolled components
+
+So that's a fair amount of work, so let's look at another way to do this - using the uncontrolled component method.
+
+The main difference here is that we won't be capturing the state of the input fields while they're changing. Only when the form gets submitted do we extract the values.
+
+Remove all the `onChange` and `values` attributes from all the inputs in the form. The only thing that should remain is the `onSubmit` function in the `<form>` tag itself.
+
+The component should render something like this:
+
+```jsx
+return (
+  <form onSubmit={handleFormSubmit}>
+    <h2>User Information</h2>
+    
+    <input id="not-robot" type="checkbox" name="notARobot"/>
+    <label htmlFor="not-robot">I am not a robot</label>
+
+    <select name="title">
+      <option value=''></option>
+      <option value='mr'>Mr.</option>
+      <option value='ms'>Ms.</option>
+      <option value='mrs'>Mrs.</option>
+      <option value='mx'>Mx.</option>
+      <option value='dr'>Dr.</option>
+    </select>
+
+    <input
+      type="text"
+      placeholder="First Name"
+    />
+    <input
+      type="text"
+      placeholder="Last Name"
+    />
+
+    <button type="submit">Submit</button>
+  </form>
+)
+```
+
+Now we have to give every input a `name` attribute. The name will be how we access the form values, so they need to be unique but only within this form.
+
+```jsx
+return (
+  <form onSubmit={handleFormSubmit} ref={formTag}>
+    <h2>User Information</h2>
+    
+    <input id="not-robot" type="checkbox" name="notARobot"/>
+    <label htmlFor="not-robot">I am not a robot</label>
+
+    <select name="title">
+      <option value=''></option>
+      <option value='mr'>Mr.</option>
+      <option value='ms'>Ms.</option>
+      <option value='mrs'>Mrs.</option>
+      <option value='mx'>Mx.</option>
+      <option value='dr'>Dr.</option>
+    </select>
+
+    <input
+      type="text"
+      placeholder="First Name"
+      name="firstname"
+    />
+    <input
+      type="text"
+      placeholder="Last Name"
+      name="lastname"
+    />
+
+    <button type="submit">Submit</button>
+  </form>
+)
+```
+
+Great! That's all the setup we need. Now we can grab the values on submit.
+
+Since the `onSubmit` is the _event_ that triggers the action, we make sure our function has an event parameter defined. It doesn't matter what you call it, but `e` or `event` is the canonical name.
+
+To access the elements themselves, we call `event.target.whateverTheNameFieldIsCalled`. Then to access the value within that element, just add `.value` to that.
+
+For example:
+
+```js
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(event.target.firstname) // <input type="text" placeholder="First Name" name="firstname">
+    console.log(event.target.firstname.value) // Jimmy
+  }
+```
+
+
+
+
+
 ## Summary
 
 Do a quick review at the end of the lesson to talk about what you covered.
 
 ### Resources
 
-- [A link to relevant documentation](https://www.google.com/)
-- Or another [free practice resource](https://www.google.com/)
-- etc.
+- [Official react forms docs](https://reactjs.org/docs/forms.html)
+- [Writing a custom hook](https://serverless-stack.com/chapters/create-a-custom-react-hook-to-handle-form-fields.html)
+- [Using hooks to handle multiple inputs](https://stackoverflow.com/questions/55757761/handle-an-input-with-react-hooks)
