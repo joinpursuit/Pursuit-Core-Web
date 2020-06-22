@@ -335,7 +335,11 @@ Great! That's all the setup we need. Now we can grab the values on submit.
 
 Since the `onSubmit` is the _event_ that triggers the action, we make sure our function has an event parameter defined. It doesn't matter what you call it, but `e` or `event` is the canonical name.
 
-To access the elements themselves, we call `event.target.whateverTheNameFieldIsCalled`. Then to access the value within that element, just add `.value` to that.
+To access the elements themselves, we call `event.target.whateverTheNameFieldIs`.
+
+Then to access the value, we either use `.value` for input & select fields, or `.checked` for checkbox fields. 
+
+> What happens if you use .value on a checkbox?
 
 For example:
 
@@ -344,10 +348,44 @@ For example:
     event.preventDefault();
     console.log(event.target.firstname) // <input type="text" placeholder="First Name" name="firstname">
     console.log(event.target.firstname.value) // Jimmy
-  }
+    console.log(event.target.notARobot.checked) // true
 ```
 
+We can use our favorite destructuring syntax to shorten this up.
 
+```js
+const handleFormSubmit = (event) => {
+  event.preventDefault();
+  // get all the name properties
+  let {firstname, lastname, title, notARobot} = event.target
+  
+  //validate them 
+  if(allFieldsValid(firstname.value, lastname.value, title.value, notARobot.checked)) {
+    alert("Form submitted successfully!")
+  }
+  else {
+    alert("Please fill out the form completely")
+  }
+}
+```
+
+We also need to change how `allFieldsValid()` works. Since we only have access to the fields in the scope of the function that handles `onSubmit`, we need to rewrite our function to accept arguments instead of referencing something outside of it.
+
+```js
+const allFieldsValid = (...args) => {
+  // loop through all arguments that were passed in
+  // if any are falsy, return false
+  // otherwise return true
+  for(let i = 0; i < args.length; i++) {
+    if(!args[i]) {
+      return false
+    }
+  }
+  return true
+};
+```
+
+And that's it! 
 
 
 
