@@ -79,7 +79,7 @@ For this App we end up with a component tree that could be represented as follow
 Inside of `src/Components/` create a directory called `__tests__`. Here we will write our tests files. It is common practice to have a `__tests__` directory that contains all your tests.
 
 ### Testing DonationCard
-Let's test our first component `DonationCard`. This is a simple component that is used as a list item in the **Recent Donations** section. By itself it takes a Donor's `name`, `message` and `amount` as props and displays them. Take a look at it bellow.
+Let's first test our component `DonationCard`. This is a simple component that is used as a list item in the **Recent Donations** section. By itself it takes a Donor's `name`, `message` and `amount` as props and displays them. Take a look at it bellow.
 
 ```jsx
 // Components/DonationCard.js
@@ -100,10 +100,10 @@ export default Donation;
 ```
 
 #### Test 
-Lets test that when this component renders, it displays the information that was passed as props in the correct format.
+Let's test that when this component renders, it displays the information that was passed as props in the correct format.
 
 Create a file `__tests__/DonationCard.test.js`
-Lets read the test carefully, it should give us an idea of what is doing.
+Let's read the test carefully, it should give us an idea of what it is doing.
 
 ```js
 // __tests__/DonationCard.test.js
