@@ -43,7 +43,7 @@ Clone down this repo, open it in your code editor, and run `npm install`
 
 Open up `UserInfoForm.js` and look at what's there.
 
-Why should we use a `form` tag and use `onSubmit` instead of setting the `onClick` property of the submit button? The main reason is **accessibility**. 
+Why do we use a `form` tag and use `onSubmit` instead of using the `onClick` property of the submit button? The main reason is **accessibility**. 
 
 Some users use a screen reader that translates the UI into audio. In order for this to work effectively, websites should be designed using **semantic HTML**. This means that your HTML tags should be as descriptive as possible to make it clear what their function is.
 
@@ -387,11 +387,29 @@ const allFieldsValid = (...args) => {
 
 And that's it! 
 
+## Summary & Poll Questions
 
+**1. Where is the proper place to put .preventDefault()?**
+* In the onClick handler function
+* In the onSubmit handler function
+* Inside useEffect()
+* You shouldn't use .preventDefault() with react forms
 
-## Summary
+**2. What's the difference between uncontrolled and controlled components?**
 
-Do a quick review at the end of the lesson to talk about what you covered.
+**3. How do we get the current state value from a checkbox?**
+
+* `.value`
+* `.checked`
+* `.name`
+* `event.target`
+
+**4. What html attribute do we need to add to all inputs to be able to access them on submit? (in an uncontrolled component)**
+
+* `name`
+* `className`
+* `data-target`
+* `id`
 
 ### Resources
 
