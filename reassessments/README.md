@@ -68,21 +68,6 @@ Let this repos serve as inspiration for what your `Data-Structures-And-Algorithm
 * Solving this problems will make sure you understand the given topic and serve as additional practice for whiteboarding interviews. On top of that this will help you keep your GitHub commits green as you commit.
 * Having a **Data Structures and Algorithms** repo pinned in your GitHub and committing often to it can signal to potential employers or recruiters that you know or are at least familiar with these topics already, making you a stronger candidate.
 
-<details>
-<summary> Deprecated Approach at reassessing DSA Standards</summary>
-
-:warning: Deprecated due to time constraints and instructor capacity
-
-To get reassessed on DSA Standards:
-1. Pick a topic and review its [lesson](https://github.com/joinpursuit/Pursuit-Core-DSA). Also explore the resources linked to in the lesson's Readme.
-2. Find and explore other resources online to support your understanding of the topic like YouTube videos or its [CTCI](https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zDIpyDJNKcsxYPTiTC5JzlRIys_PBgBokggk&q=ctci+book&oq=ctci&aqs=chrome.4.69i57j0l3j46j0l3.4069j0j7&sourceid=chrome&ie=UTF-8) chapter. 
-3. Solve the 4-5 problems associated with the specific topic in the [**Standards Reassessments** Table](https://github.com/joinpursuit/Pursuit-Core-DSA#standards-reassessments). These will make sure you understand the given topic and serve as additional practice.
-4. Once you have practiced a topic and feel confident you know what it is about reach out to one of your instructors and let them know you would like to schedule a reassessment for a DSA Standard. Your instructor will pick one question at random from **Standards Reassessments** Table and ask it of you in a whiteboarding mock interview. If you demonstrate you understand the topic you will be marked proficient or exceptional in it and your grades will update shortly thereafter.
-
-💡 Reassessing DSA Standards can feel overwhelming, specially if you have to get reassessed in a few of them. Alejo's personal recommendation is to start small. Go for the lowest hanging fruit; pick a topic you think you are most familiar with already or a topic that interests you personally the most, then keep at it for some time reviewing material and practicing on LeetCode or other platforms. Stick with it and you'll see you end up eating it in small bites.
-
-</details>
-
 ## Misc Standards - Other Projects
 
 * [Responsive Website from mockup](./projects/responsive_site.md). To reassess CSS and HTML related standards only. This can be a good portfolio project to showcase your front-end and css skills.
