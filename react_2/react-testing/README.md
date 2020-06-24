@@ -139,8 +139,8 @@ Run your test with `npm test` and check if it passes.
 * Share what you changed with the rest of the class or a neighbor
 
 
-### Testing StatusBar
-Similar to how we tested `DonationCard` now you test the `StatusBar` component. Take a look at `StatusBar.jsx` and make sure you understand the component first.
+### Testing ProgressBar
+Similar to how we tested `DonationCard` now you test the `ProgressBar` component. Take a look at `ProgressBar.jsx` and make sure you understand the component first.
 
 Implement the following tests
 
