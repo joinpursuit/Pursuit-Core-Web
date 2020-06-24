@@ -19,7 +19,7 @@ One of the main strategies that companies use to understand how long things will
 
 A user story is the smallest unit of work for your team.  An example of a user story is:
 
->> As a user, I can create a new account using an email and a password.
+> As a user, I can create a new account using an email and a password.
 
 A user story may have subtasks that break down into specific development work.  For example, in the user story above, you might make subtasks for building a React login component and configuring Firebase Auth.
 
