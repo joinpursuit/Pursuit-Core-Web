@@ -293,9 +293,9 @@ test('Handle form submission with handleSubmit', () => {
 
 ###### Explanation
 * **Arrange**:
-  * Crete `handleSubmit` mock function
+  * Create `handleSubmit` mock function
   * Render the form and pass `handleSubmit` mock function as prop
-  * Get the rendered form with `getByTestId`. Note that this is necessary because there is no way to get a form with any of the other queries. This requires that in you component you pass form `data-testid="form"` attribute like so: `<form onSubmit={handleSubmit} data-testid="form">`. Use `data-testid` as a last resource when you cannot get an element by any of the other queries
+  * Get the rendered form with `getByTestId`. Note that this is necessary because there is no way to get a form with any of the other queries. This requires that in your component you pass form `data-testid="form"` attribute like so: `<form onSubmit={handleSubmit} data-testid="form">`. Use `data-testid` as a last resource when you cannot get an element by any of the other queries
 * **Act**
   * Simulate submitting a form with `fireEvent.submit(form)`
 * Assert
@@ -305,7 +305,7 @@ test('Handle form submission with handleSubmit', () => {
 * [How to test onSubmit in react-testing-library](https://kula.blog/posts/test_on_submit_in_react_testing_library/)
 
 ## Testing Mindset
-99% of you tests you will always need tree steps: **Arrange**, **Act** & **Assert**
+99% of your tests will need three steps: **Arrange**, **Act** & **Assert**
 
 #### Arrange
 Rendering, passing props and prepping your component to be tested
@@ -389,7 +389,7 @@ Now run `npm test` again and see what happens. You should see a message that the
 
 So, this is pretty obvious - the snapshot changed because we changed how the component rendered. What about when something changes unexpectedly?
 
-Let's pretend that the variable `{items}` that's beinge exported from `constants.js` is actually an axios call that returns an array of data from our backend. Since we're employed at a large company, we only work on the frontend and have no way of making changes to the backend (I know, very sad).
+Let's pretend that the variable `{items}` that's being exported from `constants.js` is actually an axios call that returns an array of data from our backend. Since we're employed at a large company, we only work on the frontend and have no way of making changes to the backend (I know, very sad).
 
 So far, we've been testing our code with the data that comes back from the API, because we've been working here for two years and it's never changed or caused any issues. But today something changed!
 
