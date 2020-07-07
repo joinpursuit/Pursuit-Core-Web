@@ -230,7 +230,7 @@ Note that this component has a bit of logic to it. It calculates a percentage ba
 
 ### Testing Form.jsx
 
-The Form component has four tests but we will focus on only two of them. To access the rest of the tests make sure to exmplore the [GoFundMe App Fully Tested: `tested-app` branch](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter/tree/tested-app)
+The Form component has four tests but we will focus on only two of them. To access the rest of the tests make sure to explore the [GoFundMe App Fully Tested: `tested-app` branch](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter/tree/tested-app)
 
 #### Handles input changes with `handleFormInput` when typing or editing a value
 Note that here we are going to test a function that gets passed as props: `handleFormInput`, and we want to check if that function is being called as a user would type text into the form fields. We will do so with [Jest mock functions](https://jestjs.io/docs/en/mock-functions.html)
