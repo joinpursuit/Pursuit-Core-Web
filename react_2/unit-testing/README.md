@@ -50,6 +50,8 @@ There are many different types of testing, but here are the most common ones:
 
 ### Unit Testing
 
+<img alt="unit testing visualization" src="./assets/unit-testing.png" width="500px"/>
+
 Unit testing means verifying the code at the smallest possible unit - usually by testing each function individually. In the case that classes exist, this can be mean testing the whole class, or testing the class's methods separately.
 
 Most commonly, unit testing is done _by the developer_ while they are writing the application code. 
@@ -58,11 +60,15 @@ In many companies that build software, unit tests are the most foundational type
 
 ### Integration Testing
 
+<img alt="integration testing visualization" src="./assets/integration-testing.png" width="500px" />
+
 Integration testing operates at a slightly higher level - it verifies the **contract** between pieces of code. In many cases this means testing that the front end and back end are communicating correctly, like by sending requests and ensuring that the response is what's expected.
 
 It can also mean verifying the interoperability between components, whether that means specific React components, node modules, or any other logical separation of code. In general, integration testing is making sure that several pieces of your program are functioning together properly.
 
 ### System or end-to-end (E2E) testing
+
+<img alt="![end to end testing visualization" src="./assets/e2e-testing.png" width="500px" />
 
 E2E testing involves verifying that your application works from a user level. This can look something like the following:
 
@@ -80,6 +86,8 @@ There are many tools that let you write E2E tests, but here are some popular one
 
 ### How much of each type of test should I write?
 
+![martin fowler's test pyramid](https://martinfowler.com/articles/practical-test-pyramid/testPyramid.png)
+
 In general, you want more unit tests than integration tests, and more integration tests than E2E tests. See [this article](https://martinfowler.com/articles/practical-test-pyramid.html#TheTestPyramid) for more on this topic.
 
 There is no hard rule about any of this, but think about it this way:
@@ -90,12 +98,14 @@ There is no hard rule about any of this, but think about it this way:
 
 ## Jest basics
 
+<img alt="jest testing cards" src="https://raw.githubusercontent.com/facebook/jest/master/website/static/img/jest-readme-headline.png" width="400px" />
+
 Enough with the talk, we'll set up jest in a new project and write some test code.
 
 ```bash
-# cd to whatever directory you want
-mkdir jesting
-cd jesting
+# create and cd into whatever directory you want
+mkdir testing-intro
+cd testing-intro
 npm init -y
 npm install --save-dev jest
 touch functions.js
@@ -120,7 +130,7 @@ Now we'll create a test file for it!
 touch functions.test.js
 ```
 
-> Note that we just took the name of the file we want to test and put `.test.` in the middle of it. This is the convention that jest wants us to follow.
+> ⚠️ Note that we just took the name of the file we want to test and put `.test.` in the middle of it. This is the convention that jest wants us to follow.
 
 In our newly created test file:
 
@@ -251,7 +261,7 @@ Since `squareArray` is a little more complicated than a simple multiply, we want
 * If a parameter is passed in that is NOT an array, return null
 * When an array is passed in, the function DOES return an array
 * The array is the same length as the one that was passed in
-* Finally, it returns the right value
+* Finally, it returns an array where each value has been squared. 
 
 These are four test cases that are all related to the `squareArray()` function. So we should group them! I present to you: the `describe()` function.
 
@@ -263,7 +273,7 @@ describe("square an array", () => {
 
   test("Returns an array that's the same length as the one passed in", () => {})
 
-  test("Returns the right value", () => {})
+  test("Returns an array where each value has been squared.", () => {})
 })
 ```
 
@@ -273,7 +283,7 @@ Go ahead and wrap your three `multiply()` test cases with a `describe()` as well
 
 ### Exercise (20 minutes)
 
-Fill out the test cases! The descriptions should tell you what you want to try to do. 
+Fill out the test cases for `squareArray`! The descriptions should tell you what you want to try to do. 
 
 Here are a couple matchers that you may find useful:
 
