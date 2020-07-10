@@ -86,7 +86,7 @@ There are many tools that let you write E2E tests, but here are some popular one
 
 ### How much of each type of test should I write?
 
-![martin fowler's test pyramid](https://martinfowler.com/articles/practical-test-pyramid/testPyramid.png)
+![testing pyramid](../unit-testing/assets/test-pyramid.png)
 
 In general, you want more unit tests than integration tests, and more integration tests than E2E tests. See [this article](https://martinfowler.com/articles/practical-test-pyramid.html#TheTestPyramid) for more on this topic.
 
