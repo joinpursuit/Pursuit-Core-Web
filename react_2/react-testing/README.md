@@ -237,15 +237,22 @@ If we look into our component, we have a span with className `"text-muted"` insi
 
 What we can do here is divide our check into two parts
 ```js
-const raised = screen.getByText(`Raised $${raisedAmount} of`)
-const target = screen.getByText(`$${targetAmount}`)
+test('Displays the raised amount of total in the format: Raised $[amount] of $[total] in a heading', () => {
+  const targetAmount = 1000
+  const raisedAmount = 170
 
-expect(raised).toBeInTheDocument();
-expect(raised.tagName).toBe('H2')
+  render(<ProgressBar targetAmount={targetAmount} raisedAmount={raisedAmount} />)
 
-expect(target).toBeInTheDocument();
-expect(target.tagName).toBe('SPAN')
-expect(target.parentElement).toBe(raised)
+  const raised = screen.getByText(`Raised $${raisedAmount} of`)
+  const target = screen.getByText(`$${targetAmount}`)
+
+  expect(raised).toBeInTheDocument();
+  expect(raised.tagName).toBe('H2')
+
+  expect(target).toBeInTheDocument();
+  expect(target.tagName).toBe('SPAN')
+  expect(target.parentElement).toBe(raised)
+})
 ```
 
 <details>
@@ -378,7 +385,66 @@ Fire events and simulate user interaction. The `fireEvent.*` methods and the `us
 Check with `expect` and matchers that given what was rendered and the user event simulated you got the expected results. For example after the user hits submit you expect a message to appear on the screen.
 
 ### Testing App.js
-See the [GoFundMe App Fully Tested: `tested-app` branch](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter/tree/tested-app) `App.test.js`
+
+#### Test: Submitting the form makes a POST request
+```js
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event';
+import App from '../../App';
+import axiosMock from 'axios'
+
+jest.mock('axios')
+
+describe("App", () => {
+  test("Submitting a donation makes a POST request to API/posts and adds a new recent donation", async () => {
+    axiosMock.post.mockResolvedValueOnce({
+      data: {
+        "name": "James Bond",
+        "message": "Bon Voyage ",
+        "amount": "500",
+        "id": 101
+      }
+    })
+
+    // Render the App
+    render(<App />)
+
+    // Find elements that are rendering in the screen. We could consider this an 
+    // implicit assertion because if the elements are not found the test will fail
+    const nameInput = screen.getByPlaceholderText('Jon Doe')
+    const messageInput = screen.getByPlaceholderText('Good luck')
+    const amountSlider = screen.getByRole('slider')
+    const donateButton = screen.getByText('Donate')
+
+    // Fire events
+    userEvent.type(nameInput, "James Bond")
+    userEvent.type(messageInput, "Bon Voyage")
+    fireEvent.change(amountSlider, { target: { value: "500" } })
+    userEvent.click(donateButton)
+
+    // Expect that that axios.post was called with the correct values
+    expect(axiosMock.post).toHaveBeenCalledTimes(1)
+    expect(axiosMock.post).toHaveBeenCalledWith(
+      "https://jsonplaceholder.typicode.com/posts", {
+      amount: "500",
+      message: "Bon Voyage",
+      name: "James Bond"
+    })
+
+    // Wait and expect that after the async operation (Net request) 
+    // a new donation is displayed to the user
+    const donationHeader = await screen.findByText("James Bond donated $500")
+    expect(donationHeader.tagName).toBe("H5")
+
+    const donationMessageP = await screen.findByText("Bon Voyage")
+    expect(donationMessageP.tagName).toBe("P")
+  })
+})
+```
+For the rest of the tests checkout [`App.test.js`](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter/blob/tested-app/react-app/src/Components/__tests__/App.test.js)
+in the [GoFundMe App Fully Tested: `tested-app` branch](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter/tree/tested-app) 
+
 
 ## Other types of Testing
 - [Visual Regression Testing](https://applitools.com/blog/visual-regression-testing-developers/)
@@ -391,6 +457,7 @@ Today we:
 * Learned how to test a React component
 * Became aware of the importance of test our apps
 * Learned how to mock functions to pass as props to components
+* How to mock network requests results
 * Reviewed 3 different types of software testing
 
 ### Resources
