@@ -58,10 +58,11 @@ Unit Tests > Integration Tests > E2E
 
 ## Hands On
 
-### Clone Sample React App
+### Setup
+#### Clone Sample React App
 Clone the repo [Testing-React-Apps Starter App](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter). You might remember the GoFundMe app from our React Props Lab
 
-### Tools
+#### Tools
 * [Jest](https://jestjs.io/)
 * [React Testing Library](https://testing-library.com/)
 * [jest-dom](https://github.com/testing-library/jest-dom) (comes with React Testing Library, but you will need the docs)
@@ -73,7 +74,7 @@ Most likely you will never need to install them manually.
 
 If you are having trouble setting up or you need a custom setup make sure to take a look at the [docs](https://testing-library.com/docs/dom-testing-library/setup)
 
-### Enable VScode Jest Autocompletion/Intellisense
+#### Enable VScode Jest Autocompletion/Intellisense
 Save the following snippet as `jsconfig.json` at the root of your app directory.
 ```json
 {
@@ -88,7 +89,7 @@ Save the following snippet as `jsconfig.json` at the root of your app directory.
 This will tell VScode to provide Autocompletion/Intellisense for your Jest expectations and matchers. See more info [here](https://code.visualstudio.com/docs/nodejs/working-with-javascript#__javascript-projects-jsconfigjson).
 
 
-## App Review
+### App Review
 Let's review the App we are going to test. This is a GoFundMe page replica.
 This App is implemented as outlined in the screenshot below. Each rectangle is a separate React Component. 
 ![gofundme page mock screenshot](./assets/goFundMe.png)
@@ -96,12 +97,12 @@ This App is implemented as outlined in the screenshot below. Each rectangle is a
 For this App we end up with a component tree that could be represented as follows
 ![gofundme app component tree](./assets/component-tree.png)
 
-## Hands On
+### Writing Tests
 
-### __tests__ Directory
+#### __tests__ Directory
 Inside of `src/Components/` create a directory called `__tests__`. Here we will write our tests files. It is common practice to have a `__tests__` directory that contains all your tests.
 
-### Testing DonationCard
+#### Testing DonationCard
 Let's first test our component `DonationCard`. This is a simple component that is used as a list item in the **Recent Donations** section. By itself it takes a Donor's `name`, `message` and `amount` as props and displays them. Take a look at it bellow.
 
 ```jsx
@@ -122,7 +123,7 @@ const Donation = (props) => {
 export default Donation;
 ```
 
-#### Test 
+##### Test 
 Let's test that when this component renders, it displays the information that was passed as props in the correct format.
 
 Create a file `__tests__/DonationCard.test.js`
@@ -157,12 +158,12 @@ test('DonorCard displays donor name, message and ammount', () => {
 
 Run your test with `npm test` and check if it passes.
 
-### Exercise
+##### Exercise
 * Change something in DonationCard that would make your test fail.
 * Share what you changed with the rest of the class or a neighbor
 
 
-### Testing ProgressBar
+#### Testing ProgressBar
 Similar to how we tested `DonationCard` now you test the `ProgressBar` component. Take a look at `ProgressBar.jsx` and make sure you understand the component first.
 
 Implement the following tests
@@ -172,7 +173,7 @@ test('Displays the raised amount of total in the format: Raised $[amount] of $[t
 test('Displays progress bar with proper percentage', () => {})
 ```
 
-#### Displays the raised amount of total in the format: Raised $[amount] of $[total] in a heading
+##### Displays the raised amount of total in the format: Raised $[amount] of $[total] in a heading
 
 ```js
 describe('ProgressBar', () => {
@@ -189,11 +190,13 @@ describe('ProgressBar', () => {
 ```
 
 This is most likely what you tried to do. However your test should be failing and giving you a hint as to why
+
 ```
 Unable to find an element with the text: Raised $170 of $1000. 
 This could be because the text is broken up by multiple elements. 
 In this case, you can provide a function for your text matcher to make your matcher more flexible.
 ```
+
 If we look into our component, we have a span with className `"text-muted"` insider our heading where we display the target amount. This is so that the target amount is styled with a different color. When our component is rendered we end up with our text being broken up by multiple elements. 
 ```html
 <h2 class="mb-4" > Raised $ 170 of <span class="text-muted" > $1000 </span> </h2>
@@ -228,7 +231,7 @@ What we can do here is divide our check into two parts
 </details>
 
 
-#### Displays progress bar with proper percentage
+##### Displays progress bar with proper percentage
 ```js
 test('Displays progress bar with proper percentage', () => {
   const targetAmount = 1000
@@ -251,11 +254,11 @@ Note that this component has a bit of logic to it. It calculates a percentage ba
 * Expect that `progressBar` is in the document and that its width its the same as what is displaying.
 
 
-### Testing Form.jsx
+#### Testing Form.jsx
 
 The Form component has four tests but we will focus on only two of them. To access the rest of the tests make sure to explore the [GoFundMe App Fully Tested: `tested-app` branch](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter/tree/tested-app)
 
-#### Handles input changes with `handleFormInput` when typing or editing a value
+##### Handles input changes with `handleFormInput` when typing or editing a value
 Note that here we are going to test a function that gets passed as props: `handleFormInput`, and we want to check if that function is being called as a user would type text into the form fields. We will do so with [Jest mock functions](https://jestjs.io/docs/en/mock-functions.html)
 
 ```js
