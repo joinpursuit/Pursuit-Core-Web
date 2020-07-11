@@ -121,7 +121,7 @@ const Donation = (props) => {
 export default Donation;
 ```
 
-##### Test 
+##### Test File
 Let's test that when this component renders, it displays the information that was passed as props in the correct format.
 
 Create a file `__tests__/DonationCard.test.js`
@@ -155,6 +155,29 @@ test('DonorCard displays donor name, message and ammount', () => {
   3. `expect(donationHeading).toBeInTheDocument()`. Lets expect to have found a heading and a message being rendered and that they are in the document. `toBeInTheDocument` is a matcher that comes from `jest-dom`. Make sure to acquaint yourself with all [its matchers](https://github.com/testing-library/jest-dom), they will come very handy.
 
 Run your test with `npm test` and check if it passes.
+
+#### Common Queries & Matchers
+| Queries (screen.*)      |                      |                          |                  |
+| ----------------------- | -------------------- | ------------------------ | ---------------- |
+| `getByText`             | `getAllByText`       | `getByDisplayValue`      | `getByLabelText` |
+| `findByPlaceHolderText` | `findByDisplayValue` | `findByRole`             |
+| `queryByText`           | `queryByLabelText`   | `queryByPlaceholderText` |
+
+⚠️  Find the similarities and differences between `get*`, `query*` and `find*` in the [docs here](https://testing-library.com/docs/dom-testing-library/api-queries)
+
+| DOM Matchers [(jsdom)](https://github.com/testing-library/jest-dom) |                |                      |               |
+| ------------------------------------------------------------------- | -------------- | -------------------- | ------------- |
+| `toBeInTheDocument`                                                 | `toHaveValue`  | `toHaveDisplayValue` | `toBeChecked` |
+| `toBeDisabled`                                                      | `toBeRequired` |
+
+⚠️  See [jsdom-jest docs](https://github.com/testing-library/jest-dom) for more
+
+| Jest Matchers |              |                    |            |
+| ------------- | ------------ | ------------------ | ---------- |
+| `toBe`        | `toEqual`    | `toHaveBeenCalled` | `toBeNull` |
+| `toMatch`     | `toBeTruthy` | ...                |            |
+
+⚠️  See [Jest docs](https://jestjs.io/docs/en/expect) for more
 
 ##### Exercise
 * Change something in DonationCard that would make your test fail.
