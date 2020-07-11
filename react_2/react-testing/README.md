@@ -156,6 +156,10 @@ test('DonorCard displays donor name, message and ammount', () => {
 
 Run your test with `npm test` and check if it passes.
 
+##### Exercise
+* Change something in DonationCard that would make your test fail.
+* Share what you changed with the rest of the class or a neighbor
+
 #### Common Queries & Matchers
 | Queries (screen.*)      |                      |                          |                  |
 | ----------------------- | -------------------- | ------------------------ | ---------------- |
@@ -179,10 +183,9 @@ Run your test with `npm test` and check if it passes.
 
 ⚠️  See [Jest docs](https://jestjs.io/docs/en/expect) for more
 
-##### Exercise
-* Change something in DonationCard that would make your test fail.
-* Share what you changed with the rest of the class or a neighbor
+#### Structure of an Assertion
 
+<img alt="structure of an assertion visualized" src="./assets/assertion-structure.png" width="600px" />
 
 #### Testing ProgressBar
 Similar to how we tested `DonationCard` now you test the `ProgressBar` component. Take a look at `ProgressBar.jsx` and make sure you understand the component first.
