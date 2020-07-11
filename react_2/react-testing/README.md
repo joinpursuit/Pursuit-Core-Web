@@ -66,11 +66,19 @@ Clone the repo [Testing-React-Apps Starter App](https://github.com/joinpursuit/P
 * [jest-dom](https://github.com/testing-library/jest-dom) (comes with React Testing Library, but you will need the docs)
 * [user-event](https://github.com/testing-library/user-event) (comes with React Testing Library, but you will need the docs)
 
-Jest has been integrated into Apps made with `create-react-app` since long ago. The React Testing Library is also included in apps that were created with recent versions of `create-react-app` (v3.3.0 and above). 
-You can verify by inspecting your dependencies in your `package.json`. 
-Most likely you will never need to install them manually. 
+#### Installation
+:warning: You don't need to install anything manually because you have a React App bootstrapped with `create-react-app`. If your app was **not** created with `create-react-app` you **will** need to install the tools mentioned above
 
-If you are having trouble setting up or you need a custom setup make sure to take a look at the [docs](https://testing-library.com/docs/dom-testing-library/setup)
+* Jest has been integrated into Apps made with `create-react-app` since long ago via the `react-scripts` package. 
+* The React Testing Library is also included in apps that were created with recent versions of `create-react-app` (v3.3.0 and above). If you inspect your package.json you should see something like this 
+  ```
+  "@testing-library/jest-dom": "^4.2.4",
+  "@testing-library/react": "^9.5.0",
+  "@testing-library/user-event": "^7.2.1",
+  ```
+✅ To run our test we will only need to run them with `npm test`
+
+🚧 If you are having trouble setting up or you need a custom setup make sure to take a look at the [docs](https://testing-library.com/docs/dom-testing-library/setup)
 
 #### Enable VScode Jest Autocompletion/Intellisense
 Save the following snippet as `jsconfig.json` at the root of your app directory.
@@ -329,7 +337,8 @@ describe('Form', () => {
   * Other mock [functions matchers](https://jestjs.io/docs/en/mock-functions.html#custom-matchers) are
     * `expect(mockFunc).toHaveBeenCalledWith(arg1, arg2)`
 
-#### Handle form submission with handleSubmit
+#### Testing form calls handleSubmit when submitted
+
 ```js
 test('Handle form submission with handleSubmit', () => {
   const handleSubmit = jest.fn()
