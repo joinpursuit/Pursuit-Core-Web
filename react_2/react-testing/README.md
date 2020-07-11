@@ -24,15 +24,39 @@ We want our tests to simulate as closely as possible what a user would see and d
 the React Testing Library enables us to test our components for [**functionality** and not for **implementation**](https://testing-library.com/docs/intro); so that, if in the future
 we refactor our components, say we move from react state to hooks (implementation) but functionality is unaffected our users should remain happy and our tests should still pass.
 
-[What Is React Testing Library? - Video by LevelUpTuts](https://www.youtube.com/watch?v=JKOwJUM4_RM&feature=youtu.be)
-
 ### To Consider
 
-* **Iteration speed vs Realistic environment**: Testing with the React Testing Library offer us a quick feedback loop between making a change and expecting a result. but it doesn’t model the browser behavior exactly. You must take into account that these tests run in `node` with mocked DOM ([jsdom](https://github.com/jsdom/jsdom)) and not in a browser. End to End (E2E) testing, on the other hand, done with a tool like [cypress](https://www.cypress.io/) offer us a real browser environment, but reduce the iteration speed and are flakier.
+#### Types of Testing
 
-* **Components Unit vs Integration Testing**: With components, the distinction between a “unit” and “integration” test can be blurry. If you’re testing a form, should its test also test the buttons inside of it? Or should a button component have its own test suite? Should refactoring a button ever break the form test?
+##### Unit Testing
+<img alt="unit testing visualization" src="../unit-testing/assets/unit-testing.png" width="400px"/>
 
-## Setup
+Testing the smallest possible unit of your code, usually single functions or single components. Write lots of these!
+
+##### Integration Testing
+<img alt="integration testing visualization" src="../unit-testing/assets/integration-testing.png" width="400px" />
+
+Testing the "contract" between units in this case components. This means testing that several components of your app that interact work well together, that they **integrate** with no problems.
+
+
+##### E2E (End-to-End) or System Testing
+<img alt="![end to end testing visualization" src="../unit-testing/assets/e2e-testing.png" width="400px" />
+
+To test the system or app as a whole generally involves spinning an automated browser to run your entire app and scripting user actions checking that everything works correctly. These test are bigger, slower to run and when they fails hard to debug.
+
+##### How much of each type of test should I write?
+
+![testing pyramid](../unit-testing/assets/test-pyramid.png)
+
+Unit Tests > Integration Tests > E2E
+
+#### Other Considerations
+* **Component(Unit) Testing  vs Integration Testing**: With components, the distinction between a “unit” and “integration” test can be blurry. If you’re testing a form, should its test also test the buttons inside of it? Or should a button component have its own test suite? Should refactoring a button ever break the form test?
+
+* **Iteration speed vs Realistic environment**: Testing with the React Testing Library offer us a quick feedback loop between making a change and expecting a result. but it doesn’t model the browser behavior exactly. You must take into account that these tests run in `node` with a mocked DOM ([jsdom](https://github.com/jsdom/jsdom)) and not in a browser. End to End (E2E) testing, on the other hand, done with a tool like [cypress](https://www.cypress.io/) offer us a real browser environment, but reduce the iteration speed and tests are usually are flakier.
+
+
+## Hands On
 
 ### Clone Sample React App
 Clone the repo [Testing-React-Apps Starter App](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter). You might remember the GoFundMe app from our React Props Lab
@@ -329,6 +353,7 @@ Today we:
 
 * Learned how to test a React component
 * Became aware of the importance of test our apps
+* Learned how to mock functions to pass as props to components
 * Reviewed 3 different types of software testing
 
 ### Resources
