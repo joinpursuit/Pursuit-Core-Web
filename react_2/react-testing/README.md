@@ -205,7 +205,7 @@ test('Displays the raised amount of total in the format: Raised $[amount] of $[t
 test('Displays progress bar with proper percentage', () => {})
 ```
 
-##### Displays the raised amount of total in the format: Raised $[amount] of $[total] in a heading
+##### Test: Displays the raised amount of total in the format: Raised $[amount] of $[total] in a heading
 
 ```js
 describe('ProgressBar', () => {
@@ -229,29 +229,30 @@ This could be because the text is broken up by multiple elements.
 In this case, you can provide a function for your text matcher to make your matcher more flexible.
 ```
 
-If we look into our component, we have a span with className `"text-muted"` insider our heading where we display the target amount. This is so that the target amount is styled with a different color. When our component is rendered we end up with our text being broken up by multiple elements. 
+If we look into our component, we have a span with className `"text-muted"` inside our heading where we display the target amount. This is so that the target amount is styled with a different color. When our component is rendered we end up with our text being broken up by multiple elements. 
+
 ```html
 <h2 class="mb-4" > Raised $ 170 of <span class="text-muted" > $1000 </span> </h2>
 ```
 
 What we can do here is divide our check into two parts
 ```js
-  const raised = screen.getByText(`Raised $${raisedAmount} of`)
-  const target = screen.getByText(`$${targetAmount}`)
+const raised = screen.getByText(`Raised $${raisedAmount} of`)
+const target = screen.getByText(`$${targetAmount}`)
 
-  expect(raised).toBeInTheDocument();
-  expect(raised.tagName).toBe('H2')
+expect(raised).toBeInTheDocument();
+expect(raised.tagName).toBe('H2')
 
-  expect(target).toBeInTheDocument();
-  expect(target.tagName).toBe('SPAN')
-  expect(target.parentElement).toBe(raised)
+expect(target).toBeInTheDocument();
+expect(target.tagName).toBe('SPAN')
+expect(target.parentElement).toBe(raised)
 ```
 
 <details>
-  <summary> <strong>Another alternative</strong> </summary>
+  <summary> 💡 Alternative Solution </summary>
 
 ```js
-  test('Displays the raised amount of total in the format: Raised $[amount] of $[total] in a heading', () => {
+test('Displays the raised amount of total in the format: Raised $[amount] of $[total] in a heading', () => {
   const targetAmount = 1000
   const raisedAmount = 170
   const { getByRole } = render(<ProgressBar targetAmount={targetAmount} raisedAmount={raisedAmount} />)
@@ -263,7 +264,7 @@ What we can do here is divide our check into two parts
 </details>
 
 
-##### Displays progress bar with proper percentage
+##### Test: Displays progress bar with proper percentage
 ```js
 test('Displays progress bar with proper percentage', () => {
   const targetAmount = 1000
@@ -282,7 +283,7 @@ Note that this component has a bit of logic to it. It calculates a percentage ba
 
 * Render the component as we have done in the past passing some props
 * Do the math for what we expect to be displayed
-* Get the progress bar element by the expected text what would display. 
+* Get the progress bar element by the expected text that would display. 
 * Expect that `progressBar` is in the document and that its width its the same as what is displaying.
 
 
