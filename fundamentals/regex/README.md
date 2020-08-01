@@ -81,7 +81,7 @@ Regular Expressions can be used in the following JavaScript Methods:
 
 :information_source: Source MDN - [Using Regular Expressions in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#:~:text=Using%20regular%20expressions%20in%20JavaScript)
 
-#### String.match
+#### str.match() Example
 
 ```js
 let text = 'I may not have been sure about what really did interest me, but I was absolutely sure about what didn\'t.';
@@ -95,7 +95,7 @@ text.match(pattern);
 Above code behaves identical to writing it as `pattern.exec(text)`
 
 
-#### Character Classes
+### Character Classes
 
 | Character | Matches                                                                 |
 | --------- | ----------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ let pattern = /\./;
 ```
 
 
-#### Sets & Ranges
+### Sets & Ranges
 
 Occasionally the dot character is too powerful as it matches any characters, in this case we can use the ranges. A **set** expression is in brackets, example `[aeiou]`. This will match any **one character** of the English vowels:
 
@@ -191,7 +191,7 @@ notLetter.exec('The text does has a few numbers. 1 exactly.');
 * `[ \t\r\n\f]` same as `\s` 
 * `[A-Za-z0-9_]` same as `\w` 
 
-#### Quantifiers
+### Quantifiers
 Ok, what if we want to match a word character, a digit or an entire pattern more than one time?. **Quantifies!!** 
 
 There are a few more of these:
