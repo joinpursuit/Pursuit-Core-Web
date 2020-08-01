@@ -192,7 +192,7 @@ notLetter.exec('The text does has a few numbers. 1 exactly.');
 * `[A-Za-z0-9_]` same as `\w` 
 
 ### Quantifiers
-Ok, what if we want to match a word character, a digit or an entire pattern more than one time?. **Quantifies!!** 
+Ok, what if we want to match a repeating word character, digit or an entire pattern?. **Quantifiers!!** 
 
 There are a few more of these:
 
