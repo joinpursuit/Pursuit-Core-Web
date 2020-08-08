@@ -140,7 +140,7 @@ jul30.toString() //=> 'Thu Jul 30 2020 01:04:21 GMT-0400 (Eastern Daylight Time)
 
 **Is there anything interesting about this example? Why?**
 ```js
-'2020-08-02T01:00:00.553Z')
+let aug2 = new Date('2020-08-02T01:00:00.553Z')
 aug2.toString() //=> 'Sat Aug 01 2020 21:00:00 GMT-0400 (Eastern Daylight Time)'
 ```
 
