@@ -196,9 +196,9 @@ Here we are telling the method to add newlines and a couple of indentations to t
 
 Asynchronous means to execute in parallel. It relies on callbacks or promises to handle success or failure of the operation, once it is completed. Synchronous means to block the execution until the operation is finished.
 
-#### Asynchronously
+#### Asynchronous API
 
-**Callback Style***
+##### Callback Style
 ```javascript
 const fs = require('fs');
 
@@ -213,7 +213,7 @@ fs.readFile('./student.json', (err, data) => {
 console.log('This is after the read call, but executed FIRST!');
 ```
 
-**Promise Style***
+##### Promise Style
 Same as callback but return promises
 
 ```js
@@ -247,12 +247,8 @@ fsPromises.readFile('./student.json')
 
 // Note that in asynchronous code the order in which things happens in not guaranteed
 ```
-⚠️ Important ⚠️ 
-* Always use asynchronous in production code, otherwise your program will be very slow.
-* await needs to be wrapped in an async function like shown here or in a IIFE as shown [here](https://nodejs.org/api/fs.html#fs_promise_example)
 
-
-#### Synchronously
+#### Synchronous API
 ```javascript
 const fs = require('fs');
 
@@ -264,6 +260,11 @@ console.log(student)
 
 console.log('When does this happen?');
 ```
+
+⚠️ Important ⚠️ 
+* Always use asynchronous in production code, otherwise your program will be very slow.
+* await needs to be wrapped in an async function like shown here or in a IIFE as shown [here](https://nodejs.org/api/fs.html#fs_promise_example)
+
 
 ## Other `fs` methods
 
@@ -303,7 +304,26 @@ drwxr-xr-x   17 user  staff   544B Aug 28 20:21 photos
 -rw-r--r--@   1 user  staff   1.0M Jul 13 17:09 app.js
 ```
 
-We want to group them by file extension and save it in `files-ext-map.json` like so:
+### v1 Console.log only the filenames
+So that you get this
+```
+Example1.zip
+Lab_Results.pdf
+Pursuit_Fellowship_Hack-Week.jpeg
+Pursuit_Fellowship_Hack-Week.jpg
+README.md
+es6_object_keys_order.js
+hello
+k1.png
+k2.png
+k3.png
+photos
+resume.pdf
+app.js
+```
+
+### v2 Group by extension
+We want to group the files by file extension and save it in `files-ext-map.json` like so:
 
 ```json
 {
