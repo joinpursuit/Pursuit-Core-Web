@@ -287,21 +287,21 @@ Reading and writing to files is only the tip of the iceberg of what you can do w
 Give a list of all files like the one in `my-files.txt` with the the following content
 ```
 total 7256
-drwxr-xr-x   14 user  staff   448B Aug 28 20:25 .
-drwx------@ 123 user  staff   3.8K Aug 28 20:21 ..
--rw-r--r--@   1 user  staff   3.5K Aug 28 20:22 Example1.zip
--rw-------@   1 user  staff    74K Aug 28 20:23 Lab_Results.pdf
--rw-r--r--@   1 user  staff   247K Aug 28 20:23 Pursuit_Fellowship_Hack-Week.jpeg
--rw-r--r--@   1 user  staff   2.0M Aug 28 20:23 Pursuit_Fellowship_Hack-Week.jpg
--rw-r--r--@   1 user  staff   5.6K Aug 28 20:21 README.md
--rw-r--r--@   1 user  staff   376B Aug 28 20:23 es6_object_keys_order.js
--rw-r--r--    1 user  staff     0B Aug 28 20:25 hello
--rw-r--r--@   1 user  staff   361K Aug 28 20:21 k1.png
--rw-r--r--@   1 user  staff   386K Aug 28 20:21 k2.png
--rw-r--r--@   1 user  staff   378K Aug 28 20:21 k3.png
-drwxr-xr-x   17 user  staff   544B Aug 28 20:21 photos
--rw-------@   1 user  staff    74K Aug 28 20:24 resume.pdf
--rw-r--r--@   1 user  staff   1.0M Jul 13 17:09 app.js
+drwxr-xr-x   15 alejandro  staff   480B Aug 29 01:33 .
+drwx------@ 125 alejandro  staff   3.9K Aug 29 00:57 ..
+-rw-r--r--@   1 alejandro  staff   3.5K Aug 28 20:22 Example1.zip
+-rw-------@   1 alejandro  staff    74K Aug 28 20:23 Lab_Results.pdf
+-rw-r--r--@   1 alejandro  staff   247K Aug 28 20:23 Pursuit_Fellowship_Hack-Week.jpeg
+-rw-r--r--@   1 alejandro  staff   2.0M Aug 28 20:23 Pursuit_Fellowship_Hack-Week.jpg
+-rw-r--r--@   1 alejandro  staff   5.6K Aug 28 20:21 README.md
+-rw-r--r--@   1 alejandro  staff   376B Aug 28 20:23 es6_object_keys_order.js
+-rw-r--r--    1 alejandro  staff     0B Aug 28 20:25 hello
+-rw-r--r--@   1 alejandro  staff   361K Aug 28 20:21 k1.png
+-rw-r--r--@   1 alejandro  staff   386K Aug 28 20:21 k2.png
+-rw-r--r--@   1 alejandro  staff   378K Aug 28 20:21 k3.png
+drwxr-xr-x   17 alejandro  staff   544B Aug 28 20:21 photos
+-rw-------@   1 alejandro  staff    74K Aug 28 20:24 resume.pdf
+-rw-r--r--    1 alejandro  staff     0B Aug 29 01:33 sample album.mp3
 ```
 
 ### v1 Console.log only the filenames
@@ -320,6 +320,7 @@ k3.png
 photos
 resume.pdf
 app.js
+sample album.mp3
 ```
 
 ### v2 Group by extension
