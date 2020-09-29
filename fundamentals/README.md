@@ -36,7 +36,7 @@
 * [Factory Functions](./factory_functions/README.md)
 * [Practice Problems](./practice_problems/unit_1_practice_problems.md)
 * [Objects review](https://github.com/joinpursuit/web-functions-and-objects-review)
-- [Module review](https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Review)
+* [Module review](https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Review)
 
 | Lesson | Lab |
 | ---  | --- |
