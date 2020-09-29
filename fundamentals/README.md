@@ -17,46 +17,17 @@
 | 11. [Objects](./objects/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968800) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Objects-Lab) |
 | 12. [Array Methods and Callbacks](./array_methods/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968794) | [link](https://github.com/joinpursuit/array_methods_assignment/blob/master/README.md) |
 
-## New Standards
-
-* EF.2.e: Build a command line application
-* EF.4.e: Use frequent, descriptive, small commits
-* FSW.1: Write clean, readable JavaScript code
-* LF.1.a: Use different types of data
-* LF.2: Use variables and constants to store information
-* LF.4: Use control flow in a clear, concise way to determine which code executes
-* LF.5: Use functions to keep code DRY
-
 ## Projects
 
-[Text-based Adventure](https://github.com/joinpursuit/FSW-Text-Based-Adventure)
-* EF.2.e: Build a command line application 
-* EF.4.e: Use frequent, descriptive, small commits 
-* FSW.1: Write clean, readable JavaScript code 
-* LF.1.a: Use different types of data
-* LF.2: Use variables and constants to store information 
-* LF.4: Use control flow in a clear, concise way to determine which code executes 
-
-[Hangman](https://github.com/joinpursuit/FSW-CLI-Hangman) 
-* EF.2.e: Build a command line application 
-* EF.4.e: Use frequent, descriptive, small commits
-* FSW.1: Write clean, readable JavaScript code
-* LF.2: Use variables and constants to store information
-* LF.4: Use control flow in a clear, concise way to determine which code executes
-* LF.5: Use functions to keep code DRY
+- [Text-based Adventure](https://github.com/joinpursuit/FSW-Text-Based-Adventure)
+- [Hangman](https://github.com/joinpursuit/FSW-CLI-Hangman) 
 
 ## Assessments
 
-| Assessment | Standards |
-| --- | --- |
-| [6.2](https://canvas.instructure.com/courses/1605748/assignments/12008695) / [6.4](https://canvas.instructure.com/courses/1705731/assignments/12465282) | n/a |
+- [Mid-module Assessment TBD]()
+- [Final Module Assessment TBD]()
 
-## Review Labs
-
-- https://github.com/joinpursuit/web-functions-and-objects-review
-- https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Review
-
-## Extra lessons and notes
+## Extra content
 
 * [User Input](./user_input/README.md)
 * [Date and Time](./date_and_time/README.md)
@@ -64,6 +35,8 @@
 * [Error Handling](./error_handling/README.md)
 * [Factory Functions](./factory_functions/README.md)
 * [Practice Problems](./practice_problems/unit_1_practice_problems.md)
+* [Objects review](https://github.com/joinpursuit/web-functions-and-objects-review)
+- [Module review](https://github.com/joinpursuit/Pursuit-Core-Web-Unit-1-Review)
 
 | Lesson | Lab |
 | ---  | --- |
