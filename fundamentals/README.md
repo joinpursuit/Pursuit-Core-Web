@@ -4,11 +4,11 @@
 
 | Lesson | Quiz | Lab |
 | --- | --- | --- |
-| 1. [Local Environment Setup](./local_environment/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/6186464) | n/a |
-| 2. [The Command Line](./the_command_line/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968817) | [link](https://github.com/joinpursuit/PCNWLab-Command-Line/tree/454ec68e8986c55a977637f161991a1c02605f21) |
-| 3. [Git and GitHub](./git_and_github/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968773) | [link](https://github.com/joinpursuit/git_github_assignment) | 
-| 4. [Values, Types, and Operators](./values_types_operators/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968771) | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
-| 5. [Variables](./variables/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968791) | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
+| 1. [Local Environment Setup](./local_environment/README.md) | n/a | n/a |
+| 2. [The Command Line](./the_command_line/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/6186464) | [link](https://github.com/joinpursuit/PCNWLab-Command-Line/tree/454ec68e8986c55a977637f161991a1c02605f21) |
+| 3. [Git and GitHub](./git_and_github/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968817) | [link](https://github.com/joinpursuit/git_github_assignment) | 
+| 4. [Values, Types, and Operators](./values_types_operators/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968773) | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
+| 5. [Variables](./variables/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968771) | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
 | 6. [Functions](./functions/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968771) | [link](https://github.com/joinpursuit/functions_and_scope_assignment/blob/master/README.md) |
 | 7. [Conditionals](./conditionals/README.md) | [6.4](https://canvas.instructure.com/courses/1705731/assignments/12565344) | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
 | 8. [Loops](./loops/README.md) | [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4283869) | [link](https://github.com/joinpursuit/loops_assignment/blob/master/README.md) |
