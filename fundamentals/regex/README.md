@@ -5,13 +5,6 @@
 
 Learn how to use regular expression to search, extract and replace in strings, efficiently.
 
-
-## Helpful Links
-
-- [RegexONE](https://regexone.com/)
-- [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-
-
 ## Vocabulary
 
 * regex, regexp, regular expression
@@ -24,45 +17,73 @@ Learn how to use regular expression to search, extract and replace in strings, e
 
 ## Lesson
 
+### What is a Regular Expression or a Regex?
 
-### Matching
+Simply put a Regex is a **pattern** that describes a string. We use this pattern to search, replace or manipulate strings. 
 
-
-#### new RegExp and RegExp.exec
-
-The purpose of regular expressions is to extract information for strings.
-Strings are a sequence of characters (this includes emojis too❗)
-
-The regular expression is a pattern that is matched against the string.
-The pattern provides a way to describe complex sequences, but in its
+A regular expression is a pattern that is matched against a target string. The pattern provides a way to describe complex sequences of characters, but in its
 simplest form is just a few characters that need to match exactly.
 
-```javascript
-let text = 'I may not have been sure about what really did interest me, but I was absolutely sure about what didn\'t.';
+For instance the pattern `/xyz/` will match any `x` followed by a `y` followed by a `z`. In `"You do abc and then xyz"`, the pattern `/xyz/` will match the `xyz` characters at the end of the string.
 
-let pattern = /may/;
+On the string `"I earned 12 gold medals throughout my career"` the pattern `/\d\d/` will match the number `12`. `\d` matches **any digit** and we are searching for two of them.
 
-pattern.exec(text);
-// -> [ 'may', index: 2, input: ... ]
+:bulb: Regular Expressions are usually used by string-searching algorithms for "find", "find and replace" operations on string or for input validation.
+
+### Creating a Regex and using it.
+
+There is two ways in which you can create a Regex in JavaScript. By using the `RegExp('pattern')` constructor or by defining it literally inside a pair of forward slashes `/pattern/` 
+
+##### Using RegExp Constructor
+```js
+let text = "You do abc and then xyc.";
+let pattern = new RegExp('xyz'); 
+
+pattern.exec(text); // Execute the pattern on text string
+// => [ 'xyc', index: 20, input: ...]
 ```
 
-Return value is an array with the match. It has `index` and `input` properties. `index` is the location of the match (starting from 0). and `input` is the original text.
-
-```javascript
-let text = 'The text does not have exwhyzee';
-
-let pattern = new RegExp('xyz');
+##### Using a Regex literal
+```js
+let text = "You do abc and then xyz.";
+let pattern = /xyc/; // Literal Regex
 
 pattern.exec(text);
-// -> null
+// => [ 'xyc', index: 20, input: ...]
 ```
+
+The return value of both this expressions is an array with the match. It has `index` and `input` properties. `index` is the location of the match (starting from 0). and `input` is the original text.
 
 It returns `null` if there is no match.
 
+```js
+let text = 'The text does not have exwhyzee';
+let pattern = new RegExp('xyz');
 
-#### String.match
+pattern.exec(text);
+// => null
+```
 
-```javascript
+### Using Regular Expressions in JavaScript
+
+Regular Expressions can be used in the following JavaScript Methods:
+
+| Method                          | Description                                                                                                      |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `RegExp.prototype.exec()`       | Executes a search for a match in a string. It returns an array of information or null on a mismatch.             |
+| `RegExp.prototype.test()`       | Tests for a match in a string. It returns true or false.                                                         |
+| `String.prototype.match()`      | Returns an array containing all of the matches, including capturing groups, or null if no match is found.        |
+| `String.prototype.matchAll()`   | Returns an iterator containing all of the matches, including capturing groups.                                   |
+| `String.prototype.search()`     | Tests for a match in a string. It returns the index of the match, or -1 if the search fails.                     |
+| `String.prototype.replace()`    | Executes a search for a match in a string, and replaces the matched substring with a replacement substring.      |
+| `String.prototype.replaceAll()` | Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring. |
+| `String.prototype.split()`      | Uses a regular expression or a fixed string to break a string into an array of substrings.                       |
+
+:information_source: Source MDN - [Using Regular Expressions in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#:~:text=Using%20regular%20expressions%20in%20JavaScript)
+
+#### str.match() Example
+
+```js
 let text = 'I may not have been sure about what really did interest me, but I was absolutely sure about what didn\'t.';
 
 let pattern = /may/;
@@ -74,7 +95,17 @@ text.match(pattern);
 Above code behaves identical to writing it as `pattern.exec(text)`
 
 
-#### Dots, question mark and escaping
+### Character Classes
+
+| Character | Matches                                                                 |
+| --------- | ----------------------------------------------------------------------- |
+| `\d`      | Digits.                                                                 |
+| `\D`      | non-digits.                                                             |
+| `\s`      | Space symbols, tabs, newlines `[ \t\r\n\f]`                             |
+| `\S`      | All but `\s`.                                                           |
+| `\w`      | Word characters (Latin letters, digits, underscore '_').                |
+| `\W`      | All but `\w`.                                                           |
+| `.`       | Any character any except a newline `\n`. Include flag 's' to match `\n` |
 
 Regular expressions would be anemic without powerful expressions, the most commonly used one is the dot `.`.
 
@@ -115,9 +146,9 @@ let pattern = /\./;
 ```
 
 
-#### Ranges, exclusion and multiplicity
+### Sets & Ranges
 
-Occasionally the dot character is too powerful as it matches any characters, in this case we can use the ranges. A range expression is in brackets, example `[aeiou]`. This will match any **one character** of the English vowels:
+Occasionally the dot character is too powerful as it matches any characters, in this case we can use the ranges. A **set** expression is in brackets, example `[aeiou]`. This will match any **one character** of the English vowels:
 
 ```javascript
 /[aeiou]/.exec('The text does not have exwhyzee');
@@ -129,7 +160,7 @@ Occasionally the dot character is too powerful as it matches any characters, in 
 // -> [ 'o', index: 10, input: ... ]
 ```
 
-In case we want to include all letters (but not the digits, emojis, etc.), we could write: `[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]`, but that seems to be unwieldily, so we have a neat shortcut: `[a-zA-Z]`. Some trick can be used to find the digits:
+In case we want to include all letters (but not the digits, emojis, etc.), we could write: `[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]`, but that seems to be unwieldily, so we have a neat shortcut: **Ranges** written like `[a-zA-Z]`. Same trick can be used to find the digits:
 
 ```javascript
 /[0-9]/.exec('The text does has a few numbers. 1 exactly.');
@@ -154,8 +185,18 @@ notLetter.exec('The text does has a few numbers. 1 exactly.');
 // -> [ ' ', index: 3, input: ... ]
 ```
 
-We learned about the question mark modifier which means _0 or 1 matches_. There are a few more of these:
+:bulb:
 
+* Range `[0-9]` is same as character class `\d` 
+* `[ \t\r\n\f]` same as `\s` 
+* `[A-Za-z0-9_]` same as `\w` 
+
+### Quantifiers
+Ok, what if we want to match a repeating word character, digit or an entire pattern?. **Quantifiers!!** 
+
+There are a few more of these:
+
+* `?` -- 0 or one matches.
 * `*` -- 0 or more matches.
 * `+` -- 1 or more matches.
 * `{`_n_`}` -- exactly _n_ matches.
@@ -172,7 +213,7 @@ Notice how the question mark, the plus sign and the star are just shortcuts and 
 This trick comes super handy:
 
 ```javascript
-let aWord = /[a-zA-Z]+/;
+let aWord = /[a-zA-Z]+/; // Match 1 or more characters from the range a-z or A-Z
 
 aWord.exec('The text does has a few numbers. 1 exactly.');
 // -> [ 'The', index: 0, input: ... ]
@@ -180,21 +221,14 @@ aWord.exec('The text does has a few numbers. 1 exactly.');
 
 There are other shortcuts we can use, saving us lazy programmers from typing too much:
 
-* `\d` -- stands for a digit `[0-9]`
-* `\D` -- stands for *not* a digit
-* `\s` -- stands for a space (and space-like) character `[ \t\r\n\f]`
-* `\S` -- stands for *not* a space
-* `\w` -- stands for a word character: `[A-Za-z0-9_]`
 
-
-### Match on start and end, boundaries
+### Matching Boundaries. Match on start and end of.
 
 * `^` -- matches on start of the string
 * `$` -- matches at the end of the string
 * `\b` -- matches at the boundaries of the word
 
 Note that these all share a common trait: as opposed to every other one we learned before these do NOT match on a character, but on boundaries of characters.
-
 
 ### .test, .search, .replace, .split
 
@@ -257,7 +291,7 @@ let wordBoundary = /\b/;
 Notice how it preserves the whitespace between the words.
 
 
-### Global, multiline, match-all, ignore case flags
+### Flags: Global, multiline, match-all, ignore case
 
 ```javascript
 let aDefiniteArticle = /\b[tT]he\b/g;
@@ -286,9 +320,9 @@ let aDefiniteArticle = /\b[tT]he\b/g;
 
 Other useful flags:
 
-* `//i` -- ignore case, letters match both lowercase and uppercase.
-* `//m` -- multiline, treat beginning and end characters (`^` and `$`) as working over multiple lines (i.e., match the beginning or end of each line (delimited by `\n` or `\r`), not only the very beginning or end of the whole input string)
-* `//u` -- unicode; treat pattern as a sequence of unicode code points
+* `/pattern/i` -- ignore case, letters match both lowercase and uppercase.
+* `/pattern/m` -- multiline, treat beginning and end characters (`^` and `$`) as working over multiple lines (i.e., match the beginning or end of each line (delimited by `\n` or `\r`), not only the very beginning or end of the whole input string)
+* `/pattern/u` -- unicode; treat pattern as a sequence of unicode code points
 
 
 ### All the matches and match groups
@@ -373,7 +407,6 @@ let allDigits = /(zero|one|two|three|four|five|six|seven|eight|nine)/i;
 // -> ['Three', ...
 ```
 
-
 ### Controlling greediness
 
 Greedy means match longest possible string. Lazy means match shortest possible string. By default all the expressions we wrote are greedy. We use `?` to mark a modifier as lazy.
@@ -391,80 +424,101 @@ let anHtmlTag = /<.+?>/;
 // -> ['<em>', ...
 ```
 
+### Exercises
 
-
-## Exercises
+* Complete the Exercises in [RegexOne](https://regexone.com/)
+<details>
+<summary> Additional Exercises</summary>
 
 1. Find `the` in the text below:
 
-  ```
-  I looked up at the mass of signs and stars in the night sky and laid myself open for the first time to the benign indifference of the world.
+  ```js
+  let text = "I looked up at the mass of signs and stars in the night sky and laid myself open for the first time to the benign indifference of the world."
   ```
 
 2. Find **ALL** the definite articles (`the`) in the text below:
 
-  ```
-  I looked up at the mass of signs and stars in the night sky and laid myself open for the first time to the benign indifference of the world.
+  ```js
+  let text = "I looked up at the mass of signs and stars in the night sky and laid myself open for the first time to the benign indifference of the world."
   ```
 
 3. Find the first capital letter in the text below:
 
-  ```
-  txtng: the Gr8 Db8
+  ```js
+  let text = "txtng: the Gr8 Db8"
   ```
 
 4. Find the first number in the text below:
 
-  ```
-  There are 300,000,000 Americans, give or take.
+  ```js
+  let text = "There are 300,000,000 Americans, give or take."
   ```
 
   Yes, it should be three hundred million.
 
 5. Find the first capitalized word in the text below:
 
-  ```
-  txting: the Great Debate
-  ```
-
-6. Match on hexadecimal numbers:
-
-  ```
-  This is an example of a hexadecimal number: af00cce1. So is this: AF11. A dad is hex but a mom isn't.
+  ```js
+  let text = `txting: the Great Debate`
   ```
 
-  Note: There are 6 of them!
+6. Match all hexadecimal color codes[:
+
+  ```js
+  let text = `
+    These are CSS colors, some are in the RGB format, some are in the Hexadecimal format and some are in both.
+    Extract all the colors that are in hex format. 
+    gainsboro rgb(220,220,220)
+    lightgray #D3D3D3
+    silver #C0C0C0
+    darkgray #A9A9A9 rgb(169,169,169)
+    gray rgb(128,128,128)
+    aquamarine #7FFFD4
+    dimgray rgb(105,105,105)
+    lightslategray rgb(119,136,153)
+    slategray #708090 
+    darkslategray #2F4F4F rgb(47,79,79)
+    black #000000
+  `
+  ```
 
 7. Find the first word in the text:
 
-  ```
+  ```js
   let text = 'This is an example.';
   ```
 
 8. Find the last word in the text:
 
-  ```
+  ```js
   let text = 'This is an example.';
   ```
 
   Note that does not include the full stop. Also should work on sentences without the full stop:
 
-  ```
+  ```js
   let text = 'This is also an example';
   ```
 
 9. For the following strings, write an expression that matches and captures both the full date, as well as the year of the date.
 
-  ```
+  ```js
   let dates = ['01/01/2000', '12/31/1999', '02/29/2017'];
   ```
 
 10. Find and print all tags in this simple html:
 
-  ```
+  ```js
   let html = '<html><head>'+
              '<title>Simple</title>'+
              '</head><body>'+
              'Nothing to see here'+
              '</body></html>';
   ```
+</details>
+
+### Resources
+* [JavaScript Methods with Regex](https://javascript.info/regexp-methods)
+* [Regex Tester/Debugger (super helpful)](https://regexr.com/)
+* [RegexOne: Interactive Tutorial](https://regexone.com/)
+* [Regex - Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
