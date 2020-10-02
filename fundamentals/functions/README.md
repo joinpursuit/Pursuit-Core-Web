@@ -192,6 +192,22 @@ console.log(num, str) // undefined, undefined
 
 This is very valuable! We often use functions to contain our scope, so we don't accidentally affect variables outside of it.
 
+## Default parameters
+
+In ES6 we can declare functions with parameters that have a default value. This way we can call the function and provide our own value as usual, or call the function without passing in a value, in which case the default applies.
+
+Example:
+
+```js
+function square(n = 5) {
+  return n * n
+}
+
+console.log(square(3)) // => 9
+console.log(square(10)) // => 100
+console.log(square()) // => 25
+```
+
 ## Return statements
 
 Return statements are crucial to understanding how functions work. When you call a function that has a return statement in it, it _produces_ a new value that you can then use later.
@@ -349,6 +365,57 @@ const sayHelloExp = function () {
 const sayHelloExpTwo = () => {
   console.log("hello")
 }
+```
+
+## Built in functions
+
+Now that we know how to write our own functions, let's look at some that javascript has provided us, already built in to the language!
+
+We're going to combine our functions with the JS `Math` module. Math gives us a lot of useful tools for working with numbers.
+
+```js
+// Gives us a random number between 0 and 1
+Math.random()
+
+// Usage:
+function getRandom() {
+  return Math.random()
+}
+
+let rand = getRandom() // 0.53727864
+```
+
+```js
+// Rounds to the nearest whole number
+// Usage:
+Math.round(num)
+
+console.log(Math.round(11.23)) // 11
+console.log(Math.round(32.92373)) // 33
+```
+
+```js
+// Rounds up or down to the nearest whole number
+// Floor rounds down, ceil rounds up
+// Usage:
+Math.floor(num)
+Math.ceil(num)
+
+console.log(Math.floor(11.23)) // 11
+console.log(Math.ceil(11.23)) // 12
+console.log(Math.floor(32.92373)) // 32
+console.log(Math.ceil(32.92373)) // 33
+```
+
+```js
+// Finds the highest or lowest number out of all the numbers provided
+// Pass in as many numbers as you want
+// Usage:
+Math.max(a, b, c, d)
+Math.min(a, b, c, d)
+
+console.log(Math.max(55, 22, 66, 12, 13, 29, 92)) // => 92
+console.log(Math.min(55, 22, 66, 12, 13, 29, 92)) // => 12 
 ```
 
 ## Single Responsibility Principle
