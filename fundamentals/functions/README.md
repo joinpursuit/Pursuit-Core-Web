@@ -84,6 +84,32 @@ Let's break down this new syntax with another example:
 
 - Between the braces, is the code that makes up the function. **return** is the result (what we get back) after we've called the function. If there is no **return** statement, the function will return `undefined`. Once something is **returned** from a function, the function has ended. This means, that even if there is code after the return statement, it will not be executed.
 
+## Functions as Mini-Programs
+
+A function is like a mini-program inside our main program. Whenever the code inside it is done running, we return to the line from which we called the function. A variable defined inside a function will be forgotten when the function is done running. Every time we call the function `logPets` below, the variables will be created anew.
+
+```js
+// This function will print 'cat' and then print 'dog'
+function logPets() {
+  let pet = "cat"
+  console.log(pet)
+  pet = "dog"
+  console.log(pet)
+}
+
+console.log("start here") // => "start here"
+
+// logPets will do the same thing every time we call it
+logPets() 
+// => 'cat'
+// => 'dog'
+logPets() 
+// => 'cat'
+// => 'dog'
+
+console.log("okay we're done") // => "okay we're done"
+```
+
 ## Scope
 
 To understand scope, we have to start thinking about _where variables are accessible_ and where they're not.
@@ -261,7 +287,7 @@ function printArray(arr) {
 }
 ```
 
-In JavaScript, functions are values just like arrays and strings, and can be saved in variables. 
+In JavaScript, functions are values just like arrays and strings, and can be saved in variables.
 
 ```js
 const printArray = function (arr) {
@@ -295,6 +321,8 @@ There are some subtle differences between the three different ways. The biggest 
 
 When a javascript file is executed, the JS interpreter reads through the whole file top to bottom, assigning values and figuring out what needs to be run when. Function declarations are then **hoisted** or lifted to the top of the file, essentially reordering them.
 
+> Note: This is not actually what happens behind the scenes, but thinking about it this way is simpler.
+
 This means that you can call a function before it is defined:
 
 ```js
@@ -323,32 +351,16 @@ const sayHelloExpTwo = () => {
 }
 ```
 
-To read MORE about hoisting and differences between var, let and const, read [this](https://hackernoon.com/js-var-let-or-const-67e51dbb716f)
-
-## Functions as Mini-Programs
-
-A function is like a mini-program inside our main program. Whenever the code inside it is done running, we return to the line from which we called the function. A variable defined inside a function will be forgotten when the function is done running. Every time we call the function `logPets` below, the variables will be created anew.
-
-```js
-// This function will print 'cat' and then print 'dog'
-function logPets() {
-  let pet = "cat"
-  console.log(pet)
-  pet = "dog"
-  console.log(pet)
-}
-// logPets will do the same thing every time we call it
-logPets() // => 'cat'
-//     'dog'
-logPets() // => 'cat'
-//     'dog'
-```
-
 ## Single Responsibility Principle
 
-It is BEST practice to write your functions to only do ONE thing. With our double function, the only thing it did was double a number. All of our functions have one job to do. If you find yourself needing your function to do multiple things, you should consider breaking it up into multiple functions. For now, you may not notice the importance because we're still writing very simple functions, but if we were making something a bit more complex like a game you would quickly see the benefit. There could be a takeTurn, isValidMove, isGameOver, switchPlayers, declareWinner, displayGame, movePlayer, etc... We'd want to break everything up to keep the logic and moving parts clear and simple.
+It is best practice to write your functions to only do ONE thing. If you find yourself needing your function to do multiple things, you should consider breaking it up into multiple functions. 
+
+For now, you may not notice the importance because we're still writing very simple functions, but if we were making something more complex you would quickly see the benefit. 
+
+Keeping your code small and modular makes it much easier to follow, especially when you are just starting to learn.
 
 ## Resources
 
 - [mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [Eloquent Javascript - Functions](http://eloquentjavascript.net/03_functions.html)
+- [mdn - hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
