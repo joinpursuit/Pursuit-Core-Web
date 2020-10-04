@@ -185,6 +185,11 @@ console.log('time passed in seconds: ', msPassed / 1000)
 * What is the result of `new Date(0)`? By what name is this date known?
 * What is your birth date in ISO8601 format?
 * [More Exercises](https://www.w3resource.com/javascript-exercises/javascript-date-exercises.php)
+<details>
+<summary> Solutions </summary>
+
+Did you try it on your own already? Compared with the solutions [here](./exercises_solutions.js)
+</details>
 
 ## Resources
 
