@@ -462,6 +462,7 @@ Today we:
 
 ### Resources
 
+- [Cheatsheet](./cheatsheet.md)
 - [GoFundMe App Fully Tested: `tested-app` branch](https://github.com/joinpursuit/Pursuit-Core-Web-Testing-React-Apps-Starter/tree/tested-app)
 - [Testing React Components - React docs](https://reactjs.org/docs/testing.html)
 - [Testing Library](https://testing-library.com/docs/react-testing-library/example-intro)
