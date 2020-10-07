@@ -1,68 +1,90 @@
 # Pursuit Core Environment Setup
 
-## Objectives
-
-## Standards
-EF.1.b, EF.1.c, EF.1.d, EF.1.e, EF.4.a, EF.3
-
-## Intro
 Welcome to Pursuit! We can't wait to begin this journey with you. Before we dive right in and begin programming it is important that we first get our machines up to date and setup. Please follow the instructions below so we can all start with the same setup.
 
-## Table of Contents
+## Objective
 
-- [Mac](#mac-installation-instructions)
-- [Linux](#linux-setup)
+* Install all the necessary software to get your computer ready for writing code!
 
-### But First, Chrome
+## List of things we're installing
+
+* Google Chrome
+  * Plus several browser extensions
+* iTerm2
+* oh-my-zsh
+* Visual Studio Code
+  * Plus some recommended plugins
+* Homebrew
+  * includes xcode command line tools
+  * Includes `git`
+* Node.js
+* postgreSQL
+* Slack
+* Insomnia
+
+## Installation Instructions!
+
+Read through the instructions below in order, and install each item. Some will take awhile (xcode and homebrew especially) so you can move on while they're running.
+
+> Note: You can open any program by searching for it with `spotlight`. Click the magnifying class in the top right of your taskbar, or type `command + space`. Once it's open you can type the name of the program you're looking for, then hit enter to open it.
+
+### Chrome
 
 Here at Pursuit the browser of choice is [Chrome](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en). Chrome will be especially useful when we get to frontend debugging.
 
-Here is a list of chrome extensions that we recommend:
+Here is a list of chrome extensions that we recommend. Each one can be installed by just opening the links below then clicking **Add to Chrome**:
 
+- [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US)
+- [React Devtools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
+
+These are useful but not required:
+- [OctoTree](https://www.octotree.io)
 - [Video Speed Controller](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en)
 - [Page Ruler Redux](https://chrome.google.com/webstore/detail/page-ruler-redux/giejhjebcalaheckengmchjekofhhmal?hl=en)
-- [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
 - [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall)
-- [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US)
 - [ColorZilla](https://chrome.google.com/webstore/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp?hl=en)
+- [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg)
 
-## Mac Installation Instructions
+### iTerm2 & ZSH
 
-If you have a Mac laptop, follow these instructions to set up the basis of your development environment:
+iTerm is a much better terminal than the one built-in. We'll install it and a new shell called ZSH which provides better color highlighting and tab completion.
 
-### Xcode
+Download the latest stable release here:
 
-**Open a terminal window** (command + space for Spotlight, type in "terminal", and it should show up).
+https://iterm2.com/downloads.html
 
-**In the terminal, enter:**
+**ZSH**
 
-```bash
-$ xcode-select --install
-```
+Once iTerm is installed, open it using spotlight, and then follow the directions below to install ZSH. You can paste the ZSH install command into iTerm by typing `command+v`.
 
-_Note: In order to paste in the terminal, the default shortcut is command + shift + v._
+https://ohmyz.sh#install
 
-You will see an **alert box**:
+> Note: Anytime you see a command that starts with a `$`, ignore that symbol. The `$` indicates you're typing a command into the terminal, but it is not part of the command itself, and including it prevents the desired command from running.
 
-![devtools popup](./assets/xcode_devtools.png)
-
-Click “Install” to download and install Xcode command line tools.
+Once ZSH is installed, completely close out of iTerm (`command + Q`) and reopen it.
 
 ### Homebrew
 
-In the terminal, enter:
+Homebrew is a package manager for macOS. This means we can use it to install other software from the terminal!
 
-```bash
-$ cd ~
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+Go to https://brew.sh and paste the install command into your terminal.
 
-After this process finishes, **quit out of the terminal** (_command + q_) and reopen to finish the installation.
+> If you get a prompt asking for your password, type it in.
 
+At some point you will see an **alert box** (though the exact message may be different):
 
-### Node
+![devtools popup](./assets/xcode_devtools.png)
 
-Now, enter
+Click `Install` to download and install Xcode command line tools.
+
+After this process finishes, follow the remaining setup instructions that are displayed in the terminal if there are any.
+
+### Node.js
+
+Node is JavaScript! But running on your computer, instead of inside a browser.
+
+We'll install the latest version using homebrew.
 
 ```bash
 $ brew install node
@@ -70,7 +92,7 @@ $ brew install node
 
 If your Homebrew installation was successful, you should see a bunch of output indicating that node is being installed.
 
-Quit out of the terminal again (_command + q_) and reopen to finish the installation. To make sure everything worked out okay, enter:
+To verify it works, type:
 
 ```bash
 $ node -v
@@ -78,32 +100,25 @@ $ node -v
 
 You should see your Node installation's version number.
 
-
-### ***Visual Studio Code***
+### Visual Studio Code
 
 Go to [Visual Studio](https://code.visualstudio.com/) - AKA VSCode, and ***download button and install Visual Studio Code***
 
 This will download a .zip file, double click it. A window will open up a warning window, click accept.
 
-The Visual Studio icon will appear on the directory you downloaded it next to the .zip file. Drag this icon to your application folder.
+The Visual Studio icon will appear on the directory you downloaded it next to the .zip file. Drag this icon to your `Applications` folder, which is on the left side of your Finder window.
 
-Open VSCode, and press (⇧⌘P), this will open up a prompt, type 'shell command'. The option to download 'Shell Command: Install 'code' command in PATH' will open up. Click on it and it will download it for you. This will enable you to type `code <name of file>` on your command line and open through your command line.
+Launch VSCode, and press `command + shift + P` (⌘⇧P), this will open up a prompt, type 'shell command'. The option to download 'Shell Command: Install 'code' command in PATH' will open up. Click on it and it will download it for you. This will enable you to type `code <name of file>` on your command line and open through your command line.
 
+You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the left side of VS Code or the View: Extensions command `command + shift + X` (⌘⇧X).
 
-You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command (⇧⌘X).
+We recommend installing the below extensions. You can do this now or at any time later:
 
-We recommend installing the below extensions:
 - [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/): real-time collaborative development.
 
 - [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): VS Code package to format your JavaScript / TypeScript / CSS using Prettier.
 
-- [Auto rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag): automatically rename paired HTML/XML tag, same as Visual Studio IDE does.
-
 - [Settings sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync): Synchronize Settings, Snippets, Themes, File Icons, Launch, Keybindings, Workspaces and Extensions Across Multiple Machines Using GitHub Gist.
-
-- [Babel JavaScript](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel)
-
-- [TODO Highlit](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight): highlight TODO, FIXME and other annotations within your code.
 
 - [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek): Allow peeking to css ID and class strings as definitions from html files to respective CSS.
 
@@ -113,23 +128,42 @@ VS Code provides a rich and easy keyboard shortcuts, you can find a list on this
 
 ### Git
 
-Git is a version control system that allows us to track, commit and revert changes to files within a directory. Here we will install it and add global user info.
+Git is a version control system that allows us to track, commit and revert changes to files within a directory. 
+
+When we installed homebrew, it should have installed `git`. To verify, type 
+
+```
+$ git --version
+```
+
+You should see the version output something like this:
+
+```
+git version 2.24.3 (Apple Git-128)
+```
+
+**IF GIT IS NOT INSTALLED**
 
 ```sh
-# install git
-brew install git
+# install git only if it is not installed already
+$ brew install git
+```
 
+Now configure git to have your personal info.
+
+```
 # makes git terminal output pretty
-git config --global color.ui true
+$ git config --global color.ui true
 
 # this will mark you as the 'author' of each committed change
-git config --global user.name "your name here"
+# use your first and last name
+$ git config --global user.name "your name here"
 
 # use the email associated with your GitHub account
-git config --global user.email your_email_here
+$ git config --global user.email your_email_here
 
 # use vscode as default editor 
-git config --global core.editor "code --wait"
+$ git config --global core.editor "code --wait"
 ```
 
 ### PostgreSQL
@@ -138,133 +172,48 @@ PostgreSQL is a fast, feature-rich, open-source database application. It is a sc
 
 Fortunately for MacOS X, we can use [postgres-app](https://postgresapp.com/), which provides the database application and a command line interface (CLI) so we can interact with it. To install Postgres.app, download and follow the installation instructions from the website.
 
-Paste these commands into the terminal:
+Paste this command into the terminal, it's all one line.
 
 ```sh
-sudo mkdir -p /etc/paths.d &&
+$ sudo mkdir -p /etc/paths.d &&
 echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
 ```
 
-Afterwards, install the CLI by configuring your path. 
+Close and reopen the terminal tab to gain access to the `psql` command. Let's try it out.
 
-```sh
-sudo mkdir -p /etc/paths.d &&
-echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
-```
-
-### After installation
-
-Close and reopen your terminal to gain access to the `psql` command. Let's try it out.
 
 ```
 # open the PostgreSQL CLI
-psql
+$ psql
 
 # you should be greeted with a prompt that looks like this
-psql (10.X)
+psql (12.X)
 Type "help" for help.
 
 yourname=#
 
 # type '/q' to quit
 yourname=# \q
-
 ```
 
 ### PSequel
 
 Will allow us to try running different SQL calls on a database. Download it [here](http://www.psequel.com/).
 
-### Postman
+Unzip the zip file and drag the PSequel icon into your `Applications` folder.
 
-We will be using Postman to test call to our backend. Download it [here](https://www.getpostman.com/apps).
+### Insomnia
+
+We will be using Insomnia to test making requests to our backend. Download it [here](https://insomnia.rest/download/#mac).
+
+> Note: Download the `Core` version
+
+Double click the downloaded file. It will pop up a new window, then drag the Insomnia Icon to the Applications folder. Close the window when you're done.
 
 ### Slack
 
 Is an App that allows us to message and communicate easily. Download it [here](https://slack.com/downloads/osx).
 
-## Linux Setup
+We will use slack every day in class!
 
-Okay, so this is similar to Mac, in that you're going to be using the terminal a lot to install this stuff. In fact, you're probably going to be using the terminal more.
-
-Please refer to the OSX installation instructions for a detailed description of what this software is and what it does. After we get this stuff installed, it should work similarly to your Mac-toting peers.
-
-### [Node](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
-
-Head to your terminal and type (one line at a time, making sure to press enter in between lines):
-
-```
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-
-sudo apt-get install -y nodejs
-```
-
-Then, **close and reopen your terminal** and write:
-
-```
-node -v
-```
-
-If you don't see anything, let us know.
-
-
-### [Visual Studio Code](https://code.visualstudio.com/)
-
-Go to [code.visualstudio.com](https://code.visualstudio.com/), then download and install VS Code.
-
-We recommend you to download these [extensions](#Visual-Studio-Code).
-
-VS Code provides a rich and easy keyboard shortcuts, you can find a list on this [PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf). This list can be found by using the shortcut ⇧⌘P and typing shortcut.
-
-And you're all set.
-
-### [Git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04-quickstart)
-
-Alright, Git is pretty simple. First type:
-
-```
-sudo apt install git
-```
-
-After you press "Enter", **close and reopen your terminal** and make sure you've got the installation right by checking the Git version you have installed:
-
-```
-git -v
-```
-
-If something comes up, you're good.
-
-Once we have Git installed, we want to make the color output pretty, and we're going to want to set it up with a username and password. Use your GitHub username and password here!
-
-```
-git config --global color.ui true
-git config --global user.name "Your Name"
-git config --global user.email "youremail@domain.com"
-```
-
-### [Postgres](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04)
-
-So, this is a little bit more painful than it is on Mac. We'll cross this bridge when we get here, but essentially, you have to verify yourself as a user when installing Postgres on Linux - by default, it creates a user named `postgres`, which you can use, but which you may have trouble using to interface with your apps.
-
-For now, however, let's just install Postgres:
-
-```
-sudo apt update
-sudo apt install postgresql postgresql-contrib
-```
-
-And a graphical viewer for Postgres, PGAdmin 3:
-
-```
-sudo apt install pgadmin3
-```
-
-The link in the title here provides pretty detailed instructions on how to set up a user that isn't `postgres`. The [Ubuntu wiki](https://help.ubuntu.com/community/PostgreSQL) can also help. See especially "Alternative Server Setup".
-
-### Postman
-
-We will be using Postman to test call to our backend. Download it [here](https://www.getpostman.com/apps).
-
-### Slack
-
-Is an App that allows us to message and communicate easily. Read the instructions and download it [here](https://get.slack.help/hc/en-us/articles/212924728-Slack-for-Linux-beta-).
+Login to the pursuit core workspace, you should have received an email invitation.
