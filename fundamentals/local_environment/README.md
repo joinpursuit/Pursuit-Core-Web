@@ -15,18 +15,18 @@ Welcome to Pursuit! We can't wait to begin this journey with you. Before we dive
 * Visual Studio Code
   * Plus some recommended plugins
 * Homebrew
-  * includes xcode command line tools
   * Includes `git`
 * Node.js
 * postgreSQL
-* Slack
+* PSequel
 * Insomnia
+* Slack
 
 ## Installation Instructions!
 
-Read through the instructions below in order, and install each item. Some will take awhile (xcode and homebrew especially) so you can move on while they're running.
+Read through the instructions below in order, and install each item. Some will take awhile (homebrew especially) so you can move on while they're running.
 
-> Note: You can open any program by searching for it with `spotlight`. Click the magnifying class in the top right of your taskbar, or type `command + space`. Once it's open you can type the name of the program you're looking for, then hit enter to open it.
+> Note: You can open any program by searching for it with `spotlight`. Click the magnifying class in the top right of your taskbar, or type `command + space`. Once it's open you can type the name of the program you're looking for, then hit `enter` to open it.
 
 ### Chrome
 
@@ -77,6 +77,8 @@ At some point you will see an **alert box** (though the exact message may be dif
 ![devtools popup](./assets/xcode_devtools.png)
 
 Click `Install` to download and install Xcode command line tools.
+
+> Note: this may take a very long time!
 
 After this process finishes, follow the remaining setup instructions that are displayed in the terminal if there are any.
 
@@ -130,7 +132,7 @@ VS Code provides a rich and easy keyboard shortcuts, you can find a list on this
 
 Git is a version control system that allows us to track, commit and revert changes to files within a directory. 
 
-When we installed homebrew, it should have installed `git`. To verify, type 
+When we installed homebrew, it should have installed `git`. To verify, type: 
 
 ```
 $ git --version
@@ -149,7 +151,7 @@ git version 2.24.3 (Apple Git-128)
 $ brew install git
 ```
 
-Now configure git to have your personal info.
+Either way, you can now configure git to have your personal info.
 
 ```
 # makes git terminal output pretty
@@ -180,7 +182,6 @@ echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/pat
 ```
 
 Close and reopen the terminal tab to gain access to the `psql` command. Let's try it out.
-
 
 ```
 # open the PostgreSQL CLI
@@ -217,3 +218,8 @@ Is an App that allows us to message and communicate easily. Download it [here](h
 We will use slack every day in class!
 
 Login to the pursuit core workspace, you should have received an email invitation.
+
+## Wrapping up
+
+Make sure you have everything installed! Go through each item in the list at the beginning of this article. See if you can open or run each one. Ask your instructor if you have any questions!
+
