@@ -1,5 +1,15 @@
 # Unit 1: Fundamentals
 
+## Learning Outcomes
+
+- M1.1	Use basic git flow
+- M1.2	Create constants and variables of different types and use operators to solve problems
+- M1.3	Define and call functions
+- M1.4	Use control flow to create different code paths or to repeat code execution
+- M1.5  Solve problems using Strings
+- M1.6  Solve problems using Arrays
+- M1.7	Solve problems using Objects
+
 ## Lessons, Quizzes and Labs
 
 | Lesson | Quiz | Lab |
