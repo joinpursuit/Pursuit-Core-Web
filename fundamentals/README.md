@@ -20,7 +20,7 @@
 ## Projects
 
 - [Text-based Adventure](https://github.com/joinpursuit/FSW-Text-Based-Adventure)
-- [Hangman](https://github.com/joinpursuit/FSW-CLI-Hangman) 
+- [Snowman](https://github.com/joinpursuit/FSW-CLI-Hangman) 
 
 ## Assessments
 

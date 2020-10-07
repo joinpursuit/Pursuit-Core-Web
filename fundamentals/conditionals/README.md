@@ -1,14 +1,20 @@
+[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
+
 # Conditionals
 
-## Standards
-LF.4, LF.1
+Controlling the flow of our code.
 
-## Objectives
+## Learning Objectives
 
 - Understand control flow
 - Effectively write `if`/`else`/`else if` statements
 - Understand Ternary Operators
 - Be able to write a Switch statement
+
+## Standards
+
+- LF.4
+- LF.1
 
 ## Keywords
 
@@ -20,17 +26,22 @@ LF.4, LF.1
 - ternary
 - switch statement
 
-## Lesson
+## Prerequisites
+
+- Familarity with logical operators
+- Familiarity with values and types
+
+---
+
+## What good are conditionals?
 
 So far, our programs have been running line-by-line, from top to bottom. Conditionals allow us to execute some lines of code in some cases, but not in others.
 
 ### The `if` statement
 
-#### Only `if`
-
 Our first conditional is the `if` statement. It executes a block of code only when an expression (provided in parentheses) evaluates to a _truthy_ value. A block of code is any number of lines enclosed with curly brackets: `{...}`.
 
-The simplest `if` statement is the one where we simply provide the value `true`:
+The simplest `if` statement is the one where we simply provide the boolean value `true`:
 
 ```js
 if (true) {
@@ -47,6 +58,8 @@ if (1) {
   console.log("hello");
 }
 ```
+
+Reminder: The only falsey values in JavaScript are: `null`, `false`, `""`, `0`, `NaN`, and `undefined` .
 
 The next simplest `if` statement is the one that is always false.
 
@@ -82,12 +95,12 @@ console.log("done checking");
 
 In the code above, `'Its larger than 2'` may or may not be printed (depending on the value of `num`). Either way `'done checking'` _will_ be printed.
 
-#### if - else
+### The `if` `else ` statement
 
 We can extend the `if` statement to make it an `if - else` statement. This statement will execute one of two code blocks:
 
 ```js
-let num = 3;
+let num = 1;
 if (num > 2) {
   console.log("it's larger than 2");
 } else {
@@ -104,13 +117,13 @@ We can think of an `if` statement like choosing one of two detours:
 
 > Write three `if - else` statements in which the **second** block of code will always be executed.
 
-#### if - else if - else
+### if - else if - else
 
 We can use the `if - else if - else` statement when we want one of three or more code blocks to be executed.
 We will have the initial `if`, followed by any number of `else if`s, optionally followed by an `else`.
 
 ```js
-var color = "azure";
+let color = "azure";
 
 if (color === "blue") {
   console.log("That's my favorite color!");
@@ -142,7 +155,7 @@ if (num === 1) {
 
 Remember, only **one** of the code blocks will be executed.
 
-### Checking for range
+#### _Checking for range_
 
 One way we can utilize `if - else if - else` statements is to check for different ranges.
 For example, we may want to perform a different action depending on the user's age group.
@@ -160,6 +173,8 @@ if (userAge < 18) {
 ```
 
 > What are the ranges that the code above is checking for? How can we rewrite the statement with the **larger than** (`>`) operator?
+
+Remember, `else` acts as a default block that will only be run if no other conditionals are truthy. `else` NEVER takes a condition.
 
 ### Using logical operators
 
@@ -212,7 +227,7 @@ question mark is the value returned if the conditional is truthy. The final part
 
 ## Switch Statements
 
-Switch statemes evaluate similarly to `if - else if - else` statements. They take in an expression and, depending on the value of
+Switch statements evaluate similarly to `if - else if - else` statements. They take in an expression, and depending on the value of
 that expression, run a specific code block.
 
 The **break** keyword allows us to break out of the switch statement.
@@ -234,3 +249,40 @@ switch (expression) {
 ```
 
 [Examples](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+
+## Summary
+
+Conditionals allow us to better control the flow of our code. We can decide when certain blocks of code should run. Think about it similarly as you would in English.
+
+```
+if(you are hungry) {
+  eat something
+} else if(you are tired) {
+  go to sleep
+} else {
+  study code
+}
+```
+
+You are allowed to next if blocks inside of other if blocks.
+
+```
+if(you are hungry) {
+  if(you are craving chocolate) {
+    eat chocolate
+  } else {
+    eat a sandwich
+  }
+} else if(you are tired) {
+  go to sleep
+} else {
+  study code
+}
+```
+
+### Resources
+
+- [MDN on if else](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
+- [MDN ternary](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+- [MDN Switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+- [javascript.info](https://javascript.info/ifelse)
