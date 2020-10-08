@@ -15,7 +15,7 @@
 | Lesson | Quiz | Lab |
 | --- | --- | --- |
 | 1. [Local Environment Setup](./local_environment/README.md) | n/a | n/a |
-| 2. [The Command Line](./the_command_line/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968778) | [link](https://github.com/joinpursuit/PCNWLab-Command-Line/tree/454ec68e8986c55a977637f161991a1c02605f21) |
+| 2. [The Command Line](./the_command_line/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968778) | [link](https://github.com/joinpursuit/Command-Line-Lab) |
 | 3. [Git and GitHub](./git_and_github/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968809) | [link](https://github.com/joinpursuit/git_github_assignment) | 
 | 4. [Values, Types, and Operators](./values_types_operators/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968817) | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
 | 5. [Variables](./variables/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968773) | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
