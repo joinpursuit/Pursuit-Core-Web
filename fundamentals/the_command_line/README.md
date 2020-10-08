@@ -67,6 +67,8 @@ $ pwd
 # /Users/yourUserNameHere
 ```
 
+Depending on your shell configuration, it may show you the current directory at any given time.
+
 Before we get into other commands, lets break down some syntax.
 
 ## Command syntax
@@ -178,6 +180,8 @@ Understanding the difference between these two concepts will help you in navigat
 
 Pretty much all computers are organized in a hierarchical filesystem. This means that there is a top-level directory, which contains subdirectories, and those contain directories, and so on.
 
+Here's an example, your computer should have a similar layout:
+
 ```
 /
 ├── Applications
@@ -212,72 +216,152 @@ Pretty much all computers are organized in a hierarchical filesystem. This means
 ├── usr
 └── var
 
-* is your home directory
+* is the home directory
 ```
 
-On a mac, `/` is the root directory. `cd` to it and then you can `ls` to see what's inside - you'll discover similar folder names as above.
+On a mac, `/` is the root directory.
 
-If you want to navigate “up”, to the directory that contains your current directory, you can use the special name `..`. From the `Documents` directory, this command will take us back up to the home directory.
+`cd` to it and then `ls` to see what's inside - you'll discover similar folder names as above (though some were excluded for brevity).
+
+> If you type `cd /` is that a relative or absolute path?
+
+We can jump to any path anywhere in the system by providing the full pathname to it. Since `/` is the root, all paths start with `/`. Each "level" of folder is separated by a `/`.
+
+So if we wanted to jump to `curriculum` (from anywhere!) we could simply type:
 
 ```bash
-cd ..
+$ cd /Users/jabyess/curriculum
 ```
 
-...And we're back home!
-
-### Creating Files and Folders
-
-The `touch` command creates a new file with the provided name. For example:
+For anything inside of the home directory (`/Users/jabyess`) we can save some typing and do this instead:
 
 ```bash
-touch foo.js
+$ cd ~/curriculum
 ```
 
-Will create a new JavaScript file with the name `foo.js` in the current directory.
+Since `~` always means the home directory, you can think of it as a substitution for writing the whole thing out.
+
+### Up and down
+
+There are two special symbols that you should know when navigating relatively.
+
+**.** represents the current directory
+
+**..** represents the parent directory
+
+So if you want to go up a directory, regardless of where you are, you can simply type:
+
+```bash
+$ cd ..
+```
+
+Similarly you can navigate up multiple directories by doing:
+
+```bash
+$ cd ../..
+$ cd ../../../
+```
+
+You can keep adding on lines, but if you put too many, you will just wind up at the root.
+
+The next two lines are equivalent - if you want to explicitly specify `.` you can, but it's not required.
+
+```bash
+$ cd ./Documents
+$ cd Documents
+```
+
+Note that `cd .Documents` is not valid. That's because it's not a proper path, you still need the `/` after `.`
+
+Think of the `.` as "start here". Therefore the `./` can be thought of as "start here, then go down" .
+
+## Creating Files and Folders
+
+The `touch` command creates a new file with the provided name. If the file already exists, nothing happens. For example:
+
+```bash
+$ touch hello.js
+```
+
+Will create a new JavaScript file with the name `foo.js` in the current directory. If the operation is successful, it won't give you any feedback.
+
+This filename can be an absolute or relative path!
+
+```bash
+# assuming you are in the home directory
+$ touch /Users/jabyess/curriculum/test/hello.js
+$ touch ~/curriculum/test/hello.js
+$ touch ./curriculum/test/hello.js
+# all 3 of these are equivalent
+```
 
 The `mkdir` command creates a new folder with the provided name. For example:
 
 ```bash
-mkdir js
+$ mkdir js
 ```
 
-Will create a folder named `js`.
+Will create a folder named `js` inside the current directory.
+
+If you want to create multiple levels of folders at once, you can use the `-p` command.
+
+```bash
+$ mkdir -p /curriculum/tests/javascript/unit1
+```
+
+This will create the following structure:
+
+```
+├── curriculum
+    ├── tests
+        ├── javascript
+            ├── unit1
+```
 
 ## Editing Files and Folders
 
-- The `cp` command creates a copy of a file. For example:
+The `cp` command creates a copy of a file. It takes two parameters, known as `src` and `dest` or source and destination.
 
 ```bash
-cp bar foo
+$ cp hello.js index.js
 ```
 
-Will make an exact copy of `bar` and name it `foo`.
+Will make an exact copy of `hello.js` and name it `index.js`.
 
 - The `mv` command will move a file to a different location or will rename a file. For example:
 
 ```bash
-mv bar foo
+$ mv hello.js index.js
 ```
 
-Will rename the file `bar` to `foo`. `mv foo ~/Downloads` will move the file `foo` to the `Downloads` directory, but it will not rename it.
-
-- The `rm` command removes a file. For example:
+Will rename the file `hello.js` to `index.js`.
 
 ```bash
-rm foo
+$ mv hello.js ~/Downloads
 ```
 
-Will remove a file named foo in the current directory.
+Will move the file `foo` to the `Downloads` directory, but it will not rename it.
 
-- The `rmdir` command will delete an empty directory. To delete a directory and all of its contents recursively, use `rm -r` instead. Note that **this is extremely dangerous** to do for larger files. Only do it whan you really mean it!
 
-- The mkdir command creates a new directory. For example:
+## Deleting 
+
+The `rm` command removes a file. For example:
 
 ```bash
-mkdir music
+$ rm hello.js
 ```
 
-will create a new directory called `Music`.
+Will remove a file named `hello.js` in the current directory.
+
+The `rmdir` command will delete an empty directory only. To delete a directory and all of its contents recursively, use `rm -r` instead. Note that **this is extremely dangerous** to do for larger files. Only do it whan you really mean it!
+
+`rm -r` will prompt you for every file it tries to remove. To skip the prompt, include `-f` as a flag, or
+
+```
+$ rm -rf ./Documents
+```
+
+This will delete your entire documents folder and everything inside of it, and there's no getting it back! Be **VERY CAREFUL** using this command.
 
 ## Opening Files
 
@@ -295,8 +379,15 @@ code .
 
 The keyword **open** will open a file/folder in the Finder (on Mac) or the GUI-based file manager (on Linux).
 
+```bash
+# opens the current directory in the finder
+$ open .
+# opens the curriculum directory in the finder
+$ open ./curriculum
+```
+
 ## Tips
 
 - Use tab to autocomplete. for example, if the current folder has subfolders titled `games`, `photos` and `photography`, typing `pho` and pressing the tab key will result in displaying `photo` and `photography`. If we then type the letter `g` to get `photog`,and press the tab key - the command will be autocomplete to `photography`.
 
-- You can also use the up and down keys to step through the commands typed before.
+- You can also use the up and down arrow keys to cycle through all the commands you've typed.
