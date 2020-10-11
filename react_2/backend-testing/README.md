@@ -9,7 +9,7 @@ By the end of this session you should be able to:
 * Setup backend testing for any of your backend projects
 * Talk about the pitfalls of sharing state between tests
 
-## Backed to be tested
+## Backend to be tested
 Today we will be testing the [UserAuth & Notes](https://github.com/joinpursuit/Pursuit-Core-Web-Backend-Testing-Starter) Backend Application that handles users and notes. Some feature of this backend include:
 
 * User Authentication:
