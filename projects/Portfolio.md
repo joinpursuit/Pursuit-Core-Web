@@ -94,11 +94,24 @@ You can also use a framework to help with the layout. Since they are all using f
 
 ## Personal website inspiration
 
-Not sure how to design or lay out your site? Get some inspiration from Pursuit alumni or steal some ideas from the internet!
+Not sure how to design or lay out your site? Get some inspiration from Alumni, Volunteers and Instructors from the Pursuit community or steal some ideas from the internet!
 
-* Pursuit [Alumni Websites here](https://gist.github.com/alejo4373/b2d899ecf45fadb564f24a84b9f59a4a)
-* Elsewhere
+* Websites from the Pursuit Community [here](https://gist.github.com/alejo4373/b2d899ecf45fadb564f24a84b9f59a4a)
+* Elsewhere 
   * [awwwards.com freelance-portfolio websites](https://www.awwwards.com/awwwards/collections/freelance-portfolio/)
   * [awwwards.com portfolio websites](https://www.awwwards.com/websites/portfolio/)
   * [alispi.tel](https://www.alispit.tel/)
   * [chriscoyier.net](https://chriscoyier.net/)
+
+## Strong Portfolio Checklist
+
+| Done | Item                                                                                                                                    |
+| ---- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| ☑️    | Deployed and URL includes your name                                                                                                     |
+| ☑️    | Includes writing about you as an Engineer and as a person                                                                               |
+| ☑️    | Showcase at **least** two projects (group + solo) which are deployed and functional. Includes short description for each project        |
+| ☑️    | Projects Showcased in portfolio have READMEs that includes descriptions and screenshots. [Example.](https://github.com/tbriany/Carry)   |
+| ☑️    | Showcase your skills. This can be [simple and clean](https://davidsh.in/skills) or more [elaborate](https://alejandrofran.co/#toolbelt) |
+| ☑️    | Includes links to your Resume and GitHub                                                                                                |
+| ☑️    | Includes links to at least one way of contacting you e.g. email. Optically can include links to other social networks like Twitter      |
+| ☑️    | Website is responsive and looks good on most phones                                                                                     |
