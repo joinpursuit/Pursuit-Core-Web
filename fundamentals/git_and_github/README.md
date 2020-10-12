@@ -1,33 +1,24 @@
+[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
+
 # Git and Github
 
-## Standards
-EF.4.a: Create GitHub accounts
-EF.4.b: Use basic Git commands
-EF.4.c: Underestand Git workflow
-EF.4.d: Be a proficient GitHub user
-EF.4.e: Use frequent, descriptive, small commits
+Learn about git, a version control tool, which enables you to back up and merge your code in a productive way!
 
-## Objectives
+## Learning Objectives
 
 - Understand what _Git_ and _GitHub_ are and why they are important to the development process
 - Create a GitHub account
 - Create a git repo, add to the repo and push it to GitHub
 
-## Resources
-
-- [Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
-- [Try Git](http://try.github.io)
-- [Pro Git ebook](https://git-scm.com/book/en/v2)
-- [Learn Enough Git To Be Dangerous](https://www.learnenough.com/git-tutorial)
-- [Oh Shit, Git!](https://ohshitgit.com/)
-
-## Lesson
+## Framing & Background
 
 A **version control system** (or VCS) provides an automatic way to track changes in software projects, giving creators the power to view previous versions of files and directories, develop speculative features without disrupting the primary codebase, securely back up the project and its history, and collaborate easily and conveniently with others. Think of it like the "Save" feature on a local document, except every time you click "Save", you create a snapshot of your project that you can return to, or share with others, anytime.
 
 In addition, using version control also makes deploying production websites and web applications much easier. The version control system that we (and most developers) use is called **Git**. Git is an open standard that lets individual developers and large organizations alike manage a project as it changes over time.
 
 Let's say Corey and Matt are working on a project together and the code is on Matt's computer. If Matt is out, Corey can't work on the code because it's on Matt's computer. Git and GitHub solve this problem by allowing the code to be stored in the cloud on GitHub and available for download. With GitHub, Matt and Corey's code lives in the cloud so if Matt is out, Corey can easily download the latest code from GitHub and work on it. Corey would also be able to see all the previous versions of code, from when they first started the project to its current state.
+
+> Git and github are not the same thing!
 
 ### Getting started
 
@@ -40,23 +31,17 @@ $ which git
 /usr/local/bin/git
 ```
 
-If the result is empty or if it says the command is not found, it means you have to install Git.
+If the result is empty or if it says the command is not found, it means you have to [install Git](../local_environment/README.md).
 
 ### Set Your Identity
 
-First, a quick clarification. **Git** is the open-source standard that manages the version control for our projects. **GitHub** is one of many options to remotely store your Git projects in the cloud. It's one of the most common and popular websites to do this, but keep in mind - Git and GitHub are not the same.
+First, a quick clarification. **Git** is the open-source software that manages the version control for our projects. **GitHub** is a company, one of many options to remotely store your Git projects in the cloud. It's one of the most popular websites to do this, but keep in mind - Git and GitHub are not the same.
 
-GitHub uses the email you set in your Git configuration to associate commits to
-your GitHub account.
+GitHub uses the email you set in your Git configuration to associate commits to your GitHub account.
 
 Test if you have your email set by running `git config --global user.email` in
 your terminal. If it's blank, type `git config --global user.email "example@email.com"` (where "example" is your GitHub account's associated email) to set it. You will only ever need to run this once. Git
 will always use this information for anything you do on your computer.
-
-You won't have to do this much at all, but to set your email for a single repository, simply leave off the `--global` flag.
-Run `git config user.email "example@email.com"` inside your repository. Check
-that this was set up correctly by typing `git config user.email`. Also check
-that the global user was not changed by typing `git config --global user.email`.
 
 ### Initializing a Repo
 
@@ -65,6 +50,7 @@ We’ll begin by making a directory with the name `git-test`. To make a director
 ```bash
 $ mkdir git-test
 $ cd git-test
+$ touch README.md
 ```
 
 Now that we're in the folder, we are going to create a [_repository_](https://www.sbf5.com/~cduan/technical/git/git-1.shtml). A Git repository, or "repo", represents a single project managed via Git. Practically, it's a series of Git files living in your top-level folder. These files (invisible by default, but visible with `ls -a`) keep track of each change you make and save in a project.
@@ -76,7 +62,7 @@ $ git init
 Initialized empty Git repository in  /home/lev/git-test/.git/
 ```
 
-We now have a boilerplate Git repo that we can store our files in and track their changes over time 💯.
+We now have a boilerplate Git repo that we can store our files in and track their changes over time!
 
 ### Initial Commit
 
@@ -84,7 +70,13 @@ We can check the status of our Git repo by typing `git status`. This will tell u
 
 ![001](screenshots/001.png)
 
-We see here that the README.md file is “untracked”, which means Git doesn’t yet know about it. We can add it using the `git add` command:
+We see here that the README.md file is “untracked”, which means git isn't paying attention to the contents of it. We can add it using the `git add` command:
+
+```bash
+$ git add README.md
+```
+
+We can add individual files by specifying them by name/filepath, or we can add an entire folder by doing:
 
 ```bash
 $ git add .
@@ -109,6 +101,8 @@ $ git commit -m "initialize repo"
  create mode 100644 README.md
 ```
 
+Now our changes are saved locally to our computer. All we've done is commit an empty file, but we're off to a good start!
+
 At this point, we can use `git log` to see a record of our commit:
 
 ```bash
@@ -124,25 +118,30 @@ The commit is identified by a unique string of letters and numbers that Git uses
 
 ### Viewing the diff
 
-It’s often useful to be able to view the changes represented by a potential commit before making it. To see how this works, let’s add a little bit of content to `README.md` by redirecting the output of `echo`:
+It’s often useful to be able to view the changes represented by a potential commit before making it. To see how this works, let’s open the folder in VSCode:
 
 ```bash
-$ echo "hello world" > README.md
+$ code .
 ```
 
-The `git diff` shows the difference between the last commit and unstaged changes in the current project:
+Open `README.md` and write `hello, world` in it.
+
+Then type `git diff` to see the changes.
+
+Git shows the difference between the last commit and unstaged changes in the current project:
 
 ![003](screenshots/003.png)
 
-We can add and commit this change by passing the `-a` option (for “all”) to `git commit`, which arranges to commit all the changes in currently existing files.
+> The + indicates a line was added, and shows the contents of the line.
+
+We can commit this change by again adding the file and then committing.
 
 ```bash
-$ git commit -a -m "add content to readme"
+$ git add README.md
+$ git commit -m "add content to readme"
 [master 092beb2] add content to readme
  1 file changed, 1 insertion(+)
 ```
-
-**Note that the `-a` option includes changes only to files already added to the repository, so when there are new files it’s important to run `git add .` to make sure they’re added properly.**
 
 Having added and committed the changes, there’s now no diff:
 
@@ -173,10 +172,11 @@ Meanwhile, the diff shows that one line has been deleted (indicated with -) and 
 
 ![006](screenshots/006.png)
 
-At this point, we’re ready to commit our changes. Earlier we used both the -a and -m options to commit all pending changes while adding a commit message, but in fact the two can be combined as -am.
+At this point, we’re ready to add and commit our changes. 
 
 ```bash
-$ git commit -am "Add a # tag"
+$ git add README.md
+$ git commit -m "Add a # tag"
 [master ea24eb6] Add a # tag
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -239,7 +239,7 @@ By default, GitHub renders the markdown content of the Readme file in your repos
 
 ```js
 function hello() {
-  console.log("hello world");
+  console.log("hello world")
 }
 ```
 
@@ -384,3 +384,12 @@ $ git push origin <branch-name>
 And then navigating to your GitHub repo in the browser. You should see a new dialogue to create a pull request. Follow the instructions and submit the pull request.
 
 This lets your collaborators see your branch's changes before they merge it into master.
+
+## Resources
+
+- [Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
+- [Git flight rules](https://github.com/k88hudson/git-flight-rules)
+- [Try Git](http://try.github.io)
+- [Pro Git ebook](https://git-scm.com/book/en/v2)
+- [Learn Enough Git To Be Dangerous](https://www.learnenough.com/git-tutorial)
+- [Oh Shit, Git!](https://ohshitgit.com/)
