@@ -219,6 +219,18 @@ We will use slack every day in class!
 
 Login to the pursuit core workspace, you should have received an email invitation.
 
+### Github setup
+
+* Create an account on github.com if you haven't already. Use your personal email, not pursuit.
+* Follow the [guide to generating a new ssh key](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+* Add the key [to your github account](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+* Test that everything works with this command:
+
+```bash
+ssh -T git@github.com
+# Hi jabyess! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
 ## Wrapping up
 
 Make sure you have everything installed! Go through each item in the list at the beginning of this article. See if you can open or run each one. Ask your instructor if you have any questions!
