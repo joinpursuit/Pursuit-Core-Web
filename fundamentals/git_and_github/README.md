@@ -346,12 +346,12 @@ Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 325 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/lizraeli/git-test.git
-   6254e59..9fbf058  master -> master
+   6254e59..9fbf058  main -> main 
 ```
 
 ### Pull
 
-Going back to the original repo in `~/git-test`, we will run the command `git pull` to get the latest changes:
+Going back to the original repo in `~/git-test`, we will run the command `git pull` to get the latest changes from our remote repo (github).
 
 ```bash
 ~/git-test$ git pull
@@ -360,7 +360,7 @@ remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
 From https://github.com/lizraeli/git-test
-   6254e59..9fbf058  master     -> origin/master
+   6254e59..9fbf058  main     -> origin/main
 Updating 6254e59..9fbf058
 Fast-forward
  README.md | 4 +++-
@@ -371,20 +371,19 @@ Since there are no conflicts with local files, the local ones have been updated.
 
 ### Git log
 
-The `git log` command can show the entire commit history of our repo. For each commit, it will show its id, the author, the date, and the commit message. To limit the number of commits we can add the flag `-[number]`: this will show the provided number of commits, from last to first.
+The `git log` command can show the entire commit history of our repo. For each commit, it will show its id, the author, the date, and the commit message. To limit the number of commits we can add the flag `-[number]`: this will show the provided number of commits, from newest to oldest.
 
 ![011](screenshots/011.png)
 
-We can also format the output using `--pretty=format:` followed by some arguments. The following show all commits made in an easily readable form.
+Github also shows us this in a different format on a nice webpage, but sometimes it's helpful just to quickly look in our terminal.
 
-```markdown
-\$ git log --pretty=format:"%h - %an, %ar : %s"
-9fbf058 - lizraeli, 34 minutes ago : added a link in readme to hello.js
-6254e59 - lizraeli, 70 minutes ago : added file hello.js
-ea24eb6 - lizraeli, 4 hours ago : Add a # tag
-092beb2 - lizraeli, 4 hours ago : add content to readme
-38aeeb2 - lizraeli, 5 hours ago : initialize
+The important thing to notice here is the long string of characters after the word `commit`. This is called the **commit sha** which is a unique identifier for each commit.
+
 ```
+commit aba9ad9ae8d8ff6a23a10a691f690f7934d47986
+```
+
+We'll use this in a later step!
 
 ## Forking
 
@@ -394,13 +393,43 @@ The main difference here is that forking makes a copy **on your github** instead
 
 Once you fork a repo, you can then clone that fork down to your local machine and push changes back up to **your github**. 
 
-Pair up with another fellow and slack each other links to your `git-test` repositories. Then click the **Fork** button in the top right. If you get a prompt asking where to fork, click on your account name. This will copy the repo to your github profile.
+Pair up with another fellow and slack each other links to your `git-test` repositories. Then click the **Fork** button in the top right. If you get a prompt asking where to fork, click on your github account name. This will copy the repo to your github profile.
 
-Now `clone` the forked copy, not the original.
+## Making a pull request
 
-// Todo: pull requests
+Once you have forked a project you can make commits to your copy of it, then using github, make a **pull request**. A pull request, or PR, is basically a way to ask the original contributor to merge your changes back into their project.
 
+This is a very common workflow on github, and it's one of the reasons github and open-source software are so popular. We'll also use it for most assignments during this class!
 
+The steps look like this:
+
+* Fork the project you want to make a PR to
+* `clone` the forked copy, **NOT the original**.
+* Make the changes in the code that you want to make
+* Commit those changes locally
+* Push the changes to your forked copy
+* Make a pull request on github
+* The original author will see that a PR has been made and can choose to accept or close the PR. You cannot delete a PR once it has been made, because you cannot delete anything in git.
+
+We'll walk through this together!
+
+## Git reverts
+
+One fundamental philosophy of git is that it's **append only**. This means you can't delete a commit, because that would be deleting some of the history of the project.
+
+We do have an option in case you want to _undo_ something previously committed, and that's the `revert` function.
+
+A `revert` is basically another commit that does the opposite of a commit. So if you added 4 lines and removed 2, a revert would remove those 4 lines and add 2.
+
+When doing a revert, you have to tell git **which commit you want to revert**. This is where `git log` and the `commit sha` come in handy.
+
+Steps to revert:
+* Make sure you don't have any un-committed changes.
+* `git log` to see the commits and associated `sha`s
+* Copy the entire sha of the commit you want to revert
+* `git revert <sha>`
+* Enter a commit message. Close the window that you wrote the message in.
+* Your revert should be done! Check the contents of the files to see if the changes are there.
 
 
 ## Resources
