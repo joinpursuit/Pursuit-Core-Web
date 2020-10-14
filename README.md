@@ -1,4 +1,4 @@
-# Pursuit 7.0 Web Curriculum
+# Pursuit 7.0 Web Technical Curriculum
 
 ## Introduction
 
