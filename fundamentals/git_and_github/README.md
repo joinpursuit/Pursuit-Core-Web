@@ -1,27 +1,16 @@
+[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
+
 # Git and Github
 
-## Standards
-EF.4.a: Create GitHub accounts
-EF.4.b: Use basic Git commands
-EF.4.c: Underestand Git workflow
-EF.4.d: Be a proficient GitHub user
-EF.4.e: Use frequent, descriptive, small commits
+Learn about git, a version control tool, which enables you to back up and merge your code in a productive way!
 
-## Objectives
+## Learning Objectives
 
 - Understand what _Git_ and _GitHub_ are and why they are important to the development process
 - Create a GitHub account
 - Create a git repo, add to the repo and push it to GitHub
 
-## Resources
-
-- [Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
-- [Try Git](http://try.github.io)
-- [Pro Git ebook](https://git-scm.com/book/en/v2)
-- [Learn Enough Git To Be Dangerous](https://www.learnenough.com/git-tutorial)
-- [Oh Shit, Git!](https://ohshitgit.com/)
-
-## Lesson
+## Framing & Background
 
 A **version control system** (or VCS) provides an automatic way to track changes in software projects, giving creators the power to view previous versions of files and directories, develop speculative features without disrupting the primary codebase, securely back up the project and its history, and collaborate easily and conveniently with others. Think of it like the "Save" feature on a local document, except every time you click "Save", you create a snapshot of your project that you can return to, or share with others, anytime.
 
@@ -29,62 +18,66 @@ In addition, using version control also makes deploying production websites and 
 
 Let's say Corey and Matt are working on a project together and the code is on Matt's computer. If Matt is out, Corey can't work on the code because it's on Matt's computer. Git and GitHub solve this problem by allowing the code to be stored in the cloud on GitHub and available for download. With GitHub, Matt and Corey's code lives in the cloud so if Matt is out, Corey can easily download the latest code from GitHub and work on it. Corey would also be able to see all the previous versions of code, from when they first started the project to its current state.
 
-### Getting started
+## Getting started
 
 The most common way to use Git is via a command-line program called `git`, which lets us transform an ordinary folder into a repository (or repo for short) that enables us to track changes to our project.
 
-The easiest way to check for Git is to start a terminal window and use which at the command line to see if the git executable is already present:
+The easiest way to check for Git is to start a terminal window and use `which` at the command line to see if the git executable is already present:
 
 ```bash
 $ which git
 /usr/local/bin/git
 ```
 
-If the result is empty or if it says the command is not found, it means you have to install Git.
+If the result is empty or if it says the command is not found, it means you have to [install Git](../local_environment/README.md).
 
 ### Set Your Identity
 
-First, a quick clarification. **Git** is the open-source standard that manages the version control for our projects. **GitHub** is one of many options to remotely store your Git projects in the cloud. It's one of the most common and popular websites to do this, but keep in mind - Git and GitHub are not the same.
+First, a quick clarification. **Git** is the open-source software that manages the version control for our projects. **GitHub** is a company, one of many options to remotely store your Git projects in the cloud. It's one of the most popular websites to do this, but keep in mind - Git and GitHub are not the same.
 
-GitHub uses the email you set in your Git configuration to associate commits to
-your GitHub account.
+GitHub uses the email you set in your Git configuration to associate commits to your GitHub account.
 
 Test if you have your email set by running `git config --global user.email` in
-your terminal. If it's blank, type `git config --global user.email "example@email.com"` (where "example" is your GitHub account's associated email) to set it. You will only ever need to run this once. Git
-will always use this information for anything you do on your computer.
+your terminal. Hopefully you see the output what your email is set to. 
 
-You won't have to do this much at all, but to set your email for a single repository, simply leave off the `--global` flag.
-Run `git config user.email "example@email.com"` inside your repository. Check
-that this was set up correctly by typing `git config user.email`. Also check
-that the global user was not changed by typing `git config --global user.email`.
+If it's blank, type `git config --global user.email "example@email.com"` (where "example" is your GitHub account's associated email) to set it. You will only ever need to run this once. Git will always use this information for anything you do on your computer.
 
-### Initializing a Repo
+## Initializing a Repo
 
-We’ll begin by making a directory with the name `git-test`. To make a directory, or folder, we use the command `mkdir` which is short for _**m**a**k**e **dir**ectory_. Then you will run the command `cd git-test` which _**c**hanges **d**irectory_ (or folder) to the git-test folder we just created. In short:
+We’ll begin by making a directory with the name `git-test`. To make a directory, or folder, we use the command `mkdir` which is short for _**m**a**k**e **dir**ectory_. Then you will run the command `cd git-test` which _**c**hanges **d**irectory_ (or folder) to the git-test folder we just created. Then we're going to create a readme file. In short:
 
 ```bash
 $ mkdir git-test
 $ cd git-test
+$ touch README.md
 ```
 
-Now that we're in the folder, we are going to create a [_repository_](https://www.sbf5.com/~cduan/technical/git/git-1.shtml). A Git repository, or "repo", represents a single project managed via Git. Practically, it's a series of Git files living in your top-level folder. These files (invisible by default, but visible with `ls -a`) keep track of each change you make and save in a project.
+Now that we're in the folder, we are going to create a [_repository_](https://www.sbf5.com/~cduan/technical/git/git-1.shtml). A Git repository, or "repo", represents a single project managed via Git. Practically, it's a series of files living in your project's folder. These files keep track of each change you make and save in a project.
 
-The way to create a new repository with Git is with the `init` command (short for _**init**ialize_), which creates a special hidden directory where Git stores the information it needs to track our project’s changes.
+The way to create a new repository with Git is with the `init` command (short for _initialize_), which creates a special hidden directory where Git stores the information it needs to track our project’s changes.
 
 ```bash
 $ git init
-Initialized empty Git repository in  /home/lev/git-test/.git/
+# Initialized empty Git repository in  /Users/jabyess/git-test/.git/
 ```
 
-We now have a boilerplate Git repo that we can store our files in and track their changes over time 💯.
+We now have a boilerplate Git repo that we can store our files in and track their changes over time!
 
-### Initial Commit
+> You can see the `.git` folder by doing `ls -a` in your project directory. This is where all the git history lives. If you delete this folder you will delete all your git history.
+
+## Initial Commit
 
 We can check the status of our Git repo by typing `git status`. This will tell us which files, if any, have changed since we last updated our Git repo. Check out what happens when we type `git status`:
 
 ![001](screenshots/001.png)
 
-We see here that the README.md file is “untracked”, which means Git doesn’t yet know about it. We can add it using the `git add` command:
+We see here that the README.md file is “untracked”, which means git isn't paying attention to the contents of it. We can add it using the `git add` command:
+
+```bash
+$ git add README.md
+```
+
+We can add individual files by specifying them by name/filepath, or we can add an entire folder by doing:
 
 ```bash
 $ git add .
@@ -109,6 +102,8 @@ $ git commit -m "initialize repo"
  create mode 100644 README.md
 ```
 
+Now our changes are saved locally to our computer. All we've done is commit an empty file, but we're off to a good start!
+
 At this point, we can use `git log` to see a record of our commit:
 
 ```bash
@@ -124,31 +119,36 @@ The commit is identified by a unique string of letters and numbers that Git uses
 
 ### Viewing the diff
 
-It’s often useful to be able to view the changes represented by a potential commit before making it. To see how this works, let’s add a little bit of content to `README.md` by redirecting the output of `echo`:
+It’s often useful to be able to view the changes represented by a potential commit before making it. To see how this works, let’s open the folder in VSCode:
 
 ```bash
-$ echo "hello world" > README.md
+$ code .
 ```
 
-The `git diff` shows the difference between the last commit and unstaged changes in the current project:
+Open `README.md` and write `hello, world` in it.
+
+Then type `git diff` to see the changes.
+
+Git shows the difference between the last commit and unstaged changes in the current project:
 
 ![003](screenshots/003.png)
 
-We can add and commit this change by passing the `-a` option (for “all”) to `git commit`, which arranges to commit all the changes in currently existing files.
+> The + indicates a line was added, and shows the contents of the line.
+
+We can commit this change by again adding the file and then committing.
 
 ```bash
-$ git commit -a -m "add content to readme"
+$ git add README.md
+$ git commit -m "add content to readme"
 [master 092beb2] add content to readme
  1 file changed, 1 insertion(+)
 ```
-
-**Note that the `-a` option includes changes only to files already added to the repository, so when there are new files it’s important to run `git add .` to make sure they’re added properly.**
 
 Having added and committed the changes, there’s now no diff:
 
 ```bash
 $ git diff
-$
+
 ```
 
 In fact, simply adding the changes is sufficient; running `git add -a` would also lead to there being no diff. To see the difference between staged changes and the previous version of the repo, use `git diff --staged`.
@@ -173,10 +173,11 @@ Meanwhile, the diff shows that one line has been deleted (indicated with -) and 
 
 ![006](screenshots/006.png)
 
-At this point, we’re ready to commit our changes. Earlier we used both the -a and -m options to commit all pending changes while adding a commit message, but in fact the two can be combined as -am.
+At this point, we’re ready to add and commit our changes. 
 
 ```bash
-$ git commit -am "Add a # tag"
+$ git add README.md
+$ git commit -m "Add a # tag"
 [master ea24eb6] Add a # tag
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -195,26 +196,38 @@ As usual, we can see the changes represented by our addition using `git diff`:
 
 ![007](screenshots/007.png)
 
-### GitHub (our remote repository)
+## GitHub (our remote repository)
 
-Go to [GitHub](https://github.com) and sign up for an account if you have not already done so. GitHub is a great online resource for keeping your code and sharing it with others. So if I wanted to work on one code file and Corey wanted to work on another, we could do so on our own laptops and then _push_ both our changes to GitHub where we would then be able to see what each other has done.
+Go to [GitHub](https://github.com) and sign up for an account if you have not already done so. GitHub is a great online resource for keeping your code and sharing it with others, and we will use it almost every day for class.
 
-Most engineering teams use GitHub to store their code because it is simple, free, and can be accessed from anywhere in the world. GitHub is an important tool for you to be comfortable with in your new career as a developer.
+Many engineering teams use github, so getting familiar with it will help you in the long run.
 
-### Push (to a remote repository)
+### Push to github
 
-On the [GitHub home page](https://github.com), click on the green **New Repository** button. In the next screen, give a name to the repository (`git-test`) and click on the green **Create Repository** button. In the following screen, copy the url under **Quick Setup**. It should look like `https://github.com/<user>/git-test.git`, where `<user>` is your username. Now run the following two commands, replacing `<url>` with the one you copied from the github website. Following the second command you may be prompted for your github username and password.
+* On the [GitHub home page](https://github.com), click on the green **New Repository** button. 
+* Give a name to the repository (`git-test`) and click on the green **Create Repository** button. Do not check any boxes.  Leave as public.
 
-```bash
-$ git remote add origin <url>
-$ git push -u origin master
-```
+![create new repo](./screenshots/new-repo.png)
 
-`git remote add` is doing the same thing as `git add` was doing before but this time we are adding to a _remote repository_, which just means one that is **not** stored locally on our computer. `origin` is a name we give our own computer--you can call this anything you'd like (your name) but the standard name people use is `origin`. Lastly `<url>` is the GitHub url where your repository is located--this is where our _local_ repo will be pushed into.
+* Copy the commands under the second section, that says `...or push an existing repository from the command line`
 
-After establishing our remote repo with `git remote add origin <url>` we `push` our changes to the remote repository on GitHub. This is done by running the command `git push -u origin master`. `git push` takes everything we have locally on our computer and sends it to our remote repo on GitHub. The `-u` adds a tracking reference to the remote repo so we can `pull` or download information from this repo later. And lastly `origin master` is saying we are pushing our current branch to the main remote repo (`origin`) on the master branch.
+![new repo from command line](./screenshots/repo-setup.png)
 
-You can now easily add information to and download information from your remote repo on GitHub.
+Paste the command into your terminal and hit enter. Your code will be uploaded to github!
+
+### What are those commands?
+
+`git remote add origin <url>` means we're adding a **remote repository** to this repository. This allows us to push and pull from that repo.
+
+`origin` is the name of the remote repository. It can be whatever you want, but origin is the default name.
+
+The URL is the GitHub url where your repository is located--this is where our _local_ repo will be pushed into. This is not the same as a website address, it's only for git to use. You can't open it in a browser like a regular website.
+
+`git branch -M main` renames the default branch from `master` to `main`. Github is [changing the names of default branches](https://github.com/github/renaming)
+
+`git push -u origin main` pushes the changes on the `main` branch from the local repo to the remote repo (origin). The `-u` flag is shorthand for --set-upstream which [sets the default remote branch](https://stackoverflow.com/questions/18031946/what-does-set-upstream-do). Once we set the default, we can just do `git push` to push changes, or `git pull` to pull them without having to specify a branch.
+
+> We haven't covered branching yet, but we sure will!
 
 After executing the first `git push` as shown above, something like the following should appear in your terminal:
 
@@ -239,7 +252,7 @@ By default, GitHub renders the markdown content of the Readme file in your repos
 
 ```js
 function hello() {
-  console.log("hello world");
+  console.log("hello world")
 }
 ```
 
@@ -256,9 +269,7 @@ $ git commit -m "add file hello.js"
 Now we can push the latest commit to our remote repo on the github website:
 
 ```bash
-$ git push origin master
-Username for 'https://github.com': lizraeli
-Password for 'https://lizraeli@github.com':
+$ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
@@ -272,23 +283,26 @@ Refreshing the page on GitHub should show the new file, and clicking on the file
 
 ![009](screenshots/009.png)
 
-### Clone
+### Clone 
+
+Once a repo is published to github and is listed as **public**, anyone can download the entire repo to their computer. This process is known as `cloning`.
 
 As an example of a common collaboration workflow, we’ll simulate the case of two developers working on the same project, Peter and Lev. Lev will need to add Peter as a collaborator on the remote repository by going to the repo's page and clicking on Settings > Collaborators. Then, Lev will put Peter's GitHub username in the _Add collaborator_ box.
 
-Once Peter gets the notification that he’s been added to the repository, he can go to GitHub to get the repository's URL. This URL lets Peter make a full copy of the repository, including its history, using `git clone`. For now, we will create a `temp` folder in our home directory and `cd` into it.
+Once Peter gets the notification, he can accept the invitation to be a collaborator. Being a collaborator means Peter can also make commits on his local machine and push them up to the repo. Although anyone can clone a repo, only collaborators can push to it.
+
+To clone the repo, click on the green `Code` dropdown. Make sure the `SSH` tab is selected, then copy the displayed URL.
+
+![clone a repo](./screenshots/code-clone-repo.png)
+
+Now, we can clone the repo!
+
+If you don't have a folder called `sandbox` in your **home folder** (`~`) then go create one. If you do, `cd` into it.
+
+Now we're ready to clone! 
 
 ```bash
-(xenial)lev@localhost:~/git-test$ cd ..
-(xenial)lev@localhost:~$ mkdir temp
-(xenial)lev@localhost:~$ cd temp
-(xenial)lev@localhost:~/temp$
-```
-
-Now, we can clone our own repo into the temp folder:
-
-```bash
-$ git clone <url> git-test
+$ git clone <put-your-clone-url-here>
 Cloning into 'git-test'...
 remote: Counting objects: 12, done.
 remote: Compressing objects: 100% (6/6), done.
@@ -297,7 +311,11 @@ Unpacking objects: 100% (12/12), done.
 Checking connectivity... done.
 ```
 
-Now we have a copy of our repo has been created in a new `~/temp/git-test` directory. Now, we will `cd` into the directory and modify the `README.md` file:
+> This creates a new folder with the same name as the project.
+
+Now we have a copy of our repo in a different folder than the original!
+
+Now, we will `cd` into the directory and modify the `README.md` file:
 
 ```markdown
 # Test Repo
@@ -305,14 +323,15 @@ Now we have a copy of our repo has been created in a new `~/temp/git-test` direc
 [our js file](hello.js)
 ```
 
-The syntax above is a link: the text between the square brackets is the text, and the square between the parentheses is the link itself. Since it does not include `http` or `www` it will be interpreted as a relative link in the current folder, to the file `hello.js`. Now, running `git-diff`:
+The syntax above is a markdown link: the text between the square brackets is the text, and the square between the parentheses is the link itself. Since it does not include `http` or `www` it will be interpreted as a relative link in the current folder, to the file `hello.js`. Now, running `git-diff`:
 
 ![010](screenshots/010.png)
 
 We see that the `hello, world` line has been removed, and three new lines have been added. Now we will run `git commit`:
 
 ```bash
-$ git commit -am "added a link in readme to hello.js"
+$ git add .
+$ git commit -m "added a link in readme to hello.js"
 [master 9fbf058] added a link in readme to hello.js
  1 file changed, 3 insertions(+), 1 deletion(-)
 ```
@@ -320,21 +339,19 @@ $ git commit -am "added a link in readme to hello.js"
 And `git push`:
 
 ```bash
-$ git push origin master
-Username for 'https://github.com': lizraeli
-Password for 'https://lizraeli@github.com':
+$ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 325 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/lizraeli/git-test.git
-   6254e59..9fbf058  master -> master
+   6254e59..9fbf058  main -> main 
 ```
 
 ### Pull
 
-Going back to the original repo in `~/git-test`, we will run the command `git pull` to get the latest changes:
+Going back to the original repo in `~/git-test`, we will run the command `git pull` to get the latest changes from our remote repo (github).
 
 ```bash
 ~/git-test$ git pull
@@ -343,7 +360,7 @@ remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
 From https://github.com/lizraeli/git-test
-   6254e59..9fbf058  master     -> origin/master
+   6254e59..9fbf058  main     -> origin/main
 Updating 6254e59..9fbf058
 Fast-forward
  README.md | 4 +++-
@@ -354,33 +371,72 @@ Since there are no conflicts with local files, the local ones have been updated.
 
 ### Git log
 
-The `git log` command can show the entire commit history of our repo. For each commit, it will show its id, the author, the date, and the commit message. To limit the number of commits we can add the flag `-[number]`: this will show the provided number of commits, from last to first.
+The `git log` command can show the entire commit history of our repo. For each commit, it will show its id, the author, the date, and the commit message. To limit the number of commits we can add the flag `-[number]`: this will show the provided number of commits, from newest to oldest.
 
 ![011](screenshots/011.png)
 
-We can also format the output using `--pretty=format:` followed by some arguments. The following show all commits made in an easily readable form.
+Github also shows us this in a different format on a nice webpage, but sometimes it's helpful just to quickly look in our terminal.
 
-```markdown
-\$ git log --pretty=format:"%h - %an, %ar : %s"
-9fbf058 - lizraeli, 34 minutes ago : added a link in readme to hello.js
-6254e59 - lizraeli, 70 minutes ago : added file hello.js
-ea24eb6 - lizraeli, 4 hours ago : Add a # tag
-092beb2 - lizraeli, 4 hours ago : add content to readme
-38aeeb2 - lizraeli, 5 hours ago : initialize
+The important thing to notice here is the long string of characters after the word `commit`. This is called the **commit sha** which is a unique identifier for each commit.
+
+```
+commit aba9ad9ae8d8ff6a23a10a691f690f7934d47986
 ```
 
-### Git Branch
+We'll use this in a later step!
 
-When building a larger application (especially when you're working with others), it is important to create different branches to do work on. This way, you won't mess with the main branch (master) while you're building something out like a new feature. It's important to always have a working application, and to not change things that other people on your team could be working on.
+## Forking
 
-To create a new branch type the command: `git checkout -b <new-branch>`. You can change to a different branch by writing: `git checkout <branch-name>`.
+Forking is similar to cloning!
 
-Once your feature is fully implemented and everything works, you can then create a **pull request** to merge your branch with master. Simply go:
+The main difference here is that forking makes a copy **on your github** instead of on your local computer.
 
-```bash
-$ git push origin <branch-name>
-```
+Once you fork a repo, you can then clone that fork down to your local machine and push changes back up to **your github**. 
 
-And then navigating to your GitHub repo in the browser. You should see a new dialogue to create a pull request. Follow the instructions and submit the pull request.
+Pair up with another fellow and slack each other links to your `git-test` repositories. Then click the **Fork** button in the top right. If you get a prompt asking where to fork, click on your github account name. This will copy the repo to your github profile.
 
-This lets your collaborators see your branch's changes before they merge it into master.
+## Making a pull request
+
+Once you have forked a project you can make commits to your copy of it, then using github, make a **pull request**. A pull request, or PR, is basically a way to ask the original contributor to merge your changes back into their project.
+
+This is a very common workflow on github, and it's one of the reasons github and open-source software are so popular. We'll also use it for most assignments during this class!
+
+The steps look like this:
+
+* Fork the project you want to make a PR to
+* `clone` the forked copy, **NOT the original**.
+* Make the changes in the code that you want to make
+* Commit those changes locally
+* Push the changes to your forked copy
+* Make a pull request on github
+* The original author will see that a PR has been made and can choose to accept or close the PR. You cannot delete a PR once it has been made, because you cannot delete anything in git.
+
+We'll walk through this together!
+
+## Git reverts
+
+One fundamental philosophy of git is that it's **append only**. This means you can't delete a commit, because that would be deleting some of the history of the project.
+
+We do have an option in case you want to _undo_ something previously committed, and that's the `revert` function.
+
+A `revert` is basically another commit that does the opposite of a commit. So if you added 4 lines and removed 2, a revert would remove those 4 lines and add 2.
+
+When doing a revert, you have to tell git **which commit you want to revert**. This is where `git log` and the `commit sha` come in handy.
+
+Steps to revert:
+* Make sure you don't have any un-committed changes.
+* `git log` to see the commits and associated `sha`s
+* Copy the entire sha of the commit you want to revert
+* `git revert <sha>`
+* Enter a commit message. Close the window that you wrote the message in.
+* Your revert should be done! Check the contents of the files to see if the changes are there.
+
+
+## Resources
+
+- [Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
+- [Git flight rules](https://github.com/k88hudson/git-flight-rules)
+- [Try Git](http://try.github.io)
+- [Pro Git ebook](https://git-scm.com/book/en/v2)
+- [Learn Enough Git To Be Dangerous](https://www.learnenough.com/git-tutorial)
+- [Oh Shit, Git!](https://ohshitgit.com/)
