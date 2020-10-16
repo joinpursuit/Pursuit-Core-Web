@@ -1,12 +1,13 @@
-# Values Types and operators in JavaScript
+[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
 
-## Standards
-LF.1, LF.1.a, LF.4
+# Values, Types, and Operators in JavaScript
+
+Learn some fundamentals in javascript!
 
 ## Objectives
 
 * Understand what values are in javascript.
-* Know some basic value types:
+* Know some basic (primitive) types:
   * Number
   * String
   * Boolean
@@ -18,49 +19,74 @@ LF.1, LF.1.a, LF.4
   * Compare boolean values
 * Learn about expressions and order of evaluation.
 
-## Keywords
+## Background & Framing
 
-- Types: number, string, boolean and undefined. Sources: [Microsoft](https://docs.microsoft.com/en-us/scripting/JavaScript/data-types-JavaScript)
-- Operators. Sources: [WhatIs](http://whatis.techtarget.com/definition/operator)
-- Arithmetic operators, string concatenation, comparison operators, the negation operator, the typeof operator.
-- Logical Operators: [IBM](https://www.ibm.com/support/knowledgecenter/en/SSLVMB_20.0.0/com.ibm.spss.statistics.help/syn_transformation_expressions_and_or_logical_operators.htm)
-- Literals: [Wikipedia](https://en.wikipedia.org/wiki/Literal_%28computer_programming%29)
-- Expressions: [Wikipedia](https://en.wikipedia.org/wiki/Expression_(computer_science))
-- Truth tables: [Medium](https://medium.com/i-math/intro-to-truth-tables-boolean-algebra-73b331dd9b94)
+In programming, much of what we do is manipulating pieces of data. Data comes in many forms, like numbers, text, and other arrangements. We call different pieces of data different `types`.
 
-## Lesson
+A type is a specific way of representing data - you can almost think of different types as different categories of words, like `nouns`, `verbs`, or `adjectives`. They serve different purposes, but they're still all words.
 
-In the computer world, the only thing that exists is a sequence of bits: `1`s and `0`s. In JavaScript, these bits are separated
-into things called **values**.
-Each value has a `type` that determines its role in a program.
-The basic types of values in JavaScript are: **number, string, boolean, object, function, and undefined**.
+When we talk about data, we need to know two things - the `value` of the data, and the `type` of that value.
 
-### Numbers
+The basic types of values in JavaScript are: **number, string, boolean, and undefined**. We call these `primitive types`. There are a few other types that we'll get to in later lessons.
 
-To create a number, we just type the value of the number:
+Along with `types`, we also have `operators`, which are things that we can use to compare or modify values. You've probably seen `+` or `<` or `===` before - these are all considered operators.
+
+## Numbers
+
+Open up your javascript `repl` by typing `node` in your terminal. You can follow along and try out some things!
+
+To create a number, we just type the value of the number. Both positive and negative numbers work:
 
 ```js
 > 42
 42
+
+> 23815
+23815
+
+> -545
+-545
 ```
 
-### Operators
+This is called a `literal` because the representation of the value is exactly as it is written. 42 is 42.
+
+## Operators
 
 An **operator** is one of a predefined group of words and symbols.
 It takes one or two values, does some work behind the scenes, and returns the result of that work.
+
 For example, the `+` operator takes two numbers, adds them, and returns the sum.
+
 In JavaScript, some operators, such as `+`, `-`, `*`, `/`, will take one value from their leftside and one value from their
 righside.
-Other operators, such as `typeof` (discussed below) take only a value on their rightside.
 
-### Arithmetic
+Other operators, such as `typeof` (discussed below) take only a value on their right side.
+
+## Operator Arithmetic
 
 We can do arithmetic operations using the  `+`, `-`, `*`, and `/` operators. We may also use parentheses `()` to affect the order of operations.
-Javascript will evaluate <b> expressions </b> and return a single number.
+
+Javascript will evaluate **expressions** and return a single number.
 
 ```js
 > 2 + 2 * 4
 10
+
+> 23 * 2 - 4 / 4
+45
+
+> ((23 * 2) - 4) / 4
+10.5
+```
+
+We can also use ** to do exponents!
+
+```js
+> 5**2
+25
+
+> 5**3
+125
 ```
 
 Another useful operator is `modulo`, the remainder operator.
@@ -85,9 +111,6 @@ Occasionally, we will come across special values that are of the number type, bu
 ```js
 > 0 / 0
 NaN
-
-> "hello" * 5
-NaN
 ```
 
 Division of a non-zero number by zero will result in `Infinity` (there is a mathematical basis for this but it's not crucial for our purpose)
@@ -99,11 +122,20 @@ Infinity
 
 ### Strings
 
-Strings are used to represent text. To create a string, write any text enclosed by either "double quotes" or 'single quotes' (as long as the starting and ending quotes match).
+Strings are used to represent text. To create a string, write any text enclosed by either "double quotes" or 'single quotes'. Just don't mix single and double quotes together!
+
 
 ```js
 > 'Hello there'
 'Hello there'
+
+> "What is up"
+'What is up'
+
+> "why not'
+^^^^^^^^^
+
+Uncaught SyntaxError: Invalid or unexpected token
 ```
 
 The `+` Operator can be used to join two strings together.
@@ -127,6 +159,7 @@ The `typeof` operator returns a string with the type of the value that follows i
 ```
 
 The earlier operators required two values - one to the left and one to the right.
+
 By contrast, `typeof` only takes one value. The `-` (minus) operator can also take a single value, when placed to the left of a mathematical expression:
 
 ```js
@@ -134,18 +167,26 @@ By contrast, `typeof` only takes one value. The `-` (minus) operator can also ta
 -8
 ```
 
-> note: the left hand and right hand sides of an operator are called <b>operands</b>. We can say that the `-` and `typeof` operator take a single operand.
+> Note: the left hand and right hand sides of an operator are called **operands**. We can say that the `-` and `typeof` operator take a single operand.
 
-### Booleans
+## Booleans
 
 Boolean is a type that can only have one of two possible values: `true` or `false`, usually indicating wither a statement is, in fact, true or false. Boolean values are returned when using certain operators.
 
+```js
+> true
+true
+
+> false
+false
+```
+
 ### Comparison Operators
 
-Comparison operators include `===`, `>`, `<`. These do not make a statement about values, but rather test the relationship between them. The test returns one of the two boolean values.
+Comparison operators include `===`, `>`, `<`. These do not modify values, but rather test the relationship between them. The test returns one of the two boolean values.
 
-- `===` - Tests for Equality. Is "this" the same or equal to "that"?
-- `!==` - Tests for inequality. Is "this" not the same as "that"?
+- `===` - Tests for Equality. Is "this" the same as "that"?
+- `!==` - Tests for inequality. Is "this" different from that "that"?
 - `>` - Greater than. 3 > 2 : Is 3 greater than 2 ?
 - `<` - Less than. 3 < 2 : Is 3 less than 2 ?
 - `>=` - Greater than or equal to.
@@ -173,10 +214,16 @@ Strings can also be compared:
 ```js
 > 'Tom' === 'Jerry'
 false
+
 > 'cat' !== 'dog'
 true
+
 > 'cat' === 'cat'
 true
+
+> "hello" < "y"
+true
+// why does this happen?
 ```
 
 ### Creating and Comparing Booleans
@@ -190,11 +237,11 @@ true
 false
 ```
 
-JavaScript knows what `true` and `false` means, they are special. `true` and `false` not strings, they are booleans, and JavaScript picks that up without us telling it to do so explicitly. If we attempt to evaluate other arbitrary words without quotations, it knows that they are not booleans, nor are they strings, and it throws an error:
+JavaScript knows what `true` and `false` mean, they are special keywords. `true` and `false` are not strings, they are **booleans**. If we attempt to evaluate other arbitrary words without quotations, it knows that they are not booleans, nor are they strings, and it throws an error:
 
 ```js
 > broom
-ReferenceError: broom is not defined
+Uncaught ReferenceError: broom is not defined
 ```
 
 We can also use `typeof` with boolean values:
@@ -215,11 +262,17 @@ false
 true
 ```
 
-### Logical Operators
+## Logical Operators
 
-The three logical operators are AND (`&&`) OR (`||`) and NOT (`!`). When logical operators are used, a boolean value will result.
+The three logical operators are:
 
-#### The AND (&&) Operator
+* AND, written as `&&` 
+* OR, written as `||` 
+* NOT, writen as `!`. 
+
+When logical operators are used, a boolean value will result.
+
+### The AND (&&) Operator
 
 We use the `&&` operator to test if statements made on both sides of the operator have a truthy value.
 For example:
@@ -258,16 +311,18 @@ The `&&` operator will evaluate to `true` only if both left-hand and right-hand 
 
 ```js
 > 1 === 1 && 2 === 3
+// 1 === 1 is true
 // 2 === 3 is false
+// therefore the entire statement is false
 false
 ```
 
-We can write down all the possible results of an `&&` operator in a table. We use `A` and `B` to represent two expressions
-that are either true or false. We write in each row a unique combination of the possible values of `A` and of `B`. Given those values, we write the result of providing `A` and `B` to the `&&` operator. This is called a <b>truth-table</b>:
+A fun fact about the `&&` operator: if the left side evaluates to false, it stops evaluating and ignores the right side.
 
-#### The OR (||) Operator
+### The OR (||) Operator
 
 We use the `||` operator to check if one of two statements is true.
+
 This will be `false` only if both left-hand side and right-hand side are false:
 
 ```js
@@ -285,10 +340,9 @@ false
 
 > 2 === 3 || 4 === 5
 false
-
 ```
 
-#### The NOT (`!`) Operator
+### The NOT (`!`) Operator
 
 The `!` operator, like `typeof` takes a single value to its right. It returns the opposite value
 
@@ -305,9 +359,35 @@ true
 true
 ```
 
-### Expressions
+### Combining everything
 
-All the code we've written in this lesson has consisted of <b>expressions</b>. An expression is anything that returns a value. `1 + 2` is an expression - it returns the value `3`. And `1 + 2 + 3 + 4` is also an expression, as well as `1 === 1`, which returns the boolean value `true`. The process of producing a value from an expression is called **evaluation**.
+Let's try some more complex examples!
+
+```js
+> !(1 === 2) && (5 === 5)
+true
+// 1 is not equal to 2, so it becomes false
+// ! inverts false to be true
+// true === true
+// therefore the whole statement is true
+
+> 5 !== 5 || !(2 === 5)
+true
+// 5 !== 5 is false
+// 2 === 5 is false
+// !(false) becomes true
+// false || true evaluates to true
+```
+
+We can write down all the possible combinations of operators in a table. We use `A` and `B` to represent two expressions that are either true or false. We write in each row a unique combination of the possible values of `A` and of `B`. Given those values, we write the result of providing `A` and `B` to the `&&` operator. This is called a **truth table**:
+
+![truth table](./images/truth-table.png)
+
+You don't have to memorize this, with practice you will be able to look at an expression and figure out the answer, so you won't even need it!
+
+## Expressions
+
+All the code we've written in this lesson has consisted of **expressions**. An expression is anything that returns a value. `1 + 2` is an expression - it returns the value `3`. And `1 + 2 + 3 + 4` is also an expression, as well as `1 === 1`, which returns the boolean value `true`. The process of producing a value from an expression is called **evaluation**.
 
 This process can be simple, as in the case of `1 + 2`.
 In some cases, however, the evaluation can take multiple steps. The computer can only perform one operation at a time.
@@ -325,12 +405,11 @@ In the case of concatenating strings, a similar process will happen:
 - -> `'after' + 'wards'`
 - -> `'afterwards'`
 
-In the case of `1 === 2 || 3 === 3` the same process will happen. The computer will scan the expression and identify
-the OR operator. To evaluate this operator, we need to check if either the left hand or right hand side are
-the value `true`. We typically start by examining the left hand side.
-In this case, it is an expression, so we evaluate it. Since it returns the value `false`, we continue examine the
-right operand of the `||` operator. This is again an expression, which returns the value `true`.
-Now we can finally say that the entire expression, `1 === 2 || 3 === 3` returns `true`.
+In the case of `1 === 2 || 3 === 3` the same process will happen. The computer will read the expression from left to right and identify the OR operator. To evaluate this operator, we need to check if either the left hand or right hand side are the value `true`. We typically start by examining the left hand side.
+
+In this case, it is an expression, so we evaluate it. Since it returns the value `false`, we continue to examine the right operand of the `||` operator. This is again an expression, which returns the value `true`.
+
+The entire expression, `1 === 2 || 3 === 3` returns `true`.
 
 - `1 === 2 || 3 === 3`
 - -> `false || 3 === 3`
@@ -339,7 +418,7 @@ Now we can finally say that the entire expression, `1 === 2 || 3 === 3` returns 
 
 The process outlined above is typical for evaluating expressions, both for JavaScript and for many other programming languages. When evaluating expressions, logical operators come first, followed by the comparison operators, followed by the arithmetic operators.
 
-### Type Conversion
+## Type Conversion
 
 Type conversions may occur in expressions that feature different types. A common situation is when the `+` operator is used with a string and a number. In this case, the number will be converted to a string:
 
@@ -357,9 +436,20 @@ This automatic conversion can lead to unexpected results:
 
 Since the number is converted to a string, the above was the same as writing `'2' + '4'` - like concatenating any two strings.
 
-### Truthy and Falsey
+```js
+> "hello" - 5
+NaN
+```
 
-Everything in JS has a truthy or falsey value attached to it. Most things have a truthy value. The falsey values in JS are:
+This is a little more tricky - since the `+` operator is used to add numbers as well as concatenate strings, it does the conversion from number to string for us. But with the `-` operator, it doesn't know what to do, so the result is `Not A Number`
+
+## Truthy and Falsy
+
+Everything in JS has a truthy or falsy value attached to it. Most things have a truthy value. Note that `true` and `false` are booleans, they're not the same as truthy and falsy.
+
+If something is truthy it means that value **evaluates** to become true, but it's not a boolean. Same goes with falsy.
+
+The falsy values in JS are:
 
 - false
 - 0 and other forms of numeric zero like -0, 0.0 and 0x0
@@ -368,12 +458,12 @@ Everything in JS has a truthy or falsey value attached to it. Most things have a
 - null
 - undefined
 
-[helpful link](https://stackoverflow.com/questions/19839952/all-falsey-values-in-JavaScript)
-
-This means we can use logical operators to evaluate things that don't just value to `true` and `false` but also things that just have
-a truthy or falsey value.
+This means we can use operators to evaluate things that don't just value to `true` and `false` but also things that just have a truthy or falsy value.
 
 ```js
+> true === ""
+false
+
 > "hello" && ""
 false
 
@@ -381,17 +471,19 @@ false
 true
 ```
 
-When the `||` operator interacts with truthy and falsey values, it behaves in an unusual way: if the left-hand side is truthy, the left-hand value will be returned (instead of `true`). If the left-hand side is falsey, the right-hand value will be returned (regardless of whether it evaluates as truthy or falsey).
+When the `||` operator interacts with truthy and falsy values, it behaves in an unusual way: if the left-hand side is truthy, the left-hand value will be returned (instead of `true`). If the left-hand side is falsy, the right-hand value will be returned (regardless of whether it evaluates as truthy or falsey).
 
 ```js
 
- > NaN || "hi"
- "hi"
+> NaN || "hi"
+"hi"
 
 > false || 1
 1
+
 > '' || 0
 0
+
 > 'cat' || false
 'cat'
 
@@ -411,10 +503,33 @@ If the left-hand expression evaluates to false, the value in the right-hand side
 'cat'
 ```
 
-### Resources
+There are many possible combinations of truthy and falsy values. Here's an example. The green square means that particular combination of values evaluates to true.
+
+For example, true and "1" versus true and 0
+
+```js
+> true === "1"
+true
+
+> true === 0
+false
+```
+
+![bad truth table](./images/bad-table.png)
+
+This is insane to look at, but again, don't worry about memorizing it. Just be careful what assumptions you make about which values are equal!
+
+## Resources
 
 - Eloquent JavaScript: [Chapter 1](http://eloquentJavaScript.net/01_values.html)
 - Microsoft: [JavaScript Fundamentals](https://docs.microsoft.com/en-us/scripting/JavaScript/JavaScript-fundamentals)
   - Data Types
   - Operators
   - Operator Precedence
+- [list of falsy values](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+- [example of truthy values](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
+- Primitive types. [mdn](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
+- Literals: [Wikipedia](https://en.wikipedia.org/wiki/Literal_%28computer_programming%29)
+- Expressions: [Wikipedia](https://en.wikipedia.org/wiki/Expression_(computer_science))
+- Truth tables: [Medium](https://medium.com/i-math/intro-to-truth-tables-boolean-algebra-73b331dd9b94)
+- Comparing strings lexicographically: [stackoverflow](https://stackoverflow.com/questions/1863028/string-compare-logic)
