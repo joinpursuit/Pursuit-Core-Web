@@ -80,9 +80,6 @@
 [submodule "fundamentals/the_command_line/pset"]
 	path = fundamentals/the_command_line/pset
 	url = https://github.com/joinpursuit/PCNWLab-Command-Line.git
-[submodule "fundamentals/values_types_operators/pset"]
-	path = fundamentals/values_types_operators/pset
-	url = https://github.com/joinpursuit/PCNWLab-Types.git
 [submodule "html_css_dom/axios/pset"]
 	path = html_css_dom/axios/pset
 	url = https://github.com/joinpursuit/PCNW-Promises-Axios.git
@@ -107,9 +104,6 @@
 [submodule "react_2/user_authentication_frontend/lab"]
 	path = react_2/user_authentication_frontend/lab
 	url = https://github.com/joinpursuit/React-Auth-w-Context.git
-[submodule "fundamentals/values_types_operators/pset_2"]
-	path = fundamentals/values_types_operators/pset_2
-	url = https://github.com/joinpursuit/values_types_operators_assignment.git
 [submodule "fundamentals/variables/pset_2"]
 	path = fundamentals/variables/pset_2
 	url = https://github.com/joinpursuit/variable_assignment.git
