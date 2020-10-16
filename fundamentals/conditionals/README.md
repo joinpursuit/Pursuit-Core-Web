@@ -28,7 +28,7 @@ Controlling the flow of our code.
 
 ## Prerequisites
 
-- Familarity with logical operators
+- Familiarity with logical operators
 - Familiarity with values and types
 
 ---
