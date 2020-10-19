@@ -17,7 +17,7 @@
 | 1. [Local Environment Setup](./local_environment/README.md) | n/a | n/a |
 | 2. [The Command Line](./the_command_line/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968778) | [link](https://github.com/joinpursuit/Command-Line-Lab) |
 | 3. [Git and GitHub](./git_and_github/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968809) | [link](https://github.com/joinpursuit/git_github_assignment) | 
-| 4. [Values, Types, and Operators](./values_types_operators/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968817) | [link](https://github.com/joinpursuit/values_types_operators_assignment/blob/master/README.md) |
+| 4. [Values, Types, and Operators](./values_types_operators/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968817) | [link](https://github.com/joinpursuit/values_types_operators_assignment) |
 | 5. [Variables](./variables/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968773) | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
 | 6. [Functions](./functions/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968771) | [link](https://github.com/joinpursuit/functions-lab) |
 | 7. [Conditionals](./conditionals/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968791) | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
