@@ -167,8 +167,8 @@ function firstLevel() {
 }
 
 console.log(global) // => "hello global"
-console.log(first) // => undefined
-console.log(second) // => undefined
+console.log(first) // => ReferenceError: first is not defined
+console.log(second) // => ReferenceError: second is not defined
 ```
 
 ## Scope and parameters
