@@ -171,7 +171,7 @@ By contrast, `typeof` only takes one value. The `-` (minus) operator can also ta
 
 ## Booleans
 
-Boolean is a type that can only have one of two possible values: `true` or `false`, usually indicating wither a statement is, in fact, true or false. Boolean values are returned when using certain operators.
+Boolean is a type that can only have one of two possible values: `true` or `false`, usually indicating whether a statement is, in fact, true or false. Boolean values are returned when using certain operators.
 
 ```js
 > true
