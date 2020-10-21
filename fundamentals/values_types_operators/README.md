@@ -2,11 +2,11 @@
 
 # Values, Types, and Operators in JavaScript
 
-Learn some fundamentals in javascript!
+Learn some fundamentals in JavaScript!
 
 ## Objectives
 
-* Understand what values are in javascript.
+* Understand what values are in JavaScript.
 * Know some basic (primitive) types:
   * Number
   * String
@@ -57,8 +57,8 @@ It takes one or two values, does some work behind the scenes, and returns the re
 
 For example, the `+` operator takes two numbers, adds them, and returns the sum.
 
-In JavaScript, some operators, such as `+`, `-`, `*`, `/`, will take one value from their leftside and one value from their
-righside.
+In JavaScript, some operators, such as `+`, `-`, `*`, `/`, will take one value from their left side and one value from their
+right side.
 
 Other operators, such as `typeof` (discussed below) take only a value on their right side.
 
@@ -270,8 +270,6 @@ The three logical operators are:
 * OR, written as `||` 
 * NOT, writen as `!`. 
 
-When logical operators are used, a boolean value will result.
-
 ### The AND (&&) Operator
 
 We use the `&&` operator to test if statements made on both sides of the operator have a truthy value.
@@ -307,7 +305,7 @@ So the above is equivalent to writing:
 true
 ```
 
-The `&&` operator will evaluate to `true` only if both left-hand and right-hand sides are true. Otherwise it will return `false`:
+The `&&` operator will evaluate to `truthy` only if both left-hand and right-hand sides are truthy. Otherwise it will return something `falsy`:
 
 ```js
 > 1 === 1 && 2 === 3
@@ -317,13 +315,13 @@ The `&&` operator will evaluate to `true` only if both left-hand and right-hand 
 false
 ```
 
-A fun fact about the `&&` operator: if the left side evaluates to false, it stops evaluating and ignores the right side.
+A fun fact about the `&&` operator: if the left side evaluates to falsy, it stops evaluating and ignores the right side. This is called short circuiting. 
 
 ### The OR (||) Operator
 
-We use the `||` operator to check if one of two statements is true.
+We use the `||` operator to check if one of two statements is truthy.
 
-This will be `false` only if both left-hand side and right-hand side are false:
+This will be `falsy` only if both left-hand side and right-hand side are falsy:
 
 ```js
 > false || true
@@ -342,9 +340,11 @@ false
 false
 ```
 
+A fun fact about the `||` operator: if the left side evaluates to truthy, it stops evaluating and ignores the right side. This is called short circuiting. 
+
 ### The NOT (`!`) Operator
 
-The `!` operator, like `typeof` takes a single value to its right. It returns the opposite value
+The `!` operator, like `typeof` takes a single value to its right. It returns the opposite value as a boolean.
 
 - given `true`, it returns `false`; given `false`, it returns `true`
 
@@ -441,7 +441,7 @@ Since the number is converted to a string, the above was the same as writing `'2
 NaN
 ```
 
-This is a little more tricky - since the `+` operator is used to add numbers as well as concatenate strings, it does the conversion from number to string for us. But with the `-` operator, it doesn't know what to do, so the result is `Not A Number`
+This is a little more tricky - since the `+` operator is used to add numbers as well as concatenate strings, it does the conversion from number to string for us. But with the `-` operator, it doesn't know what to do, so the result is `Not A Number`. (_Because JS is a quirky language there are some exceptions like subtracting a number from a string number. "55" - 5 evaluates to 50._)
 
 ## Truthy and Falsy
 
@@ -464,14 +464,16 @@ This means we can use operators to evaluate things that don't just value to `tru
 > true === ""
 false
 
-> "hello" && ""
-false
+> "" && "hello"
+"" // because empty string was the last side evaluated and empty string is falsy.
 
 > "hello" && "goodbye"
-true
+"goodbye" // because 'goodbye' was the last side evaluated. Both sides have a truthy value.  
 ```
 
-When the `||` operator interacts with truthy and falsy values, it behaves in an unusual way: if the left-hand side is truthy, the left-hand value will be returned (instead of `true`). If the left-hand side is falsy, the right-hand value will be returned (regardless of whether it evaluates as truthy or falsey).
+When the `||` operator interacts with truthy and falsy values, it behaves in an unusual way: if the left-hand side is truthy, the left-hand value will be returned (instead of `true`). If the left-hand side is falsy, the right-hand value will be returned (regardless of whether it evaluates as truthy or falsy).
+
+For both `||` and `&&` the last side evaluated is what the expression will evaluate to. Short circuiting occurs when the left side is what the expression evaluates to. 
 
 ```js
 
@@ -507,11 +509,15 @@ There are many possible combinations of truthy and falsy values. Here's an examp
 
 For example, true and "1" versus true and 0
 
+**Note** these are true for `==` only . We won't be going into depth on `==` today but please be aware of the difference. `==` compares the left side and right side but does type conversion under the hood to try and make things work. 
+
+`===` triple equals checks for strict equality and is what you should use 99.9% of the time. 
+
 ```js
-> true === "1"
+> true == "1"
 true
 
-> true === 0
+> true == 0
 false
 ```
 
