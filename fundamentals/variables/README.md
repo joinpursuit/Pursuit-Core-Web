@@ -215,7 +215,7 @@ let myAge = 25;
 myAge = 26;
 ```
 
-Now the `myAge` variable would be equal to `26`. Notice how we didn't use `let` to redefine the variable - this is because `let` is specifically used to **create** the variable. Once it's made, you can change it as you'd like. In older versions of the JavaScript language, you could only use `var` to declare variables. While you can still use `var` to declare variables, it is preferred to use `let` or `const`.
+Now the `myAge` variable would have the value `26`. Notice how we didn't use `let` to redefine the variable - this is because `let` is specifically used to **create** the variable. Once it's made, you can change it as you'd like. In older versions of the JavaScript language, you could only use `var` to declare variables. While you can still use `var` to declare variables, it is preferred to use `let` or `const`.
 
 ```js
 let day = "Monday";
@@ -224,7 +224,7 @@ day = "Tuesday";
 console.log("Tomorrow will be " + day);
 ```
 
-While `let` is flexible, `const` is not. `const` is used when declaring variables we **do not** want to change and want to keep **constant**. We used `const` for `myCat` because we don't expect `myCat` to change anytime soon. If we tried to redefine the `myCat` variable, you would receive an error:
+While `let` is flexible, `const` is not. `const` is used when declaring variables we **do not** want to change and want to keep **constant**. We used `const` for `myCat` because we don't expect `myCat` to change anytime soon. If we tried to redefine the `myCat` variable, we would receive an error:
 
 ```js
 const myCat = "Tom";
@@ -253,14 +253,14 @@ console.log(sentence);
 // My name is Mia
 ```
 
-# 9. Updating Variables Shorthand
+## 9. Updating Variables Shorthand
 
-There is a shorter syntax to updating variables using their existing value. When we wish to add something to the variable's value, we may use the `+=` operator, as in `num += 1`. This is a shorthand for `num = num + 1`. The same works with `-=`:
+There is a shorter syntax to updating variables using their existing value. When we wish to add something to the variable's value, we may use the `+=` operator, as in `num += 1`. This is a shorthand for `num = num + 1`. The same works with `-=`, `*=`, and `/=` and other math operators. This shorthand is sometimes referred to as syntactic sugar. 
 
 ```js
 let num = 2;
 num += 6;
-// Num is 8
+// num is 8
 num -= 3;
 // num is 5
 ```
