@@ -1,9 +1,11 @@
-# Variables
+[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
+
+# Variables Lesson
 
 ## Standards
 LF.2
 
-## Objectives
+## Learning Objectives
 
 * Understand the difference between a statement and an expression.
 * Independently define, assign value to, and modify variables.
@@ -20,7 +22,12 @@ LF.2
 - the `undefined` type
 - keyword
 
-# 1. Expressions
+## Prerequisites 
+ * Values and Types
+
+___
+
+## 1. Expressions
 
 In the previous lesson we only used _expressions_ in our code. But on their own, expressions don't really do anything. We can write the following program, using `;` to indicate the end of a line.
 
@@ -30,9 +37,9 @@ In the previous lesson we only used _expressions_ in our code. But on their own,
 "bat" + "man";
 ```
 
-Each of the expressions will be evaluated, return a value, and then get discarded. None of the expressions will have any effect on anything.
+Each of the expressions will be evaluated (become a value), and then get discarded. None of the expressions will have any affect on anything.
 
-# 2. console.log
+## 2. console.log
 
 The first kind of effect we need is to log text to the console. After all, we have to be able to see what we're doing.
 
@@ -40,7 +47,7 @@ Thus far, we have been using the node REPL, where the value returned by an expre
 
 If we try to run a file with the code we looked at before, nothing will get logged. In order to log something in a JavaScript file, we need to use the `console.log` function. This will print (AKA **log**) whatever we type inside the parentheses to your terminal window (the **console**).
 
-It is important to note that `console.log` prints information to the screen but _does not_ return anything itself. This gets at the difference between _returning_ and _logging_. When something returns something, it means that it evaluates to that and can be utilized by other code (for example, comparisons).
+It is important to note that `console.log` prints information to the screen but _does not_ return / evaluate to anything itself. This gets at the difference between _returning_ and _logging_. When something returns something, it means that it evaluates to that and can be utilized by other code (for example, comparisons).
 
 The return value of `console.log` is `undefined`. If you wanted to do `console.log(2 + 2)` it would simply print `4` to the screen - you could not then use the `4` to do something else.
 
@@ -69,7 +76,7 @@ console.log("bat" + "man") === "bat" + "man";
 3. Copy the previous code into the file.
 4. Now run your file by entering `node test.js` in your terminal.
 
-# 3. Creating a variable
+## 3. Creating a variable
 
 To save values in the computer's memory, we use **variables**. A variable is a container in which we can store values to be later retrieved. To create a variable, we use the keywords `var`, `let`, or `const`, followed by the name of the variable. 
 
@@ -92,7 +99,7 @@ What about `console.log(myLetVariable)` and `console.log(myConstVariable)`?
   `myVarVariable` and `myLetVariable` both currently log `undefined`. Then we have `myConstVariable` that logs the string, "I used const!". What gives?
 </details>
 
-# 4. Assigning a value
+## 4. Assigning a value
 
 A variable is a placeholder for a value that is stored somewhere in the computer's memory. We can assign a value to a variable by using the assignment operator, `=`. If we don't assign the variable to a value, as we saw above, it will be `undefined`. To get back the value we assigned, we write the variable's name. The name can be used by itself or as part of an expression.
 
@@ -110,9 +117,9 @@ const myConstVariable
 // => Uncaught SyntaxError: Missing initializer in const declaration
 ```
 
-In later lessons we will explore the differences between `let`, `const` and `var` in greater depth but for now just know that you should be using `let`, not using `var`, and using `const` for variables you do not want to change.
+In later lessons we will explore the differences between `let`, `const` and `var` in greater depth. For now just know that you should be using `const` for variables you do not want to change (thus constant), and `let` for everything else. You should not be using `var` (it's an old way of declaring variables).
 
-# 5. Using Variables
+## 5. Using Variables
 
 Now what are some things we can do with our variables? Let's explore different ways we can interact with our variables and use them in different contexts.
 
@@ -140,7 +147,7 @@ console.log(num1 + num2 === 6);
 // true
 ```
 
-# 6. Statements and Expressions
+## 6. Statements and Expressions
 
 Variable assignment is our first example of a **statement**. When we assign a value to a variable, nothing visible happens. Instead, the **state** of our program changes. **State** is everything that's stored in memory while a program runs. In general, an expression returns a value, while a statement changes the program's state. When using the assignment operator, the right hand side is actually an expression. This means that we are not limited to writing a single value.
 
@@ -152,8 +159,13 @@ console.log(myNumber);
 <details>
   <summary>What do you think <code>myNumber</code> will be equal to?</summary>
 
-  When running the code above, the expression to the right of the `=` operator will first be evaluated to `10` and then assigned to the variable `myNumber`. We can also use the value of existing variables to create new ones.
+  When running the code above, the expression to the right of the `=` operator will first be evaluated to `10` and then assigned to the variable `myNumber`.
 </details>
+
+---
+
+
+   We can also use the value of existing variables to create new ones.
 
 ```js
 let num1 = 4;
@@ -170,9 +182,10 @@ let sum = num1 + num2;
 <details>
 <summary>What do you think <code>sum</code> will equal to if we changed the value of <code>num1</code> to 10 after calculating <code>sum</code>?</summary>
 
-`sum` will still equal 10! When we declared `sum`, `num1` was equal to 4 so no matter how many times we change `num1` or `num2`, `sum` will not change.
+`sum` will still equal 10! When we declared `sum`, `num1` was equal to 4 so no matter how many times we change `num1` or `num2` after, `sum` will not change.
 </details>
 
+---
 In the following code, what would be logged to the screen?
 
 ```js
@@ -182,7 +195,7 @@ let sentence = string + number;
 console.log(sentence);
 ```
 
-# 7. `undefined`
+## 7. `undefined`
 
 As we saw above, if we don't assign a value to a variable, it will hold the value `undefined`. This is not a description but an actual value, one we can write in the node REPL:
 
@@ -193,7 +206,7 @@ undefined
 
 It is important to make sure that you consider when variables might be undefined when you are writing code.
 
-# 8. Modifying Variables
+## 8. Modifying Variables
 
 We can assign a new value to a variable at any time by using the assignment operator. This will overwrite the old value of that variable. `let` is a useful and flexible way to declare variables because it allows you to change what you've stored in the variable. For example, your age will change every year so you'd probably like to update that variable to match your age. To redefine a variable you would do the following:
 
