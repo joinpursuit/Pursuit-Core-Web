@@ -264,3 +264,12 @@ num += 6;
 num -= 3;
 // num is 5
 ```
+## Summaray
+Variables allow us to write code that can be referenced later. When creating a variable we should use `let` or `const` to declare the variable. We can then assign value to that variable.
+
+Using `console.log` can be a helpful tool fo us the humans see what the code is doing and to check what values are where. It shouldn't be used to save information and is irrelevant to the computer. 
+
+## Resourcs
+* [MDN Variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
+* [Syntactic Sugar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
+* [Var, Let, Const - What's the Difference?](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/#:~:text=var%20declarations%20are%20globally%20scoped%20or%20function%20scoped%20while%20let,be%20updated%20nor%20re%2Ddeclared.)
