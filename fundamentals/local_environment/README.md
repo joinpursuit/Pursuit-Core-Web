@@ -222,6 +222,7 @@ Login to the pursuit core workspace, you should have received an email invitatio
 ### Github setup
 
 * Create an account on github.com if you haven't already. Use your personal email, not pursuit.
+* It is best practice to make your github name your first and last name, or something similar. Why? Because future employers will look at your github. Keep it professional. 
 * Follow the [guide to generating a new ssh key](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * Add the key [to your github account](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 * Test that everything works with this command:
