@@ -19,7 +19,7 @@ FSW.1.a, FSW.1.b
 Functions can take in many different types of data as an argument, including the type 'function'. That's right, in JavaScript a function can actually be passed another function as an argument. This other function that is passed in as the argument is often referred to as a **_callback_**.
 Using a function that takes in a callback and a an array is something that is needed very frequently. The array is the thing you want to change or use, and the callback is **how** you want it to be changed or used.Because it's so common, JavaScript has some built in Array methods that let us use callbacks directly. We'll review some of the most common of these methods today.
 
-## 2. ForEach
+##  ForEach
 
 ForEach is a method on Arrays that iterates over the array and applies a callback to each element.
 
@@ -36,6 +36,15 @@ names.forEach((name) => {
   console.log(name);
 });
 ```
+ForEach can also take in named functions like so: 
+```js
+const printName = (name) => console.log(name);
+
+names.forEach(printName);
+
+```
+
+This however is slightly less common. Typically forEach is passed an anonymous function. 
 
 Each of the above `forEach` methods will produce the same result as the code below.
 
@@ -52,19 +61,21 @@ Given that these produce the same result, why would we want to use a `forEach` m
 <details><summary>Solution</summary>
 
 - It saves time by not having to write the for loop out ourselves
-- It is more _expressive_. By looking at the method name used `forEach`, anyone reading your code know that you want to do something with each element in an array. Someone would have to read the whole for loop to make sure that you aren't only using every other element or starting at i = 4.
+- It is more _expressive_. By looking at the method name used `forEach`, anyone reading your code knows that you want to do something with each element in an array. Someone would have to read the whole for loop to make sure that you aren't only using every other element or starting at i = 4.
 
 </details>
 
 <p>
 
-The closure that we pass into the `forEach` method has a first mandatory argument that represents the element in the array that we are looking at. It accepts another optional argument which tracks the `index` that we are looking at.
+The callback that we pass into the `forEach` method has a first mandatory argument that represents the element in the array that we are looking at. It accepts another optional argument which tracks the `index` that we are looking at.
 
 ```js
 names.forEach((name, i) => {
   console.log(`My name is ${name} and I am index number ${i}`);
 });
 ```
+
+**Note**: you CANNOT return out of a forEach loop and forEach will always evaluate to undefined. We use forEach for it's _side effects_ only. 
 
 ### Array transformation
 
@@ -114,10 +125,10 @@ films.forEach((film) => {
 
 Most array transformations share two operations in common:
 
-1. The traverse the source array.
+1. They traverse the source array.
 2. Add each item's transformed value to a new array.
 
-## 3. Map
+## Map
 
 `Map` takes a transformation function (callback) as an argument, applies it to each element in the source array, and returns the new transformed array.
 
@@ -128,19 +139,40 @@ We can now repeat the exercise of collecting {id, title} pairs for each film in 
 ```js
 let idAndTitlePairs = films.map(film => {
     return { id: film.id, title: film.title };
-};
+    });
 ```
 
 Let's look at another example. Let's say I want to double the values of my array.
 
 ```js
 let arr = [1, 2, 3];
-arr.map((el) => {
+
+let doubled = arr.map((el) => {
   return el * 2;
 });
+
+console.log(doubled) // => [2, 4, 6]
 ```
 
-## 4. Filter
+Similar to forEach, map's callback will also automatically be passed a second argument of the index. 
+
+Remember map is the array method, and the argument that map takes in is a function (callback). This is why it should have a return. The return inside of map belongs to the anonymous function. 
+
+Just like for forEach map can also take in named functions. 
+
+```js
+    const tripleNum = (num) => num * 3; 
+
+    let arr = [1, 2, 3];
+    let tripledArray = arr.map(tripleNum);
+
+```
+
+**Note**: Calling array.map will evaluate to a new array where every element in the new array is the returned result from passing the original element into the callback function. 
+
+Do NOT use map for side effects. 
+
+## Filter
 
 ### Filtering Arrays
 
@@ -167,16 +199,22 @@ Like `map`, every `filter` operation shares some things in common:
 
 #### Filtering using the `filter` method
 
-Like `map`, `filter` also takes in a callback function. Each item in the array will be passed into the callback and tested against a condition. It will then return a new array of the elements that passed the conditional. Let's use filter to get an array of only the odd numbers.
+Like `map`, `filter` also takes in a callback function. Each item in the array will be passed into the callback and tested against a condition. It will then return a new array of the elements that passed the conditional. Let's use filter to get an array of only the even numbers.
 
 ```js
 let arr = [1, 2, 3, 4, 5];
 arr.filter((el) => {
-  return el % 2 !== 1;
+  return el % 2 === 0;
 });
 
 // => [2, 4]
 ```
+
+**Note**: Just like with map and forEach, the callback that filter takes in will also be automatically passed an optional index argument.
+
+The filter method's callback also needs to return something, otherwise all values would be falsy by default (because it'd return undefined) and it would evaluate to an empty array. 
+
+Filter should not be used for side effects. 
 
 #### Chaining Method Calls
 
@@ -196,8 +234,9 @@ Let's look at another example. We want only the odds in an array and then we wan
 
 ```js
 let arr = [1, 2, 3, 4, 5];
-arr.filter((el) => el % 2).map((el) => el * 2);
-// => [ 2, 6, 10 ];
+let oddsDoubled = arr.filter((el) => el % 2 === 1).map((el) => el * 2);
+
+console.log(oddsDoubled)// => [ 2, 6, 10 ];
 ```
 
 ## 5. Every
