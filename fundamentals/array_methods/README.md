@@ -493,6 +493,7 @@ let largestBoxart = boxarts.reduce((acc,curr) => {
 We can also combine map and reduce. In this case map will be first (returning an array), and reduce will be second (returning a single value). For example, we may want to sum the values of the all numbers squared.
 
 ```js
+let numbers = [1, 2, 3, 4, 5]
 let sumOfSquares = numbers
   .map((number) => {
     return number * number;
@@ -500,4 +501,16 @@ let sumOfSquares = numbers
   .reduce((total, number) => {
     return total + number;
   }, 0);
+
+console.log(sumOfSquares) //=> 55
+```
+Of course this could also be written as a single reduce method like so: 
+```js
+let numbers = [1, 2, 3, 4, 5]
+let sumOfSquares = numbers
+  .reduce((total, number) => {
+    return total + (number * number);
+  }, 0);
+
+console.log(sumOfSquares) // => 55
 ```
