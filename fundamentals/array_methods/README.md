@@ -13,6 +13,7 @@ FSW.1.a, FSW.1.b
   - map
   - filter
   - every
+  - sort
   - reduce
 - Gain familiarity with callbacks.
 
