@@ -385,5 +385,6 @@ The `for` loop is an extremely common loop in JS. While declaring it, we initial
 The `for...of` loop is kind of a shortcut for the traditional `for` loop but does not include a reference to an index. This loop is commonly used for iterating through arrays and strings when the index will not be needed. 
 
 ## Resources
- -[Loops - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+ - [Loops - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+
  - [while - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
