@@ -373,3 +373,17 @@ Let's take a moment to break down what's going on in the code above.
     }
     ```
   </details>
+
+## Summary 
+
+Loops allow us to run code blocks any number of times and are therefore an extremely powerful tool in programming (all languages). 
+
+The `while` loop is the most basic and foundational loop there is. It will run a code block indefinitely while a certain condition is truthy. 
+
+The `for` loop is an extremely common loop in JS. While declaring it, we initialize a variable, set a condition, and specify a step towards breaking the condition. We nearly always use for loops for iterating between numbers (often those numbers refer to indices in an array or string )
+
+The `for...of` loop is kind of a shortcut for the traditional `for` loop but does not include a reference to an index. This loop is commonly used for iterating through arrays and strings when the index will not be needed. 
+
+## Resources
+ -[Loops - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+ - [while - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
