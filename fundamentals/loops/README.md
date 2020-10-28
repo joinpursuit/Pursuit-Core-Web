@@ -2,7 +2,7 @@
 
 # Loops Lesson
 
-## Goals
+## Learning Objectives
 
 - Know and understand how to write a `while` loop.
 - Know and understand how to write a `for` loop.

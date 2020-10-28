@@ -6,7 +6,7 @@
 
 FSW.1.a, FSW.1.b
 
-## Objectives
+## Learning Objectives
 
 - Understand how to use common array methods.
   - forEach
@@ -16,6 +16,12 @@ FSW.1.a, FSW.1.b
   - sort
   - reduce
 - Gain familiarity with callbacks.
+
+## Prerequisites 
+ * Loops 
+ * Arrays 
+
+___
 
 ## Background
 
