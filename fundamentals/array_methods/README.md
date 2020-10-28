@@ -1,3 +1,5 @@
+[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
+
 # Array Methods
 
 ## Standards
@@ -214,6 +216,8 @@ arr.filter((el) => {
 
 The filter method's callback also needs to return something, otherwise all values would be falsy by default (because it'd return undefined) and it would evaluate to an empty array. 
 
+Remember: filter returns a new array but the elements in the array will only be elements that had a truthy return from it's callback. 
+
 Filter should not be used for side effects. 
 
 #### Chaining Method Calls
@@ -239,17 +243,76 @@ let oddsDoubled = arr.filter((el) => el % 2 === 1).map((el) => el * 2);
 console.log(oddsDoubled)// => [ 2, 6, 10 ];
 ```
 
-## 5. Every
+## Every
 
 `every` is another JS array method that checks to see if every single element in the array meets a certain condition. Like `forEach`, `map`, and `filter` it also takes in a callback function. Let's check to see if all the values in an array or odd.
 
 ```js
 let arr = [1, 3, 5];
-arr.every((el) => {
-  return el % 2 !== 0;
-});
+console.log(
+    arr.every((el) => {
+        return el % 2 === 1;
+    });
+)
 // => true
 ```
+Every evaluates to a Boolean. 
+
+**Note**: Just like with map, forEach, and filter, the callback that `every` takes in will also be automatically passed an optional index argument.
+
+The `every` method's callback also needs to return something, otherwise all values would be falsy by default (because it'd return undefined) and it would evaluate to false. 
+
+## Sort 
+
+Sorting an array can sometimes be an extremely helpful tool. There are a lot of great sorting algorithms out there but today we're just going to use the built in method `sort`. The time complexity of sorting is O(n * log(n)) n referring to the length of the array. Don't worry if that doesn't mean anything to you yet, but it is a good factoid to remember. 
+
+Sort does NOT return a new array. It returns the ORIGINAL array now sorted. In other words it _mutates_ the array. This is important to remember because sort will actually change your data. You don't need to capture its return value in a variable because the original variable that points to the array will be updated. This is different than the other methods mentioned earlier in this lesson. 
+
+By default, `sort` will sort alphabetically. 
+Example: 
+```js
+let alph = ["c", "d", "b", "a"];
+alph.sort();
+console.log(alph) //=> [ 'a', 'b', 'c', 'd' ]
+```
+This is a good "gotchya!" for when we want to sort by other properties. Observe: 
+
+```js
+let nums = [11, 1, 2];
+nums.sort();
+console.log(nums) // => [ 1, 11, 2 ]
+```
+Notice the problem? The default sort puts 11 in front of 2. Because alphabetically speaking 11 is in front of 2. 
+
+The takeaway: When we want to sort by something non alphabetical we need to pass sort a callback compare function. That compareFunction requires two arguments and will allow sort return an array based on the return value of those compared elements.
+
+Let's say the compareFunction takes arguments a and b. 
+If the compareFunction returns less than 0, sort puts a first. 
+If the compareFunction returns greater than 0, sort puts b first. 
+If the compareFunction returns 0, neither elements position is changed. 
+
+Using the logic above we can sort numbers like so: 
+```js
+let nums = [11, 1, 2];
+nums.sort((a, b) => {
+    return a - b;
+});
+console.log(nums) // => [ 1, 2, 11 ]
+```
+For further instruction on [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+## Summary 
+We can use array methods to help make our code cleaner and more descriptive. 
+
+Use `forEach` when you want to iterate through an array but won't need to break or return out of the loop. `forEach` will always evaluate to `undefined`. 
+
+Use `map` to get a new array with each element having been acted on by the callback. Array will always be same length but element values will most likely change. 
+
+Use `filter` to get a new array of original values but with a different length. The only elements that remain will be the ones where the callback returned truthy. 
+
+Use `every` to return a boolean that checks if every element passes some rule. 
+
+Use `sort` to sort an array. Pass a callback that compares two elements and returns either less than 0,0, or greater than 0 to determine the order. `sort` returns the original array after it's been mutated. 
 
 ## Resources
 
@@ -259,6 +322,92 @@ arr.every((el) => {
 ## Extra content
 
 ## Reduce
+
+Reduce is the most powerful of all the array methods and can be made to anything that the other array methods do. However, it is also the most complex / confusing. 
+
+Things to note: 
+* Reduce takes in a callback function and an optional initialValue. 
+* The callback function takes in 2 main arguments and one optional argument. The 2 main arguments are the accumulator and the current element. The optional argument is the index. 
+
+```js 
+arr.reduce((accumulator, element, [index]) => {}, [initialValue])
+
+// the arguments in [brackets] are optional. 
+```
+
+* Reduce will evaluate to whatever the accumulator is after the last iteration. 
+* For the first iteration the accumulator will either be the value of initialValue and element will be the first element. OR if no initialValue is provided, the accumulator will start as the first element in the array, and the element will start as the second element in the array. 
+
+* With each additional iteration the accumulator will be what ever was returned from the previous iteration. 
+
+That's everything you really need to know about reduce to be successful with it. Let's take a look at some simple examples. 
+
+Summing all the numbers in an array:
+
+```js
+let arr = [1, 2, 3, 4];
+let sum = arr.reduce((acc, el) => {
+  return acc + el;
+});
+
+console.log(sum) // => 10
+```
+In this example we did not pass reduce the optional initialValue argument. This means that acc started as 1 and el started as 2. 
+```js
+// acc = 1    el = 2    return 1 + 2 -> 3 our next acc
+// acc = 3    el = 3    return 3 + 3 -> 6
+// acc = 6    el = 4    return 8 + 3 -> 10
+```
+
+
+If we wanted to find the sum of all the number in an array and have 5 added to that number, we could do this by passing in the second argument (initialValue) to the reduce function.
+
+```js
+let arr = [1, 2, 3, 4];
+let sum = arr.reduce((acc, el) => {
+  return acc + el;
+}, 5);
+
+console.log(sum)// => 15
+```
+
+Let's take a look at what's going on in the examples above.
+We've started off by declaring a variable called `arr`. We will call `reduce` on this array. Reduce takes in two arguments: a callback function and an optional initial value. In our first and second example our callback function is the anonymous adding function. That function is taking in two arguments (`acc`, `el`). This is the same as if we'd declared it with a name like:
+
+```js
+const adder = (num1, num2) => {
+  return num1 + num2;
+};
+```
+
+This is essentially the function that we're passing as the first argument into `reduce`.
+
+The second argument that we're passing into `reduce` is optional. This argument will become the staring point for the accumulator. In the first example we've decided NOT to pass in a second argument. Because of this, the accumulator is defaulted to the first element in our array (1).
+
+Reduce will then iterate through the array and continuously reassign the value of the accumulator to the result of our callback being called with the accumulator and the current element as arguments.
+
+In our first example the iteration will begin on the second element (2) of the array because the first element has already been used as the accumulator.
+`acc = adder(1, 2)`
+The accumulator will now have the value of 3.
+We then called the callback function (`adder`) with the next element (3) in the array and reassign the accumlator's value to that output.
+`acc = adder(3, 3)`
+The accumulator will now have the value of 6.
+We then called the callback function (`adder`) with the next element (4) in the array and reassign the accumlator's value to that output.
+`acc = adder(6, 4)`
+
+Because we have finished iterating over our array, the accumulator (10) is returned.
+
+Our second example works in the same way as our first but instead we are passing in a 5 as the second argument in `reduce`. This will result in the accumulator starting off with a value of 5. Because we've passed in a starting accumulator value, we will also iterate the array starting with first element.
+
+```js
+// acc = 5    currEl = 1    return 5 + 1 -> 6
+// acc = 6    currEl = 2    return 6 + 2 -> 8
+// acc = 8    currEl = 3    return 8 + 3 -> 11
+// acc = 11   currEl = 4    return 11 + 4 -> 15
+```
+
+
+Use cases: 
 
 Let's say we need to find the largest integer in an array. We can't use `filter`, because it only examines one element item at a time. To find the largest integer we need to compare elements in the array to each other.
 
@@ -337,63 +486,6 @@ let largestBoxart = boxarts.reduce((acc,curr) => {
         } else {
             return curr;
         })
-```
-
-Let's use `reduce` to find the sum of all the numbers in an array.
-
-```js
-let arr = [1, 2, 3, 4];
-let sum = arr.reduce((acc, el) => {
-  return acc + el;
-});
-
-// => 10
-```
-
-If we wanted to find the sum of all the number in an array and have 5 added to that number, we could do this by passing in a second argument to the reduce function.
-
-```js
-let arr = [1, 2, 3, 4];
-let sum = arr.reduce((acc, el) => {
-  return acc + el;
-}, 5);
-
-// => 15
-```
-
-Let's take a look at what's going on in the examples above.
-We've started off by declaring a variable called `arr`. We will call `reduce` on this array. Reduce takes in two arguments: a callback function and an optional initial value. In our first and second example our callback function is the anonymous adding function. That function is taking in two arguments (`acc`, `el`). This is the same as if we'd declared it with a name like:
-
-```js
-const adder = (num1, num2) => {
-  return num1 + num2;
-};
-```
-
-This is essentially the function that we're passing as the first argument into `reduce`.
-
-The second argument that we're passing into `reduce` is optional. This argument will become the staring point for the accumulator. In the first example we've decided NOT to pass in a second argument. Because of this, the accumulator is defaulted to the first element in our array (1).
-
-Reduce will then iterate through the array and continuously reassign the value of the accumulator to the result of our callback being called with the accumulator and the current element as arguments.
-
-In our first example the iteration will begin on the second element (2) of the array because the first element has already been used as the accumulator.
-`acc = adder(1, 2)`
-The accumulator will now have the value of 3.
-We then called the callback function (`adder`) with the next element (3) in the array and reassign the accumlator's value to that output.
-`acc = adder(3, 3)`
-The accumulator will now have the value of 6.
-We then called the callback function (`adder`) with the next element (4) in the array and reassign the accumlator's value to that output.
-`acc = adder(6, 4)`
-
-Because we have finished iterating over our array, the accumulator (10) is returned.
-
-Our second example works in the same way as our first but instead we are passing in a 5 as the second argument in `reduce`. This will result in the accumulator starting off with a value of 5. Because we've passed in a starting accumulator value, we will also iterate the array starting with first element.
-
-```js
-// acc = 5    currEl = 1    return 5 + 1 -> 6
-// acc = 6    currEl = 2    return 6 + 2 -> 8
-// acc = 8    currEl = 3    return 8 + 3 -> 11
-// acc = 11   currEl = 4    return 11 + 4 -> 15
 ```
 
 ### Map -> Reduce
