@@ -2,17 +2,17 @@
 
 ## Learning Outcomes
 
-- M2.1: Basic HTML Tags
-- M2.2: Basic CSS
-- M2.3: CSS Selectors
-- M2.4: CSS Display Properties
-- M2.5: DOM Manipulation with JavaScript
-- M2.6: Event handling
-- M2.7: CSS Grid + Flexbox
-- M2.8: How the internet works
-- M2.9: Fetch + AJAX / XMLHTTPRequest intro
-- M2.10: Promises
-- M2.11: Async await
+- M2.1: Use basic HTML to build websites
+- M2.2: Use basic CSS to style a page
+- M2.3: Use CSS selectors to specify display based on an elements characteristics
+- M2.4: Use the display and position properties to create complex layouts
+- M2.5: Manipulate the DOM using JavaScript
+- M2.6: Manipulate content and styling on the page by utilizing DOM Events and Event Listeners.
+- M2.7: Use Flexbox and Grid to layout a page
+- M2.8: Explain what happens when you type a URL into your browser and hit enter
+- M2.9: Request and present JSON data from a URL using Fetch
+- M2.10: Create Promises and explain how asynchronous code works
+- M2.11: Use async await to build functions with complicated asyncronousity
 
 ## Lessons, Quizzes, and Labs
 
