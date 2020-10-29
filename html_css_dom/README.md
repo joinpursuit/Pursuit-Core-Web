@@ -1,4 +1,18 @@
-# Unit 2: HTML, CSS, and the DOM
+# Module 2: Building Web Apps
+
+## Learning Outcomes
+
+- M2.1: Use basic HTML to build websites
+- M2.2: Use basic CSS to style a page
+- M2.3: Use CSS selectors to specify display based on an elements characteristics
+- M2.4: Use the display and position properties to create complex layouts
+- M2.5: Manipulate the DOM using JavaScript
+- M2.6: Manipulate content and styling on the page by utilizing DOM Events and Event Listeners.
+- M2.7: Use Flexbox and Grid to layout a page
+- M2.8: Explain what happens when you type a URL into your browser and hit enter
+- M2.9: Request and present JSON data from a URL using Fetch
+- M2.10: Create Promises and explain how asynchronous code works
+- M2.11: Use async await to build functions with complicated asyncronousity
 
 ## Lessons, Quizzes, and Labs
 
@@ -19,62 +33,16 @@
 | 13. [Promises and Fetch](./fetch/README.md) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4271116) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494814) | [Official Joke API Web App](https://github.com/joinpursuit/Pursuit-Core-Web-Promises-Fetch-Lab/blob/master/README.md) |
 | 14. [Axios and Async Await](./axios%2Basync-await) | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4282554) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494815) | [Deck of Cards API Web App](https://github.com/joinpursuit/axios_assignment/blob/master/axios_exercise.md) |
 
-## New Standards
-
-* EF.10.c: Make requests to APIs
-* EF.10.f: Parse and represent data from an API request
-* FSW.3.a: Use common HTML tags to build a UI
-* FSW.3.b: Use appropriate, semantic HTML to aid accessibility
-* FSW.3.c: Use HTML input and forms
-* FSW.3.d: Use Flexbox and Grid to layout a page
-* FSW.3.e: Create a responsive UI
-* FSW.3.f: Create a webpage based on mockups/an existing website
-* FSW.4: Manipulate the DOM using JavaScript
-* FSW.4.b: Use DOM Events and Event Listeners
-
-## Reassessed Standards
-
-* EF.4.e: Use frequent, descriptive, small commits
-* FSW.1: Write clean, readable JavaScript code
-* LF.4: Use control flow in a clear, concise way to determine which code executes
-* LF.5: Use functions to keep code DRY
 
 ## Projects
 
-[Hangman](https://github.com/joinpursuit/FSW-CLI-Hangman) 
+[Personal Website - tbd]() 
 
-* EF.4.e: Use frequent, descriptive, small commits
-* FSW.1: Write clean, readable JavaScript code
-* FSW.3.a: Use common HTML tags to build a UI
-* FSW.3.c: Use HTML input and forms
-* FSW.4: Manipulate the DOM using JavaScript
-* FSW.4.b: Use DOM Events and Event Listeners
-* LF.4: Use control flow in a clear, concise way to determine which code executes
-* LF.5: Use functions to keep code DRY
+[Web App - tbd]()
 
-[Twitter CSS](https://github.com/joinpursuit/FSW-Twitter-CSS)
-
-* FSW.3.a: Use common HTML tags to build a UI
-* FSW.3.b: Use appropriate, semantic HTML to aid accessibility
-* FSW.3.c: Use HTML input and forms
-* FSW.3.d: Use Flexbox and Grid to layout a page
-* FSW.3.e: Create a responsive UI
-* FSW.3.f: Create a webpage based on mockups/an existing website
-
-[Pokemon API Battle](https://github.com/joinpursuit/Pursuit-Core-Web-Loading-Data-from-Online-Assignment/blob/master/README.md) 
-
-* EF.4.e: Use frequent, descriptive, small commits
-* EF.10.c: Make requests to APIs
-* EF.10.f: Parse and represent data from an API request
-* FSW.1: Write clean, readable JavaScript code
-* FSW.3.b: Use appropriate, semantic HTML to aid accessibility
-* FSW.3.f: Create a webpage based on mockups/an existing website
-* FSW.4: Manipulate the DOM using JavaScript
-* FSW.4.b: Use DOM Events and Event Listeners
-* LF.5: Use functions to keep code DRY
 
 ## Assessments
 
-| Assessment | Standards |
-| --- | --- |
-| [6.2 Ghibli](https://canvas.instructure.com/courses/1605748/assignments/12619628) / [6.4 Ghibli](https://canvas.instructure.com/courses/1705731/assignments/13240950) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>LF.5: Use functions to keep code DRY</li></ul> |
+[Mid-module Assessment - tbd]()
+
+[Final Module Assessment - tbd]()

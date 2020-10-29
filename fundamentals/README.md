@@ -1,4 +1,4 @@
-# Unit 1: Fundamentals
+# Module 1: Fundamentals
 
 ## Learning Outcomes
 
