@@ -44,4 +44,5 @@
 ## Assessments
 
 [Mid-module Assessment - tbd]()
+
 [Final Module Assessment - tbd]()
