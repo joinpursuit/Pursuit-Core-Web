@@ -1,4 +1,4 @@
-# Unit 2: HTML, CSS, and the DOM
+# Module 2: Building Web Apps
 
 ## Lessons, Quizzes, and Labs
 
