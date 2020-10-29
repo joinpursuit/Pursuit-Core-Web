@@ -43,6 +43,5 @@
 
 ## Assessments
 
-| Assessment | Standards |
-| --- | --- |
-| [6.2 Ghibli](https://canvas.instructure.com/courses/1605748/assignments/12619628) / [6.4 Ghibli](https://canvas.instructure.com/courses/1705731/assignments/13240950) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>EF.10.c: Make requests to APIs</li><li>EF.10.f: Parse and represent data from an API request</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.3.a: Use common HTML tags to build a UI</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.3.f: Create a webpage based on mockups/an existing website</li><li>FSW.4: Manipulate the DOM using JavaScript</li><li>FSW.4.b: Use DOM Events and Event Listeners</li><li>LF.5: Use functions to keep code DRY</li></ul> |
+[Mid-module Assessment - tbd]()
+[Final Module Assessment - tbd]()
