@@ -7,18 +7,18 @@ We will use [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display)
 ## Intro
 reCAPTCHA is a free service that protects your site from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart. 
 
-How does this work? Well, we will import some scripts and a checkbox widget that Google provides us and add them to our React App, in turn the reCAPTCHA checkbox/widget will be placed in the DOM. The reCAPTCHA checkbox uses Google's algorithms to monitor our page and tell apart actions that come from users from actions that might be from bots, for example if clicks are happening too fast or the user doesn't pass over other elements as they are moving their mouse it is likely a bot and it should be prevented to proceed further.
+How does this work? Well, we will import some scripts and a checkbox widget that Google provides us and add them to our React App, in turn the reCAPTCHA checkbox/widget will be placed in the DOM. The reCAPTCHA checkbox uses Google's algorithms to monitor our page and tell apart actions that come from users from actions that might be from bots, for example if clicks are happening too fast or the user doesn't pass over other elements as they are moving their mouse it is likely a bot and it should be prevented from proceeding further.
 
 ![captcha checkbox animated being solved](./assets/captcha_checkbox.gif)
 
-If Google is not sure if your user is a bot just by their interactions with the page, it will present a reCAPTCHA challenge where the user will get asked to select images that match a certain description. Like "Select all images that contain Bicycles". Upon the user checking the checkbox or completing the challenge we are certain that the user is a human and we can let them keep interacting with our page.
+If Google is not sure if your user is a bot just by their interactions with the page it will present a reCAPTCHA challenge where the user will get asked to select images that match a certain description. Like "Select all images that contain Bicycles". Upon the user completing the challenge, checking the checkbox or selecting all correct images we are gain confidence that the user is a human and we can let them keep interacting with our page.
 
 ![captcha image recognition challenge](./assets/captcha_challenge.png)
 
 Read [How does the “I’m not a robot” checkbox work?](https://medium.com/a-dose-of-curiosity/how-does-the-i-am-not-a-robot-checkbox-work-c24d426a82a1).
 
 ## Use Cases
-When do you want to verify that whomever is interacting with your site is a human? In general whenever you wanna make sure the information you are receiving is coming from a person and not a bot. Or whenever you don't want some automated script that can run super fast thousands of times to perform a certain on your site.
+When do you want to verify that whomever is interacting with your site is a human? In general whenever you want to make sure the information you are receiving is coming from a person and not a bot. Or whenever you don't want some automated script that can run thousands of times in short periods of time to perform a certain action on your site.
 
 Some examples are:
 * When a someone is signing up or logging in for your app
@@ -58,8 +58,8 @@ Fill out the registration form as follows:
 </details>
 
 Once you submit the form you will be given two keys:
-* **site key**: Is public facing and used in the client for the reCAPTCHA widget. 
-* **secret key**: Is secret and will be used in the server to verify the reCAPTCHA token an environment variable.
+* **site key**: Is public facing and used in the Client for the reCAPTCHA widget. 
+* **secret key**: Is secret and will be used in the Server to verify the reCAPTCHA token an environment variable.
 
 Copy you keys somewhere, we will use them in a bit.
 
@@ -74,11 +74,11 @@ Copy you keys somewhere, we will use them in a bit.
 * ⚠️ Once you have fully integrated reCAPTCHA and deployed remember to remove `localhost` from your domains settings, otherwise an bad user running on localhost will be able to abuse your site.
 
 
-### 3. Install and set up `react-google-recaptcha` in the client
+### 3. Install and set up `react-google-recaptcha` in the Client
 
 The package we will use to integrate reCAPTCHA in our react apps is [`react-google-recaptcha` 📘](https://github.com/dozoisch/react-google-recaptcha). 
 
-Install it in your client with: 
+Install it in your Client with: 
 
 ```
 npm install --save react-google-recaptcha
@@ -168,11 +168,11 @@ At a high level the steps were
 * Handle when the user indicates that they are not a bot with the `onChange` prop.
   * Save the verification token provided by the reCAPTCHA widget to the state
 * Handle when there's an error with the `onErrored` prop
-* When submitting your form/performing the action, check that the user verified they were not a bot and send the `recaptchaToken` with your request to the server.
+* When submitting your form/performing the action, check that the user verified they were not a bot and send the `recaptchaToken` with your request to the Server.
 
 ### 5. Server Setup
 
-We need to setup our server to keep our **secret key** and use it to verify the reCAPTCHA token we get from our client. 
+We need to setup our Server to keep our **secret key** and use it to verify the reCAPTCHA token we get from our Client. 
 
 Store your secret key in an environment variable using a `.env` file with the following content. 
 ```
@@ -187,7 +187,7 @@ To load variables from our file and make them available to your our app in `serv
 require('dotenv').config()
 ```
 
-Write a middleware function `verifyReCaptchaToken` that will send the token we got from the client for verification to Google's reCAPTCHA service. If the token is valid continue with the request to the `next` middleware but if is not reject the request.
+Write a middleware function `verifyReCaptchaToken` that will send the token we got from the Client for verification to Google's reCAPTCHA service. If the token is valid continue with the request to the `next` middleware but if is not reject the request.
 
 This function needs to send the token in a `POST` request to Google and we will use `axios` for that. We could use [`https.request`](https://nodejs.org/dist/latest-v14.x/docs/api/http.html#http_http_request_options_callback) instead if we didn't want to install axios.
 
