@@ -10,20 +10,28 @@ We will use [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display)
 ## Intro
 reCAPTCHA is a free service that protects your site from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart. 
 
-How does this work? Well, we will import some scripts and a checkbox widget that Google provides us and add them to our React App, in turn the reCAPTCHA checkbox/widget will be placed in the DOM. The reCAPTCHA checkbox uses Google's algorithms to monitor our page and tell apart actions that come from users from actions that might be from bots, for example if clicks are happening too fast or the user doesn't pass over other elements as they are moving their mouse it is likely a bot and it should be prevented to proceed further. If Google is not sure if your user is a bot just by their interactions with the page, it will present a reCAPTCHA challenge where the user will get asked to select images that match a certain description. Like "Select all images that contain Bicycles". Upon the user checking the checkbox or completing the challenge we are certain that the user is a human and we can let them keep interacting with our page.
+How does this work? Well, we will import some scripts and a checkbox widget that Google provides us and add them to our React App, in turn the reCAPTCHA checkbox/widget will be placed in the DOM. The reCAPTCHA checkbox uses Google's algorithms to monitor our page and tell apart actions that come from users from actions that might be from bots, for example if clicks are happening too fast or the user doesn't pass over other elements as they are moving their mouse it is likely a bot and it should be prevented to proceed further.
+
+![captcha unsolved](./assets/captcha_unsolved.png)
+![captcha solved](./assets/captcha_solved.png)
+
+If Google is not sure if your user is a bot just by their interactions with the page, it will present a reCAPTCHA challenge where the user will get asked to select images that match a certain description. Like "Select all images that contain Bicycles". Upon the user checking the checkbox or completing the challenge we are certain that the user is a human and we can let them keep interacting with our page.
+
+![captcha image recognition challenge](./assets/captcha_challenge.png)
 
 Read [How does the “I’m not a robot” checkbox work?](https://medium.com/a-dose-of-curiosity/how-does-the-i-am-not-a-robot-checkbox-work-c24d426a82a1).
 
 ### Screenshots
 
 ## Use Cases
-When do you want to verify that who is interacting with your site is a human? In general whenever you wanna make sure the information you are receiving is coming from a person and not a bot. Or whenever you don't want some automated script that can run super fast thousands of times to perform a certain on your site.
+When do you want to verify that whomever is interacting with your site is a human? In general whenever you wanna make sure the information you are receiving is coming from a person and not a bot. Or whenever you don't want some automated script that can run super fast thousands of times to perform a certain on your site.
 
 Some examples are:
 * When a someone is signing up or logging in for your app
 * When someone is checking out an order in your site
-* When someone is booking plane tickets
-* Most of the times in some sort of form
+* When someone is booking plane or concert tickets. Someone could program a bot to buy them all and resell them or cause shortages.
+
+Most examples involve some kind of form a user submits.
 
 ## Flow
 The reCAPTCHA verification flow that we will implement goes something like this:
@@ -32,7 +40,9 @@ The reCAPTCHA verification flow that we will implement goes something like this:
 
 ## Steps
 
-### 1. Clone [Starter Full-Stack App](https://github.com/joinpursuit/recaptcha-fullstack-example) [Optional]
+### 1. Clone Starter Full-Stack App or use your own
+
+You can clone this [recaptcha-fullstack-example](https://github.com/joinpursuit/recaptcha-fullstack-example) or follow the following steps using your own Full-Stack Express.js and React App
 
 ### 2. Register site for reCAPTCHA
 
@@ -255,4 +265,5 @@ Two important considerations for this app are:
 2. Remove `localhost` from your list of domains in the reCAPTCHA Console 
 
 ## Resources
-* [reCAPTCHA and Firebase] https://firebase.googleblog.com/2017/08/guard-your-web-content-from-abuse-with.html
+* [reCAPTCHA with a Firebase App](https://firebase.googleblog.com/2017/08/guard-your-web-content-from-abuse-with.html)
+* [How does the “I’m not a robot” checkbox work?](https://medium.com/a-dose-of-curiosity/how-does-the-i-am-not-a-robot-checkbox-work-c24d426a82a1).
