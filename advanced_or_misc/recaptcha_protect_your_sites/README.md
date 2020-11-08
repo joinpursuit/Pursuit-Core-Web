@@ -10,7 +10,9 @@ We will use [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display)
 ## Intro
 reCAPTCHA is a free service that protects your site from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart. 
 
-How does this work? Well, we will import some scripts and a checkbox widget that Google provides us and add them to our React App, in turn the reCAPTCHA checkbox/widget will be placed in the DOM. This reCAPTCHA uses Google's algorithms that monitor our page to tell apart actions that might come from real users or bots, for example if clicks are happening too fast or the user doesn't pass over other elements as they are moving their mouse it is likely a bot and it should be prevented to proceed further. If Google is not sure if your user is a bot just by their interactions with the page, it will present a reCAPTCHA challenge where the user will get asked to select images that match a certain description. Like "Select all images that contain Bicycles". Upon the user checking the checkbox or completing the challenge we are certain that the user is a human and we can let them keep interacting with our page.
+How does this work? Well, we will import some scripts and a checkbox widget that Google provides us and add them to our React App, in turn the reCAPTCHA checkbox/widget will be placed in the DOM. The reCAPTCHA checkbox uses Google's algorithms to monitor our page and tell apart actions that come from users from actions that might be from bots, for example if clicks are happening too fast or the user doesn't pass over other elements as they are moving their mouse it is likely a bot and it should be prevented to proceed further. If Google is not sure if your user is a bot just by their interactions with the page, it will present a reCAPTCHA challenge where the user will get asked to select images that match a certain description. Like "Select all images that contain Bicycles". Upon the user checking the checkbox or completing the challenge we are certain that the user is a human and we can let them keep interacting with our page.
+
+Read [How does the “I’m not a robot” checkbox work?](https://medium.com/a-dose-of-curiosity/how-does-the-i-am-not-a-robot-checkbox-work-c24d426a82a1).
 
 ### Screenshots
 
@@ -23,10 +25,8 @@ Some examples are:
 * When someone is booking plane tickets
 * Most of the times in some sort of form
 
-Read [How does the “I’m not a robot” checkbox work?](https://medium.com/a-dose-of-curiosity/how-does-the-i-am-not-a-robot-checkbox-work-c24d426a82a1) 
-
 ## Flow
-The reCAPTCHA verification flow goes something like this:
+The reCAPTCHA verification flow that we will implement goes something like this:
 
 ![reCAPTCHA flow diagram](./assets/reCAPTCHA_flow.png)
 
@@ -166,7 +166,93 @@ At a high level the steps were
 * Handle when there's an error with the `onErrored` prop
 * When submitting your form/performing the action, check that the user verified they were not a bot and send the `recaptchaToken` with your request to the backend.
 
-## Backend Setup
+### 5. Backend Setup
+
+We need to setup our backend to keep our **secret key** and use it to verify the reCAPTCHA token we get from our frontend. 
+
+Store your secret key in an environment variable using a `.env` file with the following content. 
+```
+RECAPTCHA_SECRET_KEY=6LcSYeAZAAAAAMssUTYOeYWopcgBCjBAn5b7JEJ4
+```
+
+We will be using [`dotenv`](https://www.npmjs.com/package/dotenv). Install it if you haven't already.
+
+To load variables from our file and make them available to your our app in `server/app.js` make sure you have at the **top** 
+
+```js
+require('dotenv').config()
+```
+
+Write a middleware function `verifyReCaptchaToken` that will send the token we got from the client for verification to Google's reCAPTCHA service. If the token is valid continue with the request to the `next` middleware but if is not reject the request.
+
+This function needs to send the token in a `POST` request to Google and we will use `axios` for that. We could use [`https.request`](https://nodejs.org/dist/latest-v14.x/docs/api/http.html#http_http_request_options_callback) instead if we didn't want to install axios.
+
+```
+npm install axios
+```
+
+We will implement `verifyReCaptchaToken` in `server/auth/helpers.js`
+
+```js
+//...skipped code above
+const axios = require('axios');
+
+const verifyReCaptchaToken = async (req, res, next) => {
+  const token = req.body.recaptchaToken
+  const secret = process.env.RECAPTCHA_SECRET_KEY // read secret key from environment
+  if (token) {
+    try {
+      const URL = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`
+      const { data } = await axios.post(URL)
+      if (data.success) {
+        next()
+      } else {
+        console.log(data)
+        next(new Error('reCAPTCHA token validation failed'))
+      }
+    } catch (err) {
+      next(err)
+    }
+  } else {
+    next(new Error("recaptchaToken missing"))
+  }
+}
+
+//...skipped code
+
+module.exports = {
+  hashPassword,
+  comparePasswords,
+  loginRequired,
+  verifyReCaptchaToken // Export our function
+}
+```
+
+Import and use `verifyReCaptchaToken` as route middleware in the routes you want to protect.
+
+For example in `server/routes/auth.js` for the `POST /signup` and `POST /login` routes
+
+```js
+router.post("/signup", verifyReCaptchaToken, async (req, res, next) => {
+  //...our code to sign up a new user and store it in the database
+})
+
+router.post("/login", verifyReCaptchaToken, passport.authenticate('local'), (req, res, next) => {
+  //...code
+})
+```
+
+### 6. Deployment Considerations
+
+This App is deployed as indicated by [Deploying a Full-Stack App using Heroku](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/react_2/deployment/README.old.md).
+
+Two important considerations for this app are:
+
+1. Set your **secret key** as an environment variable in Heroku a.k.a as Heroku config vars. Via the dashboard or via the terminal [Learn more](https://devcenter.heroku.com/articles/config-vars)
+    ```sh
+    heroku config:set RECAPTCHA_SECRET_KEY="YOUR-SECRET-KEY" -a "YOUR-HEROKU-APP-NAME"
+    ```
+2. Remove `localhost` from your list of domains in the reCAPTCHA Console 
 
 ## Resources
 * [reCAPTCHA and Firebase] https://firebase.googleblog.com/2017/08/guard-your-web-content-from-abuse-with.html
