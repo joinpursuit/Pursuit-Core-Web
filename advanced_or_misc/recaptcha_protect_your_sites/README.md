@@ -12,8 +12,7 @@ reCAPTCHA is a free service that protects your site from spam and abuse. It uses
 
 How does this work? Well, we will import some scripts and a checkbox widget that Google provides us and add them to our React App, in turn the reCAPTCHA checkbox/widget will be placed in the DOM. The reCAPTCHA checkbox uses Google's algorithms to monitor our page and tell apart actions that come from users from actions that might be from bots, for example if clicks are happening too fast or the user doesn't pass over other elements as they are moving their mouse it is likely a bot and it should be prevented to proceed further.
 
-![captcha unsolved](./assets/captcha_unsolved.png)
-![captcha solved](./assets/captcha_solved.png)
+![captcha checkbox animated being solved](./assets/captcha_checkbox.gif)
 
 If Google is not sure if your user is a bot just by their interactions with the page, it will present a reCAPTCHA challenge where the user will get asked to select images that match a certain description. Like "Select all images that contain Bicycles". Upon the user checking the checkbox or completing the challenge we are certain that the user is a human and we can let them keep interacting with our page.
 
