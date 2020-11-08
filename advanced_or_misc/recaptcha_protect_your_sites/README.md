@@ -4,9 +4,6 @@ Today we will learn how to add a simple [reCAPTCHA](https://developers.google.co
 
 We will use [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) for the purposes of this lesson but there are is a [new version v3](https://developers.google.com/recaptcha/docs/v3) that doesn't require a checkbox at all that you might want to learn about later.
 
-* if using firebase
-* if implementing own user authentication
-
 ## Intro
 reCAPTCHA is a free service that protects your site from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart. 
 
@@ -19,8 +16,6 @@ If Google is not sure if your user is a bot just by their interactions with the 
 ![captcha image recognition challenge](./assets/captcha_challenge.png)
 
 Read [How does the “I’m not a robot” checkbox work?](https://medium.com/a-dose-of-curiosity/how-does-the-i-am-not-a-robot-checkbox-work-c24d426a82a1).
-
-### Screenshots
 
 ## Use Cases
 When do you want to verify that whomever is interacting with your site is a human? In general whenever you wanna make sure the information you are receiving is coming from a person and not a bot. Or whenever you don't want some automated script that can run super fast thousands of times to perform a certain on your site.
