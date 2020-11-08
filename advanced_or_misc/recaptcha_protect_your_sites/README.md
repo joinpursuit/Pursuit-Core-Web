@@ -161,6 +161,40 @@ Render the `ReCAPTCHA` component passing the `sitekey`, `onChange`, `onErrored` 
     )
   }
 ```
+
+Update your submit functions to avoid being fired without verifying that the user is not a bot with a simple if statement. Make sure that you submit your `recaptchaToken` along side with your requests, in this scenario we are sending the entire state in our POST request which will contain our `recaptchaToken` 
+
+```js
+//...skipped code
+  signupUser = async () => {
+    if (this.state.notBot) {
+      try {
+        const { data } = await axios.post(`/api/auth/signup`, this.state)
+        this.props.setUser(data.payload.user)
+
+      } catch (err) {
+        console.log('ERROR', err)
+      }
+    } else {
+      window.alert('Please verify you are not a bot.')
+    }
+  }
+
+  loginUser = async () => {
+    if (this.state.notBot) {
+      try {
+        const { data } = await axios.post(`/api/auth/login`, this.state)
+        this.props.setUser(data.payload.user)
+
+      } catch (err) {
+        console.log('ERROR', err)
+      }
+    } else {
+      window.alert('Please verify you are not a bot.')
+    }
+  }
+//...skipped code
+```
 You can just replicate this for any action someone can make in your app, for which you want an extra check to make sure your that someone is a human and not a bot. 
 
 At a high level the steps were
