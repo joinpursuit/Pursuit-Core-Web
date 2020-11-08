@@ -266,16 +266,19 @@ module.exports = {
 }
 ```
 
-Import and use `verifyReCaptchaToken` as route middleware in the routes you want to protect.
+From `authHelpers` import and use `verifyReCaptchaToken` as route middleware in the routes you want to protect.
 
 For example in `server/routes/auth.js` for the `POST /signup` and `POST /login` routes
 
 ```js
-router.post("/signup", verifyReCaptchaToken, async (req, res, next) => {
+const authHelpers = require('../auth/helpers')
+//...skipped code
+
+router.post("/signup", authHelpers.verifyReCaptchaToken, async (req, res, next) => {
   //...our code to sign up a new user and store it in the database
 })
 
-router.post("/login", verifyReCaptchaToken, passport.authenticate('local'), (req, res, next) => {
+router.post("/login", authHelpers.verifyReCaptchaToken, passport.authenticate('local'), (req, res, next) => {
   //...code
 })
 ```
