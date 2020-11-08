@@ -63,8 +63,8 @@ Fill out the registration form as follows:
 </details>
 
 Once you submit the form you will be given two keys:
-* **site key**: Is public facing and used in the front-end for the reCAPTCHA widget. 
-* **secret key**: Is secret and will be used in the backend to verify the reCAPTCHA token an environment variable.
+* **site key**: Is public facing and used in the client for the reCAPTCHA widget. 
+* **secret key**: Is secret and will be used in the server to verify the reCAPTCHA token an environment variable.
 
 Copy you keys somewhere, we will use them in a bit.
 
@@ -79,17 +79,17 @@ Copy you keys somewhere, we will use them in a bit.
 * ⚠️ Once you have fully integrated reCAPTCHA and deployed remember to remove `localhost` from your domains settings, otherwise an bad user running on localhost will be able to abuse your site.
 
 
-### 3. Install and set up `react-google-recaptcha` in the front-end
+### 3. Install and set up `react-google-recaptcha` in the client
 
 The package we will use to integrate reCAPTCHA in our react apps is [`react-google-recaptcha` 📘](https://github.com/dozoisch/react-google-recaptcha). 
 
-Install it in your frontend with: 
+Install it in your client with: 
 
 ```
 npm install --save react-google-recaptcha
 ```
 
-### 4. Frontend setup
+### 4. Client setup
 
 Think about what is the action in your app a user can do that you want to protect from bots, in our case that will be the login and sign up forms for our site. Then it is in those components that we will use reCAPTCHA.
 
@@ -173,11 +173,11 @@ At a high level the steps were
 * Handle when the user indicates that they are not a bot with the `onChange` prop.
   * Save the verification token provided by the reCAPTCHA widget to the state
 * Handle when there's an error with the `onErrored` prop
-* When submitting your form/performing the action, check that the user verified they were not a bot and send the `recaptchaToken` with your request to the backend.
+* When submitting your form/performing the action, check that the user verified they were not a bot and send the `recaptchaToken` with your request to the server.
 
-### 5. Backend Setup
+### 5. Server Setup
 
-We need to setup our backend to keep our **secret key** and use it to verify the reCAPTCHA token we get from our frontend. 
+We need to setup our server to keep our **secret key** and use it to verify the reCAPTCHA token we get from our client. 
 
 Store your secret key in an environment variable using a `.env` file with the following content. 
 ```
