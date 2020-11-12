@@ -3,14 +3,15 @@
 # Variables Lesson
 
 ## Standards
+
 LF.2
 
 ## Learning Objectives
 
-* Understand the difference between a statement and an expression.
-* Independently define, assign value to, and modify variables.
-* Understand what `state` means
-* Differentiate between `var`, `let` and `const` for variable declaration
+- Understand the difference between a statement and an expression.
+- Independently define, assign value to, and modify variables.
+- Understand what `state` means
+- Differentiate between `var`, `let` and `const` for variable declaration
 
 ## Keywords
 
@@ -22,19 +23,20 @@ LF.2
 - the `undefined` type
 - keyword
 
-## Prerequisites 
- * Values and Types
+## Prerequisites
 
-___
+- Values and Types
+
+---
 
 ## 1. Expressions
 
 In the previous lesson we only used _expressions_ in our code. But on their own, expressions don't really do anything. We can write the following program, using `;` to indicate the end of a line.
 
 ```js
-1 + 1;
-("cat");
-"bat" + "man";
+1 + 1
+("cat")
+"bat" + "man"
 ```
 
 Each of the expressions will be evaluated (become a value), and then get discarded. None of the expressions will have any permanent ffect on anything.
@@ -53,10 +55,10 @@ The return value of `console.log` is `undefined`. If you wanted to do `console.l
 
 ```js
 // running a file:
-console.log("bat" + "man");
+console.log("bat" + "man")
 // => undefined, but it WILL print "batman" to the terminal
 
-console.log("bat" + "man") === "bat" + "man";
+console.log("bat" + "man") === "bat" + "man"
 // => false, because we're comparing undefined to "batman"
 ```
 
@@ -65,9 +67,9 @@ console.log("bat" + "man") === "bat" + "man";
   <summary> Hint </summary>
   <p>
 
-  ```
-  mkdir variables
-  ```
+```
+mkdir variables
+```
 
   </p> 
 </details>
@@ -78,16 +80,16 @@ console.log("bat" + "man") === "bat" + "man";
 
 ## 3. Creating a variable
 
-To save values in the computer's memory, we use **variables**. A variable is a container in which we can store values to be later retrieved. To create a variable, we use the keywords `var`, `let`, or `const`, followed by the name of the variable. 
+To save values in the computer's memory, we use **variables**. A variable is a container in which we can store values to be later retrieved. To create a variable, we use the keywords `var`, `let`, or `const`, followed by the name of the variable.
 
-In JavaScript, we name variables using camelCase, which means that there are no spaces or underscores in the name and that every first letter of each word is capitalized except for the first word: `thisIsUsingCamelCase`. 
+In JavaScript, we name variables using camelCase, which means that there are no spaces or underscores in the name and that every first letter of each word is capitalized except for the first word: `thisIsUsingCamelCase`.
 
 Other languages, like Ruby or Python, use snake case to name variables: `this_is_using_snake_case`. If you're writing in JavaScript (which you are :wink:), make sure you're _always_ using the standard camelCase style convention.
 
 ```js
-var myVarVariable;
-let myLetVariable;
-const myConstVariable = "I used const!";
+var myVarVariable
+let myLetVariable
+const myConstVariable = "I used const!"
 ```
 
 What do you think would be logged if we ran `console.log(myVarVariable)`?
@@ -96,7 +98,8 @@ What about `console.log(myLetVariable)` and `console.log(myConstVariable)`?
 <details>
   <summary> Answer </summary>
 
-  `myVarVariable` and `myLetVariable` both currently log `undefined`. Then we have `myConstVariable` that logs the string, "I used const!". What gives?
+`myVarVariable` and `myLetVariable` both currently log `undefined`. Then we have `myConstVariable` that logs the string, "I used const!". What gives?
+
 </details>
 
 ## 4. Assigning a value
@@ -104,9 +107,9 @@ What about `console.log(myLetVariable)` and `console.log(myConstVariable)`?
 A variable is a placeholder for a value that is stored somewhere in the computer's memory. We can assign a value to a variable by using the assignment operator, `=`. If we don't assign the variable to a value, as we saw above, it will be `undefined`. To get back the value we assigned, we write the variable's name. The name can be used by itself or as part of an expression.
 
 ```js
-const myCat = "Tom";
-let myAge = 25;
-console.log(myAge);
+const myCat = "Tom"
+let myAge = 25
+console.log(myAge)
 // 25
 ```
 
@@ -124,26 +127,26 @@ In later lessons we will explore the differences between `let`, `const` and `var
 Now what are some things we can do with our variables? Let's explore different ways we can interact with our variables and use them in different contexts.
 
 ```js
-const myCat = "Tom";
-console.log(myCat);
+const myCat = "Tom"
+console.log(myCat)
 // Tom
 
-console.log("The name of my cat is " + myCat);
+console.log("The name of my cat is " + myCat)
 // The name of my cat is Tom
 ```
 
 We can use variables as the left hand and right hand sides of any comparison operator:
 
 ```js
-let num1 = 2;
-let num2 = 4;
-console.log(num1 === num2);
+let num1 = 2
+let num2 = 4
+console.log(num1 === num2)
 // false
 
-console.log(num2 >= num1 + 2);
+console.log(num2 >= num1 + 2)
 // true
 
-console.log(num1 + num2 === 6);
+console.log(num1 + num2 === 6)
 // true
 ```
 
@@ -152,47 +155,50 @@ console.log(num1 + num2 === 6);
 Variable assignment is our first example of a **statement**. When we assign a value to a variable, nothing visible happens. Instead, the **state** of our program changes. **State** is everything that's stored in memory while a program runs. In general, an expression returns a value, while a statement changes the program's state. When using the assignment operator, the right hand side is actually an expression. This means that we are not limited to writing a single value.
 
 ```js
-let myNumber = 2 * 4 + 2;
-console.log(myNumber);
+let myNumber = 2 * 4 + 2
+console.log(myNumber)
 ```
 
 <details>
   <summary>What do you think <code>myNumber</code> will be equal to?</summary>
 
-  When running the code above, the expression to the right of the `=` operator will first be evaluated to `10` and then assigned to the variable `myNumber`.
+When running the code above, the expression to the right of the `=` operator will first be evaluated to `10` and then assigned to the variable `myNumber`.
+
 </details>
 
 ---
 
-
-   We can also use the value of existing variables to create new ones.
+We can also use the value of existing variables to create new ones.
 
 ```js
-let num1 = 4;
-let num2 = 8;
-let sum = num1 + num2;
+let num1 = 4
+let num2 = 8
+let sum = num1 + num2
 ```
 
 <details>
   <summary>What do you think <code>sum</code> will be equal to?</summary>
 
-  `sum` will equal 12 because 4 + 8 is equal to 12.
+`sum` will equal 12 because 4 + 8 is equal to 12.
+
 </details>
 
 <details>
 <summary>What do you think <code>sum</code> will equal to if we changed the value of <code>num1</code> to 10 after calculating <code>sum</code>?</summary>
 
 `sum` will still equal 10! When we declared `sum`, `num1` was equal to 4 so no matter how many times we change `num1` or `num2` after, `sum` will not change.
+
 </details>
 
 ---
+
 In the following code, what would be logged to the screen?
 
 ```js
-let string = "My favorite number is ";
-let number = 42;
-let sentence = string + number;
-console.log(sentence);
+let string = "My favorite number is "
+let number = 42
+let sentence = string + number
+console.log(sentence)
 ```
 
 ## 7. `undefined` and `null`
@@ -210,13 +216,13 @@ Since `undefined` is an actual value, it's different than something that is NOT 
 
 ```js
 let what = undefined
-let also;
+let also
 console.log(what) // undefined
 console.log(also) // undefined
 console.log(another) // Uncaught ReferenceError: another is not defined
 ```
 
-Similarly, we can give a variable a `null` value. 
+Similarly, we can give a variable a `null` value.
 
 ```js
 let nothing = null
@@ -230,33 +236,33 @@ console.log(nothing) // null
 We can assign a new value to a variable at any time by using the assignment operator. This will overwrite the old value of that variable. `let` is a useful and flexible way to declare variables because it allows you to change what you've stored in the variable. For example, your age will change every year so you'd probably like to update that variable to match your age. To redefine a variable you would do the following:
 
 ```js
-let myAge = 25;
-myAge = 26;
+let myAge = 25
+myAge = 26
 ```
 
 Now the `myAge` variable would have the value `26`. Notice how we didn't use `let` to redefine the variable - this is because `let` is specifically used to **create** the variable. Once it's made, you can change it as you'd like. In older versions of the JavaScript language, you could only use `var` to declare variables. While you can still use `var` to declare variables, it is preferred to use `let` or `const`.
 
 ```js
-let day = "Monday";
-console.log("Today is " + day);
-day = "Tuesday";
-console.log("Tomorrow will be " + day);
+let day = "Monday"
+console.log("Today is " + day)
+day = "Tuesday"
+console.log("Tomorrow will be " + day)
 ```
 
 While `let` is flexible, `const` is not. `const` is used when declaring variables we **do not** want to change and want to keep **constant**. We used `const` for `myCat` because we don't expect `myCat` to change anytime soon. If we tried to redefine the `myCat` variable, we would receive an error:
 
 ```js
-const myCat = "Tom";
-myCat = "Thomas";
+const myCat = "Tom"
+myCat = "Thomas"
 //=> Uncaught TypeError: Assignment to constant variable.
 ```
 
 We may want to use the current value when modifying a variable. For example, we may want to add some numeric value to an existing number. To do this, we can use the variable's name to the right hand side of the assignment operator:
 
 ```js
-let myNumber = 2;
-myNumber = myNumber + 1;
-console.log(myNumber);
+let myNumber = 2
+myNumber = myNumber + 1
+console.log(myNumber)
 // 3
 ```
 
@@ -265,31 +271,33 @@ Since the right hand side of `=` is an expression, it will first be evaluated to
 > Ex. write the step-by-step evaluation of the third line in the code below:
 
 ```js
-let sentence = "My name is ";
-let name = "Mia";
-sentence = sentence + name;
-console.log(sentence);
+let sentence = "My name is "
+let name = "Mia"
+sentence = sentence + name
+console.log(sentence)
 // My name is Mia
 ```
 
 ## 9. Updating Variables Shorthand
 
-There is a shorter syntax to updating variables using their existing value. When we wish to add something to the variable's value, we may use the `+=` operator, as in `num += 1`. This is a shorthand for `num = num + 1`. The same works with `-=`, `*=`, and `/=` and other math operators. This shorthand is sometimes referred to as syntactic sugar. 
+There is a shorter syntax to updating variables using their existing value. When we wish to add something to the variable's value, we may use the `+=` operator, as in `num += 1`. This is a shorthand for `num = num + 1`. The same works with `-=`, `*=`, and `/=` and other math operators. This shorthand is sometimes referred to as syntactic sugar.
 
 ```js
-let num = 2;
-num += 6;
+let num = 2
+num += 6
 // num is 8
-num -= 3;
+num -= 3
 // num is 5
 ```
 
 ## Summary
+
 Variables allow us to write code that can be referenced later. When creating a variable we should use `let` or `const` to declare the variable. We can then assign value to that variable.
 
-Using `console.log` can be a helpful tool fo us the humans see what the code is doing and to check what values are where. It shouldn't be used to save information and is irrelevant to the computer. 
+Using `console.log` can be a helpful tool fo us the humans see what the code is doing and to check what values are where. It shouldn't be used to save information and is irrelevant to the computer.
 
 ## Resourcs
-* [MDN Variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
-* [Syntactic Sugar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
-* [Var, Let, Const - What's the Difference?](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/#:~:text=var%20declarations%20are%20globally%20scoped%20or%20function%20scoped%20while%20let,be%20updated%20nor%20re%2Ddeclared.)
+
+- [MDN Variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
+- [Syntactic Sugar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
+- [Var, Let, Const - What's the Difference?](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/#:~:text=var%20declarations%20are%20globally%20scoped%20or%20function%20scoped%20while%20let,be%20updated%20nor%20re%2Ddeclared.)
