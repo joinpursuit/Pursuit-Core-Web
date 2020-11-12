@@ -2,9 +2,7 @@
 
 # Variables Lesson
 
-## Standards
-
-LF.2
+Declaring, using, and modifying variables in Javascript!
 
 ## Learning Objectives
 
