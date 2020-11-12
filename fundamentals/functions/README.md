@@ -1,3 +1,5 @@
+[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
+
 # Functions & Scope
 
 Functions are a fundamental part of any programming language. This lesson will cover function syntax, usage, and some mechanics.
@@ -23,7 +25,7 @@ Functions are a fundamental part of any programming language. This lesson will c
 
 ## Why Functions?
 
-We use functions to contain code that we want to re-use.
+We use functions to contain code that we want to re-use, or to contain code that we want to call at a later time.
 
 Let's say we have two different numbers:
 
@@ -32,7 +34,7 @@ let smallNum = 6
 let bigNum = 15389
 ```
 
-Now let's say we want to do some math on these number. We could do it the manual way:
+Now let's say we want to do some math on these numbers. We could do it the manual way:
 
 ```js
 let smallResult = (smallNum * 4 + 23 / 8 - 4) % 2
@@ -58,7 +60,7 @@ function doMath(num) {
 
 We've taken the code that does some several step math process and put it inside a function so that we can reuse it.
 
-Specifically, this function takes in an input (called an argument, in this case it's a number) and console logs a new number after performing all those operations.
+Specifically, this function takes in an input (called an argument, in this case the `type` is a `number`) and console logs a new number after performing all those operations.
 
 So we have a way to declare a function, which creates it. But if we want to execute (or **call**) that function, we do this:
 
@@ -67,22 +69,22 @@ doMath(smallNum) // => 0.875
 doMath(bigNum) // => 0.875
 ```
 
-Here we're calling the function twice and passing in two different values. The function prints out the result of the math equation.
+Here we're calling the function twice and passing in a different value each time. The function prints out the result of the math equation.
 
 Let's break down this new syntax with another example:
 
 ![functions](./assets/function_composition.png)
 
 - The above syntax is called **function declaration**.
-  The word `function` tells JS that we are **declaring** a function. Just like const lets JS know we are about to declare a variable.
+  The word `function` tells JS that we are **declaring** a function. Just like `const` lets JS know we are about to declare a variable.
 
 - squareNumber is the **name** of the function. Not all functions need a name. Some functions are anonymous and don't have a name. But for now, we will be dealing with functions that do have a name. Ideally the name describes what the function does.
 
 - Inside the parentheses are **parameters** which are used to define a function. When we call a function we replace parameters with **arguments**. Arguments are the real values that are passed into a function. Often the words parameters, and arguments are used interchangeably.
 
-- The opening curly brace, { , indicates the start of the function. The closing curly brace, } , indicates the end of the function.
+- The opening curly brace, `{` indicates the start of the function. The closing curly brace, `}` indicates the end of the function.
 
-- Between the braces, is the code that makes up the function. **return** is the result (what we get back) after we've called the function. If there is no **return** statement, the function will return `undefined`. Once something is **returned** from a function, the function has ended. This means, that even if there is code after the return statement, it will not be executed.
+- Between the braces, is the code that makes up the function. This is called the `function body`. **return** is the result (what we get back) after we've called the function. If there is no **return** statement, the function will return `undefined`. Once something is **returned** from a function, the function has ended. This means, that even if there is code after the return statement, it will not be executed.
 
 ## Functions as Mini-Programs
 
