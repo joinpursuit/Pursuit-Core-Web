@@ -37,13 +37,13 @@ In the previous lesson we only used _expressions_ in our code. But on their own,
 "bat" + "man";
 ```
 
-Each of the expressions will be evaluated (become a value), and then get discarded. None of the expressions will have any affect on anything.
+Each of the expressions will be evaluated (become a value), and then get discarded. None of the expressions will have any permanent ffect on anything.
 
 ## 2. console.log
 
-The first kind of effect we need is to log text to the console. After all, we have to be able to see what we're doing.
+The first kind of effect we need is to display text to the console. After all, we have to be able to see what we're doing.
 
-Thus far, we have been using the node REPL, where the value returned by an expression was logged for us. To write programs, however, we will be creating text files that we inform Node contain JavaScript by appending them with `.js`.
+Thus far, we have been using the node REPL, where the value returned by an expression was logged for us. To write programs, however, we will be creating text files that contain JavaScript. Javascript filenames end in `.js`
 
 If we try to run a file with the code we looked at before, nothing will get logged. In order to log something in a JavaScript file, we need to use the `console.log` function. This will print (AKA **log**) whatever we type inside the parentheses to your terminal window (the **console**).
 
@@ -82,7 +82,7 @@ To save values in the computer's memory, we use **variables**. A variable is a c
 
 In JavaScript, we name variables using camelCase, which means that there are no spaces or underscores in the name and that every first letter of each word is capitalized except for the first word: `thisIsUsingCamelCase`. 
 
-Other languages, like Ruby, use snake case to name variables: `this_is_using_snake_case`. If you're writing in JavaScript (which you are :wink:), make sure you're _always_ using the standard camelCase style convention.
+Other languages, like Ruby or Python, use snake case to name variables: `this_is_using_snake_case`. If you're writing in JavaScript (which you are :wink:), make sure you're _always_ using the standard camelCase style convention.
 
 ```js
 var myVarVariable;
@@ -195,7 +195,7 @@ let sentence = string + number;
 console.log(sentence);
 ```
 
-## 7. `undefined`
+## 7. `undefined` and `null`
 
 As we saw above, if we don't assign a value to a variable, it will hold the value `undefined`. This is not a description but an actual value, one we can write in the node REPL:
 
@@ -205,6 +205,25 @@ undefined
 ```
 
 It is important to make sure that you consider when variables might be undefined when you are writing code.
+
+Since `undefined` is an actual value, it's different than something that is NOT defined. For example:
+
+```js
+let what = undefined
+let also;
+console.log(what) // undefined
+console.log(also) // undefined
+console.log(another) // Uncaught ReferenceError: another is not defined
+```
+
+Similarly, we can give a variable a `null` value. 
+
+```js
+let nothing = null
+console.log(nothing) // null
+```
+
+`null` and `undefined` are similar, but not the same. Using null is a way to say "there is a value and it is nothing", versus "this value is not defined". They are both `falsy` though, so they can be used in similar cases.
 
 ## 8. Modifying Variables
 
@@ -264,7 +283,8 @@ num += 6;
 num -= 3;
 // num is 5
 ```
-## Summaray
+
+## Summary
 Variables allow us to write code that can be referenced later. When creating a variable we should use `let` or `const` to declare the variable. We can then assign value to that variable.
 
 Using `console.log` can be a helpful tool fo us the humans see what the code is doing and to check what values are where. It shouldn't be used to save information and is irrelevant to the computer. 
