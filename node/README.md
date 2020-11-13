@@ -1,4 +1,4 @@
-# Unit 3: NodeJS, Express, and SQL
+# Module 4: NodeJS, Express, and SQL
 
 ## Lessons, Quizzes, and Labs
 
