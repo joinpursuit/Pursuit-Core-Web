@@ -1,4 +1,4 @@
-# Unit 4: React 1
+# Module 3: React + Redux
 
 ## Lessons, Quizzes, and Labs
 
