@@ -1,5 +1,17 @@
 # Module 3: React + Redux
 
+## Learning Outcomes
+
+- M3.1	Use npm to install packages
+- M3.2	Build a front end using React components
+- M3.3	Customize the configuration of a component using props
+- M3.4	Create stateful components
+- M3.5	Use component lifecycle methods to execute code 
+- M3.6	Build a front end using React hooks
+- M3.7	Build a single page application using React Router
+- M3.8	Use Redux to manage state accross an application
+- M3.9	Use git as a dependency management tool
+
 ## Lessons, Quizzes, and Labs
 
 | Lesson | Quiz | Lab |
@@ -12,22 +24,6 @@
 | 6. [Networking in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_networking) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13261311) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4655723) | [Blackjack](https://github.com/joinpursuit/Pursuit-Core-Web-React-Networking-Lab) |
 | 7. [Routing in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_routing) | [6.2](https://canvas.instructure.com/courses/1605748/assignments/13262987) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4655721) | [Cats and Dogs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Routing-Lab/blob/master/README.md) |
 
-## New Standards
-
-* FSW.5.b: Use JSX to create components
-* FSW.5.d: Use the state property to build stateful React applications
-* FSW.5.e: Use create-react-app to build React applications
-* FSW.5.f: Respond to user input to update the views in a React app
-* FSW.5.h: Use props to pass data between React components
-* FSW.6.a: Use react-router to render components for specific URL extensions
-
-## Reassessed Standards
-
-* EF.4.e: Use frequent, descriptive, small commits
-* EF.10.c: Make requests to APIs
-* FSW.1: Write clean, readable JavaScript code
-* FSW.3.d: Use Flexbox and Grid to layout a page
-* LF.5: Use functions to keep code DRY
 
 ## Individual Project
 
