@@ -1,4 +1,16 @@
-# Unit 3: NodeJS, Express, and SQL
+# Module 4: NodeJS, Express, and SQL
+
+## Learning Outcomes
+
+- M4.1	Understand how servers work
+- M4.2	Use Node.js to create and run command line applications
+- M4.3	Understand what APIs are and how they should be designed
+- M4.4	Use Express to build an API
+- M4.5	Understand the problem databases solve and build schemas
+- M4.6	Use SQL to run CRUD operations and JOINs
+- M4.7	Use Postgres to build a database and interact with it through its CLI
+- M4.8	Use knex.js to build a web application backed by SQL
+- M4.9	Use Firebase to authenticate users
 
 ## Lessons, Quizzes, and Labs
 
@@ -15,25 +27,6 @@
 | 9. [Postgres & Seeding Databases](./postgres_and_seeding_databases/README.md)                                                    | [6.2](https://canvas.instructure.com/courses/1605748/assignments/12863766) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494954) | [Social Media Database](https://github.com/joinpursuit/Pursuit-Core-Web-Postgres-Lab/blob/master/README.md)                        |
 | 10. [Postgres & pg-promise](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/node/postgres-and-pg-promise)            | [6.2](https://canvas.instructure.com/courses/1605748/quizzes/4429633) / [6.4](https://canvas.instructure.com/courses/1705731/quizzes/4494957)      | [Social Media Database Part Two](https://github.com/joinpursuit/Pursuit-Core-Web-pg-promise-Lab/blob/master/README.md)             |
 
-## New Standards
-
-* FSW.1.b: Understanding of Callbacks
-* FSW.1.d: Manipulate and access objects and objects in arrays
-* FSW.10.a: Create an Express app
-* FSW.10.b: Use routes to send responses and errors
-* FSW.11.b: Use middleware to inject code
-* FSW.13: Design, structure, and seed a database for a full stack CRUD application
-* FSW.14.c: Build an Express application that utilizes Postgres and pg-promise
-* FSW.15: Build a full-stack application
-* LF.6: Proper use and understanding of Higher order functions & closures or callbacks
-
-## Reassessed Standards
-
-* EF.4.e: Use frequent, descriptive, small commits
-* FSW.1: Write clean, readable JavaScript code
-* FSW.3.c: Use HTML input and forms
-* FSW.3.e: Create a responsive UI
-* LF.5: Use functions to keep code DRY
 
 ## Individual Project
 
