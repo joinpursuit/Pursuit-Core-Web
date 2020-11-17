@@ -15,7 +15,8 @@ To get reassessed on non-DSA Standards complete one of the following projects.
 💡 If you want to get reassessed on standards that are not formally listed in the project's rubric, demonstrate the chosen standard(s) proficiently in your project and bring it up with your instructors. They will be happy to adjust the rubric if you demonstrate you have mastered a specific standard that might not be in the general project rubric.
 
 ## DSA Standards
-First know that the DSA Standards are divided by DSA Topic:
+To get reassessed on DSA Standards first know that the DSA Standards are divided by DSA Topic:
+
 * DSA-1-b: Linked Lists
 * DSA-1-d: Hash Tables
 * DSA-1-e: Stacks 
@@ -41,9 +42,9 @@ First know that the DSA Standards are divided by DSA Topic:
       └── Trees/
     ```
 3. List and become aware, if you haven't already, of the DSA Standards **you** have low and need to get reassessed in by looking at your [gradebook](https://drive.google.com/drive/search?q=gradebook)
-3. For all the DSA standards you need to get reassessed in review their [lessons](https://github.com/joinpursuit/Pursuit-Core-DSA) as well as explore the resources linked to in the lesson's Readme. Find and explore other resources online to support your understanding of the topic like YouTube videos or its [CTCI](https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zDIpyDJNKcsxYPTiTC5JzlRIys_PBgBokggk&q=ctci+book&oq=ctci&aqs=chrome.4.69i57j0l3j46j0l3.4069j0j7&sourceid=chrome&ie=UTF-8) chapter. 
-4. Solve the 4 to 5 problems associated for each one of your DSA Standards from the [**Standards Reassessments** Table](https://github.com/joinpursuit/Pursuit-Core-DSA#standards-reassessments). Most questions are in LeetCode, solve them there first.
-6. Save your solutions in JavaScript files with the name of the problem in the given topic directory and committed to your `Data-Structures-And-Algorithms` repo. For instance, say you solved all the [Trees Problems](https://github.com/joinpursuit/Pursuit-Core-DSA#:~:text=DSA-1-g:%20Trees) then your trees folder should looke something like this with each solution in its own file:
+3. For all the DSA standards you need to get reassessed in, review their [lesson](https://github.com/joinpursuit/Pursuit-Core-DSA) as well as explore the resources linked to in the lesson's Readme. Find and explore other resources online to support your understanding of the topic like YouTube videos or its [CTCI](https://www.google.com/search?q=ctci+book) chapter. 
+4. Solve at least 3 problems associated for each one of your DSA Standards from the [**Standards Reassessments** Table](https://github.com/joinpursuit/Pursuit-Core-DSA#recommended-problems). Most questions are in LeetCode, solve them there first.
+6. Save your solutions in JavaScript files with the name of the problem in the given topic directory and committed to your `Data-Structures-And-Algorithms` repo. For instance, say you solved all the [Trees Problems](https://github.com/joinpursuit/Pursuit-Core-DSA#:~:text=DSA-1-g:%20Trees) then your trees folder should look something like this with each solution in its own file:
     ```
     ...
     └── Trees
@@ -53,8 +54,11 @@ First know that the DSA Standards are divided by DSA Topic:
         ├── sameTree.js
         └── univaluedBinaryTree.js
     ```
-8. Once you have solved all problems covering the standards you need to get reassessed in and feel confident you understand what they are about reach out to one of your instructors and let them know you would like to schedule a DSA Standards Reassessment Debrief. Your instructor will look at the solutions in your repo, ask you questions about your approach and about the given topic/standard in general. Make sure you review your notes and the topics thoroughly.
+8. Once you have solved the problems covering the standards you need to get reassessed in and feel confident you understand what they are about reach out to one of your instructors and let them know you would like to schedule a DSA Standards Reassessment Debrief. Your instructor will look at the solutions in your repo, ask you questions about your approach and about the given topic/standard in general. Make sure you review your notes and the topics thoroughly.
 9. During the debrief, if you demonstrate you understand a given topic by your provided problem solutions and by your answers to the instructor's questions you will be marked proficient or exceptional in them and your grades will update shortly thereafter.
+
+#### At the end your repo should look somewhat like this:
+![Sample Data Structure and Algorithms GitHub Repo Structure](assets/sample-dsa-repo-screenshot.png)
 
 #### :notebook:  Example Repos
 Let this repos serve as inspiration for what your `Data-Structures-And-Algorithms` repo can look like
