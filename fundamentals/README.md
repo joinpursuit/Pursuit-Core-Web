@@ -15,18 +15,18 @@
 | Lesson | Quiz | Lab |
 | --- | --- | --- |
 | 1. [Local Environment Setup](./local_environment/README.md) | n/a | n/a |
-| 2. [The Command Line](./the_command_line/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968778) | [link](https://github.com/joinpursuit/Command-Line-Lab) |
-| 3. [Git and GitHub](./git_and_github/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968809) | [link](https://github.com/joinpursuit/git_github_assignment) | 
-| 4. [Values, Types, and Operators](./values_types_operators/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968817) | [link](https://github.com/joinpursuit/values_types_operators_assignment) |
-| 5. [Variables](./variables/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968773) | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
-| 6. [Functions](./functions/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968771) | [link](https://github.com/joinpursuit/functions-lab) |
-| 7. [Conditionals](./conditionals/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968791) | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
-| 8. [Building Command Line Applications](./command_line_game/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/6485169) | [link](https://github.com/joinpursuit/Guessing-Game-cli-lab) |
-| 9. [Arrays](./arrays/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968811) | [link](https://github.com/joinpursuit/arrays_assignment) |
-| 10. [Loops](./loops/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968797) | [link](https://github.com/joinpursuit/loops_assignment/blob/master/README.md) |
-| 11. [Strings](./strings/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968807) | [link](https://github.com/joinpursuit/string_assignment/blob/master/README.md) |
-| 12. [Objects](./objects/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968800) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Objects-Lab) |
-| 13. [Array Methods and Callbacks](./array_methods/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968794) | [link](https://github.com/joinpursuit/array_methods_assignment/blob/master/README.md) |
+| 2. [The Command Line](./the_command_line/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968778) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485248) | [link](https://github.com/joinpursuit/Command-Line-Lab) |
+| 3. [Git and GitHub](./git_and_github/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968809) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485246) | [link](https://github.com/joinpursuit/git_github_assignment) | 
+| 4. [Values, Types, and Operators](./values_types_operators/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968817) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485222) | [link](https://github.com/joinpursuit/values_types_operators_assignment) |
+| 5. [Variables](./variables/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968773) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485205) | [link](https://github.com/joinpursuit/variable_assignment/blob/master/README.md) |
+| 6. [Functions](./functions/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968771) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485233) | [link](https://github.com/joinpursuit/functions-lab) |
+| 7. [Conditionals](./conditionals/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968791) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485202) | [link](https://github.com/joinpursuit/conditional_assignment/blob/master/README.md) |
+| 8. [Building Command Line Applications](./command_line_game/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/6485169) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485524) | [link](https://github.com/joinpursuit/Guessing-Game-cli-lab) |
+| 9. [Arrays](./arrays/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968811) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485209) | [link](https://github.com/joinpursuit/arrays_assignment) |
+| 10. [Loops](./loops/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968797) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485216) | [link](https://github.com/joinpursuit/loops_assignment/blob/master/README.md) |
+| 11. [Strings](./strings/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968807) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485220) | [link](https://github.com/joinpursuit/string_assignment/blob/master/README.md) |
+| 12. [Objects](./objects/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968800) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485247) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Objects-Lab) |
+| 13. [Array Methods and Callbacks](./array_methods/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968794) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485243) | [link](https://github.com/joinpursuit/array_methods_assignment/blob/master/README.md) |
 
 ## Projects
 
