@@ -39,6 +39,7 @@ Here is a list of chrome extensions that we recommend. Each one can be installed
 - [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
 
 These are useful but not required:
+- [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 - [OctoTree](https://www.octotree.io)
 - [Video Speed Controller](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk?hl=en)
 - [Page Ruler Redux](https://chrome.google.com/webstore/detail/page-ruler-redux/giejhjebcalaheckengmchjekofhhmal?hl=en)
@@ -46,23 +47,13 @@ These are useful but not required:
 - [ColorZilla](https://chrome.google.com/webstore/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp?hl=en)
 - [Wappalyzer](https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg)
 
-### iTerm2 & ZSH
+### iTerm2
 
 iTerm is a much better terminal than the one built-in. We'll install it and a new shell called ZSH which provides better color highlighting and tab completion.
 
 Download the latest stable release here:
 
 https://iterm2.com/downloads.html
-
-**ZSH**
-
-Once iTerm is installed, open it using spotlight, and then follow the directions below to install ZSH. You can paste the ZSH install command into iTerm by typing `command+v`.
-
-https://ohmyz.sh#install
-
-> Note: Anytime you see a command that starts with a `$`, ignore that symbol. The `$` indicates you're typing a command into the terminal, but it is not part of the command itself, and including it prevents the desired command from running.
-
-Once ZSH is installed, completely close out of iTerm (`command + Q`) and reopen it.
 
 ### Homebrew
 
@@ -81,6 +72,16 @@ Click `Install` to download and install Xcode command line tools.
 > Note: this may take a very long time!
 
 After this process finishes, follow the remaining setup instructions that are displayed in the terminal if there are any.
+
+**ZSH**
+
+Once iTerm is installed, open it using spotlight, and then follow the directions below to install ZSH. You can paste the ZSH install command into iTerm by typing `command+v`.
+
+https://ohmyz.sh#install
+
+> Note: Anytime you see a command that starts with a `$`, ignore that symbol. The `$` indicates you're typing a command into the terminal, but it is not part of the command itself, and including it prevents the desired command from running.
+
+Once ZSH is installed, completely close out of iTerm (`command + Q`) and reopen it.
 
 ### Node.js
 
@@ -193,7 +194,7 @@ Type "help" for help.
 
 yourname=#
 
-# type '/q' to quit
+# type '\q' to quit
 yourname=# \q
 ```
 
