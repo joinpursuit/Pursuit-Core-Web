@@ -117,7 +117,7 @@ You can browse and install extensions from within VS Code. Bring up the Extensio
 
 We recommend installing the below extensions. You can do this now or at any time later:
 
-- [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/): real-time collaborative development.
+- [Visual Studio Live Share](https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode): real-time collaborative development on vscode.
 
 - [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): VS Code package to format your JavaScript / TypeScript / CSS using Prettier.
 
