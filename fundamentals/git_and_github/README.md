@@ -40,7 +40,11 @@ GitHub uses the email you set in your Git configuration to associate commits to 
 Test if you have your email set by running `git config --global user.email` in
 your terminal. Hopefully you see the output what your email is set to. 
 
-If it's blank, type `git config --global user.email "example@email.com"` (where "example" is your GitHub account's associated email) to set it. You will only ever need to run this once. Git will always use this information for anything you do on your computer.
+If it's blank, type `git config --global user.email "example@email.com"` (where "example" is your GitHub account's associated email) to set it. 
+
+Do the same with your name! Run `git config --global user.name` and see if it's set. If not, set it.`
+
+You will only ever need to run this once. Git will always use this information for anything you do on your computer.
 
 ## Initializing a Repo
 
