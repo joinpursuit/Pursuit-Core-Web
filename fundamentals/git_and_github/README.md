@@ -438,6 +438,7 @@ Steps to revert:
 
 ## Resources
 
+- [Git tutorials](https://www.atlassian.com/git/tutorials)
 - [Git cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
 - [Git flight rules](https://github.com/k88hudson/git-flight-rules)
 - [Try Git](http://try.github.io)
