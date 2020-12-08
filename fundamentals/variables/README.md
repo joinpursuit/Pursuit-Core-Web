@@ -294,7 +294,7 @@ Variables allow us to write code that can be referenced later. When creating a v
 
 Using `console.log` can be a helpful tool fo us the humans see what the code is doing and to check what values are where. It shouldn't be used to save information and is irrelevant to the computer.
 
-## Resourcs
+## Resources
 
 - [MDN Variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
 - [Syntactic Sugar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations)
