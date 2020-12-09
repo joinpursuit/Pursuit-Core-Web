@@ -165,7 +165,7 @@ function firstLevel() {
     console.log(global) // => "hello global"
   }
 
-  console.log(second) // => undefined
+  console.log(second) // => ReferenceError: second is not defined
 }
 
 console.log(global) // => "hello global"
@@ -189,7 +189,7 @@ function iHaveParams(num, str) {
 iHaveParams(22, "why") // => 22, why
 
 // num and str are not accessible outside the function
-console.log(num, str) // undefined, undefined
+console.log(num, str) // ReferenceError
 ```
 
 This is very valuable! We often use functions to contain our scope, so we don't accidentally affect variables outside of it.
