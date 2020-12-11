@@ -80,17 +80,33 @@ if (0) {
 }
 ```
 
-> Provide other examples of expressions for the condition to an `if` statement
-> so that the code block following it will never be executed.
+We can also put an entire expression in the if statement! Ultimately, whatever we put in there should evaluate to truthy or falsy.
+
+```js
+const num1 = 23
+const num2 = 56
+
+if(num1 > num2 && num2 % 2 === 0) {
+  console.log("Hahaaaa! Success!")
+}
+```
 
 Note that an an `if` statement is not the end of a program. The code following it will run as usual.
 
 ```js
-let num = 4;
-if (num > 2) {
-  console.log("It's larger than 2");
+function checkNum(num) {
+  if (num > 2) {
+    console.log("It's larger than 2");
+  }
+  console.log("done checking");
 }
-console.log("done checking");
+
+checkNum(4)
+// It's larger than 2
+// done checking
+
+checkNum(2)
+// done checking
 ```
 
 In the code above, `'Its larger than 2'` may or may not be printed (depending on the value of `num`). Either way `'done checking'` _will_ be printed.
@@ -137,7 +153,9 @@ console.log("done checking");
 ```
 
 The above statement will check the conditions one at a time. First, the conditional statement following `if` will be checked.
+
 If it is falsy, the conditional statement following `else if` will be checked. If it is also falsy, the code block following `else` will be executed.
+
 We can have as many `else if` statements as we like. For example, we may want to check if a number is equal to `1`, `2` or `3`:
 
 ```js
@@ -155,9 +173,9 @@ if (num === 1) {
 
 Remember, only **one** of the code blocks will be executed.
 
-#### _Checking for range_
+### Checking for range
 
-One way we can utilize `if - else if - else` statements is to check for different ranges.
+One way we can utilize `if - else if` statements is to check for different ranges.
 For example, we may want to perform a different action depending on the user's age group.
 
 ```js
@@ -213,8 +231,10 @@ if (userAge > 18 && userAge < 45) {
 conditional ? true : false;
 ```
 
-The ternary operator is made up of three parts: The first part to the left of the question mark is a conditional. The second part right after the
-question mark is the value returned if the conditional is truthy. The final part is value returned if the condition is falsey.
+The ternary operator is made up of three parts: 
+  * The first part to the left of the question mark is a conditional. 
+  * The second part, between the question mark and the colon, is the value returned if the conditional is truthy. 
+  * The third part, after the colon, is the value returned if the condition is falsey.
 
 ```js
 > 1 === 1 ? 1 : 2
@@ -223,12 +243,33 @@ question mark is the value returned if the conditional is truthy. The final part
 // => 2
 ```
 
+This can be useful when declaring a variable which depends on a value.
+
+```js
+let age = 33
+
+let amIOld = age > 30 ? "old" : "young"
+```
+
+This is sort of equivalent to doing this:
+
+```js
+let age = 33
+let amIOld = ""
+
+if(age > 30) {
+  amIOld = "old"
+}
+else {
+  amIOld = "young"
+}
+```
+
 > Try it yourself! Experiment with different conditionals and outcomes.
 
 ## Switch Statements
 
-Switch statements evaluate similarly to `if - else if - else` statements. They take in an expression, and depending on the value of
-that expression, run a specific code block.
+Switch statements evaluate similarly to `if - else` statements. They take in an expression, and depending on the value of that expression, run a specific code block. Switch statements are useful if you are checking a single value and then determining a lot of different possible outcomes based on that value.
 
 The **break** keyword allows us to break out of the switch statement.
 
@@ -248,6 +289,8 @@ switch (expression) {
 }
 ```
 
+The main difference here is we can't use case to compare anything. We can only use it to check equivalency. For more complex comparisons, `if - else` is going to be more useful.
+
 [Examples](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 
 ## Summary
@@ -264,7 +307,7 @@ if(you are hungry) {
 }
 ```
 
-You are allowed to next if blocks inside of other if blocks.
+You are allowed to nest if blocks inside of other if blocks.
 
 ```
 if(you are hungry) {
