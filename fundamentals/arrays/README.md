@@ -4,29 +4,6 @@
 
 JavaScript arrays are used to store multiple values in a single variable.
 
-
-
-## Standards
-<details>
-  <summary>
-    LF.3
-  </summary>
-
-  Understand that data structures are ways of storing multiple elements of associated data. Access individual elements within sets of information, either directly, by iteration, or using methods.
-</details>
-
-
-<details>
-  <summary>
-    LF.3.a Arrays:
-  </summary>
-
-  Understand the Array data structure. Know that Arrays stores values of the same type in an ordered list. Understand the following:
-  * Access and modify arrays
-  * Iterate through arrays
-  * Use common array methods
-</details>
-
 ## Learning Objectives
 * Understand how to create an array, and why you'd want to.
 * Know basic array property `length`.
