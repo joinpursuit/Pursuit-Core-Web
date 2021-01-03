@@ -77,7 +77,7 @@ Above our `word` had 6 characters so its length is equal to 6. If we wanted to s
 
 ```js
 let myString = 'spring'
-console.log(spring.length)
+console.log(myString.length)
 // => 6
 ```
 
