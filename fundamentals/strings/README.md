@@ -1,8 +1,5 @@
 # Strings
 
-## Standards
-LF.1, LF.1.a
-
 ## Objectives
 
 * Understand what a string is
