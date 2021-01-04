@@ -32,7 +32,7 @@ In the previous lesson on loops, we dealt with a lot of numbers which can get qu
 let string = 'I am a string! '
 let anotherString = "I am also a string!"
 
-console.log(sentence + anotherString)
+console.log(string + anotherString)
 ```
 
 A string is essentially a list of characters. A character is either a letter, number, punctuation mark, or white space. There are also a some special characters, two of which are quotation marks and new lines. If we are using single quotation marks, and want these inside our string, we must use a backslash (`\`). Say we want a string with the value: `so he said to me, 'hello there'`. We will need quotation marks for the outside, and inside we will use backslash - followed by a quotation mark:
