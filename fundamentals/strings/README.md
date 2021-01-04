@@ -40,7 +40,7 @@ let str = 'So he said to me, \' hello there \''
 console.log(str)
 ```
 
-To make part of a string begin on a new line, use \'n.
+To make part of a string begin on a new line, use \n.
 
 **Try it yourself!** Make a string variable that includes _quotation marks_ and _a new line_.
 
