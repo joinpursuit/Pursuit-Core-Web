@@ -140,7 +140,7 @@ Let's write a table like we did in the last lesson:
 
 ### Immutability
 
-While we have the ability to manipulate strings, we cannot directly change the characters in a string _permanently_. This is because strings are **immutable** which means they are unable to be mutated or changed. Above we didn't need to create a new `str` variable because we were not changing any of the existing characters in the string but instead adding to the end. In the following examples, you will see that each time we want to change a string's characters we must save the changes in a _new_ variable.
+While we have the ability to manipulate strings, we cannot directly change the characters in a string _permanently_. This is because strings are **immutable** which means they are unable to be mutated or changed. Above we didn't need to create a new `str` variable because we were not changing any of the existing characters in the string but instead reassigning `str` to a new, longer string. In the following examples, you will see that each time we want to change a string's characters we must save the changes in a _new_ variable or _reassign_ the existing variable a new value.
 
 ### toUpperCase
 
