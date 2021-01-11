@@ -26,7 +26,7 @@
 | 10. [Building Command Line Applications](./command_line_game/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/6485169) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485524) | [link](https://github.com/joinpursuit/Guessing-Game-cli-lab) |
 | 11. [Strings](./strings/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968807) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485220) | [link](https://github.com/joinpursuit/string_assignment/blob/master/README.md) |
 | 12. [Objects](./objects/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968800) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485247) | [link](https://github.com/joinpursuit/Pursuit-Core-Web-Objects-Lab) |
-| 13. [Array Methods and Callbacks](./array_methods/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968794) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485243) | [link](https://github.com/joinpursuit/array_methods_assignment/blob/master/README.md) |
+| 13. [Array Methods and Callbacks](./array_methods/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/assignments/17968794) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485243) | [link](https://github.com/joinpursuit/array_methods_assignment) |
 
 ## Projects
 
