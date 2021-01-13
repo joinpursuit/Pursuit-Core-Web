@@ -78,7 +78,12 @@ Neat!  Now try a few more on your own.
 
 # 3. HTML Introduction
 
-Now that we see what HTML is used for, let's go over how to write our own websites.  The basic setup of HTML looks like this:
+Now that we see what HTML is used for, let's go over how to write our own websites.  
+
+* Create a file in your sandbox called `helloWorld.html`
+* Open the file in vscode
+
+The basic setup of HTML looks like this:
 
 ```HTML
 <!DOCTYPE html>
@@ -112,7 +117,11 @@ Let's add some text to our website and take a look!
 </html>
 ```
 
-Save this file as helloWorld.html, then double click on it to open it in your browser of choice.
+You can now open this file with your web browser:
+
+```
+$ open helloWorld.html
+```
 
 # 4. HTML: Paragraphs
 
