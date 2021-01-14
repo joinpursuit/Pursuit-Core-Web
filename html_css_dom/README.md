@@ -43,7 +43,7 @@
 
 [Mid-module Assessment - tbd]()
 
-[Final Module Assessment - tbd]()
+[Final Module Assessment](https://github.com/joinpursuit/Pursuit-Core-Module-Two-Final-Assessment)
 
 ## Old content
 
