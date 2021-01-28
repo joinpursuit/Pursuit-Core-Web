@@ -46,11 +46,19 @@
 
 # 1. HTML Introduction
 
-HTML stands for "Hyper Text Markup Language".  It's a special way of writing that tells web browsers how to display the text you want people to see on your website.
+When a web browser displays a web page to a user, the browser needs to know three things:
 
-HTML uses *tags* inside angle brackets to tell the browser how to display information (e.g `<h1>Heading</h1>`).
+1. What *content* (text, images, video, etc.) is on the web page? What is the *structure* of this content?
+1. How should the content *appear*?
+1. How should the page *behave* in response to a user?
 
-HTML is not a programming language.  You can't write code in HTML, only give instructions about how to display information.  You can, however, combine HTML and JavaScript to build websites that both show text, and allow for user interaction.
+HTML stands for "Hyper Text Markup Language".  It's a special way of writing that tells web browsers what text, images, and other content you want people to see on your website.
+HTML is responsible for (1), but HTML can also tell a browser a little bit about how the content should appear (2).
+It **cannot** tell a browser how a website should behave (3).  That's what JavaScript is for!
+
+HTML uses *tags* inside angle brackets to tell the browser what type of information is inside (e.g `<h1>Heading</h1>` is a heading).
+
+HTML is not a programming language.  You can't write code in HTML, only give instructions about what information to display.  You can, however, combine HTML and JavaScript to build websites that both show text, and allow for user interaction.
 
 In this unit, we'll learn how to build static (unchanging) websites with HTML and how to integrate JavaScript to make our websites interactive.
 
@@ -189,7 +197,7 @@ Our website above has the text separated out, but doesn't have a way to differen
 
 ![headingImage](./htmlHeader.png)
 
-In HTML there are five different types of headings, h1 to h6, with h1 having the largest default font size/line spacing and h6 having the smallest default font size/line spacing. Typically heading tags are used for titles and subtitles on a page, with large bold fonts.
+In HTML there are six different types of headings, h1 to h6, with h1 having the largest default font size/line spacing and h6 having the smallest default font size/line spacing. Typically heading tags are used for titles and subtitles on a page, with large bold fonts.
 
 # 6. Styling Tags
 
@@ -267,7 +275,7 @@ Now our list's numbers have been replaced by bullet points creating an unordered
 
 Remember how we said _HyperText_ means that disparate web pages on the internet can connect to one another? That's one of the most important parts of the web as we know it, so **links** are pretty important HTML tags! Without them, it just wouldn't be HTML.
 
-A link tag is very similar to the tags we've been working with except this tag accepts an _attribute_ that points to the link's destination. Every `a` tag includes an `href` attribute that accepts that URL where the link goes to. To add an attribute to an HTML tag, you put it **inside** the opening tag like so:
+A link tag is very similar to the tags we've been working with except this tag accepts an _attribute_ that points to the link's destination. Every `a` tag includes an `href` attribute that accepts a URL where the link goes to. To add an attribute to an HTML tag, you put it **inside** the opening tag like so:
 
 ```html
 <h2>Links</h2>
