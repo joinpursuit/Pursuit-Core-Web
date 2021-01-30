@@ -8,7 +8,7 @@
 * Use ordered and unordered list tags appropriately in an HTML document
 * Use link tags appropriately in an HTML document
 * Use image tags in an HTML document
-* Create an appropriate form using the HTML table tags
+* Create an appropriate form using the HTML form tag
 
 ## Keywords
 * Hypertext Markup Language (HTML)
