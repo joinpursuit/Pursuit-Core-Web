@@ -88,8 +88,9 @@ Neat!  Now try a few more on your own.
 
 Now that we see what HTML is used for, let's go over how to write our own websites.  
 
-* Create a file in your sandbox called `helloWorld.html`
-* Open the file in vscode
+* Create a folder in your sandbox called `html_intro`
+* Create a file inside that folder called `helloWorld.html`
+* Open the directory in vscode with `code .`
 
 The basic setup of HTML looks like this:
 
@@ -107,7 +108,7 @@ The basic setup of HTML looks like this:
 
 - `<!DOCTYPE html>` is a special declaration that we put at the top to say which version of HTML we're using.  By default, not we are using HTML 5.  If we wanted to write using an older version, we'd change this declaration here.
 - The rest of our website is enclosed in these `<html> </html>` tags.  <html> means that everything below is html, up until we hit the `</html>` tag.  
-- `<head>` means that everything up until the `</head>` tag is part of the website's metadata.  Metadata means information about the website, but not something that we show to users.
+- `<head>` means that everything up until the `</head>` tag is part of the website's metadata.  Metadata means information about the website, but not something that we show to users. This includes stuff like the language the page is in, and the image/text that shows up when you post a link in slack.
 - `<body>` means that everything up until the `</body>` tag is part of the main content.  Users will see all of the text and tags here.
 - We write comments in HTML using the `<!--  -->` syntax.  Users won't be able to see anything in between the `<!--` and `-->`
 
@@ -154,7 +155,9 @@ We just made our first website!  Not a lot of content there yet though, so let's
 
 ![oneLineImage](./htmlOneLine.png)
 
-When we view our website in a browser, all the text is there, but it's only on one line.  HTML doesn't respect new lines that you add manually in the `<body>`.  In order to tell the browser how to display your website, you'll need to use more HTML tags.  
+When we view our website in a browser, all the text is there, but it's only on one line.  HTML doesn't respect new lines that you add manually in the `<body>`.  In fact, HTML ignores all "whitespace", similar to how javascript doesn't care whether you write stuff on one line or multiple.
+
+In order to tell the browser how to display your website, you'll need to use more HTML tags.  
 
 The `<p>` tag stands for paragraph and is used for telling the browser that everything between the `<p>` and `</p>` tags should be its own block.
 
@@ -189,11 +192,13 @@ Our website above has the text separated out, but doesn't have a way to differen
     <h1>Hello World!</h1>    
     <p>This is my website.</p>
     <p>I hope that you enjoy it!</p>
-    <h3>Website Building</h3>
+    <h2>Website Building</h2>
     <p>Email me if you want me to build you a website.</p>
   </body>
 </html>
 ```
+
+> Take 2 minutes and add an `<h3>` and a few sentences about whatever you like! Write about donuts, video games, or how much you miss sports.
 
 ![headingImage](./htmlHeader.png)
 
@@ -209,6 +214,7 @@ Other tags that can be useful for style and emphasis are the `<strong>` and `<em
 <p><strong>Isn't it?</strong></p>
 ```
 
+> You do: Take 2 minutes and add emphasis and bolding to several words of your choice. Experiment putting the tags inside and outside the existing `<p>` tags.
 
 # 7. HTML tags: Lists
 
@@ -218,16 +224,16 @@ It is not uncommon to see bulleted lists of information or numbered lists on the
 
 ```html
 <h1>This is my first web page.</h1>
-  <p>How <em>exciting</em>!</p>
-  <p><strong>Isn't it?</strong></p>
+<p>How <em>exciting</em>!</p>
+<p><strong>Isn't it?</strong></p>
 
 <h2>Let's make a list!</h2>
-  <p>1. First item!</p>
-  <p>2. Second item!</p>
-  <p>3. Third item!</p>
+<p>1. First item!</p>
+<p>2. Second item!</p>
+<p>3. Third item!</p>
 ```
 
-It looks pretty much like a list but now imagine we want add ten more items but then want to delete this first item. Now we have to manually change _every_ number because the second bullet would now become the first.  List tags resolve this issue.
+It looks pretty much like a list but now imagine we want add ten more items but then want to delete this first item. Now we have to manually change _every_ number because the second bullet would now become the first. List tags resolve this issue.
 
 ### Ordered List Tags
 
@@ -257,7 +263,14 @@ An _unordered list_ works in the same way that an ordered list does except now i
 </ul>
 ```
 
-Now our list's numbers have been replaced by bullet points creating an unordered list. You'll notice that the _entire_ list of items is wrapped in either an ordered or unordered list tag. This means that you **cannot** mix bullets and numbers in one list. You can, however, make a sub-list that is different from the main list. In the example below, the ordered sub-list will be indented further than the unordered main list.
+Now our list's numbers have been replaced by bullet points creating an unordered list.
+
+
+> Take 3 minutes and add two kinds of lists: One unordered and one ordered. For your unordered list, put any 3 colors you can think of. For the ordered list, put your favorite 3 people, alive or dead.
+
+In both cases, the _entire_ list of items is wrapped in either an ordered or unordered list tag. This means that you **cannot** mix bullets and numbers in one list. 
+You can, however, make a sub-list that is different from the main list. In the example below, the ordered sub-list will be indented further than the unordered main list.
+
 
 ```html
 <ul>
@@ -288,11 +301,20 @@ Note that if we made our link `www.google.com` or `google.com` it _WOULD NOT_ wo
 
 We normally don't have to type all that into the browser because the browser has been designed to assume you meant to include the `https://`.
 
+> Take 3 minutes and add various links. See what happens if you leave `https://` off. Also try starting your links with `/` instead of `https://`
+
 # 9. HTML tags: Images
 
 Image tags are used for embedding an image into our HTML page. Any page that has an image on it is using an **image tag**. An image tag is represented by `<img>` and similar to our `a` tags above, image tags accept attributes.
 
-With image tags, they need to be given a URL that points to the location of the image. This can be a URL from the internet or a location on your computer. The `src` (like _source_) attribute is what points to the image URL and the `alt` (like _alternate_) attribute is text that appears if the link is broken or the image cannot load. You should include _both_ for every `img` tag you use just to be safe. The `img` tag is also unique because the opening tag can close itself like so: `<img />`. While you can use the standard format (`<img></img>`), you'll find it is much easier to just type `<img/>`.
+With image tags, they need to be given a URL that points to the location of the image. This can be a URL from the internet or a location on your computer. 
+
+> Note: it's best practice to not link to files on your computer, because when we start publishing our websites onto the internet, the images won't load. Links should generally always point to a website URL.
+
+The `src` (like _source_) attribute is what points to the image URL and the `alt` (like _alternate_) attribute is text that appears if the link is broken or the image cannot load. 
+You should include _both_ for every `img` tag you use just to be safe (and also accessible). 
+
+The `img` tag is also unique because the opening tag can close itself like so: `<img />`. While you can use the standard format (`<img></img>`), you'll find it is much easier to just type `<img/>`.
 
 ```html
 <h2>Images</h2>
@@ -314,6 +336,8 @@ Yay! But it looks a little... _off_. This is because we specified a height and w
 ```
 
 Much better!
+
+> Take a few minutes and add some more images using our favorite placeholder site: [fillmurray](https://www.fillmurray.com)
 
 # 10. HTML tags: Forms
 
@@ -358,6 +382,7 @@ To create radio buttons, you would do the following:
   <input type="radio" name="topping" value="sausage"> Sausage
 </form>
 ```
+
 Here we can see the `type` is `radio`. A radio group is defined by giving each of radio buttons in the group the same `name`. Once a radio group is established, selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. Since all three of these radio buttons relate to the choice of pizza topping, they are all named `topping`. A `value` must also be filled in because this is what is sent on the form submit, just like in a text form. If `value` is left blank nothing will be sent for that selection when a user clicks submit and the radio button will also be blank.
 
 You need to include text before or after the radio button to let the user know what the button represents. The last attribute called `checked` represents the value that the user has selected--this is an _optional_ attribute as radio buttons default to not being selected however you can make one of your selections be the default selection.
@@ -375,6 +400,18 @@ Checkboxes work in a very similar way to radio buttons except their `type` is `c
 
 ### Input Submission
 
-The most important part of a form is being able to _submit_ the information. This information is usually sent to a server where it is saved, compiled or used for some other purpose. For today, we won't actually send our user information anywhere. The input type for submitting a form is, appropriately, `submit`. With `submit` input, it will appear as a button and the text that appears on the button is equal to the `value` attribute: `<input type="submit" value="Submit">`. This would appear as a button with the word "Submit" on it.
+The most important part of a form is being able to _submit_ the information. This information is usually sent to a server where it is saved, compiled or used for some other purpose. For today, we won't actually send our user information anywhere. The input type for submitting a form is, appropriately, `submit`. With `submit` input, it will appear as a button and the text that appears on the button is equal to the `value` attribute: 
+
+```html
+<input type="submit" value="Submit">
+``` 
+
+This would appear as a button with the word "Submit" on it.
+
+You can also use a button element instead of an input element. There's no real difference between these two, just a syntax thing.
+
+```html
+<button type="submit">Click me to submit</button>
+```
 
 Submit buttons can also have an `onClick` attribute which can be used to process the information. Forms can have an `onSubmit` attribute that can also be used for processing the information in a form. Again, don't worry about those for now--you'll have plenty of time to practice that soon!
