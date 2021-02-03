@@ -189,5 +189,5 @@ We now have borders and margins around each section with padding around the cont
 
 Play around with these properties to explore how changing each property's value alters the appearance of your page.
 
-# A final question...
-In the previous excercise, we made the margin for each `div` 10 pixels. However, when the the `div` tags are stacked vertically, there are only 10 pixels (instead of a cumulative 20 pixels) of space between the bottom border of one `div` and the upper border of the next `div`. What's going on?
+## Margin Collapse
+The CSS above made the margin for each `div` 10 pixels. However, when the the `div` tags are stacked vertically, there are only 10 pixels (instead of a cumulative 20 pixels) of space between the bottom border of one `div` and the upper border of the next `div`. What's going on here? (Hint: [margin collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)) 
