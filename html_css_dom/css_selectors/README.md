@@ -11,6 +11,8 @@
 * Type
 * Class
 * ID
+* Pseudo-Element
+* Pseudo-Class
 
 ## Resources
 
