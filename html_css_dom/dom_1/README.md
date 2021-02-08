@@ -140,7 +140,7 @@ Practice: Use `window.prompt()` to ask the user to "enter a number". Then, use
 <summary>Compare Your solution.</summary>
 
 ```js
-let number = window.prompt('Enter a number to be doubled!');
+let number = Number(window.prompt('Enter a number to be doubled!'));
 let displayText = ""
 if (isNaN(number)) {
   displayText = "Please enter a number next time"
