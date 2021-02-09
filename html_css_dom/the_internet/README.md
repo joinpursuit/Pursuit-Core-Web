@@ -88,10 +88,13 @@ The most common status codes you'll see are:
 
 There are multiple types of requests that clients can make. 
 
+These are known sometimes as HTTP "verbs". You can think of each one as an action.
+
 * GET - give me some data
-* POST - here have this data
-* PUT - here update this data
-* DELETE - please delete this data
+* POST - take this data
+* PUT - update this data
+* DELETE - delete this data
+
 
 ## Making your own requests
 
