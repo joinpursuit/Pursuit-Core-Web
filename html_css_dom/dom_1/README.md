@@ -167,7 +167,7 @@ Using `document` allows us to traverse the DOM and find, edit and delete element
 `document` comes with many helpful methods that can find specific parts of the DOM that we want to use and edit.
 Let's take a look at how we can use HTML tag IDs and the `document` object to locate DOM elements.
 
-### getElementById
+## getElementById
 
 Recall that we can give any HTML element an `id` attribute. Add the following paragraphs to your html page, making sure to give them unique ID attributes:
 
@@ -252,7 +252,7 @@ Now, when we open our website, it says "The welcome paragraph element is [object
 </html>
 ```
 
-### Setting Elements in the DOM
+## Setting Elements in the DOM
 
 Now that we can access elements, we can also edit their text. Let's build a simple page that gets the user's name, then displays it to them on the actual webpage rather than an alert:
 
@@ -303,3 +303,43 @@ Having to use a prompt is bit messy. Let's use a button and an input text area i
   </body>
 </html>
 ```
+
+## Exercise
+
+Complete the function `increment` so that each time the button is hit, the number displayed inside `span#count` is incremented by 1.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Incrementer</title>
+  </head>
+  <body>
+    <h1 id="top-heading">I can count!</h1>
+    <p>The count is at: <span id="count">0</span></p>
+    <button onclick="increment()">Increment</button>
+    <script>
+      const increment = () => {
+        
+      };
+    </script>
+  </body>
+</html>
+```
+
+<details>
+<summary>Compare your solution.</summary>
+
+```js
+const increment = () => {
+  let span = document.getElementById('count');
+  let count = parseInt(span.textContent) + 1;
+  span.textContent = count;
+}
+```
+
+</details>
+
+## Further Reading
+
+In this lesson, we used `.textContent` to access as well as to edit the text inside a paragraph. You will likely come across similar, yet distinct properties called `.innerText` and `.innerHTML`. You can read about their differences [here](https://medium.com/better-programming/whats-best-innertext-vs-innerhtml-vs-textcontent-903ebc43a3fc). The MDN article on [.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) gives an explanation why, in some cases, `.textContent` can be a more efficient way to access the content of an HTML tag.
