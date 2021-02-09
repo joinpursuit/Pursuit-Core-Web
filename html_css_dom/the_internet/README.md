@@ -20,7 +20,7 @@ It's a series of tubes.
 
 ## Framing & Background
 
-What is the internet? What is it actually made of? How does it work? How do computers talk to each other? All of this is relevant to our jobs as programmers. 
+What is the internet? What is it actually made of? How does it work? How do computers talk to each other? All of this is relevant to our jobs as programmers.
 
 So far, all the code we have written has only existed and run on our local computers. Starting today, we're going to be learning about many things, but most importantly we'll talk about **requests** and how they work. They will be an essential part of our skillset as software engineers building web applications.
 
@@ -28,7 +28,7 @@ So far, all the code we have written has only existed and run on our local compu
 
 Short answer: it's a [series of tubes](https://www.youtube.com/watch?v=R8XSo0etBC4)
 
-Long answer: 
+Long answer:
 
 The internet is made up of many different types and layers of computers. These computers are connected by fiber optic cables that run around the world. Some even run [across the bottom of the ocean](https://en.wikipedia.org/wiki/Transatlantic_communications_cable).
 
@@ -46,11 +46,56 @@ Just like the internet doesn't exist in one place, there is no single company th
 
 You've probably heard the words `client` and `server` before. In a general sense, both of these words just refer to computers. A computer can be either a client, or a server, or sometimes (like your laptop) both!
 
-A `server` is a computer, listening for requests, that holds information. 
+A `server` is a computer, listening for requests, and sending back responses. This response information can be many things, but is usually something like:
 
-A `client` is a computer that asks that computer for information.
+- files like photos, html, or videos
+- data from a database
 
+A `client` is a computer that asks the server for information. A client can be a laptop, a phone, a web browser, a program on your computer, a `node` script.
 
+You can run a `node` server on your computer and make requests to it from your same computer. We will do this a lot when we get into module 4. Where the server is and where the request comes from doesn't make any difference.
+
+## Request-Response lifecycle
+
+When we talk about requests in this context, we're specifically talking about [HTTP Messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages). A message is either a request or a response.
+
+![request response](https://vanilla-java.github.io/images/Request-Response.jpg)
+
+- The client sends a request for data to the server.
+- The server processes that request and then sends a response back.
+- The client handles that response and then does something with the data, like displaying it on the screen - usually updating some HTML to make it appear.
+
+Note that the client is always the one that initiates the request. By definition, that's what makes it a client. The server is the one that responds to that request.
+
+**HTTP Status Codes**
+
+HTTP messages have special `status codes` that indicate whether the response was successful or not. Response codes range from 100-500ish and are broken down into categories:
+
+- 100 - Information
+- 200 - Success
+- 300 - Redirection
+- 400 - Client errors
+- 500 - Server errors
+
+The most common status codes you'll see are:
+
+- `200` which means "OK", or that the request was successful and the response was sent back without issue.
+- `301` which means "this was moved elsewhere". If you type `google.com` and your browser takes you to `www.google.com` its because of a `301` response.
+- `404` which means "this page was not found"
+- `500` which means "the server encountered an error". Sometimes you get a nice message back about why, but often you do not.
+
+**HTTP Request Methods**
+
+There are multiple types of requests that clients can make. 
+
+* GET - give me some data
+* POST - here have this data
+* PUT - here update this data
+* DELETE - please delete this data
+
+## Making your own requests
+
+You may not realize that you have already been making requests!
 
 ## Summary
 
@@ -58,6 +103,5 @@ Do a quick review at the end of the lesson to talk about what you covered.
 
 ### Resources
 
-- [A link to relevant documentation](https://www.google.com/)
-- Or another [free practice resource](https://www.google.com/)
-- etc.
+- [HTTP Messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
+- [HTTP Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
