@@ -9,12 +9,6 @@ Or, how to make a website look good on all devices.
 - How to think about building websites responsively
 - Specific technologies and actions used for responsive design
 
-### Standards
-
-* FSW.3.a
-* FSW.3.d
-* FSW.3.e
-
 ### Prerequisites
 
 - HTML

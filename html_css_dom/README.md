@@ -34,9 +34,9 @@
 
 ## Projects
 
-[Personal Website - tbd]() 
+[Optional - Build a responsive mockup](../reassessments/projects/responsive_site.md)
 
-[Web App - tbd]()
+[Personal Website - tbd]() 
 
 
 ## Assessments
