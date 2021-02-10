@@ -30,7 +30,7 @@ In the example below, we can use `querySelector()` to find the paragraph element
     <p>This is my website!</p>
     <script>
       let paraElement = document.querySelector("p");
-      window.alert(paraElement.innerText);
+      window.alert(paraElement.textContent);
     </script>
   </body>
 </html>
@@ -46,7 +46,7 @@ By passing in "p" to the querySelector, we're asking it for a paragraph element.
     <p>And I even have two paragraphs!</p>
     <script>
       let paraElement = document.querySelector("p");
-      window.alert(paraElement.innerText);
+      window.alert(paraElement.textContent);
     </script>
   </body>
 </html>
@@ -62,7 +62,7 @@ The alert is the same as before. querySelector will find the first element that 
     <p id="additionalPara">And I even have two paragraphs!</p>
     <script>
       let paraElement = document.querySelector("#additionalPara");
-      window.alert(paraElement.innerText);
+      window.alert(paraElement.textContent);
     </script>
   </body>
 </html>
@@ -81,7 +81,7 @@ We can also user querySelectors to get multiple elements all at once. This metho
     <script>
       let allParaElements = document.querySelectorAll("p");
       for (let element of allParaElements) {
-        window.alert(element.innerText);
+        window.alert(element.textContent);
       }
     </script>
   </body>
@@ -92,7 +92,7 @@ There are a lot more things you can do with querySelectors. A full list is [here
 
 # 2. Creating new HTML elements
 
-So far, when we've wanted to show new information to the user, we've done so by changing the innerText of an existing HTML element. We can also add new HTML elements entirely to change what elements exist. We'll use the method `createElement()` to make a new element. The argument it takes in, is what kind of element we want to make.
+So far, when we've wanted to show new information to the user, we've done so by changing the textContent of an existing HTML element. We can also add new HTML elements entirely to change what elements exist. We'll use the method `createElement()` to make a new element. The argument it takes in, is what kind of element we want to make.
 
 ```html
 <!DOCTYPE html>
@@ -101,7 +101,7 @@ So far, when we've wanted to show new information to the user, we've done so by 
     <p>This is my website!</p>
     <script>
       let endingPara = document.createElement("P");
-      endingPara.innerText = "Thanks for visiting!";
+      endingPara.textContent = "Thanks for visiting!";
     </script>
   </body>
 </html>
@@ -116,7 +116,7 @@ When we open this in a browser, we see the first paragraph, but not the second. 
     <p>This is my website!</p>
     <script>
       let endingPara = document.createElement("P");
-      endingPara.innerText = "Thanks for visiting!";
+      endingPara.textContent = "Thanks for visiting!";
       document.body.appendChild(endingPara);
     </script>
   </body>
@@ -142,7 +142,7 @@ That works great to add it to the body. But this will just add it directly to th
     </ol>
     <script>
       let lesterListItem = document.createElement("li");
-      lesterListItem.innerText = "Jon Lester (L) P";
+      lesterListItem.textContent = "Jon Lester (L) P";
       let listElement = document.getElementById("lineupList");
       listElement.appendChild(lesterListItem);
     </script>
@@ -180,7 +180,7 @@ Great! Now all 9 players show up on our website. But writing out 8 `<li>` elemen
 
       for (const player of allPlayers) {
         const newPlayerListItem = document.createElement("li");
-        newPlayerListItem.innerText = getDescription(player);
+        newPlayerListItem.textContent = getDescription(player);
         listElement.appendChild(newPlayerListItem);
       }
     </script>
@@ -260,7 +260,7 @@ We can also edit the DOM by replacing nodes using the `replaceChild()` method. `
       const replaceFirstParagraph = () => {
         const firstPara = document.querySelector("p");
         const newNode = document.createElement("p");
-        newNode.innerText = "Here's a new random number: " + Math.random();
+        newNode.textContent = "Here's a new random number: " + Math.random();
         firstPara.parentNode.replaceChild(newNode, firstPara);
       }
       
