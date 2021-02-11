@@ -1,23 +1,25 @@
 # Combining HTML and JavaScript + Introduction to the DOM
 
 ## Goals
-
-- Know what the DOM is.
-- Know the window and what alert and prompt do.
-- Understand how to use a script tag.
-- Know how to grab an html element with document.
-- Be able to change the inside of an html element.
+Fellows will be able to:
+- Explain what the DOM is and what it's used for.
+- Create script tags to add JavaScript to a site.
+- Use the alert and prompt functions for debugging and user interaction.
+- Locate DOM elements using element IDs.
+- Use buttons and text inputs to incorporate user input into a web application.
+- Change the content of an html element.
 
 ## Terms
 
-- DOM, aka "Document Object Model"
+- Document Object Model (DOM)
+- Tree
 - Window
 - window.alert()
 - window.prompt()
 - Document
 - document.getElementById()
 - Element
-- Element.innerText
+- Element.textContent
 - Input.value
 
 ## Resources
@@ -30,11 +32,9 @@
 
 # 1. The Script Tag
 
-Last lesson, we learned the basics of how to create a website. By using HTML tags, we can format text and choose how to lay it out on a page.
+We've been using HTML and CSS to layout and style the content of our web pages, but there's a key ingredient of web applications we've been mising: handling user interaction.
 
-We also went through creating forms and input fields. But there's one thing missing from our forms: handling user interaction.
-
-We can have users type into boxes and select checkboxes, but using pure HTML, we can't do anything with that information. In order for us to do something with the user's input, we'll need to combine HTML and JavaScript.
+Users can type into text inputs and select checkboxes, but using pure HTML, we can't do anything with that information. In order for us to do something with the user's input, we'll need to combine HTML and JavaScript.
 
 We can do this using the `<script>` tag:
 
@@ -54,20 +54,20 @@ We can do this using the `<script>` tag:
 </html>
 ```
 
-When the browser loads our website, it stops when it gets to the `<script>` tag, then executes any of the code that it sees there. After it's done, it reads the rest of the HTML and displays it on the screen. Putting the `script` tag in the `head` section, means it will run before any of the body is loaded.
+When the browser loads our website, it stops when it gets to the `<script>` tag, then executes any of the code that it sees there. After it's done, it reads the rest of the HTML and displays it on the screen. Putting the `script` tag in the `head` section means it will run before any of the body is loaded.
 
 Now we can run JavaScript in our websites! But we probably want to do something more than logging messages to the console...
 
 # 2. The Window Object
 
 `window` is the top level object in browser-side JavaScript that represents a browser window. It is an `object` in the full JavaScript sense: it has properties and values such as `.innerWidth`, `.innerHeight`, and `.localStorage`. Today we'll use two window methods:
-`window.alert()` and `\ window.prompt()`.
+`window.alert()` and `window.prompt()`.
 
-## Window Alerts
+## Alerts
 
-`window.alert("I'm an alert message")` will display a message in a popup window, or alert. In general, it should only be used as a quick and dirty debugging tool, or before you've learned alternative ways to create output. You've probably only seen these as really annoying pop ups on sketchy websites. Let's write our first alert together.
+`window.alert("I'm an alert message")` will display a message in a popup window. In general, it should only be used as a quick and dirty debugging tool, or before you've learned alternative ways to create output. You've probably only seen these as really annoying pop ups on sketchy websites. Let's write our first alert together.
 
-Inside your test.html add a `script` tag inside your head tag. Inside of your `script` tag add an alert that welcomes the user to your test site.
+Create a new file named `index.html` that holds the following content:
 
 ```html
 <!DOCTYPE html>
@@ -87,27 +87,19 @@ Inside your test.html add a `script` tag inside your head tag. Inside of your `s
 
 Now instead of logging a message to the console, we can display it to the user.
 
-## Window Prompts
+## Prompts
 
-`window.prompt` allows us to display a popup message that also has a text input field inside it. `window.prompt()` will return the value in the input field (as a string) after the "OK" button is pressed.
+`window.prompt` allows us to display a popup message that also has a text input field inside it. `window.prompt()` will return the value in the input field (as a string) after the "OK" button is pressed. Try updating the contents of your script tag with the following:
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Javascript + HTML</title>
-    <script>
-      const userSubmittedName = window.prompt("Enter your name");
-      window.alert(`Hello ${userSubmittedName}!  Thank you for your response.`);
-    </script>
-  </head>
-  <body>
-    This is my website.
-  </body>
-</html>
+```js
+const userSubmittedName = window.prompt("Enter your name");
+window.alert(`Hello ${userSubmittedName}!  Thank you for your response.`);
 ```
 
-Practice: Use `window.prompt()` to ask the user to "type a string". Then, use `window.alert()` to display a fully capitalized version of the string.
+## Practice
+
+### Exercise 1
+Use `window.prompt()` to ask the user to "type a string". Then, use `window.alert()` to display a fully capitalized version of the string.
 
 <details>
 <summary>Hint</summary>
@@ -124,9 +116,8 @@ window.alert(string.toUpperCase());
 
 </details>
 
----
-
-Practice: Use `window.prompt()` to ask the user to "enter a number". Then, use
+### Exercise 2
+Use `window.prompt()` to ask the user to "enter a number". Then, use
 `window.alert()` to display that number times two.
 
 If the input cannot be converted to a real number, use
@@ -155,46 +146,30 @@ window.alert(displayText);
 
 # 3. The DOM
 
-## What is the DOM
-
-A web page is a document. The Document Object Model (DOM) is a programming interface for HTML and XML documents. The document has a root element (node). Each proceeding element is a _child_ of that node.
+The Document Object Model (DOM) is a programming interface for HTML and XML documents.
+The DOM models each element in an HTML page as a javascript object.
+Together, these objects form a [tree-like](https://en.wikipedia.org/wiki/Tree_(data_structure)) data structure:
 
 ![](./assets/dom_tree.jpg)
 
-We use the DOM to find different _elements_ that we've created. An HTML element is anything that uses a tag. All of the tags we've learned so far are HTML elements.
+Each box in the diagram above represents a [node in the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Node).
+Some of these nodes, called [elements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement), correspond to tags in our HTML file.
+Other nodes store information about attributes of our HTML tags, or store the text inside HTML tags that the browser will display.
 
-Because the browser knows how HTML elements are ordered (like in the picture above), it can find elements that we've made, as well as delete or add new elements.
-
-By using the DOM, we can present information to the user on the webpage directly instead of having to put up an alert.
+DOM elements are _live_, which means that if we make changes to the data inside them, those changes will be reflected in the browser!
+This means we can display information to the user on our webpage directly, instead of having to use an alert.
 
 ## The Document Object
 
-`document` is the object that represents the content of a page. It serves as the entry point into the content. Using `document` allows us to traverse the DOM and find, edit and delete elements.
+The `document` object is the very root of the DOM tree, and is our gateway into accessing and editing the rest of the DOM.
+Using `document` allows us to traverse the DOM and find, edit and delete elements.
 
-### Getting Elements in the DOM
+`document` comes with many helpful methods that can find specific parts of the DOM that we want to use and edit.
+Let's take a look at how we can use HTML tag IDs and the `document` object to locate DOM elements.
 
-#### Attributes
+## getElementById
 
-An attribute is extra information that we give to a tag.
-In the example above, the tag is `img` and it has 4 attributes, `src`, `alt`, `height`, and `width`.
-
-```html
-<img src="smiley.gif" alt="Smiley face" height="42" width="42" />
-```
-
-#### ID attribute
-
-In order to find elements, we need to make sure that we have a way to identify them. All HTML elements can have an _attribute_ defined with their id (identifier).
-
-```html
-<p id="welcome-para">Welcome to my website</p>
-```
-
-Be careful to make sure that all ids you assign are unique. If you give two elements the same id, you might see some unexpected behavior.
-
-#### getElementById
-
-`document.getElementById([id])` takes a string `id` as an argument and returns an Element object matching the id. Let's take a simple website below:
+Recall that we can give any HTML element an `id` attribute. Add the following paragraphs to your html page, making sure to give them unique ID attributes:
 
 ```html
 <!DOCTYPE html>
@@ -209,8 +184,9 @@ Be careful to make sure that all ids you assign are unique. If you give two elem
   </body>
 </html>
 ```
-
-Now let's try to make an alert that displays the welcome paragraph in a popup box:
+We can use the function `document.getElementById` to locate a single element in the DOM.
+All we have to do is pass it a string, like so: `document.getElementById("welcome-para")`. This function will return the DOM element with the ID `"welcome-para"`.
+Let's try to make an alert that displays the welcome paragraph in a popup box:
 
 ```html
 <!DOCTYPE html>
@@ -254,7 +230,7 @@ When we run this, we see that is says "The welcome paragraph element is null". T
 </html>
 ```
 
-Now, when we open our website, it says "The welcome paragraph element is [object HTMLParagraphElement]". We've got the object that we want! Now we can look at its properties to find out more about it. Its `innerText` property will return its text. A full list of properties for elements can be found [here](https://www.w3schools.com/jsref/dom_obj_all.asp)
+Now, when we open our website, it says "The welcome paragraph element is [object HTMLParagraphElement]". We've got the object that we want! Now we can look at its properties to find out more about it. Its `textContent` property will return its text. A full list of properties for elements can be found [here](https://www.w3schools.com/jsref/dom_obj_all.asp)
 
 ```html
 <!DOCTYPE html>
@@ -269,14 +245,14 @@ Now, when we open our website, it says "The welcome paragraph element is [object
     <script>
       const welcomeElementPara = document.getElementById("welcome-para");
       window.alert(
-        `The welcome paragraph element text is ${welcomeElementPara.innerText}`
+        `The welcome paragraph element text is ${welcomeElementPara.textContent}`
       );
     </script>
   </body>
 </html>
 ```
 
-### Setting Elements in the DOM
+## Setting Elements in the DOM
 
 Now that we can access elements, we can also edit their text. Let's build a simple page that gets the user's name, then displays it to them on the actual webpage rather than an alert:
 
@@ -293,13 +269,13 @@ Now that we can access elements, we can also edit their text. Let's build a simp
     <script>
       const userSubmittedName = window.prompt("Enter your name");
       const welcomeElementPara = document.getElementById("welcome_para");
-      welcomeElementPara.innerText += `, ${userSubmittedName}`;
+      welcomeElementPara.textContent += `, ${userSubmittedName}`;
     </script>
   </body>
 </html>
 ```
 
-Having to use a prompt is bit messy. Let's use a button and an input text area instead. Buttons have an attribute `onclick` that we can link to a function. Inputs do NOT have an innerText that we can use. This is because they don't have a closing tag. Instead, we use their `.value` property.
+Having to use a prompt is bit messy. Let's use a button and an input text area instead. Buttons have an attribute `onclick` that we can link to a function. We cannot use `.textContent` to grab the users input from an input tag. This is because they don't have a closing tag. Instead, we use their `.value` property.
 
 ```html
 <!DOCTYPE html>
@@ -321,9 +297,49 @@ Having to use a prompt is bit messy. Let's use a button and an input text area i
         const nameInputElement = document.getElementById("name-input-text");
         const userSubmittedName = nameInputElement.value;
         const topHeadingElement = document.getElementById("top-heading");
-        topHeadingElement.innerText = `My Website: Made especially for ${userSubmittedName}`;
+        topHeadingElement.textContent = `My Website: Made especially for ${userSubmittedName}`;
       };
     </script>
   </body>
 </html>
 ```
+
+## Exercise
+
+Complete the function `increment` so that each time the button is hit, the number displayed inside `span#count` is incremented by 1.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Incrementer</title>
+  </head>
+  <body>
+    <h1 id="top-heading">I can count!</h1>
+    <p>The count is at: <span id="count">0</span></p>
+    <button onclick="increment()">Increment</button>
+    <script>
+      const increment = () => {
+        
+      };
+    </script>
+  </body>
+</html>
+```
+
+<details>
+<summary>Compare your solution.</summary>
+
+```js
+const increment = () => {
+  let span = document.getElementById('count');
+  let count = parseInt(span.textContent) + 1;
+  span.textContent = count;
+}
+```
+
+</details>
+
+## Further Reading
+
+In this lesson, we used `.textContent` to access as well as to edit the text inside a paragraph. You will likely come across similar, yet distinct properties called `.innerText` and `.innerHTML`. You can read about their differences [here](https://medium.com/better-programming/whats-best-innertext-vs-innerhtml-vs-textcontent-903ebc43a3fc). The MDN article on [.textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) gives an explanation why, in some cases, `.textContent` can be a more efficient way to access the content of an HTML tag.
