@@ -1,11 +1,11 @@
 # DOM Manipulation with JavaScript
 
 ## Goals
-
-- Use querySelector and querySelectorAll to get HTML elements
-- Insert new HTML elements
-- Delete HTML elements
-- Replace HTML elements
+Using JavaScript to be able to...
+- Use querySelector and querySelectorAll to get retrieve HTML elements from the DOM
+- Insert new HTML elements into the DOM
+- Delete HTML elements from the DOM
+- Replace HTML elements within the DOM
 
 ## Readings
 
@@ -70,7 +70,7 @@ The alert is the same as before. querySelector will find the first element that 
 
 ## querySelectorAll()
 
-We can also user querySelectors to get multiple elements all at once. This method returns an object where the keys are numbers, and the values are the elements:
+We can also user `querySelectors()` to get multiple elements all at once. This method returns an HTMLCollection object where it is an array-like list of HTML elements, the keys are numbers and the values are the elements. However we can not use array methods on the HTMLCollection object, but we can loop through it  by using its `.length` property and passing in the index to the `.item()`method to access the the element. In the following example we are using the `for of` to iterate through the list elements.
 
 ```html
 <!DOCTYPE html>
@@ -100,14 +100,14 @@ So far, when we've wanted to show new information to the user, we've done so by 
   <body>
     <p>This is my website!</p>
     <script>
-      let endingPara = document.createElement("P");
+      let endingPara = document.createElement("p");
       endingPara.textContent = "Thanks for visiting!";
     </script>
   </body>
 </html>
 ```
 
-When we open this in a browser, we see the first paragraph, but not the second. Why not? It's because we never put this paragraph anywhere. Even though we've created our element, we never added it to the DOM. We can add it directly to the body by using the `body` property of the `document`. All HTML elements also have an `appendChild` function that we can use.
+When we open this in a browser, we see the first paragraph, but not the second. Why not? It's because we never put this paragraph anywhere. Even though we've created our element, we never added it to the DOM. We can add it directly to the body by using the `body` property of the `document` object. All HTML element objects also have an `appendChild` method that we can use.
 
 ```html
 <!DOCTYPE html>
@@ -115,7 +115,7 @@ When we open this in a browser, we see the first paragraph, but not the second. 
   <body>
     <p>This is my website!</p>
     <script>
-      let endingPara = document.createElement("P");
+      let endingPara = document.createElement("p");
       endingPara.textContent = "Thanks for visiting!";
       document.body.appendChild(endingPara);
     </script>
@@ -150,7 +150,7 @@ That works great to add it to the body. But this will just add it directly to th
 </html>
 ```
 
-Great! Now all 9 players show up on our website. But writing out 8 `<li>` elements out manually is a bit tedious. Let's do it all through our script instead.
+Great! Now all 8 players show up on our website. But writing out 8 `<li>` elements out manually is a bit tedious. Let's do it all through our script instead.
 
 ```html
 <!DOCTYPE html>
@@ -242,7 +242,7 @@ It is a little annoying to have to get both the parent node and the child node. 
 
 # 4. Replacing HTML elements
 
-We can also edit the DOM by replacing nodes using the `replaceChild()` method. `replaceChild()` takes in two arguments, the new node that you are replacing it with and the child node to replace.
+We can also edit the DOM by replacing nodes using the `replaceChild()` method. `replaceChild()` takes in two arguments, the first agrument is the new node that you are using as the replacement and the second agrument is the child node to be replaced.
 
 ```html
 <!DOCTYPE html>
