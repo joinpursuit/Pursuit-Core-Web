@@ -70,7 +70,7 @@ The alert is the same as before. querySelector will find the first element that 
 
 ## querySelectorAll()
 
-We can also user `querySelectors()` to get multiple elements all at once. This method returns an HTMLCollection object where it is an array-like list of HTML elements, the keys are numbers and the values are the elements. However we can not use array methods on the HTMLCollection object, but we can loop through it  by using its `.length` property and passing in the index to the `.item()`method to access the the element. In the following example we are using the `for of` to iterate through the list elements.
+We can also use `querySelectorAll()` to get multiple elements all at once. This method returns an HTMLCollection object where it is an array-like list of HTML elements, the keys are numbers and the values are the elements. However we can not use array methods on the HTMLCollection object, but we can loop through it  by using its `.length` property and passing in the index to the `.item()`method to access the the element. In the following example we are using the `for of` to iterate through the list elements.
 
 ```html
 <!DOCTYPE html>
