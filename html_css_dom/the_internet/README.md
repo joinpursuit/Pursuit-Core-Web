@@ -38,9 +38,9 @@ Since the internet doesn't live only in one place, there are many challenges wit
 
 Just like the internet doesn't exist in one place, there is no single company that runs the internet. There are only a handful of companies that manage networks though, and the networks they manage are called [Tier 1 networks](https://en.wikipedia.org/wiki/Tier_1_network). Sometimes they're called `backbone` networks, and they are extremely large and critical to the continued operation of the internet. If one of these backbones went down, everything connected to it would be unable to communicate - though the rest of the networks would be able to.
 
-![tier 1 network map](https://www.ntt.com/content/nttcom/hq/en/services/network/gin/_jcr_content/par02/tabinpage/tabInPagePar1/image.img.png/1459936652746.png)
+![tier 1 network map](./assets/map-1.webp)
 
-![tier 1 network map 2](https://yudhanjaya.com/wp-content/uploads/2016/06/image03.png)
+![tier 1 network map 2](./assets/map-2.png)
 
 ## Clients and servers
 
@@ -48,7 +48,7 @@ You've probably heard the words `client` and `server` before. In a general sense
 
 A `server` is a computer, listening for requests, and sending back responses. This response information can be many things, but is usually something like:
 
-- files like photos, html, or videos
+- files: photos, js, css, html, or videos
 - data from a database
 
 A `client` is a computer that asks the server for information. A client can be one of many things - a laptop, a phone, a web browser, a program on your computer, a `node` script.
@@ -59,7 +59,7 @@ You can run a `node` server on your computer and make requests to it from your s
 
 When we talk about requests in this context, we're specifically talking about [HTTP Messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages). A message is either a request or a response.
 
-![request response](https://vanilla-java.github.io/images/Request-Response.jpg)
+![request response](./assets/request-response.jpg)
 
 - The client sends a request for data to the server.
 - The server processes that request and then sends a response back.
@@ -69,7 +69,9 @@ Note that the client is always the one that initiates the request. By definition
 
 **HTTP Status Codes**
 
-HTTP messages have special `status codes` that indicate whether the response was successful or not. Response codes range from 100-500ish and are broken down into categories:
+HTTP messages have special [Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) that indicate whether the response was successful or not. 
+
+Status codes range from 100-500ish and are broken down into categories:
 
 - 100 - Information
 - 200 - Success
@@ -102,8 +104,8 @@ You may not realize that you have already been making requests!
 
 Every time you load a web page, some requests are made. We can look at all of the requests using the browser's devtools network tab.
 
-* Open any website. example: [main curriculum page](https://github.com/joinpursuit/Pursuit-Core-Web)
-* Open the devtools
+* Open any website, like the [main curriculum page](https://github.com/joinpursuit/Pursuit-Core-Web)
+* Open the devtools (Cmd-Shift-i)
 * Click the `Network` tab
 * Refresh the page
 
@@ -124,6 +126,12 @@ Status is the `HTTP status code` like we talked about above. `Type` tells you wh
 > What do you think all the different `Type` values mean?
 
 If you click on a row, you'll see more detailed information about that request and response. The main thing to look at here is the `Headers` tab. Each request contains descriptive information telling the server what to expect. You can see the request `Method` like we talked about above, and lots of other information that probably doesn't make a ton of sense right now. We'll get into what some of the headers mean in later lessons.
+
+### You do: Different website requests
+
+Pick 3 different websites that you know. Type them into the URL bar and see how many network requests each one takes to load.
+
+Scroll through the requests and see if anything comes out at you that surprises you. Write it down! We'll talk about it together.
 
 ## Okay let's actually make requests
 
@@ -166,16 +174,8 @@ Try making requests to various URLs and see what happens! Make a request in Inso
 * `https://swapi.dev/api`
 * `https://icanhazdadjoke.com`
 
-Explore the PokeAPI documentation and you can see what kinds of requests you can make. Every request should be a GET, you'll just change the URL that you make the request to.
+Explore the PokeAPI and SWapi documentation and you can see what kinds of requests you can make. Every request should be a GET, you'll just change the URL that you make the request to.
 
-
-
-
-
-
-## Summary
-
-Do a quick review at the end of the lesson to talk about what you covered.
 
 ### Resources
 
