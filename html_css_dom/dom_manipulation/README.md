@@ -242,7 +242,7 @@ It is a little annoying to have to get both the parent node and the child node. 
 
 # 4. Replacing HTML elements
 
-We can also edit the DOM by replacing nodes using the `replaceChild()` method. `replaceChild()` takes in two arguments, the first agrument is the new node that you are using as the replacement and the second agrument is the child node to be replaced.
+We can also edit the DOM by replacing nodes using the `replaceChild()` method. `replaceChild()` takes in two arguments, the first argument is the new node that you are using as the replacement and the second argument is the child node to be replaced.
 
 ```html
 <!DOCTYPE html>
