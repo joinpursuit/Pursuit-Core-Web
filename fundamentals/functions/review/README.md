@@ -1,5 +1,13 @@
 # Functions Review
 
+A function takes some input and produces some output. Usually the function does some work with the input or transforms it in some way to produce an output.
+
+<div style="text-align: center;">
+  <img alt="A function takes some input and produces some output" src="./../assets/function-illustration.png" height="400px" />
+</div>
+
+## In Programming
+
 A function is a reusable code snippet that can by called by other code or by itself.  A function is a set of statements that perform a task or calculates a value.
 
 ## Why Functions
