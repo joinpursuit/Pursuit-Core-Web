@@ -88,7 +88,7 @@ We can also user querySelectors to get multiple elements all at once. This metho
 </html>
 ```
 
-There are a lot more things you can do with querySelectors. A full list is [here](https://www.w3schools.com/jsref/met_document_queryselector.asp), and we'll be resisting them, especially when we get to CSS.
+There are a lot more things you can do with querySelectors. A full list is [here](https://www.w3schools.com/jsref/met_document_queryselector.asp), and we'll be revisiting them, especially when we get to CSS.
 
 # 2. Creating new HTML elements
 
