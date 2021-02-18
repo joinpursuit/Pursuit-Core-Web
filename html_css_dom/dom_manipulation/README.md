@@ -107,7 +107,7 @@ So far, when we've wanted to show new information to the user, we've done so by 
 </html>
 ```
 
-When we open this in a browser, we see the first paragraph, but not the second. Why not? It's because we never put this paragraph anywhere. Even though we've created our element, we never added it to the DOM. We can add it directly to the body by using the `body` property of the `document`. All HTML elements also have an `appendChild` function that we can use.
+When we open this in a browser, we see the first paragraph, but not the second. Why not? It's because we never put this paragraph anywhere. Even though we've created our element, we never added it to the DOM. We can add it directly to the body by using the `body` property of the `document`. All HTML elements also have an `appendChild` method that we can use.
 
 ```html
 <!DOCTYPE html>
