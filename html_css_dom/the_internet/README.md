@@ -53,7 +53,7 @@ A `server` is a computer, listening for requests, and sending back responses. Th
 
 A `client` is a computer that asks the server for information. A client can be one of many things - a laptop, a phone, a web browser, a program on your computer, a `node` script.
 
-You can run a `node` server on your computer and make requests to it from your same computer. We will do this a lot when we get into module 4. Where the server is and where the request comes from doesn't make any difference.
+You can run a `node` server on your computer and make requests to it from your same computer. We will do this a lot when we start learning back-end javascript. Where the server is and where the request comes from doesn't make any difference.
 
 ## Request-Response lifecycle
 
@@ -105,7 +105,7 @@ You may not realize that you have already been making requests!
 Every time you load a web page, some requests are made. We can look at all of the requests using the browser's devtools network tab.
 
 * Open any website, like the [main curriculum page](https://github.com/joinpursuit/Pursuit-Core-Web)
-* Open the devtools (Cmd-Shift-i)
+* Open the devtools (Cmd-Option-i in Chrome)
 * Click the `Network` tab
 * Refresh the page
 
@@ -173,9 +173,14 @@ Try making requests to various URLs and see what happens! Make a request in Inso
 * `https://google.com`
 * `https://swapi.dev/api`
 * `https://icanhazdadjoke.com`
+* `https://pokeapi.co/api/v2/item/23`
 
-Explore the PokeAPI and SWapi documentation and you can see what kinds of requests you can make. Every request should be a GET, you'll just change the URL that you make the request to.
+Explore the PokeAPI and SWapi documentation and you can see what kinds of requests you can make. 
 
+* On PokeAPI, find 3 different ways to search for pokemon
+* On SWAPI, find the `species` response that contains `Humans` as the name
+
+Every request should be a GET, you'll just change the URL that you make the request to.
 
 ### Resources
 
