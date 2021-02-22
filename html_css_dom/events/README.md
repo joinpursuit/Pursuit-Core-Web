@@ -1,5 +1,7 @@
 # Events
 
+Working with javascript events in the browser, and learning about asynchronous vs synchronous code.
+
 ## Goals
 
 - Know what an event is in JS and how to create and respond to one
@@ -68,7 +70,7 @@ When you execute something _synchronously_, you wait for it to finish before mov
 
 When you execute something _asynchronously_, you can move on to another task while it finishes.
 
-Writing a while loop is a good example of _blocking code_. This type of code  blocks all other code until it's complete.
+Writing a while loop is a good example of _blocking code_. This type of code blocks all other code until it's complete.
 
 # DOMContentLoaded
 
@@ -111,14 +113,14 @@ let p = document.querySelectorAll("p")
 window.alert(`There are ${p.length} paragraphs`)
 ```
 
-What do we see? How many paragraphs do you expect? Hopefully more than 0.
+What do we see? How many paragraphs do you expect?
 
 This happens because the javascript executes before the HTML is finished loading. To avoid this, we can either add `defer` to our script tag, or we can add an event listener to the entire document.
 
 Now add an event listener to the `document`. Whenever it observes the `DOMContentLoaded` event, it will run the function that displays a window alert.
 
 ```js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   let p = document.querySelectorAll("p")
   window.alert(`There are ${p.length} paragraphs`)
 })
@@ -132,20 +134,20 @@ Write some code that will display an alert containing the text of all of the par
 <summary>Solution</summary>
 
 ```js
-document.addEventListener('DOMContentLoaded', () => {
-    let headings = document.querySelectorAll('p')
-    let str = ""
-    for (let heading of headings) {
-      str += heading.innerText
-      str += "\n"
-    }
-    window.alert(str)
+document.addEventListener("DOMContentLoaded", () => {
+  let headings = document.querySelectorAll("p")
+  let str = ""
+  for (let heading of headings) {
+    str += heading.innerText
+    str += "\n"
+  }
+  window.alert(str)
 })
 ```
 
 </details>
 
-# click
+# Click
 
 The _click_ event is fired when an element is clicked. You can add a click event to any element, including the entire document!
 
@@ -178,10 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 ```
 
-Callbacks are just functions. Just like with .map() and .forEach(), you can put whatever you want in a callback.
+Callbacks are just functions. Just like with .map() and .forEach(), you can do as many things as you want inside of one.
 
-You can also define a function somewhere else, and then call it from inside the event. This can be helpful as your projects start getting much bigger. 
-
+You can also define a function somewhere else, and then call it from inside the event. This can be helpful as your projects start getting much bigger.
 
 ```js
 document.addEventListener("DOMContentLoaded", () => {
@@ -202,11 +203,11 @@ In the above example, even though we defined our functions below, they are **hoi
 
 ### You do
 
-There are other events you can use instead of just `click`
+There are other events you can use instead of just `click`. [See a list of more events](https://developer.mozilla.org/en-US/docs/Web/Events)
 
-Using the `mouseover` event instead of `click`, write some code does the following:
+Using the `mouseover` event, write some code that does the following:
 
-* mousing over the `h1` shows an alert
+- mousing over the `h1` makes an alert that says `"You moused over the heading!"`
 
 <details>
 <summary>Solution</summary>
@@ -238,7 +239,7 @@ function showButtonAlert() {
 
 </details>
 
-# 5. **submit**
+# Submit
 
 The _submit_ event is fired when a form is submitted. Here, let's try to log that the form was submitted using the `submit` event:
 
@@ -276,17 +277,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 When we type something into the input and click "Submit", we see a message flicker briefly on the console, then disappear. Additionally, the text we entered into the input goes away.
 
-The reason for this is because 'submit' in forms has some built in actions to try and send your form somewhere. That's why the url also changes. This default behavior is almost never something we want. Instead, we developers prefer to have more control of what happens when our forms are submitted. For this reason we have **.preventDefault()**.
+The reason for this is because 'submit' in forms has some built in actions to try and send your form somewhere. That's why the url also changes. This default behavior is almost never something we want. Instead, we prefer to have more control of what happens when our forms are submitted. For this reason we have **.preventDefault()**.
 
-### **.preventDefault()**
+## .preventDefault()
 
 `.preventDefault()` is a method available to every event object to prevent the event from doing any action it would normally do. It is often paired with a _submit_ event to prevent the form submission from reloading the page.
 
 Inside of our previous form event listener, add the line `event.preventDefault()` above our `console.log`. Try submitting your form again and see if you get your console.log message. Don't forget to always invoke your preventDefault() call.
 
-### keypress, mousemove, change
+<details>
+    <summary>
+    preventDefault example
+    </summary>
 
-Are all different types of events in JS. Look at all of the [here](https://www.w3schools.com/jsref/dom_obj_event.asp)!
+```js
+document.addEventListener("DOMContentLoaded", () => {
+  let form = document.querySelector("form")
+  form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    console.log("You have submitted your form")
+  })
+})
+```
+
+</details>
+
+## keypress, mousemove, change
+
+Are all different types of events in JS. Look at all of the events [here](https://developer.mozilla.org/en-US/docs/Web/Events)!
+
+### You do
+
+Try experimenting with two of the following event types and see what they do. Some of these events only work on the document, some work on any element or the document.
+
+- mousemove
+- mouseup
+- mouseout
+- dblclick
+- scroll
+- keydown
+- keyup
 
 # 6. Bubbling
 
@@ -296,7 +326,7 @@ top of the DOM. An event's `.target` property points to the element on which the
 
 So what does mean? Let's remember that our DOM is a tree of nodes. Think of this picture:
 
-![dom](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/events_2/assets/dom_tree_events.jpg)
+![dom](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/events_2/assets/dom_tree_events.jpg?raw=true)
 
 When an event gets fired it bubbles up the DOM - or, is delegated to the Node's parents. Events occur whether or not we are specifically listening for them. This means that if we click on one of the `li`s in the picture, the click would be _experienced_ by the `li`, then the `ul`, then the `body`, and finally the `html` node. It's bubbling up.
 
@@ -369,6 +399,38 @@ document.addEventListener("DOMContentLoaded", () => {
 ```
 
 Now that we've set up our listeners, let's reload our page (make sure the Chrome Developer Tools window is open). Click on each of the items and see how the messages are logged to the console.
+
+## Event Target
+
+The last thing we should know about is how to reference the element that we attached a listener to. Above, we learned this was called the `event target`. Simply console log `event.target` inside the `ul` eventListener above.
+
+```js
+ul.addEventListener("click", (event) => {
+  console.log(event.target)
+  console.log("ul sees the click")
+})
+```
+
+Now click on each different element and see what gets logged!
+
+The target is the actual element itself, so you can access any property that the element has - like `.textContent` or `.innerHTML` or anything you're used to using.
+
+### You do
+
+Write some code to change the `.textContent` of any clicked-on element to all uppercase characters.
+
+<details>
+    <summary>
+    Solution
+    </summary>
+
+```js
+ul.addEventListener("click", (event) => {
+  event.target.textContent = event.target.textContent.toUpperCase()
+})
+```
+
+</details>
 
 # Bonus: Mouse Coordinate Tracker
 
