@@ -130,7 +130,7 @@ function App() {
 export default App;
 ```
 
-`App` is a function with an odd-looking return value.  Inside the `()`, we see code that looks like a mixture of JavaScript and HTML.  This is a special syntax in React called `JSX` which stands for JavaScript XML.  It is an extension to JavaScript that makes it easy to build React elements.  The following line is perfectly valid in JSX:
+`App` is a React functional component with an odd-looking return value.  Inside the `()`, we see code that looks like a mixture of JavaScript and HTML.  This is a special syntax in React called `JSX` which stands for JavaScript XML.  It is an extension to JavaScript that makes it easy to build React elements.  The following line is perfectly valid in JSX:
 
 ```js
 const element = <h1>Hello, world!</h1>;
@@ -195,20 +195,18 @@ Let's create a new component that our `App.js` will use.  This will list all of 
 ```js
 import React from 'react';
 
-class ContactList extends React.Component {
-    render() {
-        return (
-            <div>
-                <p>Contacts</p>
-                <ul>
-                    <li>Andrew Clark</li>
-                    <li>Brian Vaughn</li>
-                    <li>Dan Abramov</li>
-                    <li>Flarnie Marchan</li>
-                </ul>
-            </div>
-        )
-    }
+function ContactList() {
+	return (
+	    <div>
+		<p>Contacts</p>
+		<ul>
+		    <li>Andrew Clark</li>
+		    <li>Brian Vaughn</li>
+		    <li>Dan Abramov</li>
+		    <li>Flarnie Marchan</li>
+		</ul>
+	    </div>
+	)
 }
 
 export default ContactList
@@ -244,21 +242,19 @@ The `FeedPost` class below uses `{}` to embed values from its stored `postInfo` 
 ```js
 import React from 'react';
 
-class FeedPost extends React.Component {
-    postInfo = {
+function FeedPost() {
+    const postInfo = {
         title: "Sample Post Title",
         imageLink: "https://www.stockvault.net/data/2007/03/01/100169/preview16.jpg",
         description: "This is the description of the post"
     }
-    render() {
-        return (
-            <div>
-                <p>{this.postInfo.title}</p>                
-                <img src ={this.postInfo.imageLink} alt='post' width='200' height='200'></img>
-                <p>{this.postInfo.description}</p>
-            </div>
-        )        
-    }
+    return (
+        <div>
+	    <p>{this.postInfo.title}</p>                
+ 	    <img src ={this.postInfo.imageLink} alt='post' width='200' height='200'></img>
+	    <p>{this.postInfo.description}</p>
+        </div>
+    )        
 }
 
 export default FeedPost;
@@ -271,17 +267,16 @@ With a `FeedPost` class constructed, we can build a `Feed` class that contains m
 import React from 'react';
 import FeedPost from './FeedPost.js';
 
-class Feed extends React.Component {
-    render() {
-        return (
-            <div>
-                <h2>Feed</h2>
-                <FeedPost />
-                <FeedPost />
-            </div>
-        )
-    }
+function Feed() {
+    return (
+        <div>
+            <h2>Feed</h2>
+            <FeedPost />
+            <FeedPost />
+        </div>
+    )
 }
+
 
 export default Feed;
 ```
@@ -299,12 +294,12 @@ Because each of our components is its own separate module, we can create CSS fil
 `ContactList.js`
 
 ```js
-class ContactList extends React.Component {
-    render() {
-        return (
-            <div className='ContactList'>
-						...
-				)
+function ContactList(){
+    return (
+        <div className='ContactList'>
+ 	    ...
+	</div>
+    )
    }
 }
 ```
@@ -329,7 +324,7 @@ Return to your `ContactList.js` and import your new CSS file:
 import React from 'react';
 import './ContactList.css';
 
-class ContactList extends React.Component {
+function ContactList() {
 	...
 }
 ```
