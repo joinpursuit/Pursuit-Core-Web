@@ -130,7 +130,7 @@ function App() {
 export default App;
 ```
 
-`App` is a function with an odd-looking return value.  Inside the `()`, we see code that looks like HTML, we can also have JavaScript code with in the parentheses as well.  This is a special syntax in React called `JSX` which stands for JavaScript XML.  It is an extension to JavaScript that makes it easy to build React elements.  The following line is perfectly valid in JSX:
+`App` is a function with an odd-looking return value.  Inside the `()`, we see code that looks like a mixture of JavaScript and HTML.  This is a special syntax in React called `JSX` which stands for JavaScript XML.  It is an extension to JavaScript that makes it easy to build React elements.  The following line is perfectly valid in JSX:
 
 ```js
 const element = <h1>Hello, world!</h1>;
