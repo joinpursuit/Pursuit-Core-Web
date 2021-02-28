@@ -1,7 +1,7 @@
-# State, Re-Rendering, and Event Handling in React
+# Class Component, State, Re-Rendering, and Event Handling in React
 
 ## Terms
-
+* Class Component
 * State
 * `this.setState`
 * Event listener
@@ -10,6 +10,7 @@
 
 ## Objectives
 
+- Understand the methods with in the class component
 - Understand what `state` does in a React application
 - Instantiate `state` in a constructor
 - Call `setState` to update state
@@ -17,12 +18,13 @@
 
 # 1.  Introduction
 
-In the previous lesson, we saw how to create a static web page using React components.  In this lesson, we will start to review the strategy that React uses to handle user input, using the `state` property.
+In the previous lesson, we saw how to create a static web page using React functional components.  In this lesson, we will start to review what class components are and the strategy that React uses to handle user input, using the `state` property.
 
+In React we can write components in one of two ways. It can either be written as a function component as we have learned in our perovous lesson, or a class component. We will write class components in order to be able to work with **state** which will be described in more detail.
 
 React has a few ways of storing, handling, and using information. Of course, as a JavaScript framework, it has access to variables. However, updating a variable in React won't change what the user sees. The page won't re-render to reflect that updated information.
 
-Enter **state**. State is a way of storing information in a component and rendering it to the user. When we update state, the entire component re-renders, showing the user different information depending on what the state is and how our component is using it. You might think that re-rendering an entire component would be an inefficient process, but because of the virtual DOM, it's also fast.
+Enter **state**. State is a way of storing information in a component and rendering it to the user. When we update state, the entire component re-renders, showing the user different information depending on what the state is and how our component is using it. You might think that re-rendering an entire component would be an inefficient process, but because of the virtual DOM react only updates the section of the DOM where the state was updated.
 
 # 2. Building a Counter App
 
@@ -31,7 +33,7 @@ Enter **state**. State is a way of storing information in a component and render
 This is a very simple app to count up from zero. Let's take a look at what's going on here.
 
 
-The first thing you might notice is our constructor function:
+The first thing you might notice in our class component is our constructor method. A constructor method is a special method of a class for creating and initalizing data for that class: 
 
 ```js
 constructor() {
@@ -42,9 +44,9 @@ constructor() {
 }
 ```
 
-We first call `super()` to inherit the typical React component functionality.  
+We first call `super()` which calls the parent's constructor ( the class object constructor ) method to inherit the typical React component functionality.  
 
-Then, we assign `this.state` to be equal to an object.  In React, `state` is a very special property that your application uses to render the view.  Whenever the state changes, React will redraw your component to reflect its new state.
+Then, we assign `this.state` to be equal to an object.  In React, `state` is an object that stores information to be used in your componenet to render in the DOM.  Whenever the state changes, React will redraw your component in the virtual DOM and then tell the DOM to update a particular section to reflect its new state.
 
 How can we change the state?  React makes available a function for us called `setState`. `setState` takes one argument - an object with the part (or parts) of state you'd like to change.  We define a method `handleClick` that calls `setState` and increments it by one.
 
@@ -56,7 +58,7 @@ handleClick = () => {
 };
 ```
 
-The important thing here is that we aren't just increasing the count by one. We are setting a new `count` key which replaces the old one. We are using the previous value of `count` and adding one. `setState` will **call the render function**, reflecting the change that you made to the user.
+The important thing here is that we aren't just increasing the count by one. We are setting a new `count` key which replaces the old one. We are using the previous value of `count` by accessing it with `this.state.count` and adding one. `setState` will **call the render function**, reflecting the change that you made to the user.
 
 But wait. How do we actually call this function? Well, we could devise some way to call it ourselves, independent of user input. However, frequently, we'd like to call our functions in *response to an event* initiated by our users. Back when we were using DOM manipulation, you'll remember we had to use `addEventListener` in our js file and make sure we were referring to the correct DOM node in our HTML. React is much nicer - we can insert our `handleClick` function directly into our JSX:
 
@@ -77,7 +79,7 @@ Alright, let's look at this line-by-line. First, we're using object destructurin
 
 Then, we return our JSX. We've got a containing `div`, because our component can only render one element at a time. Inside that `div`, we have a `button` element with an **event listener**: `onClick`.
 
-`onClick` is one example of how JSX listens for certain events. For the most part, it does what it says - it triggers when the element is clicked. However, take a look at those curly braces (`onClick={this.handleClick}`)! These braces, unique to JSX, allow us to insert JavaScript code into our HTML. We can do this for a few different purposes. In this case, we're doing it to specify what should happen when we click the button. `onClick` **listens** for an event, whereas `handleClick` **handles** what happens afterwards - our `handleClick` function is therefore known as an **event handler**.
+`onClick` is one example of how JSX listens for certain events. For the most part, it does what it says - it triggers when the element is clicked. However, take a look at those curly braces (`onClick={this.handleClick}`)! These curly braces, unique to JSX, allow us to insert JavaScript code into our HTML. We can do this for a few different purposes. In this case, we're doing it to specify what should happen when we click the button. `onClick` **listens** for an event, whereas `handleClick` **handles** what happens afterwards - our `handleClick` function is therefore known as an **event handler**.
 
 Please note that we **are not invoking the handleClick function** in those curly braces! There's no parentheses after our function, and there shouldn't be. The function will invoke when clicked, but if we do it ourselves, it will invoke as soon as the component renders. Then, `setState` will be called, the component will re-render, `handleClick` will run again, the component will re-render... Do you see where I'm going here? It'll be an infinite loop! As a rule, we never want to invoke a function that calls `setState` in our `render` function.
 
@@ -190,4 +192,4 @@ badFunctionPlusOne = () => {
 }
 ```
 
-Don't do this. **Never, ever access the state directly.** This will not cause your component to re-render, will not cause anything in your app to change, and will only confuse you.
+Don't do this. **Never, ever modify the state directly.** This will not cause your component to re-render, will not cause anything in your app to change, and will only confuse you.
