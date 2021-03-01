@@ -21,7 +21,7 @@
 
 # 1. Introduction to props
 
-In pervious lessons, we've seen how to build React components and display them on a website.  However, we had no way to make two different versions of the same component.  For example, we should be able to create a `UserProfile` component with the name "Robert Kahn", then create a separate `UserProfile` component with the name "Vinton Cerf".
+In previous lessons, we've seen how to build React components and display them on a website.  However, we had no way to make two different versions of the same component.  For example, we should be able to create a `UserProfile` component with the name "Robert Kahn", then create a separate `UserProfile` component with the name "Vinton Cerf".
 
 Another example of this is Amazon's product search. Take a look at, say, a search for t-shirts:
 
