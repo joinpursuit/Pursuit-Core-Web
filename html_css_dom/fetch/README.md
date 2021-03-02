@@ -56,7 +56,7 @@ doSomething(result => {
 
 
 ```
-With modern functions, we attach our callbacks to the returned promises instead. Promises return a promise. Adding a `.then()` creates a promise chain:
+With modern functions, we attach our callbacks to the returned promises instead. __Promises return a promise.__ Adding a `.then()` creates a promise chain:
 
 ```js
 doSomething().then(result => {
@@ -151,19 +151,26 @@ We'll use the `https://restcountries.eu` resource to load a list of countries ba
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Countries</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="index.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
     <h1>Countries</h1>
-    <input type="text" placeholder="Enter a country name" id="countryNameInput">
-    <div id = 'countryContainer'></div>
-</body>
+    <form>
+      <input
+        type="text"
+        placeholder="Enter a country name"
+        id="country-name-input"
+        required
+      />
+    </form>
+    <section id="country-container"></section>
+  </body>
 </html>
 ```
 
@@ -172,35 +179,54 @@ Now, we'll need to add our event listeners in our `index.js`:
 ### index.js
 
 ```js
-document.addEventListener('DOMContentLoaded', () => {
-    configureInputListeners()    
-})
-
-function configureInputListeners() {
-    getCountryInput().addEventListener('change', loadCountries)
-}
-
-function loadCountries() {
-    const searchTerm = getCountryInput().value
-    if (!searchTerm) { return }
-    fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
-        .then(response => {
-            return response.json()
-        })
-        .then(countries => {
-            // remove Previous Cards
-            countries.forEach(country => {
-              console.log(country)
-              // create Card From Country
-            })
-        })
-        .catch(error => {
-            console.log(error)
-        })
+document.querySelector("form").addEventListener("submit", loadCountries);
+function loadCountries(e) {
+  e.preventDefault();
+  const searchTerm = document.querySelector("#country-name-input").value;
+  fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
+    .then((response) => {
+      return response.json();
+    })
+    .then((countries) => {
+      countries.forEach((country) => {
+        console.log(country);
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 ```
 
-We are using `fetch`, which returns a Promise that we that we can immediately attach a `.then` to to process the response once the promise is fulfilled.  For now, we're just printing the countries that come back to us.  Test it out with different search terms and make sure that you're getting back data.  Let's go ahead now and add in our remaining functionality to create cards for each country that we load and add them to the DOM:
+We are using `fetch`, which returns a Promise that we that we can immediately attach a `.then` to to process the response once the promise is fulfilled. For now, we're just printing in the console the countries that come back to us. Test it out with different search terms and make sure that you're getting back data. 
+
+What happens when you search for the number 23? 
+
+You'll notice that an error is thrown. The error says that `countries.forEach is not a function`. This is a little bit unexpected and undesired. I'd like for you to add a `debugger` on the line before `return response.json()` and one before the `forEach` then try again. While you're paused on the first debugger take a look at the Response object. Some things you may notice is that the Response object has the properties status and ok. Notice that status is 404 (Not Found) and ok is `false`. Now play through the debugger. Now our code is frozen on the line before the `forEach`. This is undesired. We had a 404 status code but we still fulfilled our promise and moved on to the next chain. This is a NEGATIVE of `fetch`. 4xx and 5xx status codes will NOT throw errors with `fetch`. Instead we need to alter our fetch code like so: 
+
+```js
+  fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
+    .then((response) => {
+        if(!response.ok) {
+            throw Error(`Something went wrong, status ${response.status}`);
+        }
+      return response.json();
+    })
+    .then((countries) => {
+      countries.forEach((country) => {
+        console.log(country);
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+```
+
+Try running again and playing with the debuggers. You should see that we no longer make it to our second `then` and instead jump right to our catch statement. 
+
+
+ Let's go ahead now and add in our remaining functionality to create cards for each country that we load and add them to the DOM:
 
 ```js
 document.addEventListener('DOMContentLoaded', () => {
