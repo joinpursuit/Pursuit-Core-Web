@@ -10,7 +10,7 @@
 
 ## Objectives
 
-- Understand the methods with in the class component
+- Understand the methods within the class component
 - Understand what `state` does in a React application
 - Instantiate `state` in a constructor
 - Call `setState` to update state
@@ -20,7 +20,7 @@
 
 In the previous lesson, we saw how to create a static web page using React functional components.  In this lesson, we will start to review what class components are and the strategy that React uses to handle user input, using the `state` property.
 
-In React we can write components in one of two ways. It can either be written as a function component as we have learned in our perovous lesson, or a class component. We will write class components in order to be able to work with **state** which will be described in more detail.
+In React we can write components in one of two ways. It can either be written as a function component as we have learned in our previous lesson, or a class component. We will write class components in order to be able to work with **state** which will be described in more detail.
 
 React has a few ways of storing, handling, and using information. Of course, as a JavaScript framework, it has access to variables. However, updating a variable in React won't change what the user sees. The page won't re-render to reflect that updated information.
 
@@ -33,7 +33,7 @@ Enter **state**. State is a way of storing information in a component and render
 This is a very simple app to count up from zero. Let's take a look at what's going on here.
 
 
-The first thing you might notice in our class component is our constructor method. A constructor method is a special method of a class for creating and initalizing data for that class: 
+The first thing you might notice in our class component is the `extends React.Component` statement. This statement allows your class to inherent React component methods like `render()`. The next thing that we see is our constructor method. A constructor method is a special method of a class for creating and initalizing data for that class: 
 
 ```js
 constructor() {
@@ -44,7 +44,7 @@ constructor() {
 }
 ```
 
-We first call `super()` which calls the parent's constructor ( the class object constructor ) method to inherit the typical React component functionality.  
+We first call `super()` which calls the parent's constructor ( the react component that was extended ) method to inherit the typical React component functionality.  
 
 Then, we assign `this.state` to be equal to an object.  In React, `state` is an object that stores information to be used in your componenet to render in the DOM.  Whenever the state changes, React will redraw your component in the virtual DOM and then tell the DOM to update a particular section to reflect its new state.
 
