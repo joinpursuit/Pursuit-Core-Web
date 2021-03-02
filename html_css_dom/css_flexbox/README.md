@@ -79,7 +79,7 @@ All of our images are loaded, one after the other as a column. This is because w
 We see that the borders between the images go away, and that they are all on a single line.  Let's make it so that the images wrap to the next line using the `flex-wrap` property:
 
 ```css
-.imagesDiv {
+.images {
     display: flex;
     flex-wrap: wrap;    
 }
