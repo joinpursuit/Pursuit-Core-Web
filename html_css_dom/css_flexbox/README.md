@@ -2,12 +2,15 @@
 
 ## Goals
 * Understand what flexbox is and how it can be used for responsive styling
+* Know that flexbox is direction and understand and know the main axis and cross axis
 * Utilize flexbox and media queries to style a responsive page
 
 ## Keywords
 * Responsive
 * Flexbox
 * Flex container
+* main axis 
+* cross axis
 * Display
 * `align-content`
 * `justify-content`
@@ -22,10 +25,9 @@
 
 # 1. Flexbox Introduction
 
-When you use most websites, changing the size of your browser window will change the size of the elements on the page. Let's go to [The New York Times](https://www.nytimes.com) and resize the page. What happens to the content? It _adjusts_ to the size of our window! This is called a _responsive design_ and is important in making a positive user experience. Right now, our test.html page is one narrow column of content. This works because we don't have too much going on but what happens when we start adding more and more content? The column grows longer and longer. We want a want to display our information so that it's more like the New York Times--it fills the entire window but if the window gets smaller, the content responds.
+When you use most websites, changing the size of your browser window will change the size of the elements on the page. Let's go to [The New York Times](https://www.nytimes.com) and resize the page. What happens to the content? It _adjusts_ to the size of our window! This is called a _responsive design_ and is important in making a positive user experience. 
 
 CSS has several built-in tools for creating a responsive page but Flexbox is a personal favorite because it is powerful and simple. A great place to dip your toes in the responsive pond!
-
 
 # 2. Wrap, flex-direction, align-items, and justify-content
 
@@ -37,7 +39,7 @@ Let's layout an image gallery using the HTML below:
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="imagesDiv">
+        <section class="images">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/%27Autumn_Morning_at_%C3%89ragny%27_by_Camille_Pissarro%2C_1897%2C_Pushkin_Museum.JPG/300px-%27Autumn_Morning_at_%C3%89ragny%27_by_Camille_Pissarro%2C_1897%2C_Pushkin_Museum.JPG" alt="">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Camille_Pissarro_022.jpg/320px-Camille_Pissarro_022.jpg" alt="">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Camille_Pissarro_018.jpg/314px-Camille_Pissarro_018.jpg" alt="">
@@ -45,19 +47,29 @@ Let's layout an image gallery using the HTML below:
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Camille_Pissarro_017.jpg/293px-Camille_Pissarro_017.jpg" alt="">     
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pissarro_-_The_Louvre_Under_Snow_1902.jpg/301px-Pissarro_-_The_Louvre_Under_Snow_1902.jpg" alt="">       
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Camille_Pissarro_%281830-1903%29_-_%27Morning%2C_Winter_Sunshine%2C_Frost%2C_the_Pont-Neuf%2C_the_Seine%2C_the_Louvre%2C_Soleil_D%27hiver_Gella_Blanc%27%2C_ca._1901.jpg/301px-Camille_Pissarro_%281830-1903%29_-_%27Morning%2C_Winter_Sunshine%2C_Frost%2C_the_Pont-Neuf%2C_the_Seine%2C_the_Louvre%2C_Soleil_D%27hiver_Gella_Blanc%27%2C_ca._1901.jpg" alt="">            
-        </div>
+        </section>
     </body>
 </html>
 ```
 
-Not that we've wrapped the `img` tags inside of a `div` tag (for division).  This will help keep our different sections organized.
+Note that we've wrapped the `img` tags inside of a `section` tag.  This will help keep our different sections organized.
 
 ![NoCSSImages](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/NoCSSImages.png)
 
-All of our images are loaded, one after the other.  But what if we wanted to have them be in a column instead of a row?  We could do it with `br` tags, but as our websites become more complicated, we don't want to have to manage that by ourselves.  Let's add the following CSS to display this using a Flexbox:
+To best emphasize how we can change our elements with flexbox let's start by 
+adding some css to our `img` tags. 
+
+```css 
+img {
+    display: block;
+}
+
+```
+
+All of our images are loaded, one after the other as a column. This is because we set our images to be display block and block by default will occupy the width of the page.  But what if we wanted to see them as a row that would be flexible to the change of the page? Let's add the following CSS to display this using Flexbox:
 
 ```css
-.imagesDiv {
+.images {
     display: flex;
 }
 ```
@@ -81,10 +93,10 @@ The `flex-wrap` properties are:
 - wrap-reverse: flex items wrap onto multiple lines from bottom to top.
 
 
-Change the size of the browser window, and you can see the elements moving to fit the new size.  Now let's try to arrange it in a column instead of a row using the `flex-direction` property:
+Change the size of the browser window, and you can see the elements moving to fit the new size. An important concept to keep in mind while working with flexbox is that flexbox has a direction, the main axis and the cross axis. By default the main axis goes from left to right horizontally, and the cross axis goes from up to down vertically. This is because by default our flex-direction is a row. We can change the direction of our flex box by changing the `flex-direction` property. Now let's try to arrange it in a column instead of a row by changing the `flex-direction` property:
 
 ```css
-.imagesDiv {
+.images {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;    
@@ -100,11 +112,11 @@ The `flex-direction` properties are:
 
 ![FlexColumn](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumn.png)
 
-That doesn't look right!  By default, the width of any elements in a column is set to stretch to the width of their parent element.  Here, that means it will mess up the aspect ratio of the images.  Let's fix it by using the `align-items` property:
+That doesn't look right!  By default, the element will stretch to fill the cross axis. Because our flex-direction is currently column the main axis is now top to bottom, and the cross axis is now left to right. Because having stretched images mess up the aspect ratio, let's fix it by using the `align-items` property:
 
 
 ```css
-.imagesDiv {
+.images {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -117,14 +129,14 @@ That doesn't look right!  By default, the width of any elements in a column is s
 <br>
 <br>
 
-This diagram from css-tricks shows all of the align-items properties:
+This diagram from css-tricks shows all of the align-items properties. It is showing with the main axis going from left to right and the cross axis going from top to bottom. This means the flex-direction is row (the most common use case):
 
 ![align-items](https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg)
 
 We can also pin the pictures to the right of the page:
 
 ```css
-.imagesDiv {
+.images {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -137,7 +149,7 @@ We can also pin the pictures to the right of the page:
 And to the center:
 
 ```css
-.imagesDiv {
+.images {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -147,8 +159,9 @@ And to the center:
 
 ![FlexColumnCenter](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/html_css_dom/css_flexbox/assets/FlexColumnCenter.png)
 
+Remember, this is happening because the cross axis is going from left to right because our flex-direction is set to column. 
 
-We can also use the `justify-content` property to align the content along the main axis.  From css-tricks:
+We can also use the `justify-content` property to align the content along the main axis. The example below shows the main axis going from left to right with the flex-direction set to row. From css-tricks:
 
 ![justify-content](https://css-tricks.com/wp-content/uploads/2018/10/justify-content.svg)
 
@@ -156,45 +169,37 @@ We can also use the `justify-content` property to align the content along the ma
 
 Flexbox works by having a **parent container** which holds **items**. The parent container is responsive to the size of the browser window and tells the items how to arrange themselves. The parent container is responsible for holding _all_ flexbox logic--so we don't have to tell the items inside the parent container (the child elements) what to do because the parent container does it for us.
 
-In your test.html file, we are going to wrap **all** our `body` content in a `div` with classname `flex-container` by putting an opening `div` tag right under the opening `body` tag and the closing `div` tag right above the closing `div` tag. Then you are going to **add the class** `flex-item` to each child `div`, like so:
+Copy the html from below:
 
 ```html
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="flex-container">
-            <div class="flex-item">
+        <main class="flex-container">
+            <section class="flex-item">
                 <h1>This is my first web page.</h1>
                 <p>How <em>exciting</em>!</p>
                 <p><strong>Isn't it?</strong></p>
-            </div>
-
-            <div class="flex-item">
+            </section>
+            <section class="flex-item">
                 <h2>Let's make a list!</h2>
                 <ul>
                     <li>First item!</li>
                     <li>Second item!</li>
-                    <ol>
-                    <li>This is ordered</li>
-                    <li>So is this!</li>
-                    </ol>
                     <li>Third item!</li>
                 </ul>
-            </div>
-
-            <div class="flex-item">
+            </section>
+            <section class="flex-item">
                 <h2>Links</h2>
                 <a href="https://www.google.com">Take me to Google!</a>
-            </div>
-
-            <div class="flex-item">
+            </section>
+            <section class="flex-item">
                 <h2>Images</h2>
                 <img src="https://pbs.twimg.com/profile_images/446566229210181632/2IeTff-V_400x400.jpeg" alt="Puppy!" width="300"/>
-            </div>
-
-            <div class="flex-item">
+            </section>
+            <section class="flex-item">
                 <h2>Table</h2>
                 <table>
                         <tr>
@@ -218,9 +223,8 @@ In your test.html file, we are going to wrap **all** our `body` content in a `di
                         <td>Row 3, cell 3</td>
                     </tr>
                 </table>
-            </div>
-
-            <div class="flex-item">
+            </section>
+            <section class="flex-item">
                 <h2>Form</h2>
                 <form>
                     First name:<br>
@@ -234,12 +238,12 @@ In your test.html file, we are going to wrap **all** our `body` content in a `di
                     <input type="checkbox" name="vehicle2" value="Car"> I have a car<br>
                     <input type="submit" value="Submit">
                 </form>
-            </div>
-        </div>            
+            </section>
+        </main>            
     </body>            
 </html>
 ```
-Now we have a `div` that holds **all** of our html elements and we can now make this into a **flex container**.
+Now we have a `main` that holds **all** of our html elements and we can now make this into a **flex container**.
 
 Add the following css.  This time, we're styling both the flexbox container and the children it contains.
 
@@ -261,8 +265,6 @@ Add the following css.  This time, we're styling both the flexbox container and 
 }
 ```
 
-We had to change `div` to `flex-item` because otherwise our parent container would be affected by our `div` CSS rules and our page would **not** be responsive.
-
 Try moving the page around and see how the UI updates.
 
 #### Flexbox Items
@@ -274,7 +276,7 @@ You can modify how items act inside your flex container with several properties.
 
 Our site is looking pretty good! We can make our window very small and our `div`s stack on top of one another into a neat column. This is great--if it works well with my browser window being small, then it will look great on a mobile device! Let's have a look.
 
-Open the dev tools and click on the "Toggle Device Toolbar":
+Open the dev tools (cmd + option + i) and click on the "Toggle Device Toolbar":
 
 ![device-viewer.png](./assets/device-viewer.png)
 
@@ -328,3 +330,4 @@ Add some other media rules to your CSS file to get a sense of how media queries 
 __NOTE:__ The best approach to responsive design is _Mobile First_. This means that it's best practice to design for small mobile screens and then to design for larger computer screens.
 
 _Breakpoints_ are the points at which your sites content will respond to provide the user with the best possible layout to consume the information.
+
