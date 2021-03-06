@@ -225,20 +225,22 @@ You'll notice that an error is thrown. The error says that `countries.forEach is
 
 Try running again and playing with the debuggers. You should see that we no longer make it to our second `then` and instead jump right to our catch statement. 
 
+Once we've successfully grabbed our data we can use our DOM manipulation skills to add the list of countries to our webpage. 
+
 # 5. POST requests with fetch
 
 To handle other requests is simple. All you need to do is pass in an object with some data as the second argument to fetch.
 You could do something like this:
 
 ```js
-  let button = document.getElementById("button");
+  const button = document.querySelector("button");
 
   button.addEventListener("click", fireRequest);
 
   function fireRequest() {
-    let data = { name: 'My Name' };
+    const data = { name: 'My Name' };
 
-    let fetchData = {
+    const fetchData = {
       method: 'POST',
       body: data,
       headers: new Headers(),
@@ -246,26 +248,37 @@ You could do something like this:
 
     fetch("https://jsonplaceholder.typicode.com/posts", fetchData)
       .then(response => {
+        if(!response.ok) {
+          throw Error(`Something went wrong, status ${response.status}`);
+        }
         return response.json();
       })
       .then(response => {
         console.log(response)
       })
       .catch(err => {
-        console.log(response)
+        console.log(err)
       })
   }
 ```
 
+## Practice 
+Although it's relatively simple to find great free API's to make GET requests, most public API's won't allow you to change data on a database level. Thus there's not as many great places to practice making POST, PUT, PATCH, and DELETE requests. Because of this fact, let's go ahead and get our [own backend](https://github.com/joinpursuit/play_backend/) running so that we can play around with any all request types. Follow the instructions and get it running.
 
+Challenge 1: Find the total of cars that user 1 has, Add that to the total of cars that user 2 has. Then find the car with the id that matches that sum.
 
+Challenge 2: Create a form that takes in a username and on submission adds a new user to the database. 
+
+Challenge 3: Create a show users button that prints a list of all the users. 
+
+Challenge 4: When you click on a user, remove them from the list and also delete them from the database. 
 
 
 ## Resources
 
 * [Fetch - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 * [Fetch Parameters](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters)
-* [How to use the Fetch API)[https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data]
+* [How to use the Fetch API](https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data)
 * [Fetch vs Axios](https://medium.com/@sahilkkrazy/fetch-vs-axios-http-request-c9afa43f804e)
 * [JavaScript: Learn Promises](https://codeburst.io/javascript-learn-promises-f1eaa00c5461)
 * [JavaScripot Promises: an Introduction](https://developers.google.com/web/fundamentals/primers/promises)
