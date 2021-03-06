@@ -28,7 +28,7 @@ Axios is a JavaScript library that can be used for the following:
 - Intercept request and response data
 - Cancel requests
 - Automatic transformation of data to JSON.
-- Client side support for protecting agains XSRF.
+- Client side support for protecting against XSRF.
 
 ### Getting Started
 
@@ -39,10 +39,10 @@ Axios is a JavaScript library that can be used for the following:
 
 Axios is even better than `fetch`. It parses our JSON for us (so we don't have to use `JSON.parse()` or `.json()`) and it handles errors by automatically sending them to our `catch` clause (so we don't have to check if our `response.ok` is true).
 
-Inside of our test.js paste the code:
+Inside of a JS file paste the code:
 
 ```js
-let button = document.getElementById("button");
+const button = document.querySelector("button");
 button.addEventListener("click", fireRequest);
 
 function fireRequest() {
@@ -53,17 +53,18 @@ function fireRequest() {
     })
     .catch(err => {
       console.log(err);
+      debugger
     });
 }
 ```
 
 Congrats! You just made your first axios _get_ request. Notice that our response data looks a little bit different. To get our data, we can write `response.data`. We don't have to return response.json() any more because we already have JSON!
 
-Let's see how axios handles errors. Change your request url to "https://jsonplaceholder.typicode.com/posts/900". This url doesn't exist, so we should get an error. Now, we get caught in the debugger after `catch` because of a `404` error. This is much nicer than when we were working with `fetch`, because another process that we'd previously have to write out manually is done for us.
+Let's see how axios handles errors. Change your request url to "https://jsonplaceholder.typicode.com/posts/900". This url doesn't exist, so we should get an error. Now, we get caught in the debugger after `catch` because of a `404` error. This is much nicer than when we were working with `fetch`, because we no longer have to check `response.ok`.
 
 ## What about POST and other methods?
 
-Axios makes all of http requests simpler. Here's the code for making a POST request. Notice that we changed `axios.get` to `axios.post`, and that we passed in a data object. This is analogous to our second argument in `fetch`, where we specified a request type and a request body.
+Axios makes all http requests simpler. Here's the code for making a POST request. Notice that we changed `axios.get` to `axios.post`, and that we passed in a data object. This is analogous to our second argument in `fetch`, where we specified a request method and a request body.
 
 Try it in your browser:
 
@@ -80,7 +81,22 @@ function fireRequest() {
 }
 ```
 
-Take a look at `response.data`. Check out the resources to learn more!
+Take a look at `response.data`.
+
+Additionally, requests can be made by just calling axios and passing in a configuration object like so:
+
+```js
+axios({
+  method: 'post',
+  url: "https://jsonplaceholder.typicode.com/posts",
+  data: { name: "Corey" }
+});
+
+```
+
+For convenience aliases have been provided for all supported request methods.
+
+Checkout the [docs](https://github.com/axios/axios) to read more about it! 
 
 
 # 2. Async and Await
