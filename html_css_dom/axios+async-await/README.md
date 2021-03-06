@@ -115,28 +115,24 @@ async function returnOne() {
 }
 
 ```
-This function will returned a resolved Promise with the result of `1`.
+This function will return a resolved Promise with the result of `1`.
 
-Copy the following code into your test.js and try it out:
+Copy the following code into your JS file and try it out:
 
 ```js
-document.addEventListener('DOMContentLoaded', () => {
-
-  const returnOne = async () => { // this is how use async with ES6 syntax
+  const returnOne = async () => { // this is how to use async with ES6 syntax
     return 1;
   }
 
-  returnOne().then(alert);
-});
+returnOne().then(alert);
 
 
 ```
-
 ### Await
 There is also a keyword called `await`. `await ` only works inside `async` functions and makes JavaScript wait until that promise
 settles and returns its result. Let's see this in action.
 
-First, let's see how things work without `await`. Create a function called fireRequest inside your test.js file.
+First, let's see how things work without `await`. Create a function called fireRequest inside your JS file.
 Use axios to make a get request to https://jsonplaceholder.typicode.com/posts. Save the request to a variable called response and
 have your function console.log the response on the next line.
 
@@ -165,7 +161,6 @@ Now, add the keyword `await` directly before your axios call and refresh your br
     let response = await axios.get("https://jsonplaceholder.typicode.com/posts");
 
 ```
-
 # 3. Chaining Calls
 
 async/await allows us to write much cleaner code than when we are chaining together promises. Take for instance a situation
@@ -196,7 +191,6 @@ const makeRequest = async () => {
   return promise3(value1, value2)
 }
 ```
-
 # 4. Error Handling
 
 If a promise resolves normally, then await promise returns the result.
@@ -223,7 +217,6 @@ Copy this code to your test.js to see it in action:
   fireRequest();
 
 ```
-
 # 5. Building an app with await async
 
 Let's return to the application that we built out with `Fetch`.
@@ -643,6 +636,18 @@ function makeWeatherSummaryPara(weather) {
 ```
 
 Great!  Even with very nested calls, our code structure still reads sensibly without putting UI manipulation inside of networking callbacks.
+
+
+## Practice 
+Although it's relatively simple to find great free API's to make GET requests, most public API's won't allow you to change data on a database level. Thus there's not as many great places to practice making POST, PUT, PATCH, and DELETE requests. Because of this fact, let's go ahead and get our [own backend](https://github.com/joinpursuit/play_backend/) running so that we can play around with any all request types. Follow the instructions and get it running.
+
+Challenge 1: Find the total of cars that user 1 has, Add that to the total of cars that user 2 has. Then find the car with the id that matches that sum.
+
+Challenge 2: Create a form that takes in a username and on submission adds a new user to the database. 
+
+Challenge 3: Create a show users button that prints a list of all the users. 
+
+Challenge 4: When you click on a user, remove them from the list and also delete them from the database. 
 
 ## Resources
 
