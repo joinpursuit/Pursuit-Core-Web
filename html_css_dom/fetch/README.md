@@ -81,7 +81,7 @@ The arguments to `then` are option and  `catch(failureCallback)` is short for `t
 Although you will most likely already be dealing with asynchronous calls that return promises, it is possible to create your own promise with its constructor function. To do this you write new Promise and then pass in a callback function. That callback function will take in two arguments (each of which will be a function), one for resolve, and one for reject. Here's an example of what that might look like:
 
 ```js
-let promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then…
 
   if (/* everything turned out fine */) {
