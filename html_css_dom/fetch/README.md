@@ -202,7 +202,7 @@ We are using `fetch`, which returns a Promise that we that we can immediately at
 
 What happens when you search for the number 23? 
 
-You'll notice that an error is thrown. The error says that `countries.forEach is not a function`. This is a little bit unexpected and undesired. I'd like for you to add a `debugger` on the line before `return response.json()` and one before the `forEach` then try again. While you're paused on the first debugger take a look at the Response object. Some things you may notice is that the Response object has the properties status and ok. Notice that status is 404 (Not Found) and ok is `false`. Now play through the debugger. Now our code is frozen on the line before the `forEach`. This is undesired. We had a 404 status code but we still fulfilled our promise and moved on to the next chain. This is a NEGATIVE of `fetch`. 4xx and 5xx status codes will NOT throw errors with `fetch`. Instead we need to alter our fetch code like so: 
+You'll notice that an error is thrown. The error says that `countries.forEach is not a function`. This is a little bit unexpected and undesired. I'd like for you to add a `debugger` on the line before `return response.json()` and one before the `forEach` then try again. While you're paused on the first debugger take a look at the Response object. Some things you may notice is that the Response object has the properties `status` and `ok`. Notice that the status is 404 (Not Found) and ok is `false`. Now play through the debugger. Now our code is frozen on the line before the `forEach`. This is undesired. We had a 404 status code but we still fulfilled our promise and moved on to the next chain. This is a NEGATIVE of `fetch`. 4xx and 5xx status codes will NOT throw errors with `fetch`. Instead we need to alter our fetch code like so: 
 
 ```js
   fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
@@ -224,104 +224,6 @@ You'll notice that an error is thrown. The error says that `countries.forEach is
 ```
 
 Try running again and playing with the debuggers. You should see that we no longer make it to our second `then` and instead jump right to our catch statement. 
-
-
- Let's go ahead now and add in our remaining functionality to create cards for each country that we load and add them to the DOM:
-
-```js
-document.addEventListener('DOMContentLoaded', () => {
-    configureInputListeners()    
-})
-
-function configureInputListeners() {
-    getCountryInput().addEventListener('change', loadCountries)
-}
-
-function loadCountries() {
-    const searchTerm = getCountryInput().value
-    if (!searchTerm) { return }
-    fetch("https://restcountries.eu/rest/v2/name/" + searchTerm)
-        .then(response => {
-            return response.json()
-        })
-        .then(countries => {
-            removePreviousCards()
-            countries.forEach(country => {
-                createCardFromCountry(country)
-            })
-            return countries
-        })
-        .catch(error => {
-            console.log(error)
-        })
-}
-
-function getCountryInput() {
-    const countryInput = document.querySelector('#countryNameInput')
-    return countryInput
-}
-
-function getCountryContainer() {
-    const countryContainer = document.querySelector('#countryContainer')
-    return countryContainer
-}
-
-function removePreviousCards() {
-    // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
-    const countryContainer = getCountryContainer()
-    console.log(countryContainer.firstChild)
-    while (countryContainer.firstChild) {
-        countryContainer.removeChild(countryContainer.firstChild)
-    }
-}
-
-function createCardFromCountry(country) {
-    let newCard = document.createElement('div')
-    newCard.className = "card"
-    newCard.style = 'width: 300px'
-
-    let flagImage = document.createElement('img')
-    flagImage.src = `${country.flag}`
-    flagImage.style = 'width:200px'
-
-    newCard.appendChild(flagImage)
-
-    let coutryNameHeader = document.createElement('h4')
-    coutryNameHeader.innerText = `${country.name}`
-
-    newCard.appendChild(coutryNameHeader)
-
-    countryContainer.appendChild(newCard)
-}
-```
-
-Finally, let's add a little bit of styling to make our website look a little nicer:
-
-### styles.css
-
-```css
-/* https://www.w3schools.com/howto/howto_css_cards.asp */
-
-#countryContainer {
-    margin:30px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-    margin:5px;
-    /* border-style: solid;
-    border: 5px; */
-  }
-
-  /* Add rounded corners to the top left and the top right corner of the image */
-  img {
-    border-radius: 5px 5px 0 0;
-  }
-```
 
 # 5. POST requests with fetch
 
