@@ -161,7 +161,6 @@ We'll use the `https://restcountries.eu` resource to load a list of countries ba
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Countries</title>
-    <link rel="stylesheet" href="styles.css" />
     <script src="index.js" defer></script>
   </head>
   <body>
