@@ -27,9 +27,9 @@
 | 7. [Events](./events) | [7.1](https://canvas.instructure.com/courses/2124167/modules/items/39957487) / [7.2](https://canvas.instructure.com/courses/2447044/modules/items/40167719) | [To-do List](https://github.com/joinpursuit/Pursuit-Core-Events-Lab)
 | 8. [CSS Flexbox](./css_flexbox) | [7.1](https://canvas.instructure.com/courses/2124167/modules/items/39957489) / [7.2](https://canvas.instructure.com/courses/2447044/modules/items/40167721) | [Flexbox Froggy](https://github.com/joinpursuit/css_flexbox_exercise) |
 | 9. [CSS Grid](./css_grid) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/7049397) / [7.2](https://canvas.instructure.com/courses/2447044/modules/items/40167737) | [Grid Garden](https://github.com/joinpursuit/css_grid_exercise)
-| 10. [The Internet](./the_internet) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/6186469) / 7.2 TBD | [API and Status Code Scavenger Hunt](https://github.com/joinpursuit/Pursuit-Core-Introduction-To-Networking-and-APIs-Lab) |
-| 11. [Promises and Fetch](./fetch/README.md) | tbd | [Official Joke API Web App](https://github.com/joinpursuit/-Pursuit-Core-Web-Promises-Fetch-Lab-v2) |
-| 12. [Async Await](./axios%2Basync-await) | tbd | [Deck of Cards API Web App](https://github.com/joinpursuit/axios_assignment) |
+| 10. [The Internet](./the_internet) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/6186469) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485237) | [API and Status Code Scavenger Hunt](https://github.com/joinpursuit/Pursuit-Core-Introduction-To-Networking-and-APIs-Lab) |
+| 11. [Promises and Fetch](./fetch/README.md) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/7049407) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485204) | [Official Joke API Web App](https://github.com/joinpursuit/-Pursuit-Core-Web-Promises-Fetch-Lab-v2) |
+| 12. [Async Await](./axios%2Basync-await) | [7.1](https://canvas.instructure.com/courses/2124167/quizzes/7049405) / [7.2](https://canvas.instructure.com/courses/2447044/quizzes/6485234)  | [Deck of Cards API Web App](https://github.com/joinpursuit/Pursuit-Core-Web-Async-Await-Lab) |
 
 
 ## Projects
