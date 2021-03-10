@@ -36,14 +36,14 @@
 
 [Optional - Build a responsive mockup](../reassessments/projects/responsive_site.md)
 
-[Personal Website - tbd]() 
+[Personal Website](https://github.com/joinpursuit/FSW-Personal-Website) 
 
 
 ## Assessments
 
-[Mid-module Assessment - tbd]()
+[Mid-module Assessment]()
 
-[Final Module Assessment](https://github.com/joinpursuit/Pursuit-Core-Module-Two-Final-Assessment)
+[Final Module Assessment]()
 
 ## Old content
 
