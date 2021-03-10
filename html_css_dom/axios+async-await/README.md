@@ -272,6 +272,7 @@ async function loadCountries(e) {
 Take a moment to notice the key changes from before. How many differences can you spot? 
  * function as `async` in front 
  * Has one `try` block and an `await` instead of calling then. 
+ * Uses `axios` instead of fetch. 
  * No longer checking if the response is okay. 
  * Saving the return from the `await` to a variable and getting the data by keying in with `.data`. 
  * Having a `catch` with the `try` instead of chained at the end of many `then`s. 
