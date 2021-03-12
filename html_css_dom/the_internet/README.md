@@ -93,8 +93,8 @@ There are multiple types of requests that clients can make.
 These are known sometimes as HTTP "verbs". You can think of each one as an action.
 
 * GET - give me some data
-* POST - take this data
-* PUT - update this data
+* POST - take this data and create / save something on the server (example: a new user account)
+* PUT - update this data (example: change your shipping address on your Amazon account)
 * DELETE - delete this data
 
 
