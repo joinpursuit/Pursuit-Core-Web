@@ -37,7 +37,6 @@ In the settings tab on github:
 ### Setting your remote url
 
 * Go to github and navigate to the new repo you created 
-* Click the green `Code` dropdown
 * Copy the _**SSH**_ URL
 * Navigate to the directory where your project is located
 * Run `git remote`. Take note of the remote name - it's probably `origin` by default
