@@ -28,7 +28,8 @@ Below is a summary of what you need to do to get your site online!
 - [ ] When I run `git remote -v` I see the url as something that contains `mygithubusername.github.io`
 	- ex: `git@github.com:jabyess/jabyess.github.io.git`
 - [ ] I have pushed my work to the new repository (`git push`)
-- In the settings tab on github:
+
+In the settings tab on github:
 - [ ] My repository visibility is set to `Public`
 - [ ] `Source` is set to my primary branch (either `Master` or `Main`) and the URL is set to `/(root)`
 - [ ] My site is accessible at `https://mygithubusername.github.io`
