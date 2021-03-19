@@ -80,3 +80,34 @@ When extending a class, in order to make sure the parent class gets the data it 
 
 # Class components in React
 
+Now that we understand the basics of how classes use `extends` to inherit functionality, we get a better impression of why classes might have utility in React. Consider the following functional React component:
+
+```jsx
+import React from 'react';
+
+const Example = () => {
+  return <h1> Hello World! </h1>;
+}
+```
+
+And its class-based equivalent:
+
+```jsx
+import React from 'react';
+
+class Example extends React.Component {
+  constructor() {
+    super()
+  }
+
+  render() {
+    return <h1> Hello World! </h1>;
+  }
+}
+```
+
+We can see here that our component's connection to the React library is much more explicit in a class component than it is in a functional component. Class components come with other perks, too. Because the render logic is explicitly handled by the component's `render` method, we can define and use other methods on the class to keep our logic organized and make our components more readable.
+
+The main disadvantage to a class component, as you can see, is that the functional component is much more concise. Therefore, we will start by using class components to handle higher-level, more complex responsibilities, and we'll be using functional components to handle simpler render logic.
+
+Please note that, in older versions of React, class components were able to perform specific tasks and hold specific logic that functional components could not. This is no longer true - the differences between class and functional components, these days, are mostly cosmetic. However, we ask that you follow the above guidelines as we start building in React together. You can develop your own style down the line.
