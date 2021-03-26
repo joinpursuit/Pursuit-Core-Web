@@ -45,4 +45,4 @@ console.log(myAtom.tellStory());
 // => "This is a positively-charged atom in a carbon molecule. It lives in a muscle cell in the stomach of Peter. Peter belongs to the Peterson family in the village of Troy. The village of Troy is in a green land on the continent of Tropico. The continent of Tropico is on a hot planet orbiting a star that's 3 billion years old. This star is part of the Root Beer Galaxy in My Big Universe."
 ```
 
-* Create a file at the root of your project called `story.js`. Import your Atom class, create an instance of Atom with all the information the Universe needs, and log its story to the console. You should be able to run this assignment by calling `node story.js` in your project's folder.
+* Create a file at the root of your project called `story.js`. Import your Atom class, create an instance of Atom with all the information the Universe needs, and log the result of it's `tellStory` method to the console. You should be able to run this assignment by calling `node story.js` in your project's folder.

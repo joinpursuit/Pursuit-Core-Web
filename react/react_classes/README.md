@@ -33,7 +33,7 @@ class Animal {
 
 You can see that the class definition looks sort of like a function definition, except it doesn't include a parentheses to capture an argument. In lieu of this, classes usually have a constructor function, which is called whenever a class instance is created.
 
-Our Animal prototype includes the ability for different instances to have different names - just as two dogs might share many qualities but be named differently. We add `name` as an argument to the constructor, and then we immediately apply it as an attribute to the class by placing it on `this`. 
+Our Animal class includes the ability for different instances to have different names - just as two dogs might share many qualities but be named differently. We add `name` as an argument to the constructor, and then we immediately apply it as an attribute to the class by placing it on `this`. 
 
 `this` is a keyword in JavaScript that means different things depending on context. Generally, it refers to the greater context in which it was placed - in this case, the class object itself. By writing `this.name = name`, we place the `name` we passed into the constructor's argument on the `this` object, which is, in this case, the instance of `Animal` we're constructing.
 
@@ -48,6 +48,8 @@ myDog.name
 myDog.speak('woof')
 // => 'Luna says "woof"'
 ```
+
+Note the `new` keyword here. This is an essential keyword for creating a class instance in JavaScript. Think of it (with the standard `()` syntax that we also see on that line) as a way of invoking the class instance's constructor.
 
 # Extending classes
 
@@ -108,6 +110,4 @@ class Example extends React.Component {
 
 We can see here that our component's connection to the React library is much more explicit in a class component than it is in a functional component. Class components come with other perks, too. Because the render logic is explicitly handled by the component's `render` method, we can define and use other methods on the class to keep our logic organized and make our components more readable.
 
-The main disadvantage to a class component, as you can see, is that the functional component is much more concise. Therefore, we will start by using class components to handle higher-level, more complex responsibilities, and we'll be using functional components to handle simpler render logic.
-
-Please note that, in older versions of React, class components were able to perform specific tasks and hold specific logic that functional components could not. This is no longer true - the differences between class and functional components, these days, are mostly cosmetic. However, we ask that you follow the above guidelines as we start building in React together. You can develop your own style down the line.
+The main disadvantage to a class component, as you can see, is that the functional component is much more concise. Class components, however, are designed not just to render JSX, but to store and handle data. Therefore, we will start by using class components to handle higher-level, more complex responsibilities, and we'll be using functional components to handle simpler render logic.
