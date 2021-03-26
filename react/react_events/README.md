@@ -17,7 +17,7 @@
 
 # Introduction
 
-In the previous lesson, we saw how to create a static web page using React components and props. In this lesson, we will start to review the strategy that React uses to handle changing data, user input, and visual updates. For nearly anything that requires information to update on the page, we use the `state` property.
+In the previous lesson, we saw how to create a static web page using React components and props. In this lesson, we will start to review the strategy that React uses to handle changing data, user input, and visual updates. For nearly any task that requires information to update on the page, we use the `state` property.
 
 React has a few ways of storing, handling, and using information. Of course, as a JavaScript framework, it has access to variables. However, updating a variable in React won't change what the user sees. The page won't re-render to reflect that updated information.
 
@@ -79,9 +79,15 @@ Then, we return our JSX. We've got a containing `div`, because our component can
 
 `onClick` is one example of how JSX listens for certain events. For the most part, it does what it says - it triggers the function you pass in when the element is clicked. `onClick` **listens** for an event, whereas `handleClick` **handles** what happens afterwards - our `handleClick` function is therefore known as an **event handler**.
 
-Please note that we **are not invoking the handleClick function** in those curly braces! There's no parentheses after our function, and there shouldn't be. The function will invoke when clicked, but if we do it ourselves, it will invoke as soon as the component renders. Then, `setState` will be called, the component will re-render, `handleClick` will run again, the component will re-render... Do you see where I'm going here? It'll be an infinite loop. This is why we should never call a function that updates our state inside of our `render` method.
-
 To see this app in action, go ahead and click the button. Our `count` part of state increases by one, `render` is called again, and the page updates with this new information. Pretty slick, huh?
+
+*Discussion Topic: Notice that the function is passed into `onClick` un-invoked. What would happen if we invoke the function inside the `onClick` attribute?*
+
+<details>
+<summary>Answer</summary>
+The function will invoke as soon as the component renders. Then, `setState` will be called, the component will re-render, `handleClick` will run again, the component will re-render... Do you see where I'm going here? It'll be an infinite loop. This is why we should never call a function that updates our state inside of our `render` method.
+</details>
+<br />
 
 Let's check out another example with state being used in a different way:
 
@@ -89,34 +95,9 @@ Let's check out another example with state being used in a different way:
 
  [Our Second Stateful App](https://codesandbox.io/s/delicate-wood-b4k7h)
 
-This is an app that changes the color of our background depending on the values contained in the state. We do this by using React to *update the class selectors on our elements* when the state updates, which we then define styling for in our CSS file. Therefore, let's start with our CSS:
+This is an app that changes the color of our background depending on the values contained in the state. We do this by using React to *update the class selectors on our elements* when the state updates, which we then define styling for in our CSS file. Therefore, let's start with our CSS, in `styles.css`.
 
-### `styles.css`
-
-```css
-.App {
-  font-family: sans-serif;
-  text-align: center;
-  width: 100%;
-}
-
-.red {
-  height: 500px;
-  background-color: red;
-}
-
-.blue {
-  height: 500px;
-  background-color: blue;
-}
-
-.yellow {
-  height: 500px;
-  background-color: yellow;
-}
-```
-
-Here, we define three classes, besides the default `App` class that Create React App gives us: `red`, `yellow`, and `blue`. We style them accordingly, including giving them a `height` attribute, because while they aren't going to contain too much, we still want them to be visible. Pretty self-explanatory here.
+Here, we define three classes, besides the default `App` class that Create React App gives us: `red`, `yellow`, and `blue`. We style them accordingly, including giving them a `height` attribute, because while they aren't going to contain too much, we still want them to be visible.
 
 Alright, let's get to the meat of the app:
 
@@ -169,6 +150,8 @@ First, we use object destructuring to break out our parts of state. Then, we imm
 We then insert a single `button` tag into our `div`, which we add `onClick` functionality to fire the `changeColor` function we wrote earlier. Click the button a couple of times to see this in action!
 
 *Discussion topic: Is a button the only thing we can add `onClick` functionality to? Test this by removing the button and adding the `onClick` tag to the containing `div`.*
+
+*Exercise: Add three buttons, labeled "Red", "Yellow", and "Blue." When the user clicks on a button, the background of our `div` should change to the corresponding color.*
 
 # Conclusion
 

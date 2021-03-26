@@ -32,11 +32,11 @@ In order to have the same component display different information, we can use **
 
 ## Props
 
-Props allow components to **pass information** to child components that they're rendering. Components can use props to consume data from their parents and render it to the user. This permits us to reuse the same component with relative ease. For example,we don't need distinct `UserProfile` components if each user's profile consumes the same shape of information and renders that information in the same way. We can use the same component and pass down unique user information as props.
+Props allow components to **pass information** to child components that they're rendering. Components can use props to consume data from their parents and render it to the user. This permits us to reuse the same component with relative ease. For example, we don't need distinct `UserProfile` components if each user's profile consumes the same shape of information and renders that information in the same way. We can use the same component and pass down unique user information as props.
 
 Props also allow us to intelligently divide responsibilities between components. We can create components whose only job is to fetch, store, and update information, and we can have components whose only job is to receive props and render information. More on that separation of concerns in a future lesson.
 
-Returning to our Amazon search page example, let's say our components (`ProductItem`) are the *child components* of a component for the entire page (`ProductPage`). `ProductPage` stores the result of a large AJAX request on the first render of the page, getting an array with fifty products. It then sets a part of state (`this.state.products`) with this array. We map through the array and send each individual product to a `ProductItem` component by way of props, which processes the product's information into something user-facing.
+Returning to our Amazon search page example, let's say our components (`ProductItem`) are the *child components* of a component for the entire page (`ProductPage`). `ProductPage` stores the result of a large network request on the first render of the page, getting an array with fifty products. We then map through this array and send each individual product to a `ProductItem` component by way of props, which processes the product's information into something user-facing.
 
 Let's take a look at a small-scale example of this:
 
@@ -49,44 +49,43 @@ Here, we will build a simple application that uses props to display a list of sh
 ### `ProductPage.js`
 
 ```js
-constructor() {
-  super();
-  this.products = [
+import React from 'react';
+import ProductItem from './ProductItem';
+
+const ProductPage = () => {
+  const products = [
       { name: "Ultra Boost", manufacturer: "Adidas", price: 160 },
       { name: "Air Force One Low", manufacturer: "Nike", price: 100 },
       { name: "Classic Leather", manufacturer: "Reebok", price: 120 },
       { name: "Sk8-Hi", manufacturer: "Vans", price: 60 }
     ];
-}
+// ...
 ```
 
-In our constructor, you can see that we have set an attribute to the class: `this.products`. This contains an array of objects, each with certain consistent traits: `name`, `manufacturer`, and `price`.
+You can see here that we start out our functional `ProductPage` component with an array of objects, each with certain consistent traits: `name`, `manufacturer`, and `price`.
 
-We then use this array inside our `render` function:
+We then then use this array to render our products in JSX:
 
 ```js
-render() {
-  const { products } = this;
   const listItems = products.map(product => {
     return (
       <ProductItem
         name={product.name}
-        manufacturer={product.manufacturer}
         price={product.price}
       />
     );
   });
+
   return (
     <div>
       <ul>{listItems}</ul>
     </div>
   );
 }
+}
 ```
 
-First, we're breaking out `products` from our class instance. Then, we're creating a variable called `listItems`, which maps through our `products` and returns React components named `ProductItem`.
-
-These `ProductItem` components have three attributes that correspond to the keys of the objects in our Products array. At first glance, however, these attributes might look confusing. They definitely aren't anything we've seen before in HTML. That's because, **while these items share the same syntax, they don't translate directly to HTML attributes.** Instead, they represent *props* that we're passing down to our `ProductItem` components.
+First, we're creating a variable called `listItems`, which maps through our `products` and returns React components named `ProductItem`. These `ProductItem` components have three attributes that correspond to keys of the objects in our `products` array. At first glance, however, these attributes might look confusing. They definitely aren't anything we've seen before in HTML. That's because, **while these items share the same syntax, they don't translate directly to HTML attributes.** Instead, they represent *props* that we're passing down to our `ProductItem` components.
 
 Think of props as arguments for a component. They compile into an attribute on the component which we can reference using `this.props` (in the case of a class component) or as our function's argument (for a functional component). In this case, for each item in our `products` array, we're inputting the name, manufacturer, and price into our `ProductItem` component. You'll notice, because this component is only responsible for receiving props and rendering data, we're making this one functional, rather than using a class:
 
@@ -96,10 +95,10 @@ Think of props as arguments for a component. They compile into an attribute on t
 import React from "react";
 
 const ProductItem = props => {
-  const { name, manufacturer, price } = props;
+  const { name, price } = props;
   return (
     <li>
-      {name} - {manufacturer} - ${price}
+      {name} - ${price}
     </li>
   );
 };
@@ -115,6 +114,8 @@ Then, we are defining `ProductItem` as an anonymous function that takes its `pro
 
 Importantly, what you're seeing on the right-hand side of the sandbox is **four separate instances** of this component, each with different props. We create those instances in our `map` method in our parent component.
 
+*Exercise: Notice that the objects in our `products` array have a third key: `manufacturer`. Pass this key down to each `ProductItem` and render it alongside `name` and `price`.*
+
 # Component Architecture
 
 In our previous example, you might have noticed that our `ProductPage` component doesn't really render much of anything independently. Its main purpose is to handle its data and send props down to child components. It's only when we get to the `ProductItem` components that we actually render something that looks even close to HTML.
@@ -123,7 +124,7 @@ This is a design philosophy called **separation of concerns**, which means that 
 
 Why is this important? Well, let's go back to our Amazon example. Product items can show up on the homepage, on search index pages, **or** as a recommended/related item on a product page. If we simply have `Home`, `Search` and `Product` components that handle all rendering, we'll have to re-write the same JSX to render the same product previews. Much easier and more efficient to make a `ProductItem` or `ProductThumbnail` component and use it across all of these pages. So, the top-level pages handle their data, but they all feed into the same child components.
 
-Additionally, if we have a parent component that does a single AJAX request and passes the result down as props to several different components, as we saw above, we can avoid a situation where each separate component fires an AJAX request, which would be taxing to our backend server or remote API.
+Additionally, if we have a parent component that does a single API request and passes the result down as props to several different components, as we saw above, we can avoid a situation where each separate component fires an AJAX request, which would be taxing to our backend server or remote API.
 
 Finally, it keeps us organized and it keeps our app consistent. The higher up in our component structure we can store state, and the more components share the same state, the more consistently we present information to the user, and the less we have to update the same information in different places.
 

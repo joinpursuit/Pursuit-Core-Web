@@ -31,13 +31,13 @@ This means _managing the form's state in a React component's state rather than u
 
 **Uncontrolled Components**
 
-This means _not managing the form's state_ using our component's state, but rather, using the form's own state. Not having React hold the state makes it simpler to implement, but we need a way to retrieve the values from the form. Usually, we do this when the form submits. This means that it's trickier to handle malformed user inputs immediately when they're made. Instead, we have to wait to look at their inputs when they submit the form, analyze whether they're wrong, and display an error message.
+This means _not managing the form's state_ using our component's state, but rather, using the form's own state. Not having React hold the state makes it simpler to implement, but we need a way to retrieve the values from the form. Usually, we do this when the form submits. This means that it's trickier to handle malformed user inputs immediately when they're made. Instead, we have to wait to look at their inputs when they submit the form, analyze whether they're wrong, and display an error message. For this reason, we will **not be using uncontrolled components** in our React forms.
 
 # Code Examples
 
 Copy the contents of this folder to a local folder, open it in your code editor, and run `npm install`:
 
-[React forms exercise](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_forms/lab)
+[React forms exercise](https://github.com/joinpursuit/FSW-React-Forms-Exercise/tree/forms-exercise-2)
 
 ## Controlled Components
 
@@ -305,7 +305,7 @@ This way, even though we don't reference the key directly, we make sure that the
 
 Since we've done everything in a controlled manner, we have all the values that we need in our component's state. All we have to do now is modify our `onSubmit` function to get these values from our state and do what we want with them.
 
-When the `submit` button is pressed, `handleFormSubmit` is called, and reads from the state to ensure that the form can be submitted. In a future lesson, we'll see how to react to the state changing to ensure that the user isn't able submit the form until all fields are valid.
+When the `submit` button is pressed, `handleFormSubmit` is called, and calls `allFieldsValid` to make sure that all of our data is provided and the form can be submitted.
 
 ```jsx
 allFieldsValid = () => {
@@ -342,141 +342,6 @@ handleFormSubmit = (event) => {
 };
 ```
 
-## Uncontrolled Components
-
-Controlled components seem like a fair amount of work, so let's look at another way to do this - using the uncontrolled components.
-
-The main difference here is that we won't be capturing the state of the input fields in our React component while they're changing. We rely on the document to keep track of what the user is doing - React doesn't have to be involved. We only extract and use the values in React when the form is actually submitted.
-
-Remove all the `onChange` and `values` attributes from all the inputs in the form. The only thing that should remain is the `onSubmit` function in the `<form>` tag itself.
-
-The component should look something like this:
-
-```jsx
-render() {
-  return (
-    <form onSubmit={this.handleFormSubmit} className="form-container">
-      <h2>User Information</h2>
-      <input
-        id="not-robot"
-        type="checkbox"
-      />
-      <select>
-        <option value=""></option>
-        <option value="mr">Mr.</option>
-        <option value="ms">Ms.</option>
-        <option value="mrs">Mrs.</option>
-        <option value="mx">Mx.</option>
-        <option value="dr">Dr.</option>
-      </select>
-      <input
-        type="text"
-        title="firstName"
-        placeholder="First Name"
-      />
-      <input
-        type="text"
-        title="lastName"
-        placeholder="Last Name"
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-```
-
-Now, just like when we had to apply a `title` to our `text` inputs, we have to give every input a `name` attribute. The name will be how we access the form values, so they will each need to be unique:
-
-```jsx
-render() {
-  return (
-    <form onSubmit={this.handleFormSubmit} className="form-container">
-      <h2>User Information</h2>
-      <input
-        id="not-robot"
-        type="checkbox"
-        name="notARobot
-      />
-      <select name="title">
-        <option value=""></option>
-        <option value="mr">Mr.</option>
-        <option value="ms">Ms.</option>
-        <option value="mrs">Mrs.</option>
-        <option value="mx">Mx.</option>
-        <option value="dr">Dr.</option>
-      </select>
-      <input
-        type="text"
-        name="firstName"
-        placeholder="First Name"
-      />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Last Name"
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-```
-
-Great! That's all the setup we need. Now we can grab the values when we fire our `onSubmit` callback.
-
-`name` enables a special functionality. Remember, because we apply our `onSubmit` function to our `form` tag in the JSX, our `event.target` node when we submit our form is the form itself. The form itself has no efficient access to its form fields and their values. We could potentially key into the child nodes of the form and loop through them, but this raises several complications that we'd prefer to avoid. 
-
-`name` resolves these issues by placing our form fields directly on the `event.target` object. We access the node by literally keying into `event.target` at the key of whatever the `name` attribute is. In the case of `notARobot`, for example, we key into `event.target.notARobot`. Then, to access the value, we either use `.value` for input & select fields or `.checked` for checkbox fields. 
-
-*Discussion question: What would happen if you used .value to key into a checkbox field's value?*
-
-For example:
-
-```js
-handleFormSubmit = (event) => {
-  event.preventDefault();
-  const { firstName, notARobot } = event.target
-  console.log(firstName) // This is the node itself. You should see something like: <input type="text" placeholder="First Name" name="firstName">
-  console.log(firstName.value) // Jimmy
-  console.log(notARobot.checked) // true
-```
-
-Our final version of this function should look something like this:
-
-```js
-const handleFormSubmit = (event) => {
-  event.preventDefault();
-
-  // get all the name properties
-  const {firstName, lastName, title, notARobot} = event.target;
-  
-  // validate them 
-  if (allFieldsValid(firstname.value, lastname.value, title.value, notARobot.checked)) {
-    alert("Form submitted successfully!");
-  } else {
-    alert("Please fill out the form completely");
-  }
-};
-```
-
-Because we're using the event, rather than our component's state, we also need to change how `allFieldsValid()` works. Since we only have access to the fields in the scope of the function that handles `onSubmit`, we need to rewrite `allFieldsValid` to accept arguments instead of referencing something outside of it.
-
-```js
-const allFieldsValid = (...args) => {
-  // loop through all arguments that were passed in
-  // if any are falsy, return false
-  // otherwise, return true
-  args.forEach(arg => {
-    if (!arg) {
-      return false;
-    }
-  })
-
-  return true;
-};
-```
-
-And that's it! 
-
 ## Summary & Poll Questions
 
 **1. Where is the proper place to put .preventDefault()?**
@@ -485,18 +350,9 @@ And that's it!
 * Inside useEffect().
 * You shouldn't use .preventDefault() with React forms.
 
-**2. What's the difference between uncontrolled and controlled components?**
-
-**3. How do we get the current state value from a checkbox?**
+**2. How do we get the current state value from a checkbox?**
 
 * `.value`
 * `.checked`
 * `.name`
 * `event.target`
-
-**4. What HTML attribute do we need to add to all inputs to be able to access them on submit? (in an uncontrolled component)**
-
-* `name`
-* `className`
-* `data-target`
-* `id`

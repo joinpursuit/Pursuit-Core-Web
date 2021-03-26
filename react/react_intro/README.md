@@ -48,17 +48,17 @@ These are illustrated here:
 
 ![Facebook redesign separated into components](./images/fbInterface.jpg)
 
-Using our DOM manipulation approach, we would have all of these different elements in a single HTML file. This would be challenging to maintain because a bug in one area could easily affect the rest of the page. Making matters worse, the bug would be difficult to find. A developer would have to sift through a single huge file to find the issue - think finding a needle in a haystack.
+Using our DOM manipulation approach, we would have to put all of this content together from scratch. This would involve assembling HTML, CSS, and JS by hand to implement all of the functionalities we'd like to implement. We'd have to add event listeners to respond to user interaction, and we'd have to manipulate the DOM directly if anything changed. All of this is really expensive. It's not great performance-wise, and it'd certainly take a lot of dev time.
 
-React solves this problem by introducing `Components`. Instead of laying out all of our HTML and JS in single files, we can separate them into separate files based on what part of the UI they are responsible for rendering. We then import these files, organize them, and let React combine their markup and functionality into a single, cohesive page. If we have an issue in one component, we simply open that component's file, and the code that we need to fix is right there.
+React solves these problems by introducing `Components`. Instead of laying out all of our HTML, JS, and CSS, and hooking these disparate functionalities ourselves, we can combine our logic and rendering into files based on the specific segment of the UI they handle. We then import these files, organize them, and let React combine their markup and functionality into a single, cohesive page. If we have an issue in one component, we simply open that component's file, and the code that we need to fix is right there.
 
-Remember, however, that a web browser can't read and combine components by itself. Even if a developer would like neatly separated files, the browser still needs a single HTML page. The aim of React is to improve quality-of-life for developers while packaging frontend applications in a format that browsers can still read and render efficiently.
+Remember, however, that a web browser can't read and combine components by itself. Even if a developer would like neatly separated files, the browser still needs a single HTML page. In order to handle this, React assembles all of our components into a cohesive DOM tree, which the browser can render to the user as HTML. The aim of React is to improve quality-of-life for developers while packaging frontend applications in a format that browsers can still read and render efficiently.
 
 ## Virtual DOM
 
-So, React assembles an HTML file from all of these different components. How, then, does it change that file when something on the page changes? Say I add a comment on somebody's Facebook post. How does everything update?
+So, how does React know how to put all of these components on a page in a way that the user can see? How does it update when something on the page changes?
 
-At first, you may think that this process would be difficult. When you add that comment, a new HTML element needs to be added to the markup. Remember, when it renders, React has to assemble all the markup on the page from each component and combine it into that single HTML page. When you add an element, then, wouldn't it have to reassemble the entire page and re-draw the entire DOM?  
+At first, you may think that this process would be difficult. When you add that comment, a new HTML element needs to be added to the markup. Remember, when it renders, React has to assemble all the nodes from each component and combine it into that single DOM tree. When you add an element, then, wouldn't it have to reassemble the entire page and re-draw the entire DOM?  
 
 If you think this solution would be slow and inefficient, you're right. React's actual solution is to create what's called a **virtual DOM**. This DOM isn't the one you see on the page - the real DOM still exists and still needs to update. The virtual DOM is there to keep track of what needs to update in the real DOM. Whenever one component changes, it updates the virtual DOM - that is, it reassembles all the elements and combines them behind the scenes before the page updates at all. Then, this virtual DOM is compared to what's actually on the page - the actual DOM. The actual DOM only updates the parts of the page that are different in the virtual DOM. This way, the whole DOM doesn't need to be recreated.
 
@@ -144,7 +144,7 @@ export default App;
 
 `App` is a function with an odd-looking return value. Inside the `()`, we see code that looks like a mixture of JavaScript and HTML. This is a special syntax for React called **JSX**.
 
-While this might be jarring at first, JSX alleviates a big problem we've been facing up to this point. Working with the DOM, we had a JS file referring to, and updating, elements in an HTML file. However, moving back and forth between these files is clunky and unnatural. We'd much rather have our elements and their functionality in the same place. That's what JSX syntax offers us.
+While this might be jarring at first, JSX alleviates a big problem we've been facing up to this point. Working with the DOM, we had a JS file referring to, and updating, elements in an HTML file. However, moving back and forth between these files is time-consuming, and having to update multiple disparate parts each time we need to make a change makes our app vulnerable to bugs. We'd much rather have our elements and their functionality in the same place. That's what JSX syntax offers us.
 
 The following line is perfectly valid JSX:
 
@@ -158,7 +158,7 @@ From the JSX in the return statement of our `App` function, we see another inter
 <img src={logo} className="App-logo" alt="logo" />
 ```
 
-Much like how string interpolation (`${}`) is used to embed variables in strings, JSX uses `{}` to embed computed JavaScript values in HTML. Here, `logo` is a reference to the React logo's SVG file, imported in line 1: `import logo from './logo.svg';`.
+Much like how string interpolation (`${}`) is used to embed variables in strings, JSX uses `{}`, without the `$`, to embed computed JavaScript values in HTML. Here, `logo` is a reference to the React logo's SVG file, imported in line 1: `import logo from './logo.svg';`.
 
 [React](https://reactjs.org/docs/introducing-jsx.html) gives another example of how JSX can be used. This time, we call a function, `formatName`, in our embedded expression. The return value of this function, `Harper Perez`, is then added to the `h1` element after `Hello`:
 
@@ -250,9 +250,11 @@ function App() {
 export default App;
 ```
 
-Every time that you save your application, as long as your server is running, the browser window will reload to reflect the changes that you've made. You should now see the following screen:
+Every time that you save your application, as long as your server is running (i.e. you have `npm start`-ed in the terminal), the browser window will reload to reflect the changes that you've made. You should now see the following screen:
 
 ![reactContacts](./images/reactContacts.png)
+
+*Exercise: Add ages, in years, next to each name in your contacts. For example: `Andrew Clark, 36`.*
 
 ## Duplicating Components
 
@@ -362,18 +364,8 @@ function App() {
 }
 ```
 
-After applying that `className`, we can create an `App.css` file:
 
-```css
-.App-Div {
-  display: flex;
-  border: 8px solid;
-}
-```
-
-And `import` it into `App.js`.
-
-Add some borders and margins around the other components to give you a better impression of how the components are laid out. After we're done, the app should look something like this:
+*Exercise: After applying that `className`, we can create an `App.css` file. `import` it into `App.js`. Add some borders and margins around `App-Div` and other classes to give you a better impression of how the components are laid out. After you're done, the app should look something like this:*
 
 ![styledApp](./images/styledApp.png)
 
