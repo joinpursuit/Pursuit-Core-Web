@@ -307,7 +307,7 @@ const Feed = () => {
 export default Feed;
 ```
 
-Returning to your browser, you should see the following image:
+*Exercise: Add the `<Feed />` component to `<App />`, above the contacts list. Returning to your browser, you should see the following image:*
 
 ![feedImgNoCSS](./images/feedImgNoCSS.png)
 
