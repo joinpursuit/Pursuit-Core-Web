@@ -145,3 +145,14 @@ The main disadvantage to a class component, as you can see, is that the function
 4. They output JSX using a `render` method.
 5. They extend the React `Component` class.
 6. They have `constructor` methods.
+
+## Should React class components extend other React class components?
+Every React class component **must** extend the `React.Component` class. Because these components are classes, you _could_ try to have one React component inherit from another React component. For example, if I have an `<Animal />` component that extends `React.Component`, should I create a `<Mouse />` component that extends the `<Animal />` component?
+
+**The answer is NO.** [Facebook explicitly advises us against having React components inherit from (extend) other React components](https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance)
+
+> At Facebook, we use React in thousands of components, and we haven’t found any use cases where we would recommend creating component inheritance hierarchies.
+
+
+
+**Answer:** No. All React class components **must** inherit from 
