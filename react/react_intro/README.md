@@ -292,14 +292,14 @@ With a `Post` class constructed, we can build our `Feed` class that contains mul
 
 ```jsx
 import React from 'react';
-import FeedPost from './FeedPost.js';
+import Post from './Post.js';
 
 const Feed = () => {
   return (
     <div>
       <h2>Feed</h2>
-      <FeedPost />
-      <FeedPost />
+      <Post />
+      <Post />
     </div>
   )
 }
