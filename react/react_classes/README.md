@@ -58,7 +58,7 @@ myDog.speak('woof')
 
 Note the `new` keyword here. This is an essential keyword for creating a class instance in JavaScript. Think of it (with the standard `()` syntax that we also see on that line) as a way of invoking the class instance's constructor.
 
-*Exericse 1: Create an instance of the `Animal` class. Give it a unique name and a unique thing to say when it speaks. Assign the instance to a variable, and log the instance's `name` and the result of its `speak` method to the console.*
+*Exericse 1: Create an instance of the `Animal` class. Give it a unique name. Assign the instance to a variable, and log the instance's `name` and the result of its `speak` method (with some unique words to speak) to the console.*
 
 *Exercise 2: Create instances of the `Animal` class with this data. Log `name` and `speak()` to the console for each instance. How can you use a loop to do this more efficiently?*
 
