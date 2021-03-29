@@ -60,7 +60,7 @@ Note the `new` keyword here. This is an essential keyword for creating a class i
 
 *Exericse 1: Create an instance of the `Animal` class. Give it a unique name and a unique thing to say when it speaks. Assign the instance to a variable, and log the instance's `name` and the result of its `speak` method to the console.*
 
-*Exercise 2: Create instances of the `Animal` class with this data. How can you use a loop to do this more efficiently?*
+*Exercise 2: Create instances of the `Animal` class with this data. Log `name` and `speak()` to the console for each instance. How can you use a loop to do this more efficiently?*
 
 | Name | Says |
 | ---- | ---- |
