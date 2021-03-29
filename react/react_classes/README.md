@@ -63,6 +63,7 @@ Note the `new` keyword here. This is an essential keyword for creating a class i
 *Exercise 2: Create instances of the `Animal` class with this data. How can you use a loop to do this more efficiently?*
 
 | Name | Says |
+| ---- | ---- |
 | Kermit | ribbit |
 | Ms. Piggy | oink |
 | Fozzie | wakka wakka |
