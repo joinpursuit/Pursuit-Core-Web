@@ -37,7 +37,7 @@ This means _not managing the form's state_ using our component's state, but rath
 
 Copy the contents of this folder to a local folder, open it in your code editor, and run `npm install`:
 
-[React forms exercise](https://github.com/joinpursuit/FSW-React-Forms-Exercise/tree/forms-exercise-2)
+[React forms exercise](https://github.com/joinpursuit/FSW-React-Forms-Exercise)
 
 ## Controlled Components
 
