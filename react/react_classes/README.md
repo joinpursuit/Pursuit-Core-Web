@@ -7,6 +7,13 @@
 * [Classes - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 * [this - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
+# Objectives
+- Understand the purpose of ES6 classes
+- Create instances of an ES6 class and access its attributes and methods
+- Add attributes and methods to an existing ES6 class and access them from an instance of the class
+- Understand how classes are extended in JavaScript and create a class that extends another class
+- Describe the differences between React class components and React functional components
+
 # Introduction
 
 As we've learned, React is a library driven by the concept of components. These components can be written either as functions or as **classes**. Classes are high-level data structures that can contain many **attributes** and **methods**. Like how functions are defined and then called, classes outline their attributes and methods in class **definitions** and then utilize them in **instances**.
@@ -51,6 +58,23 @@ myDog.speak('woof')
 
 Note the `new` keyword here. This is an essential keyword for creating a class instance in JavaScript. Think of it (with the standard `()` syntax that we also see on that line) as a way of invoking the class instance's constructor.
 
+*Exericse 1: Create an instance of the `Animal` class. Give it a unique name. Assign the instance to a variable, and log the instance's `name` and the result of its `speak` method (with some unique words to speak) to the console.*
+
+*Exercise 2: Create instances of the `Animal` class with these names. Log `name` and `speak()` to the console for each instance. Use the words in the table with `speak()` How can you use a loop to do this more efficiently?*
+
+| Name | Says |
+| ---- | ---- |
+| Kermit | ribbit |
+| Ms. Piggy | oink |
+| Fozzie | wakka wakka |
+| Rowlf | arf arf |
+| Big Bird | cheep cheep |
+
+*Exercise 3: Let's add some attributes and methods to the `Animal` class code*
+- Add an `age` attribute to the `Animal` class. Update the constructor to set the `age` when an instance of `Animal` is created.
+- Add a `greet` method to the `Animal` class. `greet()` should return a string that contains the animal's name and age. Ex: `Hello. My name is Luna and I am 42 years old`
+- Create two new instances of `Animal`. Log the instances' age and greeting to the console.
+
 # Extending classes
 
 Another feature available with classes is the `extends` keyword. This allows us to define a type of object with the same methods (and properties) of an existing type of object, plus whatever new methods and properties we want to define. For example, we may define an object of type `Dog` that extends the `Animal` class:
@@ -79,6 +103,8 @@ myDog.bark()
 In this case, the method `speak` is a method on the `Animal` class, but the method `bark` is unique to the `Dog` class. We can make Dogs `speak` (as they are animals), but we cannot make any Animal `bark` (as they are not, necessarily, dogs). In other words, all forks are utensils, but not all utensils are forks.
 
 When extending a class, in order to make sure the parent class gets the data it needs, we need to call `super()` with the arguments the parent class constructor was expecting. Above, the `super` function calls the constructor for the `Animal` class with the provided name.
+
+*Exercise: Create a `Cat` class that extends `Animal`. Cats should have a `meow()` method. Create an instance of `Cat` and log its `speak()` and `meow()` methods to the console.*
 
 # Class components in React
 
@@ -111,3 +137,18 @@ class Example extends React.Component {
 We can see here that our component's connection to the React library is much more explicit in a class component than it is in a functional component. Class components come with other perks, too. Because the render logic is explicitly handled by the component's `render` method, we can define and use other methods on the class to keep our logic organized and make our components more readable.
 
 The main disadvantage to a class component, as you can see, is that the functional component is much more concise. Class components, however, are designed not just to render JSX, but to store and handle data. Therefore, we will start by using class components to handle higher-level, more complex responsibilities, and we'll be using functional components to handle simpler render logic.
+
+*Exercise: Are these statements true of React functional components, React class components, or both?*
+1. They use JSX.
+2. They are functions.
+3. They output JSX using the `return` keyword.
+4. They output JSX using a `render` method.
+5. They extend the React `Component` class.
+6. They have `constructor` methods.
+
+## Should React class components extend other React class components?
+Every React class component **must** extend the `React.Component` class. Because these components are classes, you _could_ try to have one React component inherit from another React component. For example, if I have an `<Animal />` component that extends `React.Component`, should I create a `<Mouse />` component that extends the `<Animal />` component?
+
+**The answer is NO.** [Facebook explicitly advises us against having React components inherit from (extend) other React components](https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance).
+
+> At Facebook, we use React in thousands of components, and we haven’t found any use cases where we would recommend creating component inheritance hierarchies.
