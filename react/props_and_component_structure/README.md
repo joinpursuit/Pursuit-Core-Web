@@ -116,6 +116,53 @@ Importantly, what you're seeing on the right-hand side of the sandbox is **four 
 
 *Exercise: Notice that the objects in our `products` array have a third key: `manufacturer`. Pass this key down to each `ProductItem` and render it alongside `name` and `price`.*
 
+# Props in class components
+For React function components, we saw that you can add `props` as the argument to the function:
+```js
+import React from "react";
+
+const UserProfile = props => {
+  const { name, age, location } = props;
+  return (
+    <ul>
+      <li>Name: {name}</li>
+      <li>Age: {age}</li>
+      <li>Location: {location}</li>
+    </ul>
+  );
+};
+
+export default ProductItem;
+```
+In a React class component, props are accessed differently. Instead of using arguments to a function, you can access props with the expression `this.props`. This is because class components extend `React.Component`, which has a `props` attribute.
+```js
+import React from "react";
+
+class UserProfile extends React.Component {
+  constructor() {
+    super();
+  }
+  
+  render() {
+    const { name, age, location } = this.props;
+    return (
+      <ul>
+        <li>Name: {name}</li>
+        <li>Age: {age}</li>
+        <li>Location: {location}</li>
+      </ul>
+    );
+  }
+}
+
+export default ProductItem;
+```
+*Exercise 1: For `UserProfile`, the function and class component access props differently. What differences do you notice?*
+
+*Exercise 2: In the `UserProfile` class component, `this.props` is accessed inside the `render()` method. What do you think will happen if we move that line of code outside the render method?*
+
+*Exericse 3: Refactor the `ProductItem` component above to be a class component. Make sure it still handles props.*
+
 # Component Architecture
 
 In our previous example, you might have noticed that our `ProductPage` component doesn't really render much of anything independently. Its main purpose is to handle its data and send props down to child components. It's only when we get to the `ProductItem` components that we actually render something that looks even close to HTML.
