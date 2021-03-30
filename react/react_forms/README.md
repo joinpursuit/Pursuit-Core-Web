@@ -258,14 +258,14 @@ render() {
       </select>
       <input
         type="text"
-        title="firstName"
+        name="firstName"
         value={firstName}
         placeholder="First Name"
         onChange={this.handleFirstNameChange}
       />
       <input
         type="text"
-        title="lastName"
+        name="lastName"
         value={lastName}
         placeholder="Last Name"
         onChange={this.handleLastNameChange}
@@ -282,16 +282,16 @@ We can, actually, use the **same function** to handle both of these inputs, like
 
 ```js
 handleTextChange = (e) => {
-  const { title, value } = e.target;
+  const { name, value } = e.target;
   this.setState({
-    [title]: value,
+    [name]: value,
   })
 }
 ```
 
-You'll notice that we added a `title` attribute to our text `input` tags in our JSX. These titles correspond directly to the parts of state that we'd like to update with our input's `value`. Conveniently, both of these attributes exist on our event's `target` key. 
+You'll notice that we added a `name` attribute to our text `input` tags in our JSX. These names correspond directly to the parts of state that we'd like to update with our input's `value`. Conveniently, both of these attributes exist on our event's `target` key. 
 
-Using a special type of square-bracket syntax (`[title]: value`), we can set a variable as a key in an object. When a user, Damien, types their first name into the corresponding field, we pass the `title` of the field in-between the square brackets, and so doing comes up with something like this when `onChange` is called and the values are passed in:
+Using a special type of square-bracket syntax (`[name]: value`), we can set a variable as a key in an object. When a user, Damien, types their first name into the corresponding field, we pass the `name` of the field in-between the square brackets, and so doing comes up with something like this when `onChange` is called and the values are passed in:
 
 ```js
 this.setState({
