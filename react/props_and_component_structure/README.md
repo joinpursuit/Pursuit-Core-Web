@@ -15,7 +15,6 @@
 ## Objectives
 * Understand what props are and what problem they solve
 * Build an application that uses props
-* Pass functions through props to manipulate state
 * Articulate the distinction between container and display components
 
 # Introduction to props
