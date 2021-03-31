@@ -1,136 +1,190 @@
-[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
-
 # Forms in React
 
-Using react to manage form state
-
-## Learning Objectives
+## Objectives
 
 - Use the `form` tag in a React app
 - Create an `input` and `select` and update state accordingly
 - Understand the difference between controlled and uncontrolled components
 
-## Standards
+## Vocabulary
 
-- TBD
+- Controlled components
+- Uncontrolled components
+- Semantic HTML
+- `onChange`
 
-## Prerequisites
+## Resources
+- [Official React forms docs](https://reactjs.org/docs/forms.html)
+- [Form Labels](https://www.w3.org/WAI/tutorials/forms/labels/)
 
-- HTML forms & input tags
-- React, state
+# Framing & Background
 
----
+Remember working with forms in the DOM? How, in retrospect, did those forms know what information to submit? Did they somehow mark a `select`'s `option` element when the user clicked it? Did they keep track what the user types in a text `input` field, or do they have to read it quickly when the user clicks `submit`?
 
-## Framing & Background
+The answer is: Form values are kept track of by the document, and that's how they were accessible via the DOM. Read [here](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement) if you want more informatiion about what happens under the hood, but the jist is: When it comes to forms, the document has its own way to hold "state." Not anything close to a React state, but it keeps track of itself.
 
-Working with forms in react requires a little bit of extra effort. Because input fields have their own state, we have to decide how to handle that state in react. There are two main ways we can do this:
+Because the document keeps track of forms itself, we have to choose which state we want to use to keep track of our forms. Do we use the document's state, or React's? Our choice is between:
 
 **Controlled Components**
 
-This means _managing the form state in a react component_. In order to do this we have update the form state on change, and tie the value of the form field to the state itself, so that it updates visually when it changes.
+This means _managing the form's state in a React component's state rather than using the input fields' values_. In order to do this, we have to do two things: First, we have to update the component's state when the form changes. Second, we have to make sure that the input's field reflects React's state to the user and not the document's. This allows us to keep everything in React, and it allows us to more easily handle input errors. For example, if a user types an invalid email in a text input, we can flag that their email is incorrect as soon as they finish typing.
 
 **Uncontrolled Components**
 
-This means _not managing the form state_ in a component. Not having react hold the state makes it simpler to implement, but we need a way to retrieve the values from the form. Usually we do this when the form submits, or we click a button.
+This means _not managing the form's state_ using our component's state, but rather, using the form's own state. Not having React hold the state makes it simpler to implement, but we need a way to retrieve the values from the form. Usually, we do this when the form submits. This means that it's trickier to handle malformed user inputs immediately when they're made. Instead, we have to wait to look at their inputs when they submit the form, analyze whether they're wrong, and display an error message. For this reason, we will **not be using uncontrolled components** in our React forms.
 
-## Code Example
+# Code Examples
 
-Clone down this repo, open it in your code editor, and run `npm install`
+Copy the contents of this folder to a local folder, open it in your code editor, and run `npm install`:
 
 [React forms exercise](https://github.com/joinpursuit/FSW-React-Forms-Exercise)
 
-## Controlled components
+## Controlled Components
 
-Open up `UserInfoForm.js` and look at what's there.
+Open up `UserInfoForm.js` and look at what's there:
 
-Why do we use a `form` tag and use `onSubmit` instead of using the `onClick` property of the submit button? The main reason is **accessibility**. 
+```jsx
+import React from "react";
+import './UserInfoForm.css';
 
-Some users use a screen reader that translates the UI into audio. In order for this to work effectively, websites should be designed using **semantic HTML**. This means that your HTML tags should be as descriptive as possible to make it clear what their function is.
+class UserInfoForm extends React.Component {
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    alert(`Form submitted!`)
+  }
 
-Also, this means that you can type into a form and hit `Enter` to submit it, which is a better user experience.
+  render() {
+    return (
+      <form onSubmit={this.handleFormSubmit} className="form-container">
+        <h2>User Information</h2>
+        
+        <button type="submit">Submit</button>
+      </form>
+    )
+  }
+}
+
+export default UserInfoForm
+```
+
+Wait, though. We learned how to handle clicks in React already. Why do we use a `form` tag and use `onSubmit` instead of just applying an `onClick` property to the submit button? 
+
+The main reason is **accessibility**. Some vision-impaired users use a screen reader that translates the UI into audio. In order for this to work effectively, websites should be designed using **semantic HTML**. This means that your HTML tags should be as descriptive as possible to make it clear what their function is. 
+
+In other words, semantic HTML means not reflexively using an `h1` tag whenever you want your text to be large. You use it if the text inside the tag represents the actual header of a block of content. Screen readers use these tags to figure out how to sound out the website to the user. If your website is not very accessible, that's not just wasting the time of your disabled users - it's actually a violation of federal law.
+
+*To learn more about web accessibility, specifically creating optimal and maximally accessible and fully assistive-technology-optimized form inputs, take a look at this [tutorial](https://www.w3.org/WAI/tutorials/forms/labels/). Web accessibility is much, much bigger than we can get fully into here, but it's one of the most important and overlooked parts of production web development.*
+
+Additionally, using `form` and `onSubmit` means that you can type into a form and hit `Enter` to submit it, which is a better user experience. If we didn't use a `form` tag, then we'd have to add a listener for a keystroke, which doesn't make sense - it's totally redundant behavior that the tag already handles for us.
 
 Note that we must call `event.preventDefault()` in our `handleFormSubmit` to avoid the page from being reloaded, which is the default behavior that browsers use when a form submits. 
 
-With the structure of our form built, we can now include other opportunities for user input.
+With the structure of our form built, we can now include opportunities for user input.
 
-## 1. Checkboxes
+### Checkboxes
 
 Right now we just have an empty form with a submit button, which isn't super useful.
 
-The first input we'll add is a checkbox.  As the box is checked, we want to update our state. 
+The first input we'll add is a checkbox.  When the user checks this box, we want to update our new `notARobot` part of state: 
 
 ```jsx
-import React, { useState } from "react";
+import React from "react";
+import './UserInfoForm.css';
 
-const handleFormSubmit = (event) => {
-    event.preventDefault();
-    alert("Form submitted!");
-}
-
-const UserInfoForm = () => {
-
-  const [notARobot, setRobot] = useState(false)
-  
-  const handleCheckboxChange = (e) => {
-    setRobot(e.target.checked)
+class UserInfoForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      notARobot: false,
+    };
   }
 
-  return (
-    <form onSubmit={handleFormSubmit}>
-      <h2>User Information</h2>
-      <input 
-        id="not-robot" 
-        type="checkbox" 
-        checked={notARobot}
-        onChange={handleCheckboxChange}
-       />
-      <label htmlFor="not-robot">I am not a robot</label>
-    </form>
-  )
+  handleCheckboxChange = (e) => {
+    const { checked } = e.target;
+
+    this.setState({
+      notARobot: checked,
+    });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    alert(`Form submitted!`);
+  };
+
+  render() {
+    const { notARobot } = this.state;
+
+    return (
+      <form onSubmit={this.handleFormSubmit} className="form-container">
+        <h2>User Information</h2>
+        <input
+          id="not-robot"
+          type="checkbox"
+          checked={notARobot}
+          onChange={this.handleCheckboxChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    );
+  }
 }
 
 export default UserInfoForm;
 ```
 
-We need to _control_ two things here: the value of the checkbox (`true` or `false`), and the function that updates that value.
+We need to _control_ two things here in the JSX: the value of the checkbox and the function that updates that value.
 
-Here we are setting the `checked` property to either `true` or `false`. The state variable `notARobot` is what holds the value.
+Here, we are setting the `checked` property on our input to either `true` or `false`. The state variable `notARobot` is what holds the value.
 
-We bind the function `handleCheckboxChange` to the `onChange` event. When the checkbox gets clicked, this function gets the value (`e.target.checked`) from the checkbox and sets the state using `setRobot`.
+So, we've got `checked`, and we've got `onChange`. The `onChange` attribute hooks a callback function into the input's change event. Our callback function is, generically, called `handleCheckboxChange`. When the checkbox gets clicked, this function gets the value `checked` from the checkbox's event (`e.target`) and sets the state using `setState`.
 
-Since the current state of the checkbox is stored in our `notARobot` variable, we are done.
+Since the current state of the checkbox is stored in our `notARobot` variable, after `setState` re-renders, our checkbox is checked.
 
-## 2. Selects (dropdowns)
+*Question: What would happen if you removed the `onChange` key here? Would the checkbox still get checked on click? What about the `checked` key? Play around with removing and adding attributes to our checkbox.*
 
-For select dropdowns, we have to _control_ two things: the current value of the dropdown, and the function that updates it `onChange`.
+### Selects (i.e. Dropdown Menus)
 
-Selects are a little tricky in that we _must_ use `<select>` and `<option>` together. The `value` attribute in `<option>` is what actually gets read, and the text inside the tag is what gets displayed to the user. 
+For select elements, we have to _control_ two things: the current value of the dropdown, and the function that updates it `onChange`.
 
-We now add a `select` for the title (e.g Ms. or Dr.). First, we need to add the property `title` to the state. This represents the `value` property of the `option` tag.
+Selects are a little tricky in that we _must_ use `<select>` and `<option>` together. The `value` attribute in `<option>` is what actually gets read, and the text inside the tag is what gets displayed to the user. It's important that there isn't a mismatch between these values unless we have a very, very good reason.
+
+Alright, let's add a `select` input for the user's title (e.g. "Ms." or "Dr."). First, we need to add the property `userTitle` to the state. This will directly correspond to the `value` property of the `option` tag that's selected.
 
 ```js
-const [title, setTitle] = useState('')
+this.state = {
+  notARobot: false,
+  userTitle: '',
+};
 ```
 
 Next, we add a function `handleSelectChange` that will update our state when the user selects a different option.
 
 ```jsx
-const handleSelectChange = (e) => {
-  setTitle(e.target.value)
+handleSelectChange = (e) => {
+  const { value } = e.target;
+  this.setState({
+    userTitle: value,
+  });
 }
 ```
 
-Finally, we can add a select inside of our `render()` method:
+Finally, we can add a `select` inside of our `render()` method:
 
 ```jsx
-return (
-  <form onSubmit={handleFormSubmit}>
-    <h2>User Information</h2>
-    <input id="not-robot" type="checkbox" checked={notARobot} onChange={handleCheckboxChange}/>
-    <label htmlFor="not-robot">I am not a robot</label>
+render() {
+  const { notARobot, userTitle } = this.state;
 
-    <div>
-      <select value={title} onChange={handleSelectChange}>
+  return (
+    <form onSubmit={this.handleFormSubmit} className="form-container">
+      <h2>User Information</h2>
+      <input
+        id="not-robot"
+        type="checkbox"
+        checked={notARobot}
+        onChange={this.handleCheckboxChange}
+      />
+      <select value={userTitle} onChange={this.handleSelectChange}>
         <option value=''></option>
         <option value='mr'>Mr.</option>
         <option value='ms'>Ms.</option>
@@ -138,281 +192,167 @@ return (
         <option value='mx'>Mx.</option>
         <option value='dr'>Dr.</option>
       </select>
-    </div>
-
-    <button type="submit">Submit</button>
-  </form>
-)
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
 ```
 
-## 3. Text Inputs
+Remember, we always make sure we're doing two things when we set up controlled inputs: We make sure that the state updates when the input is changed, and we make sure that the value of the changed element reflects the state. Here, our `select` tag does those things with `onChange` and `value`, respectively.
 
-Text inputs work similarly to the other two. We need a `value` to keep in react state, and to change that value when the user types in the field. 
+### Text Inputs
 
-We want now to add text inputs for the first name and the last name of the user. First, add two new hooks for first and last name:
+Controlled text inputs work similarly to the other two. We need a `value` to keep in React state, and we need an `onChange` to change that value when the user types in the field. 
+
+Let's add text inputs for the first name and the last name of the user. First, add two new parts of state to store that input data:
 
 ```jsx
-const [firstName, setFirstName] = useState('')
-const [lastName, setLastName] = useState('')
+this.state = {
+  notARobot: false,
+  userTitle: '',
+  firstName: '',
+  lastName: '',
+};
 ```
 
-Then, we add methods to handle the text in the inputs changing:
+Then, we add methods to handle the text in the input fields changing:
 
 ```jsx
-const handleFirstNameChange = (e) => {
-  setFirstName(e.target.value)
+handleFirstNameChange = (e) => {
+  const { value } = e.target;
+  this.setState({
+    firstName: value,
+  });
 }
 
-const handleLastNameChange = (e) => {
-  setLastName(e.target.value)
+handleLastNameChange = (e) => {
+  const { value } = e.target;
+  this.setState({
+    lastName: value,
+  });
 }
 ```
 
 And add our inputs to the `render` method:
 
 ```jsx
-return (
-  <form onSubmit={handleFormSubmit}>
-    <h2>User Information</h2>
-    <input id="not-robot" type="checkbox" checked={notARobot} onChange={handleCheckboxChange}/>
-    <label htmlFor="not-robot">I am not a robot</label>
+render() {
+  const { notARobot, userTitle, firstName, lastName } = this.state;
 
-    <div>
-      <select value={title} onChange={handleSelectChange}>
-        <option value=''></option>
-        <option value='mr'>Mr.</option>
-        <option value='ms'>Ms.</option>
-        <option value='mrs'>Mrs.</option>
-        <option value='mx'>Mx.</option>
-        <option value='dr'>Dr.</option>
-      </select>
-    </div>
-
-    <input
-      type="text"
-      value={firstName}
-      placeholder="First Name"
-      onChange={handleFirstNameChange}
-    />
-    <input
-      type="text"
-      value={lastName}
-      placeholder="Last Name"
-      onChange={handleLastNameChange}
-    />
-
-    <button type="submit">Submit</button>
-  </form>
-)
-```
-
-Do we really have to write a whole hook for every form field we want to update? That seems repetitive.
-
-Luckily there are other options! We can write a [custom hook](https://serverless-stack.com/chapters/create-a-custom-react-hook-to-handle-form-fields.html). We can also store the state values in one hook and make our function [use dynamic key names](https://stackoverflow.com/questions/55757761/handle-an-input-with-react-hooks) (see #2).
-
-## 4. Handling submission
-
-Since we've done everything in a `controlled` manner, we have all the values that we need in our component's state. So all we have to do is modify our `onSubmit` function to grab the variables.
-
-When the submit button is pressed, `handleFormSubmit` is called, and reads from the state to ensure that the form can be submitted. In a future lesson, we'll see how to react to the state changing to ensure that the user isn't able submit the form until all fields are valid.
-
-```jsx
-const allFieldsValid = () => {
   return (
-    notARobot &&
-    title &&
-    firstName &&
-    lastName
+    <form onSubmit={this.handleFormSubmit} className="form-container">
+      <h2>User Information</h2>
+      <input
+        id="not-robot"
+        type="checkbox"
+        checked={notARobot}
+        onChange={this.handleCheckboxChange}
+      />
+      <select value={userTitle} onChange={this.handleSelectChange}>
+        <option value=""></option>
+        <option value="mr">Mr.</option>
+        <option value="ms">Ms.</option>
+        <option value="mrs">Mrs.</option>
+        <option value="mx">Mx.</option>
+        <option value="dr">Dr.</option>
+      </select>
+      <input
+        type="text"
+        name="firstName"
+        value={firstName}
+        placeholder="First Name"
+        onChange={this.handleFirstNameChange}
+      />
+      <input
+        type="text"
+        name="lastName"
+        value={lastName}
+        placeholder="Last Name"
+        onChange={this.handleLastNameChange}
+      />
+      <button type="submit">Submit</button>
+    </form>
   );
-};
+}
+```
 
-const handleFormSubmit = (event) => {
+You might be thinking: Do we have to create a new function for each new input we create? Besides their names and the parts of state they interact with, these text inputs are functionally the same.
+
+We can, actually, use the **same function** to handle both of these inputs, like so:
+
+```js
+handleTextChange = (e) => {
+  const { name, value } = e.target;
+  this.setState({
+    [name]: value,
+  })
+}
+```
+
+You'll notice that we added a `name` attribute to our text `input` tags in our JSX. These names correspond directly to the parts of state that we'd like to update with our input's `value`. Conveniently, both of these attributes exist on our event's `target` key. 
+
+Using a special type of square-bracket syntax (`[name]: value`), we can set a variable as a key in an object. When a user, Damien, types their first name into the corresponding field, we pass the `name` of the field in-between the square brackets, and so doing comes up with something like this when `onChange` is called and the values are passed in:
+
+```js
+this.setState({
+  firstName: "Damien"
+})
+```
+
+This way, even though we don't reference the key directly, we make sure that the "First Name" field adjusts the `firstName` part of state, and so on.
+
+### Handling submission
+
+Since we've done everything in a controlled manner, we have all the values that we need in our component's state. All we have to do now is modify our `onSubmit` function to get these values from our state and do what we want with them.
+
+When the `submit` button is pressed, `handleFormSubmit` is called, and calls `allFieldsValid` to make sure that all of our data is provided and the form can be submitted.
+
+```jsx
+allFieldsValid = () => {
+  const { notARobot, userTitle, firstName, lastName } = this.state;
+  return notARobot && userTitle && firstName && lastName;
+}
+
+handleFormSubmit = (event) => {
   event.preventDefault();
-  if(allFieldsValid()) {
+  if (this.allFieldsValid()) {
     alert("Form submitted!");
-  }
-  else {
+  } else {
     alert("Please fill out the form completely")
   }
 }
 ```
 
-Normally on submit we would probably send a POST request to the server with the form data. But for this example, we just pop up an alert.
+Normally, `handleFormSubmit` is where we would send the form data to our server via an AJAX. For this example, however, we'll just validate that our data is truthy using the helper function `allFieldsValid`. If our data is valid, we pop up an alert to let them know the form has been successfully submitted.
 
-We can also show the form data in the alert, just to demonstrate that we have access to all the data in the form.
+We can also show the form data in the alert, just to demonstrate that we have access to all the data in the form:
 
 ```js
-const handleFormSubmit = (event) => {
+handleFormSubmit = (event) => {
   event.preventDefault();
-  if(allFieldsValid()) {
-    alert(`Form submitted! \n ${notARobot} \n ${title} \n ${firstName} \n ${lastName}`);
+  const { notARobot, userTitle, firstName, lastName } = this.state;
+
+  if (this.allFieldsValid()) {
+    alert(
+      `Form submitted! \n ${notARobot} \n ${userTitle} \n ${firstName} ${lastName}`
+    );
+  } else {
+    alert("Please fill out the form completely");
   }
-  else {
-    alert("Please fill out the form completely")
-  }
-}
-```
-
-> You can see the final product in the `solution` branch on the example repo.
-
-## Uncontrolled components
-
-So that's a fair amount of work, so let's look at another way to do this - using the uncontrolled component method.
-
-The main difference here is that we won't be capturing the state of the input fields while they're changing. Only when the form gets submitted do we extract the values.
-
-Remove all the `onChange` and `values` attributes from all the inputs in the form. The only thing that should remain is the `onSubmit` function in the `<form>` tag itself.
-
-The component should render something like this:
-
-```jsx
-return (
-  <form onSubmit={handleFormSubmit}>
-    <h2>User Information</h2>
-    
-    <input id="not-robot" type="checkbox" name="notARobot"/>
-    <label htmlFor="not-robot">I am not a robot</label>
-
-    <select name="title">
-      <option value=''></option>
-      <option value='mr'>Mr.</option>
-      <option value='ms'>Ms.</option>
-      <option value='mrs'>Mrs.</option>
-      <option value='mx'>Mx.</option>
-      <option value='dr'>Dr.</option>
-    </select>
-
-    <input
-      type="text"
-      placeholder="First Name"
-    />
-    <input
-      type="text"
-      placeholder="Last Name"
-    />
-
-    <button type="submit">Submit</button>
-  </form>
-)
-```
-
-Now we have to give every input a `name` attribute. The name will be how we access the form values, so they need to be unique but only within this form.
-
-```jsx
-return (
-  <form onSubmit={handleFormSubmit} ref={formTag}>
-    <h2>User Information</h2>
-    
-    <input id="not-robot" type="checkbox" name="notARobot"/>
-    <label htmlFor="not-robot">I am not a robot</label>
-
-    <select name="title">
-      <option value=''></option>
-      <option value='mr'>Mr.</option>
-      <option value='ms'>Ms.</option>
-      <option value='mrs'>Mrs.</option>
-      <option value='mx'>Mx.</option>
-      <option value='dr'>Dr.</option>
-    </select>
-
-    <input
-      type="text"
-      placeholder="First Name"
-      name="firstname"
-    />
-    <input
-      type="text"
-      placeholder="Last Name"
-      name="lastname"
-    />
-
-    <button type="submit">Submit</button>
-  </form>
-)
-```
-
-Great! That's all the setup we need. Now we can grab the values on submit.
-
-Since the `onSubmit` is the _event_ that triggers the action, we make sure our function has an event parameter defined. It doesn't matter what you call it, but `e` or `event` is the canonical name.
-
-To access the elements themselves, we call `event.target.whateverTheNameFieldIs`.
-
-Then to access the value, we either use `.value` for input & select fields, or `.checked` for checkbox fields. 
-
-> What happens if you use .value on a checkbox?
-
-For example:
-
-```js
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target.firstname) // <input type="text" placeholder="First Name" name="firstname">
-    console.log(event.target.firstname.value) // Jimmy
-    console.log(event.target.notARobot.checked) // true
-```
-
-We can use our favorite destructuring syntax to shorten this up.
-
-```js
-const handleFormSubmit = (event) => {
-  event.preventDefault();
-  // get all the name properties
-  let {firstname, lastname, title, notARobot} = event.target
-  
-  //validate them 
-  if(allFieldsValid(firstname.value, lastname.value, title.value, notARobot.checked)) {
-    alert("Form submitted successfully!")
-  }
-  else {
-    alert("Please fill out the form completely")
-  }
-}
-```
-
-We also need to change how `allFieldsValid()` works. Since we only have access to the fields in the scope of the function that handles `onSubmit`, we need to rewrite our function to accept arguments instead of referencing something outside of it.
-
-```js
-const allFieldsValid = (...args) => {
-  // loop through all arguments that were passed in
-  // if any are falsy, return false
-  // otherwise return true
-  for(let i = 0; i < args.length; i++) {
-    if(!args[i]) {
-      return false
-    }
-  }
-  return true
 };
 ```
-
-And that's it! 
 
 ## Summary & Poll Questions
 
 **1. Where is the proper place to put .preventDefault()?**
-* In the onClick handler function
-* In the onSubmit handler function
-* Inside useEffect()
-* You shouldn't use .preventDefault() with react forms
+* In the onClick handler function.
+* In the onSubmit handler function.
+* Inside useEffect().
+* You shouldn't use .preventDefault() with React forms.
 
-**2. What's the difference between uncontrolled and controlled components?**
-
-**3. How do we get the current state value from a checkbox?**
+**2. How do we get the current state value from a checkbox?**
 
 * `.value`
 * `.checked`
 * `.name`
 * `event.target`
-
-**4. What html attribute do we need to add to all inputs to be able to access them on submit? (in an uncontrolled component)**
-
-* `name`
-* `className`
-* `data-target`
-* `id`
-
-### Resources
-
-- [Official react forms docs](https://reactjs.org/docs/forms.html)
-- [Writing a custom hook](https://serverless-stack.com/chapters/create-a-custom-react-hook-to-handle-form-fields.html)
-- [Using hooks to handle multiple inputs](https://stackoverflow.com/questions/55757761/handle-an-input-with-react-hooks)
