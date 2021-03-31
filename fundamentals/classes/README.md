@@ -1,8 +1,5 @@
 # Classes
 
-## Standards
-FSW.1, EF.7, EF.7.a
-
 ## Objectives
 * Be able to write your own class.
 * Be able to inherit  qualities from a class.
