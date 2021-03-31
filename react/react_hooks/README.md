@@ -10,17 +10,15 @@
 
 - [React Hooks Intro](https://reactjs.org/docs/hooks-intro.html)
 - [Hooks Overview](https://reactjs.org/docs/hooks-overview.html)
+- [An Explanation of React.useEffect()](https://dmitripavlutin.com/react-useeffect-explanation/)
 
-# 1. Hooks Motivation
+# Why Hooks?
 
-In 2018, React introduced Hooks as another way to create React components.  Why?  They identified some issues with how classes were used and wanted to introduce a solution to them.  Two of the issues they identified are:
-
-1) Complex components become hard to understand
-2) Classes confuse both people and machines.
+In 2018, React introduced Hooks as another way to hold state in React components. Why? They identified some issues with how classes were used and wanted to introduce a solution to them. 
 
 To understand why, consider the following example of a Component class that sets up a counter and displays the current width of the page:
 
-https://codesandbox.io/s/fervent-haze-u0i9q
+[Example](https://codesandbox.io/s/angry-wescoff-3qmzb)
 
 <details>
 <summary>`App` Code</summary>
@@ -33,9 +31,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { count: 0, width: window.innerWidth };
-    this.handleIncrementClick = this.handleIncrementClick.bind(this);
-    this.handleDecrementClick = this.handleDecrementClick.bind(this);
-    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
@@ -50,13 +45,13 @@ class App extends React.Component {
     this.setState({ width: window.innerWidth });
   };
 
-  handleIncrementClick() {
+  handleIncrementClick = () => {
     this.setState({
       count: this.state.count + 1
     });
   }
 
-  handleDecrementClick() {
+  handleDecrementClick = () => {
     this.setState({
       count: this.state.count - 1
     });
@@ -77,13 +72,15 @@ class App extends React.Component {
 
 export default App;
 ```
-
 </details>
 
+<br />
 
-## Classes can become overly complex
+## In a nutshell: Classes can become overly complex, not DRY, and hard to read.
 
-One confusing thing about this class is that various important bits of functionality are spread over different lifecycle methods.  For example, to respond to window resizing, we need to setup an event listener when the component mounts, then remove it when the component unmounts:
+One confusing thing about this class is that various bits of similar functionality are spread over different lifecycle methods. 
+
+For example, to respond to window resizing, we need to setup an event listener when the component mounts, then remove it when the component unmounts:
 
 ```js
 componentDidMount() {
@@ -95,44 +92,13 @@ componentWillUnmount() {
 }
 ```
 
-As class components get bigger, you add more logic to each of these sections, making it harder to understand where code is being run.
+As our class component gets bigger, we add more logic to each of these sections, making it more and more difficult to understand where code is being run.
 
-## Classes can be confusing
-
-`this` can be a confusing keyword in React.  In our constructor, we need to explicitly bind `this` to our methods, otherwise `this` will be undefined when we try to access `this.window`:
-
-```js
-constructor(props) {
-  super(props);
-  this.state = { count: 0, width: window.innerWidth };
-  this.handleIncrementClick = this.handleIncrementClick.bind(this);
-  this.handleDecrementClick = this.handleDecrementClick.bind(this);
-  this.handleResize = this.handleResize.bind(this);
-}
-handleResize = () => {
-  this.setState({ width: window.innerWidth });
-};
-
-handleIncrementClick() {
-  this.setState({
-    count: this.state.count + 1
-  });
-}
-
-handleDecrementClick() {
-  this.setState({
-    count: this.state.count - 1
-  });
-}
-```
-
-It can be very easy to forget to bind `this`, and can lead to confusing errors.  To resolve these issues, as well as some other problems, React introduced *Hooks*.
-
-# 2. useState
+# `useState`
 
 https://codesandbox.io/s/wonderful-gagarin-l5gtj
 
-Hooks are a new feature of React that allow us to *hook into* a new piece of React functionality.  The most common hook is `useState`  If you have a component that needs state, you can still use a functional component using the `useState` hook.
+Hooks are a new feature of React that allow us to *hook into* a piece of React functionality. The most common hook is `useState`. If you have a component that needs state, you **no longer need a class component** - you can now use a functional component with the `useState` hook.
 
 `useState` is a new method that we can import from React:
 
@@ -140,26 +106,26 @@ Hooks are a new feature of React that allow us to *hook into* a new piece of Rea
 import React, { useState } from "react";
 ```
 
-`useState` takes in one argument (a primate that represents your state) and returns a variable where your state is held, and a method for changing the state.
+`useState` takes in one argument (representing the initial state) and returns both a variable to access that part of state and a method for changing it.
 
-To recreate our counter component, we need to track the current value.
+Let's recreate our counter/window measurer app shown above using hooks. In order to implement a counter, of course, we need to track the current value of our count.
 
-In the line below, we call `useState`, passing in the initial value of the counter (0).  We use [destructuring assignment syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to assign the return value of `useState` into two variables: `counter` and `setCounter`
+In the line below, we call `useState`, passing in the initial value of the counter (0). We use [destructuring assignment syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to assign the return value of `useState` into two variables: `counter` and `setCounter`.
 
 ```js
 const [counter, setCounter] = useState(0);
 ```
 
-With `setCounter` defined, we can then implement methods that increment and decrement the counter:
+With `setCounter` defined, we can then implement functions that increment and decrement the counter:
 
 ```js
-function incrementCounter() {
-  setCounter(counter + 1);
-}
+const incrementCounter = () => {
+    setCounter(counter + 1);
+  };
 
-function decrementCounter() {
+const decrementCounter = () => {
   setCounter(counter - 1);
-}
+};
 ```
 
 Finally, we can build our UI with our new `counter` variable:
@@ -175,15 +141,29 @@ return (
 );
 ```
 
-## Using useState multiple times
+In an app this simple, we could even nix implementing the increment and decrement functions entirely. If we did, our `render` would look like this:
 
-To track multiple different parts of state, we have two options.  We can either pass an object into `useState`, or we can call `useState` multiple times.  Let's use the latter strategy to keep track of the width:
+```js
+return (
+  <div className="App">
+    <h1>Counter App with React Hooks</h1>
+    <h2>{counter}</h2>
+    <button onClick={() => setCounter(counter + 1)}>-</button>
+    <button onClick={() => setCounter(counter - 1)}>+</button>
+    <h2>Width: {width}</h2>
+  </div>
+);
+```
+
+## Using `useState` multiple times
+
+To track multiple different parts of state, we have two options. We can either pass an object into `useState`, or we can call `useState` each time we want to define a different part of state.  Let's use the latter strategy to keep track of the width:
 
 ```js
 const [width, setWidth] = useState(window.innerWidth);
 ```
 
-We now have created an additional variable `width` which will track the width of the page, and a method `setWidth` we can call to update the stateful variable `width`.  We can then use that in our UI:
+We now have created an additional part of state, `width`, which will track the width of the page, and a method `setWidth` we can call to update it. We can then add this to our UI:
 
 ```js
 return (
@@ -208,11 +188,11 @@ export default function App() {
   const [counter, setCounter] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
 
-  function incrementCounter() {
+  const incrementCounter = () => {
     setCounter(counter + 1);
   }
 
-  function decrementCounter() {
+  const decrementCounter = () => {
     setCounter(counter - 1);
   }
 
@@ -229,10 +209,12 @@ export default function App() {
 ```
 </details>
 
-We have almost everything hooked up, but our width doesn't update as the page size changes.  Fortunately, React introduces a new, cleaner way to hook into event listeners in functional components with the `useEffect` hook.
+<br />
+
+We have almost everything hooked up, but our width doesn't update as the page size changes. In our old app, we had to add an event listener to our window in `componentDidMount` and remove it in `componentWillUnmount`. Fortunately, React introduces a new, cleaner way to hook into the component lifecycle with the `useEffect` hook.
 
 
-# 3. useEffect
+# useEffect
 
 `useEffect` is another method that we can import from `React`:
 
@@ -240,9 +222,9 @@ We have almost everything hooked up, but our width doesn't update as the page si
 import React, { useState, useEffect } from "react";
 ```
 
-`useEffect` allows us to create functional React components with **side effects**.  This means that when our functional component is called, it will call `useEffect`, which can allow us to introduce behavior.  Without `useEffect`, our functional components can only return JSX.  Now, they can execute code as well.  Code in a `useEffect` callback would be in a lifecycle method in a React component class, such as `componentDidMount` or `componentWillUnmount`.
+`useEffect` allows us to create functional React components with **side effects**. This means that when our functional component is called, it will call `useEffect`, which can allow us to add functionality to the component on mount, update, and unmount - just like a lifecycle method. In fact, it's useful to think of `useEffect` as all our lifecycle methods rolled into one.
 
-`useEffect` takes in one argument: a callback that will be executed after the first render and every render afterwards.  In this callback, you can use state variables and methods.  In the snippet below, we define a method `handleResize` that takes in no arguments and calls `setWidth` passing in the width of the window.  We then add an event listener that will call `handleResize` whenever the window resizes.
+`useEffect` takes in one argument: a callback that will be executed after the first render **and every render afterwards**. In this callback, you can use state variables and methods. In the snippet below, we define a method, `handleResize`, that calls `setWidth`, passing in the width of the window. We then add an event listener that will call `handleResize` whenever the window resizes.
 
 ```js
 useEffect(() => {
@@ -251,7 +233,7 @@ useEffect(() => {
 });
 ```
 
-When implementing `useEffect`, we can also return a value.  The value we return from useEffect is a callback that React will call when the component is being unmounted.  We don't need to return a callback, but if we do, React will ensure that it's called at the appropriate time.
+When implementing `useEffect`, we can also return a value. The value we return from useEffect is a callback that React will call when the component is being unmounted. We don't need to return a callback, but if we do, React will ensure that it's called at the appropriate time. In this case, it's convenient because we can remove the event listener on our component's unmount, like we did before in `componentWillUnmount`:
 
 ```js
 useEffect(() => {
@@ -265,10 +247,21 @@ useEffect(() => {
 
 Just like `useState` can be called multiple times, we can call `useEffect` multiple times to add multiple different event listeners or anything else that would typically be done in a class component's lifecycle method.
 
-# 4. Summary
+## Controlling when `useEffect` runs
 
-React hooks are a powerful new tool you can use to write cleaner, more functional React programs.  Hooks solve two problems with React components: (1) They can get complex with a lot of different lifecycle methods, and (2) `this` can be confusing when writing code.
+Remember when we said `useEffect` runs on **every single render**? This isn't always desirable. For instance, if we wanted to make a network call and update state on mount, an uncontrolled `useEffect` would make the network call, update the state, re-render, call itself... It'd be an infinite loop.
 
-Two of the most popular hooks are `useState` and `useEffect`.  `useState` allows us to create a stateful variable and method to change that variable.  This variable can be an object or any JavaScript primitive.  We can then call the method generated by `useState` to update our stateful variable.
+When we add functionality to the `useEffect` hook, we can pass in two arguments. The first one, a callback that defines behavior, is the one we've been using. The second one is optional, but critically important if we want to control when our callback is actually called. 
 
-`useEffect` allows us to create side effects for functional React components.  We can add add event listeners and use the return value of the callback that `useEffect` takes in to run any cleanup associated with that effect.
+This second argument, when used, is always an array. Inside this array should be **the values that we want useEffect to keep track of** and run when they change. We can use this to call a function when the props change, like our `componentDidUpdate` method does. Alternatively, we can pass in an empty array to tell our `useEffect` hook to only run on mount - a `componentDidMount` equivalent. Like so:
+
+```js
+useEffect(() => {
+  // network call
+  // state update
+}, [])
+```
+
+# Conclusion
+
+React hooks are the result of years of developers working on React and identifying problems with syntax and readability. While they don't add any new functionality to React, they provide a more direct, streamlined set of tools for managing and rendering data in your React components. If ES6 Class syntax isn't your cup of tea, hooks are your best friend. Even if it is, hooks are an excellent tool in your toolbox for writing concise, beautiful React code.
