@@ -292,14 +292,14 @@ With a `Post` class constructed, we can build our `Feed` class that contains mul
 
 ```jsx
 import React from 'react';
-import FeedPost from './FeedPost.js';
+import Post from './Post.js';
 
 const Feed = () => {
   return (
     <div>
       <h2>Feed</h2>
-      <FeedPost />
-      <FeedPost />
+      <Post />
+      <Post />
     </div>
   )
 }
@@ -307,7 +307,7 @@ const Feed = () => {
 export default Feed;
 ```
 
-Returning to your browser, you should see the following image:
+*Exercise: Add the `<Feed />` component to `<App />`, above the contacts list. Returning to your browser, you should see the following image:*
 
 ![feedImgNoCSS](./images/feedImgNoCSS.png)
 
