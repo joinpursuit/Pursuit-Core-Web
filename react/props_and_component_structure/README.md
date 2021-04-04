@@ -15,7 +15,6 @@
 ## Objectives
 * Understand what props are and what problem they solve
 * Build an application that uses props
-* Pass functions through props to manipulate state
 * Articulate the distinction between container and display components
 
 # Introduction to props
@@ -62,7 +61,7 @@ const ProductPage = () => {
 // ...
 ```
 
-You can see here that we start out our functional `ProductPage` component with an array of objects, each with certain consistent traits: `name`, `manufacturer`, and `price`.
+You can see here that we start our functional `ProductPage` component with an array of objects, each with certain consistent traits: `name`, `manufacturer`, and `price`.
 
 We then then use this array to render our products in JSX:
 
