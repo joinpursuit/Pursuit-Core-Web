@@ -1,4 +1,4 @@
-# ES6 Classes - An Applied Overview
+# React Class Components
 
 ## Sources
 
@@ -147,8 +147,133 @@ The main disadvantage to a class component, as you can see, is that the function
 6. They have `constructor` methods.
 
 ## Should React class components extend other React class components?
+
 Every React class component **must** extend the `React.Component` class. Because these components are classes, you _could_ try to have one React component inherit from another React component. For example, if I have an `<Animal />` component that extends `React.Component`, should I create a `<Mouse />` component that extends the `<Animal />` component?
 
 **The answer is NO.** [Facebook explicitly advises us against having React components inherit from (extend) other React components](https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance).
 
 > At Facebook, we use React in thousands of components, and we haven’t found any use cases where we would recommend creating component inheritance hierarchies.
+
+This doesn't mean we can't have components rendering other components! That's a huge part of react 
+
+
+## Practice writing components with properties
+
+Let's start a new project and see how we might write components using properties. We'll do this with both functional and class components.
+
+`cd` to your sandbox or any directory you prefer
+
+```bash
+$ npx create-react-app component-practice
+$ cd component-practice
+$ code .
+```
+
+Open the `App.js` component and delete everything inside of it!
+
+We can use class components along with the constructor to store and render properties. An example!
+
+```js
+import React, { Component } from 'react';
+
+class Hello extends Component {
+  constructor() {
+    super()
+
+    this.name = "Jimmy"
+  }
+
+  render() {
+    return <h1> Hello {this.name}! </h1>
+  }
+}
+
+export default Hello
+```
+
+> What do you think this will render?
+
+Run `npm start` once you're done and see what appears!
+
+## Refactoring class & functional components
+
+Here's an equivalent way to write the above class component using a functional component instead.
+
+```js
+import React from 'react';
+
+function Hello () {
+  const name = "Jimmy"
+  return <h1> Hello {name}</h1>
+}
+
+export default Hello
+```
+
+Note the differences here!
+
+* We got rid of the class declaration, so nothing to extend
+* There is no constructor - variables are declared directly in the function using `let` or `const`
+* Variables are referenced by name, no `this`
+* There's no `render()` method. We just return from the function
+
+What's similar?
+
+* You still need to import `React` in every file that has JSX
+* You still need to export every component. One component per file is good practice.
+
+## Practice!
+
+Here's one class and one functional component as examples. Convert the class component to a functional one, and convert the functional component to a class component.
+
+Before you start the refactor:
+
+* Copy the entire code snippet into your `App.js` component
+* run `npm test` to look at what the component renders in your browser
+* Take note of what it looks like!
+* Do your refactor, using the original starting point as a guideline.
+
+Your refactoring is successful when the component looks identical before and after!
+
+```js
+import React, { Component } from 'react'
+
+class BookList extends Component {
+  constructor() {
+    super()
+
+    this.titles = ["moby dick", "the great gatsby", "of mice and men"]
+  }
+  render() {
+    return (
+      <ul className="book-titles">
+        {this.titles.map(title => <li>{title}</li>)}
+      </ul>
+    )
+  }
+}
+
+export default BookList
+```
+
+
+```js
+import React from 'react'
+
+function Card() {
+  const cardTitle = "Song Info"
+  const author = "Andrew Bird"
+  const songTitle = "Danse Caribe"
+  const description = "A wonderful song off of the album 'Break it yourself'"
+
+  return (
+    <div className="card">
+      <h1 className="card-title">{cardTitle}</h1>
+      <h2 className="author-title">{author} - {songTitle}</h2>
+      <p>{description}</p>
+    </div>
+  )
+}
+
+export default Card
+```
