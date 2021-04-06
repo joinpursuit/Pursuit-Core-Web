@@ -229,7 +229,7 @@ Here's one class and one functional component as examples. Convert the class com
 Before you start the refactor:
 
 * Copy the entire code snippet into your `App.js` component
-* run `npm test` to look at what the component renders in your browser
+* run `npm start` to look at what the component renders in your browser
 * Take note of what it looks like!
 * Do your refactor, using the original starting point as a guideline.
 
