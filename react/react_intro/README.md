@@ -114,7 +114,6 @@ Let's dig into the project and get a better understanding of how it works.
 Open the `App.js` file. You should see the code below:
 
 ```jsx
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -213,8 +212,6 @@ We get around this by allowing React components to render other components. We c
 Let's create a new child component that our `App.js` will import and render. This component will list some contacts. Therefore, we'll call it `ContactList.js`:
 
 ```jsx
-import React from 'react';
-
 const ContactList = () => {
   return (
     <>
@@ -237,7 +234,6 @@ JavaScript functions can only return one thing. Therefore, the markup we return 
 Returning to our `App.js` file, we can now display our new component. Let's remove all of the boilerplate HTML that was being rendered and replace it with, simply, our `ContactList` component:
 
 ```jsx
-import React from 'react';
 import './App.css';
 import ContactList from './ContactList.js';
 
@@ -267,8 +263,6 @@ There is only one `Post` component. Which means: `Post` has to be reusable. A si
 The `Post` component below uses `{}` to embed values from the `postInfo` variable. For now, that means all of our posts will have the same content. In later lessons, we'll see how we can pass in different properties for different posts:
 
 ```jsx
-import React from 'react';
-
 const postInfo = {
   title: "Sample Post Title",
   imageLink: "https://www.stockvault.net/data/2007/03/01/100169/preview16.jpg",
@@ -291,7 +285,6 @@ export default Post;
 With a `Post` class constructed, we can build our `Feed` class that contains multiple `Post`s:
 
 ```jsx
-import React from 'react';
 import Post from './Post.js';
 
 const Feed = () => {
@@ -341,7 +334,6 @@ Next, let's make a `ContactList.css` file and add the following:
 Return to your `ContactList` component and import your new CSS file:
 
 ```js
-import React from 'react';
 import './ContactList.css';
 
 const ContactList = () => {
