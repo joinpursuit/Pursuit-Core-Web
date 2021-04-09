@@ -21,7 +21,7 @@ In the previous lesson, we saw how to create a static web page using React compo
 
 React has a few ways of storing, handling, and using information. Of course, as a JavaScript framework, it has access to variables. However, updating a variable in React won't change what the user sees. The page won't re-render to reflect that updated information.
 
-Enter **state**. State is a way of storing information in a component and rendering it to the user. A class component can hold state in `this.state`. When we update this state, the entire component re-renders, showing the user different information depending on what the state is and how our component is using it. You might think that re-rendering an entire component would be an inefficient process, but because of the virtual DOM, it's also fast.
+Enter **state**. State is a way of storing information in a component and rendering it to the user. A class component can hold state in `this.state`. When we update this state, the entire component re-renders, showing the user different information depending on what the state is and how our component is using it. You might think that re-rendering an entire component would be an inefficient process, but because of the virtual DOM, it's fast.
 
 Let's see this in action:
 
@@ -56,7 +56,9 @@ handleClick = () => {
 };
 ```
 
-So, let's break down what this is doing under the hood. `setState` updates our component's state and then **calls our component's `render` function**, propogating to the virtual DOM, then the real DOM, reflecting the change that you made to the user.
+So, let's break down what this is doing under the hood.
+
+`setState` updates our component's state and then **calls our component's `render` function**, propogating to the virtual DOM, then the real DOM, reflecting the change that you made to the user.
 
 Now that we've defined our function, it's time to figure out how it will be called. Frequently, we'd like to call our functions in *response to an event* initiated by our users. Back when we were using direct DOM manipulation, you'll remember we had to use `addEventListener` in our JS file and make sure we were referring to the correct DOM node. React is much nicer - we can insert our `handleClick` function directly into the JSX element we'd like to trigger it:
 
@@ -80,6 +82,22 @@ Then, we return our JSX. We've got a containing `div`, because our component can
 `onClick` is one example of how JSX listens for certain events. For the most part, it does what it says - it triggers the function you pass in when the element is clicked. `onClick` **listens** for an event, whereas `handleClick` **handles** what happens afterwards - our `handleClick` function is therefore known as an **event handler**.
 
 To see this app in action, go ahead and click the button. Our `count` part of state increases by one, `render` is called again, and the page updates with this new information. Pretty slick, huh?
+
+Here's the whole run-down of what happens:
+
+* Counter component is created
+* constructor function runs
+  * `this.state` is initialized and assigned a value (0)
+* render function runs
+  * JSX is rendered
+  * JSX includes the current state value (0)
+  * onClick event listener is bound to `this.handleClick`
+* user clicks button
+* handleClick function runs
+* `this.setState` runs
+  * `this.state.counter` is now 1
+  * setState triggers a re-render
+* new state value is displayed on the screen
 
 *Discussion Topic: Notice that the function is passed into `onClick` un-invoked. What would happen if we invoke the function inside the `onClick` attribute?*
 
