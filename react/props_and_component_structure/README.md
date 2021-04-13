@@ -123,7 +123,6 @@ Here, we will build a simple application that uses props to display a list of sh
 ### `ProductPage.js`
 
 ```js
-import React from 'react';
 import ProductItem from './ProductItem';
 
 const ProductPage = () => {
@@ -164,8 +163,6 @@ Think of props as arguments for a component. They compile into an attribute on t
 ### `ProductItem.js`
 
 ```js
-import React from "react"
-
 const ProductItem = (props) => {
   const { name, price } = props
   return (
@@ -191,8 +188,6 @@ _Exercise: Notice that the objects in our `products` array have a third key: `ma
 For React function components, we saw that you can add `props` as the argument to the function:
 
 ```js
-import React from "react"
-
 const UserProfile = (props) => {
   const { name, age, location } = props
   return (
