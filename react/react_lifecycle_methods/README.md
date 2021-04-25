@@ -4,34 +4,39 @@
 * [New Lifecycle Methods](https://blog.logrocket.com/the-new-react-lifecycle-methods-in-plain-approachable-language-61a2105859f3/)
 * [React Documentation](https://reactjs.org/docs/react-component.html)
 * [Interactive lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+* [React rendering order](https://imkev.dev/react-rendering-order)
 
 ## Terms
 * Component Lifecycle
 * Lifecycle Methods
 
 ## Objectives
-* Explain the lifecycle methods that a React component goes through
-* Explain why you have access to those methods
-* Build an app that showcases key React component lifecycle methods
+* Explain the lifecycle that a React component goes through
+* Explain what each lifecycle method does and what it's for
+* Observe and edit an app that showcases key React component lifecycle methods
 
 ## Sample App
 
-- [https://codesandbox.io/s/clever-curie-8t9l1](https://codesandbox.io/s/clever-curie-8t9l1)
+- [https://codesandbox.io/s/summer-thunder-kg2kl](https://codesandbox.io/s/summer-thunder-kg2kl)
+- **Fork this Codepen** before beginning!
 
 # Introduction
 
 The component lifecycle is a term that refers to a React component's timeline in your browser. Components are created, render content, update that content, and are destroyed. At each of these stages, you may want to influence or change the behavior of your component. By default, React has its own behavior for what it will do at each of these stages. However, it provides methods to the `React.Component` class that hook into each individual event. You can use these methods to change how your component will behave.
 
+It's important to note, before we go any further, that the lifecycle methods below are only usable in class components. There are equivalents for functional components, but that's for another time.
+
 # Understanding the Lifecycle's Flow
 
 ![lifecycle](./assets/lifecycleMethods.png)
-
 
 There are two *phases* during a component's lifecycle: the `Render phase` and the `Commit phase`.
 
 ## Render Phase
 
-The render phase is responsible for establishing the changes that you want to make to the DOM. The methods in the render phase are called in a way known as *pure*. This means that, while React may call these methods multiple times in between committing changes, and the result should be the same as calling them once. Because of this convention, and because it can lead to nasty side effects, you should make sure that these methods won't have unexpected behavior if called multiple times. After the render phase is completed, React has established the changes that it wants to make.
+The render phase is responsible for establishing the changes that you want to make to the DOM. You should make sure that these methods won't have unexpected behavior if called multiple times. After the render phase is completed, React has established the changes that it wants to make.
+
+*In your Codepen, save your work and then try calling `addBang` inside the `render` function of `Greeting.js`. Why does this make the app crash?*
 
 ## Commit Phase
 
@@ -55,6 +60,8 @@ Mounting refers to a component being created and inserted into the DOM. There ar
 1. render()
 1. componentDidMount()
 
+*Exercise: Try to predict when each component might mount in your Codepen. Then, open the console and observe the actual order. Why does each component mount when it does?*
+
 ## [constructor()](https://reactjs.org/docs/react-component.html#constructor)
 
 The constructor is called for a component before it is mounted. Most commonly, you set the initial state inside the constructor:
@@ -68,7 +75,7 @@ constructor(props) {
 
 ## [render()](https://reactjs.org/docs/react-component.html#render)
 
-`render` is the The only **required** lifecycle method. As we've seen in previous lessons, `render` typically will return a React element created with JSX (such as `<div />`). The following are also valid to return in the `render` method:
+`render` is the the only **required** lifecycle method. As we've seen in previous lessons, `render` typically will return a React element created with JSX (such as `<div />`). The following are also valid to return in the `render` method:
 
 - Arrays and [fragments](https://reactjs.org/docs/fragments.html)
 - [portals](https://reactjs.org/docs/portals.html)
@@ -112,7 +119,7 @@ componentDidUpdate(prevProps) {
 
 Notice here that React gives us an argument for this method: `prevProps`. If a change in props caused this component to re-render, this can be confirmed by comparing `prevProps` with the current props. Then, we can make our component respond to the change in props. In the above case, after confirming we have a new user ID, we're making a network request.
 
->You may call setState() immediately in componentDidUpdate() but note that it must be wrapped in a condition like in the example above, or you’ll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance.
+*Exercise: When you click an input in your Codepen app, what components update, and when? After saving your work, add a `setState` function inside of one of the `componentDidUpdate`s. Why does the app crash? Can you think of a way that this could be prevented?*
 
 # Unmounting
 
@@ -124,4 +131,4 @@ Inside this method, you should remove subscriptions, cancel ongoing network requ
 
 Note that you shouldn't call `setState()` here. The component is about to unmount, so it will never be re-rendered.
 
-*Other uncommon and deprecated lifecycle methods can be read about (here)[./bonus.md].*
+*Other uncommon and deprecated lifecycle methods can be read about (here)[https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/lifecycle_methods/bonus.md].*
