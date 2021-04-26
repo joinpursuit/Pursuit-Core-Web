@@ -30,12 +30,13 @@ const fireRequest = async () => {
 }
 ```
 
+*Exercise: Find a partner and explain to them what each line in the above snippet does. Why do we need `async`/`await` and `try`/`catch`? What is the function of `axios.get`? What other networking methods might axios provide?*
 
 # Network Calls Inside a Component
 
 [Project Link](https://codesandbox.io/s/random-dog-pictures-yuo8x)
 
-We will start by making an app that loads a random image of a dog, with a button to load a new random image.
+We will start by making an app that loads a random image of a dog, with a button to load a new random image. The above app is for **reference only** - please create your own app locally and follow along with the below instructions rather than copy-pasting. Unstyled, the app will look like this:
 
 ![randomDogAppScreenshot](./assets/randomDogAppScreenshot.png)
 
@@ -69,9 +70,6 @@ const App = () => {
     </>
   );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
 ```
 
 But, wait. We're importing `Dog.js` but we don't have a `Dog.js` in our project! Let's fix that:
@@ -130,7 +128,15 @@ render() {
 }
 ```
 
-Initially, because the default value for our `imgURL` is an empty string, the component will render without a visible image. Whenever the `imgURL` in the state changes, `render` will be called again and the UI will update with the new image. Right now, our `imgURL` is always set to an empty string. 
+*Discussion question: What will the above look like with the initial `imgURL` state?*
+
+<details>
+<summary>Answer</summary>
+Initially, because the default value for our `imgURL` is an empty string, the component will render without a visible image. 
+</details>
+<br />
+
+Whenever the `imgURL` in the state changes, `render` will be called again and the UI will update with the new image. Right now, our `imgURL` is always set to an empty string. 
 
 Now, let's add a method to get this image URL and set it in the state:
 
@@ -277,11 +283,12 @@ import axios from "axios";
 
 import "./DogsContainerStyles.css";
 
+const NUMBER_OF_DOGS = 5;
+
 class DogsContainer extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      numberOfDogs: 5,
       imageURLs: []
     };
   }
@@ -301,20 +308,23 @@ class DogsContainer extends React.PureComponent {
 export default DogsContainer;
 ```
 
-Our constructor sets the initial state with the number of dog images we want to display (`numberOfDogs`), and an empty array of `imageURLs`. Our `render` method then maps the array, passing each URL to individual `Dog` components, each rendering an `img` tag.
+Our constructor sets the initial state with an empty array of `imageURLs`. Our `render` method then maps the array, passing each URL to individual `Dog` components, each rendering an `img` tag.
+
+The number of dog images that will display will not change, and therefore we don't add it to our state. We create a `const` outside of our class that limits our `NUMBER_OF_DOGS` to five.
 
 To start, no images will display. When a user selects a breed, this component will update, receiving the selected breed from its parent. Remember, this component does not handle our `select` input. The only things this component handles are: 1) making a network request based on a recieved prop, and 2) rendering the images it gets from that request. Therefore, our `componentDidUpdate` method handles this first part:
 
 ```js
-  componentDidUpdate(prevProps) {
-    const oldBreed = prevProps.selectedBreed;
-    const newBreed = this.props.selectedBreed;
-    const numberOfDogs = this.state.numberOfDogs;
+  componentDidUpdate = (prevProps) => {
+    this.logToConsole(prevProps, this.props);
+
+    const { selectedBreed: oldBreed } = prevProps;
+    const { selectedBreed: newBreed } = this.props;
 
     if (oldBreed !== newBreed) {
-      this.getRandomDogImagesByBreed(newBreed, numberOfDogs);
+      this.getRandomDogImagesByBreed(newBreed, NUMBER_OF_DOGS);
     }
-  }
+  };
 ```
 
 Note that in `componentDidUpdate`, we only make a network call if the breed has changed. This is to prevent an infinite loop, because `componentDidUpdate` is called each time the component renders itself, and `getRandomDogImagesByBreed` updates the state. Speaking of, let's take a look at that one:
@@ -479,9 +489,6 @@ class App extends React.PureComponent {
     );
   }
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
 ```
 
 We finally get a clear picture of how our app is working here. At first, our `DogBreedSelector` makes a call on `componentDidMount` to the Dog API to fetch a list of dog breeds. The user clicks one. `DogBreedSelector` calls this parent component's `handleSelectedBreed`, which our `DogBreedSelector` receives as a prop. State is updated in the parent component with the selected breed, the component re-renders, and the selected breed is passed down to `DogsContainer`. `DogsContainer` then calls `componentDidUpdate`, notices the new props, and makes a call to the Dog API to get five images. Finally, they're rendered. Phew!
