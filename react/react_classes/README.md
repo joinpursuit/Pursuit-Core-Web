@@ -111,8 +111,6 @@ When extending a class, in order to make sure the parent class gets the data it 
 Now that we understand the basics of how classes use `extends` to inherit functionality, we get a better impression of why classes might have utility in React. Consider the following functional React component:
 
 ```jsx
-import React from 'react';
-
 const Example = () => {
   return <h1> Hello World! </h1>;
 }
@@ -174,7 +172,7 @@ Open the `App.js` component and delete everything inside of it!
 We can use class components along with the constructor to store and render properties. An example!
 
 ```js
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 class Hello extends Component {
   constructor() {
@@ -200,8 +198,6 @@ Run `npm start` once you're done and see what appears!
 Here's an equivalent way to write the above class component using a functional component instead.
 
 ```js
-import React from 'react';
-
 function Hello () {
   const name = "Jimmy"
   return <h1> Hello {name}</h1>
@@ -216,10 +212,10 @@ Note the differences here!
 * There is no constructor - variables are declared directly in the function using `let` or `const`
 * Variables are referenced by name, no `this`
 * There's no `render()` method. We just return from the function
+* You no longer need to import `React` (this is relatively new, we used to have to import `React` in functional components, too - [read details here!](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html))
 
 What's similar?
 
-* You still need to import `React` in every file that has JSX
 * You still need to export every component. One component per file is good practice.
 
 ## Practice!
@@ -236,7 +232,7 @@ Before you start the refactor:
 Your refactoring is successful when the component looks identical before and after!
 
 ```js
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 class BookList extends Component {
   constructor() {
@@ -258,8 +254,6 @@ export default BookList
 
 
 ```js
-import React from 'react'
-
 function Card() {
   const cardTitle = "Song Info"
   const author = "Andrew Bird"
