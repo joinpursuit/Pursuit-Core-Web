@@ -198,7 +198,7 @@ What is expected output?
 </details>
 <p>&nbsp;</p>
 
-Let's take a look at why?
+Let's take a look at why:
 >The first thing that will be moved onto our stack is  `console.log("Hello,");`. This immediately resolves and is popped off our stack.
 
 >The next thing pushed onto the stack is the `setTimeout`. Because this is an `asynchronous` call it will get moved over from our stack to the WebAPI and begin to count down for 1 second.
