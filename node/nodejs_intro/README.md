@@ -161,14 +161,17 @@ Let's break down the different parts of the picture and see if we can get it to 
 - The outer box is the Google Chrome that we know and love. For this example that is our <kbd>coding environment</kbd>.
 
 - The next box we see is the JS box. This is where our code runs. The <kbd>call stack</kbd> is where we are in the code. We can only push and pop things onto our stack. This represents the <kbd>single-thread</kbd> provided.
+
 ![Event Loop Javascript](assets/eventloopjavascript.png)
 
-- Our <kbd>WebAPIs</kbd> is where the 🔮*magic*🔮 happens. This is where our DOM lives, and our <kbd>asynchronous</kbd> calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners. The <kbd>WebAPIs</kbd> are effectively threads in our JS. 
+- Our <kbd>WebAPIs</kbd> is where the 🔮*magic*🔮 happens. This is where our DOM lives, and our <kbd>asynchronous</kbd> calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners. The <kbd>WebAPIs</kbd> are effectively threads in our JS.
+
 ![Event Loop Javascript](assets/eventloopwebapis.png)
 
 When we hit an <kbd>asynchronous</kbd> call in our stack, the call gets moved over to the <kbd>WebAPIs</kbd> area until it resolves.
 
 This means that if our code has a `setTimeout` with a time of 5 seconds. That call will move over to the <kbd>WebAPI</kbd> and wait for 5 seconds.
+
 ![eventLoopImage](assets/eventloop.png)
 
 Once a <kbd>WebAPI</kbd> has resolved, it then moves into the callback queue. A queue means first in, first out. Think about it like waiting in line. Or like only being able to use `.shift` and `.push` with an array.
