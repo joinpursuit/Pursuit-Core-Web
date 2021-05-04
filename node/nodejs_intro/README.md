@@ -155,19 +155,18 @@ Answer: JS itself is <kbd>single-threaded</kbd>, and it's <kbd>asynchronous</kbd
 Take a look at the following picture:
 
 ![eventLoopImage](assets/eventloop.png)
-*Event Loop via [link](https://i.imgur.com/rnQEY7o.png)*
 
-Let's break down the different parts of the picture and see if we can get it to make more sense. For now, disregard the heap part.
+Let's break down the different parts of the picture and see if we can get it to make more sense.
 
 - The outer box is the Google Chrome that we know and love. For this example that is our <kbd>coding environment</kbd>.
 
 - The next box we see is the JS box. This is where our code runs. The <kbd>call stack</kbd> is where we are in the code. We can only push and pop things onto our stack. This represents the <kbd>single-thread</kbd> provided.
 ![Event Loop Javascript](assets/eventloopjavascript.png)
 
-- Our <kbd>WebAPI</kbd> is where the 🔮*magic*🔮 happens. This is where our DOM lives, and our <kbd>asynchronous</kbd> calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners. The <kbd>WebAPIs</kbd> are effectively threads in our JS. 
+- Our <kbd>WebAPIs</kbd> is where the 🔮*magic*🔮 happens. This is where our DOM lives, and our <kbd>asynchronous</kbd> calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners. The <kbd>WebAPIs</kbd> are effectively threads in our JS. 
 ![Event Loop Javascript](assets/eventloopwebapis.png)
 
-When we hit an <kbd>asynchronous</kbd> call in our stack, the call gets moved over to the <kbd>WebAPI's</kbd> area until it resolves.
+When we hit an <kbd>asynchronous</kbd> call in our stack, the call gets moved over to the <kbd>WebAPIs</kbd> area until it resolves.
 
 This means that if our code has a `setTimeout` with a time of 5 seconds. That call will move over to the <kbd>WebAPI</kbd> and wait for 5 seconds.
 ![eventLoopImage](assets/eventloop.png)
@@ -201,22 +200,30 @@ What is expected output?
 </details>
 <p>&nbsp;</p>
 
+
 Let's take a look at why:
 >The first thing that will be moved onto our stack is  `console.log("Hello,");`. This immediately resolves and is popped off our stack.
 
 >The next thing pushed onto the stack is the `setTimeout`. Because this is an <kbd>asynchronous</kbd> call it will get moved over from our stack to the <kbd>WebAPI</kbd> and begin to count down for 1 second.
 
->Our code continues to run and pushes the final `console.log` onto our empty stack. This immediately resolves and is then popped off the <kbd>call stack</kbd>.
+>Our code continues to run and pushes the `console.log("Yoda")` onto our empty stack. This immediately resolves and is then popped off the <kbd>call stack</kbd>.
 
->At this point, the state of our loop is: `Empty Stack, SetTimeout in WebAPI, and empty callback queue.`
+>After 1 second, our `setTimeout` resolves and moves the callback (our `timeout function`) to the callback queue.
 
->After 1 second, our `setTimeout` resolves and moves the callback (our final `console.log`) to the callback queue.
-
->Because our <kbd>call stack</kbd> is empty, the first item of our callback queue is moved onto the stack. The `console.log` is
+>Because our <kbd>call stack</kbd> is empty, the first item of our callback queue (`timeout()`) is moved onto the stack. The `console.log("I am")` is
 immediately resolved and popped off the stack.
 
 >Our code finishes running.
 
+
+<details>
+  <summary>
+    Solution Animation
+  </summary>
+
+  ![Event Loop Solution 1](assets/eventloopsolution1.gif)
+</details>
+<p>&nbsp;</p>
 *Still scratching your head?*
 
 Check out this really cool [visual example](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif), or [interactive example](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) (feel free to skip the video)!
