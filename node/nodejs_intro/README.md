@@ -6,6 +6,7 @@
 - `Demonstrate the different phases of the event loop`
 
 ## Key Vocabulary
+- Coding environment
 - Higher-level programming
 - Compiled vs Interpreted code
 - Single-threaded
@@ -22,7 +23,9 @@ If we go to the Node.js (Node, for short) [website](https://node.js.org/en/) we 
 Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 ```
 
-That is a very technical, somewhat mysterious description. In this lesson we will clarify exactly what this means, understand how Node.js is different from the browser-based Javascript we've been working with so far, and finally we will run our first Node.js code!
+That is a very technical, somewhat mysterious description. To dip a toe in, Node.js is a Javascript runtime environment, meaning it's a place where we can run Javascript code! There are lots of <kbd>coding environments</kbd>: Web Browsers (like Firefox or Chrome), Node.js, your computer, my computer - are all different environments that can run code.
+
+In this lesson we will clarify more about Node.js, understand how it is different from the browser-based Javascript we've been working with so far, and finally we will run our first Node.js code!
 
 In order to get there, we first need to take a step all the way back and look at some of the basics of how computer programs run.
 
@@ -38,7 +41,7 @@ In all our computers, whether desktop computers, laptops, or mobile phones, ther
 
 ## Higher Level Programming Languages
 
-As you can imagine, it is *very* hard to read or write binary code, so in the 1950s people developed a way to write instructions for computer in a language that is easier to understand. We call these `'Higher Level' or 'High-Level' programming languages`. Some of the earlier examples are C, Fortran, PASCAL and C++, to name a few.
+As you can imagine, it is *very* hard to read or write binary code, so in the 1950s people developed a way to write instructions for computer in a language that is easier to understand. We call these <kbd>'Higher Level' or 'High-Level' programming languages</kbd>. Some of the earlier examples are C, Fortran, PASCAL and C++, to name a few.
 <details>
 <summary>
     Fun Fact
@@ -50,7 +53,7 @@ Your computer's operating system (e.g. macOS or Microsoft Windows) is an example
 In the diagram below (you can ignore 'Assembly Lanugage' for now):
 - 💻 `Hardware` is your computer
 - 0️⃣1️⃣ `Machine Code` is the binary code that is giving your computer instructions
-- 📝 `High-Level Lanugages` are sitting on top of everything, getting *compiled* into binary code for the computer to understand.
+- 📝 `High-Level Lanugages` are sitting on top of everything, getting <kbd>compiled</kbd> into binary code for the computer to understand.
 
 
 ![Machine Code](assets/machinecode.png)
@@ -66,7 +69,7 @@ These languages allow us to "abstract" away the binary code that underlies all o
 
 ## Interpreted Languages
 
-Now, where does Javascript fit into all this? Well, ✨ Javascript is special ✨. Javascript is also a high level language, in that it's human-readable and it automates a lot of things like memory allocation, but its code does **not** directly compile to binary. It is referred to as an `"interpreted"` language, in other words, you need an interpreter to understand how to run it!
+Now, where does Javascript fit into all this? Well, ✨ Javascript is special ✨. Javascript is also a high level language, in that it's human-readable and it automates a lot of things like memory allocation, but its code does **not** directly <kbd>compile</kbd> to binary. It is referred to as an <kbd>interpreted</kbd> language, in other words, you need an interpreter to understand how to run it!
 
 Javascript was developed in the 1990s to add interactivity, animations, and little bits of automation to websites.
 
@@ -74,7 +77,7 @@ Javascript was developed in the 1990s to add interactivity, animations, and litt
 ![Old Website](assets/oldwebsite.jpeg)
 *Altavista website by Christiaan Colen - via [link](https://www.flickr.com/photos/christiaancolen/18598795371)*
 
-But, Javascript was first built *just* for use in Web browsers, it didn't need to compile to binary because it was not going to be run on a machine - it would be interpreted by and run in the Web browser.
+But, Javascript was first built *just* for use in Web browsers, it didn't need to compile to binary because it was not going to be run on a machine - it would be <kbd>interpreted</kbd> by and run in the Web browser.
 
 
 ## Web Browser
@@ -102,9 +105,9 @@ Let's take a look at the official Chrome V8 website: [https://developers.google.
 > 7 or later, macOS 10.5+, and Linux systems that use IA-32, ARM, or MIPS processors. V8 can run standalone, or can be 
 > embedded into any C++ application. More information can be found on V8's public wiki.
 
-This is the specific browser tool that Google uses to run and interpret Javascript on all our Google Chrome web browsers.
+This is the specific browser tool that Google uses to run and <kbd>interpret</kbd> Javascript on all our Google Chrome web browsers.
 
-But one day, the very smart people at Google thought: **What if we just run this V8 Javascript Engine on it's own without a browser on a computer? This way, we can use it to write server-side code using Javascript!**
+But one day, a man named Ryan Dahl thought: **What if we just run this V8 Javascript Engine on it's own without a browser on a computer? This way, we can use it to write server-side code using Javascript!**
 
 ✨ **That's how Node.js was born.** ✨
 <p>&nbsp;</p>
@@ -113,11 +116,12 @@ But one day, the very smart people at Google thought: **What if we just run this
 In short, a web server is just a computer serving data on the internet.
 
 ![Fullstack](assets/fullstack.png)
+
 *Figure: Frontend vs. Backend - Author: Seobility - via [link](https://www.seobility.net/en/wiki/Frontend)*
 
-Google decided, with it's V8 Javascript Engine, that it's possible to serve webpages, connect to databases, and manage files all on the server side.
+With the Google V8 Javascript Engine, it's possible to serve webpages, connect to databases, and manage files all on the server side.
 
-But the thing is, stand-alone Javascript in the browser does not have a lot of the capabilities we need to do that server-side programming. Browser-based Javascript, for example, wouldn't expect to connect to a database. So, in order to do these new server-side tasks, Node.js adds many new libraries and additional tools to allow us to do the following:
+But the thing is, stand-alone Javascript in the browser does not have a lot of the capabilities we need to do that server-side programming. Browser-based Javascript, for example, can make a button on a webpage clickable, but it wouldn't expect to connect to a database. So, in order to do these new server-side tasks, Node.js adds many new libraries and additional tools to allow us to do the following:
 
 1. `Input/Output Buffers`: Handle binary data
 2. `File System`: Manage file system on your machine
@@ -132,7 +136,7 @@ These are some of many new things you can do with Javascript in the Node.js envi
 <summary>
     Answer
   </summary>
-  Javascript is a "client-side" language (client-side = web application), and before Node.js, we did not have a tool to allow Javascript to talk to server-side applications like databases. Now, we are able to run servers in Node.js, which is also able to interpret Javascript, so we can bridge the gap between Javascript and server-side tech!
+  Javascript is a "client-side" language (client-side = web application), and before Node.js, we did not have a tool to allow Javascript to talk to server-side applications like databases. Now, we are able to run servers in Node.js, which is also able to <kbd>interpret</kbd> Javascript, so we can bridge the gap between Javascript and server-side tech!
 </details>
 <p>&nbsp;</p>
 <details>
@@ -145,9 +149,9 @@ These are some of many new things you can do with Javascript in the Node.js envi
 
 # Objective 3: The Event Loop
 
-You might have heard that JavaScript is `single-threaded` , this means it can only do one task at a time, and must wait for that task to finish before picking up another one. You may have also heard that it's [`asynchronous`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts), meaning while it waits on a longer task to finish, it can pick up a different task. Well, hold on, that doesn't make sense, how could it be both?! Good question!
+You might have heard that JavaScript is <kbd>single-threaded</kbd> , this means it can only do one task at a time, and must wait for that task to finish before picking up another one. You may have also heard that it's [<kbd>asynchronous</kbd>](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts), meaning while it waits on a longer task to finish, it can pick up a different task. Well, hold on, that doesn't make sense, how could it be both?! Good question!
 
-Answer: JS itself is 🧵 `single-threaded` 🧵, and it's asynchronous behavior is built on top of the core JS language in the browser (or other programming environment) and is accessed through the browser APIs. [EDIT]
+Answer: JS itself is <kbd>single-threaded</kbd>, and it's <kbd>asynchronous</kbd> behavior is built on top of the core JS language in the browser (or other programming environment) and is accessed through the browser APIs.
 Take a look at the following picture:
 
 ![eventLoopImage](assets/eventloop.png)
@@ -155,25 +159,24 @@ Take a look at the following picture:
 
 Let's break down the different parts of the picture and see if we can get it to make more sense. For now, disregard the heap part.
 
-- The outer box is the Google Chrome that we know and love. For this example that is our programming environment.
-![Event Loop Chrome](assets/eventloopchrome.png)
+- The outer box is the Google Chrome that we know and love. For this example that is our <kbd>coding environment</kbd>.
 
-- The next box we see is the JS box. This is where our code runs. The call stack is where we are in the code. We can only push and pop things onto our stack. This represents the 🧵 `single-thread` 🧵 provided.
+- The next box we see is the JS box. This is where our code runs. The <kbd>call stack</kbd> is where we are in the code. We can only push and pop things onto our stack. This represents the <kbd>single-thread</kbd> provided.
 ![Event Loop Javascript](assets/eventloopjavascript.png)
 
-- Our WebAPIs, is where the 🔮*magic*🔮 happens. This is where our DOM lives, and our asynchronous calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners. The WebAPIs are effectively threads in our JS. 
+- Our <kbd>WebAPI</kbd> is where the 🔮*magic*🔮 happens. This is where our DOM lives, and our <kbd>asynchronous</kbd> calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners. The <kbd>WebAPIs</kbd> are effectively threads in our JS. 
 ![Event Loop Javascript](assets/eventloopwebapis.png)
 
-When we hit an asynchronous call in our stack, the call get's moved over to the WebAPI's area until it resolves.
+When we hit an <kbd>asynchronous</kbd> call in our stack, the call gets moved over to the <kbd>WebAPI's</kbd> area until it resolves.
 
-This means that if our code has a `setTimeout` with a time of 5 seconds. That call will move over to the WebAPI and wait for 5 seconds.
+This means that if our code has a `setTimeout` with a time of 5 seconds. That call will move over to the <kbd>WebAPI</kbd> and wait for 5 seconds.
 ![eventLoopImage](assets/eventloop.png)
 
-Once a WebAPI has resolved, it then moves into the callback queue. A queue means first in, first out. Think about it like waiting in line. Or like only being able to use `.shift` and `.push` with an array.
+Once a <kbd>WebAPI</kbd> has resolved, it then moves into the callback queue. A queue means first in, first out. Think about it like waiting in line. Or like only being able to use `.shift` and `.push` with an array.
 
-The items in the queue get resolved only once the call stack is clear. Once the stack is clear it will take the first item from the queue and put it into the stack. Once the stack is clear again, the process will be repeated.
+The items in the queue get resolved only once the <kbd>call stack</kbd> is clear. Once the stack is clear it will take the first item from the queue and put it into the <kbd>stack</kbd>. Once the <kbd>stack</kbd> is clear again, the process will be repeated.
 
-This circular motion of stack, to WebAPI, to Callback queue, to stack is the 🌀 _Event Loop_.🌀
+This circular motion of <kbd>stack</kbd>, to <kbd>WebAPI</kbd>, to Callback queue, to stack is the 🌀 <kbd>_Event Loop_.</kbd>🌀
 
 Using this information let's see if we can predict the order that things will occur:
 
@@ -201,15 +204,15 @@ What is expected output?
 Let's take a look at why:
 >The first thing that will be moved onto our stack is  `console.log("Hello,");`. This immediately resolves and is popped off our stack.
 
->The next thing pushed onto the stack is the `setTimeout`. Because this is an `asynchronous` call it will get moved over from our stack to the WebAPI and begin to count down for 1 second.
+>The next thing pushed onto the stack is the `setTimeout`. Because this is an <kbd>asynchronous</kbd> call it will get moved over from our stack to the <kbd>WebAPI</kbd> and begin to count down for 1 second.
 
->Our code continues to run and pushes the final `console.log` onto our empty stack. This immediately resolves and is then popped off the call stack.
+>Our code continues to run and pushes the final `console.log` onto our empty stack. This immediately resolves and is then popped off the <kbd>call stack</kbd>.
 
 >At this point, the state of our loop is: `Empty Stack, SetTimeout in WebAPI, and empty callback queue.`
 
 >After 1 second, our `setTimeout` resolves and moves the callback (our final `console.log`) to the callback queue.
 
->Because our call stack is empty, the first item of our callback queue is moved onto the stack. The `console.log` is
+>Because our <kbd>call stack</kbd> is empty, the first item of our callback queue is moved onto the stack. The `console.log` is
 immediately resolved and popped off the stack.
 
 >Our code finishes running.
