@@ -321,6 +321,14 @@ console.log("Yoda");
 
 Check out this really cool [visual example](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif), or [interactive example](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) (feel free to skip the video)!
 
+***
+
+### Event Loop Key Takeaways
+- A single threaded language means one function runs at a time
+- An asynchronous language means that the order in which functions are called are not necessarily the order they will resolve
+- In understanding the Event Loop, you will be able to better predict the order that functions will run
+
+***
 
 ## Extra Resources
 - [Javascript Threads - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Thread)
