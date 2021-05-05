@@ -229,7 +229,7 @@ console.log("Yoda");
 
 ```
 
-`Question:` What is expected output?
+`Question:` What is the expected output?
 
 <details>
   <summary>
@@ -294,7 +294,7 @@ console.log("Yoda");
 <p>&nbsp;</p>
 
 
-`Question:` How could we change this code to make the output be <kbd>Hello, I am Yoda</kbd> ?
+`Question:` How could we change the above code to make the output be <kbd>Hello, I am Yoda</kbd> ?
 
 <details>
   <summary>
@@ -317,9 +317,41 @@ console.log("Yoda");
 </details>
 <p>&nbsp;</p>
 
+And one more!
+
+ ```js
+  setTimeout(() => console.log("Luke"), 5000);
+  console.log("I am");
+  setTimeout(() => console.log("your father"), 0);
+  ```
+
+`Question:` What is the expected output?
+
+<details>
+  <summary>
+    Solution
+  </summary>
+
+
+    I am
+    your father
+    Luke
+
+>First, the `"Luke"` setTimeout is moved from the call stack to the WebAPIs area to wait for 5 seconds.
+
+>Then, the `console.log("I am")` gets put on the call stack and resolves immediately.
+
+>Next, the `"your father"` setTimeout is moved from the call stack to the WebAPIs area, but waits for 0 seconds, and then is moved straight to the callback queue while the `"Luke"` setTimeout is still in the WebAPI.
+
+>The `"your father"` setTimeout gets moved to the call stack and resolved.
+
+>Finally, the `"Luke"` setTimeout finishes waiting, is moved to the callback queue, and then the call stack to resolve.
+</details>
+<p>&nbsp;</p>
+
 *Still scratching your head?*
 
-Check out this really cool [visual example](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif), or [interactive example](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) (feel free to skip the video)!
+Check out this really cool [visual example](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif), or try some of our problems in this [interactive example](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) !
 
 ***
 
