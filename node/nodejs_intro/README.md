@@ -194,7 +194,7 @@ Let's break down the different parts of the picture and see if we can get it to 
 
   The <kbd>call stack</kbd> is how Javascript keeps track of all of the function chaos! Since Javascript is <kbd>single-threaded</kbd> (one thing at a time), the <kbd>call stack</kbd> is it's way of determining what function to run at any point. If you are at the top of the <kbd>call stack</kbd>, you're up next!
   We can only push and pop things onto our stack.
-  
+
   ![Call Stack](assets/callstack.gif)
 
 
@@ -369,3 +369,4 @@ Check out this really cool [visual example](https://dev.to/lydiahallie/javascrip
 - [The Event Loop - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 - [The Event Loop - JavaScript Tutorial](https://www.javascripttutorial.net/javascript-event-loop/)
 - [Event Loop Interactive Example w/ ES6 'Microtask Queue'](https://www.jsv9000.app/)
+- [What the heck is the event loop anyway? - video](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
