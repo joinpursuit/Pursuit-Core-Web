@@ -3,7 +3,7 @@
 # Objectives
 - `Understand the need for higher-level programming languages`
 - `Articulate how Javascript and Node.js are related, but different`
-- `Demonstrate the different phases of the event loop`
+- `Demonstrate the different phases of the Event Loop`
 
 ## Key Vocabulary
 - Coding environment
@@ -11,7 +11,7 @@
 - Compiled vs Interpreted code
 - Single-threaded
 - Asynchronous
-- Event loop
+- Event Loop
 - Call stack
 - WebAPI
 
