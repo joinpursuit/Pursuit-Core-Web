@@ -25,7 +25,7 @@ Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 That is a very technical, somewhat mysterious description. To dip a toe in, Node.js is a Javascript runtime environment, meaning it's a place where we can run Javascript code! There are lots of <kbd>coding environments</kbd>: Web Browsers (like Firefox or Chrome), Node.js, your computer, my computer - are all different environments that can run code.
 
-In this lesson we will clarify more about Node.js, understand how it is different from the browser-based Javascript we've been working with so far, and finally we will run our first Node.js code!
+In this lesson we will clarify more about Node.js, understand how it is different from the browser-based Javascript we've been working with so far, and explore a key concept called the Event Loop.
 
 In order to get there, we first need to take a step all the way back and look at some of the basics of how computer programs run.
 
@@ -194,6 +194,7 @@ Let's break down the different parts of the picture and see if we can get it to 
 
   The <kbd>call stack</kbd> is how Javascript keeps track of all of the function chaos! Since Javascript is <kbd>single-threaded</kbd> (one thing at a time), the <kbd>call stack</kbd> is it's way of determining what function to run at any point. If you are at the top of the <kbd>call stack</kbd>, you're up next!
   We can only push and pop things onto our stack.
+  
   ![Call Stack](assets/callstack.gif)
 
 
