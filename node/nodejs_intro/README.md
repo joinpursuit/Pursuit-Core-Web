@@ -92,6 +92,34 @@ Your Web browser (Google Chrome, Safari, Firefox, etc.) is just a ✨ special �
 
 Javascript ONLY works if a computer program such as a Web browser interprets it.
 
+`Check for Understanding:` In an earlier module you used Javascript to manipulate the DOM. What are a few (2-3) actions you could easily perform on HTML elements using Javascript?
+
+<details>
+<summary>
+    Solution
+  </summary>
+
+  - getElementById()
+  - createElement()
+  - querySelector()
+  - appendChild()
+  - replaceChild()
+
+  ...and so many more!
+
+</details>
+<p>&nbsp;</p>
+
+`Check for Understanding:` If I pull up Etsy.com to check out cute handmade ceramic mugs, what on my computer is actually interpreting the Javascript that the Etsy developers wrote?
+
+<details>
+<summary>
+  Solution
+  </summary>
+    My Web browser! For me, that's Google Chrome.
+</details>
+<p>&nbsp;</p>
+
 # Objective 2: What Does Node.js Add to Javascript?
 ## Google's Javascript Engine: V8
 
@@ -121,7 +149,7 @@ In short, a web server is just a computer serving data on the internet.
 
 With the Google V8 Javascript Engine, it's possible to serve webpages, connect to databases, and manage files all on the server side.
 
-But the thing is, stand-alone Javascript in the browser does not have a lot of the capabilities we need to do that server-side programming. Browser-based Javascript, for example, can make a button on a webpage clickable, but it wouldn't expect to connect to a database. So, in order to do these new server-side tasks, Node.js adds many new libraries and additional tools to allow us to do the following:
+But the thing is, stand-alone Javascript in the browser does not have a lot of the capabilities we need to do that server-side programming. Browser-based Javascript, for example, can make a button on a webpage clickable, but it wouldn't expect to make a network call to another website. So, in order to do these new server-side tasks, Node.js adds many new libraries and additional tools to allow us to do the following:
 
 1. `Input/Output Buffers`: Handle binary data
 2. `File System`: Manage file system on your machine
@@ -131,12 +159,12 @@ But the thing is, stand-alone Javascript in the browser does not have a lot of t
 
 These are some of many new things you can do with Javascript in the Node.js environment. Thanks to Node.js and the V8 Engine, Javascript can now directly interface with your machine! 👏
 
-`Check for Understanding`: Why couldn't I connect to a SQL database with Javascript before Node.js existed?  
+`Check for Understanding`: Why couldn't I access my computer's operating system with Javascript before Node.js existed?
 <details>
 <summary>
-    Answer
+    Solution
   </summary>
-  Javascript is a "client-side" language (client-side = web application), and before Node.js, we did not have a tool to allow Javascript to talk to server-side applications like databases. Now, we are able to run servers in Node.js, which is also able to <kbd>interpret</kbd> Javascript, so we can bridge the gap between Javascript and server-side tech!
+  Javascript is a "client-side" language (think, web applications), and before Node.js, we did not have a tool to allow Javascript to talk to server-side applications like operating systems. Now, we are able to run servers in Node.js, which is also able to <kbd>interpret</kbd> Javascript, so we can bridge the gap between Javascript and server-side tech!
 </details>
 <p>&nbsp;</p>
 <details>
@@ -160,27 +188,39 @@ Let's break down the different parts of the picture and see if we can get it to 
 
 - The outer box is the Google Chrome that we know and love. For this example that is our <kbd>coding environment</kbd>.
 
-- The next box we see is the JS box. This is where our code runs. The <kbd>call stack</kbd> is where we are in the code. We can only push and pop things onto our stack. This represents the <kbd>single-thread</kbd> provided.
+- The next box we see is the JS box. This is where our code runs.
 
-![Event Loop Javascript](assets/eventloopjavascript.png)
+  ![Event Loop Javascript](assets/eventloopjavascript.png)
 
-- Our <kbd>WebAPIs</kbd> is where the 🔮*magic*🔮 happens. This is where our DOM lives, and our <kbd>asynchronous</kbd> calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners. The <kbd>WebAPIs</kbd> are effectively threads in our JS.
+  The <kbd>call stack</kbd> is how Javascript keeps track of all of the function chaos! Since Javascript is <kbd>single-threaded</kbd> (one thing at a time), the <kbd>call stack</kbd> is it's way of determining what function to run at any point. If you are at the top of the <kbd>call stack</kbd>, you're up next!
+  We can only push and pop things onto our stack.
+  ![Call Stack](assets/callstack.gif)
 
-![Event Loop Javascript](assets/eventloopwebapis.png)
 
-When we hit an <kbd>asynchronous</kbd> call in our stack, the call gets moved over to the <kbd>WebAPIs</kbd> area until it resolves.
+- Our <kbd>WebAPIs</kbd> is where the 🔮*magic*🔮 happens. This is where our DOM lives, and this is where our <kbd>asynchronous</kbd> calls such as SetTimeout, SetInterval, AJAX calls, and our event listeners go, since Javscript itself cannot handle asynchronicity.
 
-This means that if our code has a `setTimeout` with a time of 5 seconds. That call will move over to the <kbd>WebAPI</kbd> and wait for 5 seconds.
+  ![Event Loop Javascript](assets/eventloopwebapis.png)
 
-![eventLoopImage](assets/eventloop.png)
+  When we hit an <kbd>asynchronous</kbd> call in our stack, the call gets moved over to the <kbd>WebAPIs</kbd> area until it resolves.
 
-Once a <kbd>WebAPI</kbd> has resolved, it then moves into the callback queue. A queue means first in, first out. Think about it like waiting in line. Or like only being able to use `.shift` and `.push` with an array.
+  This means that if our code has a `setTimeout` with a time of 5 seconds, that call will move over to the <kbd>WebAPI</kbd> and wait for 5 seconds.
 
-The items in the queue get resolved only once the <kbd>call stack</kbd> is clear. Once the stack is clear it will take the first item from the queue and put it into the <kbd>stack</kbd>. Once the <kbd>stack</kbd> is clear again, the process will be repeated.
+  ![eventLoopImage](assets/eventloop.png)
 
-This circular motion of <kbd>stack</kbd>, to <kbd>WebAPI</kbd>, to Callback queue, to stack is the 🌀 <kbd>_Event Loop_.</kbd>🌀
+  Once a <kbd>WebAPI</kbd> has resolved, it then moves into the callback queue. A queue means the first thing in, is the first thing out. Unlike a stack, where the first thing in might get buried by the newer items on top, a queue is like waiting in line. Or like only being able to use `.shift` and `.push` with an array.
 
-Using this information let's see if we can predict the order that things will occur:
+  The items in the queue get resolved only once the <kbd>call stack</kbd> is clear. Once the stack is clear it will take the first item from the queue and put it into the <kbd>call stack</kbd>. Once the <kbd>call stack</kbd> is clear again, the process will be repeated.
+
+This circular motion of <kbd>call stack</kbd>, to <kbd>WebAPI</kbd>, to callback queue, to <kbd>call stack</kbd> is the 🌀 <kbd>_Event Loop_.</kbd>🌀
+
+
+<br>
+
+***
+<br>
+
+## Let's Try It!
+Using this information about the Event Loop, let's see if we can predict the order that things will occur:
 
 ```js
 console.log("Hello,");
@@ -189,7 +229,7 @@ console.log("Yoda");
 
 ```
 
-What is expected output?
+`Question:` What is expected output?
 
 <details>
   <summary>
@@ -227,9 +267,7 @@ immediately resolved and popped off the stack.
   ![Event Loop Solution 1](assets/eventloopsolution1.gif)
 </details>
 <p>&nbsp;</p>
-*Still scratching your head?*
 
-Check out this really cool [visual example](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif), or [interactive example](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) (feel free to skip the video)!
 
 Alright, now let's try another example:
 
@@ -239,12 +277,12 @@ setTimeout(() => console.log("I am"), 0);
 console.log("Yoda");
 ```
 
-What do we think the output to screen will be now?
+`Question:` What do we think the output to screen will be now?
+
 <details>
   <summary>
     Solution
   </summary>
-
 
 
     Hello,
@@ -254,6 +292,34 @@ What do we think the output to screen will be now?
    The output will be identical to the previous example. The reason: Regardless, of how quickly our setTimeout is set to resolve (in this case, in 0 seconds), it is still moved into the WebAPI.
 </details>
 <p>&nbsp;</p>
+
+
+`Question:` How could we change this code to make the output be <kbd>Hello, I am Yoda</kbd> ?
+
+<details>
+  <summary>
+    Solution
+  </summary>
+
+  ```js
+  console.log("Hello,");
+  console.log("I am");
+  console.log("Yoda");
+  ```
+  or
+
+ ```js
+  console.log("Hello,");
+  setTimeout(() => console.log("Yoda"), 0);
+  console.log("I am");
+  ```
+
+</details>
+<p>&nbsp;</p>
+
+*Still scratching your head?*
+
+Check out this really cool [visual example](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif), or [interactive example](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) (feel free to skip the video)!
 
 
 ## Extra Resources
