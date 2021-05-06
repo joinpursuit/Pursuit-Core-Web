@@ -14,7 +14,7 @@
 
 # Why Hooks?
 
-In 2018, React introduced Hooks as another way to hold state in React components. Why? They identified some issues with how classes were used and wanted to introduce a solution to them. 
+In 2018, React introduced Hooks as another way to hold state in React components. Why? They identified some issues with how classes were used and wanted to introduce a solution to them.
 
 To understand why, consider the following example of a Component class that sets up a counter and displays the current width of the page:
 
@@ -47,15 +47,15 @@ class App extends React.Component {
 
   handleIncrementClick = () => {
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
-  }
+  };
 
   handleDecrementClick = () => {
     this.setState({
-      count: this.state.count - 1
+      count: this.state.count - 1,
     });
-  }
+  };
 
   render() {
     return (
@@ -72,13 +72,14 @@ class App extends React.Component {
 
 export default App;
 ```
+
 </details>
 
 <br />
 
 ## In a nutshell: Classes can become overly complex, not DRY, and hard to read.
 
-One confusing thing about this class is that various bits of similar functionality are spread over different lifecycle methods. 
+One confusing thing about this class is that various bits of similar functionality are spread over different lifecycle methods.
 
 For example, to respond to window resizing, we need to setup an event listener when the component mounts, then remove it when the component unmounts:
 
@@ -96,9 +97,9 @@ As our class component gets bigger, we add more logic to each of these sections,
 
 # `useState`
 
-https://codesandbox.io/s/wonderful-gagarin-l5gtj
+- [Example Code](https://codesandbox.io/s/billowing-meadow-61cnj)
 
-Hooks are a new feature of React that allow us to *hook into* a piece of React functionality. The most common hook is `useState`. If you have a component that needs state, you **no longer need a class component** - you can now use a functional component with the `useState` hook.
+Hooks are a new feature of React that allow us to _hook into_ a piece of React functionality. The most common hook is `useState`. If you have a component that needs state, you **no longer need a class component** - you can now use a functional component with the `useState` hook.
 
 `useState` is a new method that we can import from React:
 
@@ -120,8 +121,8 @@ With `setCounter` defined, we can then implement functions that increment and de
 
 ```js
 const incrementCounter = () => {
-    setCounter(counter + 1);
-  };
+  setCounter(counter + 1);
+};
 
 const decrementCounter = () => {
   setCounter(counter - 1);
@@ -157,7 +158,7 @@ return (
 
 ## Using `useState` multiple times
 
-To track multiple different parts of state, we have two options. We can either pass an object into `useState`, or we can call `useState` each time we want to define a different part of state.  Let's use the latter strategy to keep track of the width:
+To track multiple different parts of state, we have two options. We can either pass an object into `useState`, or we can call `useState` each time we want to define a different part of state. Let's use the latter strategy to keep track of the width:
 
 ```js
 const [width, setWidth] = useState(window.innerWidth);
@@ -190,11 +191,11 @@ export default function App() {
 
   const incrementCounter = () => {
     setCounter(counter + 1);
-  }
+  };
 
   const decrementCounter = () => {
     setCounter(counter - 1);
-  }
+  };
 
   return (
     <div className="App">
@@ -207,12 +208,12 @@ export default function App() {
   );
 }
 ```
+
 </details>
 
 <br />
 
 We have almost everything hooked up, but our width doesn't update as the page size changes. In our old app, we had to add an event listener to our window in `componentDidMount` and remove it in `componentWillUnmount`. Fortunately, React introduces a new, cleaner way to hook into the component lifecycle with the `useEffect` hook.
-
 
 # useEffect
 
@@ -222,9 +223,19 @@ We have almost everything hooked up, but our width doesn't update as the page si
 import React, { useState, useEffect } from "react";
 ```
 
-`useEffect` allows us to create functional React components with **side effects**. This means that when our functional component is called, it will call `useEffect`, which can allow us to add functionality to the component on mount, update, and unmount - just like a lifecycle method. In fact, it's useful to think of `useEffect` as all our lifecycle methods rolled into one.
+`useEffect` allows us to create functional React components with **side effects**. This means that when our functional component is called, it will call `useEffect`, which can allow us to add functionality to the component on mount, update, and unmount - just like a lifecycle method. In fact, it's useful to think of `useEffect` as all those lifecycle methods rolled into one.
 
-`useEffect` takes in one argument: a callback that will be executed after the first render **and every render afterwards**. In this callback, you can use state variables and methods. In the snippet below, we define a method, `handleResize`, that calls `setWidth`, passing in the width of the window. We then add an event listener that will call `handleResize` whenever the window resizes.
+## useEffect as componentDidUpdate
+
+`useEffect` takes in up to two arguments, the first of which is a callback that will be executed after the first render **and every render afterwards**. In this callback, you can use state variables and methods.
+
+```js
+useEffect(() => {
+  // Code to be run on every render.
+});
+```
+
+In the snippet below, we define a method, `handleResize`, that calls `setWidth`, passing in the width of the window. We then add an event listener that will call `handleResize` whenever the window resizes.
 
 ```js
 useEffect(() => {
@@ -233,7 +244,24 @@ useEffect(() => {
 });
 ```
 
-When implementing `useEffect`, we can also return a value. The value we return from useEffect is a callback that React will call when the component is being unmounted. We don't need to return a callback, but if we do, React will ensure that it's called at the appropriate time. In this case, it's convenient because we can remove the event listener on our component's unmount, like we did before in `componentWillUnmount`:
+The effect of the code above is very similar to using the `componentDidUpdate` method.
+
+However, the solution above has some problems. As mentioned, `useEffect` will run on every render. That means on every prop and state change, the same event listener will be added multiple times to the window. One way to solve this is to remove the event listener when the component is unmounted.
+
+## useEffect as componentWillUnmount
+
+When implementing `useEffect`, we can also return a value. The value we return from `useEffect` is a callback that React will call when the component is being unmounted. We don't need to return a callback, but if we do, React will ensure that it's called at the appropriate time.
+
+```js
+useEffect(() => {
+  // Code to be run on every render.
+  return () => {
+    // Code to be run when the component is unmounted.
+  };
+});
+```
+
+In this case, it's convenient because we can remove the event listener on our component's unmount, like we did before in `componentWillUnmount`:
 
 ```js
 useEffect(() => {
@@ -247,19 +275,35 @@ useEffect(() => {
 
 Just like `useState` can be called multiple times, we can call `useEffect` multiple times to add multiple different event listeners or anything else that would typically be done in a class component's lifecycle method.
 
-## Controlling when `useEffect` runs
+The code above effectively implements `componentDidUpdate` as well as `componentWillUnmount`. But what about `componentDidMount`?
 
-Remember when we said `useEffect` runs on **every single render**? This isn't always desirable. For instance, if we wanted to make a network call and update state on mount, an uncontrolled `useEffect` would make the network call, update the state, re-render, call itself... It'd be an infinite loop.
+## useEffect as componentDidMount
 
-When we add functionality to the `useEffect` hook, we can pass in two arguments. The first one, a callback that defines behavior, is the one we've been using. The second one is optional, but critically important if we want to control when our callback is actually called. 
+When we add functionality to the `useEffect` hook, we can pass in two arguments. The first one, a callback that defines behavior, is the one we've been using. The second one is optional, but critically important if we want to control when our callback is actually called.
 
-This second argument, when used, is always an array. Inside this array should be **the values that we want useEffect to keep track of** and run when they change. We can use this to call a function when the props change, like our `componentDidUpdate` method does. Alternatively, we can pass in an empty array to tell our `useEffect` hook to only run on mount - a `componentDidMount` equivalent. Like so:
+This second argument, when used, is always an array. Inside this array should be **the values that we want useEffect to keep track of** and run when they change. We can use this to call a function when the props change, like our `componentDidUpdate` method does.
+
+Alternatively, we can pass in an empty array to tell our `useEffect` hook to only run on mount - a `componentDidMount` equivalent. Like so:
 
 ```js
 useEffect(() => {
-  // network call
-  // state update
-}, [])
+  // Code to be run when the component is mounted.
+  return () => {
+    // Code to be run when the component is unmounted.
+  };
+}, []);
+```
+
+Adding the empty array effectively changes `useEffect` from mimicking `componentDidUpdate` to `componentDidMount`. The final version of the resizing code would look very similar to before.
+
+```js
+useEffect(() => {
+  const handleResize = () => setWidth(window.innerWidth);
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}. []);
 ```
 
 # Conclusion
