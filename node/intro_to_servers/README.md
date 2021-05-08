@@ -77,19 +77,21 @@ To make things easier for humans, IP addresses usually have a human readable ali
 
 The last few pieces of key vocabulary to know are the following:
 
-* <kbd>DNS</kbd>: Domain Name Servers are like an address book for websites. When you type a web address in your browser, the DNS server gets hit first, which then translates the address to an ip address.
+* <kbd>DNS</kbd>: Domain Name Servers (DNS) are like an address book for websites. When you type a web address in your browser, the DNS server gets hit first and it translates the domain name to an ip address.
 ![DNS Server](assets/DNS-Server.png)
-*Figure: DNS-Server - Author: [Seobility](https://www.seobility.net/en/wiki/images/d/d0/DNS-Server.png)*
+
+    *Figure: DNS-Server - Author: [Seobility](https://www.seobility.net/en/wiki/images/d/d0/DNS-Server.png)*
 
 * <kbd>HTTP</kbd> (Hypertext Transfer Protocol): a protocol that defines  how clients and servers speak to each other.
 ![HTTP](assets/HTTP-Header.png)
-*Figure: HTTP Header - Author: [Seobility](https://www.seobility.net/en/wiki/HTTP_headers)*
+
+    *Figure: HTTP Header - Author: [Seobility](https://www.seobility.net/en/wiki/HTTP_headers)*
 
 * <kbd>Component files</kbd>: A website is made up of many different files. These files come in two main types:
   * **Code files**: Websites are built primarily built from HTML, CSS, and JavaScript.
   * **Assets**: All the other stuff that makes up a website, such as images, music, video, Word documents, and PDFs.
 
-### `So, I go to www.Etsy.com and the homepage shows up, what happened, exactly?`
+### `So, I go to www.Etsy.com and the homepage shows up. What happened, exactly?`
 
 ![Navigating to a Website](assets/DNS-HTTP.png)
 
