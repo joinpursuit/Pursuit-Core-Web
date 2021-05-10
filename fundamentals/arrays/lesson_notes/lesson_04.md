@@ -4,7 +4,6 @@
 
 Please complete the following before the lesson begins:
 
-- Fork this gist. Then, if you wish to take notes in the gist itself, click the “Edit” button.
 - Open and then fork this [Replit](https://replit.com/@bwreid/Arrays-Part-III#index.js).
 - Complete the Warmup Questions & Tasks detailed at the top of the Replit.
 
@@ -30,8 +29,6 @@ Please complete the following before the lesson begins:
 
   Without running the code, what do you expect to be printed out?
 
-  > Your answer…
-
 - While the above is perfectly valid code, it can be done much quicker with destructuring. Destructuring allows you to assign multiple variables at the same time for each index of an array.
 
   ```js
@@ -44,8 +41,6 @@ Please complete the following before the lesson begins:
   The code above works the same as the earlier example.
 
   In your own words, describe what is occurring above. Consider describing the syntax as well as the result.
-
-  > Your answer…
 
 - Take a look at the code below which is indeed valid.
 
@@ -60,8 +55,6 @@ Please complete the following before the lesson begins:
   ```
 
   What do you think the value of `x` will be in this case? What about `y`? Make a guess before running the code.
-
-  > Your answer…
 
 - Another helpful syntax tool is signified by three dots (i.e. `...`) and is called either the “spread” or “rest” operator, depending on its usage.
 
@@ -82,8 +75,6 @@ Please complete the following before the lesson begins:
   ```
 
   In your own words, describe what the `...` is doing in each of the above cases.
-
-  > Your answer…
 
 ## Exercise
 

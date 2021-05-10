@@ -4,7 +4,6 @@
 
 Please complete the following before the lesson begins:
 
-- Fork this gist. Then, if you wish to take notes in the gist itself, click the “Edit” button.
 - Open and then fork this [Replit](https://replit.com/@bwreid/Arrays-Part-I).
 - Complete the Warmup Questions & Tasks detailed at the top of the Replit.
 
@@ -24,11 +23,7 @@ By the end of this lesson you will be able to:
 
 - What can arrays do that strings, numbers, booleans, undefined, and null cannot do?
 
-  > Your answer…
-
 - Arrays are collections of elements. What kinds of data types can be elements within in array?
-
-  > Your answer…
 
 - Take a look at the `teaOptions` array below. What characters let you know that this is an array?
 
@@ -36,11 +31,7 @@ By the end of this lesson you will be able to:
   let teaOptions = ["Earl Grey", "Jasmine", "Mint"];
   ```
 
-  > Your answer…
-
 - How can you determine the length of an array without manually counting all of the elements inside of the array?
-
-  > Your answer…
 
 - At the bottom of your Repl.it, copy and paste the following code. Before pressing the “Run” button, consider what you think will happen. Then, press “Run” to confirm your hypothesis. Did you guess right?
 
@@ -52,11 +43,7 @@ By the end of this lesson you will be able to:
 
   If you wanted to access the first item in the array, how would you do so?
 
-  > Your answer…
-
 - Arrays are indexed starting at 0. If your array has a length of 5, what is the index of the last element in the array? How can you use the array’s length to calculate this?
-
-  > Your answer…
 
 - Some array methods can pull items out of an array from different positions. For example, copy the code below into your Repl.it. Before running it, mentally evaluate the code and make a guess as to what will be logged. Then, run the code.
 
@@ -70,8 +57,6 @@ By the end of this lesson you will be able to:
   console.log(result);
   ```
 
-  > Your answer…
-
 - Overwrite the code above with the code below. Before running it, mentally evaluate the code and make a guess as to what will be logged. Then, run the code.
 
   Did you guess right? What does the `.push()` method do? What values does the `.push()` method return?
@@ -84,8 +69,6 @@ By the end of this lesson you will be able to:
   console.log(result);
   ```
 
-> Your answer…
-
 - What will the following code do? Why so?
 
   ```js
@@ -93,8 +76,6 @@ By the end of this lesson you will be able to:
   teaOptions.push("Chai").pop();
   console.log(teaOptions);
   ```
-
-  > Your answer…
 
 - It’s also possible to manually assign a spot in an array using bracket notation. Try running the following code to see how it works.
 
@@ -107,8 +88,6 @@ By the end of this lesson you will be able to:
   What would you expect to happen if instead assigning the value `"Darjeeling"` at the 3rd index, you instead did so at the 2nd? What about at 5th?
 
   Try each of these out and then describe your findings.
-
-  > Your answer…
 
 ## Exercise
 

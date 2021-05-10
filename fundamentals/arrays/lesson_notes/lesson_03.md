@@ -4,7 +4,6 @@
 
 Please complete the following before the lesson begins:
 
-- Fork this gist. Then, if you wish to take notes in the gist itself, click the “Edit” button.
 - Open and then fork this [Replit](https://replit.com/@bwreid/Arrays-Part-II).
 - Complete the Warmup Questions & Tasks detailed at the top of the Replit.
 
@@ -31,8 +30,6 @@ Please complete the following before the lesson begins:
 
   Why is `false` logged to the console? What does calling `.slice()` without any arguments do?
 
-  > Your answer…
-
 - In the example above, add an argument of `1` to the `.slice()` method, like so:
 
   ```js
@@ -40,8 +37,6 @@ Please complete the following before the lesson begins:
   ```
 
   How is `result` different than before?
-
-  > Your answer…
 
 - In the example above, update the arguments of `.slice()` so that it looks like the following:
 
@@ -51,15 +46,9 @@ Please complete the following before the lesson begins:
 
   How is `result` different than before?
 
-  > Your answer…
-
 - Take a moment to describe the difference between the first and second argument of `.slice()`, in your own words.
 
-  > Your answer…
-
 - Is `.slice()` a destructive or non-destructive array method? How do you know?
-
-  > Your answer…
 
 - The `.splice()` method is very similar to `.slice()`. Update your example so that it looks like the code below.
 
@@ -72,8 +61,6 @@ Please complete the following before the lesson begins:
 
   With no arguments, does `.splice()` work any differently than `.slice()`? If it does, how so?
 
-  > Your answer…
-
 - In the example above, add an argument of `1` to the `.splice()` method, like so:
 
   ```js
@@ -81,8 +68,6 @@ Please complete the following before the lesson begins:
   ```
 
   With a single argument, does `.splice()` work any differently than `.slice()`? If it does, how so?
-
-  > Your answer…
 
 - In the example above, update the arguments of `.splice()` so that it looks like the following:
 
@@ -92,8 +77,6 @@ Please complete the following before the lesson begins:
 
   With two arguments, does `.splice()` work any differently than `.slice()`? If it does, how so?
 
-  > Your answer…
-
 - In the example above, update the arguments of `.splice()` so that it looks like the following:
 
   ```js
@@ -102,11 +85,7 @@ Please complete the following before the lesson begins:
 
   After running the code above, you may be surprised at the result. Take a moment to experiment with the code to better understand how `.splice()` works. Then, in your own words, explain how the different ways the `.splice()` method works.
 
-  > Your answer…
-
 - Is `.splice()` a destructive or non-destructive array method? How do you know?
-
-  > Your answer…
 
 - The `.split()` method is not called on arrays but is instead called on strings. Run the code below and see if you can figure out how it works.
 
@@ -119,8 +98,6 @@ Please complete the following before the lesson begins:
 
   What data type does the `.split()` command return? How would you describe the purpose of the argument that is passed into the `.split()` method?
 
-  > Your answer…
-
 - Take a look at the following code. Before running it, mentally evaluate the code and anticipate what you think will happen.
 
   ```js
@@ -130,8 +107,6 @@ Please complete the following before the lesson begins:
   ```
 
   Did it work as expected? Why or why not?
-
-  > Your answer…
 
 - The `.join()` method works similar to the `.split()` method, except it can be called on arrays. Run the example below to see how it works.
 
@@ -143,8 +118,6 @@ Please complete the following before the lesson begins:
 
   What data type does the `.join()` command return? How would you describe the purpose of the argument that is passed into the `.join()` method?
 
-  > Your answer…
-
 - Take a look at the following code. Before running it, mentally evaluate the code and anticipate what you think will happen.
 
   ```js
@@ -154,8 +127,6 @@ Please complete the following before the lesson begins:
   ```
 
   Did it work as expected? Why or why not?
-
-  > Your answer…
 
 ## Exercise
 
