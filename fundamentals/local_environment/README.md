@@ -83,10 +83,13 @@ https://ohmyz.sh#install
 
 Once ZSH is installed, completely close out of iTerm (`command + Q`) and reopen it.
 
-If upon reopening, you receive an “Insecure completion-dependent directories detected:" error enter the following command and restart your terminal:
+If upon reopening, you receive the following error:
+```Insecure completion-dependent directories detected: ``` 
+
+enter the following command and restart your terminal:
 ```compaudit | xargs chmod g-w,o-w``` 
 
-Read more in the following [Stackoverflow article] (https://stackoverflow.com/questions/61433167/zsh-detects-insecure-completion-dependent-directories/61433333#61433333)
+Read more in the following [Stackoverflow article](https://stackoverflow.com/questions/61433167/zsh-detects-insecure-completion-dependent-directories/61433333#61433333)
 
 ### Node.js
 
