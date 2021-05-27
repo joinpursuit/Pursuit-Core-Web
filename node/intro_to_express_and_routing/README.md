@@ -198,9 +198,9 @@ HTTP defines a set of request methods to indicate the desired action to be perfo
 
 Whenever we submit a URL into our browser that is a `GET` request. So, when you are browsing the internet, you are sending lots of `GET` request!
 
-### Testing Requests using Insomnia
+### Testing Requests using Postman
 
-There is a very helpdul tool we use as server side developers to test endpoints. It is known as [Insomnia](https://insomnia.rest/download). Please download it and install it on your systems if you don't already have it.
+There is a very helpful tool we use as server side developers to test endpoints. It is known as [Postman](https://www.postman.com/downloads/). Please download it and install it on your systems if you don't already have it.
 
 
 # Routing with Express.js
@@ -252,21 +252,21 @@ This should be a `GET` method since it is requesting the blog resource.
 </details>
 <br>
 
-## Test Endpoints with Insomnia
+## Test Endpoints with Postman
 
-Test these out using [Insomnia](https://insomnia.rest/download)!
+Test these out using [Postman](https://www.postman.com/downloads/)!
 
-1. Open up Insomnia and make a new Request.
+1. Open up Postman and make a new Request (on the top left click `New` and then `Request`).
 
-  ![Insomnia new request](assets/Insomnia1.png)
+  ![Postman new request](assets/Postman1.png)
 
-2. Name your Request something descriptive.
+2. Name your Request something descriptive, and create a `Pursuit` folder to save this request in.
 
-  ![Insomnia get request](assets/Insomnia2-express.png)
+  ![Postman get request](assets/Postman2.png)
 
 3. Hit `http://localhost:8000/`
 
-  ![Insomnia hello world](assets/Insomnia3-express.png)
+  ![Postman hello world](assets/Postman3.png)
 
 4. Try it with `http://localhost:8000/blog` too!
 
@@ -288,7 +288,7 @@ app.get('/smallPrimes', (req, res) => {
 })
 ```
 
-`Check for Understanding:` Hit the `/users` GET endpoint with Insomnia and see what the response looks like in the preview area.
+`Check for Understanding:` Hit the `/users` GET endpoint with Postman and see what the response looks like in the preview area.
 
 <details><summary>Solution</summary>
   It should look like this:
@@ -318,7 +318,7 @@ app.get("/users/:userID", (req, res) => {
 })
 ```
 
-`Add this endpoint to your project and test it out with Insomnia!`
+`Add this endpoint to your project and test it out with Postman!`
 
 
 ## Route Naming Conventions
