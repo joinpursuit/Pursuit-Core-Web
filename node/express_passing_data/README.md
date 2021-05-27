@@ -83,7 +83,7 @@ Either follow the next steps to set up a new Express app, or use your existing `
       nodemon index.js
     ```
 
-4. Go to your Browser or Insomnia and enter: http://localhost:3000/dog/corgi
+4. Go to your Browser or Postman and enter: http://localhost:3000/dog/corgi
 
     `What response do you see?`
 
@@ -119,7 +119,7 @@ Let's add a second <kbd>parameter</kbd>, now, and see how the result in our cons
     res.send(`Hello I'm a ${typeOfDog} doggo!`);
   });
 ```
-7. Go to your Browser or Insomnia and enter: http://localhost:3000/dog/corgi/coat/brown
+7. Go to your Browser or Postman and enter: http://localhost:3000/dog/corgi/coat/brown
 
     `What does the console result look like now?`
 
@@ -172,7 +172,7 @@ Let's test a few <kbd>query strings</kbd> using the following code.
     });
     ```
 
-2. Enter the following in your Browser or Insomnia, http://localhost:3000/, we get the following result:
+2. Enter the following in your Browser or Postman, http://localhost:3000/, we get the following result:
 
     ```
     {}
@@ -232,7 +232,7 @@ Host: localhost
 name1=value1&name2=value2
 ```
 
-You can use Insomnia to create your `Post` requests, which we will be doing for this portion of the lesson.
+You can use Postman to create your `Post` requests, which we will be doing for this portion of the lesson.
 
 We will also be using a newer feature of Express which will give our `req` object the ability to access <kbd>body</kbd> values.
 
@@ -258,13 +258,13 @@ We will also be using a newer feature of Express which will give our `req` objec
   ```
 
 
-2. Open up Insomnia and create a new request, but this time it should be a `POST` request!
+2. Open up Postman and create a new request, but this time it should be a `POST` request!
 
-    ![Post Request](assets/Insomnia-post.png)
+    ![Post Request](assets/Postman-post.png)
 
-3. Let's add a `body` to our request! Click on `Body` and select `JSON`:
+3. Let's add a `body` to our request! Click on `Body`, then `raw`, and select `JSON` from the `Text` dropdown:
 
-    ![Post Request](assets/Insomnia-body.png)
+    ![Post Request](assets/Postman-body.png)
 
 4. Paste this into the `JSON` area:
 ```js
