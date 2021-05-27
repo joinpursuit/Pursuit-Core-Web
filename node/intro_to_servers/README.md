@@ -214,19 +214,19 @@ Now go ahead and run your server by running this command in your terminal:
 ```
 $ node myFirstServer.js
 ```
-To test that it works correctly, we will use `Insomnia` to send a request to our server!
+To test that it works correctly, we will use `Postman` to send a request to our server!
 
-1. Open `Insomnia` and create a New Request
+1. Open `Postman` and create a New Request
 
-    ![Insomnia New Request](assets/Insomnia1.png)
+    ![Postman New Request](assets/Postman1.png)
 
 2. Name your new request whatever you'd like! Make sure it is a `GET` request.
 
-    ![Insomnia Name Request](assets/Insomnia2.png)
+    ![Postman Name Request](assets/Postman2.png)
 
 3. Type ```http://localhost:3000``` and hit send!
 
-    ![Insomnia LocalHost](assets/Insomnia3.png)
+    ![Postman LocalHost](assets/Postman3.png)
 
 If your server is working, you should get a `200 OK` response with the following message in the `Preview` area:
 
