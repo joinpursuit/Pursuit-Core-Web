@@ -1,219 +1,163 @@
-# 1a Intro to Internet & Servers
-
-# Express 1: Intro to Servers
+# Intro to the Internet and Servers
 
 # Topics
 
-- What does a Server need to be able to do?
-- Ports, Servers, Req/Res
-- Response structure
-- Introducing Express
-- nodemon
+- What is the Internet?
+- What is a Server?
+- What is a Client?
+- IP Addresses and DNS
 
 # Lesson
 
-## What does a Server need to be able to do?
+## What is the Internet?
 
-![Server](https://mdn.mozillademos.org/files/8659/web-server.svg)
+Although the majority of us use the internet every day, many of us have not stopped to reflect or research how the internet actually works. We take for granted its seamless usage in our daily lives.
 
-A basic server must be able to do the following things:
+The Internet is the backbone of the World Wide Web (www or w3). The World Wide Web is an interconnected system of webpages that use the Internet in order to connect.
 
-1. Always be running on a certain IP Address
-2. Recognize Requests through the URL
-3. Handle some sort of logic and computation based on the URL
-4. Send back a Response to the client
+What started in the 1960s as a US military research project, soon evolved into a public infrastructure. The various technologies that support the Internet have evolved over time, but the way it works hasn't changed that much: Internet is a way to connect computers all together.
 
-### Spinning up a server using built in HTTP module
+The initial purpose was to share articles and research papers. Now the internet has expanded to far more complex applications that are now part of our daily lives.
 
-The node `http` module allow you to interact with the web. Using the `http` module, you do things like:
+The internet is made up of two types of computers: <kbd>clients</kbd> and <kbd>servers<kbd>.
 
-- make requests to websites and get code and/or data in return.
-- create a simple web server to host your own web apps.
+![Internet](assets/internet.jpg)
 
-Here is an example of a simple server built using the `http` module:
+### Client vs. Server
 
-```js
-const http = require("http");
+Computers connected to the web are called **clients** and **servers**. A simplified diagram of how they interact might look like this:
 
-// 1 - Declaring a port
-const port = 3000;
+![](https://mdn.mozillademos.org/files/8973/Client-server.jpg)
 
-// 2 - Declaring a server
-const server = http.createServer();
+- <kbd>Clients</kbd> make `requests` to `servers`
+- <kbd>Servers</kbd> make `responses` to `clients`
 
-// 3 - Running your declared server and attaching it to the port
-server.listen(port, () => {
-  console.log(`Server running at on http://localhost:${port}`);
-});
-```
+There is a lot more that happens under the hood, but we don't need to know it in order to build awesome web apps!
 
-The built in `http` module is doing the following 3 things:
+## What is a Client?
 
-1. **Declaring a port:** A server is just a computer program running on a computer. The entire computer has an IP Address, where other computers can access through. What makes the port so special is that you're indicating that this specific computer program and it's functionalities can be accessed through this specific port: `http://localhost:3000`
-2. **Declaring a server:** This basically is a built in basic server NodeJS provides by default. With this we can take requests and send back responses.
-3. **Running your server:** By attaching our `server instance` to the `port` we basically now have a live server running at all times. Waiting to handle requests/responses.
+A client can be anything that connects to the internet in order to make <kbd>request</kbd>s to servers.
 
-### Request & Responses
+Things like:
 
-A server has to have the ability to take **Requests** and return back **Responses**. So far, we've declared a server and attached it to a port. But we aren't really doing anything else. We need to be able to handle requests and send back a response. So let's do that:
+- Laptops, desktop computers via web browser like Chrome
+- Smart phones via mobile apps
+- IoT (internet of things): Smart fire alarms, smart door lock, smart bicycles etc.
 
-```js
-const http = require("http");
+## What's a Server?
 
-const port = 3000;
+A server is just a computer designed to take `requests` and send back `responses`.
 
-const server = http.createServer((req, res) => {
-  // Returning a response
+You can make your own computer into a server. But in order for other computers to make requests to it, it would have to be on all the time in order to have uninterrupted service. And, if your web app gets very popular, your laptop will not be able to handle it, because it wasn't designed to be used for this as its main purpose. Therefore, there are typically dedicated computers for this purpose.
 
-  // 1. Response - Status Code
-  res.statusCode = 200;
-  // 2. Response - Header: Content Type
-  res.setHeader("Content-Type", "text/plain");
-  // 3. Response - Content with completion
-  res.end("Hello World\n");
-});
+Here is an image server farm that full of computers that are servers:
 
-server.listen(port, () => {
-  console.log(`Server running at on http://localhost:${port}`);
-});
-```
+![](https://static.timesofisrael.com/www/uploads/2019/07/iStock-985895696-e1563876220293.jpg)
 
-This is something you will be coding over and over. The `http.createServer()` function basically takes in a callback function. Within the callback you are given two very important variables: `req` and `res`.
+### Types of Servers
 
-- `req` object basically passes in all the information from the client and what kind of request.
-- `res` object is handled by you and it's upto you to provide back some sort of response.
+1. **Web server**: Web servers show pages and run apps through web browsers. The server your browser is connected to right now is a web server that's delivering this page and any images you see on it.
+2. **Email server**: Email servers facilitate the sending and receiving of email messages.
+3. **FTP server**: FTP servers support the moving of files through File Transfer Protocol tools
 
-In this case for any kind of request we recieve there server will send back the following response:
+## Types of Requests
+
+There four common types of requests we can make which correspond to four basic ways we typically want to manipulate data
+
+- <kbd>POST</kbd> (Create data) - make a user account
+- <kbd>GET</kbd>(Read data) - see user account info
+- <kbd>PUT/PATCH</kbd> (Update data) - update account info
+- <kbd>DELETE</kbd> (Destroy data) - delete account
+
+This acronym is C.R.U.D.
+
+## Different parts of a URL
+
+URL stands for Uniform Resource Locator. It's a string of text characters used by Web browsers, email clients and other software to format the contents of an internet request message.
+
+![Basic URL](./assets/basic_url.png)
+
+Let's breakdown the contents of a more complex URL:
 
 ```
-Hello World
+    http://www.example.org:3000/hello/world/index.html?name=foo&limit=20#footer
+    \___/  \_____________/ \__/ \_________________/ \_____________/ \____/
+  protocol  host/domain    port        path          query-string  hash/fragment
 ```
 
-But that's not all that is happening. Essentially, every time a Browser or client sends a request. It is expecting back a response with certain bits of data.
+| Element          | About                                                                                                                                                                                                                                                                                                                                                     |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| protocol         | The most popular application protocol used on the world wide web is HTTP(`S` stands for secure). Other familiar types of application protocols include FTP, SSH, GIT, FILE                                                                                                                                                                                |
+| host/domain name | The host or domain name is looked up in DNS to find the IP address of the host - the server that's providing the resource (see bonus section)                                                                                                                                                                                                             |
+| port             | A server can have multiple applications listening on multiple ports. This allows users to access a different application on the same host - this is usually configured for us, so we don't typically type it                                                                                                                                              |
+| path             | Web servers can organize resources into a system that is similar to files in directories                                                                                                                                                                                                                                                                  |
+| query-string     | The client can pass parameters to the server through the query-string (in a GET request method); the server can then use these to customize the response - such as values to filter a search result                                                                                                                                                       |
+| hash/fragment    | This URL fragment is generally used by the client to identify some portion of the content in the response. If you are reading this on GitHub, you can hover over any header and click on it and it will update the URL, then you can copy the URL and send it to a someone and it will load the page at that header, rather than just starting at the top |
 
-1. **Status Code:** HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: informational responses, successful responses, redirects, client errors, and servers errors.
-2. **Header Content Type:** In responses, a Content-Type header tells the client what the content type of the returned content actually is. It can be plain-text, JSON, HTML, media. Depending on this the browser or client will portray it's own logic.
-3. **Response Body/Content:** This is the actual data you want to send back to the client. Can be entire web pages, images, json data. You name it.
+## HTTP
 
-### Problems with `http` modules
+We are going to be working with HTTP in order to build APIs.
 
-The `http` module is a very basic foundation of being able to create a web server. If you wanted to create a robust web server handling many different types of requests, it will take a lot of effort to build. That is why we use `Server-Side Web Frameworks` such as `Express`.
+**Remember** - HTML stands for `Hyper-Text Mark-up Langauge`
 
-## Introducing Express
+<kbd>HTTP</kbd> primarily sends data as strings. It has two main parts: a <kbd>header</kbd> and a <kbd>body</kbd>
 
-### Server-Side Web Frameworks
+The header contains important data about the request/response like
 
-Express is a server-side web framework for nodeJS.
+- `URL` - From where this resource is coming from
+- `Method` - I.e. a `GET` request
+- `Content-Type` - Types of data allowed. It can just be plain text/html or JSON or other files like images or videos
+- `Status Code` - The status code (see below)
 
-Server-side web frameworks are software that make it easier to write, maintain and scale web applications. They provide tools and libraries that simplify common web development tasks, including:
+You can look at the headers by opening your browser's dev tools, going to the network tab and selecting a file.
 
-- Routing URLs to appropriate handlers (e.g. showing you cats when you're on mysite.com/cats and dogs when you're on mysite.com/dogs).
-- Interacting with databases to save and sort data on the server side.
-- Supporting sessions and user authorization (e.g. logging you in, keeping you logged in, and keeping your password and identity safe).
-- Formatting output (e.g. HTML, JSON, XML).
-- Improving security against web attacks.
+The body contains any content that may be passing through. For example, the HTML, CSS and JavaScript of a web page or the contents that are coming from a form in the browser.
 
-### Getting Started with Express
+## HTTP Status Codes
 
-### Adding dependencies
+HTTP Status Codes help convey information about requests/responses. For example - was it successful? Did it fail (think of a `404` status code - what does it mean? Have you seen a `404` status code on the internet?)
 
-We will use npm to install and set up our express app.
+The status codes from 100 - 399, generally provide information that the request/response is normal/going through/successful.
 
-1. We create a directory for our new application and navigate into it:
+The 400s typically denote user error, like trying to access a part of a site without being loggged in.
 
-```bash
-mkdir myapp
-cd myapp
-```
+The 500s typically denote a server error,for example, the server has crashed.
 
-2. We use the npm "`init`" command to create a **package.json** file for our application. This command prompts us for a number of things, including the name and version of the application and the name of the initial entry point file (by default this is **index.js**). For now, we will just accept the defaults:
+For a memorable introduction see [HTTP Status cats](https://http.cat/), or if you would prefer [HTTP Status Dogs](https://httpstatusdogs.com/)
 
-```bash
-npm init
-```
+## Bonus
 
-When we open the **package.json** file, we will see the defaults that we accepted, ending with the license.
+There are far more technical details of how the internet works. But we just need an understanding of the things we've covered in order to be able to build our own server.
 
-```json
-{
-  "name": "myapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
-}
-```
+### IP Addresses & DNS
 
-3. Now we install the _Express_ library in the **myapp** directory. The package will automatically be saved to the dependencies list in our **package.json** file.
+### So what happens, exactly?
 
-```bash
-npm install --save express
-```
+[Here is a popular 5 minute video](https://www.youtube.com/watch?v=7_LPdttKXPc)
 
-The dependencies section of our **package.json** will now appear at the end of the **package.json** file and will include _Express_.
+When you type a web address into your browser:
 
-```json
-{
-  "name": "myapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.2"
-  }
-}
-```
+1. The browser goes to the DNS server, and finds the real address of the server that the website lives on.
+2. The browser sends an HTTP request message to the server, asking it to send a copy of the website to the client.
+3. Provided the server approves the client's request, the server sends the client a "200 OK" message, and then starts sending the website's files to the browser as a series of small chunks called data packets.
+4. The browser assembles the small chunks into a complete website and displays it.
 
-4. We create a file named **index.js** in the root of the _myapp_ application directory. In this file we import `express` and start a minimal web server:
+#### Finding computers
 
-```js
-const express = require("express"); // import express
-const app = express(); // create an express server
-const port = 8000; // we will use this later
+- Source: [_How does the Internet work?_ by mozilla contributors](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work)
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-}); // routes the '/' URL path to produce a response of 'Hello World!'
+If you want to send a message to a computer, you have to specify which one. Thus any computer linked to a network has a unique address to identify it, called an **IP address**. It's an address made of a series of four numbers separated by dots, for example: `192.168.2.10`.
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-}); // asks our server to listen for requests on port 8000, logging to the console to confirm that things are working
-```
+To make things easier for humans, IP addresses usually have a human readable alias called a **domain name**. For example, `google.com` is the domain name used on top of the IP address `173.194.121.32`. Using the domain name is the easiest way for us to reach a computer over the Internet.
 
-The code above a minimal "HelloWorld" Express web application. This imports the "express" module and uses it to create a server (`app`) that listens for HTTP requests on port 8000 and prints a message to the console explaining what browser URL you can use to test the server. The `app.get()` function only responds to HTTP `GET` requests with the specified URL path ('/'), in this case by calling a function to send our _Hello World!_ message.
+![Show how a domain name can alias an IP address](https://mdn.mozillademos.org/files/8405/dns-ip.png)
 
-5. You can start the server by calling node with the script in your command prompt:
+The client and server we've described above don't tell the whole story. There are many other parts involved, and we'll describe some of them below.
 
-```bash
-node index.js
-Example app listening on port 8000
-```
+- **DNS**: Domain Name Servers are like address books for websites. When you type a web address in your browser, the DNS needs to be reached first to translate the address to an ip address.
+- **HTTP** (Hypertext Transfer Protocol): a protocol that defines how clients and servers speak to each other. **Remember** - HTML stands for `Hyper-Text Mark-up Langauge`
+- **Component files**: A website is made up of many different files. These files come in two main types:
+  - **Code files**: Websites are built primarily built from HTML, CSS, and JavaScript.
+  - **Assets**: All the other stuff that makes up a website, such as images, music, video, Word documents, and PDFs.
 
-6. We can now navigate to the URL [http://localhost:8000/](http://localhost:8000). If everything is working, the browser should display the string `"Hello World!"`.
-
-### Nodemon - Automatic Server Restarts
-
-We will use [nodemon](https://nodemon.io/) while we develop our node/express apps. Nodemon will monitor the files in our app directory and automatically restart the server on any file change. If we didn't do this, we'd have to manually close the server process (`<ctrl> + c`) and restart the server every time we wanted our changes to be reflected in the browser.
-
-To install nodemon:
-
-```bash
-npm install -g nodemon
-```
-
-We use `-g` because we want to save nodemon _globally_. So that in the future we can use it for any other project if necessary.
-
-Now, if we navigate to the root folder of the app, we can start the server with the following command:
-
-```js
-nodemon;
-```
+[More in depth videos](https://www.khanacademy.org/computing/ap-computer-science-principles/the-internet/introducing-the-internet/v/what-is-the-internet?modal=1)
