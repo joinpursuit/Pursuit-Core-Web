@@ -26,7 +26,7 @@
 |              7. [Intro to Databases/SQL Part 1](./intro-to-sql-part-1/README.md)              | [TBD](https://github.com/joinpursuit/) |
 |              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              | [TBD](https://github.com/joinpursuit/) |
 |     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     | [TBD](https://github.com/joinpursuit/) |
-|        10. [Express & SQL w. Knex: Update & Delete](./express-delete-update/README.md)        | [TBD](https://github.com/joinpursuit/) |
+|      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      | [TBD](https://github.com/joinpursuit/) |
 |                 11. [PERK Stack: Create & Read](./perk-create-read/README.md)                 | [TBD](https://github.com/joinpursuit/) |
 |               12. [PERK Stack: Delete & Update](./perk-update-delete/README.md)               | [TBD](https://github.com/joinpursuit/) |
 |                13. [PERK Stack: One to Many](./perk-one-to-many-c-r/README.md)                | [TBD](https://github.com/joinpursuit/) |
