@@ -1,4 +1,4 @@
-# Module 4: NodeJS, Express, and SQL
+# Module 4: Full Stack: PERK-Stack Postgres, Express, React, Knex.js
 
 ## Learning Outcomes
 
