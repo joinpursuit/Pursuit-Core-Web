@@ -11,3 +11,10 @@
 #  do 
 #     touch $i/README.md
 #  done
+
+
+## make assets folder
+# for i in *
+#  do 
+#     cd $i && mkdir assets && touch assets/.gitkeep && cd ..
+#  done
