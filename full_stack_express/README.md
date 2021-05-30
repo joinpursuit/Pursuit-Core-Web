@@ -14,29 +14,29 @@
 
 ## Lessons, Quizzes, and Labs
 
-|                                            Lesson                                             |                  Lab                   |
-| :-------------------------------------------------------------------------------------------: | :------------------------------------: |
-|         1a. [Intro to Internet & Servers](./intro-to-internet-and-servers/README.md)          |             Not applicable             |
-|              1b. [npm & Express Response](./intro-to-express-response/README.md)              | [TBD](https://github.com/joinpursuit/) |
-|                  2. [Express Request](./intro-to-express-request/README.md)                   | [TBD](https://github.com/joinpursuit/) |
-|                3. [Express CRUD/MVC](./express-rest-crud-mvc-index/README.md)                 | [TBD](https://github.com/joinpursuit/) |
-| 4. [Express Middleware & RESTful Routes: Show & Create](./express-rest-show-create/README.md) | [TBD](https://github.com/joinpursuit/) |
-|     5. [Express Restful Routes: Update & Delete](./express-rest-delete-update/README.md)      | [TBD](https://github.com/joinpursuit/) |
-|                6. [Connect Express & React](./express-connect-react/README.md)                | [TBD](https://github.com/joinpursuit/) |
-|              7. [Intro to Databases/SQL Part 1](./intro-to-sql-part-1/README.md)              | [TBD](https://github.com/joinpursuit/) |
-|              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              | [TBD](https://github.com/joinpursuit/) |
-|     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     | [TBD](https://github.com/joinpursuit/) |
-|      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      | [TBD](https://github.com/joinpursuit/) |
-|                 11. [PERK Stack: Create & Read](./perk-create-read/README.md)                 | [TBD](https://github.com/joinpursuit/) |
-|               12. [PERK Stack: Delete & Update](./perk-update-delete/README.md)               | [TBD](https://github.com/joinpursuit/) |
-|                13. [PERK Stack: One to Many](./perk-one-to-many-c-r/README.md)                | [TBD](https://github.com/joinpursuit/) |
-|                14. [PERK Stack: One to Many](./perk-one-to-many-d-u/README.md)                | [TBD](https://github.com/joinpursuit/) |
+|                                            Lesson                                             |                                       Lab                                        |
+| :-------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+|         1a. [Intro to Internet & Servers](./intro-to-internet-and-servers/README.md)          |                                  Not applicable                                  |
+|              1b. [npm & Express Response](./intro-to-express-response/README.md)              | [Intro to Express](https://github.com/joinpursuit/Module-4-intro-to-express-lab) |
+|                  2. [Express Request](./intro-to-express-request/README.md)                   | [99 Pokemon Express](https://github.com/joinpursuit/module-4-99-pokemon-express) |
+|                3. [Express CRUD/MVC](./express-rest-crud-mvc-index/README.md)                 |                      [TBD](https://github.com/joinpursuit/)                      |
+| 4. [Express Middleware & RESTful Routes: Show & Create](./express-rest-show-create/README.md) |                      [TBD](https://github.com/joinpursuit/)                      |
+|     5. [Express Restful Routes: Update & Delete](./express-rest-delete-update/README.md)      |                      [TBD](https://github.com/joinpursuit/)                      |
+|                6. [Connect Express & React](./express-connect-react/README.md)                |                      [TBD](https://github.com/joinpursuit/)                      |
+|              7. [Intro to Databases/SQL Part 1](./intro-to-sql-part-1/README.md)              |                      [TBD](https://github.com/joinpursuit/)                      |
+|              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              |                      [TBD](https://github.com/joinpursuit/)                      |
+|     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     |                      [TBD](https://github.com/joinpursuit/)                      |
+|      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      |                      [TBD](https://github.com/joinpursuit/)                      |
+|                 11. [PERK Stack: Create & Read](./perk-create-read/README.md)                 |                      [TBD](https://github.com/joinpursuit/)                      |
+|               12. [PERK Stack: Delete & Update](./perk-update-delete/README.md)               |                      [TBD](https://github.com/joinpursuit/)                      |
+|                13. [PERK Stack: One to Many](./perk-one-to-many-c-r/README.md)                |                      [TBD](https://github.com/joinpursuit/)                      |
+|                14. [PERK Stack: One to Many](./perk-one-to-many-d-u/README.md)                |                      [TBD](https://github.com/joinpursuit/)                      |
 
 ## Individual Project
 
-| Project                                                            | Standards                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Budgeting App](https://github.com/joinpursuit/FSW-School-Classes) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1.d: Manipulate and access objects and objects in arrays</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.11.b: Use middleware to inject code</li><li>LF.5: Use functions to keep code DRY</li><li>LF.6: Proper use and understanding of Higher order functions & closures or callbacks</li></ul> |
+| Project                                | Standards                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [TBD](https://github.com/joinpursuit/) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1.d: Manipulate and access objects and objects in arrays</li><li>FSW.3.c: Use HTML input and forms</li><li>FSW.3.e: Create a responsive UI</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.11.b: Use middleware to inject code</li><li>LF.5: Use functions to keep code DRY</li><li>LF.6: Proper use and understanding of Higher order functions & closures or callbacks</li></ul> |
 
 ## Assessment
 
