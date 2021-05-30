@@ -14,9 +14,9 @@
    - **approximate lecture time**: none
    - **approximate lab time:** several hours
 
-1. [Node & The Event Loop](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/bonus_module_4/nodejs_intro)
+1. [Node & The Event Loop](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/advanced_or_misc/bonus_module_4/nodejs_intro)
 
    - **prerequisites**: JavaScript in the browser, terminal, git forking/cloning
    - **npm packages used:** express, dotenv
-   - **approximate lecture time**: none
-   - **approximate lab time:** several hours
+   - **approximate lecture time**: 1 hour
+   - **approximate lab time:** none
