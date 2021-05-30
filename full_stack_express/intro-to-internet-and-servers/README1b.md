@@ -1,130 +1,52 @@
-# 1b Intro to Internet & Servers
+# 1b Building a Server with Node.js and Express
 
 # Topics
 
-- What does a Server need to be able to do?
-- Ports, Servers, Req/Res
-- Response structure
-- Introducing Express
-- nodemon
+- What is node/npm
+- How to create your own NPM project
+- What is express
+- Make requests from the browser to your server
 
 # Lesson
 
-## What does a Server need to be able to do?
+## What is Node?
 
-![Server](https://mdn.mozillademos.org/files/8659/web-server.svg)
+Node is an open source program that lets us run JavaScript in Terminal. Previous to this project, JavaScript could only be run in the browser.
 
-A basic server must be able to do the following things:
+By creating Node, companies could hire developers who specialize in JavaScript and they would be able to build front-end Applications and back-end applications.
 
-1. Always be running on a certain IP Address
-2. Recognize Requests through the URL
-3. Handle some sort of logic and computation based on the URL
-4. Send back a Response to the client
+## What is NPM?
 
-### Spinning up a server using built in HTTP module
+Coders often run into the same challenges over and over again. Rather than build out all the functionality from scratch for every single project, developers get together and build 3rd party (usually open source) code libraries and frameworks.
 
-The node `http` module allow you to interact with the web. Using the `http` module, you do things like:
+It's a lot like the difference between making pasta and sauce from scratch (no code libraries or frameworks). Or buying pasta from a box (using a code library - doesn't care what kind of dish you are making), or buying a frozen dinner (very opinionated about what you will be eating for dinner).
 
-- make requests to websites and get code and/or data in return.
-- create a simple web server to host your own web apps.
+Libraries are just helper code, with little to no opinions on how you should use them. Frameworks tend to be much more opinionated on how to use them.
 
-Here is an example of a simple server built using the `http` module:
+If you've ever worked with Bootstrap for CSS (or another CSS framework like materialize, skeleton, bulma etc.), you've used a 3rd party code framework. What these libraries tried to solve is common styling, UX/UI and responsive design issues. You don't have to ever look at the code or know how it works, you just need read the documentation in order to learn how to use the framework or library.
 
-```js
-const http = require("http");
+Node has a large library of 3rd party code called` Node Package Manager` (`npm` all lowercase).
 
-// 1 - Declaring a port
-const port = 3000;
+## Making Your Own Node Project
 
-// 2 - Declaring a server
-const server = http.createServer();
+If you've ever downloaded some code onto your computer and to get the project started you needed to run `npm install`, you've been working withe a node project!
 
-// 3 - Running your declared server and attaching it to the port
-server.listen(port, () => {
-  console.log(`Server running at on http://localhost:${port}`);
-});
-```
+Now let's make our own. We'll make a server with express! Express is very popular npm library that allows developers to build complex back ends that power some [very popular web sites](https://expressjs.com/en/resources/companies-using-express.html)
 
-The built in `http` module is doing the following 3 things:
+## Getting Started with Express
 
-1. **Declaring a port:** A server is just a computer program running on a computer. The entire computer has an IP Address, where other computers can access through. What makes the port so special is that you're indicating that this specific computer program and it's functionalities can be accessed through this specific port: `http://localhost:3000`
-2. **Declaring a server:** This basically is a built in basic server NodeJS provides by default. With this we can take requests and send back responses.
-3. **Running your server:** By attaching our `server instance` to the `port` we basically now have a live server running at all times. Waiting to handle requests/responses.
+[Here is the documentation](https://expressjs.com). If you are new to servers, this documentation may be a bit difficult to use. As you gain more knowledge and experience you will be able to utilize this documentation better.
 
-### Request & Responses
+### In Terminal
 
-A server has to have the ability to take **Requests** and return back **Responses**. So far, we've declared a server and attached it to a port. But we aren't really doing anything else. We need to be able to handle requests and send back a response. So let's do that:
+- navigate to your Desktop or other convenient folder
+- `git status` to make sure you are not already in a `git` repository
+- `mkdir intro-to-express`
+- `cd intro-to-express`
 
-```js
-const http = require("http");
+We use the npm "`init`" command to create a **package.json** file for our application. This file is the meta-data about our project. Who wrote it? What kind of scripts can we run? What are the dependencies we are using?
 
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  // Returning a response
-
-  // 1. Response - Status Code
-  res.statusCode = 200;
-  // 2. Response - Header: Content Type
-  res.setHeader("Content-Type", "text/plain");
-  // 3. Response - Content with completion
-  res.end("Hello World\n");
-});
-
-server.listen(port, () => {
-  console.log(`Server running at on http://localhost:${port}`);
-});
-```
-
-This is something you will be coding over and over. The `http.createServer()` function basically takes in a callback function. Within the callback you are given two very important variables: `req` and `res`.
-
-- `req` object basically passes in all the information from the client and what kind of request.
-- `res` object is handled by you and it's upto you to provide back some sort of response.
-
-In this case for any kind of request we recieve there server will send back the following response:
-
-```
-Hello World
-```
-
-But that's not all that is happening. Essentially, every time a Browser or client sends a request. It is expecting back a response with certain bits of data.
-
-1. **Status Code:** HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes: informational responses, successful responses, redirects, client errors, and servers errors.
-2. **Header Content Type:** In responses, a Content-Type header tells the client what the content type of the returned content actually is. It can be plain-text, JSON, HTML, media. Depending on this the browser or client will portray it's own logic.
-3. **Response Body/Content:** This is the actual data you want to send back to the client. Can be entire web pages, images, json data. You name it.
-
-### Problems with `http` modules
-
-The `http` module is a very basic foundation of being able to create a web server. If you wanted to create a robust web server handling many different types of requests, it will take a lot of effort to build. That is why we use `Server-Side Web Frameworks` such as `Express`.
-
-## Introducing Express
-
-### Server-Side Web Frameworks
-
-Express is a server-side web framework for nodeJS.
-
-Server-side web frameworks are software that make it easier to write, maintain and scale web applications. They provide tools and libraries that simplify common web development tasks, including:
-
-- Routing URLs to appropriate handlers (e.g. showing you cats when you're on mysite.com/cats and dogs when you're on mysite.com/dogs).
-- Interacting with databases to save and sort data on the server side.
-- Supporting sessions and user authorization (e.g. logging you in, keeping you logged in, and keeping your password and identity safe).
-- Formatting output (e.g. HTML, JSON, XML).
-- Improving security against web attacks.
-
-### Getting Started with Express
-
-### Adding dependencies
-
-We will use npm to install and set up our express app.
-
-1. We create a directory for our new application and navigate into it:
-
-```bash
-mkdir myapp
-cd myapp
-```
-
-2. We use the npm "`init`" command to create a **package.json** file for our application. This command prompts us for a number of things, including the name and version of the application and the name of the initial entry point file (by default this is **index.js**). For now, we will just accept the defaults:
+This command prompts us for a number of things, including the name and version of the application and the name of the initial entry point file (by default this is **index.js**). For now, we will just accept the defaults:
 
 ```bash
 npm init
@@ -134,7 +56,7 @@ When we open the **package.json** file, we will see the defaults that we accepte
 
 ```json
 {
-  "name": "myapp",
+  "name": "intro-to-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -146,17 +68,17 @@ When we open the **package.json** file, we will see the defaults that we accepte
 }
 ```
 
-3. Now we install the _Express_ library in the **myapp** directory. The package will automatically be saved to the dependencies list in our **package.json** file.
+3. Now we install the _Express_ library in the **intro-to-express** directory. The package will automatically be saved to the dependencies list in our **package.json** file.
 
 ```bash
-npm install --save express
+npm install express
 ```
 
 The dependencies section of our **package.json** will now appear at the end of the **package.json** file and will include _Express_.
 
 ```json
 {
-  "name": "myapp",
+  "name": "intro-to-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -166,52 +88,268 @@ The dependencies section of our **package.json** will now appear at the end of t
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.17.1"
   }
 }
 ```
 
-4. We create a file named **index.js** in the root of the _myapp_ application directory. In this file we import `express` and start a minimal web server:
+A `package-lock.json` file was also created. This is an important file for managing the packages, it is automatically generated and updated. We don't have to worry about its contents or ever edit it directly.
+
+A folder called `node_modules` was created. This is were all the code for `express` will be. If you look inside `node_modules`, you will see there are many files. That's because `express` depends on many other packages in order to work. You can look at all the code in here. But to learn to use it, it is better to look at the documentation.
+
+`node_modules` can become very large, and the `source of truth` of these dependencies lives on the `npm registry`. Therefore, there is no reason to track these files with `git`, nor upload them to `GitHub`. We can ignore these files by adding a file called exactly `.gitignore`
+
+- `touch .gitignore`
+- This is NOT a JavaScript file. Therefore we don't have to worry about semi-colons or other things we are used to for JavaScript.
+- All we need to do to ignore our `node_modules` folder is to write
+
+`node_modules` in our `.gitignore`
+
+### Editing `package.json`
+
+We noticed that when we installed express, it automatically updated our `package.json`
+
+But we can also edit it manually. The only gotcha is that you must write proper [JSON](https://www.w3schools.com/whatis/whatis_json.asp) (JavaScript Object Notation). It is very similar to a JavaScript Object, but it is a bit more strict.
+
+- you **MUST** use double quotes (never single quotes)
+- you **MUST** use double quotes around object keys, numbers and booleans.
+- you **MUST** create and maintain valid JS objects, arrays, and strings.
+- you **MUST NOT** have any trailing commas
+
+Let's go in there and add our name as the property of `author`
+
+## Writing an Express Application
+
+Let's create a file to write our code
+
+**IMPORTANT** make sure you are in the same directory as `package.json`
+
+- `touch app.js`
+
+[Let's head over to the `express npm package documentation](https://www.npmjs.com/package/express)
+
+Along the top we have all the code we need to write a very simple express application.
+
+Let's follow it!
+
+**app.js**
+
+Let's `require` express
+
+Let's add a console.log too - this will be a proof of concept that we now have access to the express code in our app.
 
 ```js
-const express = require("express"); // import express
-const app = express(); // create an express server
-const port = 8000; // we will use this later
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-}); // routes the '/' URL path to produce a response of 'Hello World!'
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-}); // asks our server to listen for requests on port 8000, logging to the console to confirm that things are working
+const express = require("express");
+console.log(express);
 ```
 
-The code above a minimal "HelloWorld" Express web application. This imports the "express" module and uses it to create a server (`app`) that listens for HTTP requests on port 8000 and prints a message to the console explaining what browser URL you can use to test the server. The `app.get()` function only responds to HTTP `GET` requests with the specified URL path ('/'), in this case by calling a function to send our _Hello World!_ message.
+Let's run it with `node app.js`
 
-5. You can start the server by calling node with the script in your command prompt:
+<details><summary>Example Terminal output</summary>
 
-```bash
-node index.js
-Example app listening on port 8000
-```
+![](./assets/express-code-terminal.png)
 
-6. We can now navigate to the URL [http://localhost:8000/](http://localhost:8000). If everything is working, the browser should display the string `"Hello World!"`.
+</details>
+<br />
 
-### Nodemon - Automatic Server Restarts
-
-We will use [nodemon](https://nodemon.io/) while we develop our node/express apps. Nodemon will monitor the files in our app directory and automatically restart the server on any file change. If we didn't do this, we'd have to manually close the server process (`<ctrl> + c`) and restart the server every time we wanted our changes to be reflected in the browser.
-
-To install nodemon:
-
-```bash
-npm install -g nodemon
-```
-
-We use `-g` because we want to save nodemon _globally_. So that in the future we can use it for any other project if necessary.
-
-Now, if we navigate to the root folder of the app, we can start the server with the following command:
+Next, we are going to 'set up' our express app, by adding another line, per the documentation. We again, can dig much deeper into what this is doing, but for now, let's just try to get our server working.
 
 ```js
-nodemon;
+const express = require("express");
+const app = express();
 ```
+
+Now we are going to write our first `route`. Our routes are like event listeners in the browser.
+
+The will be set up to listen for requests to their specific URL.
+
+Even though the documentation uses the `function` keyword, we can write this callback with an arrow function. In this case, it does not matter which we use, it is just a style preference.
+
+We are also going to write out `response` and `request` as parameters in our callback.
+
+Later, you'll be writing your own code and you can shorten `response` to `res` and `request` to `req` - but as we are just getting familiar with everything, let's use the full names.
+
+```js
+const express = require("express");
+const app = express();
+
+app.get("/", (request, response) => {
+  response.send("Hello World");
+});
+```
+
+**Thought Questions**
+
+- How do we access this route?
+- What is the URL?
+- What kind of response will we get?
+
+Finally, let's turn on our app so it is always listening for requests. We're going to use port 3003. We can typically use any port between 3000 and 9999, as they are not being used by other apps on your computer. When you put your app on the internet, this port will be configured for you.
+
+```js
+const express = require("express");
+const app = express();
+
+app.get("/", (request, response) => {
+  response.send("Hello World");
+});
+
+app.listen(3003);
+```
+
+Let's start this app
+
+```bash
+node app.js
+```
+
+This time, you'll notice that the terminal app now just hangs. The cursor will be in place and you won't get a new line prompt.
+
+This means our express app is running and listening for requests on port 3000.
+
+To cancel it, we have to press <kbd>control</kbd> <kbd>c</kbd>
+
+It would be nice to have a status that this app is running. Let's add a `console.log` inside a callback that will be the second argument of the function `app.listen`
+
+```js
+const express = require("express");
+const app = express();
+
+app.get("/", (request, response) => {
+  response.send("Hello World");
+});
+
+app.listen(3003, () => {
+  console.log("I am listening for requests on port 3003!");
+});
+```
+
+Neato! But, how do we make a request?
+
+![](https://images-na.ssl-images-amazon.com/images/I/A1-k171J5XL._AC_SY450_.jpg)
+
+We need to access our local host for this server. Everyone's computer has a default IP address of `127.0.0.1` but that's a bit annoying to put in the URL. We can instead type in our browser's URL bar and go there
+
+http://localhost:3003
+
+**SUCCESS**: Do you see `Hello World` appear in the browser? Then you've successfully written your first express server!
+
+### Common Errors
+
+A Broken `package.json`
+
+![](./assets/broken-package-json.png)
+
+Fix this by going into the `package.json` and making sure all of your JSON is valid.
+
+You can use [An online JSON Validator to check, if you get really stuck](https://jsonlint.com/?code=)
+
+Express was not properly added as a dependency
+
+![](./assets/express-not-installed.png)
+
+Fix it by trying to run `npm install express` - make sure you are in these same directory as `package.json`. If you don't see a `node_modules` folder, you might have forgotten to run `npm init` first. If it is still not working, since you are so early in your project, it may be best to delete the project and start again.
+
+### Quick Summary Before Moving On
+
+Our little app is doing a LOT!
+
+![](./assets/request-response-code.png)
+
+### Nodemon
+
+Let's update our route to say `Hello, world!!!!!!!!`
+
+```js
+app.get("/", (request, response) => {
+  response.send("Hello, world!!!!!!!!");
+});
+```
+
+When we refresh the browser, nothing changes!
+
+We need to go to terminal, press <kbd>control</kbd> <kbd>c</kbd>, then type `node app.js` EVERY SINLGE TIME WE MAKE A CHANGE.
+
+This isn't a good workflow.
+
+So we're going to install a new package called `nodemon` (short for node monitor - how you pronounce it is up for debate). Nodemon is going to monitor your app for changes to files. When it detects that you've made a change and saved it, it will automatically restart your server for you!
+
+One more detail. Since we are going to want this for every single express app, we can install nodemon globally so we can use it without having to install it every single time.
+
+In terminal run
+
+- `npm install -g nodemon`
+
+The `-g` means install this package globally.
+
+- Your computer may deny you access to make this change. You can try again by running
+
+- `sudo !!` This will run the last command you typed with `sudo` in front of it. `sudo` means `super user do` - and it is a very powerful command. It can override a lot of safety settings on your computer. You should only use it if you know EXACTLY what you are doing. Improper use can turn your Macbook into a brick that can only be fixed by taking it to Apple (they have the technology to recover your computer back to factory state, you may lose all your unsaved work).
+
+Once you are set up, you can now start your server by typing
+
+- `nodemon app.js`
+
+Now you should be able to change your message in your `res.send` to ("I love express!") and when you refresh the browser, it should change automatically, you can see `nodemon` giving you messages in terminal that it is restarting.
+
+<details><summary>Mini BONUS with nodemon</summary>
+
+Is typing `nodemon app.js` just too much? You can go into your `package.json` and update the property of `main` to be `app.js` instead of the default `index.js`
+
+Now you can just type `nodemon` and start your server!
+
+</details>
+
+<br />
+
+### Adding Another Route
+
+Let's add another route
+
+```js
+const express = require("express");
+const app = express();
+
+app.get("/", (request, response) => {
+  response.send("I love express!");
+});
+
+app.get("/universe", (request, response) => {
+  response.send("Hello Universe!");
+});
+
+app.listen(3003, () => {
+  console.log("I am listening for requests on port 3003!");
+});
+```
+
+How can you make a request to your new route?
+
+<details><summary>Answer</summary>
+
+http://localhost:3003/universe
+
+</details>
+
+<br />
+
+<details><summary>An aside about newer JS syntax</summary>
+
+You may have seen other JavaScript applications use
+`import` and `export`
+
+`import` and `export` are newer syntaxes. In order to get them working in our app, we would have to set up a compiler like [babel](https://babeljs.io).
+
+If that sounds complicated and you're already feeling overwhelmed with new information, it's ok! We'll just be sticking with the basics today.
+
+</details>
+<br />
+
+## Lab Time!
+
+[Intro to Express Lab](https://github.com/joinpursuit/Module-4-intro-to-express-lab/blob/main/README.md)
+
+If you already have had experience with express or another back-end, you may find the first few activities going by quite quickly.
+
+You are encouraged to work on
+[Express UFO](https://github.com/joinpursuit/express-ufo) this is a far more challenging activity that will help you sharpen your express and JavaScript skills.
