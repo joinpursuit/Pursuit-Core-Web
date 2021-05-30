@@ -1,1 +1,1 @@
-# 8 Intro to Databases/SQL Part 1
+# 7 Intro to Databases/SQL Part 1
