@@ -1,1 +1,1 @@
-# 10 Express & SQL w. Knes: Create & Seed & Read
+# 10 Express & SQL w. Knex: Update & Delete
