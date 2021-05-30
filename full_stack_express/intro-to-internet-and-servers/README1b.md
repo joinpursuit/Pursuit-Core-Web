@@ -332,8 +332,31 @@ http://localhost:3003/universe
 </details>
 
 <br />
+### grep and kill nodemon
 
-<details><summary>An aside about newer JS syntax</summary>
+If you don't cancel out of your server properly before putting your computer to sleep or if you try to run nodemon on the same port multiple times, you may end up having `nodemon` running amok in your background processes.
+
+You can restart your whole computer or you can kill the process.
+
+First, we must find the process.
+
+To do so we'll run a command `ps` (short for process status) and the flag `-A` (all).
+
+We will then use pipe `|` to be able to use `grep` (global regular expression print) to search for `nodemon` specifically.
+
+First, run
+
+- `ps -A | grep nodemon`
+
+![](./assets/ps-grep.png)
+
+On the left, you will see the process number, in this case it is `26625`
+
+Now you can kill the process by typing
+
+- `kill 4517`
+
+### An aside about newer JS syntax
 
 You may have seen other JavaScript applications use
 `import` and `export`
