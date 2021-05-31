@@ -1,16 +1,36 @@
 # Module 4: Full Stack: PERK-Stack Postgres, Express, React, Knex.js
 
+We're going to be learning about full stack web development.
+
+First, we're going to learn about servers and how to send:
+
+- simple strings
+- very short bits of html
+- JSON
+
+We won't be using a database yet. We're going to mock it by just using arrays of objects. This will allow us to focus on the concepts and code of servers.
+
+Then, we'll to create a more robust view of our data (connect to React app)
+
+Next, we'll learn about databases and learn basic SQL.
+
+Finally, we'll connect our server to our database so that we can create full stack web applications.
+
+## Overview
+
+![](https://comic.browserling.com/full-stack.png)
+
 ## Learning Outcomes
 
 - M4.1 Understand how servers work
 - M4.2 Use Node.js to create and run command line applications
 - M4.3 Understand what APIs are and how they should be designed
 - M4.4 Use Express to build an API
+- create views for our API
 - M4.5 Understand the problem databases solve and build schemas
 - M4.6 Use SQL to run CRUD operations and JOINs
 - M4.7 Use Postgres to build a database and interact with it through its CLI
 - M4.8 Use knex.js to build a web application backed by SQL
-- M4.9 Use Firebase to authenticate users
 
 ## Lessons, Quizzes, and Labs
 
