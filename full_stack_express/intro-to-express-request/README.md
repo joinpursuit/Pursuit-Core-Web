@@ -340,7 +340,7 @@ If this happens, reorder them so that more specific routes come before less spec
 app.get("/rocks/awesome", (req, res) => {
   res.send(`
     <h1>rocks are awesome!</h1>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Bismuth_crystal_macro.jpg/800px-Bismuth_crystal_macro.jpg" >
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pyrite_-_Huanzala_mine%2C_Huallanca%2C_Bolognesi%2C_Ancash%2C_Peru.jpg/260px-Pyrite_-_Huanzala_mine%2C_Huallanca%2C_Bolognesi%2C_Ancash%2C_Peru.jpg" >
   `);
 });
 
