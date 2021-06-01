@@ -168,6 +168,8 @@ app.listen(PORT, () => {
 
 Get the app running with `nodemon server.js` and go to http://localhost:3333
 
+**Note:** Having the variable `PORT` in all caps is the default for when you put your backend on the cloud(make it live). In other languages, all caps denotes that the variable is a constant and cannot be changed. So even though it is not necessary for JavaScript, we will keep this variable in all caps so we are ready for deployment and won't have to go back and edit it. 
+
 ### Building An App
 
 Right now, we'll be focused on learning express, later we'll learn about databases and then learn how to integrate a database into our express app.
