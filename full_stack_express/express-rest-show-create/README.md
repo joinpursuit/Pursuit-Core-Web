@@ -193,6 +193,20 @@ const validateURL = (req, res, next) => {
 };
 ```
 
+<details><summary>Another way to test for http or https</summary>
+
+You could also use the JavaScript function `.match()`, which will test for a matching string, you can use a simple string or a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+
+So it would look like this
+
+```js
+req.body.url.match(/https?:\/\//);
+```
+
+[learn more about regular expressions](https://regexone.com/)
+
+</details>
+
 Add this function to `CREATE`
 
 ```js
