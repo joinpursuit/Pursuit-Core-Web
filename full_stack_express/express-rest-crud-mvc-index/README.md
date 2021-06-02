@@ -1,4 +1,4 @@
-# 3 Express CRUD/MVC
+# Express CRUD/MVC
 
 ## Intro
 
@@ -244,3 +244,12 @@ app.get("*", (req, res) => {
   res.status(404).send("Page not found");
 });
 ```
+
+## Lab Time!
+
+[Captain's Log](https://github.com/joinpursuit/captains-log) - During lab, you'll be building an app that has similar functionality as the one we are building in class. This lab will span several sessions.
+
+If you already have had experience with express or another back-end, you may find the first few activities going by quite quickly.
+
+You are encouraged to work on
+[Express UFO](https://github.com/joinpursuit/express-ufo) this is a far more challenging activity that will help you sharpen your express and JavaScript skills.
