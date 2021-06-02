@@ -39,7 +39,7 @@ To the users, the URL looks the same.
 
 But for our server code, we would write the route as something like:
 
-    http://darksky.net/forcast/:timezone/:country/:language?units=metric&date=05312021
+    http://darksky.net/forcast/:location/:timezone/:language?units=metric&date=05312021
 
 In the request we would be able to get an object that looks like this that comes from the request parameters:
 
