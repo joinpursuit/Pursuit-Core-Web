@@ -332,6 +332,7 @@ http://localhost:3003/universe
 </details>
 
 <br />
+
 ### grep and kill nodemon
 
 If you don't cancel out of your server properly before putting your computer to sleep or if you try to run nodemon on the same port multiple times, you may end up having `nodemon` running amok in your background processes.
