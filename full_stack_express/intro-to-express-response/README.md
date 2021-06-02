@@ -29,7 +29,7 @@ Node has a large library of 3rd party code called` Node Package Manager` (`npm` 
 
 ## Making Your Own Node Project
 
-If you've ever downloaded some code onto your computer and to get the project started you needed to run `npm install`, you've been working withe a node project!
+If you've ever downloaded some code onto your computer and to get the project started you needed to run `npm install`, you've been working with a node project!
 
 Now let's make our own. We'll make a server with express! Express is very popular npm library that allows developers to build complex back ends that power some [very popular web sites](https://expressjs.com/en/resources/companies-using-express.html)
 
