@@ -122,7 +122,7 @@ Nice! We can see our data in terminal.
 
 We can also `POST` data using cURL
 
-- `curl -H "Content-Type: application/json" -X POST -d '{"name":"AV Club", "isFavorite": "true"}' localhost:3003/bookmarks`
+- `curl -H "Content-Type: application/json" -X POST -d '{"name":"AV Club", "url": "https://www.avclub.com"}' localhost:3003/bookmarks`
 
   We should get a message that the route was found and caused a redirect.
 
@@ -149,14 +149,56 @@ Make sure you put this ABOVE your routes
 app.use(express.json()); // Parse incoming JSON
 ```
 
-Now we should be able to run our cURL commands and see our new data
+Now we should be able to run our cURL commands and see our new data (don't forget you can scroll through previous commands in terminal by using the up arrow)
 
-- `curl -H "Content-Type: application/json" -X POST -d '{"name":"AV Club", "isFavorite": "true"}' localhost:3003/bookmarks`
+- `curl -H "Content-Type: application/json" -X POST -d '{"name":"AV Club", "url": "https://www.avclub.com"}' localhost:3003/bookmarks`
 
 - `curl http://localhost:3003/bookmarks`
 
 We should also be able to see this change in our browser. Let's visit http://localhost:3003/bookmarks and we should see our new bookmark at the bottom of the list.
 
-## Middleware
+## BONUS: Middleware in more depth
 
 Middleware is code that 'runs in the middle' of a request and response.
+
+It can be set up to run for every route:
+
+**app.js** Above other routes
+
+```js
+app.use((req, res, next) => {
+  console.log("This code runs for every request");
+  next();
+});
+```
+
+Check terminal to see this `console.log` - it should run every time you make a browser request.
+
+Or you can add it to certain routes only
+
+**controller/bookmarksController.js** above bookmarks routes
+
+```js
+const validateURL = (req, res, next) => {
+  if (
+    req.body.url.substring(0, 7) === "http://" ||
+    req.body.url.substring(0, 8) === "https://"
+  ) {
+    return next();
+  } else {
+    res
+      .status(400)
+      .send(`Oops, you forgot to start your url with http:// or https://`);
+  }
+};
+```
+
+Add this function to `CREATE`
+
+```js
+// CREATE
+bookmarks.post("/", validateURL, (req, res) => {
+  bookmarksArray.push(req.body);
+  res.status(303).redirect("/bookmarks");
+});
+```
