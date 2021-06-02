@@ -413,3 +413,12 @@ app.get("/calculator/:operator", (req, res) => {
 **Bonus**
 
 Can you figure out how to add the functionality of `subtract`, `multiple` and `divide` ?
+
+## Lab Time
+
+[99 Pokemon](https://github.com/joinpursuit/module-4-99-pokemon-express)
+
+If you already have had experience with express or another back-end, you may find the first few activities going by quite quickly.
+
+You are encouraged to work on
+[Express UFO](https://github.com/joinpursuit/express-ufo) this is a far more challenging activity that will help you sharpen your express and JavaScript skills.
