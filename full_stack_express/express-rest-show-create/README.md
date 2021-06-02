@@ -157,7 +157,7 @@ Now we should be able to run our cURL commands and see our new data (don't forge
 
 We should also be able to see this change in our browser. Let's visit http://localhost:3003/bookmarks and we should see our new bookmark at the bottom of the list.
 
-## BONUS: Middleware in more depth
+## Middleware in more depth
 
 Middleware is code that 'runs in the middle' of a request and response.
 
