@@ -23,13 +23,13 @@ It's a lot like the difference between making pasta and sauce from scratch (no c
 
 Libraries are just helper code, with little to no opinions on how you should use them. Frameworks tend to be much more opinionated on how to use them.
 
-If you've ever worked with Bootstrap for CSS (or another CSS framework like materialize, skeleton, bulma etc.), you've used a 3rd party code framework. What these libraries tried to solve is common styling, UX/UI and responsive design issues. You don't have to ever look at the code or know how it works, you just need read the documentation in order to learn how to use the framework or library.
+If you've ever worked with Bootstrap for CSS (or another CSS framework like materialize, skeleton, bulma etc.), you've used a 3rd party code framework. What these libraries tried to solve is common styling, UX/UI and responsive design issues. You don't have to ever look at the code or know how it works, you just need to read the documentation in order to learn how to use the framework or library.
 
 Node has a large library of 3rd party code called` Node Package Manager` (`npm` all lowercase).
 
 ## Making Your Own Node Project
 
-If you've ever downloaded some code onto your computer and to get the project started you needed to run `npm install`, you've been working withe a node project!
+If you've ever downloaded some code onto your computer and to get the project started you needed to run `npm install`, you've worked with a node project!
 
 Now let's make our own. We'll make a server with express! Express is very popular npm library that allows developers to build complex back ends that power some [very popular web sites](https://expressjs.com/en/resources/companies-using-express.html)
 
@@ -332,6 +332,7 @@ http://localhost:3003/universe
 </details>
 
 <br />
+
 ### grep and kill nodemon
 
 If you don't cancel out of your server properly before putting your computer to sleep or if you try to run nodemon on the same port multiple times, you may end up having `nodemon` running amok in your background processes.
