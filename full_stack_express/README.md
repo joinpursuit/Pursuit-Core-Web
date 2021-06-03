@@ -1,4 +1,4 @@
-# Module 4: Full Stack: PERK-Stack Postgres, Express, React, Knex.js
+# Module 4: Full Stack: PERN-Stack Postgres, Express, React, Knex.js
 
 We're going to be learning about full stack web development.
 
@@ -47,10 +47,10 @@ Finally, we'll connect our server to our database so that we can create full sta
 |              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              |                         [TBD](https://github.com/joinpursuit/)                         |
 |     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     |                         [TBD](https://github.com/joinpursuit/)                         |
 |      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      |                         [TBD](https://github.com/joinpursuit/)                         |
-|                 11. [PERN Stack: Create & Read](./perk-create-read/README.md)                 |                         [TBD](https://github.com/joinpursuit/)                         |
-|               12. [PERK Stack: Delete & Update](./perk-update-delete/README.md)               |                         [TBD](https://github.com/joinpursuit/)                         |
-|                13. [PERK Stack: One to Many](./perk-one-to-many-c-r/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
-|                14. [PERK Stack: One to Many](./perk-one-to-many-d-u/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
+|                 11. [PERN Stack: Create & Read](./pern-create-read/README.md)                 |                         [TBD](https://github.com/joinpursuit/)                         |
+|               12. [PERN Stack: Delete & Update](./pern-update-delete/README.md)               |                         [TBD](https://github.com/joinpursuit/)                         |
+|                13. [PERN Stack: One to Many](./pern-one-to-many-c-r/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
+|                14. [PERN Stack: One to Many](./pern-one-to-many-d-u/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
 
 ## Individual Project
 
