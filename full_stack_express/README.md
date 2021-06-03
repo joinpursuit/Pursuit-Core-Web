@@ -16,9 +16,7 @@ Next, we'll learn about databases and learn basic SQL.
 
 Finally, we'll connect our server to our database so that we can create full stack web applications.
 
-## Overview
 
-![](https://comic.browserling.com/full-stack.png)
 
 ## Learning Outcomes
 
