@@ -67,7 +67,7 @@ Create a show route based on the array position:
 ```js
 // SHOW
 bookmarks.get("/:arrayIndex", (req, res) => {
-  res.status(200).send(bookmarksArray[req.params.arrayIndex]);
+  res.json(bookmarksArray[req.params.arrayIndex]);
 });
 ```
 
@@ -77,7 +77,7 @@ Error Handling:
 // SHOW
 bookmarks.get("/:arrayIndex", (req, res) => {
   if (bookmarkArray[req.params.arrayIndex]) {
-    res.status(200).send(bookmarksArray[req.params.arrayIndex]);
+    res.json(bookmarksArray[req.params.arrayIndex]);
   } else {
     res.redirect("/404");
   }
@@ -159,7 +159,7 @@ We should also be able to see this change in our browser. Let's visit http://loc
 
 ## Middleware in more depth
 
-Middleware is code that 'runs in the middle' of a request and response.
+Middleware is code that 'runs in the middle' of a request and response. We have a third parameter called `next`. Next is a function that will allow the app to know when it is time to move to the next callback.
 
 It can be set up to run for every route:
 

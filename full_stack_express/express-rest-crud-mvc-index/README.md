@@ -14,6 +14,8 @@ Let's look at an example - this is some data provided by an etsy shop owner thro
 
 When the owner presses the `submit` button. The browser will send a `request` to a server. The server will save the data in a database. We can imagine the data looks something like this:
 
+**DEMO, do not code**
+
 ```js
 {
     name: 'bismuth',
@@ -28,6 +30,8 @@ When the owner presses the `submit` button. The browser will send a `request` to
 The server will `respond` with some sort of confirmation that the `request` went through successfully, or will provide an error message.
 
 Then, when the owner wants to see the product. The owner will make a `request` to see the product in the browser. There will be a `response` that will involve some logic to **embed** the data inside HTML:
+
+**DEMO, do not code**
 
 ```html
 <h1>{rock.shopName}</h1>
@@ -120,7 +124,7 @@ Our problems are a microcosm of an app that is years old that have had tens or p
 
 **Bonus:** [Read more on software architecture](https://en.wikipedia.org/wiki/Software_architecture)
 
-We are going to be loosely following a very common software design pattern called [MVC](https://en.wikipedia.org/wiki/Model–view–controller) : Model-view-controller
+We are going to be loosely following a very common software design pattern called [MVC](https://en.wikipedia.org/wiki/Model–view–controller) : Model-View-Controller
 
 This allows developers to separate the concerns of the data, the view and the controller.
 
@@ -200,11 +204,13 @@ const bookmarks = express.Router();
 const bookmarksArray = require("../models/bookmark.js");
 
 bookmarks.get("/", (req, res) => {
-  res.send(bookmarksArray);
+  res.json(bookmarksArray);
 });
 
 module.exports = bookmarks;
 ```
+
+We are using `res.json` instead of `res.send`, since we are sending `json` instead of a simple string.
 
 In `app.js` we have to connect our controllers for `bookmarks`
 

@@ -66,11 +66,11 @@ Which we could then use to find the data that we need in order to complete the r
 
 ### Quick Review
 
-- Express is a code library hosted on npm that is written in JavaScript. Express is a framework for building a web server
+- Express is a code framework hosted on npm that is written in JavaScript. Express is a framework for building a web server
 - We initialize our folder as an npm project by typing `npm init`
 - Add npm packages by typing `npm install <package-name> `e.g. `npm install express`
 - Use the `require()` function to bring in the express code, so we can use it
-- Add `app.listen(port)` to turn on our server, by default, it will listen to http://localhost. When we work on our computers, we have to pick a port. Usually ports for servers that we'll be building are in the numeric range of 3000 - 9000. When we host our projects on the web, the port will be automatically configured for us
+- Add `app.listen(PORT)` to turn on our server, by default, it will listen to http://localhost. When we work on our computers, we have to pick a port. Usually ports for servers that we'll be building are in the numeric range of 3000 - 9000. When we host our projects on the web, the port will be automatically configured for us
 
 We are going to add a little bit more complexity to this set up so that we can start to bring in some more best practices into our app.
 
@@ -92,7 +92,7 @@ node_modules
 
 This is not JavaScript, so don't add semi-colons.
 
-The `.gitgnore` file will determine what files git should not track.
+The `.gitgnore` file will determine what files git should not track. This is not JavaScript, so don't add semi-colons.
 
 ### JavaScript Environments
 
@@ -168,7 +168,7 @@ app.listen(PORT, () => {
 
 Get the app running with `nodemon server.js` and go to http://localhost:3333
 
-**Note:** Having the variable `PORT` in all caps is the default for when you put your backend on the cloud(make it live). In other languages, all caps denotes that the variable is a constant and cannot be changed. So even though it is not necessary for JavaScript, we will keep this variable in all caps so we are ready for deployment and won't have to go back and edit it. 
+**Note:** Having the variable `PORT` in all caps is the default for when you deploy your backend on the cloud(make it live). In other languages, all caps denotes that the variable is a constant and cannot be changed. So even though it is not necessary for JavaScript, we will keep this variable in all caps so we are ready for deployment and won't have to go back and edit it.
 
 ### Building An App
 
