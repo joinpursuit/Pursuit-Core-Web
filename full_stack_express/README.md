@@ -8,7 +8,7 @@ First, we're going to learn about servers and how to send:
 - very short bits of html
 - JSON
 
-We won't be using a database yet. We're going to mock it by just using arrays of objects. This will allow us to focus on the concepts and code of servers.
+We won't be using a database yet. We're going to mock it by just using arrays of objects to represent the way the database would send and receive data. This will allow us to focus on the concepts and code of servers.
 
 Then, we'll to create a more robust view of our data (connect to React app)
 
@@ -34,23 +34,23 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 ## Lessons, Quizzes, and Labs
 
-|                                            Lesson                                             |                                          Lab                                           |
-| :-------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
-|         1a. [Intro to Internet & Servers](./intro-to-internet-and-servers/README.md)          |                                     Not applicable                                     |
-|              1b. [npm & Express Response](./intro-to-express-response/README.md)              | [Intro to Express](https://gist.github.com/Krafalski/2747a2287769fb14759a03a6cf188c31) |
-|                  2. [Express Request](./intro-to-express-request/README.md)                   |        [99 Pokemon Express](https://github.com/joinpursuit/99-pokemon-express)         |
-|                3. [Express CRUD/MVC](./express-rest-crud-mvc-index/README.md)                 |          [Captain's Log Part 1](https://github.com/joinpursuit/captains-log)           |
-| 4. [Express Middleware & RESTful Routes: Show & Create](./express-rest-show-create/README.md) |       [Captain's Log Part 2](https://github.com/joinpursuit/captains-log#part-2)       |
-|     5. [Express Restful Routes: Update & Delete](./express-rest-delete-update/README.md)      |       [Captain's Log Part 3](https://github.com/joinpursuit/captains-log#part-3)       |
-|                6. [Connect Express & React](./express-connect-react/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
-|              7. [Intro to Databases/SQL Part 1](./intro-to-sql-part-1/README.md)              |                         [TBD](https://github.com/joinpursuit/)                         |
-|              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              |                         [TBD](https://github.com/joinpursuit/)                         |
-|     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     |                         [TBD](https://github.com/joinpursuit/)                         |
-|      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      |                         [TBD](https://github.com/joinpursuit/)                         |
-|                 11. [PERN Stack: Create & Read](./pern-create-read/README.md)                 |                         [TBD](https://github.com/joinpursuit/)                         |
-|               12. [PERN Stack: Delete & Update](./pern-update-delete/README.md)               |                         [TBD](https://github.com/joinpursuit/)                         |
-|                13. [PERN Stack: One to Many](./pern-one-to-many-c-r/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
-|                14. [PERN Stack: One to Many](./pern-one-to-many-d-u/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
+|                                            Lesson                                             |                                    Lab                                     |
+| :-------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------: |
+|         1a. [Intro to Internet & Servers](./intro-to-internet-and-servers/README.md)          |                               Not applicable                               |
+|              1b. [npm & Express Response](./intro-to-express-response/README.md)              |    [Intro to Express](https://github.com/joinpursuit/intro-to-express)     |
+|                  2. [Express Request](./intro-to-express-request/README.md)                   |  [99 Pokemon Express](https://github.com/joinpursuit/99-pokemon-express)   |
+|                3. [Express CRUD/MVC](./express-rest-crud-mvc-index/README.md)                 |    [Captain's Log Part 1](https://github.com/joinpursuit/captains-log)     |
+| 4. [Express Middleware & RESTful Routes: Show & Create](./express-rest-show-create/README.md) | [Captain's Log Part 2](https://github.com/joinpursuit/captains-log#part-2) |
+|     5. [Express Restful Routes: Update & Delete](./express-rest-delete-update/README.md)      | [Captain's Log Part 3](https://github.com/joinpursuit/captains-log#part-3) |
+|                6. [Connect Express & React](./express-connect-react/README.md)                |                   [TBD](https://github.com/joinpursuit/)                   |
+|              7. [Intro to Databases/SQL Part 1](./intro-to-sql-part-1/README.md)              |                   [TBD](https://github.com/joinpursuit/)                   |
+|              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              |                   [TBD](https://github.com/joinpursuit/)                   |
+|     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     |                   [TBD](https://github.com/joinpursuit/)                   |
+|      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      |                   [TBD](https://github.com/joinpursuit/)                   |
+|                 11. [PERN Stack: Create & Read](./pern-create-read/README.md)                 |                   [TBD](https://github.com/joinpursuit/)                   |
+|               12. [PERN Stack: Delete & Update](./pern-update-delete/README.md)               |                   [TBD](https://github.com/joinpursuit/)                   |
+|                13. [PERN Stack: One to Many](./pern-one-to-many-c-r/README.md)                |                   [TBD](https://github.com/joinpursuit/)                   |
+|                14. [PERN Stack: One to Many](./pern-one-to-many-d-u/README.md)                |                   [TBD](https://github.com/joinpursuit/)                   |
 
 ## Individual Project
 

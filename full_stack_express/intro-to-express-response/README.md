@@ -11,7 +11,7 @@
 
 ## What is Node?
 
-Node is an open source program that lets us run JavaScript in Terminal. Previous to this project, JavaScript could only be run in the browser.
+Node is an open source project that lets us run JavaScript in Terminal. Previous to this project, JavaScript could only be run in the browser.
 
 By creating Node, companies could hire developers who specialize in JavaScript and they would be able to build front-end Applications and back-end applications.
 
@@ -27,11 +27,13 @@ If you've ever worked with Bootstrap for CSS (or another CSS framework like mate
 
 Node has a large library of 3rd party code called` Node Package Manager` (`npm` all lowercase).
 
-## Making Your Own Node Project
+We'll be writing our own applications using some packages from npm.
+
+## Making Your Own Project With Node
 
 If you've ever downloaded some code onto your computer and to get the project started you needed to run `npm install`, you've worked with a node project!
 
-Now let's make our own. We'll make a server with express! Express is very popular npm library that allows developers to build complex back ends that power some [very popular web sites](https://expressjs.com/en/resources/companies-using-express.html)
+Now let's make our own. We'll make a server with express! Express is very popular npm framework that allows developers to build complex back ends that power some [very popular web sites](https://expressjs.com/en/resources/companies-using-express.html)
 
 ## Getting Started with Express
 
@@ -355,7 +357,7 @@ On the left, you will see the process number, in this case it is `26625`
 
 Now you can kill the process by typing
 
-- `kill 4517`
+- `kill 26625`
 
 ### An aside about newer JS syntax
 

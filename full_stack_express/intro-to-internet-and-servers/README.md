@@ -62,7 +62,7 @@ Here is an image server farm that full of computers that are servers:
 
 ### Types of Servers
 
-1. **Web server**: Web servers show pages and run apps through web browsers. The server your browser is connected to right now is a web server that's delivering this page and any images you see on it.
+1. **Web server**: Web servers show pages and run apps through web browsers. The server your browser has made a request to, is a web server that's delivering this page and any images you see on it.
 2. **Email server**: Email servers facilitate the sending and receiving of email messages.
 3. **FTP server**: FTP servers support the moving of files through File Transfer Protocol tools
 
@@ -70,10 +70,10 @@ Here is an image server farm that full of computers that are servers:
 
 There four common types of requests we can make which correspond to four basic ways we typically want to manipulate data
 
-- <kbd>POST</kbd> (Create data) - make a user account
-- <kbd>GET</kbd>(Read data) - see user account info
-- <kbd>PUT/PATCH</kbd> (Update data) - update account info
-- <kbd>DELETE</kbd> (Destroy data) - delete account
+- <kbd>POST</kbd> (Create data) - e.g. make a user account
+- <kbd>GET</kbd>(Read data) - e.g. see user account info
+- <kbd>PUT/PATCH</kbd> (Update data) - e.g. update account info
+- <kbd>DELETE</kbd> (Destroy data) - e.g. delete account
 
 This acronym is C.R.U.D.
 
@@ -87,13 +87,13 @@ Let's breakdown the contents of a more complex URL:
 
 ```
     http://www.example.org:3000/hello/world/index.html?name=foo&limit=20#footer
-    \___/  \_____________/ \__/ \____________________/ \_______________/ \____/
+    \___/  \_____________/ \__/ \___________________/ \_______________/ \____/
   protocol  host/domain    port           path            query-string hash/fragment
 ```
 
 | Element          | About                                                                                                                                                                                                                                                                                                                                                     |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| protocol         | The most popular application protocol used on the world wide web is HTTP(`S` stands for secure). Other familiar types of application protocols include FTP, SSH, GIT, FILE                                                                                                                                                                                |
+| protocol         | A protocol is a set of rules that is agreed to by all parties (in this case, a server and a client). The most popular application protocol used on the world wide web is HTTP(`S` stands for secure). Other familiar types of application protocols include FTP, SSH, GIT, FILE                                                                           |
 | host/domain name | The host or domain name is looked up in DNS to find the IP address of the host - the server that's providing the resource (see bonus section)                                                                                                                                                                                                             |
 | port             | A server can have multiple applications listening on multiple ports. This allows users to access a different application on the same host - this is usually configured for us, so we don't typically type it                                                                                                                                              |
 | path             | Web servers can organize resources into a system that is similar to files in directories                                                                                                                                                                                                                                                                  |
@@ -102,7 +102,7 @@ Let's breakdown the contents of a more complex URL:
 
 ## HTTP
 
-We are going to be working with HTTP in order to build APIs.
+We are going to be working with HTTP (`Hyper-Text-Transfer-Protocol`) in order to build APIs.
 
 **Remember** - HTML stands for `Hyper-Text Mark-up Langauge`
 
