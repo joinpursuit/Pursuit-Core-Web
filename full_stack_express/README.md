@@ -37,7 +37,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 |                                            Lesson                                             |                                          Lab                                           |
 | :-------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
 |         1a. [Intro to Internet & Servers](./intro-to-internet-and-servers/README.md)          |                                     Not applicable                                     |
-|              1b. [npm & Express Response](./intro-to-express-response/README.md)              | [Intro to Express](https://github.com/joinpursuit/intro-to-express) |
+|              1b. [npm & Express Response](./intro-to-express-response/README.md)              | [Intro to Express](https://gist.github.com/Krafalski/2747a2287769fb14759a03a6cf188c31) |
 |                  2. [Express Request](./intro-to-express-request/README.md)                   |        [99 Pokemon Express](https://github.com/joinpursuit/99-pokemon-express)         |
 |                3. [Express CRUD/MVC](./express-rest-crud-mvc-index/README.md)                 |          [Captain's Log Part 1](https://github.com/joinpursuit/captains-log)           |
 | 4. [Express Middleware & RESTful Routes: Show & Create](./express-rest-show-create/README.md) |       [Captain's Log Part 2](https://github.com/joinpursuit/captains-log#part-2)       |
@@ -47,7 +47,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 |              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              |                         [TBD](https://github.com/joinpursuit/)                         |
 |     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     |                         [TBD](https://github.com/joinpursuit/)                         |
 |      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      |                         [TBD](https://github.com/joinpursuit/)                         |
-|                 11. [PERK Stack: Create & Read](./perk-create-read/README.md)                 |                         [TBD](https://github.com/joinpursuit/)                         |
+|                 11. [PERN Stack: Create & Read](./perk-create-read/README.md)                 |                         [TBD](https://github.com/joinpursuit/)                         |
 |               12. [PERK Stack: Delete & Update](./perk-update-delete/README.md)               |                         [TBD](https://github.com/joinpursuit/)                         |
 |                13. [PERK Stack: One to Many](./perk-one-to-many-c-r/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
 |                14. [PERK Stack: One to Many](./perk-one-to-many-d-u/README.md)                |                         [TBD](https://github.com/joinpursuit/)                         |
