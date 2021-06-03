@@ -39,7 +39,7 @@ To the users, the URL looks the same.
 
 But for our server code, we would write the route as something like:
 
-    http://darksky.net/forcast/:timezone/:country/:language?units=metric&date=05312021
+    http://darksky.net/forcast/:location/:timezone/:language?units=metric&date=05312021
 
 In the request we would be able to get an object that looks like this that comes from the request parameters:
 
@@ -144,7 +144,7 @@ We can also include code from other files we've created. When it is a file we've
 
 When we set up our `server.js` file, we need to first import our code from our app.js.
 
-Then, we need to configure our app to use our enviromnetal varibles.
+Then, we need to configure our app to use our environment varibles.
 
 We're using a package called [dotenv](https://www.npmjs.com/package/dotenv)
 

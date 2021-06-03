@@ -87,8 +87,8 @@ Let's breakdown the contents of a more complex URL:
 
 ```
     http://www.example.org:3000/hello/world/index.html?name=foo&limit=20#footer
-    \___/  \_____________/ \__/ \_________________/ \_____________/ \____/
-  protocol  host/domain    port        path          query-string  hash/fragment
+    \___/  \_____________/ \__/ \____________________/ \_______________/ \____/
+  protocol  host/domain    port           path            query-string hash/fragment
 ```
 
 | Element          | About                                                                                                                                                                                                                                                                                                                                                     |
