@@ -37,7 +37,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 |                                            Lesson                                             |                                          Lab                                           |
 | :-------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
 |         1a. [Intro to Internet & Servers](./intro-to-internet-and-servers/README.md)          |                                     Not applicable                                     |
-|              1b. [npm & Express Response](./intro-to-express-response/README.md)              | [Intro to Express](https://gist.github.com/Krafalski/2747a2287769fb14759a03a6cf188c31) |
+|              1b. [npm & Express Response](./intro-to-express-response/README.md)              | [Intro to Express](https://github.com/joinpursuit/intro-to-express) |
 |                  2. [Express Request](./intro-to-express-request/README.md)                   |        [99 Pokemon Express](https://github.com/joinpursuit/99-pokemon-express)         |
 |                3. [Express CRUD/MVC](./express-rest-crud-mvc-index/README.md)                 |          [Captain's Log Part 1](https://github.com/joinpursuit/captains-log)           |
 | 4. [Express Middleware & RESTful Routes: Show & Create](./express-rest-show-create/README.md) |       [Captain's Log Part 2](https://github.com/joinpursuit/captains-log#part-2)       |
