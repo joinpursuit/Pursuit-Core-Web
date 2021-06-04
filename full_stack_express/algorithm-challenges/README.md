@@ -80,6 +80,10 @@ If those tests pass, you will then be given a green Submit button where you can 
 
 On the next page you'll be shown different solutions by other members of Codewars who have solved the same kata. While this is often interesting to look at, don't necessarily assume that other solutions are any better than yours.
 
+### Problem Solving Refresher
+
+[A review on how to approach problem solving](https://github.com/joinpursuit/8-0-technical-curriculum/tree/main/01-fundamentals/problem-solving-methodologies)
+
 ### Additional sites
 
 There are a number of additional sites that can be used to practice coding. While it's worthwhile to practice these challenges now, don't forget that these kinds of challenges are only one component of interviewing for technical positions.
