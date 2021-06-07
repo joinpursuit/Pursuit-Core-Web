@@ -73,8 +73,8 @@ We are going to use the index position of the array item and we wil splice out t
 ```js
 // DELETE
 bookmarks.delete("/:indexArray", (req, res) => {
-  bookmarkArray.splice(req.params.indexArray, 1);
-  res.status(200).json(deletedBookMark);
+  const deletedBookmark = bookmarkArray.splice(req.params.indexArray, 1);
+  res.status(200).json(deletedBookmark);
 });
 ```
 
