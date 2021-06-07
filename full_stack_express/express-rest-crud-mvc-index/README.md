@@ -138,15 +138,23 @@ So let's get back to our application. We are going to have a place for our model
 
 In terms of code, we will have a folder called `models`, a folder called `controllers` and while it is possible to have a `views` folder (and there are many applications that use this folder), we are going to be serving our views not from inside our app, but with a separate react app.
 
-## TO DO INSERT SOME SCREENSHOTS/GIFS OF THE WORKING APP
+## Demonstrating the Working Application
+
+[Demo on YouTube](https://youtu.be/-FrpZpGk82c) - We will be working with an app called Postman in order to be able to make all of our requests. By the end of this multi-day build, your app will allow you to:
+- See a list (array) of all the bookmarks (**R**ead: `index`) 
+- See a single bookmark (**R**ead: `show`)
+- **C**reate a new bookmark 
+- **U**pdate a bookmark
+- **D**elete a bookmark 
 
 ## Set Up Models
 
-We're just going to have one model, with three values:
+We're just going to have one model, with four values:
 
 - name : string
 - url : string
 - isFavorite: boolean
+- category: string
 
 We can open a new tab in terminal (so we can keep nodemon running while we add these extra files.
 
@@ -170,7 +178,6 @@ module.exports = [
     name: "Apartment Therapy",
     url: "https://www.apartmenttherapy.com",
     isFavorite: true,
-    ,
     category: "inspirational"
   },
   {
