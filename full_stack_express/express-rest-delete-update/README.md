@@ -68,13 +68,13 @@ Press send. The way our API works is that it should return us back to the GET ro
 
 Let's add delete functionality. Again, this functionality will only be available to us via form. So we'll use Postman to test it.
 
-We are going to use the index position of the array item and we wil splice out the deleted item, which will remove the item at that array position. Then, we will redirect it back to the full list
+We are going to use the index position of the array item and we wil splice out the deleted item, which will remove the item at that array position. Then, we will send the deleted bookmark back.
 
 ```js
 // DELETE
 bookmarks.delete("/:indexArray", (req, res) => {
   bookmarkArray.splice(req.params.indexArray, 1);
-  res.status(303).redirect("/bookmarks");
+  res.status(200).json(deletedBookMark);
 });
 ```
 
@@ -98,7 +98,7 @@ We will take the array position of the item we want to update. We will set the v
 // UPDATE
 bookmarks.put("/:arrayIndex", (req, res) => {
   bookmarkArray[req.params.arrayIndex] = req.body;
-  res.status(303).redirect(`/bookmarks/${req.params.arrayIndex}`);
+  res.status(200).json(bookmarkArray[req.params.arrayIndex]);
 });
 ```
 

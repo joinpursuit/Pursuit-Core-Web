@@ -106,7 +106,7 @@ Let's add a route that will take the data from the request body and push it onto
 // CREATE
 bookmarks.post("/", (req, res) => {
   bookmarksArray.push(req.body);
-  res.status(303).redirect("/bookmarks");
+  res.json(bookmarkArray[bookmarkArray.length - 1]);
 });
 ```
 
@@ -124,7 +124,7 @@ We can also `POST` data using cURL
 
 - `curl -H "Content-Type: application/json" -X POST -d '{"name":"AV Club", "url": "https://www.avclub.com"}' localhost:3003/bookmarks`
 
-  We should get a message that the route was found and caused a redirect.
+  We should get a message that the route was found and returns the new bookmark
 
 Let's make a get request back to our index:
 
@@ -213,6 +213,6 @@ Add this function to `CREATE`
 // CREATE
 bookmarks.post("/", validateURL, (req, res) => {
   bookmarksArray.push(req.body);
-  res.status(303).redirect("/bookmarks");
+  res.json(bookmarkArray[bookmarkArray.length - 1]);
 });
 ```
