@@ -142,11 +142,12 @@ In terms of code, we will have a folder called `models`, a folder called `contro
 
 ## Set Up Models
 
-We're just going to have one model, with three values:
+We're just going to have one model, with four values:
 
 - name : string
 - url : string
 - isFavorite: boolean
+- category: string
 
 We can open a new tab in terminal (so we can keep nodemon running while we add these extra files.
 
@@ -170,7 +171,6 @@ module.exports = [
     name: "Apartment Therapy",
     url: "https://www.apartmenttherapy.com",
     isFavorite: true,
-    ,
     category: "inspirational"
   },
   {
