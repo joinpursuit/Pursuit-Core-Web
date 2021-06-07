@@ -418,7 +418,7 @@ Can you figure out how to add the functionality of `subtract`, `multiple` and `d
 
 ## Lab Time
 
-[99 Pokemon](https://github.com/joinpursuit/module-4-99-pokemon-express)
+[99 Pokemon](https://github.com/joinpursuit/99-pokemon-express)
 
 If you already have had experience with express or another back-end, you may find the first few activities going by quite quickly.
 
