@@ -373,7 +373,7 @@ If that sounds complicated and you're already feeling overwhelmed with new infor
 
 ## Lab Time!
 
-[Intro to Express Lab](https://github.com/joinpursuit/Module-4-intro-to-express-lab/blob/main/README.md)
+[Intro to Express Lab](https://github.com/joinpursuit/intro-to-express)
 
 If you already have had experience with express or another back-end, you may find the first few activities going by quite quickly.
 
