@@ -102,7 +102,7 @@ bookmarks.put("/:arrayIndex", (req, res) => {
 });
 ```
 
-## Update
+### TEST WITH POSTMAN
 
 - Update the option to `PUT`
 - http://localhost:3003/bookmarks/0
