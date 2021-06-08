@@ -146,11 +146,8 @@ const updateBookmark = (updatedBookmark, index) => {
     .then(
       (response) => {
         const updateArray = [...bookmarks];
-        updateArray.splice(index, 1, updatedBookmark);
+        updateArray[index] =  updatedBookmark;
         setBookmarks(updateArray);
-        console.log("update?");
-
-        return true;
       },
       (error) => console.error(error)
     )
