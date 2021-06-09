@@ -191,6 +191,8 @@ const validateURL = (req, res, next) => {
       .send(`Oops, you forgot to start your url with http:// or https://`);
   }
 };
+
+bookmarks.use(validateURL);
 ```
 
 <details><summary>Another way to test for http or https</summary>
