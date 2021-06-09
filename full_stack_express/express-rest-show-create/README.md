@@ -179,20 +179,24 @@ Or you can add it to certain routes only
 **controller/bookmarksController.js** above bookmarks routes
 
 ```js
-const validateURL = (req, res, next) => {
-  if (
-    req.body.url.substring(0, 7) === "http://" ||
-    req.body.url.substring(0, 8) === "https://"
-  ) {
-    return next();
-  } else {
-    res
-      .status(400)
-      .send(`Oops, you forgot to start your url with http:// or https://`);
-  }
-};
+const validateUrl = (req, res, next) => {
+    const http = "http://";
+    const https = "https://";
+    var fullUrl = req.protocol + '://' + req.get('host') + req.url;
+    console.log(`[development] Request URL: ${fullUrl}`);
+    if (
+        fullUrl.substring(0, 7) === http ||
+        fullUrl.substring(0, 8) === https
+    ) {
+        return next();
+    } else {
+        res
+        .status(400)
+        .send(`Oops, you forgot to start your url with http:// or https://`);
+    }
+    };
 
-bookmarks.use(validateURL);
+bookmarks.use(validateUrl);
 ```
 
 <details><summary>Another way to test for http or https</summary>
