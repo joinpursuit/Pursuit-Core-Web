@@ -46,7 +46,7 @@ And then it gets rendered in the browser:
 
 ![](./assets/bismuth-html.png)
 
-There are four main things to do with data **C**reate, **R**ead, **U**pdate, and **D**elete. In the above case, a user created some data, and then read the newly created data. We can imagine at some point the user may want to update the price or delete the item altogether.
+There are four main things to do with data: **C**reate, **R**ead, **U**pdate, and **D**elete. In the above case, a user created some data, and then read the newly created data. We can imagine at some point the user may want to update the price or delete the item altogether.
 
 We're going to be building a webpage bookmarks app. It's going to be a very simple app which will teach the fundamentals of building an API with express. Later, we'll add a react front-end to consume the API. Finally, we'll learn about databases and integrate a database into our simple app.
 
@@ -134,7 +134,7 @@ Everyone in the restaurant has a clear idea of what they are responsible for, ot
 
 Even though there is a common pattern for a restaurant, there are many variations, like buffets, drive-through and more. A pattern is a recommendation, not a rule.
 
-So let's get back to our application. We are going to have a place for our models (data), or views (what users will see in the browser) and the contollers (logic between the two)
+So let's get back to our application. We are going to have a place for our models (data), our views (what users will see in the browser) and the contollers (logic between the two).
 
 In terms of code, we will have a folder called `models`, a folder called `controllers` and while it is possible to have a `views` folder (and there are many applications that use this folder), we are going to be serving our views not from inside our app, but with a separate react app.
 
@@ -151,8 +151,8 @@ In terms of code, we will have a folder called `models`, a folder called `contro
 
 We're just going to have one model, with four values:
 
-- name : string
-- url : string
+- name: string
+- url: string
 - isFavorite: boolean
 - category: string
 
@@ -219,11 +219,11 @@ module.exports = bookmarks;
 
 We are using `res.json` instead of `res.send`, since we are sending `json` instead of a simple string.
 
-In `app.js` we have to connect our controllers for `bookmarks`
+In `app.js` we have to connect our controllers for `bookmarks`.
 
 First, we'll require the file.
 
-Then we'll `use` `/bookmarks` as the base of the routes, like so:
+Then we'll use `/bookmarks` as the base of the routes, like so:
 
 **app.js**
 
@@ -251,7 +251,7 @@ app.get("*", (req, res) => {
 
 Test it http://localhost:3003/nothing_here
 
-When we open up our Chrome Dev Tools and go to the `network` tab, we can see that this file loads with an http status of [304](https://http.cat/304) or [200](https://http.cat/200)
+When we open up our Chrome Dev Tools and go to the `Network` tab, we can see that this file loads with an http status of [304](https://http.cat/304) or [200](https://http.cat/200)
 
 But because this is a 404 [page not found](https://http.cat/404), we should make sure we are sending through the correct status code.
 
