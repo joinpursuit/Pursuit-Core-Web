@@ -94,7 +94,7 @@ At the top:
 ```js
 import { apiURL } from "./util/apiURL";
 
-// further down..., but below `App` component
+// further down..., but still above `App` component
 const API = apiURL();
 ```
 
