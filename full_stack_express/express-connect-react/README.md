@@ -28,8 +28,8 @@ The next four are ones that we will build in our front-end:
 | :-: | :----: | :-----------------: | :-------: | :------: | :------------------------------------: |
 |  1  | Index  |     /bookmarks      |    GET    | **R**ead | Get a list (or index) of all bookmarks |
 |  2  |  Show  |   /bookmarks/:id    |    GET    | **R**ead | Get an individual view (show one log)  |
-|  3  |  New   |   /bookmarks/new    |    GET    | **R**ead | Get a list (or index) of all bookmarks |
-|  4  |  Edit  | /bookmarks/:id/edit |    GET    | **R**ead | Get an individual view (show one log)  |
+|  3  |  New   |   /bookmarks/new    |    GET    | **R**ead | Get a form to create a new bookmark    |
+|  4  |  Edit  | /bookmarks/:id/edit |    GET    | **R**ead | Get a form to update a bookmark        |
 
 Which two are new and which ones have we built with express?
 
