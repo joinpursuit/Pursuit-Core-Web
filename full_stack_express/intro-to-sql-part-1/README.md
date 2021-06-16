@@ -226,6 +226,9 @@ Here, we can start to explore some of the powerful queries we can make using SQL
 -- select all rows from the houses table.  display only the address column
 SELECT address FROM houses;
 
+-- select all rows from the houses table.  display only the address and state column
+SELECT address, state FROM houses;
+
  -- select all rows from the houses table.  display only the all columns
 SELECT * FROM houses;
 
@@ -293,5 +296,5 @@ DELETE FROM houses WHERE id = 1;
 ## Delete Many Rows and See the Address
 
 ```SQL
-DELETE FROM houses WHERE pool = false RETURNING address;
+DELETE FROM houses WHERE pool = false RETURNING address, state;
 ```
