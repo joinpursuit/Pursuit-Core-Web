@@ -4,12 +4,12 @@
 
 - Define databases and their role in a Full Stack App
 - Introduction to Postgresql
-- Set up a (sub) database
-- Create and drop a table
-- Insert into the table
-- Read from the table
-- Update from the table
-- Delete from the table
+- Set up and drop (delete) a (sub) database
+- Create table, set columns and drop the table
+  - **C**reate a row and put it into the table (insert data)
+  - **R**ead from the table (query data)
+  - **U**pdate from the table
+  - **D**elete from the table
 
 ## Introduction
 
