@@ -35,3 +35,4 @@ Fellows will build their own portfolio site throughout the course.
 
 - [7.2 Highlights](https://docs.google.com/document/d/1bw44_qE6L4qfTCJPUZGb4L7jdQmieFvB98BaeoaBQIM/edit?ts=5fc7ef09)
 - [6.4 Highlights](https://docs.google.com/document/d/1vJQab8Jx7ehoMPw2nqG7cQNvErjvZQOyLAcbVnPB6CI/edit?ts=5db755ed)
+- [Pursuit Core Environment Set up](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md)
