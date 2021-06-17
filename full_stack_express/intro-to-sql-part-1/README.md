@@ -345,7 +345,7 @@ SELECT * FROM houses LIMIT 1;
 
 ### Offset
 
-If we were to imaging pagination for our store, we would also want to offset (start at a later row) for the responses on upcoming pages.
+If we were to imagine pagination for our store, we would also want to offset (start at a later row) for the responses on upcoming pages.
 
 ```SQL
 -- For comparison to the next one
