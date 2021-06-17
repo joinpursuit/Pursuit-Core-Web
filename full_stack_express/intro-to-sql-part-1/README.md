@@ -259,16 +259,16 @@ SELECT address, state FROM houses;
  -- select all rows from the houses table.  display only the all columns
 SELECT * FROM houses;
 
--- select all rows from the houses table where the name column is set to 'Tala'
+-- select all rows from the houses table where the name column is set to 'Monroe'
 SELECT * FROM houses WHERE city = 'Monroe';
 
 -- select all rows from the houses table where the name column is set to 'ny' or 'Ny' or 'NY' (case insensitive)
 SELECT * FROM houses WHERE state ILIKE 'NY';
 
--- select all rows from the houses table where the name column contains 'Street'
+-- select all rows from the houses table where the name column contains 'Drive'
 SELECT * FROM houses WHERE address LIKE '%Drive%';
 
--- select all rows from the houses table where the city column is set to 'Monroe' AND the state column is set to CT
+-- select all rows from the houses table where the city column is set to 'Monroe' AND the state column is set to 'CT'
 SELECT * FROM houses WHERE city = 'Monroe' AND state = 'CT';
 
 -- select all rows from the houses table where either the pool column is set to TRUE OR the city column is set to 'Twin Peaks'
@@ -278,19 +278,19 @@ SELECT * FROM houses WHERE pool = TRUE OR city = 'Twin Peaks';
 SELECT * FROM houses WHERE price = 200;
 
 -- select all rows from the houses table where the price column is not set to 180
-SELECT * FROM houses WHERE price != 150;
+SELECT * FROM houses WHERE price != 180;
 
 -- select all rows from the houses table where the price column is greater than 165
-SELECT * FROM houses WHERE price > 150;
+SELECT * FROM houses WHERE price > 165;
 
  -- select all rows from the houses table where the price column is less than 165
-SELECT * FROM houses WHERE price < 150;
+SELECT * FROM houses WHERE price < 165;
 
 -- select all rows from the houses table where the price column is greater than or equal to 165
-SELECT * FROM houses WHERE price <= 150;
+SELECT * FROM houses WHERE price >= 165;
 
 -- select all rows from the houses table where the price column is less than or equal to 165
-SELECT * FROM houses WHERE price >= 150;
+SELECT * FROM houses WHERE price <= 165;
 
 -- select all rows from the houses table where the price column is null
 SELECT * FROM houses WHERE price IS NULL;
