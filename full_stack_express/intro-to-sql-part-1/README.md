@@ -326,6 +326,10 @@ DELETE FROM houses WHERE id = 1;
 DELETE FROM houses WHERE pool = false RETURNING address, state;
 ```
 
+## Quit Postgres Shell
+
+To quit `psql` type `\q`
+
 ## BONUS
 
 ### Limit
