@@ -1,4 +1,4 @@
-# Module 4: Full Stack: PERN-Stack Postgres, Express, React, Knex.js
+# Module 4: Full Stack: PERN-Stack Postgres, Express, React
 
 We're going to be learning about full stack web development.
 
@@ -39,10 +39,10 @@ Finally, we'll connect our server to our database so that we can create full sta
 | 4. [Express Middleware & RESTful Routes: Show & Create](./express-rest-show-create/README.md) |                   [Captain's Log Part 2](https://github.com/joinpursuit/captains-log#part-2)                   |
 |     5. [Express Restful Routes: Update & Delete](./express-rest-delete-update/README.md)      |                   [Captain's Log Part 3](https://github.com/joinpursuit/captains-log#part-3)                   |
 |           6. [Connect Express & React (2 Parts)](./express-connect-react/README.md)           | [Captain's Log Front End - submit separately from back-end](https://github.com/joinpursuit/captains-log-react) |
-|              7. [Intro to Databases/SQL Part 1](./intro-to-sql-part-1/README.md)              |                                     [TBD](https://github.com/joinpursuit/)                                     |
+|              7. [Intro to Databases/SQL Part 1](./intro-to-sql-part-1/README.md)              |                                     [SQL Regifter](https://github.com/joinpursuit/sql-regifter)                                     |
 |              8. [Intro to Databases/SQL Part 2](./intro-to-sql-part-2/README.md)              |                                     [TBD](https://github.com/joinpursuit/)                                     |
-|     9. [Express & SQL w. Knex: Create & Seed & Read](./express-sql-create-read/README.md)     |                                     [TBD](https://github.com/joinpursuit/)                                     |
-|      10. [Express & SQL w. Knex: Update & Delete](./express-sql-delete-update/README.md)      |                                     [TBD](https://github.com/joinpursuit/)                                     |
+|     9. [Express & SQL: Create & Seed & Read](./express-sql-create-read/README.md)     |                                     [TBD](https://github.com/joinpursuit/)                                     |
+|      10. [Express & SQ: Update & Delete](./express-sql-delete-update/README.md)      |                                     [TBD](https://github.com/joinpursuit/)                                     |
 |                 11. [PERN Stack: Create & Read](./pern-create-read/README.md)                 |                                     [TBD](https://github.com/joinpursuit/)                                     |
 |               12. [PERN Stack: Delete & Update](./pern-update-delete/README.md)               |                                     [TBD](https://github.com/joinpursuit/)                                     |
 |                13. [PERN Stack: One to Many](./pern-one-to-many-c-r/README.md)                |                                     [TBD](https://github.com/joinpursuit/)                                     |
