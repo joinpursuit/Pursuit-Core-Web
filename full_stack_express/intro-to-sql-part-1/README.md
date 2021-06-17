@@ -96,7 +96,7 @@ You'll see a colon that will let you know there is more data, which you can use 
 
 ## Create a Database
 
-Postgres is a Database. When you run the application, you can create `sub-databases` that allow you to work on different projects. For example, you may have one for your bookmarks app, one for your budgeting app and more. These sub-databases are most often referred to as `databases` and to create them you use the keyworkd `databases`.
+Postgres is a Database. When you run the application, you can create `sub-databases` that allow you to work on different projects. For example, you may have one for your bookmarks app, one for your budgeting app and more. These sub-databases are most often referred to as `databases` and to create them you use the keyword `databases`.
 
 Let's create a database and then drop (delete) it. Then we'll create a new one, connect to it and use it for the rest of this lesson
 
