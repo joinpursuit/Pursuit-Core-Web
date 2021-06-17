@@ -399,7 +399,7 @@ SELECT SUM(price) FROM houses WHERE pool IS TRUE;
 -- divide all rows into groups by whether or not they are for sale.  Show the AVG of the price of each group.  Also show the for_sale property of each group
 SELECT AVG(price), for_sale FROM houses GROUP BY for_sale;
 
--- divide all rows into groups by whether or not the houses sing.  Show the MAX of the price of each group.  Also show the dance property of each group
+-- show the MIN price of houses.
 SELECT MIN(price) FROM houses;
 
 -- divide all rows into groups by for_sale.  Show the MIN of the price of each group.  Also show the for_sale of each group
