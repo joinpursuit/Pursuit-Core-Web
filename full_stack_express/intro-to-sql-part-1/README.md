@@ -10,6 +10,7 @@
   - **R**ead from the table (query data)
   - **U**pdate from the table
   - **D**elete from the table
+- Bonus: Limit, Sorting and Aggregation
 
 ## Introduction
 
@@ -152,14 +153,40 @@ DROP TABLE foo;
 -- 'houses' table has an id column, which is just a number that increases with each addition, and columns for address, last_name, price (in mm), and boolean properties for sing and dance
 
 CREATE TABLE
-  houses
-  ( id serial, address TEXT NOT NULL, city TEXT, state varchar(2), price INT, pool BOOLEAN DEFAULT false, for_sale BOOLEAN);
+  Houses
+  ( id serial, address TEXT NOT NULL, city TEXT, st varchar(2), price INT, pool BOOLEAN DEFAULT false, for_sale BOOLEAN);
 
 -- show description of columns for the table houses
 \d houses;
 ```
 
 ![](./assets/create-and-see-table.png)
+
+### Alter a Table
+
+You can make changes to the table you've created.
+
+**IMPORTANT:** You cannot roll back changes or undo deletes with a Postgres database. When working in production, be sure to have back up systems in place.
+
+```sql
+-- add an test string column
+ALTER TABLE houses ADD COLUMN test TEXT;
+
+-- drop the test column
+ALTER TABLE houses DROP COLUMN test;
+
+-- rename a column
+ALTER TABLE houses RENAME st TO state;
+
+-- rename a table
+ALTER TABLE Houses RENAME TO houses;
+```
+
+See columns in the houses table again
+
+```sql
+\d+ houses
+```
 
 ## Insert Into The Table
 
@@ -297,4 +324,81 @@ DELETE FROM houses WHERE id = 1;
 
 ```SQL
 DELETE FROM houses WHERE pool = false RETURNING address, state;
+```
+
+## BONUS
+
+### Limit
+
+Our data set is very tiny right now. If we were to imagine a shopping site, we usually don't want to load hundreds or thousands of products at once. It would be very slow and typically unnecessary.
+
+We can limit how many rows we get back
+
+```SQL
+-- select all rows from houses table, but show only the first row
+SELECT * FROM houses LIMIT 1;
+```
+
+### Offset
+
+If we were to imaging pagination for our store, we would also want to offset (start at a later row) for the responses on upcoming pages.
+
+```SQL
+-- For comparison to the next one
+SELECT * FROM houses;
+-- select all rows from houses table, but show only one row. Skip the first row
+SELECT * FROM houses LIMIT 1 OFFSET 1;
+
+```
+
+### Sorting
+
+It's important to not rely on the order you put things in the database as a form of sorting. When you need to sort your data, do so with specific SQL commands.
+
+```sql
+-- select all rows from houses table, order by name alphabetically
+SELECT * FROM houses ORDER BY city ASC;
+
+-- select all rows from houses table, order by name reverse alphabetically
+SELECT * FROM houses ORDER BY city DESC;
+
+-- select all rows from houses table, order by price ascending
+SELECT * FROM houses ORDER BY price ASC;
+
+-- select all rows from houses table, order by price descending
+SELECT * FROM houses ORDER BY price DESC;
+```
+
+### Combination
+
+```SQL
+SELECT address, city, state FROM houses ORDER BY city, state ASC LIMIT 2 OFFSET 2;
+```
+
+## SUPER BONUS
+
+### Counts and Aggregation
+
+```sql
+-- show the total number of houses.
+SELECT COUNT(price) FROM houses;
+
+-- divide all rows into groups by city and state.  Show the number of rows in each group.  Also show the city and state of each group
+SELECT COUNT(*) address, city, state FROM houses GROUP BY city, state;
+
+ -- Show the SUM of all the house prices.
+SELECT SUM(price) FROM houses WHERE price IS NOT NULL;
+
+ -- Show the SUM of all the house prices where the pool is true
+SELECT SUM(price) FROM houses WHERE pool IS TRUE;
+
+-- divide all rows into groups by whether or not they are for sale.  Show the AVG of the price of each group.  Also show the for_sale property of each group
+SELECT AVG(price), for_sale FROM houses GROUP BY for_sale;
+
+-- divide all rows into groups by whether or not the houses sing.  Show the MAX of the price of each group.  Also show the dance property of each group
+SELECT MIN(price) FROM houses;
+
+-- divide all rows into groups by for_sale.  Show the MIN of the price of each group.  Also show the for_sale of each group
+SELECT MAX(price), for_sale FROM houses GROUP BY for_sale;
+
 ```
