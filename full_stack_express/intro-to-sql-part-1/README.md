@@ -26,7 +26,7 @@ There are many databases. A common type is a relational database, which stores d
 
 While a google sheet can hold hundreds or thousands of records, it isn't meant to hold millions or billions of records (think about a database that contains all the users of FaceBook). Additionally, we can related different tables (sheets) which allows us to do very powerful things with data. We'll get to see this in action in the next lesson.
 
-We'll be working with Postgres, which is an open source RDBMS (relational database management system) created at the Universe of California Berkeley. It started being built in 1982.
+We'll be working with Postgres, which is an open source RDBMS (relational database management system) created at the University of California Berkeley. It started being built in 1982.
 
 The [Skeuomorphic Representation of a database is](https://en.wikipedia.org/wiki/Skeuomorph) is a stack of disks:
 
@@ -96,7 +96,7 @@ You'll see a colon that will let you know there is more data, which you can use 
 
 ## Create a Database
 
-Postgres is a Database. When you run the application, you can create `sub-databases` that allow you to work on different projects. For example, you may have one for your bookmarks app, one for your budgeting app and more. These sub-databases are most often referred to as `databases` and to create them you use the keyworkd `databases`.
+Postgres is a Database. When you run the application, you can create `sub-databases` that allow you to work on different projects. For example, you may have one for your bookmarks app, one for your budgeting app and more. These sub-databases are most often referred to as `databases` and to create them you use the keyword `databases`.
 
 Let's create a database and then drop (delete) it. Then we'll create a new one, connect to it and use it for the rest of this lesson
 
@@ -150,7 +150,7 @@ CREATE TABLE foo ( name TEXT ); -- create a table called 'foo' with one column c
 -- drop a table
 DROP TABLE foo;
 
--- 'houses' table has an id column, which is just a number that increases with each addition, and columns for address, last_name, price (in mm), and boolean properties for sing and dance
+-- 'houses' table has an id column `serial`, which is just a number that increases with each addition, and columns for address, city, st, price, and boolean properties for pool and for_sale.
 
 CREATE TABLE
   Houses
@@ -261,16 +261,16 @@ SELECT address, state FROM houses;
  -- select all rows from the houses table.  display only the all columns
 SELECT * FROM houses;
 
--- select all rows from the houses table where the name column is set to 'Tala'
+-- select all rows from the houses table where the name column is set to 'Monroe'
 SELECT * FROM houses WHERE city = 'Monroe';
 
 -- select all rows from the houses table where the name column is set to 'ny' or 'Ny' or 'NY' (case insensitive)
 SELECT * FROM houses WHERE state ILIKE 'NY';
 
--- select all rows from the houses table where the name column contains 'Street'
+-- select all rows from the houses table where the name column contains 'Drive'
 SELECT * FROM houses WHERE address LIKE '%Drive%';
 
--- select all rows from the houses table where the city column is set to 'Monroe' AND the state column is set to CT
+-- select all rows from the houses table where the city column is set to 'Monroe' AND the state column is set to 'CT'
 SELECT * FROM houses WHERE city = 'Monroe' AND state = 'CT';
 
 -- select all rows from the houses table where either the pool column is set to TRUE OR the city column is set to 'Twin Peaks'
@@ -280,19 +280,19 @@ SELECT * FROM houses WHERE pool = TRUE OR city = 'Twin Peaks';
 SELECT * FROM houses WHERE price = 200;
 
 -- select all rows from the houses table where the price column is not set to 180
-SELECT * FROM houses WHERE price != 150;
+SELECT * FROM houses WHERE price != 180;
 
 -- select all rows from the houses table where the price column is greater than 165
-SELECT * FROM houses WHERE price > 150;
+SELECT * FROM houses WHERE price > 165;
 
  -- select all rows from the houses table where the price column is less than 165
-SELECT * FROM houses WHERE price < 150;
+SELECT * FROM houses WHERE price < 165;
 
 -- select all rows from the houses table where the price column is greater than or equal to 165
-SELECT * FROM houses WHERE price <= 150;
+SELECT * FROM houses WHERE price >= 165;
 
 -- select all rows from the houses table where the price column is less than or equal to 165
-SELECT * FROM houses WHERE price >= 150;
+SELECT * FROM houses WHERE price <= 165;
 
 -- select all rows from the houses table where the price column is null
 SELECT * FROM houses WHERE price IS NULL;
@@ -347,7 +347,7 @@ SELECT * FROM houses LIMIT 1;
 
 ### Offset
 
-If we were to imaging pagination for our store, we would also want to offset (start at a later row) for the responses on upcoming pages.
+If we were to imagine pagination for our store, we would also want to offset (start at a later row) for the responses on upcoming pages.
 
 ```SQL
 -- For comparison to the next one
@@ -401,7 +401,7 @@ SELECT SUM(price) FROM houses WHERE pool IS TRUE;
 -- divide all rows into groups by whether or not they are for sale.  Show the AVG of the price of each group.  Also show the for_sale property of each group
 SELECT AVG(price), for_sale FROM houses GROUP BY for_sale;
 
--- divide all rows into groups by whether or not the houses sing.  Show the MAX of the price of each group.  Also show the dance property of each group
+-- show the MIN price of houses.
 SELECT MIN(price) FROM houses;
 
 -- divide all rows into groups by for_sale.  Show the MIN of the price of each group.  Also show the for_sale of each group
