@@ -203,7 +203,7 @@ Notice that in this table we have 14 rows (+ 1 for Grand Budapest Hotel), wherea
 
 #### Right Join
 
-If we do a right join with hotels and rooms, can you hypothesis how many rows we should have?
+If we do a right join with hotels and rooms, can you hypothesize how many rows we should have?
 
 ```sql
 SELECT * FROM hotels RIGHT JOIN rooms ON hotels.id = rooms.hotel_id;
