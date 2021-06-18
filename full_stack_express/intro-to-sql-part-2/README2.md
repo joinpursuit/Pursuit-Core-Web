@@ -20,7 +20,7 @@ VALUES
 SELECT * FROM guests;
 ```
 
-How can we create a table that allows for this relationship? If we try to add to rooms, we end up with a similar predicament when we first created our one to many relationship - and if we made a
+How can we create a table that allows for this relationship? If we try to add to rooms, we end up with a similar predicament when we first created our one to many relationship, same troubles if we try to tack on the data in some columns to the guests table.
 
 To do this we're going to make a `join` or `look up` table. This table will have no serial primary key. The rows will be distinguished by the room id and the guest id. We can also add some additional info, for example the dates (we will use simple text for demonstration purposes)
 
