@@ -160,6 +160,8 @@ CREATE TABLE
 \d houses;
 ```
 
+Additionally, we are adding an `id` - an id is useful field. All of our data is subject to change, the hotel name can change, there can be a typo that needs fixing. An id is an unique identifier for each row. The key word [serial](https://www.postgresql.org/docs/9.2/datatype-numeric.html) provides us this functionality without us needed to add it every time we create a new row of data.
+
 ![](./assets/create-and-see-table.png)
 
 ### Alter a Table
