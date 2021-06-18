@@ -24,7 +24,7 @@ We need a way to make our data persist, so that if the database is restarted or 
 
 There are many databases. A common type is a relational database, which stores data in tables and rows, much like an excel or google spreadsheet. The way we will interact with these databases is using a coding language called SQL (Structured Query Language). There are a few popular like mySQL, Oracle, SQL Server, SQLite and Postgresql.
 
-While a google sheet can hold hundreds or thousands of records, it isn't meant to hold millions or billions of records (think about a database that contains all the users of FaceBook). Additionally, we can related different tables (sheets) which allows us to do very powerful things with data. We'll get to see this in action in the next lesson.
+While a google sheet can hold hundreds or thousands of records, it isn't meant to hold millions or billions of records (think about a database that contains all the users of FaceBook). Additionally, we can relate different tables (sheets) which allows us to do very powerful things with data. We'll get to see this in action in the next lesson.
 
 We'll be working with Postgres, which is an open source RDBMS (relational database management system) created at the University of California Berkeley. It started being built in 1982.
 
