@@ -20,7 +20,7 @@ A database is an organized collection of data, stored and accessed electronicall
 
 For our CRUD apps, so far, we've been hard coding some data to get started with. We were able to make some temporary changes, but as soon as we shut down or restarted the server, the changes would disappear.
 
-We need a way to make our data persist, so that if the database is restarted or shut down we have the data. To do this, we'll use a database in order to store and access our data.
+We need a way to make our data persist, so that if the database is restarted or shut down we will still have the data. To do this, we'll use a database in order to store and access our data.
 
 There are many databases. A common type is a relational database, which stores data in tables and rows, much like an excel or google spreadsheet. The way we will interact with these databases is using a coding language called SQL (Structured Query Language). There are a few popular like mySQL, Oracle, SQL Server, SQLite and Postgresql.
 
