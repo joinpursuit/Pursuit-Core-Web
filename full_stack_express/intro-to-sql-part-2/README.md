@@ -1,4 +1,4 @@
-# SQL Part 2
+# SQL Part 2a
 
 ## Getting it Together Part 1: One to Many Joins
 
@@ -215,7 +215,7 @@ SELECT * FROM hotels RIGHT JOIN rooms ON hotels.id = rooms.hotel_id;
 
 Now we see that the Grand Budapest Hotel is excluded, but those mystery 3 rooms with no hotel are now showing up.
 
-#### Complex Query
+#### BONUS Complex Queries
 
 We can now combine our queries to ask more interesting questions about our data.
 
@@ -232,17 +232,34 @@ ON
     hotels.id = rooms.hotel_id;
 ```
 
-Which hotels do have vacancies?
+Which hotels have vacancies?
 
 ```sql
 SELECT DISTINCT
     hotels.name
 FROM
- hotels
+    hotels
 JOIN
- rooms
- ON
- hotels.id = rooms.hotel_id
- WHERE
- rooms.vacant IS TRUE;
+    rooms
+ON
+    hotels.id = rooms.hotel_id
+WHERE
+    rooms.vacant IS TRUE;
 ```
+
+**TRY IT:**
+
+- Query for hotels that allow pets
+- Query for hotels that allow pets AND have vacancies
+- Query for the average room price for a hotel that allows pets
+- Query for the most expensive room
+- Query for the average price of a room that has a name that includes `queen` in it (case insensitive)
+- Query for the most expensive room
+- Update a room at Hotel California with a room number of 202 to go from vacant-true to vacant false.
+- Update all the rooms with the hotel_id of 7 to now have a hotel_id that matches the Grand Budapest Hotel
+
+### Onwards
+
+Next up we can create tables with relationships of many to many. For example a guest can have (book) many hotel rooms and a hotel room can have (be booked by) many guests.
+
+[README2.md](README2.md)
