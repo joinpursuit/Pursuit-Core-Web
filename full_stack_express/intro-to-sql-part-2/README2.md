@@ -52,6 +52,10 @@ While this table has data, it's not very useful for us to look at.
 
 Let's do a query to show which rooms our guests have stayed in
 
+Select all columns (all tables) from rooms_guests, join the table guests on where guests.id matches rooms_guests.guest_id match.
+
+Join those results to rooms_guests on where rooms.id rooms_guests.room_id match.
+
 ```sql
 SELECT
     *
@@ -67,3 +71,29 @@ ON
     rooms.id = rooms_guests.room_id;
 
 ```
+
+![](./assets/join-guests-rooms.png)
+
+## Bonus
+
+- Show which hotels are associated with these rooms as well and update the three fields `name` to be `guest_name`, `hotel_name` and `room_name`.
+
+- Additionally, show stay dates, price, and state and order by guest name.
+
+**Expected Result**
+
+![](./assets/bonus-result.png)
+
+## Lab Time
+
+Choose Your Own Learning
+
+Rate your comfort and choose the matching activity
+
+| Rating |              What it means               |                                                                                                               What you should work on                                                                                                               |
+| :----: | :--------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|   5    | I feel amazing! Give me more challenges! | [Football/Futball/Soccer Data](https://github.com/jokecamp/FootballData/tree/master/openFootballData) Download and join the many tables to create info on historical data, like which players are on what teams? Who scored what goal in what game? |
+|   4    |               Feeling good               |                                                                                     Go back to the bonus challenges in the lecture markdowns and solve each one                                                                                     |
+|   3    |             Hanging in there             |                                                                                                 [Work your way through SQL Zoo](https://sqlzoo.net)                                                                                                 |
+|   2    |           I'm feeling stressed           |                                                                                                [Work your way through SQL Bolt](https://sqlbolt.com)                                                                                                |
+|   1    |           What just happened?            |                                                                                          Take a break and then schedule a time to talk to your instructor                                                                                           |

@@ -115,7 +115,6 @@ VALUES
 (2, 'Queen', 400, 201, true),
 (2, 'Queen', 400, 302, false),
 (2, 'King', 600, 403, false),
-(2, 'King', 600, 504, false),
 (2, 'Penthouse', 1200, 605, false),
 (3, 'Room', null, null, null),
 (4, null, 4000, null, true),
