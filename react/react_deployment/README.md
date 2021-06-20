@@ -47,3 +47,16 @@ Congrats! Your site should now be deployed.
 
 ### Alternatives step by steps
 * To deploy though the Netlify Website follow [this tutorial](https://dev.to/easybuoy/deploying-react-app-from-github-to-netlify-3a9j)
+
+### Troubleshooting the "routes refresh" error
+If you deploy your site and you get a "404 error" when clicking links or refreshing, create a new file in your public folder and name it "_redirects"
+
+```
+touch public/_redirects
+```
+
+inside that file, write:
+
+```
+/* /index.html 200
+```
