@@ -71,7 +71,7 @@ module.exports = app;
 - What does `app.get()` do?
 - What is `req` short for?
 - What is `res` short for?
-- What is `module.exports` what does it do?`
+- What is `module.exports` what does it do?
 
 **server.js**
 
@@ -241,13 +241,11 @@ The database `bookmarks_dev` doesn't exist yet, we'll create it next
 **.env**
 
 ```
-
-PORT = 3003
-PG_HOST = localhost
-PG_PORT = 5432
-PG_DATABASE = bookmarks_dev
-PG_USER = postgres
-
+PORT=3003
+PG_HOST=localhost
+PG_PORT=5432
+PG_DATABASE=bookmarks_dev
+PG_USER=postgres
 ```
 
 <br />
@@ -370,6 +368,10 @@ bookmarks.get("/", async (req, res) => {});
 module.exports = bookmarks;
 ```
 
+Let's create a new variable `allBookmarks` which will be an array of bookmark objects. Remember we have to `await` for the value to come back from the database.
+
+Then, we'll send it as json to the browser.
+
 ```js
 const express = require("express");
 const bookmarks = express.Router();
@@ -383,3 +385,5 @@ bookmarks.get("/", async (req, res) => {
 
 module.exports = bookmarks;
 ```
+
+## Lab time!
