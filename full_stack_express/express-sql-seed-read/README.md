@@ -6,7 +6,7 @@
 
 Earlier in this module, we built two apps: Bookmarks back-end and bookmarks front-end.
 
-We're going to rebuild our Bookmarks API in order to review express and learn how to add a database in with greater simplicity.
+We're going to rebuild our Bookmarks API in order to review express and learn how to add a database in with simplicity.
 
 ## Getting Started
 
