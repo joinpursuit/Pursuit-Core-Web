@@ -172,6 +172,8 @@ We will create two files
 DROP DATABASE IF EXISTS bookmarks_dev;
 CREATE DATABASE bookmarks_dev;
 
+\c bookmarks_dev
+
 DROP TABLE IF EXISTS bookmarks;
 
 CREATE TABLE bookmarks (
