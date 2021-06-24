@@ -44,6 +44,7 @@ PORT=3003
 
 ```js
 // DEPENDENCIES
+const cors = require("cors");
 const express = require("express");
 
 // CONFIGURATION
@@ -170,6 +171,8 @@ We will create two files
 ```sql
 DROP DATABASE IF EXISTS bookmarks_dev;
 CREATE DATABASE bookmarks_dev;
+
+\c bookmarks_dev
 
 DROP TABLE IF EXISTS bookmarks;
 
