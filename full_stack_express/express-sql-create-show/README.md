@@ -95,7 +95,7 @@ bookmarks.get("/:id", async (req, res) => {
   const { id } = req.params;
   const bookmark = await getBookmark(id);
   if (bookmark.length > 0) {
-    res.json(bookmark);
+    res.json(bookmark[0]);
   } else {
     res.status(404).json({ error: "not found" });
   }

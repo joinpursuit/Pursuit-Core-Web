@@ -172,14 +172,13 @@ We will create two files
 DROP DATABASE IF EXISTS bookmarks_dev;
 CREATE DATABASE bookmarks_dev;
 
-\c bookmarks_dev
-
-DROP TABLE IF EXISTS bookmarks;
+\c bookmarks_dev;
 
 CREATE TABLE bookmarks (
     id SERIAL PRIMARY KEY,
     name TEXT,
     url TEXT,
+    category TEXT,
     is_favorite BOOLEAN
 );
 
@@ -202,10 +201,10 @@ psql -U postgres -f db/schema.sql
 ```sql
 \c bookmarks_dev;
 
-INSERT INTO bookmarks (name, url, is_favorite) VALUES
-('MDN', 'https://developer.mozilla.org/en-US/', true),
-('Apartment Therapy', 'https://www.apartmenttherapy.com', true),
-('DMV', 'https://dmv.ny.gov', true);
+INSERT INTO bookmarks (name, url, category, is_favorite) VALUES
+('MDN', 'https://developer.mozilla.org/en-US/', 'educational', true),
+('Apartment Therapy', 'https://www.apartmenttherapy.com', 'inspirational', true),
+('DMV', 'https://dmv.ny.gov', 'adulting', true);
 ```
 
 Run this command
