@@ -153,7 +153,7 @@ DROP TABLE foo;
 -- 'houses' table has an id column `serial`, which is just a number that increases with each addition, and columns for address, city, st, price, and boolean properties for pool and for_sale.
 
 CREATE TABLE
-  Houses
+  houses
   ( id serial, address TEXT NOT NULL, city TEXT, st varchar(2), price INT, pool BOOLEAN DEFAULT false, for_sale BOOLEAN);
 
 -- show description of columns for the table houses
