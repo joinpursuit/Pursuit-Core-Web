@@ -69,7 +69,7 @@ CREATE DATABASE learn_hotels;
 
 Let's create a table for our hotels. We want to be sure our ratings are only between 0 and 5, so we'll add a constraint by checking the values.
 
-Will make a number that is unique, increments and cannot be null. [PRIMARY KEY](https://www.postgresql.org/docs/current/sql-createtable.html) adds additional constraints and rules to be sure we can safely create data with a unique id.
+__Serial__ will make a number that is unique, increments and cannot be null. [PRIMARY KEY](https://www.postgresql.org/docs/current/sql-createtable.html) adds additional constraints and rules to be sure we can safely create data with a unique id.
 
 ```sql
 CREATE TABLE hotels (id SERIAL PRIMARY KEY, name TEXT, city TEXT, state TEXT, pets BOOLEAN, rating numeric DEFAULT 5, CHECK (rating >= 0 AND rating <= 5));
