@@ -152,7 +152,7 @@ Let's start with a full join. That's going to put both all of the data of our bo
 This will show us hotels that have no room data (Grand Budapest Hotel) and 3 rooms that have a hotel_id of 7, even though there is no hotel with an id of 7.
 
 ```sql
-SELECT * FROM hotels FULL OUTER JOIN rooms on hotels.id = rooms.hotel_id;
+SELECT * FROM hotels FULL OUTER JOIN rooms ON hotels.id = rooms.hotel_id;
 ```
 
 We can see that we get a new (temporary) table that shows all our hotels data on the left and our rooms data on the right. The rows are aligned based on the value of the hotel id from the hotels table and the `foreign key` from the rooms table.
@@ -162,7 +162,7 @@ We can see that we get a new (temporary) table that shows all our hotels data on
 Determining which table is on the left or right is based on the order we write our SQL statement.
 
 ```sql
-SELECT * FROM rooms FULL OUTER JOIN hotels on hotels.id = rooms.hotel_id;
+SELECT * FROM rooms FULL OUTER JOIN hotels ON hotels.id = rooms.hotel_id;
 ```
 
 ![](./assets/full-room-hotel.png)
