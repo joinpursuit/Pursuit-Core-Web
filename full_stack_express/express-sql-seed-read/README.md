@@ -190,6 +190,8 @@ Run this command
 psql -U postgres -f db/schema.sql
 ```
 
+This says, run the app `psql` use the `U`ser `postgres` and run the `f`ile `db/schema`. 
+
 **Success** should look something like this
 
 ![](./assets/success-db-init.png)
