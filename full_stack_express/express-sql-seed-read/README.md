@@ -293,7 +293,7 @@ module.exports = db;
 We are going to separate our SQL queries from our routes. For organizational purposes, let's make a folder called `queries`
 
 - `mkdir queries`
-- `touch bookmarks.js`
+- `touch queries/bookmarks.js`
 
 **queries/bookmarks.js**
 
