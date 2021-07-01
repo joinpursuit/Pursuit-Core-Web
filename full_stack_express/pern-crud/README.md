@@ -368,11 +368,65 @@ return (
         </Link>
       </div>
       <div>
-        <button onClick={handleDelete}>Delete</button>
+        <button>Delete</button>
       </div>
     </div>
   </article>
 );
+```
+
+## Delete Functionality
+
+From this view, we want to be able to delete a bookmark. It's pretty common to name a function that handles an event (like a click or hover `handle`)
+
+```js
+const handleDelete = () => {
+  console.log("button clicked");
+};
+```
+
+Let's add a click event
+
+```js
+<div>
+  <button onClick={handleDelete}>Delete</button>
+</div>
+```
+
+Click the button to check that your click handler works as expected.
+
+We're going to use another `axios` call to make a request for the database to delete the bookmark.
+
+Try to write your code from the outside in, rather than from left to right. Working from outside will let you build the right scaffolding (nesting/braces) and then fill in the functionality. WHen you code left-to right, it can be very hard to keep up with the correct braces.
+
+When the delete is completed, we can think about the user experience. A reasonable way to handle it is to take the user back to the Index page, so they can see that their bookmark has been successfully deleted.
+
+```js
+// Top of file
+import { Link, useParams, useHistory, withRouter } from "react-router-dom";
+
+let history = useHistory();
+
+// Inside BookmarkDetails function
+const deleteBookmark = () => {
+  axios
+    .delete(`${API}/bookmarks/${id}`)
+    .then(
+      () => {
+        history.push(`/bookmarks`);
+      },
+      (error) => console.error(error)
+    )
+    .catch((c) => console.warn("catch", c));
+};
+```
+
+Finally, let's call this function:
+
+```js
+const handleDelete = () => {
+  deleteBookmark();
+};
 ```
 
 #### Full Code
