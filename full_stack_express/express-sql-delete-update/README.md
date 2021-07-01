@@ -1,4 +1,4 @@
-# Express & SQL w. Knex: Update & Delete
+# Express & SQL Update & Delete
 
 ## Adding a Database to our Express App
 
