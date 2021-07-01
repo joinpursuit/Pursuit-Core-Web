@@ -391,3 +391,5 @@ module.exports = bookmarks;
 ```
 
 ## Lab time!
+
+[Link to Lab](https://github.com/joinpursuit/tuner-api)
