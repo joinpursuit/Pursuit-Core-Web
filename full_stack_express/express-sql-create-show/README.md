@@ -91,12 +91,13 @@ Add in the query and add some logic for the 404
 
 ```js
 // SHOW
+// SHOW
 bookmarks.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const bookmark = await getBookmark(id);
-  if (bookmark.length > 0) {
-    res.json(bookmark[0]);
-  } else {
+  try {
+    const bookmark = await getBookmark(id);
+    res.json(bookmark);
+  } catch {
     res.status(404).json({ error: "not found" });
   }
 });
