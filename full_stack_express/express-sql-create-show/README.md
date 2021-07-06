@@ -140,15 +140,19 @@ We are passing two arguments to `db.one`, the first is the SQL query, where the 
 |    $3     | is_favorite | `bookmark.is_favorite` |      2      |
 
 ```js
-const newBookmark = async (bookmark) => {
+// CREATE
+const createBookmark = async (bookmark) => {
   try {
+    if (!bookmark.name) {
+      throw 'You must specify a value for "name"';
+    }
     const newBookmark = await db.one(
       "INSERT INTO bookmarks (name, url, is_favorite) VALUES($1, $2, $3) RETURNING *",
       [bookmark.name, bookmark.url, bookmark.is_favorite]
     );
     return newBookmark;
-  } catch (err) {
-    return err;
+  } catch (e) {
+    return e;
   }
 };
 ```
@@ -188,8 +192,17 @@ Now add the database call:
 ```js
 // CREATE
 bookmarks.post("/", async (req, res) => {
-  const bookmark = await newBookmark(req.body);
-  res.json(bookmark);
+  try {
+    const bookmark = await createBookmark(req.body);
+    if (bookmark["id"]) {
+      res.json(bookmark);
+    } else {
+      console.log(`Database error: ${bookmark}`);
+      throw `Error adding ${req.body} to the database.`;
+    }
+  } catch (e) {
+    res.status(404).json({ error: e });
+  }
 });
 ```
 
