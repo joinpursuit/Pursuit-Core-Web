@@ -70,6 +70,13 @@ const getBookmark = async (id) => {
 };
 ```
 
+You may also pass in arguments to your SQL query using an object with named keys like so:
+```
+await db.one("SELECT * FROM bookmarks WHERE id=$[id]", {
+      id: id,
+    });
+```
+
 **controllers/bookmarkController.js**
 Import the function
 
@@ -98,10 +105,11 @@ bookmarks.get("/:id", async (req, res) => {
     if (bookmark["id"]) {
       res.json(bookmark);
     } else {
-      throw bookmark;
+      console.log(`Database error: ${bookmark}`);
+      throw `There is no bookmark with id: ${id}`;
     }
   } catch (e) {
-    res.status(404).json({ error: "not found", message: e });
+    res.status(404).json({ error: "Resource not found.", message: e });
   }
 });
 ```
