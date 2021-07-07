@@ -234,7 +234,7 @@ We will need to install it and configure it
 - `npm install pg-promise`
 - `touch db/dbConfig.js`
 
-Currently, we'll be running our app on our own computer, but later, we'll want to deploy it. So we will want to set up our own environmental variables. Reminder - this is not a JavaScript file, do not use semi-colons or quotes.
+Currently, we'll be running our app on our own computer, but later, we'll want to deploy it. So we will want to set up our own environmental variables. Reminder - this (`.env`) is not a JavaScript file, do not use semi-colons or quotes.
 
 When we installed Postgres, it set up to, by default, run on localhost with a port of 5432. We are going to keep these defaults. We can always check them with the Postgres App
 
