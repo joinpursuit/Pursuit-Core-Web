@@ -70,6 +70,13 @@ const getBookmark = async (id) => {
 };
 ```
 
+You may also pass in arguments to your SQL query using an object with named keys like so:
+```
+await db.one("SELECT * FROM bookmarks WHERE id=$[id]", {
+      id: id,
+    });
+```
+
 **controllers/bookmarkController.js**
 Import the function
 
@@ -93,11 +100,16 @@ Add in the query and add some logic for the 404
 // SHOW
 bookmarks.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const bookmark = await getBookmark(id);
-  if (bookmark.length > 0) {
-    res.json(bookmark[0]);
-  } else {
-    res.status(404).json({ error: "not found" });
+  try {
+    const bookmark = await getBookmark(id);
+    if (bookmark["id"]) {
+      res.json(bookmark);
+    } else {
+      console.log(`Database error: ${bookmark}`);
+      throw `There is no bookmark with id: ${id}`;
+    }
+  } catch (e) {
+    res.status(404).json({ error: "Resource not found.", message: e });
   }
 });
 ```
@@ -136,15 +148,19 @@ We are passing two arguments to `db.one`, the first is the SQL query, where the 
 |    $3     | is_favorite | `bookmark.is_favorite` |      2      |
 
 ```js
-const newBookmark = async (bookmark) => {
+// CREATE
+const createBookmark = async (bookmark) => {
   try {
+    if (!bookmark.name) {
+      throw 'You must specify a value for "name"';
+    }
     const newBookmark = await db.one(
       "INSERT INTO bookmarks (name, url, is_favorite) VALUES($1, $2, $3) RETURNING *",
       [bookmark.name, bookmark.url, bookmark.is_favorite]
     );
     return newBookmark;
-  } catch (err) {
-    return err;
+  } catch (e) {
+    return e;
   }
 };
 ```
@@ -184,8 +200,17 @@ Now add the database call:
 ```js
 // CREATE
 bookmarks.post("/", async (req, res) => {
-  const bookmark = await newBookmark(req.body);
-  res.json(bookmark);
+  try {
+    const bookmark = await createBookmark(req.body);
+    if (bookmark["id"]) {
+      res.json(bookmark);
+    } else {
+      console.log(`Database error: ${bookmark}`);
+      throw `Error adding ${req.body} to the database.`;
+    }
+  } catch (e) {
+    res.status(404).json({ error: e });
+  }
 });
 ```
 

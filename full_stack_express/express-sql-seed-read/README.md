@@ -190,6 +190,8 @@ Run this command
 psql -U postgres -f db/schema.sql
 ```
 
+This says, run the app `psql` use the `U`ser `postgres` and run the `f`ile `db/schema`. 
+
 **Success** should look something like this
 
 ![](./assets/success-db-init.png)
@@ -232,7 +234,7 @@ We will need to install it and configure it
 - `npm install pg-promise`
 - `touch db/dbConfig.js`
 
-Currently, we'll be running our app on our own computer, but later, we'll want to deploy it. So we will want to set up our own environmental variables. Reminder - this is not a JavaScript file, do not use semi-colons or quotes.
+Currently, we'll be running our app on our own computer, but later, we'll want to deploy it. So we will want to set up our own environmental variables. Reminder - this (`.env`) is not a JavaScript file, do not use semi-colons or quotes.
 
 When we installed Postgres, it set up to, by default, run on localhost with a port of 5432. We are going to keep these defaults. We can always check them with the Postgres App
 
@@ -291,7 +293,7 @@ module.exports = db;
 We are going to separate our SQL queries from our routes. For organizational purposes, let's make a folder called `queries`
 
 - `mkdir queries`
-- `touch bookmarks.js`
+- `touch queries/bookmarks.js`
 
 **queries/bookmarks.js**
 
@@ -389,3 +391,5 @@ module.exports = bookmarks;
 ```
 
 ## Lab time!
+
+[Link to Lab](https://github.com/joinpursuit/tuner-api)
