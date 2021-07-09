@@ -119,7 +119,6 @@ module.exports = {
 ```
 
 ```js
-const deleteBookmark = async (id) => {
 const updateBookmark = async (bookmark) => {
   try {
     const updatedBookmark = await db.one(
