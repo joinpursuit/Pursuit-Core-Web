@@ -45,8 +45,8 @@ Finally, we'll connect our server to our database so that we can create full sta
 |            10. [Express & SQL: Show & Create](./express-sql-create-show/README.md)            |                                             [Tuner Part 2](https://github.com/joinpursuit/tuner-api#part-2)                                             |
 |          11. [Express & SQL: Update & Delete](./express-sql-delete-update/README.md)          |                                             [Tuner Part 3](https://github.com/joinpursuit/tuner-api#part-3)                                             |
 |                         12. [PERN Stack: CRUD](./pern-crud/README.md)                         |                                                   [Tuner Front-End](https://github.com/joinpursuit/)                                                    |
-|                13. [PERN Stack: One to Many](./pern-one-to-many-c-r/README.md)                |                                                [Tuner Add One to Many](https://github.com/joinpursuit/)                                                 |
-|                14. [PERN Stack: One to Many](./pern-one-to-many-d-u/README.md)                |                                                [Tuner Add One to Many](https://github.com/joinpursuit/)                                                 |
+|             13. [PERN Stack: One to Many Part 1](./pern-one-to-many-1/README.md)              |                                                [Tuner Add One to Many](https://github.com/joinpursuit/)                                                 |
+|             14. [PERN Stack: One to Many Part 2](./pern-one-to-many-2/README.md)              |                                                [Tuner Add One to Many](https://github.com/joinpursuit/)                                                 |
 
 ## Individual Project
 
