@@ -13,6 +13,14 @@
    - **npm packages used:** express, dotenv
    - **approximate lecture time**: none
    - **approximate lab time:** several hours
+   - 
+1. [Wavetree.io - API Planning Activity](https://github.com/joinpursuit/api-planning-lab)
+
+   - **prerequisites**: servers, databases, sql
+   - **approximate lecture time**: 5 - 10 minutes
+   - **approximate lab time:** 1.5 hours
+   - This is a non-coding group activity
+
 
 1. [Node & The Event Loop](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/advanced_or_misc/bonus_module_4/nodejs_intro)
 
@@ -20,3 +28,5 @@
    - **npm packages used:** express, dotenv
    - **approximate lecture time**: 1 hour
    - **approximate lab time:** none
+
+
