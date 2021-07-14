@@ -121,4 +121,4 @@ const reviewsController = require("./controllers/reviewsController.js");
 app.use("/reviews", reviewsController);
 ```
 
-Super! We now have two models with full CRUD. But how to we connect them?
+Super! We now have two models with full CRUD. But how do we connect them?
