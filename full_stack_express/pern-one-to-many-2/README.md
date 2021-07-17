@@ -58,7 +58,7 @@ For example, if we had a `users` resource, we would probably want to be able to 
 
 In order to use `/bookmarks/:id/reviews` as a base route, we need to do two things
 
-- pass an option to `express.Router() to merge parameters from the bookmarks and reviews route
+- pass an option to `express.Router()` to merge parameters from the bookmarks and reviews route
 - import the reviews controller in the bookmarks controller
 
 **controllers/reviewController.js**
