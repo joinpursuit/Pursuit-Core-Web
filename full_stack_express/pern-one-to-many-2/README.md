@@ -76,7 +76,7 @@ bookmarks.use("/:bookmarkId/reviews", reviewsController);
 
 Now we can go to: http://localhost:3333/bookmarks/2/reviews
 
-We've made progress! However, instead of seeing the reviews for the bookmark with the `id` of 2 we see all the bookmarks
+We've made progress! However, instead of seeing the reviews for the bookmark with the `id` of 2 we see all the reviews
 
 **controllers/reviewsController.js**
 
