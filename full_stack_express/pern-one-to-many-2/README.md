@@ -45,8 +45,8 @@ So we would actually rather have the routes for **this project** be:
 |  1  | Create  |      /bookmarks/:id/reviews       |   POST    | **C**reate |         Create a new review associated with a bookmark          |
 |  2  |  Index  |      /bookmarks/:id/reviews       |    GET    |  **R**ead  | Get a list (or index) of all reviews associated with a bookmark |
 |  3  |  Show   | /bookmarks/:id/reviews/:review_id |    GET    |  **R**ead  |       Get an individual review associated with a bookmark       |
-|  4  | Update  | /bookmarks/:id/reviews/:review_id |    PUT    | **U**pdate |                        Update a bookmark                        |
-|  5  | Destroy | /bookmarks/:id/reviews/:review_id |  DELETE   | **D**elete |                        Delete a bookmark                        |
+|  4  | Update  | /bookmarks/:id/reviews/:review_id |    PUT    | **U**pdate |                        Update a review                          |
+|  5  | Destroy | /bookmarks/:id/reviews/:review_id |  DELETE   | **D**elete |                        Delete a review                          |
 
 <br />
 
