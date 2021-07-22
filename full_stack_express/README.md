@@ -78,4 +78,4 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 ## Additional Resources
 
-- [Building APIs with Express and Postgres](../node/building_apis_with_express_and_postgres/README.md)
+- [Former Module 4 Content Pre 7.0 class](../node/)
