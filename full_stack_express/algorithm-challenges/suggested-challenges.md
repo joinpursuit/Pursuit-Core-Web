@@ -2,7 +2,7 @@
 
 The following are suggested challenges to complete in class. While these challenges are broken up by session, once you've completed a series of challenges you should feel free to move ahead.
 
-If you are not solving, on average, at least one code challeng within ~ 1 hour, please schedule a time with your instructor to get some coaching/advice on hoow to best support your practice/learning.
+If you are not solving, on average, at least one code challeng within ~ 1 hour, please schedule a time with your instructor to get some coaching/advice on how to best support your practice/learning.
 
 ## Challenges by Session
 
