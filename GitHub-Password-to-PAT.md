@@ -30,3 +30,8 @@ Then
 
 If you are successful, you will be able to clone the repository
 Else, it will be rejected and you will have to try the cloning step again. 
+
+
+Later, if MacOs Keychain has a popup, the password it is looking for is your computer login, not your PAT.
+
+Happy coding!
