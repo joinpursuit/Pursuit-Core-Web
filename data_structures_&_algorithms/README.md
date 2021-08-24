@@ -25,27 +25,27 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 ## Lessons, Quizzes, and Labs
 
-|Primary Problem|Lesson|
-|:-------:|:----:|
-|N/A|[Intro to Problem Solving](./intro-to-problem-solving/README.md)|[N/A](./intro-to-problem-solving/README.md)|
-|        [Print Primes](./control-flow/README.md)   |  [Control Flow](./control-flow/README.md)   |
-|          [Find the Median](./math-basics/README.md)  |  [Math Basics](./math-basics/README.md)   |  
-|          [Disemvowel Trolls](./strings-and-regex/README.md)  |  [Strings and Regex](./strings-and-regex)   |  
-|          [Err!0rs](./dealing-w-errors/README.md)  |  [Errors](./dealing-w-errors)   | 
-|          [My Own Find Function](./arrays-and-callbacks/README.md)  |  [Arrays & Callbacks](./arrays-and-callbacks)   |  
-|          [Count Words](./working-with-objects/README.md)  |  [Working with Objects](./working-with-objects)   |  
-|        N/A |  [Mock Interview Intro and Prep](./mock-interviews/README.md)   | 
-|          [is Even?](./big-o/README.md)  |  [Big O](./big-o/README.md)   | 
-|          [Fibonacci](./fibonacci-and-recursion/README.md)  |  [Intro to Recursion](./fibonacci-and-recursion/README.md)   |  
-|          [Planets](./oop-intro/README.md)  |  [OOP](./oop-intro/README.md)   | 
-|          [Cards](./oop-continued/README.md)  |  [OOP Continued](./oop-continued/README.md)   |  
-|          [Linked Lists](./linked-lists/README.md)  |  [Linked Lists](./linked-lists/README.md)   |  
-|          [Stacks & Queues](./stacks-and-queues/README.md)  |  [Stacks & Queues](./stacks-and-queues/README.md)   |  
-|          [Binary Trees](./binary-trees-tries/README.md)  |  [Binary Trees](./binary-trees-tries/README.md)   |  
-|          [Bubble Sort](./searching-algorithms/README.md)  |  [Searching Algorithms](./searching-algorithms/README.md)   |  
-|          [Binary Search](./searching-algorithms-2/README.md)  |  [Searching Algorithms](./searching-algorithms-2/README.md)   |  
-|          [Unique Array](./unique-array-hash-tables/README.md)  |  [Hash Tables](./unique-array-hash-tables/README.md)   | 
-|          [Bonus/Advanced](./bonus-and-advanced/README.md)  |  N/A |  
+||Primary Problem|Lesson|
+|:-:|:-------:|:----:|
+|1|N/A|[Intro to Problem Solving](./intro-to-problem-solving)|[N/A](./intro-to-problem-solving)|
+|2|        [Print Primes](./control-flow)   |  [Control Flow](./control-flow)   |
+|3|          [Find the Median](./math-basics)  |  [Math Basics](./math-basics)   |  
+|4|          [Disemvowel Trolls](./strings-and-regex)  |  [Strings and Regex](./strings-and-regex)   |  
+|5|          [Err!0rs](./dealing-w-errors)  |  [Errors](./dealing-w-errors)   | 
+|6|          [My Own Find Function](./arrays-and-callbacks)  |  [Arrays & Callbacks](./arrays-and-callbacks)   |  
+|7|          [Count Words](./working-with-objects)  |  [Working with Objects](./working-with-objects)   |  
+|8|        N/A |  [Mock Interview Intro and Prep](./mock-interviews)   | 
+|9|          [is Even?](./big-o)  |  [Big O](./big-o)   | 
+|10|          [Fibonacci](./fibonacci-and-recursion)  |  [Intro to Recursion](./fibonacci-and-recursion)   |  
+|11|          [Planets](./oop-intro)  |  [OOP](./oop-intro)   | 
+|12|          [Cards](./oop-continued)  |  [OOP Continued](./oop-continued)   |  
+|13|          [Linked Lists](./linked-lists)  |  [Linked Lists](./linked-lists)   |  
+|14|          [Stacks & Queues](./stacks-and-queues)  |  [Stacks & Queues](./stacks-and-queues)   |  
+|15|          [Binary Trees](./binary-trees-tries)  |  [Binary Trees](./binary-trees-tries)   |  
+|16|          [Bubble Sort](./searching-algorithms)  |  [Searching Algorithms](./searching-algorithms)   |  
+|17|          [Binary Search](./searching-algorithms-2)  |  [Searching Algorithms](./searching-algorithms-2)   |  
+|18|          [Unique Array](./unique-array-hash-tables)  |  [Hash Tables](./unique-array-hash-tables)   | 
+|19|          [Bonus/Advanced](./bonus-and-advanced)  |  N/A |  
 
 
 ## Individual Project: Code Wars
@@ -59,7 +59,7 @@ You will be tracked with [Pursuit's Code Wars Tracker](https://codewars-tracker-
 
 ## Assessment: Mock Interviews
 
-You will need to pass a minimum of 2 mock interviews. [More details](./mock-interviews/README.md)
+You will need to pass a minimum of 2 mock interviews. [More details](./mock-interviews)
 
 ## Additional Resources
 
