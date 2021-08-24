@@ -27,24 +27,24 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 |Primary Problem|Lesson|
 |:-------:|:----:|
-|N/A|[Intro to Problem Solving](./intro_to_problem_solving/README.md)|[N/A](./intro_to_problem_solving/README.md)|
-|        [Print Primes](./control-flow/README.md))   |  [Intro to Problem Solving](./control-flow/README.md))   |
+|N/A|[Intro to Problem Solving](./intro-to-problem-solving/README.md)|[N/A](./intro-to-problem-solving/README.md)|
+|        [Print Primes](./control-flow/README.md)   |  [Control Flow](./control-flow/README.md)   |
 |          [Find the Median](./math-basics/README.md)  |  [Math Basics](./math-basics/README.md)   |  
-|          [Disemvowel Trolls](./intro_to_problem_solving/README.md)  |  [Strings and Regex](./intro_to_problem_solving)   |  
+|          [Disemvowel Trolls](./strings-and-regex/README.md)  |  [Strings and Regex](./strings-and-regex)   |  
 |          [Err!0rs](./dealing-w-errors/README.md)  |  [Errors](./dealing-w-errors)   | 
 |          [My Own Find Function](./arrays-and-callbacks/README.md)  |  [Arrays & Callbacks](./arrays-and-callbacks)   |  
 |          [Count Words](./working-with-objects/README.md)  |  [Working with Objects](./working-with-objects)   |  
 |        N/A |  [Mock Interview Intro and Prep](./mock-interviews/README.md)   | 
-|          [is Even?](./big-o/README.md)  |  [Intro to Problem Solving](./big-o/README.md))   | 
-|          [Fibonacci](./fibonacci-and-recursion/README.md)  |  [Intro to Recursion](./fibonacci-and-recursion/README.md))   |  
-|          [Planets](./oop-intro/README.md)  |  [OOP](./oop-intro/README.md))   | 
-|          [Cards](./oop-continued/README.md)  |  [OOP Continued](./oop-continued/README.md))   |  
-|          [Linked Lists](./linked-lists/README.md)  |  [Linked Lists](./linked-lists/README.md))   |  
-|          [Stacks & Queues](./stacks-and-queues/README.md)  |  [Stacks & Queues](./stacks-and-queues/README.md))   |  
-|          [Binary Trees](./binary-trees-tries/README.md)  |  [Binary Trees](./binary-trees-tries/README.md))   |  
-|          [Bubble Sort](./searching-algorithms/README.md)  |  [Searching Algorithms](./searching-algorithms/README.md))   |  
-|          [Binary Search](./searching-algorithms-2/README.md)  |  [Searching Algorithms](./searching-algorithms-2/README.md))   |  
-|          [Unique Array](./unique-array/README.md)  |  [Hash Tables](./unique-array/README.md))   | 
+|          [is Even?](./big-o/README.md)  |  [Big O](./big-o/README.md)   | 
+|          [Fibonacci](./fibonacci-and-recursion/README.md)  |  [Intro to Recursion](./fibonacci-and-recursion/README.md)   |  
+|          [Planets](./oop-intro/README.md)  |  [OOP](./oop-intro/README.md)   | 
+|          [Cards](./oop-continued/README.md)  |  [OOP Continued](./oop-continued/README.md)   |  
+|          [Linked Lists](./linked-lists/README.md)  |  [Linked Lists](./linked-lists/README.md)   |  
+|          [Stacks & Queues](./stacks-and-queues/README.md)  |  [Stacks & Queues](./stacks-and-queues/README.md)   |  
+|          [Binary Trees](./binary-trees-tries/README.md)  |  [Binary Trees](./binary-trees-tries/README.md)   |  
+|          [Bubble Sort](./searching-algorithms/README.md)  |  [Searching Algorithms](./searching-algorithms/README.md)   |  
+|          [Binary Search](./searching-algorithms-2/README.md)  |  [Searching Algorithms](./searching-algorithms-2/README.md)   |  
+|          [Unique Array](./unique-array-hash-tables/README.md)  |  [Hash Tables](./unique-array-hash-tables/README.md)   | 
 |          [Bonus/Advanced](./bonus-and-advanced/README.md)  |  N/A |  
 
 
