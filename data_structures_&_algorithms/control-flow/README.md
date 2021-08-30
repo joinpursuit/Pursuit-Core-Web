@@ -10,10 +10,10 @@ There will always be a base problem that you should be able to solve (or be real
 
 ## Trivia Questions
 
-write an answer commented out to practice talking/writing about code
+Write an answer somewhere that you can easily use for reference later (make a [mardkdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) file or a word doc, or use the notes app etc. ) to practice talking/writing about code:
 
- - what is the difference between a parameter and an argument?
- - within a function, what is the difference between `return` and `console.log`?
+ - What is the difference between a parameter and an argument?
+ - Within a function, what is the difference between `return` and `console.log`?
 
 ## Print Primes
 
@@ -21,7 +21,22 @@ Write a function that takes an integer and then returns an array of all the prim
 
 Be sure to practice your problem solving techniques
 
-## Bonus 
+## FizzBuzz
+
+FizzBuzz is an excellent problem that comes up often because
+- it is simple
+- it tests your ability to write a function
+- it tests your ability to write a loop
+- it tests your ability to use if/else statements
+
+It has all the building blocks of a program we talked about that is simple to use
+
+Try a [Warm up for FizzBuzz](https://www.codewars.com/kata/569e09850a8e371ab200000b)
+
+Try it on [Code Wars](https://www.codewars.com/kata/5300901726d12b80e8000498)
+
+
+### 
 
 ### Triangles
 

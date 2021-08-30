@@ -1,4 +1,4 @@
-## Control Flow
+# Control Flow
 
 Control flow makes up the basic building blocks of programming
 
@@ -14,6 +14,8 @@ Control flow makes up the basic building blocks of programming
 ## Conditionals
 
 Conditional statements help us determine what we should do. If you are doing a whiteboard interview, you can create a flowchart to help structure the code you will write
+
+[JavaScript Equality Table](https://dorey.github.io/JavaScript-Equality-Table/)
 
 ![Laboratory Troubleshooting Flowchart](https://cacoo.com/wp-app/uploads/2018/12/engineering-flow-chart.png)
 
@@ -38,6 +40,20 @@ if (moving) {
 }
 
 ```
+
+**Note:**
+
+ ```js
+if (moving == true) 
+if (moving === true)
+if (moving)
+ ```
+
+Will all run the code when `moving` is true. One difference is that the final one will test for a truthy value as opposed to the value `true`, which can make the final expression a little more flexible
+
+[Reference](https://dorey.github.io/JavaScript-Equality-Table/)
+
+
 
 ## Functions
 
