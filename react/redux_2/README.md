@@ -229,7 +229,7 @@ Pretty nice, huh?
 
 So, any project with a low level of complexity probably doesn't benefit much from Redux. Even in this example, it's a bit much. However, as our apps grow in size, Redux is a great tool to make sure we don't get lost in state management/prop passage shenanigans.
 
-**Something to Note:** The way class components connect to Redux is slightly different. In a class, we use the `connect` function from `react-redux`. `connect` takes in two arguments: `mapStateToProps` (this behaves a lot like `useSelector` does), and `mapDispatchToProps` (this behaves similar to `useDispatch`). `connect` returns a function. When invoked, it takes a component in as its argument and passes everything from `mapStateToProps` and `mapDispatchToProps` into it as props. Like so:
+**Something to Note:** The way components connect to Redux without using hooks is slightly different. Without hooks, we use the `connect` function from `react-redux`. `connect` takes in two functions as arguments: `mapStateToProps` (this behaves a lot like `useSelector` does), and `mapDispatchToProps` (this behaves similar to `useDispatch`). `connect` returns a function. When invoked, it takes a component in as its argument and passes everything from `mapStateToProps` and `mapDispatchToProps` into it as props. Like so:
 
 ```js
 const mapStateToProps = (state) => {
