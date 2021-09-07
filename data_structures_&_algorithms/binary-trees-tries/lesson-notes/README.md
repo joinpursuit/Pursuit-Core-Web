@@ -1,5 +1,3 @@
-dealing with errors
-
 # Title
 
 ### Setting intent

@@ -18,7 +18,7 @@ By the end of this lesson you should be able to:
 
 - What's a non-technical problem that you might want to use a problem solving methodology for?
 
-- The first step of Polya's Problem Solving Technique is to "understand the problem." What would it look like to _not understand the problem?_
+- The first step of Polya's Problem Solving Technique is to "understand the problem." What would it look like to _not understand the problem?_ i.e. - How do you solve a problem when you don't understand what the problem is?
 
 - Part of understanding the problem is identifying inputs and outputs. What are inputs and outputs? Why is it important to define them?
 
