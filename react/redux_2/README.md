@@ -1,6 +1,6 @@
 # Posts App with Redux and React
 
-In this lesson we will be building a more complex Redux app with React using the JSON Placeholder API for seed data. See the [redux-posts-solution](https://github.com/joinpursuit/redux-posts-solution) for implementation details.
+In this lesson we will be building a more complex Redux app with React using the JSON Placeholder API for seed data. See the [redux-posts repo](https://github.com/joinpursuit/redux-posts-solution) to view the full implementation described in this lesson.
 
 ## Objectives
 
