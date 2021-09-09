@@ -1,25 +1,36 @@
-# Redux 2
+# Posts App with Redux and React
+
+In this lesson we will be building a more complex Redux app with React using the JSON Placeholder API for seed data.
 
 ## Objectives
 
-- Build a more complex Redux app using the JSON Placeholder API
+- Demonstrate Pure function implementation best practices when working with arrays and objects
+- Use [`spread, concat, and slice`](https://egghead.io/lessons/react-redux-avoiding-array-mutations-with-concat-slice-and-spread) to reassign object key values without mutating state
+- Use `map` to return a new updated state object
 
-## Resources
+## JSON Placeholder API App Introduction
 
-- [React Redux Beginner Tutorial](https://www.valentinog.com/blog/redux/) - Take this with a grain of salt and you don't have to read *all* of it, but this is a great little walkthrough of an example project that's pretty close to our preferred Redux architecture.
+Our primary goal in building the Posts app is to demonstrate the utility of Redux in large scale applications. Using the JSON Placeholder API, we'll build the basic infrastructure for an app that renders a list of posts and allows users to add new posts via a form.
 
+### User Stories
 
-# JSON Placeholder API App Introduction
+A user can:
 
-Now that we've implemented our traditional Counter app, let's build something that demonstrates the utility of Redux a little bit better. Today, using the JSON Placeholder API, we're going to build the basic infrastructure for an app that renders a list of posts and allows users to add new posts via a form.
+- Navigate between "Home" and "Posts".
+- Navigate to the `/posts` route, and see all the post titles from the JSON Placeholder API
+- Add a new post at the bottom of the Posts list
+- Click a 'add a new post' link and be redirected to `/posts/new`
+- See a rendered form at the `/posts/new` route with an input for 'title'
+- Click a `Submit` button in the form at `/posts/new` to add a new post and clear the form
+- Navigate to `/posts` and see the new post at the end of the list
 
-## [Our Posts App](https://github.com/joinpursuit/react_redux_example/tree/Redux2)
+## Getting Started
 
-Clone this repo, checkout the `Redux2` branch, `npm install`, and `npm start`. You should see a basic unstyled homepage, with a navigation between "Home" and "Posts". Navigating to the `/posts` route, you can see all the post titles from the JSON Placeholder API. At the bottom of the list, there's an option to add a new post.
-
-Clicking that link takes you to a different route: `/posts/new`. A form renders. You add a title, click `Submit`, and the form clears. When you navigate back (re-mounting the other component) you can see your new post at the bottom of the feed.
-
-If we stored our Posts in the component rendered by `/posts`, this wouldn't be possible. However, with the magic of Redux, we can go anywhere we want inside the app, unmounting and remounting any component, and our new post should be preserved. Yes, lifting the state to the top level could also allow us to do this without using Redux, but in a larger more complex project that would lead to a lot of prop drilling. 
+```
+Clone this repo
+`npm install`
+`npm start`
+```
 
 # App Architecture
 
@@ -40,21 +51,21 @@ To see how we accomplish this, let's take a look at our app's architecture. The 
   - `index.js`
 - `index.js`
 
-
 ## `store/` and `index.js`
 
-While we could create our store inside of `index.js`, it's nicer to create it in advance and import it - it looks nice, especially because now we're wrapping our `App` with `BrowserRouter` *and* `Provider`. It also future-proofs our app as it gets more complex - we don't want a bloated `index` file that obscures how our app initializes. Inside of our `store` index file, you can see us importing the root reducer, creating a store, and then immediately exporting:
+While we could create our store inside of `index.js`, it's nicer to create it in advance and import it - it looks nice, especially because now we're wrapping our `App` with `BrowserRouter` _and_ `Provider`. It also future-proofs our app as it gets more complex - we don't want a bloated `index` file that obscures how our app initializes. Inside of our `store` index file, you can see us importing the root reducer, creating a store, and then immediately exporting:
 
 ```js
 import { createStore } from "redux";
-import rootReducer from "../reducers/rootReducer";
+import rootReducer from "../reducers/index";
+import { devToolsEnhancer } from "redux-devtools-extension";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, devToolsEnhancer());
 
 export default store;
 ```
 
-Not *too* bad, eh?
+Not _too_ bad, eh?
 
 But where does our reducer come from?
 
@@ -67,34 +78,33 @@ Let's take a look at our `postsReducer` for a moment:
 ```js
 import { ADD_POST, ADD_POSTS } from "../actions/actionTypes";
 
-const _defaultState = {}
+const initialState = [];
 
-const normalize = (arr) => {
-  arr = Array.isArray(arr) ? arr : Object.values(arr);
-  const output = {};
-  arr.forEach(el => {
-    output[el.id] = el;
-  })
-  return output; 
-}
+const post = (post) => {
+  return {
+    userId: null,
+    id: post.id,
+    title: post.title,
+    body: null,
+  };
+};
 
-const postsReducer = (state = _defaultState, action) => {
+const posts = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case ADD_POST:
-      return { ...{[action.payload.id]: action.payload }, ...state}
+      return [...state, post(action.payload)];
     case ADD_POSTS:
-      return {...normalize(action.payload), ...normalize(state)}
-    default: 
+      return [...state, ...action.payload];
+    default:
       return state;
   }
 };
 
-export default postsReducer;
-
+export default posts;
 ```
 
-Our `postsReducer` contains two actions - types imported from `actionTypes` - and processes them in the body of the function. Our initial state is an empty object, which we are going to fill with objects representing individual posts. We're using the `normalize()` helper function we defined above our reducer so that we'll have an instant lookup reference to any individual posts. 
+Our `postsReducer` contains two actions - types imported from `actionTypes` - and processes them in the body of the function. Our initial state is an empty object, which we are going to fill with objects representing individual posts.
 
 Remember that actions can include a `type` and a `payload`? We see the utility of `action.payload` here. If the action we submitted to our reducer was `ADD_POST` (for a single post), then we add our action's payload (i.e. the post itself) into a new state object. If it was `ADD_POSTS`, then we add all the new posts on our action's payload into this new state.
 
@@ -106,52 +116,59 @@ Where are these actions coming from, though?
 
 ## `actions/`
 
-`actionTypes.js` is a two-liner, so we aren't going to get into that too much. Just remember that the reason we do what we're doing in `actionTypes` is to make absolutely sure we're applying the right actions to our reducers. If wrote each action as a string where it's needed, there is the potential that a misspelling will cause our app to fail silently. Errors don't tell us when we've mispelled a word in a string - they tell us when we've referred to a variable wrong. 
+`actionTypes.js` is a two-liner, so we aren't going to get into that too much. Just remember that the reason we do what we're doing in `actionTypes` is to make absolutely sure we're applying the right actions to our reducers. If wrote each action as a string where it's needed, there is the potential that a misspelling will cause our app to fail silently. Errors don't tell us when we've mispelled a word in a string - they tell us when we've referred to a variable wrong.
 
 Let's look at `postActions`:
 
 ```js
 import { ADD_POST, ADD_POSTS } from "./actionTypes";
 
-export const addPost = payload => {
+export const addPost = (payload) => {
   return { type: ADD_POST, payload };
 };
 
-export const addPosts = payload => {
+export const addPosts = (payload) => {
   return { type: ADD_POSTS, payload };
 };
 ```
 
-Even though these functions, called **Action Creators**, just return objects, creating functions for them is still the preferred method for calling them in our React apps. Think of this (again) like Express - these action types could be seen as routes, of sorts, for common actions we'd like to perform on our centralized state. Sure, we *could* make the object these functions return, import `ADD_POST`, and apply a payload every time we wanted to add a new post. But why don't we just call `addPost` and let our functions take care of this work for us?
+Even though these functions, called **Action Creators**, just return objects, creating functions for them is still the preferred method for calling them in our React apps. Think of this (again) like Express - these action types could be seen as routes, of sorts, for common actions we'd like to perform on our centralized state. Sure, we _could_ make the object these functions return, import `ADD_POST`, and apply a payload every time we wanted to add a new post. But why don't we just call `addPost` and let our functions take care of this work for us?
 
 The usefulness of this pattern will be more apparent when we get into the React side of our application. Which - wouldn't you know it! - is happening now:
 
-## `Posts` 
+## `PostsContainer`
 
-Any component that requires access to our Redux store can now access it via the hook `useSelector` from `react-redux`. `useSelector` takes a callback as its argument. That callback exposes our application's state as its argument, and can return whichever part of state you'd like to use. 
- 
-In order to fire actions to update our application store we use the hook `useDispatch`. 
+Any component that requires access to our Redux store can now access it via the hook `useSelector` from `react-redux`. `useSelector` takes a callback as its argument. That callback exposes our application's state as its argument, and can return whichever part of state you'd like to use.
+
+In order to fire actions to update our application store we use the hook `useDispatch`.
 
 ```js
-  const posts = useSelector(state => Object.values(state.posts));
-  // our state looks like this right now: {
-  //      posts: { 
-  //               1: {id: 1, title: "first post"},
-  //               2: {id: 2, title: "second post"},
-  //      }
-  // }
-  
+import React, { useEffect } from "react";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { addPosts } from "../actions/postActions";
+
+import Posts from "../components/Posts";
+
+const PostsContainer = () => {
+  const posts = useSelector((state) => state.posts);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchPosts = async () => {
       if (!posts.length) {
-        let res = await axios.get("https://jsonplaceholder.typicode.com/posts")
-        dispatch(addPosts(res.data)); 
+        let res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+        dispatch(addPosts(res.data));
       }
     };
-    fetchPosts()
-  }, [])
+    fetchPosts();
+  }, []);
+
+  return <Posts posts={posts} />;
+};
+
+export default PostsContainer;
 ```
 
 Note that the second argument of `useEffect` is an empty array - this makes sure we only fetch all of these posts on the component's mount.
@@ -167,36 +184,38 @@ Well, not quite. Until a user submits a form, we usually don't need to pass thei
 Which is exactly what we're doing:
 
 ```js
-import React, { useState, useSelector, useDispatch } from "react";
-import { addPost } from "../redux-utils";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addPost } from "../actions/postActions";
 
 import Form from "../components/Form";
 
 const FormContainer = () => {
-  const [ title, setTitle ] = useState('');
-  const posts = useSelector(state => state.posts);
+  const [title, setTitle] = useState("");
+  const posts = useSelector((state) => state.posts);
+
   const dispatch = useDispatch();
 
-  handleChange = e => {
+  const handleChange = (e) => {
     setTitle(e.target.value);
   };
 
-  handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
     dispatch(addPost({ title, id }));
-    setTitle('');
+    setTitle("");
   };
 
   return (
     <Form
-      handleChange={this.handleChange}
-      handleSubmit={this.handleSubmit}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
       title={title}
     />
   );
-}
+};
 
 export default FormContainer;
 ```
@@ -227,24 +246,8 @@ Pretty nice, huh?
 
 # Conclusion: Why Redux?
 
+With the magic of Redux, we can go anywhere we want inside the app, unmounting and remounting any component, and our new post should be preserved. While lifting the state to the top level of our component hierarchy could also allow us to do this without using Redux, in a larger more complex project that would lead to a lot of prop drilling -- which is quite clunky.
+
 So, any project with a low level of complexity probably doesn't benefit much from Redux. Even in this example, it's a bit much. However, as our apps grow in size, Redux is a great tool to make sure we don't get lost in state management/prop passage shenanigans.
 
-**Something to Note:** The way components connect to Redux without using hooks is slightly different. Without hooks, we use the `connect` function from `react-redux`. `connect` takes in two functions as arguments: `mapStateToProps` (this behaves a lot like `useSelector` does), and `mapDispatchToProps` (this behaves similar to `useDispatch`). `connect` returns a function. When invoked, it takes a component in as its argument and passes everything from `mapStateToProps` and `mapDispatchToProps` into it as props. Like so:
-
-```js
-const mapStateToProps = (state) => {
-  return {
-    posts: Object.values(state.posts)
-  }
-}
-
-const mapDispatchToProps = () => {
-  return {
-    addPosts: (posts) => dispatch(posts)
-  }
-}
-
-connect(mapStateToProps, mapDispatchToProps)(Posts)
-
-```
-
+**Something to Note:** While we recommended using Hooks to connect React with Redux, connecting React components to Redux using Lifecycle Methods may be done using the [`connect` API](https://react-redux.js.org/tutorials/connect).
