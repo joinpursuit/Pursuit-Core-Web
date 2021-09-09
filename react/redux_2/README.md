@@ -5,8 +5,7 @@ In this lesson we will be building a more complex Redux app with React using the
 ## Objectives
 
 - Demonstrate Pure function implementation best practices when working with arrays and objects
-- Learn how [`spread, concat, and slice`](https://egghead.io/lessons/react-redux-avoiding-array-mutations-with-concat-slice-and-spread) allow us to reassign object key values without mutating state
-- Use `map` to return a new updated state object
+- Learn how [`spread, concat, slice, and map`](https://egghead.io/lessons/react-redux-avoiding-array-mutations-with-concat-slice-and-spread) allow us to reassign object key values without mutating state
 
 ## JSON Placeholder API App Introduction
 
