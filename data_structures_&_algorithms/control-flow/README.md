@@ -13,6 +13,7 @@ There will always be a base problem that you should be able to solve (or be real
 Write an answer somewhere that you can easily use for reference later (make a [mardkdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) file or a word doc, or use the notes app etc. ) to practice talking/writing about code:
 
 - What is the difference between a parameter and an argument?
+- What is the difference between `var`, `const` and `let`?
 - Within a function, what is the difference between `return` and `console.log`?
 
 ## Print Primes
