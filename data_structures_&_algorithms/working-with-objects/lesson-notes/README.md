@@ -174,25 +174,11 @@ Write a function `findWordFrequency` that takes a sentence (a string), and retur
 
 [Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo](https://en.wikipedia.org/wiki/Buffalo_buffalo_Buffalo_buffalo_buffalo_buffalo_Buffalo_buffalo)
 
-Would result in
+Would result in:
 
 ```js
 {
-    Buffalo: 3,
-    buffalo: 5
-}
-```
-
-A second example: `Rose rose to look at her rose`
-
-```js
-{
-  Rose: 1,
-  rose: 2,
-  to: 1,
-  look: 1,
-  at: 1,
-  her: 1,
+  buffalo: 5;
 }
 ```
 
@@ -291,9 +277,41 @@ console.log(wordCounter(buffaloSentence));
 console.log(wordCounter(roseSentence));
 ```
 
+Finally, we need to figure out which word has the highest frequency.
+
+This is actually a separate task than counting words, so let's write a new function.
+
+```js
+const findHighestFrequency = (wordsObj) => {
+  return wordsObj;
+};
+
+const buffaloWords = wordCounter(buffaloSentence);
+
+console.log(findHighestFrequency(buffaloWords));
+```
+
+We need to return two values: the word and the count. We'll store it as an object, the word being the key and the count being the value
+
+Then, we will loop over each key and check if it has the highest count. If it has the highest count, then we will store it as the new value, if it does not have a higher count, we will not update the object.
+
+```js
+const findHighestFrequency = (wordsObj) => {
+  let highestFrequency = 0;
+  let word = null;
+  for (let key in wordsObj) {
+    if (wordsObj[key] > highestFrequency) {
+      highestFrequency = wordsObj[key];
+      word = key;
+    }
+  }
+  return { [word]: highestFrequency };
+};
+```
+
 ### Bonus
 
-We can rewrite our if/else statement like so:
+We can rewrite our if/else statement from our first function like so:
 
 ```js
 const wordCounter = (sentence) => {
