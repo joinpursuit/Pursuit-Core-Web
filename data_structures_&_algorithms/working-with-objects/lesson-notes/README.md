@@ -1,0 +1,348 @@
+# Working with Objects
+
+- Review fundamentals of objects
+- Build and use nested objects
+
+## Objects Keys and Properties
+
+An object is a collection of keys and values. It is represented with `{}`
+
+The values can be strings, numbers, booleans, arrays, functions or other objects.
+
+Let's build a computer
+
+```js
+const computer = {};
+```
+
+Let's add some properties
+
+```js
+const computer = {
+  brand: "Tandy",
+  weight: 22,
+  working: false,
+  condition: "mint",
+  price: 2894,
+  powerUp() {
+    return "the computer now is on";
+  },
+  powerDown() {
+    return "the computer is now off";
+  },
+};
+```
+
+We can access a property in two ways:
+
+```js
+console.log(computer.brand);
+console.log(computer["brand"]);
+```
+
+The second way, allows us to pass in a variable
+
+```js
+const someKey = "weight";
+
+console.log(computer[someKey]);
+```
+
+This will allow us to iterate over an object with the `for in` loop
+
+Here we can see the keys:
+
+```js
+for (let key in computer) {
+  console.log(key);
+}
+```
+
+To access the properties:
+
+```js
+for (let key in computer) {
+  console.log(computer[key]);
+}
+```
+
+We can also see a list of keys with the `Object.getOwnPropertyNames()` function
+
+```js
+const computerKeys = Object.getOwnPropertyNames(computer);
+
+console.log(computerKeys);
+//[ 'brand', 'weight', 'working', 'trackpad', 'condition', 'price' ]
+```
+
+We can then use a `for loop`
+
+```js
+for (let i = 0; i < computerKeys.length; i++) {
+  console.log(computer[computerKeys[i]]);
+}
+```
+
+To call a function inside an object, we must invoke the function
+
+```js
+console.log(computer.powerUp());
+```
+
+To change a property we can overwrite it
+
+```js
+computer.price = 5;
+
+console.log(computer.price);
+```
+
+To add a property, we name the property and set a value
+
+```js
+computer.color = "griege";
+
+console.log(computer);
+```
+
+## Nested Objects
+
+```js
+const backpack = {
+  color: "green",
+  contents: [
+    "laptop",
+    "paper",
+    "phone",
+    { wallet: ["money", "id", ["mastercard", "visa card", "discover card"]] },
+    {
+      pockets: {
+        outer: ["metrocard", "tissues"],
+        inner: {
+          outer: "ruler",
+          inner: ["dental floss", { mintFlavor: "peppermint", number: 33 }],
+        },
+      },
+    },
+  ],
+  zipIt() {
+    return "it is zipped";
+  },
+  unZipIt() {
+    console.log("some items fell out");
+    return {
+      pickUpItems() {
+        return ["lip balm", "comb", "38 cents"];
+      },
+    };
+  },
+};
+```
+
+Work your way to console log the following
+
+1. color
+1. contents
+1. the contents of the wallet
+1. the mint flavor
+1. the return value of pickUpItems
+1. 38 cents
+
+<details><summary>Check your work</summary>
+
+```js
+console.log(backpack.color);
+
+console.log(backpack.contents);
+
+console.log(backpack.contents[4]);
+
+console.log(backpack.contents[4].pockets.inner);
+
+console.log(backpack.contents[4].pockets.inner.inner[1].mintFlavor);
+
+console.log(backpack.unZipIt().pickUpItems());
+
+console.log(backpack.unZipIt().pickUpItems()[2]);
+```
+
+</details>
+
+## Word Frequency
+
+Write a function `findWordFrequency` that takes a sentence (a string), and returns an object with each word as a key, with a value of how many times that word appears in a the sentence
+
+[Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo](https://en.wikipedia.org/wiki/Buffalo_buffalo_Buffalo_buffalo_buffalo_buffalo_Buffalo_buffalo)
+
+Would result in
+
+```js
+{
+    Buffalo: 3,
+    buffalo: 5
+}
+```
+
+A second example: `Rose rose to look at her rose`
+
+```js
+{
+  Rose: 1,
+  rose: 2,
+  to: 1,
+  look: 1,
+  at: 1,
+  her: 1,
+}
+```
+
+1. Do we understand all the words used in stating the problem?
+
+2. What are we asked to show?
+
+3. Restate the problem in your own words (it's ok if your words are more clumsy, you don't need the perfect phrasing, you just need to clarify that you understand he problem, and one of the best ways to do that is to put it in your own words)
+
+4. Is there enough information for you to find a solution?
+
+   - Is there any information that is missing?
+
+5. What is our plan?
+
+- Do we need more test cases beyond the one(s) provided?
+
+- Convert sentence to an array of words
+- Loop over the array of words
+- If the word is not an object key, add it as a key and set the count value to 1
+- Else if the word is an object key, increase the count value to 1
+- Loop over the object to find the word with the greatest frequency
+
+Get started:
+
+```js
+const buffaloSentence =
+  "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo";
+
+const wordCounter = (sentence) => {
+  return sentence;
+};
+
+console.log(wordCounter(buffaloSentence));
+```
+
+Convert sentence to array of words
+
+```js
+const wordCounter = (sentence) => {
+  const wordsArray = sentence.split(" ");
+  return wordsArray;
+};
+
+console.log(wordCounter(buffaloSentence));
+```
+
+Loop over the array
+
+```js
+const wordCounter = (sentence) => {
+  const wordsArray = sentence.split(" ");
+  for (let word of wordsArray) {
+    console.log(word);
+  }
+  //   return wordsArray;
+};
+
+console.log(wordCounter(buffaloSentence));
+```
+
+If the word is not an object key, add it as a key and set the count value to 1
+
+```js
+const wordCounter = (sentence) => {
+  const wordsArray = sentence.split(" ");
+  const wordCount = {};
+  for (let word of wordsArray) {
+    if (!wordCount[word]) {
+      wordCount[word] = 1;
+    }
+  }
+  return wordCount;
+};
+
+console.log(wordCounter(buffaloSentence));
+```
+
+Else if the word is an object key, increase the count value to 1
+
+```js
+const wordCounter = (sentence) => {
+  const wordsArray = sentence.split(" ");
+  const wordCount = {};
+  for (let word of wordsArray) {
+    if (!wordCount[word]) {
+      wordCount[word] = 1;
+    } else {
+      wordCount[word]++;
+    }
+  }
+  return wordCount;
+};
+
+console.log(wordCounter(buffaloSentence));
+console.log(wordCounter(roseSentence));
+```
+
+### Bonus
+
+We can rewrite our if/else statement like so:
+
+```js
+const wordCounter = (sentence) => {
+  const wordsArray = sentence.split(" ");
+  const wordCount = {};
+  for (let word of wordsArray) {
+    wordCount[word] = (wordCount[word] || 0) + 1;
+  }
+  return wordCount;
+};
+```
+
+Explain how the new line of code works:
+
+- What does `||` do?
+- Why does it need `0`?
+- Why are there parenthesis?
+- What does the `+1` do?
+- How does it all come together to create the counter object?
+
+## Edge Case Punctuation
+
+What if our sentences had punctuation, like so?
+
+```js
+const buffaloSentence =
+  "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo!";
+```
+
+We would want to look at each word and `replace`any character that is not a letter with an empty string.
+
+We can use a regular expression:
+
+- Every lowercase letter:
+  - `/[a-z]/g`
+- Every letter (lowercase and uppercase)
+  - `[a-z]/gi`
+- NOT every letter
+  - `/[^a-z]/gi`
+
+```js
+const wordCounter = (sentence) => {
+  const wordsArray = sentence.split(" ");
+  const wordCount = {};
+  for (let word of wordsArray) {
+    word = word.replace(/[^a-z]/gi, "");
+    wordCount[word] = (wordCount[word] || 0) + 1;
+  }
+  return wordCount;
+};
+console.log(wordCounter(buffaloSentence));
+```
