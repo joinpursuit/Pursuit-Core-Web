@@ -148,7 +148,7 @@ Imagine you wanted to print every song by an artist. The above function would lo
 
 If every album has ten songs, if we have 10 albums, we go through the steps 10 times for the albums and then times for each song so for a collection of 10 albums we go through the algorithm 100 times. If we had 100 albums and still 10 songs, we'd go through this algorithm 1000 times...
 
-If we were to also have to go through artists, and now every artist has 10 albums and each album has 10 songs the amount of steps we have to take increases quite quickly
+If we were to also have to go through artists, and now every artist has 10 albums and each album has 10 songs the amount of steps we have to take increases quite quickly!
 
 More complexity:
 
