@@ -45,8 +45,8 @@ So we would actually rather have the routes for **this project** be:
 |  1  | Create  |      /bookmarks/:id/reviews       |   POST    | **C**reate |         Create a new review associated with a bookmark          |
 |  2  |  Index  |      /bookmarks/:id/reviews       |    GET    |  **R**ead  | Get a list (or index) of all reviews associated with a bookmark |
 |  3  |  Show   | /bookmarks/:id/reviews/:review_id |    GET    |  **R**ead  |       Get an individual review associated with a bookmark       |
-|  4  | Update  | /bookmarks/:id/reviews/:review_id |    PUT    | **U**pdate |                        Update a bookmark                        |
-|  5  | Destroy | /bookmarks/:id/reviews/:review_id |  DELETE   | **D**elete |                        Delete a bookmark                        |
+|  4  | Update  | /bookmarks/:id/reviews/:review_id |    PUT    | **U**pdate |                        Update a review                          |
+|  5  | Destroy | /bookmarks/:id/reviews/:review_id |  DELETE   | **D**elete |                        Delete a review                          |
 
 <br />
 
@@ -58,7 +58,7 @@ For example, if we had a `users` resource, we would probably want to be able to 
 
 In order to use `/bookmarks/:id/reviews` as a base route, we need to do two things
 
-- pass an option to `express.Router() to merge parameters from the bookmarks and reviews route
+- pass an option to `express.Router()` to merge parameters from the bookmarks and reviews route
 - import the reviews controller in the bookmarks controller
 
 **controllers/reviewController.js**
@@ -76,7 +76,7 @@ bookmarks.use("/:bookmarkId/reviews", reviewsController);
 
 Now we can go to: http://localhost:3333/bookmarks/2/reviews
 
-We've made progress! However, instead of seeing the reviews for the bookmark with the `id` of 2 we see all the bookmarks
+We've made progress! However, instead of seeing the reviews for the bookmark with the `id` of 2 we see all the reviews
 
 **controllers/reviewsController.js**
 

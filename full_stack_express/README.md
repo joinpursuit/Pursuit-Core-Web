@@ -45,8 +45,9 @@ Finally, we'll connect our server to our database so that we can create full sta
 |            10. [Express & SQL: Show & Create](./express-sql-create-show/README.md)            |                                             [Tuner Part 2](https://github.com/joinpursuit/tuner-api#part-2)                                             |
 |          11. [Express & SQL: Update & Delete](./express-sql-delete-update/README.md)          |                                             [Tuner Part 3](https://github.com/joinpursuit/tuner-api#part-3)                                             |
 |                         12. [PERN Stack: CRUD](./pern-crud/README.md)                         |                                                   [Tuner Front-End](https://github.com/joinpursuit/tuner-react)                                                    |
-|             13. [PERN Stack: One to Many Part 1](./pern-one-to-many-1/README.md)              |                                                [Tuner Add One to Many](https://github.com/joinpursuit/)                                                 |
-|             14. [PERN Stack: One to Many Part 2](./pern-one-to-many-2/README.md)              |                                                [Tuner Add One to Many](https://github.com/joinpursuit/)                                                 |
+|             13. [PERN Stack: One to Many Part 1](./pern-one-to-many-1/README.md)              |                                                [Tuner Add One to Many](https://github.com/joinpursuit/tuner-api#bonus-part-5-part-4-is-a-react-app-see-other-repo)                                                 |
+|             14. [PERN Stack: One to Many Part 2](./pern-one-to-many-2/README.md)              |                                                [Tuner Add One to Many](https://github.com/joinpursuit/tuner-api#super-bonus-part-6)                                               |
+|             BONUS [PERN Stack: Many to Many](./pern-many-to-many/README.md)              |                                                [Tuner Bonus](https://github.com/joinpursuit/tuner-api#super-bonus-part-6)                                               |
 
 ## Individual Project
 
@@ -69,7 +70,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 |                                                                                                 Assessment                                                                                                 |                                                                                                                                                                                                                                             Standards                                                                                                                                                                                                                                              |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [Return of the Quotes - PERN style](https://github.com/joinpursuit/pern-quotes) / [TBD](https://github.com/joinpursuit/express-quotes-api-assessment) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li><li>FSW.15: Build a full-stack application</li></ul> |
+| [Return of the Quotes - PERN style](https://github.com/joinpursuit/pern-quotes-w-tests) / [Snack-a-Log](https://github.com/joinpursuit/pern-final-assessment) | <ul><li>EF.4.e: Use frequent, descriptive, small commits</li><li>FSW.1: Write clean, readable JavaScript code</li><li>FSW.1.b: Understanding of Callbacks</li><li>FSW.10.a: Create an Express app</li><li>FSW.10.b: Use routes to send responses and errors</li><li>FSW.13: Design, structure, and seed a database for a full stack CRUD application</li><li>FSW.14.c: Build an Express application that utilizes Postgres and pg-promise</li><li>FSW.15: Build a full-stack application</li></ul> |
 
 
 
@@ -77,4 +78,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 ## Additional Resources
 
-- [Building APIs with Express and Postgres](../node/building_apis_with_express_and_postgres/README.md)
+- [Algorithm Challenges/Code Wars](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/full_stack_express/algorithm-challenges)
+- [Bonus/Misc Lessons/Activities](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/advanced_or_misc/bonus_module_4)
+
+- [Former Module 4 Content Pre 7.0 class](../node/)

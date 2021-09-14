@@ -25,8 +25,8 @@
 | 7. [Networking in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_networking)            | [Blackjack](https://github.com/joinpursuit/Pursuit-Core-Web-React-Networking-Lab-Tested)                            |
 | 8. [Routing in React](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/react/react_routing)                  | [Cats and Dogs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Routing-Lab-Tested)     |
 | 9. [React Hooks](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/react/react_hooks/README.md)               | [Refactor React Labs](https://github.com/joinpursuit/Pursuit-Core-Web-React-Hooks-Lab/blob/master/README.md) |
-| 10. [Redux One](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/react/redux_1/README.md)                    | [Add Functionality to Redux Counter](https://github.com/joinpursuit/FSW-Redux-One-Lab)                       |
-| 11. [Redux Two](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/react/redux_2/README.md)                    | [Redux ToDos](https://github.com/joinpursuit/FSW-Redux-Two-Lab)                                              |
+| 10. [Redux One](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/react/redux_1/README.md)                    | [Add Functionality to Redux Counter](https://github.com/joinpursuit/Pursuit-Core-Web-Redux-One-Lab)                       |
+| 11. [Redux Two](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/react/redux_2/README.md)                    | [Redux ToDos](https://github.com/joinpursuit/Pursuit-Core-Web-Redux-Two-Lab)                                              |
 
 ## Individual Project
 
