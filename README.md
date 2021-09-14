@@ -15,7 +15,7 @@ The core curriculum is separated into six modules:
 | Module 3 - [React + Redux](./react/README.md)                                               | &nbsp;&nbsp;&nbsp; Learn how to use React and Redux to build more complex and scalable applications. Use React class-components and hooks to define behavior declaratively. Use Redux to manage shared state across multiple components. |
 | Module 4 - [Full Stack Express](./full_stack_express/README.md)                             | &nbsp;&nbsp;&nbsp; Learn how to build APIs using Express and databases using Postgres and Knex. Build a full-stack application by connecting your front end to your backend, and use an ORM for SQL to query your backend.               |
 | Module 5 - [Capstone](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/capstone) | &nbsp;&nbsp;&nbsp; Combine all of the expertise gained from previous modules to build a full-stack Capstone project with a small group. Learn how to conceptualize and pitch a product as well as explain the technical details.         |
-| Module 6 - [Computer Science](https://github.com/joinpursuit/Pursuit-Core-dsa)              | &nbsp;&nbsp;&nbsp; Learn the set of skills needed to pass technical interviews and take-home algorithm challenges at leading companies.                                                                                                  |
+| Module 6 - [Computer Science](https://github.com/joinpursuit/data-structures-&-algorithms)  | &nbsp;&nbsp;&nbsp; Learn the set of skills needed to pass technical interviews and take-home algorithm challenges at leading companies.                                                                                                  |
 
 ---
 
