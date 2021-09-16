@@ -239,9 +239,9 @@ This type of complexity is considered inefficient.
 
 We can look at this chart to look at how efficiency changes as input increases across the different types of classes of complexity.
 
-![](https://i.imgur.com/CExCK8P.png)
+![](../assets/runtime-table.png)
 
-Again, we can see that in most cases, when we are looking at 600 or less items, our computers can work through them quickly and our primary concern in this course should not be efficiency or optimization.
+Again, we can see that in most cases, when we are looking at 500 or less items, our computers can work through them quickly and our primary concern in this course should not be efficiency or optimization.
 
 Early optimization is problematic because it can be overwhelming to think about as you start to solve a problem or build an app and can prevent you from building a prototype in a reasonable amount of time.
 

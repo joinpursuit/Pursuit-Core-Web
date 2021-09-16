@@ -408,3 +408,9 @@ const greatestSum = (arr) => {
   return Math.max(...sums);
 };
 ```
+
+## BONUS: Array are Passed By Reference
+
+Arrays and objects are passed by reference. This is a handy thing to know, and may explain a reason for certain bugs in your code when working with arrays
+
+[Arrays are passed by reference]()

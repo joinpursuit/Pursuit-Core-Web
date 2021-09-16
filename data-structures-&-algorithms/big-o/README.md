@@ -34,6 +34,9 @@ undefined
 
 Why is the last item `undefined`?
 
+- What is the `spread operator`? When/how is it used?
+- What ist he `rest operator`? When/how is it used?
+
 ## Main Problem
 
 Let's look at some code and figure out how long it takes.

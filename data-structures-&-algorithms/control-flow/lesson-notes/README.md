@@ -446,6 +446,20 @@ console.log(printPrimes(30));
 
 And we did it! We solved the print primes problem!
 
+## Bonus Function Syntax Variations Reference
+
+JavaScript made some major updates in 2016 to its code base. Since 2016, small updates are being made annually.
+
+One thing that has happened is that there are many variations on the syntax of functions.
+
+If you need a review, check it out here:
+
+[Function Syntax Reference](./function-syntax-reference.md)
+
 ## Code Wars - Recommended Problems
 
 - Control Flow Review
+
+```
+
+```

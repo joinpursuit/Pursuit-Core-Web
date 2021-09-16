@@ -168,6 +168,102 @@ console.log(backpack.unZipIt().pickUpItems()[2]);
 
 </details>
 
+## Object Destructuring
+
+Let's imaging we are building a web page that is showing all the contents of the backpack.
+
+When we get to `contents` - we will have to type `backpack.contents` every single time, which makes our code a bit long and perhaps, even tougher to read. This is especially true if you are working with someone else's object who was not careful working naming things and the data you are working with has properties like `whatchamacallit.thingie.thing.stuff1.otherstuff`
+
+We can pull out our contents and use them directly, the new variable must be named the same as the key
+
+```js
+const { contents } = backpack;
+
+console.log(contents);
+```
+
+If we change the contents, the original object will be affected as well:
+
+```js
+contents[0] = "Tablet";
+
+console.log("just contents:", contents); // our new object
+console.log("backpack:", backpack.contents); // our old object
+```
+
+We can do this inside a function
+
+```js
+const showContents = ({ contents }) => {
+  for (let content of contents) {
+    console.log(content);
+  }
+};
+
+showContents(backpack);
+```
+
+We can rename the key:
+
+```js
+const { wallet: clip } = backpack.contents[3];
+
+console.log(clip);
+```
+
+## Combining objects
+
+Let's go back to our `computer`. We have scored a `box` and we want to combine the contents with our computer.
+
+```js
+const box = {
+  brand: "Tandy",
+  joystick: "Classic Vintage 1000",
+  keyboard: "Keyfun 5000",
+  working: "true",
+};
+```
+
+There is a function called `Object.assign` that will merge our objects together.
+
+The first argument is the target object, the second is will have its content moved in. What happens if both have the same property like `brand`? What happens if the property value has changed like `working`?
+
+Notice, that the properties for `computer` have been updated, but `box` has not.
+
+```js
+const newComputer = Object.assign(computer, box);
+
+console.log(newComputer);
+console.log(computer);
+console.log(box);
+```
+
+What if we wanted to make a new object but not change newComputer?
+
+We could put the values in a new object?
+
+```js
+const clonedComputer = Object.assign({}, computer);
+const newComputer = Object.assign(clonedComputer, box);
+
+console.log(computer);
+console.log(clonedComputer);
+console.log(newComputer);
+
+console.log(box);
+```
+
+### Using the Rest Operator
+
+```js
+const restComputer = { ...computer, ...box };
+
+console.log("===Old Computer===");
+console.log(computer);
+console.log("===Rest Computer ===");
+console.log(restComputer);
+```
+
 ## Word Frequency
 
 Write a function `findWordFrequency` that takes a sentence (a string), and returns an object with each word as a key, with a value of how many times that word appears in a the sentence
