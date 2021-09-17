@@ -292,3 +292,35 @@ Next `f(4)` is the value of `f(3)`, which we know is 3, and `f(2)` which we know
 Finally, `f(5)` is `f(4)` + `f(3)` which is 5 + 3 = 8
 
 As simple as the code we wrote looks, it actually takes a lot of steps to solve this problem. This is not an efficient solution.
+
+## Fibonacci Again
+
+If we calculated Big O for our fibonacci recursive function, we'd end up [with a quadratic level of complexity](https://www.geeksforgeeks.org/time-complexity-recursive-fibonacci-program/) - Note, for our introductory course, just determining a general category for our function: `constant`, `linear`, `quadratic`, `logarithmic`, and `factorial` is sufficient, we don't have to calculate further than that.
+
+Can we do better?
+
+- We need to go through the sequence `i` number of times
+- We need to add the current number to the previous number
+- Then we need to make the current number the sum of the previous number plus the current number
+- The previous number equal to the current number
+
+We can use [array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#array_destructuring) to make our code clear and easy to read:
+
+```js
+const fibonacciLoop = (limit) => {
+  previous = 0;
+  current = 1;
+  for (let i = 0; i < limit; i++) {
+    [current, previous] = [current + previous, current];
+  }
+  return current;
+};
+
+console.log(fibonacciLoop(5));
+```
+
+Which category of Big O does this version fit into best?
+
+## Which Fibonacci is "The Best Solution"?
+
+Discuss as a class

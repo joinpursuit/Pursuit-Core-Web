@@ -17,7 +17,7 @@ We notice that when we have reversed the seasons, even though we tried to store 
 
 This is because we did not make a new copy of the array, instead we created a new variable that `points` to the original array. Therefore, when we change one array, we change the other, because they are the same array, but now there are two different ways to access this array
 
-### Copying an Aray
+### Copying an Array
 
 ```js
 const seasonsAgain = ["Spring", "Summer", "Fall", "Winter"];
@@ -31,5 +31,5 @@ copySeasonsAgain.reverse();
 
 console.log("seasons again", seasonsAgain);
 
-console.log("copied season", copySeason);
+console.log("copied season again", copySeasonAgain);
 ```
