@@ -264,6 +264,24 @@ console.log("===Rest Computer ===");
 console.log(restComputer);
 ```
 
+Finally, we have a shortcut for adding key value pairs
+
+```js
+const a = 5;
+const b = "hello";
+const c = true;
+
+const someObject = {
+  a,
+  b,
+  c,
+};
+
+console.log(someObject);
+```
+
+Take the time to run this code and see if you can explain what it is doing
+
 ## Word Frequency
 
 Write a function `findWordFrequency` that takes a sentence (a string), and returns an object with each word as a key, with a value of how many times that word appears in a the sentence

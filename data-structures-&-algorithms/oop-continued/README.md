@@ -1,6 +1,4 @@
-oop continued
-
-# Title
+# OOP Part 2
 
 ### Setting intent
 
@@ -26,6 +24,14 @@ The goal will be to play a simple game of Blackjack (two players, each get two c
 - The card objects should go in an array
 - There should be a method that 'shuffles' the deck, the card objects can be reordered
 - As each play happens, two cards are given to the player and two are given to the computer player - these cards are removed from the array of card objects
+- Sum the values of the two cards that each player has
+  - The one that is closer to a value of 21 wins
+  - If the two values are the same, it is a tie
+- Bonus
+  - if a player has an Ace and a losing score, change the value of Ace to be 11, then check if this is a winning score
+  - allow for multiple rounds to be played
+  - keep a bankroll, allow players to make bets
+  - Use React to build a user interface and allow the game to be played there [very simple version example](https://vigorous-kepler-feaec9.netlify.app)
 
 Write down any questions you have about this model, what information is needed? What other considerations are there?
 

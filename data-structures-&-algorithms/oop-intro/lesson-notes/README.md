@@ -364,7 +364,9 @@ marshmallow.classyGreeting(buttons);
 
 ## Static Members
 
-As we've mentioned, you have already been working with JavaScript's version of classes with things like `Math` methods. When you use a math method you don't do this
+As we've mentioned, you have already been working with JavaScript's version of classes with things like `Math` methods.
+
+When you use a `Math` method you don't do this
 
 ```js
 const mathStuff = new Math();
@@ -390,4 +392,8 @@ class StringExtra {
   static description =
     "I have some extra methods for doing things with strings";
 }
+
+console.log(StringExtra.reverse("I palindrome I"));
+
+console.log(StringExtra.description);
 ```
