@@ -140,6 +140,10 @@ if (access) {
 }
 ```
 
+What does `break` do?
+
+Could we use `return` instead?
+
 ## Print Primes
 
 Now that we've reviewed the basic building blocks, let's go through how to solve the Print Primes problem.
