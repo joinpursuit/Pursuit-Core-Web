@@ -48,7 +48,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 ## Individual Project: Code Wars
 
-Your goal will be to accumulate at least **76** points on code wars (become a rank 7kyu user on Code Wars) during this module.
+Your goal will be to accumulate at certain number of points points on code wars (become a rank 5kyu or higher user on Code Wars) during this module.
 
 [Ranking system](https://docs.codewars.com/gamification/ranks/)
 
