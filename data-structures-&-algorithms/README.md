@@ -59,3 +59,5 @@ You will be tracked with [Pursuit's Code Wars Tracker](https://codewars-tracker-
 You will need to pass a minimum of 2 mock interviews. [More details](./mock-interviews)
 
 ## Additional Resources
+
+[Peer to Peer Mock Interviews](https://github.com/joinpursuit/m6-peer-interviews)
