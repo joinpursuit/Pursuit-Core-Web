@@ -253,14 +253,6 @@ const isPalindrome = (word) => {
 console.log("Racecar");
 ```
 
-## Bonus Rot 13
-
-## Repeater
-
-## Trim Password
-
-## Alternating Case
-
 ## Disemvowel Trolls
 
 [From Code Wars](https://www.codewars.com/kata/52fba66badcd10859f00097e/javascript)
@@ -286,17 +278,18 @@ console.log("Racecar");
 5. What is our plan?
 
 - choose some good use cases
-- `ha` => `h` (simplest)
-- `eh`, `hi`, `oh`, `huh` - test each letter (and first, middle, last position)
-- `seen` - test two vowels in a row
-- `pfft` => `pfft` (will not change if no vowels)
-- `Oh!` => 'h!` (deals with a capital letter)
-- `My girl wove six dozen plaid jackets before she quit.` => `My grl wv sx dzn pld jckts bfr sh qt.` This is a panagram, it has at least one of each letter in the alphabet. It also has multiple words.
+
+  - `ha` => `h` (simplest)
+  - `eh`, `hi`, `oh`, `huh` - test each letter (and first, middle, last position)
+  - `seen` - test two vowels in a row
+  - `pfft` => `pfft` (will not change if no vowels)
+  - `Oh!` => 'h!` (deals with a capital letter)
+  - `My girl wove six dozen plaid jackets before she quit.` => `My grl wv sx dzn pld jckts bfr sh qt.` This is a panagram, it has at least one of each letter in the alphabet. It also has multiple words.
 
 - loop over each letter
-- check if it is a vowel
-- if it is a vowel remove it (not replace it)
-- return the updated word without vowels
+  - check if it is a vowel
+  - if it is a vowel remove it (not replace it)
+  - return the updated word without vowels
 
 Get started:
 
@@ -461,7 +454,7 @@ disemvowelWord("My girl wove six dozen plaid jackets before she quit.");
 
 Oh! It really doesn't work!
 
-We have written a really nice, well-tested function to remove vowels from. However, we didn't write it to deal with words.
+We have written a really nice, well-tested function to remove vowels from a word. However, we didn't write it to deal with many words/sentences.
 
 What can we do? We can think back to `Print Primes` - we used a function that tested a single number, and then wrote another function that dealt with a group of numbers. We can write a `disemvowelTrolls` function that will take sentences, split them into words, pass the words in to our disemvowelWord function and update our sentence.
 

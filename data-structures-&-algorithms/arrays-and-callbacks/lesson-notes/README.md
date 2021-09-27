@@ -31,7 +31,7 @@ for (let i = 0; i < nums.length; i++) {
 }
 ```
 
-The `for` loop, is very flexible, you can increment (`i++`), decrement (`i--`) , skip by a certain amount (i+=3), go back a step in the code, if needed (we saw this with disemvowel trolls).
+The `for` loop, is very flexible, you can increment (`i++`), decrement (`i--`) , skip by a certain amount (`i+=3`), go back a step in the code, if needed (we saw this with disemvowel trolls).
 
 But if your goal is to iterate over each item, you can use a `for of` loop.
 
@@ -133,6 +133,8 @@ What we ar working with are a higher order functions and callbacks.
 - The higher order function is `.map`. It means it takes another function as an argument
 - The callback is `numToString`. It is the function that goes in as an argument inside the higher order function.
 
+MDN [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach), [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - be sure to check out the docs. Both of these methods have additional paremeters- the second will be the index position (if you need it),and the third can be an array. Although these are optional, they can come in to be very handy.
+
 ## Other Useful Array Methods
 
 These methods can be quite handy
@@ -149,7 +151,7 @@ Rate your comfort with using higher order functions/array methods with callbacks
 
 If you rate yourself 3 or below - take some time to [work through these problems](./drills.md)
 
-Taking the time to practice using these methods will help you hone your skills and gain a better understanding of higher order functions and callbacks. So then you can focus tackling larger problems with greater ease.
+Taking the time to practice using these methods will help you hone your skills and gain a better understanding of higher order functions and callbacks. So then you can focus tackling larger problems with greater ease. Gaining mastery with these will help you solve Codewars problems faster and show elegance and good understanding in code interviews and can help you write cleaner, more maintainable code.
 
 ## Find the Index in an Array
 
@@ -413,4 +415,4 @@ const greatestSum = (arr) => {
 
 Arrays and objects are passed by reference. This is a handy thing to know, and may explain a reason for certain bugs in your code when working with arrays
 
-[Arrays are passed by reference]()
+[Arrays are passed by reference](./arrays-passed-by-reference.md)

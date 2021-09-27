@@ -7,7 +7,7 @@
 
 ## An Introduction to Regular Expressions
 
-Regular Expressions is a fancy term that essentially means 'patterns inside of strings'. We can create patterns for strings that can be searched for, matched and replaced.
+Regular Expressions is a fancy term that essentially means "patterns inside of strings". We can create patterns for strings that can be searched for, matched and replaced.
 
 Regular Expressions are very useful, therefore they are included in many coding languages including, JavaScript, Ruby, Python, js, Java, HTML (yes!) and even to a limited extent CSS!
 

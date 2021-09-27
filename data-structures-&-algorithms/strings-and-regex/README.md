@@ -29,6 +29,7 @@ Most of us don't know what the future holds. Worrying about whether in a year or
 
 - [Sort and Star](https://www.codewars.com/kata/57cfdf34902f6ba3d300001e)
 - [Reversed Words](https://www.codewars.com/kata/51c8991dee245d7ddf00000e)
+- [Sum of Multiples](https://www.codewars.com/kata/sum-of-multiples)
 - [Decimal to Factorial and Back](https://www.codewars.com/kata/54e320dcebe1e583250008fd)
 - [V A P O R C O D E](https://www.codewars.com/kata/5966eeb31b229e44eb00007a)
 - [Play with Two Strings](https://www.codewars.com/kata/56c30ad8585d9ab99b000c54)

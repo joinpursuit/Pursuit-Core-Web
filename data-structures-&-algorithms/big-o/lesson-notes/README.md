@@ -235,6 +235,8 @@ This type of complexity is considered inefficient.
 
 ![](../assets/Factorial.png)
 
+You can [read about an inefficient sorting algorithm, called Bogosort that has a factorial run time](https://en.wikipedia.org/wiki/Bogosort)
+
 ## Summary
 
 We can look at this chart to look at how efficiency changes as input increases across the different types of classes of complexity.
@@ -261,4 +263,4 @@ Again focusing on just solving your problem first and foremost. Then going and f
 
 Feeling like you need to hear it all again?
 
-More activities
+Here is a compilation of videos and resources [Code Chef](https://www.codechef.com/certification/data-structures-and-algorithms/prepare)

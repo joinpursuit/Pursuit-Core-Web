@@ -50,7 +50,9 @@ Part of the industry encourages and pushes developers to write articles and publ
 
 If you realize that your problem is that you lack fundamental understanding, a book can be a great resource. A few are free and online.
 
-Books tend to be reviewed by many people and you can have more confidence that you are learning from a trusted and reviewed resource
+Books tend to be reviewed by many people and you can have more confidence that you are learning from a trusted and reviewed resource.
+
+Additionally, they are put together in a cohesive order that can help fill in missing details. Starting a book from the start can be a great way to level up. It can also serve as a reference when you need to review or go deeper on a topic.
 
 Online JavaScript:
 

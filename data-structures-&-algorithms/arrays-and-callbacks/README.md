@@ -1,6 +1,4 @@
-arrays and callbacks
-
-# Title
+# Arrays & Callbacks
 
 ### Setting intent
 
@@ -63,6 +61,10 @@ const letters = [
 ];
 ```
 
+## Drills
+
+[Practice array methods with callbacks](./lesson-notes/drills.md)
+
 ## Loop the Loop
 
 Make a function that takes one argument, a two dimensional array, where all the arrays are the same length, and returns the greatest sum of the numbers by row, column.
@@ -79,8 +81,18 @@ greatestSum(arr); //180
 
 Bonus - test for diagonal as well
 
-## More Problems (Solve if you finished the main problem or want more practice)
-
 ### Find the Indexes of All in an Array
 
 The same as find the index, however, if there is more than one match, return an array of matching index positions.
+
+## Lab: Accumulate Points on Codewars
+
+- [Gravity Flip](https://www.codewars.com/kata/5f70c883e10f9e0001c89673)
+- [Wrong Planet](https://www.codewars.com/kata/515e188a311df01cba000003)
+- [Needle in a Haystack](https://www.codewars.com/kata/56676e8fabd2d1ff3000000)
+- [Zoo Patrol](https://www.codewars.com/kata/5276c18121e20900c0000235)
+- [Sum Mixed Array](https://www.codewars.com/kata/sum-mixed-array)
+- [Array Flattener](https://www.codewars.com/kata/57ee99a16c8df7b02d00045f)
+- [Descending Order](https://www.codewars.com/kata/5467e4d82edf8bbf40000155?utm_source=newsletter)
+- [Beer Maid](https://www.codewars.com/kata/51e04f6b544cf3f6550000c1?utm_source=newsletter)
+- [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)

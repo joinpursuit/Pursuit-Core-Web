@@ -112,3 +112,4 @@ The appearance should be like:
 - [Convert Boolean to Yes or No](https://www.codewars.com/kata/53369039d7ab3ac506000467)
 - [Thinking and Testing A & B](https://www.codewars.com/kata/56d904db9963e9cf5000037d)
 - [Don't Eat the Last Cake ](https://www.codewars.com/kata/5384df88aa6fc164bb000e7d)
+- [Barksdale Code](https://www.codewars.com/kata/573d498eb90ccf20a000002a)

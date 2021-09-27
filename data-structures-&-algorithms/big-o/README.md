@@ -193,4 +193,4 @@ How close is this solution to the one you used when trying it yourself? If it ma
 
 If it isn't how you approached it, try to code your approach
 
-## More Problems (Solve if you finished the main problem or want more practice)
+## Lab: Accumulate Points on Codewars
