@@ -105,3 +105,10 @@ The appearance should be like:
 # # # #
  # # # #
 ```
+
+## Lab: Accumulate Points on Codewars
+
+- [Opposites Attract](https://www.codewars.com/kata/555086d53eac039a2a000083)
+- [Convert Boolean to Yes or No](https://www.codewars.com/kata/53369039d7ab3ac506000467)
+- [Thinking and Testing A & B](https://www.codewars.com/kata/56d904db9963e9cf5000037d)
+- [Don't Eat the Last Cake ](https://www.codewars.com/kata/5384df88aa6fc164bb000e7d)

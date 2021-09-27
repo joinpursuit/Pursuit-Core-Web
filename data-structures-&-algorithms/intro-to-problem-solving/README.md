@@ -38,21 +38,24 @@ Technical interviews vary tremendously in what is expected there are a few commo
 
 - Rapid Fire Trivia - this is usually over a phone screen where the interviewer ask you a bunch of trivia (is CSS case-sensitive? What is the difference between HTML and HTML5? Is JavaScript a dynamic language?)
 
-**Note:** Be wary of projects that require more than a day or so of work. You may be given a few days or a week, but the work should be small. Taking on projects that require a week or more of full-time work are not fair to your time, and anecdotally, don't actually lead to getting hired.
+**Note:** Be wary of projects that require more than a day or so of work. You may be given a few days or a week, but the overall project should be small (no bigger than a module 1-4 project). Taking on projects that require a week or more of full-time work are not fair to your time, and anecdotally, don't actually lead to getting hired and could possibly be taking advantage of your coding abilities.
 
 ## Emotional Framing
 
-We are going to be giving you problems to solve. A number of problems are 'classics' like Fizz Buzz. While you can google 'Fizz Buzz' and copy-paste the exact solution you found to 'just get it done' - this will not be an acceptable strategy on a job interview. Therefore, it is better to make an earnest effort and set yourself up as if you were actually on an interview.
+We are going to be giving you problems to solve. A number of problems are classics like Fizz Buzz. While you can google "Fizz Buzz" and copy-paste the [exact solution](https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition) you found to
+"just get it done" - this will not be an acceptable strategy on a job interview. Therefore, it is better to make an earnest effort and set yourself up as if you were actually on an interview.
 
-Also, in terms of classics, when you first start out, it may seem very boring or pointless to solve a problem you already have solved again. However, coding is a skill - just as an artist would not just play a song once to learn it, or draw just one cat, practicing the same or similar things does help you improve.
+Also, in terms of classics, when you first start out, it may seem very boring or pointless to solve a problem you already have solved again. However, coding is a skill - just as an artist would not just play a song once to learn it, or draw just one cat, practicing the same or similar things does help you improve. Therefore making it worthwhile.
 
-When using Code Wars, you may take 40 lines of code to solve a problem. When you've solved it, the answers are unlocked and you may see a single line solution and your joy for solving it may fall away and you may find yourself feeling crestfallen and wondering if you'll ever get better. You will get better! Every time you solve a problem, analyze another solution you are adding knowledge and skill. Speed and elegance comes with practice, it's ok to go slow and have messy code at first, the only way to get better is to keep trying.
+When using Code Wars, you may take 40 lines of code to solve a problem. When you've solved it, the answers are unlocked and you may see a single line solution and your joy for solving it may fall away and you may find yourself feeling crestfallen and wondering if you'll ever get better. You will get better! Every time you solve a problem and analyze another solution you are adding knowledge and skill. Speed and elegance comes with practice, it's ok to go slow and have messy code at first, the only way to get better is to keep trying.
 
-Don't get too hung up on 'success' - each coding problem is an opportunity to learn new things. You don't need to solve the problem in order to have learned things. There is a high level of satisfaction in sticking through and solving a problem, but if you don't get there, take time to realize what you have learned along the way.
+Don't get too hung up on success - each coding problem is an opportunity to learn new things. You don't need to solve the problem in order to have learned things. There is a high level of satisfaction in sticking through and solving a problem, but if you don't get there, take time to realize what you have learned along the way.
 
 When you get to the actual interview process, the same principal extends. You will be challenged to learn new things. You'll be more motivated to really dig into the material, you'll be asked to try to solve things you haven't solved before. Each interview is an opportunity to meet new people and learn new things. Each interview will make you stronger and better for your next interview and job.
 
-You should try problems that are 'too hard' - problems that you think "I could never solve this!" Are worth your time. Through trying you'll grow. If you only stick to problems that you think are 'doable' you will not get the same opportunity to level up.
+You should try problems that are you believe are "too hard" - problems that you think "I could never solve this!" Are worth your time. Through trying you'll grow. If you only stick to problems that you think are 'doable' you will not get the same opportunity to level up.
+
+The goal is that you will be able to approach a new problem and use your skills to solve it.
 
 ## Getting started
 

@@ -10,7 +10,7 @@ Most of us don't know what the future holds. Worrying about whether in a year or
 
 ## Trivia Questions
 
-- Is `'McDonalds' > 'Burger King' - true, false or an error? Why?
+- Is `'McDonalds'` > `'Burger King'` - true, false or an error? Why?
 - What are the differences between a `single quote`, `double quote`, `smart quote`, and `backtick`?
 - What is the difference between `a` and `'a'` in JavaScript?
 
@@ -25,6 +25,13 @@ Most of us don't know what the future holds. Worrying about whether in a year or
 
 > For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".]()
 
-## More Problems (Solve if you finished the main problem or want more practice)
+## Lab: Accumulate Points on Codewars
 
-### Extra Problem Title
+- [Sort and Star](https://www.codewars.com/kata/57cfdf34902f6ba3d300001e)
+- [Reversed Words](https://www.codewars.com/kata/51c8991dee245d7ddf00000e)
+- [Decimal to Factorial and Back](https://www.codewars.com/kata/54e320dcebe1e583250008fd)
+- [V A P O R C O D E](https://www.codewars.com/kata/5966eeb31b229e44eb00007a)
+- [Play with Two Strings](https://www.codewars.com/kata/56c30ad8585d9ab99b000c54)
+- [Alphabet War](https://www.codewars.com/kata/59377c53e66267c8f6000027)
+- [Backspaces in String](https://www.codewars.com/kata/5727bb0fe81185ae62000ae3)
+- [Very Hard Hamming Code](https://www.codewars.com/kata/5ef9ca8b76be6d001d5e1c3e)

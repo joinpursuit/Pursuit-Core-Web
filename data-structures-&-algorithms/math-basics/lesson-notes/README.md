@@ -41,11 +41,11 @@ let manyCats = "cat " * 5;
 console.log(manyCats);
 ```
 
-Gives us NaN in JavaScript and not `cat cat cat cat cat`''
+Gives us NaN in JavaScript and not `cat cat cat cat cat`.
 
 If you try to compare `NaN` to `NaN` it will always be false
 
-Because, JavaScript cannot calculate whether 5 cats is equal to 5 dogs, therefore the value will always be false:
+Because, JavaScript cannot calculate whether two invalid math operations are equal to each other. In our case is 5 _ cats is equal to 5 _ dogs, therefore the value will always be false:
 
 ```js
 let manyCats = "cat " * 5;
@@ -57,7 +57,7 @@ console.log(manyCats == manyDogs);
 
 Let's imagine we are working on the website for an online store.
 
-In our online store, we have a shopping cart. We want to change the cart to instead of showing
+In our online store, we have a shopping cart. We want to change the cart to instead of showing:
 
 - duct tape : $5
 - duct tape : $5
@@ -84,13 +84,13 @@ console.log(`${amountOfDuctTape} duct tape : $${total}`);
 
 ## Apply Discount (divide, PEMDAS, percentage)
 
-In our online store, if you buy 3 or more of the same item, you get a 10% discount
+In our online store, if you buy 3 or more of the same item, you get a 10% discount.
 
-Before coding, let's think through what we expect
+Before coding, let's think through what we expect:
 
 10% of 20 is 2. Therefore the total would be $18
 
-Remember percentage is converted to a decimal by dividing by 100
+Remember percentage is converted to a decimal by dividing by 100.
 
 ```js
 // The new total is equal to the old total, minus the total times the percentage to subtract
@@ -121,7 +121,7 @@ We can use the mnemonic PEMDAS as a quick way to to remember, without having to 
 - Multiplication/Divison
 - Addition/Subtraction
 
-Therefore, we don't need to add parenthesis, (but it does not hurt to have them)
+Therefore, we don't need to add parenthesis (but it does not hurt to have them).
 
 Now, let's add some logic, that if we have more than 3 rolls of duct tape, we should apply the discount:
 
@@ -136,7 +136,7 @@ if (amountOfDuctTape >= 3) {
 console.log(total);
 ```
 
-We can make our expression shorter
+We can make our expression shorter:
 
 - use a decimal to start
 - subtract our percentage from 1 and store it in a variable
@@ -161,13 +161,13 @@ What is `*=`? You likely have seen `+=` [These are assignment operators](https:/
 
 Let's say we want to comparison shop
 
-We find prices for our duct tape as
+We find prices for our duct tape as:
 
 ```js
 const pricesPerRoll = [2, 3, 4, 6, 7, 8];
 ```
 
-It should be really easy to spot the min and max price. But what if we had
+It should be really easy to spot the min and max price. But what if we had:
 
 ```js
 const pricesPerRoll = [4, 3, 2, 5, 3, 7, 4, 6, 3, 11, 4, 8, 3, 4, 5];
@@ -226,7 +226,7 @@ const comparePriceRange = (prices) => {
 console.log(comparePriceRange(competitorPrices));
 ```
 
-We might also be interested in the difference between our price and the lowest price
+We might also be interested in the difference between our price and the lowest price:
 
 ```js
 const bestPrice = (competitorPrices, ourPrice) => {
@@ -237,7 +237,7 @@ const bestPrice = (competitorPrices, ourPrice) => {
 console.log(bestPrice(competitorPrices, ourPrice));
 ```
 
-The value isn't the most informative. Let's add some more logic
+The value isn't the most informative. Let's add some more logic:
 
 ```js
 const bestPrice = (competitorPrices, ourPrice) => {
@@ -255,7 +255,7 @@ const bestPrice = (competitorPrices, ourPrice) => {
 console.log(bestPrice(competitorPrices, ourPrice));
 ```
 
-Let's make the return more informative
+Let's make the return more informative:
 
 ```js
 const bestPrice = (competitorPrices, ourPrice) => {
@@ -274,7 +274,7 @@ console.log(bestPrice(competitorPrices, ourPrice));
 
 Sometimes the difference will be a positive number, sometimes it will be negative. What if we just want the difference between the values, and not be negative or positive? Then we are looking for the [absolute value](https://en.wikipedia.org/wiki/Absolute_value)
 
-We can use a built-in JavaScript method to determine this value easily
+We can use a built-in JavaScript method to determine this value easily:
 
 ```js
 const bestPrice = (competitorPrices, ourPrice) => {
@@ -336,7 +336,7 @@ let donation = roundedUpCart - cartTotal;
 console.log(donation);
 ```
 
-Uh oh. We get an unexpected value. Turns out JS is not great with floating point numbers! We'll have to be mindful of this. We can fix this now by using another method [`.toFixed`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
+Uh oh. We get an unexpected value. Turns out JS is not great with floating point numbers! We'll have to be mindful of this. We can fix this now by using another method [`.toFixed`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed).
 
 ```js
 let cartTotal = 26.41;
@@ -349,7 +349,7 @@ console.log(donation);
 
 Now that we've reviewed some basics, let's go through how to solve the Find the Median problem.
 
-Using the following numbers array, find the median
+Using the following numbers array, find the median:
 
 ```js
 const nums = [
@@ -377,7 +377,7 @@ const nums = [
 
 ## Part 1: Sort the numbers
 
-The above array's numbers were carefully chosen to allow us to use the default sorting in the `.sort` array method.
+The above array's numbers were carefully chosen to allow us to use the default sorting in the [.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) array method.
 
 The default sort method, sorts by the first number only. In a later lesson, we'll learn how to use a callback in order to sort in a different way.
 
@@ -569,7 +569,3 @@ Coercion into a number from a string
 let y = "3";
 console.log(typeof +y);
 ```
-
-## Code Wars - Recommended Problems
-
-- Math Review

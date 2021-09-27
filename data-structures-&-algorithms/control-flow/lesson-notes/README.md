@@ -104,13 +104,13 @@ A `while` loop is a great choice when you don't know how many times a piece of p
 **Note:** to use `prompt` and `alert`, you need to run this code in the browser, repl.it may also block this functionality. It is ok to not run this code but simply understand it
 
 ```js
-let secretPhrase = prompt('Enter the secret')
+let secretPhrase = prompt('Enter the secret');
 
 while (secretPhrase != 'open sesame') {
-    secretPhrase = prompt('Nope! Guess again!')
+    secretPhrase = prompt('Nope! Guess again!');
 }
 
-alert ('you guessed it! Nice job!)
+alert('you guessed it! Nice job!);
 ```
 
 Many times we do know how many times we want to loop. In that case, a for loop is easier to write:
@@ -216,7 +216,6 @@ const isPrime = (num) => {
   for (let i = 2; i < num; i++) {
     console.log(i);
   }
-
   return num;
 };
 console.log(isPrime(4));
@@ -229,7 +228,6 @@ const isPrime = (num) => {
   for (let i = 2; i < num; i++) {
     console.log(num % i);
   }
-
   return num;
 };
 console.log(isPrime(4));
@@ -459,11 +457,3 @@ One thing that has happened is that there are many variations on the syntax of f
 If you need a review, check it out here:
 
 [Function Syntax Reference](./function-syntax-reference.md)
-
-## Code Wars - Recommended Problems
-
-- Control Flow Review
-
-```
-
-```
