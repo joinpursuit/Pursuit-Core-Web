@@ -17,34 +17,33 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 ## Learning Outcomes
 
-- Be able to solve Level 8 and 7 Kata on [Code Wars](https://docs.codewars.com/gamification/ranks/) in a reasonable amount of time
+- Be able to solve level 8, 7 and 6 Kata on [Code Wars](https://docs.codewars.com/gamification/ranks/) in a reasonable amount of time
 - Be able to talk through your solutions to problems
 - Be able to teach yourself something new
-- Be able to describe, at a very high level, common computer science topics such as Big O and Linked Lists
+- Be able to describe, at a very high level, common computer science topics such as Big O and recursion
 
 ## Lessons, Quizzes, and Labs
 
-|     |               Primary Problem(s)               |                         Lesson                         |
-| :-: | :--------------------------------------------: | :----------------------------------------------------: |
-|  1  |                      N/A                       | [Intro to Problem Solving](./intro-to-problem-solving) |
-|  2  |         [Print Primes](./control-flow)         |             [Control Flow](./control-flow)             |
-|  3  |        [Find the Median](./math-basics)        |              [Math Basics](./math-basics)              |
-|  4  |    [Disemvowel Trolls](./strings-and-regex)    |        [Strings and Regex](./strings-and-regex)        |
-|  5  |         [Err!0rs](./dealing-w-errors)          |              [Errors](./dealing-w-errors)              |
-|  6  | [My Own Find Function](./arrays-and-callbacks) |      [Arrays & Callbacks](./arrays-and-callbacks)      |
-|  7  |     [Count Words](./working-with-objects)      |     [Working with Objects](./working-with-objects)     |
-|  8  |                      N/A                       |   [Mock Interview Intro and Prep](./mock-interviews)   |
-|  9  |              [is Even?](./big-o)               |                    [Big O](./big-o)                    |
-| 10  |     [Fibonacci](./fibonacci-and-recursion)     |    [Intro to Recursion](./fibonacci-and-recursion)     |
-| 11  |             [Planets](./oop-intro)             |                   [OOP](./oop-intro)                   |
-| 12  |            [Cards](./oop-continued)            |            [OOP Continued](./oop-continued)            |
-| 13  |         [Linked Lists](./linked-lists)         |             [Linked Lists](./linked-lists)             |
-| 14  |     [Stacks & Queues](./stacks-and-queues)     |         [Stacks & Queues](./stacks-and-queues)         |
-| 15  |      [Binary Trees](./binary-trees-tries)      |          [Binary Trees](./binary-trees-tries)          |
-| 16  |     [Bubble Sort](./searching-algorithms)      |     [Searching Algorithms](./searching-algorithms)     |
-| 17  |   [Binary Search](./searching-algorithms-2)    |    [Searching Algorithms](./searching-algorithms-2)    |
-| 18  |   [Unique Array](./unique-array-hash-tables)   |       [Hash Tables](./unique-array-hash-tables)        |
-| 19  |     [Bonus/Advanced](./bonus-and-advanced)     |                          N/A                           |
+|     |                   Primary Problem(s)                    |                                                  Lesson                                                   |
+| :-: | :-----------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
+|  1  |                           N/A                           | [Intro to Problem Solving](./intro-to-problem-solving) [Mock Interview Intro and Prep](./mock-interviews) |
+|  2  |             [Print Primes](./control-flow)              |                                [Control Flow](./control-flow/lesson-notes)                                |
+|  3  |            [Find the Median](./math-basics)             |                                 [Math Basics](./math-basics/lesson-notes)                                 |
+|  4  |        [Disemvowel Trolls](./strings-and-regex)         |                           [Strings and Regex](./strings-and-regex/lesson-notes)                           |
+|  5  |              [Err!0rs](./dealing-w-errors)              |                                 [Errors](./dealing-w-errors/lesson-notes)                                 |
+|  6  | [My Own Find Index Of Function](./arrays-and-callbacks) |                         [Arrays & Callbacks](./arrays-and-callbacks/lesson-notes)                         |
+|  7  |          [Count Words](./working-with-objects)          |                        [Working with Objects](./working-with-objects/lesson-notes)                        |
+|  8  |                   [is Even?](./big-o)                   |                                       [Big O](./big-o/lesson-notes)                                       |
+|  9  |         [Fibonacci](./fibonacci-and-recursion)          |                       [Intro to Recursion](./fibonacci-and-recursion/lesson-notes)                        |
+| 10  |                  [Cards](./oop-intro)                   |                                      [OOP](./oop-intro/lesson-notes)                                      |
+| 11  |             [Cards Cont.](./oop-continued)              |                               [OOP Continued](./oop-continued/lesson-notes)                               |
+| 12  |             [Linked Lists](./linked-lists)              |                                [Linked Lists](./linked-lists/lesson-notes)                                |
+| 13  |         [Stacks & Queues](./stacks-and-queues)          |                            [Stacks & Queues](./stacks-and-queues/lesson-notes)                            |
+| 14  |          [Binary Trees](./binary-trees-tries)           |                             [Binary Trees](./binary-trees-tries/lesson-notes)                             |
+| 15  |          [Bubble Sort](./searching-algorithms)          |                        [Searching Algorithms](./searching-algorithms/lesson-notes)                        |
+| 16  |        [Binary Search](./searching-algorithms-2)        |                      [Searching Algorithms 2](./searching-algorithms-2/lesson-notes)                      |
+| 17  |       [Unique Array](./unique-array-hash-tables)        |                          [Hash Tables](./unique-array-hash-tables/lesson-notes)                           |
+| 18  |         [Bonus/Advanced](./bonus-and-advanced)          |                                                    N/A                                                    |
 
 ## Individual Project: Code Wars
 
@@ -56,6 +55,22 @@ You will be tracked with [Pursuit's Code Wars Tracker](https://codewars-tracker-
 
 ## Assessment: Mock Interviews
 
-You will need to pass a minimum of 2 mock interviews. [More details](./mock-interviews)
+You will need to pass a minimum of 3 mock interviews. [More details](./mock-interviews)
 
 ## Additional Resources
+
+### JavaScript Fundamentals
+
+[Eloquent JavaScript](https://eloquentjavascript.net)
+
+Focus on chapters: 1, 2, 3, 4, 5, 6, 8, 11
+
+### Intermediate JavaScript
+
+[You Don't Know JS](https://github.com/getify/You-Dont-Know-JS#titles)
+
+### Computer Science
+
+Why do we care about algorithms? How do they impact our daily lives?
+
+VIDEO: [Secret Rules of Modern Living Algorithms Documentary](https://www.youtube.com/watch?v=kiFfp-HAu64)
