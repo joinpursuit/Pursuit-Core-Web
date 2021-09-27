@@ -47,7 +47,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 ## Individual Project: Code Wars
 
-Your goal will be to accumulate at least **76** points on code wars (become a rank 7kyu user on Code Wars) during this module.
+Your goal will be to accumulate at certain number of points points on code wars (become a rank 5kyu or higher user on Code Wars) during this module.
 
 [Ranking system](https://docs.codewars.com/gamification/ranks/)
 
@@ -74,3 +74,5 @@ Focus on chapters: 1, 2, 3, 4, 5, 6, 8, 11
 Why do we care about algorithms? How do they impact our daily lives?
 
 VIDEO: [Secret Rules of Modern Living Algorithms Documentary](https://www.youtube.com/watch?v=kiFfp-HAu64)
+
+[Peer to Peer Mock Interviews](https://github.com/joinpursuit/m6-peer-interviews)
