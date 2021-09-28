@@ -181,10 +181,6 @@ const myAutomaticGuesser = (number, tooLow) => {
   }
 };
 
-const myAutomaticGuesser = (number) => {
-  console.log(number++);
-  return number++;
-};
 
 game();
 ```
@@ -194,3 +190,5 @@ How close is this solution to the one you used when trying it yourself? If it ma
 If it isn't how you approached it, try to code your approach
 
 ## Lab: Accumulate Points on Codewars
+
+Take some time to go back and solve any problems you got stuck on

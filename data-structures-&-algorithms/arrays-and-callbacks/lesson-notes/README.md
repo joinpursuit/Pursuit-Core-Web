@@ -23,7 +23,7 @@ while (i < nums.length) {
 }
 ```
 
-We can use a for loop. The for loop is just like our while loop, however it has a `control panel` that on one line: Initiates a counter (the variable `i`) at a certain value, sets the end condition `i < nums.length` and how to increment the loop `i++`. This tends to be more readable and more maintainable.
+We can use a for loop. The for loop is just like our while loop, however it has a `control panel` that on one line: Initiates a counter (the variable `i`) at a certain value, sets the end condition `i < nums.length` and how to increment the loop `i++`. This tends to be more readable and more maintainable than a while loop.
 
 ```js
 for (let i = 0; i < nums.length; i++) {
@@ -45,7 +45,7 @@ for (let num of nums) {
 
 We have two other ways to iterate over arrays. Both are array methods: `.forEach` and `.map`. The difference is that `.forEach` only iterates and does not return a value and `.map` iterates and returns a new array.
 
-Let's take a look, at both so we can compare and contrast the two methods.
+Let's take a look at both so we can compare and contrast the two methods.
 
 ```js
 nums.forEach();
@@ -53,7 +53,7 @@ nums.forEach();
 
 Here we are calling the function. It will iterate over each item, but we want it to do more. `.forEach()` is un opinionated about what you do. You can multiply by 10, you can change the numbers to strings, or anything you can think of. But how do we tell `.forEach()` what we want to do?
 
-We will write a function inside
+We will write a function inside:
 
 ```js
 nums.forEach(() => {});
@@ -137,7 +137,7 @@ MDN [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 
 ## Other Useful Array Methods
 
-These methods can be quite handy
+These methods can be quite useful, so they are worth practicing and studying.
 
 - every
 - filter
@@ -254,7 +254,7 @@ const findIndex = (arr, item) => {
 console.log(findIndex(letters, "a"));
 ```
 
-That is working as expected!
+That is working as expected! Let's swap the log for an `if` statement
 
 ```js
 const findIndex = (arr, item) => {

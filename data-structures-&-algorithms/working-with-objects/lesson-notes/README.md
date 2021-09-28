@@ -170,7 +170,7 @@ console.log(backpack.unZipIt().pickUpItems()[2]);
 
 ## Object Destructuring
 
-Let's imaging we are building a web page that is showing all the contents of the backpack.
+Let's imagine we are building a web page that is showing all the contents of the backpack.
 
 When we get to `contents` - we will have to type `backpack.contents` every single time, which makes our code a bit long and perhaps, even tougher to read. This is especially true if you are working with someone else's object who was not careful working naming things and the data you are working with has properties like `whatchamacallit.thingie.thing.stuff1.otherstuff`
 
@@ -292,7 +292,8 @@ Would result in:
 
 ```js
 {
-  buffalo: 5;
+  buffalo: 5,
+  buffalo: 3
 }
 ```
 

@@ -1,6 +1,4 @@
-working with objects
-
-# Title
+# Working with Objects
 
 ### Setting intent
 

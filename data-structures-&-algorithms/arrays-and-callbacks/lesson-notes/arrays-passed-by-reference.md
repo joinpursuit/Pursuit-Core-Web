@@ -19,6 +19,8 @@ This is because we did not make a new copy of the array, instead we created a ne
 
 ### Copying an Array
 
+We can use the spread operator to safely copy an array that does not have nested items (objects within objects within more arrays)
+
 ```js
 const seasonsAgain = ["Spring", "Summer", "Fall", "Winter"];
 

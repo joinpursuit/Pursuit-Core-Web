@@ -51,7 +51,7 @@ However, as our cloud music service grows with more music and more users, we wan
 - Better user experience if someone says 'Hey Siri/Alexa play Silicone on Sapphire' and there are over 20 million songs to search through, this could take a minute. But we don't want to wait a minute! We will think our assistant did not hear us, or is broken if we have to wait a whole minute. We need our results as fast as possible
 - Better resource usage, storing and delivering millions of songs to millions of users takes a lot of computing power. If there are more efficient ways, it will save on resources
 
-Let's thing that we have an array of artists. Each artist is made up of an object. Each artist has an array of objects that are albums. Each album is an array of song names.
+Let's think that we have an array of artists. Each artist is made up of an object. Each artist has an array of objects that are albums. Each album is an array of song names.
 
 ```js
 const artists = [
