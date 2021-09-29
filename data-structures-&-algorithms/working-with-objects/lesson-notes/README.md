@@ -309,13 +309,13 @@ Would result in:
 
 5. What is our plan?
 
-- Do we need more test cases beyond the one(s) provided?
+   - Do we need more test cases beyond the one(s) provided?
 
-- Convert sentence to an array of words
-- Loop over the array of words
-- If the word is not an object key, add it as a key and set the count value to 1
-- Else if the word is an object key, increase the count value to 1
-- Loop over the object to find the word with the greatest frequency
+   - Convert sentence to an array of words
+   - Loop over the array of words
+   - If the word is not an object key, add it as a key and set the count value to 1
+   - Else if the word is an object key, increase the count value to 1
+   - Loop over the object to find the word with the greatest frequency
 
 Get started:
 

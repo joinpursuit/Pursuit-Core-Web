@@ -182,3 +182,14 @@ const bondFilms = [
   },
 ];
 ```
+
+## Lab Accumulate Points on Codewars
+
+- [Order Filler](https://www.codewars.com/kata/586ee462d0982081bf001f07)
+- [Total Amount of Points](https://www.codewars.com/kata/5bb904724c47249b10000131)
+- [Combine Objects](https://www.codewars.com/kata/56bd9e4b0d0b64eaf5000819)
+- [Dictionary from Two Lists](https://www.codewars.com/kata/5533c2a50c4fea6832000101)
+- [Pokemon Damage Calculator](https://www.codewars.com/kata/536e9a7973130a06eb000e9f)
+- [Loose Change](https://www.codewars.com/kata/5571f712ddf00b54420000ee)
+- [Can Santa Save Christmas Part 1](https://www.codewars.com/kata/5857e8bb9948644aa1000246)
+- [Present Calculator](https://www.codewars.com/kata/585b989c45376c73e30000d1)
