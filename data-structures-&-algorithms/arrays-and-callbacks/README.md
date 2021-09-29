@@ -85,7 +85,13 @@ Bonus - test for diagonal as well
 
 The same as find the index, however, if there is more than one match, return an array of matching index positions.
 
-## Lab: Accumulate Points on Codewars
+## Lab
+
+### Part 1 
+
+[Complete these drills and submit to canvas](https://github.com/joinpursuit/m6-array-method-drills)
+
+### Part 2  Accumulate Points on Codewars
 
 - [Gravity Flip](https://www.codewars.com/kata/5f70c883e10f9e0001c89673)
 - [Wrong Planet](https://www.codewars.com/kata/515e188a311df01cba000003)
