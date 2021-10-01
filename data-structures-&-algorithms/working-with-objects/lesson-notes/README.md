@@ -170,7 +170,7 @@ console.log(backpack.unZipIt().pickUpItems()[2]);
 
 ## Object Destructuring
 
-Let's imaging we are building a web page that is showing all the contents of the backpack.
+Let's imagine we are building a web page that is showing all the contents of the backpack.
 
 When we get to `contents` - we will have to type `backpack.contents` every single time, which makes our code a bit long and perhaps, even tougher to read. This is especially true if you are working with someone else's object who was not careful working naming things and the data you are working with has properties like `whatchamacallit.thingie.thing.stuff1.otherstuff`
 
@@ -292,7 +292,8 @@ Would result in:
 
 ```js
 {
-  buffalo: 5;
+  buffalo: 5,
+  buffalo: 3
 }
 ```
 
@@ -308,13 +309,13 @@ Would result in:
 
 5. What is our plan?
 
-- Do we need more test cases beyond the one(s) provided?
+   - Do we need more test cases beyond the one(s) provided?
 
-- Convert sentence to an array of words
-- Loop over the array of words
-- If the word is not an object key, add it as a key and set the count value to 1
-- Else if the word is an object key, increase the count value to 1
-- Loop over the object to find the word with the greatest frequency
+   - Convert sentence to an array of words
+   - Loop over the array of words
+   - If the word is not an object key, add it as a key and set the count value to 1
+   - Else if the word is an object key, increase the count value to 1
+   - Loop over the object to find the word with the greatest frequency
 
 Get started:
 

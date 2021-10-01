@@ -134,3 +134,16 @@ You have
 - Discuss past interviews (from any field of work you have done)
 - Bring up what makes you most anxious
 - How can you work on making yourself a stronger candidate?
+
+## Homework
+
+Watch:
+
+[The Secret Rules of Modern Living Algorithms](https://www.youtube.com/watch?v=kiFfp-HAu64)
+
+And answer the following questions on Canvas:
+
+- Describe the algorithm to win the chocolate, and not the chili
+- Name 2 types of sorting algorithms discussed in the video
+- Name the algorithm used to help find matches for people who needed a kidney
+- What animal deals with the Traveling Salesman problem in its daily life?

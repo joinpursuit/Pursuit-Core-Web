@@ -397,3 +397,17 @@ console.log(StringExtra.reverse("I palindrome I"));
 
 console.log(StringExtra.description);
 ```
+
+### Extreme Super Bonus
+
+Read this code, analyze what it does then research what is `prototype` in JavaScript, how it works and what does it do?
+
+How does it relate to this lesson on classes?
+
+```js
+String.prototype.reverse = function () {
+  return this.split("").reverse().join("");
+};
+
+console.log("foMO".reverse());
+```
