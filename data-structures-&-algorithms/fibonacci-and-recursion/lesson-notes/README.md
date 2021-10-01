@@ -39,7 +39,7 @@ Average humans, do not add all the numbers all at once. We add two numbers toget
 21 + 7   = 28
 28 + 8   = 36
 36 + 9   = 45
-45 + 10   = 55
+45 + 10  = 55
 55 + no numbers left means our answer is 55
 ```
 
@@ -86,7 +86,7 @@ Short circuiting:
 
 Default argument:
 
-- `const sumNumbers = (numsArr, sum = 0)` This will set teh value of sum to 0, if sum is undefined
+- `const sumNumbers = (numsArr, sum = 0)` This will set the value of sum to 0, if sum is undefined
 
 Default argument is a newer syntax. Let's try it. The first time we call `sumNumbers`, we are only passing one argument, so the sum will be set to the default value of 0
 
@@ -103,7 +103,7 @@ console.log(sumNumbers(numsToSum));
 
 5. Now we have to define a way (or rules) to decrease our complex problem (adding 10 numbers), down to the base case, having no more numbers to add.
 
-Each time we add a number, we have to remove it from teh array, thus decreasing the array length and bringing us closer to the base case. We'll use `.shift()` to take off the number at the start of the array.
+Each time we add a number, we have to remove it from the array, thus decreasing the array length and bringing us closer to the base case. We'll use `.shift()` to take off the number at the start of the array.
 
 Thought question: could we use `.pop()` instead?
 

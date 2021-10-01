@@ -9,6 +9,8 @@
 
 ## Inheritance
 
+Note: we are building on top of our code we wrote yesterday.
+
 In our world of animals, let's say there is a new kind: Mythical creature. The mythical creature will have all the properties of methods as an animal and some additional ones. We could copy our `Animal` class and paste it and add more, but what if we need to change the `greet` function? Then we would have to find every place we copy/pasted and carefully update. We are going to keep our animal as our one source of truth as a parent class.
 
 Original Animal:

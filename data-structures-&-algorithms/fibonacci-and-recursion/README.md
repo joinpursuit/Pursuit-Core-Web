@@ -28,3 +28,10 @@ Write a function that prints numbers in the Fibonacci sequence up to a give limi
 ### Tribonacci Sequence
 
 - [Tribonacci Sequence on Code Wars](https://www.codewars.com/kata/556deca17c58da83c00002db)
+
+## Lab: Accumulate Points on Codewars
+
+- [Be Concise](https://www.codewars.com/kata/5703c093022cd1aae90012c9)
+- [Recursion Factorial](https://www.codewars.com/kata/5694cb0ec554589633000036)
+- [Sum of a Sequence](https://www.codewars.com/kata/586f6741c66d18c22800010a)
+- [Reverser](https://www.codewars.com/kata/58069e4cf3c13ef3a6000168)

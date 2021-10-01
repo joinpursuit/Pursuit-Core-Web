@@ -33,7 +33,7 @@ const delete = (item) => {
 
 The goal will be to play a simple game of Blackjack (two players, each get two cards, determine who wins)
 
-**Note**: We will work on solving this after the second lesson on OOP and you will get more time to work on this problem during the next session
+**Note**: We will continue to work on solving this after the second lesson on OOP and you will get more time to work on this problem during the next session
 
 - Cards with a face of 2 - 10, jack, queen, king ace
 - Values of cards 2-10 are same as face, jack, queen, and king are worth 10, ace starts as a value of 11, but can be changed to a value of 1
@@ -54,4 +54,9 @@ Both of these are from the book Cracking the Code Interview. Work with a partner
 - Model a Jukebox
 - Model a Call Center
 
-### Extra Problem Title
+## Lab: Accumulate Points on Codewars
+
+- [Object Oriented Piracy](https://www.codewars.com/kata/54fe05c4762e2e3047000add)
+- [Classy Classes](https://www.codewars.com/kata/55a144eff5124e546400005a)
+- [Regular Ball Super Ball](https://www.codewars.com/kata/53f0f358b9cb376eca001079)
+- [Color Ghost](https://www.codewars.com/kata/53f1015fa9fe02cbda00111a)

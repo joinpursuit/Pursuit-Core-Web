@@ -2,9 +2,7 @@
 
 ### Setting intent
 
-> Quote
-
-Details
+> As a class, determine the intent for the day
 
 ## Trivia Questions
 
@@ -38,3 +36,7 @@ Write down any questions you have about this model, what information is needed? 
 ## Bonus
 
 - Make a simple BlackJack game to be played in the console
+
+## Lab: Accumulate Points on Codewars
+
+- [Build a Car](https://www.codewars.com/kata/5832d6e2565e120ae60000bb)
