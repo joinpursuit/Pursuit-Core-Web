@@ -407,3 +407,27 @@ How would you solve it?
 ### Continue Game Play
 
 We would likely want each player to have a name, an amount of money to bet, a total amount of money and more. We could keep making separate values for each one like `playerName`, `playerHand`, `playerBet`, `playerBankroll`, `playerNumOfWins`. But what becomes the problem with such a strategy? What happens if this is a game ends up going into production and is played by millions of people and we are expected to implement all the rules of Black Jack? What could we do to organize our code?
+
+## Further Reading
+
+Eloquent JavaScript
+
+[Chapter 6: The Secret Life of Objects](https://eloquentjavascript.net/06_object.html)
+
+### Extreme Super Bonus
+
+Read this code, analyze what it does then research what is `prototype` in JavaScript, how it works and what does it do?
+
+How does it relate to this lesson on classes?
+
+```js
+String.prototype.reverse = function () {
+  return this.split("").reverse().join("");
+};
+
+console.log("foMO".reverse());
+```
+
+Check out this section of [You Don't Know JS: this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/this%20&%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
+
+[All the You Don't Know JS Books](https://github.com/getify/You-Dont-Know-JS/tree/1st-ed)

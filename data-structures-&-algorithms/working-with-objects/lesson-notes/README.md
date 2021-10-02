@@ -479,3 +479,9 @@ const wordCounter = (sentence) => {
 };
 console.log(wordCounter(buffaloSentence));
 ```
+
+## Further Reading
+
+Eloquent JavaScript
+
+[Chapter 4: Data Structures: Objects and Arrays](https://eloquentjavascript.net/04_data.html)

@@ -416,3 +416,9 @@ const greatestSum = (arr) => {
 Arrays and objects are passed by reference. This is a handy thing to know, and may explain a reason for certain bugs in your code when working with arrays
 
 [Arrays are passed by reference](./arrays-passed-by-reference.md)
+
+## Further Reading
+
+Eloquent JavaScript
+
+[Chapter 4: Data Structures: Objects and Arrays](https://eloquentjavascript.net/04_data.html)

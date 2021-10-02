@@ -495,3 +495,11 @@ function disemvowel(str) {
 It's ok! Our solution works great and we didn't have `Regular Expressions` in our personal tool kit. Now, we have something new to study! Hooray!
 
 [Let's Learn More](README2.md)
+
+## Further Reading
+
+Eloquent JavaScript
+
+[Chapter 1: Values, Types and Operators](https://eloquentjavascript.net)
+
+[Chapter 9: Regular Expressions](https://eloquentjavascript.net/09_regexp.html)
