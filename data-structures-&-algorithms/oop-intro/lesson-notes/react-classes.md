@@ -13,7 +13,7 @@ class MyDiv extends React.Component {
   }
 
   render() {
-    return <div>My Div</div>;
+    return <div onClick={myFunc}>My Div</div>;
   }
 }
 ```

@@ -121,3 +121,5 @@ With your remaining time
 Hopefully, this has been a useful introduction. However, one question remains: how do we code it?
 
 ## Lab: Accumulate Codewars points
+
+## Further Reading
