@@ -75,4 +75,12 @@ Why do we care about algorithms? How do they impact our daily lives?
 
 VIDEO: [Secret Rules of Modern Living Algorithms Documentary](https://www.youtube.com/watch?v=kiFfp-HAu64)
 
+### Additional Resources Used to Build out this Module
+
+[Cracking the Code Interview](https://www.crackingthecodinginterview.com)
+
+[Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms-third-edition)
+
+### Misc
+
 [Peer to Peer Mock Interviews](https://github.com/joinpursuit/m6-peer-interviews)
