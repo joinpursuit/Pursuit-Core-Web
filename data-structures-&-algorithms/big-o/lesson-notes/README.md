@@ -383,3 +383,64 @@ O(N^2)
 ## Further Reading
 
 [Wikipedia](https://en.wikipedia.org/wiki/Big_O_notation)
+
+## Bonus
+
+<details><summary>A possible solution for the game/automatic guesser that follows a binary search</summary>
+
+```js
+const game = () => {
+  let start = 1;
+  let limit = 1000;
+  let midpoint = 0;
+  let number = Math.ceil(Math.random() * limit);
+  let values = {
+    start,
+    limit,
+    midpoint,
+  };
+
+  //   let guess = prompt(`Guess a number between 1 and 1000`);
+  let counter = 1;
+  while (values.midpoint !== number && counter <= 10) {
+    if (values.midpoint > number) {
+      values = myAutomaticGuesser(values, true);
+    } else if (values.midpoint < number) {
+      values = myAutomaticGuesser(values, false);
+    }
+    counter++;
+  }
+
+  if (counter <= 11) {
+    console.log(
+      `That's right! The number was ${number} and the number of guesses was ${
+        counter - 1
+      }`
+    );
+  } else {
+    console.log(
+      `Sorry, out of guesses! The number was ${number}
+        `
+    );
+  }
+};
+
+const myAutomaticGuesser = ({ start, midpoint, limit }, tooHigh) => {
+  if (tooHigh) {
+    if (midpoint === 2) midpoint = 1;
+    limit = midpoint;
+    midpoint = limit - Math.floor((limit - start) / 2);
+  } else {
+    start = midpoint;
+    midpoint = limit - Math.floor((limit - start) / 2);
+  }
+  return { midpoint, start, limit };
+};
+
+game();
+```
+
+- What is the Big O for this game?
+- With the possible values between 1 - 1000, how often will the automatic guesser run out of guesses and lose?
+
+</details>
