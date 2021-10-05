@@ -94,3 +94,9 @@ jQuery is also used on over 78% of all websites (fall 2021), according to [W3tec
 In fact [Cypress](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress#Querying-by-Text-Content) is built with jQuery and uses the older style of promises (rather than `async`/`await`) - many developers really like Cypress because it is quite stable, despite being fairly new. In part, this is because they used the right tools for their project, rather than building something entirely new from scratch.
 
 So, pay attention to trends, but don't worry about learning every new thing. Choose things that truly interest you or that really are a good fit for what you are building.
+
+## Further Reading
+
+Eloquent JavaScript
+
+[Chapter 8: Bugs and Errors](https://eloquentjavascript.net/08_error.html)

@@ -398,6 +398,12 @@ console.log(StringExtra.reverse("I palindrome I"));
 console.log(StringExtra.description);
 ```
 
+## Further Reading
+
+Eloquent JavaScript
+
+[Chapter 6: The Secret Life of Objects](https://eloquentjavascript.net/06_object.html)
+
 ### Extreme Super Bonus
 
 Read this code, analyze what it does then research what is `prototype` in JavaScript, how it works and what does it do?
@@ -411,3 +417,7 @@ String.prototype.reverse = function () {
 
 console.log("foMO".reverse());
 ```
+
+## React Classes, a real world coding example
+
+[link](./react-classes.md)
