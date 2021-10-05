@@ -457,3 +457,11 @@ One thing that has happened is that there are many variations on the syntax of f
 If you need a review, check it out here:
 
 [Function Syntax Reference](./function-syntax-reference.md)
+
+## Further Reading
+
+Eloquent JavaScript
+
+[Chapter 1: Values, Types and Operators](https://eloquentjavascript.net)
+[Chapter 2: Program Structure](https://eloquentjavascript.net/02_program_structure.html)
+[Chapter 3: Functions](https://eloquentjavascript.net/03_functions.html)

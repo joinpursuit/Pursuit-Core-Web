@@ -324,3 +324,11 @@ Which category of Big O does this version fit into best?
 ## Which Fibonacci is "The Best Solution"?
 
 Discuss as a class
+
+## Further Reading
+
+[Eloquent JavaScript Functions - recursion](https://eloquentjavascript.net/03_functions.html)
+
+[Math is Fun: Fibonacci Sequence](https://www.mathsisfun.com/numbers/fibonacci-sequence.html)
+
+[Wikipedia: Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_number)

@@ -264,3 +264,183 @@ Again focusing on just solving your problem first and foremost. Then going and f
 Feeling like you need to hear it all again?
 
 Here is a compilation of videos and resources [Code Chef](https://www.codechef.com/certification/data-structures-and-algorithms/prepare)
+
+## More Considerations
+
+### Drop Constants
+
+When calculating Big O, describes the rate of increase - therefore it is typical to drop the constants.
+
+Let's take a look
+
+Imagine we have an array of random positive integers between 1 and a million and our array size is larger than 100,000 numbers.
+
+We want to find both the largest number and the smallest number.
+
+We can take two approaches, using for loops
+
+```js
+let min = 0;
+let max = 0;
+for (let n of numbersArray) {
+  if (x < min) min = x;
+  if (x > max) max = x;
+}
+```
+
+Calculate Big O for yourself, and then check
+
+<details><summary>
+Big O</summary>
+- for loop = N
+- two steps inside of for loop  = 2
+
+O(2N)
+
+</details>
+
+```js
+let min = 0;
+let max = 0;
+for (let n of numbersArray) {
+  if (x < min) min = x;
+}
+for (let n of numbersArray) {
+  if (x > max) max = x;
+}
+```
+
+Calculate Big O for yourself, and then check
+
+<details><summary>
+Big O</summary>
+- first for loop = N
+- one step  inside of for loop  = 1
+- second for loop = N
+- one  inside of for loop  = 1
+
+O(2N)
+
+</details>
+
+The rate always increases by the number of elements: `N`, the 2 is a constant. We don't need constants - therefore for both of these examples Big O is o(N)
+
+### Drop Non-Dominant Terms
+
+Consider an algorithm that has a complexity of
+
+- O(N^2 + N)
+
+| input |         runtime         |
+| :---: | :---------------------: |
+|   1   |        2 + 1 = 3        |
+|  10   |     100 + 20 = 110      |
+|  100  |   10000 + 100 = 10100   |
+| 1000  | 1000000+ 1000 = 1001000 |
+
+As N grows, the impact of `N` decreases, while `N^2` dominates the runtime in a worst case scenario. Therefore we would change this Big O to be `O(N^2)
+
+### Adding vs Multiplying
+
+Consider the two following examples:
+
+Here are two loops - we added the steps previously for O(2N), then dropped the constant for O(N)
+
+```js
+let min = 0;
+let max = 0;
+for (let n of numbersArray) {
+  if (x < min) min = x;
+}
+for (let n of numbersArray) {
+  if (x > max) max = x;
+}
+```
+
+Here is a nested with two steps:
+
+```js
+const someNestedArray = []
+let sum = 0
+for (let row of someNestedArray) {
+  for (let item of row) {
+    console.log(item, row)
+    sum += item
+  }
+  }
+}
+
+```
+
+We will multiply when the loops are nested
+
+- N first loop
+- 2N for second loop (but drop the 2)
+- For every time the outside loop runs, the inside loop runs again
+
+O(N^2)
+
+## Further Reading
+
+[Wikipedia](https://en.wikipedia.org/wiki/Big_O_notation)
+
+## Bonus
+
+<details><summary>A possible solution for the game/automatic guesser that follows a binary search</summary>
+
+```js
+const game = () => {
+  let start = 1;
+  let limit = 1000;
+  let midpoint = 0;
+  let number = Math.ceil(Math.random() * limit);
+  let values = {
+    start,
+    limit,
+    midpoint,
+  };
+
+  //   let guess = prompt(`Guess a number between 1 and 1000`);
+  let counter = 1;
+  while (values.midpoint !== number && counter <= 10) {
+    if (values.midpoint > number) {
+      values = myAutomaticGuesser(values, true);
+    } else if (values.midpoint < number) {
+      values = myAutomaticGuesser(values, false);
+    }
+    counter++;
+  }
+
+  if (counter <= 11) {
+    console.log(
+      `That's right! The number was ${number} and the number of guesses was ${
+        counter - 1
+      }`
+    );
+  } else {
+    console.log(
+      `Sorry, out of guesses! The number was ${number}
+        `
+    );
+  }
+};
+
+const myAutomaticGuesser = ({ start, midpoint, limit }, tooHigh) => {
+  if (tooHigh) {
+    if (midpoint === 2) midpoint = 1;
+    limit = midpoint;
+    midpoint = limit - Math.floor((limit - start) / 2);
+  } else {
+    start = midpoint;
+    midpoint = limit - Math.floor((limit - start) / 2);
+  }
+  return { midpoint, start, limit };
+};
+
+game();
+```
+
+- What is the Big O for this game?
+- With the possible values between 1 - 1000, how often will the automatic guesser run out of guesses and lose?
+
+</details>
