@@ -1,6 +1,4 @@
-linked lists
-
-# Title
+# Linked Lists
 
 ### Setting intent
 
