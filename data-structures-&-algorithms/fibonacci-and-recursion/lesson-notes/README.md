@@ -299,9 +299,9 @@ Another way to visualize this is with a tree
 
 ## Fibonacci Again
 
-If we calculated Big O for our fibonacci recursive function, we'd end up logarithmic complexity in terms of time O(2^N).
+If we calculated Big O for our fibonacci recursive function, we'd end up logarithmic complexity in terms of time O(2^N), which is `exponential`.
 
-Note, for our introductory course, just determining a general category for our function: `constant`, `linear`, `quadratic`, `logarithmic`, and `factorial` is a good place to start, especially so that you can describe your thoughts and solutions properly. As you build your skill set, work on refining the value.
+Note, for our introductory course, just determining a general category for our function: `constant`, `linear`,`exponential`, `quadratic`, `logarithmic`, and `factorial` is a good place to start, especially so that you can describe your thoughts and solutions properly. As you build your skill set, work on refining the value.
 
 ### Bonus
 
@@ -361,7 +361,7 @@ const fib = (n, memo = []) => {
 console.log(fib(5));
 ```
 
-Remember, you can console log any value at any time. Using console log to help understand the order of steps, the values that are being iterated on can be very helpful.
+Remember, you can console log any value. Using console log to help understand the order of steps, the values that are being iterated on can be very helpful.
 
 Our time complexity is now O(N)
 
