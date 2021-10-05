@@ -4,6 +4,7 @@
 
 - Review array basics
 - Review array methods that take callbacks
+- Review reference types
 
 ## Array iteration
 
@@ -411,13 +412,15 @@ const greatestSum = (arr) => {
 };
 ```
 
-## BONUS: Array are Passed By Reference
+## Array are Passed By Reference
 
-Arrays and objects are passed by reference. This is a handy thing to know, and may explain a reason for certain bugs in your code when working with arrays
+Arrays and objects are passed by reference. This is a handy thing to know, and may explain a reason for certain bugs in your code when working with arrays. It will also become more relevant when we move into the topics of data structures.
 
 [Arrays are passed by reference](./arrays-passed-by-reference.md)
 
 ## Further Reading
+
+[Pursuit Reference Types](https://github.com/joinpursuit/8-0-technical-curriculum/tree/main/01-fundamentals/reference-types)
 
 Eloquent JavaScript
 
