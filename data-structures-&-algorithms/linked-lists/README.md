@@ -26,7 +26,7 @@ Some languages stack on top of each other to build a fully functioning computer/
 
 ### Abstraction
 
-When we write JavaScript we can write `array.length` and JavaScript will solve how to give us the length for us. This is called `abstraction` - we don't worry about how to solve for the minimum, rather we just call the function.
+When we write JavaScript we can write `array.forEach(...)` and JavaScript will iterate through the array for us. This is called `abstraction` - we don't worry about how to iterate, rather we just call the method.
 
 We can see abstraction in our day to day life: When we order a dish with 'diced cucumbers' this is an abstraction, and it is useful because we can just order what we want. The chef, on the other hand, must know what dicing means, what tools are needed for dicing, and the technique to dice. The chef is likely relying on even more people so they can focus on their job - someone to order the cucumbers, maintain the restaurant space, balance the books, schedule the staff and more.
 
@@ -75,7 +75,9 @@ If we look at the `body` - it has pointers (sometimes called branches) to other 
 
 If we look at the grey text nodes, since there is nothing that can branch off of them, the can sometimes be referred to as `leaves`.
 
-These nodes make a `tree` structure.
+These particular nodes make a `tree` structure.
+
+Note: `node.js` is an application that allows us to run JavaScript in terminal so that we can build servers and other applications.
 
 ## Linked List
 
@@ -92,6 +94,8 @@ Each pair of grey boxes make up one node.
 The first node in the list has a pointer called `head`, then it has some data and then it has a property `next` that points to the next `node`.
 
 Unlike an array, a linked list starts with a `head`, rather than position 0. There are no indexes: in the above image, if you would want to access the data `1` you would have to do `list.next.next.next.data`, not `list[3].data`
+
+A linked list can be `singly-linked` (as in our illustration above), `doubly-linked` or `circular`.
 
 ## Use Case
 
@@ -112,9 +116,9 @@ We could store the work in an array:
 ];
 ```
 
-When we press undo, we would remove the first `type some words`. However, that means that every item after this would need to be shifted over one. `Press enter` would now be in position `0` and everything else would move up. We would also need a way to implement `redo` with ... a second array to store what we undid - this seems rather cumbersome.
+When we press undo, we would remove `type some words`. However, that means that every item after this would need to be shifted over one. `Press enter` would now be in position `0` and everything else would move up. We would also need a way to implement `redo` with ... a second array to store what we undid - this seems rather cumbersome. Again, with a small data set we can use an array without worry. However if our application is beginning to run slow, we have to think of different ways to approach the problem.
 
-If we were to use a linked list, if someone were to undo `type some words` the head would just move to `press enter`, none of the other elements have to move around. We could also hold on to `type some words` for the moment, in case we want to do `redo`, which would just move the `head` pointer back to where it was. (We would also write additional logic to clear out some of the steps - but that is beyond these basics).
+If we were to use a linked list, if someone were to undo `type some words` the head would just move to `press enter`, none of the other elements have to move around. We are leaving `type some words` for the moment, in case we want to do `redo`, which would just move the `head` pointer back to where it was. (We would also write additional logic to clear out some of the nodes - but that is beyond these basics).
 
 Linked lists can be used as building blocks for stacks, queues and other data structures.
 
