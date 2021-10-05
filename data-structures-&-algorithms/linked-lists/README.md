@@ -73,6 +73,8 @@ We may remember hearing about `nodes` when we learned about the DOM `tree` with 
 
 If we look at the `body` - it has pointers (sometimes called branches) to other `nodes`, in this diagram it is an `h1` and a `script` element nodes.
 
+If we look at the grey text nodes, since there is nothing that can branch off of them, the can sometimes be referred to as `leaves`.
+
 These nodes make a `tree` structure.
 
 ## Linked List
@@ -112,14 +114,31 @@ We could store the work in an array:
 
 When we press undo, we would remove the first `type some words`. However, that means that every item after this would need to be shifted over one. `Press enter` would now be in position `0` and everything else would move up. We would also need a way to implement `redo` with ... a second array to store what we undid - this seems rather cumbersome.
 
-If we were to use a linked list, if someone were to undo `type some words` the head would just move to `press enter`, none of the other elements have to move around. We could also hold on to `type some words` for the moment, in case we want to do `redo`, which would just move the `head` pointer back to where it was. (We would also write additional logic to clear out some of the steps - but that is beyond these basics)
+If we were to use a linked list, if someone were to undo `type some words` the head would just move to `press enter`, none of the other elements have to move around. We could also hold on to `type some words` for the moment, in case we want to do `redo`, which would just move the `head` pointer back to where it was. (We would also write additional logic to clear out some of the steps - but that is beyond these basics).
 
 Linked lists can be used as building blocks for stacks, queues and other data structures.
 
-With your remaining time
+With your remaining time, use [this visualization](https://csvistool.com/LinkedList) to play with a linked list. Be sure to
+
+- add
+  - to front
+  - to back
+  - add index
+- remove
+  - from front
+  - from back
+  - from index
+
+you can add whatever data you would like, and you can adjust the animations at the bottom.
+
+Then try a [doubly linked list](https://csvistool.com/DoublyLinkedList)
 
 Hopefully, this has been a useful introduction. However, one question remains: how do we code it?
 
 ## Lab: Accumulate Codewars points
 
 ## Further Reading
+
+[A resource of further videos and readings from Code Chef](https://www.codechef.com/certification/data-structures-and-algorithms/prepare) - please note the majority of these are in psuedo code, python, java or C++. You should be able to read basic code in multiple languages with a little bit of effort
+
+![](./assets/modern-languages-examples.png)

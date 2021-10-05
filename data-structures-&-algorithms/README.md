@@ -24,26 +24,26 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 ## Lessons, Quizzes, and Labs
 
-|     |                   Primary Problem(s)                    |                                                  Lesson                                                   |
-| :-: | :-----------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
-|  1  |                           N/A                           | [Intro to Problem Solving](./intro-to-problem-solving) [Mock Interview Intro and Prep](./mock-interviews) |
-|  2  |             [Print Primes](./control-flow)              |                                [Control Flow](./control-flow/lesson-notes)                                |
-|  3  |            [Find the Median](./math-basics)             |                                 [Math Basics](./math-basics/lesson-notes)                                 |
-|  4  |        [Disemvowel Trolls](./strings-and-regex)         |                           [Strings and Regex](./strings-and-regex/lesson-notes)                           |
-|  5  |              [Err!0rs](./dealing-w-errors)              |                                 [Errors](./dealing-w-errors/lesson-notes)                                 |
-|  6  | [My Own Find Index Of Function](./arrays-and-callbacks) |                         [Arrays & Callbacks](./arrays-and-callbacks/lesson-notes)                         |
-|  7  |          [Count Words](./working-with-objects)          |                        [Working with Objects](./working-with-objects/lesson-notes)                        |
-|  8  |                   [is Even?](./big-o)                   |                                       [Big O](./big-o/lesson-notes)                                       |
-|  9  |         [Fibonacci](./fibonacci-and-recursion)          |                       [Intro to Recursion](./fibonacci-and-recursion/lesson-notes)                        |
-| 10  |                  [Cards](./oop-intro)                   |                                      [OOP](./oop-intro/lesson-notes)                                      |
-| 11  |             [Cards Cont.](./oop-continued)              |                               [OOP Continued](./oop-continued/lesson-notes)                               |
-| 12  |             [Linked Lists](./linked-lists)              |                                [Linked Lists](./linked-lists/lesson-notes)                                |
-| 13  |         [Stacks & Queues](./stacks-and-queues)          |                            [Stacks & Queues](./stacks-and-queues/lesson-notes)                            |
-| 14  |          [Binary Trees](./binary-trees-tries)           |                             [Binary Trees](./binary-trees-tries/lesson-notes)                             |
-| 15  |          [Bubble Sort](./searching-algorithms)          |                        [Searching Algorithms](./searching-algorithms/lesson-notes)                        |
-| 16  |        [Binary Search](./searching-algorithms-2)        |                      [Searching Algorithms 2](./searching-algorithms-2/lesson-notes)                      |
-| 17  |       [Unique Array](./unique-array-hash-tables)        |                          [Hash Tables](./unique-array-hash-tables/lesson-notes)                           |
-| 18  |         [Bonus/Advanced](./bonus-and-advanced)          |                                                    N/A                                                    |
+|     |                   Primary Problem(s)                    |                                                          Lesson                                                          |
+| :-: | :-----------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------: |
+|  1  |                           N/A                           | [Intro to Problem Solving](./intro-to-data-structures-and-algorithms) [Mock Interview Intro and Prep](./mock-interviews) |
+|  2  |             [Print Primes](./control-flow)              |                                       [Control Flow](./control-flow/lesson-notes)                                        |
+|  3  |            [Find the Median](./math-basics)             |                                        [Math Basics](./math-basics/lesson-notes)                                         |
+|  4  |        [Disemvowel Trolls](./strings-and-regex)         |                                  [Strings and Regex](./strings-and-regex/lesson-notes)                                   |
+|  5  |              [Err!0rs](./dealing-w-errors)              |                                        [Errors](./dealing-w-errors/lesson-notes)                                         |
+|  6  | [My Own Find Index Of Function](./arrays-and-callbacks) |                                [Arrays & Callbacks](./arrays-and-callbacks/lesson-notes)                                 |
+|  7  |          [Count Words](./working-with-objects)          |                               [Working with Objects](./working-with-objects/lesson-notes)                                |
+|  8  |                   [is Even?](./big-o)                   |                                              [Big O](./big-o/lesson-notes)                                               |
+|  9  |         [Fibonacci](./fibonacci-and-recursion)          |                               [Intro to Recursion](./fibonacci-and-recursion/lesson-notes)                               |
+| 10  |                  [Cards](./oop-intro)                   |                                             [OOP](./oop-intro/lesson-notes)                                              |
+| 11  |             [Cards Cont.](./oop-continued)              |                                      [OOP Continued](./oop-continued/lesson-notes)                                       |
+| 12  |             [Linked Lists](./linked-lists)              |                                       [Linked Lists](./linked-lists/lesson-notes)                                        |
+| 13  |         [Stacks & Queues](./stacks-and-queues)          |                                   [Stacks & Queues](./stacks-and-queues/lesson-notes)                                    |
+| 14  |          [Binary Trees](./binary-trees-tries)           |                                    [Binary Trees](./binary-trees-tries/lesson-notes)                                     |
+| 15  |          [Bubble Sort](./searching-algorithms)          |                               [Searching Algorithms](./searching-algorithms/lesson-notes)                                |
+| 16  |        [Binary Search](./searching-algorithms-2)        |                             [Searching Algorithms 2](./searching-algorithms-2/lesson-notes)                              |
+| 17  |       [Unique Array](./unique-array-hash-tables)        |                                  [Hash Tables](./unique-array-hash-tables/lesson-notes)                                  |
+| 18  |         [Bonus/Advanced](./bonus-and-advanced)          |                                                           N/A                                                            |
 
 ## Individual Project: Code Wars
 
