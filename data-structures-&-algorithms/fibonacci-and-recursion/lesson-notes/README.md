@@ -293,11 +293,21 @@ Finally, `f(5)` is `f(4)` + `f(3)` which is 5 + 3 = 8
 
 As simple as the code we wrote looks, it actually takes a lot of steps to solve this problem. This is not an efficient solution.
 
+Another way to visualize this is with a tree
+
+![](../assets/career-cup-fib-tree.png)
+
 ## Fibonacci Again
 
-If we calculated Big O for our fibonacci recursive function, we'd end up [with a quadratic level of complexity](https://www.geeksforgeeks.org/time-complexity-recursive-fibonacci-program/) - Note, for our introductory course, just determining a general category for our function: `constant`, `linear`, `quadratic`, `logarithmic`, and `factorial` is sufficient, we don't have to calculate further than that.
+If we calculated Big O for our fibonacci recursive function, we'd end up logarithmic complexity in terms of time O(2^N).
 
-Can we do better?
+Note, for our introductory course, just determining a general category for our function: `constant`, `linear`, `quadratic`, `logarithmic`, and `factorial` is a good place to start, especially so that you can describe your thoughts and solutions properly. As you build your skill set, work on refining the value.
+
+### Bonus
+
+How much memory do we use at any one time: Determine the space complexity? It likely makes sense to just learn how to do time complexity and then in your later studies take the time to learn about space complexity. Time complexity is almost always asked, whereas space complexity is asked less often.
+
+### Can We Do Better?
 
 - We need to go through the sequence `i` number of times
 - We need to add the current number to the previous number
@@ -324,6 +334,36 @@ Which category of Big O does this version fit into best?
 ## Which Fibonacci is "The Best Solution"?
 
 Discuss as a class
+
+## Super BONUS
+
+Memoization. This is an advanced version and it is recommended you only study it once you have built confidence and understanding with the basics.
+
+Let's look at our tree
+
+![](../assets/career-cup-fib-tree.png)
+
+We are making a lot of the same calls over and over again - we call `f(1)` 8 times. What we we could `cache` (store values for later use) the value rather than having to recalculate it every time?
+
+We could create an array to store the values. Once the value is calculated we can use it again and again.
+
+```js
+const fib = (n, memo = []) => {
+  // console.log(n, memo);
+  if (n <= 1) {
+    return 1;
+  } else if (!memo[n]) {
+    memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
+  }
+  return memo[n];
+};
+
+console.log(fib(5));
+```
+
+Remember, you can console log any value at any time. Using console log to help understand the order of steps, the values that are being iterated on can be very helpful.
+
+Our time complexity is now O(N)
 
 ## Further Reading
 

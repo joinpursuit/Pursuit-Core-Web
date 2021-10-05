@@ -374,11 +374,13 @@ for (let row of someNestedArray) {
 
 We will multiply when the loops are nested
 
-- N first loop
-- 2N for second loop (but drop the 2)
+- **N** first loop
+- **M** for second loop
 - For every time the outside loop runs, the inside loop runs again
+- **IMPORTANT** in this example it is ambiguous if N and M are the same, therefore it is NOT `N^2` it is `N*M`
+- You do not have to use `N` or `M`, you can use `P` for prime numbers, `W` for letters, or any more descriptive variable name
 
-O(N^2)
+O(N\*M)
 
 ## Further Reading
 
