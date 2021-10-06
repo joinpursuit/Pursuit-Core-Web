@@ -53,9 +53,11 @@ const getLastItem = (arr) => {
 };
 ```
 
-The code inside this function runs one time. It doesn't matter if the array has 1 item, 10 items, 100 items or 1 million items. We can represent items by the letter `n`. It will always run one time. We can represent this as `n^0`
+The code inside this function runs one time. It doesn't matter if the array has 1 item, 10 items, 100 items or 1 million items. We can represent items by the letter `n`. The code inside the function runs the same number of operations regardless of the size of the input array.
 
-Another example
+The time it takes to run this function is `constant`. It does not change based on the input of the array.
+
+Another example:
 
 ```js
 const printItems = (arr) => {
@@ -65,7 +67,7 @@ const printItems = (arr) => {
 };
 ```
 
-This runs `n^1` times. If `n` is 1 it loops 1 time. If `n` is 1000, it will loop 1000 times.
+This runs `n^1` times. If `n` is 1 it loops 1 time. If `n` is 1000, it will loop 1000 times. This shows linear growth.
 
 Try to identify how many times `n` - each of the following code examples would run:
 
@@ -80,14 +82,14 @@ const getMiddleItem = (arr) => {
 #### 2
 
 ```js
-const printPrimes = (limit) => {
-  const primes = [];
+const printEvenNums = (limit) => {
+  const evens = [];
   for (let i = 0; i <= limit; i++) {
-    if (isPrime(i)) {
-      primes.push(i);
+    if (i % 2 === 0)) {
+      evens.push(i);
     }
   }
-  return primes;
+  return evens;
 };
 ```
 
@@ -192,6 +194,8 @@ If it isn't how you approached it, try to code your approach
 
 ### Part 1
 
+**NOTE** Skip if you have not solved these in class yet.
+
 - What is the time complexity for the previous problems we've solved in class?
 - Print primes?
 - Find the median?
@@ -201,4 +205,4 @@ If it isn't how you approached it, try to code your approach
 
 ### Part 2 Accumulate Points on Codewars
 
-Take some time to go back and solve any problems you got stuck on
+Continue to solve assigned problems. Use the [tracker](https://codewars-tracker-fe.herokuapp.com) to find which problems you have to solve.

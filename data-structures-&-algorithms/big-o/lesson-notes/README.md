@@ -17,11 +17,15 @@ Our focus has been projects and skills first, rather than focusing on theory. We
 
 What may be a little confusing is that we are going to start talking about optimization. But as you likely remember, one of the biggest pieces of advice we likely have been giving is: Don't optimize too early! This is still true for your work. Focus on building first and then optimization.
 
-Still: what does optimization mean? We're going to look at what it means through the lens of Big O this morning.
+Still: what does optimization mean? We're going to look at what it means through the lens of Big O this lesson.
 
-One of the things computer scientists are trained to do is to find ways to make things faster, smaller, cheaper and more precise. One way to approach such problems is to consider the worst case scenario. Big O Notation is a way to denote the best/average/worst case scenario.
+One of the things computer scientists are trained to do is to find ways to make things faster, smaller, cheaper and more precise. One way to approach such problems is to consider the worst case scenario.
 
-Big O comes from the discipline of math and is used to describe the relationship between two functions based on their growth rates.
+The worst case scenario is that whatever algorithm, it will take the most amount of time possible. For example if we are searching through an array, we are assuming that the item will always be found last and that the array size is very large.
+
+Big O Notation is a way to denote the worst case scenario. There are similar notations to denote average and best case scenarios, but we will not cover those today.
+
+The name Big O comes from the discipline of math and is used to describe the relationship between functions and their growth rates.
 
 Big O of Algorithms is measured by:
 
@@ -128,9 +132,9 @@ This type of complexity is considered pretty good efficiency.
 
 ![](../assets/Linear.png)
 
-### Quadratic Complexity `O(n^2)`
+### Quadratic Complexity `O(n^2)` or `O(n*m)`
 
-"List every song on all 45 albums by Prince"
+"List every song on all albums"
 
 ```js
 const PrintSongsWithinAlbums = (artist) => {
