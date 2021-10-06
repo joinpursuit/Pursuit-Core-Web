@@ -26,7 +26,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 |     |                   Primary Problem(s)                    |                                                          Lesson                                                          |
 | :-: | :-----------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------: |
-|  1  |                           N/A                           | [Intro to Problem Solving](./intro-to-data-structures-and-algorithms) [Mock Interview Intro and Prep](./mock-interviews) |
+|  1  |                           N/A                           | [Intro to DSA/Problem Solving](./intro-to-data-structures-and-algorithms) [Mock Interview Intro and Prep](./mock-interviews) |
 |  2  |             [Print Primes](./control-flow)              |                                       [Control Flow](./control-flow/lesson-notes)                                        |
 |  3  |            [Find the Median](./math-basics)             |                                        [Math Basics](./math-basics/lesson-notes)                                         |
 |  4  |        [Disemvowel Trolls](./strings-and-regex)         |                                  [Strings and Regex](./strings-and-regex/lesson-notes)                                   |
