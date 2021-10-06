@@ -284,6 +284,26 @@ console.log(inspect(list, { showHidden: true, colors: true, depth: 12 }));
 
 </details>
 
+### Get first
+
+By now, you should be pretty comfortable creating methods for linked lists. Challenge yourself to do this one!
+
+<details><summary>get first</summary>
+
+```js
+class LinkedList {
+  constructor(head = null) {
+    this.head = head;
+  }
+
+  getFirst() {
+    return this.head;
+  }
+}
+```
+
+</details>
+
 ## Bonus
 
 [Doubly-linked list](./README2.md)

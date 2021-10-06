@@ -62,7 +62,7 @@ class LinkedList {
 }
 ```
 
-Let's use an insert method to insert our months.
+Let's use an insert method to insert our months, so that January is the the head and December is the tail.
 
 ```js
 class LinkedList {
@@ -70,10 +70,67 @@ class LinkedList {
     this.head = head;
   }
   insert(data) {
-    // need to point to previous one somehow
     let newNode = new Node(data);
     newNode.next = this.head;
+    if (this.head) {
+      this.head.prev = newNode;
+    }
     this.head = newNode;
+    newNode.prev = null;
   }
 }
+```
+
+Since we are only adding to the front of the list, we must insert December first.
+
+```js
+const months = [
+  "Jan",
+  "Feb",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+let list = new LinkedList();
+months.reverse();
+for (let i = 0; i < months.length; i++) {
+  list.insert(months[i]);
+}
+```
+
+Here is our search method. Do we need to update it?
+
+```js
+  search(key) {
+    let node = this.head;
+    while (node !== null && node.data !== key) {
+      node = node.next;
+    }
+    return node;
+  }
+```
+
+Now let's create a delete method that deletes a specific node
+
+```js
+  delete(data) {
+    const node = this.search(data);
+
+    if (node.prev) {
+      node.prev.next = node.next;
+    } else {
+      this.head = node.next;
+    }
+    if (node.next) {
+      node.next.prev = node.prev;
+    }
+  }
 ```
