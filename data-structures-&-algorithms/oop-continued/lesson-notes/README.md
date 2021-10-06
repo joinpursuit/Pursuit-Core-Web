@@ -17,15 +17,16 @@ Original Animal:
 
 ```js
 class Animal {
-  constructor(name, type, color, isFriendly = true) {
+  constructor(name, type, color, walkStyle, isFriendly = true) {
     this.name = name;
-    this._type = type;
+    this.type = type;
     this.age = 4;
     this.color = color;
     this.isFriendly = isFriendly;
+    this.walkStyle = walkStyle || "Walka, walka";
   }
   walk() {
-    console.log("Clip clop, clip clop");
+    console.log(this.walkStyle);
   }
   greet(otherBeing) {
     console.log(`Sniff sniff, ${otherBeing}`);
@@ -38,7 +39,13 @@ class Animal {
   }
 }
 const buttons = new Animal("Buttons", "turtle", "green");
-const marshmallow = new Animal("Marshmallow", "miniature horse", "white");
+const fluffy = new Animal("Fluffy", "cat", "calico", "Strut, strut", false);
+const marshmallow = new Animal(
+  "Marshmallow",
+  "miniature horse",
+  "white",
+  "Clip clop, clip clop"
+);
 ```
 
 Mythical Creature:
@@ -50,7 +57,12 @@ class MythicalCreature extends Animal {
   }
 }
 
-const chips = new MythicalCreature("Chips", "unicorn", "iridescent white");
+const chips = new MythicalCreature(
+  "Chips",
+  "unicorn",
+  "iridescent white",
+  "clip clop, vanish"
+);
 
 console.log(chips);
 chips.walk();
@@ -65,15 +77,15 @@ class MythicalCreature extends Animal {
     console.log(`I have granted you your wish to ${wish}`);
   }
   walk() {
-    console.log("Clip clop, swoosh!");
+    console.log(`💫✨🌟 ${this.walkStyle} 💫✨🌟 `);
   }
 }
 
 const chips = new MythicalCreature("Chips", "unicorn", "iridescent white");
 
 console.log(chips);
-chips.walk();
 chips.grantWish("always write bug free code");
+chips.walk();
 ```
 
 We can reference the parent's class' method and and extend its original functionality
@@ -84,7 +96,7 @@ class MythicalCreature extends Animal {
     console.log(`I have granted you your wish to ${wish}`);
   }
   walk() {
-    console.log("Clip clop, swoosh!");
+    console.log(`💫✨🌟 ${this.walkStyle} 💫✨🌟 `);
   }
 
   greet(otherBeing) {
@@ -113,7 +125,7 @@ class MythicalCreature extends Animal {
     console.log(`I have granted you your wish to ${wish}`);
   }
   walk() {
-    console.log("Clip clop, swoosh!");
+    console.log(`💫✨🌟 ${this.walkStyle} 💫✨🌟 `);
   }
 
   greet(otherBeing) {
@@ -124,10 +136,11 @@ class MythicalCreature extends Animal {
 
 const chips = new MythicalCreature("Chips", "unicorn", "iridescent white");
 
-console.log(chips);
+// console.log(chips);
 chips.walk();
 chips.grantWish("always write bug free code");
 chips.greet("Marshmallow");
+console.log(chips.powers);
 ```
 
 `super` is another special keyword/function. Try misspelling it - and you'll see it won't work.

@@ -14,7 +14,7 @@ A linked list is a linear data structure made up of nodes that point to the next
 
 ![](../assets/linked-list-example.png)
 
-It is similar to an array, but there are a few differences
+It is similar to an array, but there are a few differences. One is chosen over the other depending on the functionality/speed of certain operations for certain tasks. For example, the forward and back buttons on a browser typically have data stored in a [linked list](https://www.geeksforgeeks.org/applications-of-linked-list-data-structure/).
 
 Based on your reading, what are the main differences?
 
@@ -283,5 +283,9 @@ console.log(inspect(list, { showHidden: true, colors: true, depth: 12 }));
 ```
 
 </details>
+
+## Bonus
+
+[Doubly-linked list](./README2.md)
 
 ## Further Reading

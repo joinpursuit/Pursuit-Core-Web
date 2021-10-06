@@ -208,26 +208,36 @@ Our world is very boring; all we have are roan colored miniature horses. We need
 
 ```js
 class Animal {
-  constructor(name, type, color) {
+  constructor(name, type, color, walkStyle) {
     this.name = name;
     this.type = type;
     this.age = 4;
     this.color = color;
     this.isFriendly = true;
+    this.walkStyle = walkStyle;
   }
   walk() {
-    console.log("Clip clop, clip clop");
+    console.log(this.walkStyle);
   }
   greet(otherBeing) {
     console.log(`Sniff sniff, ${otherBeing}`);
   }
 }
 const buttons = new Animal("Buttons", "turtle", "green");
-const marshmallow = new Animal("Marshmallow", "miniature horse", "white");
+const fluffy = new Animal("Fluffy", "cat", "calico", "Strut, strut");
+const marshmallow = new Animal(
+  "Marshmallow",
+  "miniature horse",
+  "white",
+  "Clip clop, clip clop"
+);
 
 console.log(buttons);
+console.log(fluffy);
 console.log(marshmallow);
 ```
+
+Notice what happens when we don't pass enough arguments into our functions in JavaScript.
 
 It can be really confusing to understand how the values are being set. Let's go over it.
 
@@ -264,34 +274,44 @@ Let's look at the code to write a default value
 
 ```js
 class Animal {
-  constructor(name, type, color, isFriendly = true) {
+  constructor(name, type, color, walkStyle, isFriendly = true) {
     this.name = name;
     this.type = type;
     this.age = 4;
     this.color = color;
     this.isFriendly = isFriendly;
+    this.walkStyle = walkStyle || "Walka, walka";
   }
   walk() {
-    console.log("Clip clop, clip clop");
+    console.log(this.walkStyle);
   }
   greet(otherBeing) {
     console.log(`Sniff sniff, ${otherBeing}`);
   }
 }
 const buttons = new Animal("Buttons", "turtle", "green");
-const marshmallow = new Animal("Marshmallow", "miniature horse", "white");
+const fluffy = new Animal("Fluffy", "cat", "calico", "Strut, strut", false);
+const marshmallow = new Animal(
+  "Marshmallow",
+  "miniature horse",
+  "white",
+  "Clip clop, clip clop"
+);
 
 console.log(buttons);
+console.log(fluffy);
 console.log(marshmallow);
 ```
+
+Thought question, do `walkStyle` and `isFriendly` need to come last as parameters? Or could they be first?
 
 ## Create Methods to Alter the Properties of an Instance
 
 We can alter the properties of an instance, after it is created
 
-```
-marshmallow.color = "dappled grey"
-console.log(marshmallow)
+```js
+marshmallow.color = "dappled grey";
+console.log(marshmallow);
 ```
 
 JavaScript, being JavaScript lets you do this, for better or worse. Other languages, by default, will prevent you from overwriting the initial value, and you would have to write specific code to do so.
@@ -302,15 +322,16 @@ Let's take a look:
 
 ```js
 class Animal {
-  constructor(name, type, color, isFriendly = true) {
+  constructor(name, type, color, walkStyle, isFriendly = true) {
     this.name = name;
     this._type = type;
     this.age = 4;
     this.color = color;
     this.isFriendly = isFriendly;
+    this.walkStyle = walkStyle || "Walka, walka";
   }
   walk() {
-    console.log("Clip clop, clip clop");
+    console.log(this.walkStyle);
   }
   greet(otherBeing) {
     console.log(`Sniff sniff, ${otherBeing}`);
@@ -320,6 +341,7 @@ class Animal {
   }
 }
 const buttons = new Animal("Buttons", "turtle", "green");
+const fluffy = new Animal("Fluffy", "cat", "calico", "Strut, strut", false);
 const marshmallow = new Animal("Marshmallow", "miniature horse", "white");
 
 buttons.ageUp();
@@ -335,12 +357,13 @@ We can pass objects in to other objects to have them interact
 
 ```js
 class Animal {
-  constructor(name, type, color, isFriendly = true) {
+  constructor(name, type, color, walkStyle, isFriendly = true) {
     this.name = name;
     this._type = type;
     this.age = 4;
     this.color = color;
     this.isFriendly = isFriendly;
+    this.walkStyle = walkStyle || "Walka, walka";
   }
   walk() {
     console.log("Clip clop, clip clop");
@@ -356,6 +379,7 @@ class Animal {
   }
 }
 const buttons = new Animal("Buttons", "turtle", "green");
+const fluffy = new Animal("Fluffy", "cat", "calico", "Strut, strut", false);
 const marshmallow = new Animal("Marshmallow", "miniature horse", "white");
 
 buttons.classyGreeting(marshmallow);
