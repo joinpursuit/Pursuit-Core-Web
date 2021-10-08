@@ -8,7 +8,7 @@
 
 ## Lab: Accumulate Points on Codewars
 
-There are several problems you should work through to gain a thorough understanding of Stacks and Queues. You can find the problems linked here on the [Fellow Tracker](https://codewars-tracker-fe.herokuapp.com) under you name card.
+There are several problems you should work through to gain a thorough understanding of Stacks and Queues. You can find the Codewars problems linked here on the [Fellow Tracker](https://codewars-tracker-fe.herokuapp.com) under you name card.
 
 From Codewars for Stacks: 
 
