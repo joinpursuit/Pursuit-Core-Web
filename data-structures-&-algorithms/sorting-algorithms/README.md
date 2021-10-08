@@ -60,6 +60,10 @@ console.log(deck);
 
 [Use this visualization to learn more about different sorting algorithms](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
+[Another visualization using colors and pixels](https://imgur.com/gallery/RM3wl)
+
+[More visuals](https://imgur.com/gallery/GD5gi)
+
 [Watch a video about two different sorting algorithms](https://www.youtube.com/watch?v=TZRWRjq2CAg&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=8)
 
 ## More Problems (Solve if you finished the main problem or want more practice)
