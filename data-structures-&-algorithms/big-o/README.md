@@ -95,6 +95,8 @@ const printEvenNums = (limit) => {
 
 #### 3
 
+For a 2d array where the length of the inner and outer array are always the same
+
 ```js
 const loopTheLoop = (twoDArray) => {
   for (let i = 0; i < twoDArray.length; i++) {

@@ -388,6 +388,8 @@ O(N\*M)
 
 ## Further Reading
 
+[Gayle Laakman McDowell Big O Crash Course for Uber](https://s3.amazonaws.com/ubercandidateprep/videos/05_Big_O_Crash_Course.mp4)
+
 [Wikipedia](https://en.wikipedia.org/wiki/Big_O_notation)
 
 ## Bonus
