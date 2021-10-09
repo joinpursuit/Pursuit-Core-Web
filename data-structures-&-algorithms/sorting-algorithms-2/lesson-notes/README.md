@@ -1,6 +1,9 @@
-# Searching Algorithms Part 1
+# Searching Algorithms Part 2
 
 ## Learning Objectives
+
+- merge sort
+- sorting with an object
 
 ## Main Content
 
