@@ -10,7 +10,7 @@
 
 ## Linked List
 
-A linked list is a linear data structure made up of nodes that point to the next node in a singly linked list.
+A linked list is a linear data structure made up of nodes that point to the next node in a singly-linked list.
 
 ![](../assets/linked-list-example.png)
 
@@ -22,7 +22,7 @@ JavaScript has built-in arrays, but there is no linked list. Let's build one.
 
 ### Node
 
-First, let's build a node. A node must have some data and a pointer to the next node.
+First, let's build a node. A node must, at minimum, have some data and a pointer to the next node.
 
 ```js
 class Node {
@@ -135,7 +135,7 @@ This will allow us to search for a matching piece of data.
 
 Let's write some pseudo code. How would we go about writing a search method for the linked list?
 
-<details><summary>search</summary>
+<details><summary>Search</summary>
 
 ```js
 class LinkedList {
@@ -163,7 +163,7 @@ This will clear our linked list of all the nodes.
 
 Let's write some pseudo code. How would we go about writing a clear method for the linked list?
 
-<details><summary>clear</summary>
+<details><summary>Clear</summary>
 
 ```js
 class LinkedList {
@@ -187,7 +187,7 @@ This will get the last node of our linked list.
 
 Let's write some pseudo code. How would we go about writing a getLast method for the linked list?
 
-<details><summary>clear</summary>
+<details><summary>Get Last</summary>
 
 ```js
 class LinkedList {
@@ -215,7 +215,7 @@ This insert will insert at the head.
 
 Let's write some pseudo code. How would we go about writing an insert method for the linked list?
 
-<details><summary>insert</summary>
+<details><summary>Insert</summary>
 
 ```js
 class LinkedList {
@@ -235,11 +235,13 @@ How do we test this method?
 
 </details>
 
+How would you approach inserting in the middle of the linked list?
+
 #### Delete
 
 Let's delete a node with a specific key.
 
-Let's write some pseudo code. How would we go about writing a delete method for the linked list?
+First, let's write some pseudo code. How would we go about writing a delete method for the linked list?
 
 - use similar logic to search for the matching key, keep count how many nodes we go through
 - store the found node
@@ -286,7 +288,7 @@ console.log(inspect(list, { showHidden: true, colors: true, depth: 12 }));
 
 ### Get first
 
-By now, you should be pretty comfortable creating methods for linked lists. Challenge yourself to do this one!
+By now, you should be pretty comfortable creating methods for linked lists. Be sure to think of your strategy before coding. If you don't understand what you are supposed to code, you will not be able to succeed. Sometimes it feels like there is no time to stop and think or look something up, but much more time can easily be sunk into the state of 'fuzzy thinking/fuzzy coding'.
 
 <details><summary>get first</summary>
 

@@ -91,7 +91,7 @@ Linked lists are usually represented like this:
 
 Each pair of grey boxes make up one node.
 
-The first node in the list has a pointer called `head`, then it has some data and then it has a property `next` that points to the next `node`.
+The first node in the list has a pointer pointing to it called `head`, then it has some data and then it has a property `next` that points to the next `node`.
 
 Unlike an array, a linked list starts with a `head`, rather than position 0. There are no indexes: in the above image, if you would want to access the data `1` you would have to do `list.next.next.next.data`, not `list[3].data`
 
@@ -116,9 +116,9 @@ We could store the work in an array:
 ];
 ```
 
-When we press undo, we would remove `type some words`. However, that means that every item after this would need to be shifted over one. `Press enter` would now be in position `0` and everything else would move up. We would also need a way to implement `redo` with ... a second array to store what we undid - this seems rather cumbersome. Again, with a small data set we can use an array without worry. However if our application is beginning to run slow, we have to think of different ways to approach the problem.
+When we press undo, we would remove `type some words`. However, that means that every item after this would need to be shifted over one. `Press enter` would now be in position `0` and everything else would move up. We would also need a way to implement `redo` with ... a second array to store what we undid - this seems rather cumbersome. Again, with a small data set we can use an array as we are used to, without worry. However, if our functionality is beginning to run slow, we have to think of different ways to approach the problem.
 
-If we were to use a linked list, if someone were to undo `type some words` the head would just move to `press enter`, none of the other elements have to move around. We are leaving `type some words` for the moment, in case we want to do `redo`, which would just move the `head` pointer back to where it was. (We would also write additional logic to clear out some of the nodes - but that is beyond these basics).
+In comparison, if we used a linked list, if a user were to undo `type some words` the head would just move to `press enter`, none of the other elements have to move around. We don't need to delete `type some words` for the moment, in case we want to do `redo`, we could write logic to just move the `head` pointer back to where it was. (We could also write additional logic to clear out some of the nodes - but that is beyond these basics).
 
 Linked lists can be used as building blocks for stacks, queues and other data structures.
 
@@ -135,7 +135,7 @@ With your remaining time, use [this visualization](https://csvistool.com/LinkedL
 
 you can add whatever data you would like, and you can adjust the animations at the bottom.
 
-Then try a [doubly linked list](https://csvistool.com/DoublyLinkedList)
+Then try a [doubly linked list](https://csvistool.com/DoublyLinkedList) to compare an contrast.
 
 Hopefully, this has been a useful introduction. However, one question remains: how do we code it?
 
