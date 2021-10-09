@@ -8,11 +8,13 @@ Details
 
 ## Trivia Questions
 
+if `const` declares a constant variable, why can you declare an array and still add/change and delete elements?
+
 ## Main Problem
 
 Here we have our Deck of Cards class. We can generate a deck of shuffled cards. This time the cards are card objects. We want to create a method that will put the cards back in order.
 
-Write your own `sort` method that sorts the cards first by `suit` then by `value`, then sort the `10`s by the order `Jack`, `Queen`, `King`. Do not use the array method `.sort()`
+Write your own function inside the `DeckOfCards` class that sorts the cards first by `suit` then by `value`, then sort the `10`s by the order `Jack`, `Queen`, `King`. Try using the array method `.sort()`
 
 ```js
 class Card {

@@ -8,6 +8,29 @@ Details
 
 ## Trivia Questions
 
+What is the value of `newArr`
+
+```js
+const newArr = [...[1, 2, 3], ...[4, 5, 6]];
+```
+
+<hr>
+What is the value of `color` for `newCar`
+What is the value of `color for `secondNewCar`
+
+```js
+class Car {
+  constructor(brand, model, color = "soul red") {
+    this.brand = brand;
+    this.model = model;
+    this.color = color;
+  }
+}
+
+const newCar = new Car("Mazda", "MX-30");
+const newCar = new Car("Porche", "Vintage Carrera", "Yellow");
+```
+
 ## Main Problem
 
 Here we have our Deck of Cards class that has been simplified to generate cards that just have a numeric value. We can generate a deck of shuffled cards. We want to create a method that will put the cards back in order.
