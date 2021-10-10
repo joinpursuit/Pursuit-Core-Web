@@ -155,4 +155,102 @@ Be sure to test it and confirm it works as expected. Does using this method chan
 
 ## Queue
 
+Our queue will follow first-in, first-out. We will create the following methods
+
+- enqueue (adds an item)
+- dequeue (removes an item)
+- peek (returns the top item)
+- isEmpty (checks if the queue is empty)
+
+If we were to put our months into the queue, starting with `Jan`, what are our predictions?
+
+- When we add `Feb` after `Jan`, which one is the first in queue now?
+- When we add `Feb` after `Jan`, which one is the last in queue now?
+- What will `Jan`'s `next` pointer point to?
+- What will `Feb`'s `next` pointer point to?
+- What month will be the first of the queue if we pushed every month?
+- What month will be the last of the queue if we pushed every month?
+- What month will be removed if we run the method pop?
+- What month will be the new top after popping one month?
+
+Write your predictions down. It's really important to know what you are building and test cases set, so that you can check your work as you build.
+
+```js
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+
+  enqueue(data) {
+    let newItem = new Node(data);
+    if (!this.first) {
+      this.first = newItem;
+      this.last = newItem;
+    } else {
+      this.last.next = newItem;
+      this.last = newItem;
+    }
+    return ++this.size;
+  }
+  isEmpty() {
+    return this.first === null;
+  }
+}
+```
+
+Let's add our months:
+
+```js
+let queue = new Queue();
+console.log(queue.isEmpty());
+for (let i = 0; i < months.length; i++) {
+  queue.enqueue(months[i]);
+}
+
+console.log(inspect(queue, { colors: true, depth: 12 }));
+console.log(queue.first);
+console.log(queue.last);
+console.log(queue.isEmpty());
+```
+
+Look at the questions from before, do are predictions match?
+
+```js
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+  dequeue() {
+    if (this.top == null) {
+      throw new Error("The queue is empty");
+    }
+    const item = this.first;
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.size--;
+    return item.data;
+  }
+  peek() {
+    if (this.top == null) {
+      throw new Error("The queue is empty");
+    }
+    return this.first;
+  }
+}
+```
+
+```js
+console.log("peek", queue.peek());
+const firstItem = queue.dequeue();
+console.log("first item", firstItem);
+console.log("peek after dequeue", queue.peek());
+console.log(inspect(queue, { colors: true, depth: 12 }));
+```
+
 ## Further Reading
