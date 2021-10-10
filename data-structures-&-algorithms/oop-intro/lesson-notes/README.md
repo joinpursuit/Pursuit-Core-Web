@@ -38,6 +38,8 @@ There is a better way, with classes. You've been using classes all along in this
 
 ## Create a Class
 
+Whenever we create a class, we will start the class name with a capital letter. This is convention. In JavaScript, you could keep it all lowercase and it would not throw an error. In other languages, capitalization may be enforced.
+
 ```js
 class Animal {}
 ```

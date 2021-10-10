@@ -7,6 +7,7 @@
 - Be able to compare and contrast a linked list to an array
 - Be able to build a simple linked list using JavaScript
 - Be able to describe one real world example of a linked list
+- Be able to build some basic general methods for linked lists like insertion, deletion, counting the size, and getting the value of a particular node
 
 ## Linked List
 
@@ -19,6 +20,8 @@ It is similar to an array, but there are a few differences. One is chosen over t
 Based on your reading, what are the main differences?
 
 JavaScript has built-in arrays, but there is no linked list. Let's build one.
+
+**NOTE**: There are several approaches to building methods for linked lists. These approaches were predominantly from [Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms-third-edition). There are also a few other methods that were chosen to show some other approaches to working with linked-lists that would hopefully be helpful in developing your understanding. The most important thing is to find a solution, and then improve upon it.
 
 ### Node
 
@@ -248,7 +251,7 @@ First, let's write some pseudo code. How would we go about writing a delete meth
 - loop through up to the previous node of the found node
 - set the previous node's next property to be found node's next property
 
-<details><summary>delete</summary>
+<details><summary>Delete</summary>
 
 ```js
 class LinkedList {
@@ -290,7 +293,7 @@ console.log(inspect(list, { showHidden: true, colors: true, depth: 12 }));
 
 By now, you should be pretty comfortable creating methods for linked lists. Be sure to think of your strategy before coding. If you don't understand what you are supposed to code, you will not be able to succeed. Sometimes it feels like there is no time to stop and think or look something up, but much more time can easily be sunk into the state of 'fuzzy thinking/fuzzy coding'.
 
-<details><summary>get first</summary>
+<details><summary>Get first</summary>
 
 ```js
 class LinkedList {

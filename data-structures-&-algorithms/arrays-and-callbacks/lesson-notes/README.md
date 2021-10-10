@@ -6,6 +6,42 @@
 - Review array methods that take callbacks
 - Review reference types
 
+## Naming Conventions
+
+Arrays are a list of items or a collection of items. Therefore, the name of the array should be descriptive and pluralized
+
+- items
+- numbers
+- words
+- products
+
+When you are iterating over an array and selecting a single item, the single item should have a singular matching variable name
+
+- item
+- number
+- word
+- product
+
+**GOOD**
+
+Notice the clarity of understanding what is being iterated. It can be read out loud and reads almost like a sentence.
+
+```js
+for (let review of reviews)
+```
+
+**BAD**
+
+Notice the lack of clarity of what is being iterated. Reading this out loud does not help clarify what is happening (or supposed to be happening).
+
+```js
+for (let r of review)
+
+for (let item of reviews)
+
+for (let z of y)
+```
+
 ## Array iteration
 
 There are a few ways to iterate over an array
