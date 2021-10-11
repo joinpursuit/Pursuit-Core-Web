@@ -35,7 +35,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 |  7  |          [Count Words](./working-with-objects)          |                                 [Working with Objects](./working-with-objects/lesson-notes)                                  |
 |  8  |                   [is Even?](./big-o)                   |                                                [Big O](./big-o/lesson-notes)                                                 |
 |  9  |         [Fibonacci](./fibonacci-and-recursion)          |                                 [Intro to Recursion](./fibonacci-and-recursion/lesson-notes)                                 |
-| 10  |                  [Cards](./oop-intro)                   |                                               [OOP](./oop-intro/lesson-notes)                                                |
+| 10  |                  [Model a Vending Machine, Cards](./oop-intro)                   |                                               [OOP](./oop-intro/lesson-notes)                                                |
 | 11  |             [Cards Cont.](./oop-continued)              |                                        [OOP Continued](./oop-continued/lesson-notes)                                         |
 | 12  |             [Linked Lists](./linked-lists)              |                                         [Linked Lists](./linked-lists/lesson-notes)                                          |
 | 13  |         [Stacks & Queues](./stacks-and-queues)          |                                     [Stacks & Queues](./stacks-and-queues/lesson-notes)                                      |
