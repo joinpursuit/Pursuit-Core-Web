@@ -450,7 +450,7 @@ const greatestSum = (arr) => {
 
 ## Array are Passed By Reference
 
-Arrays and objects are passed by reference. This is a handy thing to know, and may explain a reason for certain bugs in your code when working with arrays. It will also become more relevant when we move into the topics of data structures.
+Arrays and objects are passed by reference. This is a handy thing to know, and may explain a reason for certain bugs in your code when working with arrays. It will also become more relevant when we move into the topics of other data structures.
 
 [Arrays are passed by reference](./arrays-passed-by-reference.md)
 

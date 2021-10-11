@@ -8,6 +8,14 @@
 
 ![Subway NaN](../assets/SubwayNaN.jpeg)
 
+## Basic Definitions
+
+- Integer: a whole number that is not a fraction
+- Float/Floating point: approximate value for a decimal/fraction, as calculated by a computer
+- Positive number: greater than zero
+- Negative: less than zero
+- Non-negative: greater than or equal to zero
+
 ## NaN
 
 `NaN` is the value you get when you try to do a mathematical operation on things that are not a number.
