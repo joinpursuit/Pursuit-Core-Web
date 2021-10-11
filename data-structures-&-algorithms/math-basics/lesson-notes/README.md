@@ -33,7 +33,7 @@ let expression = start + introduce + name;
 console.log(expression);
 ```
 
-or
+Or
 
 ```js
 let expression = "";
@@ -44,14 +44,14 @@ expression += "E.T.";
 console.log(expression);
 ```
 
-However, subtraction, multiplication and division do not have multiple uses
+However, subtraction, multiplication and division do not have multiple uses:
 
 ```js
 let manyCats = "cat " * 5;
 console.log(manyCats);
 ```
 
-Gives us NaN in JavaScript and not `cat cat cat cat cat`.
+Gives us NaN in JavaScript and not `cat cat cat cat cat` (Other programming languages may use `*` this way. See Ruby or Python).
 
 If you try to compare `NaN` to `NaN` it will always be false
 
