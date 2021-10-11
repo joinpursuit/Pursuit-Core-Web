@@ -8,7 +8,7 @@
 
 ## Naming Conventions
 
-Arrays are a list of items or a collection of items. Therefore, the name of the array should be descriptive and pluralized
+Arrays are a `list` (in some programming languages an array is called a list) of items or a collection of items. Therefore, the name of the array should be descriptive and pluralized
 
 - items
 - numbers

@@ -5,7 +5,7 @@
 
 ## Objects Keys and Properties
 
-An object is a collection of keys and values. It is represented with `{}`
+An object is a collection of keys and values. It is represented with `{}`. In some other coding languages objects can be referred to as `dictionaries`.
 
 The values can be strings, numbers, booleans, arrays, functions or other objects.
 
