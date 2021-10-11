@@ -29,11 +29,11 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 |  1  |                           N/A                           | [Intro to DSA/Problem Solving](./intro-to-data-structures-and-algorithms) [Mock Interview Intro and Prep](./mock-interviews) |
 |  2  |             [Print Primes](./control-flow)              |                                         [Control Flow](./control-flow/lesson-notes)                                          |
 |  3  |            [Find the Median](./math-basics)             |                                          [Math Basics](./math-basics/lesson-notes)                                           |
-|  4  |        [Disemvowel Trolls](./strings-and-regex)         |                                    [Strings and Regex](./strings-and-regex/lesson-notes)                                     |
+|  4  |        [Disemvowel Trolls](./strings-and-regex)         |                                              [Strings](./strings/lesson-notes)                                               |
 |  5  |              [Err!0rs](./dealing-w-errors)              |                                          [Errors](./dealing-w-errors/lesson-notes)                                           |
 |  6  | [My Own Find Index Of Function](./arrays-and-callbacks) |                                  [Arrays & Callbacks](./arrays-and-callbacks/lesson-notes)                                   |
-|  7  |          [Count Words](./working-with-objects)          |                                 [Working with Objects](./working-with-objects/lesson-notes)                                  |
-|  8  |                   [is Even?](./big-o)                   |                                                [Big O](./big-o/lesson-notes)                                                 |
+|  7  |          [Count Words](./working-with-objects)          |                                        [Working with Objects](./objects/lesson-notes)                                        |
+|  8  |               [Guess My Number](./big-o)                |                                                [Big O](./big-o/lesson-notes)                                                 |
 |  9  |         [Fibonacci](./fibonacci-and-recursion)          |                                 [Intro to Recursion](./fibonacci-and-recursion/lesson-notes)                                 |
 | 10  |                  [Cards](./oop-intro)                   |                                               [OOP](./oop-intro/lesson-notes)                                                |
 | 11  |             [Cards Cont.](./oop-continued)              |                                        [OOP Continued](./oop-continued/lesson-notes)                                         |
@@ -42,7 +42,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 | 14  |                    [Trees](./trees)                     |                                             [Binary Trees](./trees/lesson-notes)                                             |
 | 15  |            [Bubble Sort](./sort-algorithms)             |                                  [Searching Algorithms](./sorting-algorithms/lesson-notes)                                   |
 | 16  |           [Sort Part 2](./sort-algorithms-2)            |                                [Searching Algorithms 2](./sorting-algorithms-2/lesson-notes)                                 |
-| 17  |       [Unique Array](./unique-array-hash-tables)        |                                    [Hash Tables](./unique-array-hash-tables/lesson-notes)                                    |
+| 17  |             [Unique Array](./unique-array)              |                                          [Hash Tables](./unique-array/lesson-notes)                                          |
 | 18  |         [Bonus/Advanced](./bonus-and-advanced)          |                                                             N/A                                                              |
 
 ## Individual Project: Code Wars
