@@ -38,6 +38,15 @@ JavaScript also lets us declare variables of one datatype (like a number), and c
 
 ## Data Structures
 
+Data structures are how computers store different types of data. Let's think about a few types of data
+
+- Grocery list
+- Language dictionary
+- Ledger (table of expenditures)
+- Map (geo-spacial )
+
+Would it make sense to store all of these in the same way?
+
 In JavaScript, we have worked with two data structures: arrays and objects.
 
 Both serve different functions and have allowed us to build quite complex applications.
@@ -55,6 +64,21 @@ Our learning goals are to
 - Be able to describe what the data structure is, and at least one example where using one would be a good choice
 - Be able to code a basic version in pseudo-code/JavaScript
 - Be strong enough with these fundamentals to learn more and be able to build on top of this knowledge
+
+Since we've been working with small amounts of data, we have not had to worry about the implications of our choices. Computers are fast and can handle small amounts of data very well.
+
+However, as we grow as programmers, we will need to start thinking about what happens when we have larger data sets.
+
+We are often considering the speed of:
+
+- Creating data
+- Reading (looking up) data
+- Updating data
+- Deleting data
+
+Generally, there are solutions that allow us very fast read/lookups which make sense for some applications - ie going to an online dictionary - typically the definitions don't change or change very infrequently, so we would want to be sure we can get the definitions as fast as possible.
+
+In contrast, if we are working on an application that tracks a very large warehouse's stocks of different products, we are likely often updating quantities, adding new items and removing old items. We would want to be able to update things very quickly.
 
 ## Nodes
 
