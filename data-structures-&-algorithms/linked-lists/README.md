@@ -43,13 +43,13 @@ Data structures are how computers store different types of data. Let's think abo
 - Grocery list
 - Language dictionary
 - Ledger (table of expenditures)
-- Map (geo-spacial )
+- Map (geo-spacial)
 
 Would it make sense to store all of these in the same way?
 
 In JavaScript, we have worked with two data structures: arrays and objects.
 
-Both serve different functions and have allowed us to build quite complex applications.
+Both serve different purposes and have allowed us to build quite complex applications.
 
 We're going to learn about a few other data structures that can be very useful in some circumstances that we have likely not seen yet.
 
