@@ -55,7 +55,7 @@ Gives us NaN in JavaScript and not `cat cat cat cat cat` (Other programming lang
 
 If you try to compare `NaN` to `NaN` it will always be false
 
-Because, JavaScript cannot calculate whether two invalid math operations are equal to each other. In our case is 5 _ cats is equal to 5 _ dogs, therefore the value will always be false:
+Because, JavaScript cannot calculate whether two invalid math operations are equal to each other. In our case is 5 `*` cats is equal to 5 `*` dogs are both invalid, therefore the value will always be false:
 
 ```js
 let manyCats = "cat " * 5;
