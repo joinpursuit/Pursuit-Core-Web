@@ -18,6 +18,8 @@
 
 ## NaN
 
+`NaN` - **N**ot **a** **N**umber
+
 `NaN` is the value you get when you try to do a mathematical operation on things that are not a number.
 
 Remember, you can add strings together with the `+` operator. that is how we [`concatenate`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings) strings. So this operator has a dual function, adding numbers and concatenating strings.
