@@ -22,7 +22,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 - Be able to teach yourself something new
 - Be able to describe, at a very high level, common computer science topics such as Big O and recursion
 
-## Lessons, Quizzes, and Labs
+## Labs and Lessons
 
 |     |                   Primary Problem(s)                    |                                                            Lesson                                                            |
 | :-: | :-----------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
