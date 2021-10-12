@@ -2,9 +2,7 @@
 
 ### Setting intent
 
-> Quote
-
-Details
+As a class, choose your intentions for today
 
 ## Trivia Questions
 
@@ -14,7 +12,7 @@ if `const` declares a constant variable, why can you declare an array and still 
 
 Here we have our Deck of Cards class. We can generate a deck of shuffled cards. This time the cards are card objects. We want to create a method that will put the cards back in order.
 
-Write your own function inside the `DeckOfCards` class that sorts the cards first by `suit` then by `value`, then sort the `10`s by the order `Jack`, `Queen`, `King`. Try using the array method `.sort()`
+Write your own function called `cardSort` inside the `DeckOfCards` class that sorts the cards first by `suit` then by `value`, then sort the `10`s by the order `Jack`, `Queen`, `King`. Try using the array method `.sort()`
 
 ```js
 class Card {
@@ -70,10 +68,12 @@ console.log(deck);
 
 ## More Problems (Solve if you finished the main problem or want more practice)
 
-- Bubble vs Insertion Sort](https://www.youtube.com/watch?v=TZRWRjq2CAg&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=8)
+- [Bubble vs Insertion Sort](https://www.youtube.com/watch?v=TZRWRjq2CAg&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=8)
 - [Merge vs Quick Sort](https://www.youtube.com/watch?v=es2T6KY45cA&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=4)
 - Just for fun [Bogo and Stooge Sort](https://www.youtube.com/watch?v=bfzYj-qGw7U&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=9)
 
 - [Use this visualization to learn more about different sorting algorithms](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
-### Extra Problem Title
+After reviewing some other strategies for sorting, do any of them represent your pseudo code you wrote during the least lesson for sorting the cards?
+
+### Lab Accumulate Points on Codewars

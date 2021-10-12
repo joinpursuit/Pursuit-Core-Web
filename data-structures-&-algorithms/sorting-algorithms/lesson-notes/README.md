@@ -12,7 +12,7 @@ Sorting is often an important part of a good number of applications. For example
 
 Which algorithm does JavaScript use? [It's complicated](https://www.tutorialspoint.com/which-algorithm-does-the-javascript-arrayhashsort-function-use), and can depend on which browser one is using. The engineers who build JavaScript in the browser are the ones who take the time and effort to choose the best algorithm for general use.
 
-A large part of determining the right algorithm goes back to Big O and choosing the right one in terms of time and space efficiency and other factors like how likely is what is being sorted already somewhat sorted or very random?
+A large part of determining the right algorithm goes back to the concepts of Big O and choosing the right one in terms of time and space efficiency. There are other factors that are also considered, like how likely is what is being sorted already somewhat sorted or very random?
 
 Today we'll look at one of the the simpler sorting algorithms: Bubble sort.
 
@@ -20,7 +20,9 @@ Today we'll look at one of the the simpler sorting algorithms: Bubble sort.
 
 For the pre-lesson, you were asked to sort an array of numbers. You were given a lot of extra code to sort through and think about/try to ignore. This typically makes solving a problem much harder.
 
-When you are working on a project with a lot of other code/features/complications it is easy to get lost in the code. Implementing a new feature can feel overwhelming and complicated. You always have a choice of creating a little coding sandbox, you can do this on codepen, with create-react-app to quickly start a new project or with plain JavaScript.
+When you are working on a project with a lot of other code/features/complications it is easy to get lost in the code. Implementing a new feature can feel overwhelming and complicated.
+
+You always have a choice of creating a little coding sandbox, you can do this with just plain js/html/css files on your computer, on codepen, or with create-react-app to quickly start a new project.
 
 You can also create a git repo and then create multiple branches to try different solutions out without worrying you will lose progress as you try new ideas.
 
@@ -42,7 +44,6 @@ Let's code it
 
 ```js
 const bubbleSort = (arr) {
-    // let
     for let (i = 0; i < arr.length; i++) {
         // iterate over the array
     }
@@ -52,7 +53,6 @@ const bubbleSort = (arr) {
 
 ```js
 const bubbleSort = (arr) {
-    let swapped = false
     for (let i = 0; i < arr.length; i++) {
         // compare if the first item is larger than the one next to it, if yes, then swap the positions
       if (arr[i] > arr[i + 1]) {

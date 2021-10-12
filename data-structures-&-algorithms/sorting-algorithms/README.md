@@ -2,9 +2,7 @@
 
 ### Setting intent
 
-> Quote
-
-Details
+> Determine, as a class what the intent of today should be
 
 ## Trivia Questions
 
@@ -15,8 +13,9 @@ const newArr = [...[1, 2, 3], ...[4, 5, 6]];
 ```
 
 <hr>
+
 What is the value of `color` for `newCar`
-What is the value of `color for `secondNewCar`
+What is the value of `color` for `secondNewCar`
 
 ```js
 class Car {
@@ -81,6 +80,8 @@ const deck = new DeckOfCards();
 console.log(deck);
 ```
 
+## Next Steps
+
 [Use this visualization to learn more about different sorting algorithms](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
 [Another visualization using colors and pixels](https://imgur.com/gallery/RM3wl)
@@ -89,10 +90,6 @@ console.log(deck);
 
 [Watch a video about two different sorting algorithms](https://www.youtube.com/watch?v=TZRWRjq2CAg&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=8)
 
-## More Problems (Solve if you finished the main problem or want more practice)
+## Lab: Accumulate Points on Code Wars
 
-### Extra Problem Title
-
-```
-
-```
+- [Bubble Sort Once](https://www.codewars.com/kata/bubblesort-once)

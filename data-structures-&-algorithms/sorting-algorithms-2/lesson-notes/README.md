@@ -40,10 +40,10 @@ const sortedArray = [];
 
 By comparing the first values in the array
 
-- if left[0] > right[0]
-  - remove [left][0] from the array and put it into the sorted array
-- if left[0] < right[0] OR left[0]===right[0]
-  - remove [right][] from the array and put it into the sorted array
+- if `left[0] > right[0]`
+  - remove `[left][0]` from the array and put it into the sorted array
+- if `left[0] < right[0]` OR `left[0]===right[0]`
+  - remove `[right][0]` from the array and put it into the sorted array
 
 After one round we would expect
 
@@ -351,7 +351,7 @@ const cardSort = (arr) => {
 The sort is comparing the first letters. `a` is 'the left' item in the array `b` is 'the
 right' item next to it. If a is less than b, swap the order. if a is greater than b, sort a before b. if a is equal to b - keep the order.
 
-Sort again, now we want to expand what happens when the suits mach
+Sort again, now we want to expand what happens when the suits match
 
 ```js
 const cardSort = (arr) => {
