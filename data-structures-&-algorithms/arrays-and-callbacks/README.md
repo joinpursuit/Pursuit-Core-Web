@@ -102,3 +102,7 @@ The same as find the index, however, if there is more than one match, return an 
 - [Descending Order](https://www.codewars.com/kata/5467e4d82edf8bbf40000155?utm_source=newsletter)
 - [Beer Maid](https://www.codewars.com/kata/51e04f6b544cf3f6550000c1?utm_source=newsletter)
 - [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
+
+### Part 3
+
+[Self-guided lesson and lab on `.reduce()` method](https://github.com/joinpursuit/m6-array-reduce)
