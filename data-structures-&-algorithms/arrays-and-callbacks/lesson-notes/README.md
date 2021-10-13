@@ -461,3 +461,7 @@ Arrays and objects are passed by reference. This is a handy thing to know, and m
 Eloquent JavaScript
 
 [Chapter 4: Data Structures: Objects and Arrays](https://eloquentjavascript.net/04_data.html)
+
+## Reduce 
+
+[Self-guided lesson and lab](https://github.com/joinpursuit/m6-array-reduce)
