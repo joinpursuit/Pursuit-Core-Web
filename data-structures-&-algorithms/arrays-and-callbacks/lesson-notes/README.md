@@ -186,8 +186,6 @@ These methods can be quite useful, so they are worth practicing and studying.
 
 Rate your comfort with using higher order functions/array methods with callbacks out of 5.
 
-If you rate yourself 3 or below - take some time to [work through these problems](./drills.md)
-
 Taking the time to practice using these methods will help you hone your skills and gain a better understanding of higher order functions and callbacks. So then you can focus tackling larger problems with greater ease. Gaining mastery with these will help you solve Codewars problems faster and show elegance and good understanding in code interviews and can help you write cleaner, more maintainable code.
 
 ## Find the Index in an Array
