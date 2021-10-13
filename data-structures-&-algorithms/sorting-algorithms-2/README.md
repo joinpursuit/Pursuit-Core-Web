@@ -2,7 +2,11 @@
 
 ### Setting intent
 
-As a class, choose your intentions for today
+> Framework Fatigue is real. If you're feeling stressed, go back to fundamentals
+
+Tech is always changing, there are always new developments, frameworks tech stacks etc. New things are exciting! But new things are still based on core principles. The better you know your fundamentals, the easier you'll be able to adapt to something new.
+
+It is also worth noting that it is more important to use the right tool for the job, and that may or may not be the newest library/framework/language/database. Older tech may be less exciting, but it usually comes with more stability and a larger ecosystem (more users, more support, more additional features (packages, libraries, etc.)).
 
 ## Trivia Questions
 

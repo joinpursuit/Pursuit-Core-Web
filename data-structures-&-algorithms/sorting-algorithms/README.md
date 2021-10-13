@@ -2,7 +2,7 @@
 
 ### Setting intent
 
-> Determine, as a class what the intent of today should be
+> Determine, as a class, what the intent of today should be
 
 ## Trivia Questions
 
