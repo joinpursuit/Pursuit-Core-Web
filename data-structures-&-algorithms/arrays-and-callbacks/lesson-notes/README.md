@@ -181,8 +181,8 @@ These methods can be quite useful, so they are worth practicing and studying.
 - find
 - findIndex
 - some
-- sort
-- reduce
+- sort [Note: sorting algorithms 2 goes into more detail on this method](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/data-structures-%26-algorithms/sorting-algorithms-2)
+- reduce[Note bonus self-guided lesson available](https://github.com/joinpursuit/m6-array-reduce)
 
 Rate your comfort with using higher order functions/array methods with callbacks out of 5.
 
