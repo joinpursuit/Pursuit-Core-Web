@@ -146,6 +146,8 @@ In comparison, if we used a linked list, if a user were to undo `type some words
 
 Linked lists can be used as building blocks for stacks, queues and other data structures.
 
+[Introduction to Linked Lists](https://www.youtube.com/watch?v=NobHlGUjV3g)
+
 With your remaining time, use [this visualization](https://csvistool.com/LinkedList) to play with a linked list. Be sure to
 
 - add
