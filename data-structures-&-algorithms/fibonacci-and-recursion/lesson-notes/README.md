@@ -318,8 +318,8 @@ We can use [array destructuring](https://developer.mozilla.org/en-US/docs/Web/Ja
 
 ```js
 const fibonacciLoop = (limit) => {
-  previous = 0;
-  current = 1;
+  let previous = 0;
+  let current = 1;
   for (let i = 0; i < limit; i++) {
     [current, previous] = [current + previous, current];
   }
