@@ -13,7 +13,7 @@ A function that calls itself is called recursive.
 
 A recursive function calls itself to reduce a larger problem into a smaller one, until it can be solved.
 
-A recursive function must have two properties
+A recursive function must have two properties:
 
 - A simple base case (or cases) - which is a terminating scenario that does not use recursion to produce an answer
 - A set of rules that reduce all other cases towards the base case
@@ -22,7 +22,7 @@ Recursion is not yet in our coding tool kit. Solving things recursively takes pr
 
 ## Recursive Example 1
 
-Let's thing about adding the following numbers:
+Let's think about adding the following numbers:
 
 - 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
@@ -60,7 +60,7 @@ const sumNumbers = (numsArr) => {
 console.log(sumNumbers(numsToSum));
 ```
 
-3. We need a base case. When did we finish our calculation when we did it by hand? When there was one number left.
+3. We need a base case. When did we finish our calculation when we did it by hand? When there were no numbers left to be added.
 
 ```js
 const sumNumbers = (numsArr) => {
@@ -93,7 +93,7 @@ Default argument is a newer syntax. Let's try it. The first time we call `sumNum
 ```js
 const sumNumbers = (numsArr, sum = 0) => {
   if (numsArr.length === 0) {
-    return numsArr;
+    return sum;
   }
   console.log(sum);
 };
@@ -193,7 +193,7 @@ console.log(isEven(testCase1));
 console.log(isEven(testCase2));
 ```
 
-We need to 'hold on' to our progress a little differently this time. We are just going to keep calling the function with `num -2` over and over again, rather than passing in a value to our function
+We need to 'hold on' to our progress a little differently this time. We are just going to keep calling the function with `num - 2` over and over again, rather than passing in a value to our function
 
 ```js
 const testCase1 = 10;
@@ -217,9 +217,9 @@ If this is difficult to follow, please feel free to add console logs anywhere it
 
 # Fibonacci Sequence
 
-Fibonacci is a classic problem that shows up as examples in coding or as a problem to solve in a class or possibly on an interview
+Fibonacci is a classic problem that shows up as examples in coding or as a problem to solve in a class or possibly on an interview. Since sequence shows up often, it is worthwhile to take the time to gain a solid understanding what the Fibonacci Sequence is and how to calculate it.
 
-Write a function that prints the nth number in the Fibonacci sequence
+Write a function that prints the nth number in the Fibonacci sequence:
 
 - `fibonacci(5)`
   - 1, 1, 2, 3, 5
@@ -228,10 +228,11 @@ Write a function that prints the nth number in the Fibonacci sequence
 
 1. Do we understand al the words used in stating the problem?
 
-   - What is the Fibonacci Sequence?
+   - What is the Fibonacci Sequence?(google if needed)
    - How do we figure out the numbers in the sequence?
 
 2. What are we asked to show?
+   - the nth number in the sequence. The nth number is passed in as an argument.
 3. Restate the problem in your own words
 4. Is there enough information for you to find a solution?
 5. What is our plan?
@@ -241,7 +242,8 @@ Write a function that prints the nth number in the Fibonacci sequence
     - 5 is equal to the current value of 3 plus the previous value 2
     - 3 is equal to the current value of 2 plus the previous value of 1
     - 2 is equal to the current value of 1 plus the previous value of 1
-    - 1 the base case
+    - 1 the base case - return the value of 1
+    - 0 is the base case - return the value of 1
 
 ```js
 const fibonacci = (num) => {
@@ -253,7 +255,7 @@ const fibonacci = (num) => {
 console.log(fibonacci(5));
 ```
 
-How do we get to the base case, adding the current number to the previous number
+How do we get to the base case? We'll do it by adding the current number to the previous number:
 
 ```js
 const fibonacci = (num) => {
@@ -293,21 +295,25 @@ Finally, `f(5)` is `f(4)` + `f(3)` which is 5 + 3 = 8
 
 As simple as the code we wrote looks, it actually takes a lot of steps to solve this problem. This is not an efficient solution.
 
-Another way to visualize this is with a tree
+Another way to visualize this is with a tree:
 
 ![](../assets/career-cup-fib-tree.png)
 
-## Fibonacci Again
+## Fibonacci Big O
 
 If we calculated Big O for our fibonacci recursive function, we'd end up logarithmic complexity in terms of time O(2^N), which is `exponential`.
 
 Note, for our introductory course, just determining a general category for our function: `constant`, `linear`,`exponential`, `quadratic`, `logarithmic`, and `factorial` is a good place to start, especially so that you can describe your thoughts and solutions properly. As you build your skill set, work on refining the value.
 
-### Bonus
+## Bonus
 
-How much memory do we use at any one time: Determine the space complexity? It likely makes sense to just learn how to do time complexity and then in your later studies take the time to learn about space complexity. Time complexity is almost always asked, whereas space complexity is asked less often.
+How much memory do we use at any one time? Can you determine the space complexity? Hint: see above image.
+
+It likely makes sense to just learn how to do time complexity and then in your later studies take the time to learn about space complexity. Time complexity is almost always asked, whereas space complexity is asked less often.
 
 ### Can We Do Better?
+
+Let's solve this problem with a loop instead of a recursive function.
 
 - We need to go through the sequence `i` number of times
 - We need to add the current number to the previous number
@@ -343,7 +349,7 @@ Let's look at our tree
 
 ![](../assets/career-cup-fib-tree.png)
 
-We are making a lot of the same calls over and over again - we call `f(1)` 8 times. What we we could `cache` (store values for later use) the value rather than having to recalculate it every time?
+We are making a lot of the same calls over and over again: Qe call `f(1)` 8 times. What if we we could `cache` (store values for later use) the value rather than having to recalculate it every time?
 
 We could create an array to store the values. Once the value is calculated we can use it again and again.
 
