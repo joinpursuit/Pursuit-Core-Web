@@ -240,6 +240,77 @@ Update the code above to add more nodes to the tree. You may use the image below
 
 </details>
 
+### Tree methods
+
+Trees have a few methods which are common among them, despite the kind of tree:
+
+- Insert
+- Delete
+- Search
+
+All of these methods generally rely upon recursion to work. That's because each node of a tree is its own tree.
+
+Thankfully, many of these methods have already been figured out. Often the best way to approach learning these new methods is to slowly look through the solution to one of these methods to better understand how it works.
+
+As an example, take a look at the following code in the Repl.it link below which will determine the height of a tree. A description of what is happening is included below as well. However, before looking, take time to try and understand how the code is working on your own.
+
+- [Trees: Get Height](https://replit.com/@Pursuit/Trees-Get-Height#index.js)
+
+<details>
+  <summary>❗️ Explanation</summary>
+
+Take a look at the `getDepth()` method in the `Tree` class. The `console.log()` statements are not necessary for the code to work, although they may help you understand what is occurring. The code works as follows:
+
+```js
+if (!node || !node.children.length) {
+  return 0;
+}
+```
+
+First, the method checks whether or not there is a node. If there is not one, the method finishes with a value of `0`. In the same `if` statement, the code checks if the node has any children. If it does not, the method finishes with a value of `0`. This is the method's "escape clause."
+
+```js
+const results = node.children.map((child) => this.getDepth(child) + 1);
+```
+
+Next, a new variable is set, `results`. This variable is set to the return value of using `.map()` on all of the children and calling `.getDepth()` on each child node. For each iteration, `1` is added to the return value of `getMethod()` to represent the new edge that was created.
+
+```js
+return Math.max(...results);
+```
+
+Finally, the largest number among that array that is returned is returned.
+
+To track this as it happens, run the code with the `console.log()` statements. You should see output that looks like this:
+
+```
+Entering Node A
+Entering Node B
+Entering Node E
+No children of Node E. Return 0.
+Depths below Node B [ 1 ]
+Entering Node C
+No children of Node C. Return 0.
+Entering Node D
+Entering Node F
+Entering Node H
+No children of Node H. Return 0.
+Depths below Node F [ 1 ]
+Entering Node G
+No children of Node G. Return 0.
+Depths below Node D [ 2, 1 ]
+Depths below Node A [ 2, 1, 3 ]
+Result: 3
+```
+
+As you can see, this code travels down from the root node (i.e. `A`) to the furthest "left" child (i.e. `E`). Once it is there, it returns the value `0`.
+
+For example, `Depths below Node B [ 1 ]` represents all of the results below the `B` node. `B` only has one child, `E`. Therefore it stores a value of `0` + `1`, resulting in an array of `[ 1 ]`.
+
+The last line before the result, `Depths below Node A [ 2, 1, 3 ]`, shows the largest depths of each of Node `A`'s children. As you can see, it matches up to the structure of the tree.
+
+</details>
+
 ---
 
 ## Further Reading
