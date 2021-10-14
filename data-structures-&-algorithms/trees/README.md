@@ -4,9 +4,13 @@ In computer science, the tree data structure is one of the most useful because i
 
 ### Setting intent
 
-> Quote
+> Take it slow and understand fully.
 
-Details
+Many of the algorithms and data structures you are working on have solutions to them. Studying the solutions is not a bad technique, however it can be easy to read a solution and think you understand what is going on when you do not.
+
+For this lesson in particular, take your time going through each line of code and ensuring you understand what is happening. Try adding a comment above each line of code, describing what is happening as fully as possible.
+
+When going slow, it can be easy to beat yourself up about not understanding sooner. Focus on the goal (i.e. understanding) as opposed to how long it's taking you to get there. Speed will come through practice!
 
 ## Trivia Questions
 
@@ -88,6 +92,10 @@ Watch the following two videos and answer the questions below each one.
 
    - Answer the same questions above for the number 15. How do your answers compare?
 
-## More Problems (Solve if you finished the main problem or want more practice)
+## Lab
 
-### Extra Problem Title
+- [Complete this repository and submit to Canvas](https://github.com/joinpursuit/m6-trees-introduction-lab)
+
+## More problems
+
+To get better with trees, build a binary search tree. Follow the [tutorial here](https://adrianmejia.com/data-structures-for-beginners-trees-binary-search-tree-tutorial/) to see how to make one. To ensure you understand how the methods work, describe what each line of code does in comments above each line. Make sure to use your own words as opposed to copying and pasting.
