@@ -74,7 +74,9 @@ Watch the following two videos and answer the questions below each one.
 
    - What is a benefit of using a balanced binary search tree when looking for data?
 
-1. Finally, insert the numbers inside of the following array _in order_ using the website linked below. Before you press the "insert" button, make a guess as to where each number will appear.
+Next, complete the two exercises below this.
+
+1. Insert the numbers inside of the following array _in order_ using the website linked below. Before you press the "insert" button, make a guess as to where each number will appear.
 
    ```js
    [11, 9, 13, 10, 7, 12, 14, 8, 3, 4, 6, 15, 5];
@@ -82,7 +84,7 @@ Watch the following two videos and answer the questions below each one.
 
    - [Visualize Binary Search Tree](https://www.cs.usfca.edu/~galles/visualization/BST.html)
 
-1. Finally, consider the following questions about the array and the tree you created above:
+1. Consider the following questions about the array and the tree you created above:
 
    - If you were to search the array using linear search, how many operations are required to find the number 10?
 
