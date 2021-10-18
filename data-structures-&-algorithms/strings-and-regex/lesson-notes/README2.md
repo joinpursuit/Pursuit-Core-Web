@@ -301,7 +301,7 @@ The best way to learn is to practice, start small and work your way up to more c
 
 You are near the end of your time in a bootcamp and soon you'll be tasked with learning things on your own. Hopefully, by now you feel confident in knowing how you learn to code. So feel free to work on any of the following, according to how you learn best.
 
-- My favorite code-along tutorial, that'll start you learning regular expressions from the beginning:
+- A good code-along tutorial, that'll start you learning regular expressions from the beginning:
   - [regexone](https://regexone.com/)
 - Try your hand at some code golf on these simple examples
 
@@ -325,7 +325,7 @@ console.log(text.search(/Howdy/i));
 console.log(text.search(/Aloha/i));
 ```
 
-- Another method is `.replace` (`preg_replace` in php) which will match a pattern and then replace it with something.
+- Another method is `.replace` which will match a pattern and then replace it with something.
   The Oxford Dictonary states that these are the most commonly misspelled words and how they are misspelled:
 
 | Correct spelling | Common misspelling |
