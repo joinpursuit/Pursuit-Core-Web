@@ -66,7 +66,7 @@ Super! Let's try the rest of the vowels
 
 ```js
 const patternMatch = (word) => {
-  const regex = /[aeiou]/;
+  const regex = /aeiou/;
   for (let i = 0; i < word.length; i++) {
     if (word.match(regex)) {
       console.log("it is a vowel!", word[i]);
