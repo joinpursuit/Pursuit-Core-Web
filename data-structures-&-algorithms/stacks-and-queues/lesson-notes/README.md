@@ -225,7 +225,7 @@ class Queue {
     this.size = 0;
   }
   dequeue() {
-    if (this.top == null) {
+    if (this.first == null) {
       throw new Error("The queue is empty");
     }
     const item = this.first;
@@ -237,7 +237,7 @@ class Queue {
     return item.data;
   }
   peek() {
-    if (this.top == null) {
+    if (this.first == null) {
       throw new Error("The queue is empty");
     }
     return this.first;
