@@ -165,7 +165,9 @@ Then try a [doubly linked list](https://csvistool.com/DoublyLinkedList) to compa
 
 Hopefully, this has been a useful introduction. However, one question remains: how do we code it?
 
-## Lab: Accumulate Codewars points
+## Lab:
+
+[Linked List Practice](https://github.com/joinpursuit/m6-linked-list-practice)
 
 ## Further Reading
 
