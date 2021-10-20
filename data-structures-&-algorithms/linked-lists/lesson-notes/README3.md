@@ -272,3 +272,9 @@ list.delete("June");
 
 console.log(inspect(list, { showHidden: true, colors: true, depth: 12 }));
 ```
+
+## Further Reading
+
+[MDN Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+
+[MDN Object Prototypal Inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
