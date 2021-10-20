@@ -314,3 +314,11 @@ class LinkedList {
 [Doubly-linked list](./README2.md)
 
 ## Further Reading
+
+JavaScript `class` syntax is syntactic sugar - that means it is a newer easier to read/write syntax that does the same thing as an older syntax.
+
+When training on Codewars or Leetcode you are likely to encounter the older syntax in example code or as some starter code for a problem.
+
+When you are ready to learn the alternative syntax to help you solve those problems check out this readme:
+
+[JavaScript Prototypal Inheritance](./README3.md)
