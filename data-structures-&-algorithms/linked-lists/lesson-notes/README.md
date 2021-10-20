@@ -225,11 +225,15 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
-
+  
   insert(data) {
     let newNode = new Node(data);
-    newNode.next = this.head;
-    this.head = newNode;
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
   }
 }
 ```
