@@ -10,7 +10,29 @@ It is also worth noting that it is more important to use the right tool for the 
 
 ## Trivia Questions
 
-if `const` declares a constant variable, why can you declare an array and still add/change and delete elements?
+If `const` declares a constant variable, why can you declare an array and still add/change and delete elements?
+
+<hr>
+
+What is the final value of `a` and `b`
+
+```js
+let a = 10;
+let b = 20;
+
+[a , b] = [b, a];
+
+```
+
+Is there any difference if the code is written like so?
+```js
+const a = 10;
+const b = 20;
+
+[a , b] = [b, a];
+
+```
+
 
 ## Main Problem
 
