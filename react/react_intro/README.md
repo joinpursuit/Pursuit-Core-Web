@@ -7,22 +7,22 @@
 
 ## Readings
 
-* [Why React?](https://reactjs.org/blog/2013/06/05/why-react.html)
-* [React - Official Website](https://reactjs.org/)
-* [W3Schools Introduction](https://www.w3schools.com/react/)
-* [The Virtual DOM](https://www.codecademy.com/articles/react-virtual-dom)
-* [Rendering Elements - React Docs](https://reactjs.org/docs/rendering-elements.html)
-* [React.Component - React Docs](https://reactjs.org/docs/react-component.html)
-* [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
-* [CodeSandbox - An online code editor for React](https://codesandbox.io)
+- [Why React?](https://reactjs.org/blog/2013/06/05/why-react.html)
+- [React - Official Website](https://reactjs.org/)
+- [W3Schools Introduction](https://www.w3schools.com/react/)
+- [The Virtual DOM](https://www.codecademy.com/articles/react-virtual-dom)
+- [Rendering Elements - React Docs](https://reactjs.org/docs/rendering-elements.html)
+- [React.Component - React Docs](https://reactjs.org/docs/react-component.html)
+- [Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
+- [CodeSandbox - An online code editor for React](https://codesandbox.io)
 
 ## Vocabulary
 
-* Virtual DOM
-* Components
-* React and React DOM
-* `render`
-* JSX
+- Virtual DOM
+- Components
+- React and React DOM
+- `render`
+- JSX
 
 ## Demo app
 
@@ -34,10 +34,9 @@
 
 React is a JavaScript library that was created by Facebook. Developers use React to build out the UI and frontend logic for web applications. Up until now, we have been building our UI by writing a single large HTML file, then linking it to a JavaScript file. The JavaScript file uses [DOM manipulation](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/dom_1) to edit, add, and remove elements in response to user interaction. This approach has worked well for us so far, but has some challenges when scaling to larger applications. Consider the following image:
 
-![Facebook homepage redesign](https://cdn.vox-cdn.com/thumbor/0KnV_DIxDm00kPsX8hR0f4ZzMIU=/0x0:2048x1410/920x613/filters:focal(861x542:1187x868):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63696407/facebook_website_redesign_1.9.jpg)
+![Facebook homepage redesign](<https://cdn.vox-cdn.com/thumbor/0KnV_DIxDm00kPsX8hR0f4ZzMIU=/0x0:2048x1410/920x613/filters:focal(861x542:1187x868):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63696407/facebook_website_redesign_1.9.jpg>)
 
-
-There are at least four entirely distant UI elements on the page, including:
+There are at least four entirely distinct UI elements on the page, including:
 
 - the top bar
 - the left sidebar
@@ -58,7 +57,7 @@ Remember, however, that a web browser can't read and combine components by itsel
 
 So, how does React know how to put all of these components on a page in a way that the user can see? How does it update when something on the page changes?
 
-At first, you may think that this process would be difficult. When you add that comment, a new HTML element needs to be added to the markup. Remember, when it renders, React has to assemble all the nodes from each component and combine it into that single DOM tree. When you add an element, then, wouldn't it have to reassemble the entire page and re-draw the entire DOM?  
+At first, you may think that this process would be difficult. When you add that comment, a new HTML element needs to be added to the markup. Remember, when it renders, React has to assemble all the nodes from each component and combine it into that single DOM tree. When you add an element, then, wouldn't it have to reassemble the entire page and re-draw the entire DOM?
 
 If you think this solution would be slow and inefficient, you're right. React's actual solution is to create what's called a **virtual DOM**. This DOM isn't the one you see on the page - the real DOM still exists and still needs to update. The virtual DOM is there to keep track of what needs to update in the real DOM. Whenever one component changes, it updates the virtual DOM - that is, it reassembles all the elements and combines them behind the scenes before the page updates at all. Then, this virtual DOM is compared to what's actually on the page - the actual DOM. The actual DOM only updates the parts of the page that are different in the virtual DOM. This way, the whole DOM doesn't need to be recreated.
 
@@ -66,33 +65,33 @@ Now that we have a better understanding of the inner workings of React, let's cr
 
 # Setting up a Project with React
 
-In this lesson, we'll create a React application that displays a very simple social media page. This page will be *static*, meaning it won't render or update with real data. To get started, navigate to the directory where you want your project, and run the following command:
+In this lesson, we'll create a React application that displays a very simple social media page. This page will be _static_, meaning it won't render or update with real data. To get started, navigate to the directory where you want your project, and run the following command:
 
 ```bash
 npx create-react-app simple-social-media-app
 ```
 
-`npx` will execute the package, installing it if necessary. You *could* run `npm install create-react-app` and then `create-react-app simple-social-media-app`, but these days, who has the time? Read [stackOverflow](https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm) for more information.  
+`npx` will execute the package, installing it if necessary. You _could_ run `npm install create-react-app` and then `create-react-app simple-social-media-app`, but these days, who has the time? Read [stackOverflow](https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm) for more information.
 
 It will take a couple minutes for your application to be installed. `cd` into your project, run `git log`, and you will see that it already has git setup with a single commit reading "Initial commit from Create React App". It has also created the following files:
 
-- README.md         
+- README.md
 - package-lock.json
-- package.json      
+- package.json
 
 And the following directories:
 
 - public
 - src
-- node_modules      
+- node_modules
 
 Inside `src` are the following `js` and `css` files:
 
-- App.css          
-- App.test.js      
-- index.js         
+- App.css
+- App.test.js
+- index.js
 - serviceWorker.js
-- App.js           
+- App.js
 - index.css
 
 `App.js` contains the code of our Application component, and `index.js` contains the code that renders our application.
@@ -114,8 +113,8 @@ Let's dig into the project and get a better understanding of how it works.
 Open the `App.js` file. You should see the code below:
 
 ```jsx
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
@@ -163,19 +162,15 @@ Much like how string interpolation (`${}`) is used to embed variables in strings
 
 ```jsx
 function formatName(user) {
-  return user.firstName + ' ' + user.lastName;
+  return user.firstName + " " + user.lastName;
 }
 
 const user = {
-  firstName: 'Harper',
-  lastName: 'Perez'
+  firstName: "Harper",
+  lastName: "Perez",
 };
 
-const element = (
-  <h1>
-    Hello, {formatName(user)}!
-  </h1>
-);
+const element = <h1>Hello, {formatName(user)}!</h1>;
 ```
 
 # Rendering and Component Structure
@@ -185,13 +180,13 @@ const element = (
 This `App` function is imported and called inside the `index.js` file:
 
 ```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -207,7 +202,7 @@ Notice that `App`'s function call looks really different. Rather than calling it
 
 You may notice a problem here. `App.js` is just one component, when we promised at the beginning that you'd be able to create and render many components at a time. Based on the above code, it sure seems like `ReactDOM.render` only accepts one component. What gives?
 
-We get around this by allowing React components to render other components. We can import other components inside of `App`, and we can extract their JSX just like we rendered `App` above: by encasing them with HTML `< />` syntax. Think of this like a Russian nesting doll. Our component renders components, which can even render other components. In this way, we can make sure the scope of what our components do doesn't get bloated and unwieldy. `App` is responsible for assembling all the components that constitute our application. We can refer to components that are rendered by `App` as *child components*.
+We get around this by allowing React components to render other components. We can import other components inside of `App`, and we can extract their JSX just like we rendered `App` above: by encasing them with HTML `< />` syntax. Think of this like a Russian nesting doll. Our component renders components, which can even render other components. In this way, we can make sure the scope of what our components do doesn't get bloated and unwieldy. `App` is responsible for assembling all the components that constitute our application. We can refer to components that are rendered by `App` as _child components_.
 
 Let's create a new child component that our `App.js` will import and render. This component will list some contacts. Therefore, we'll call it `ContactList.js`:
 
@@ -223,24 +218,22 @@ const ContactList = () => {
         <li>Flarnie Marchan</li>
       </ul>
     </>
-  )
-}
+  );
+};
 
-export default ContactList
+export default ContactList;
 ```
 
-JavaScript functions can only return one thing. Therefore, the markup we return must be a single element, so we wrap everything inside of an empty tag (`<> </>`). This empty tag is known as a *fragment*, and is standard practice for rendering multiple elements in a single component
+JavaScript functions can only return one thing. Therefore, the markup we return must be a single element, so we wrap everything inside of an empty tag (`<> </>`). This empty tag is known as a _fragment_, and is standard practice for rendering multiple elements in a single component
 
 Returning to our `App.js` file, we can now display our new component. Let's remove all of the boilerplate HTML that was being rendered and replace it with, simply, our `ContactList` component:
 
 ```jsx
-import './App.css';
-import ContactList from './ContactList.js';
+import "./App.css";
+import ContactList from "./ContactList.js";
 
 function App() {
-  return (
-    <ContactList />
-  );
+  return <ContactList />;
 }
 
 export default App;
@@ -250,13 +243,13 @@ Every time that you save your application, as long as your server is running (i.
 
 ![reactContacts](./images/reactContacts.png)
 
-*Exercise: Add ages, in years, next to each name in your contacts. For example: `Andrew Clark, 36`.*
+_Exercise: Add ages, in years, next to each name in your contacts. For example: `Andrew Clark, 36`._
 
 ## Duplicating Components
 
 Now, let's build a feed, which will mimic the main feed of a social media application. This feed, like any social feed, should be set up to render any number of posts.
 
-This is where components get *really* interesting. A Facebook post will be the same format no matter who posts it. Different posts might include text, or an image, or comments, but the template is the same every time. A developer isn't writing a new `Post` component every time someone makes a new post on Facebook!
+This is where components get _really_ interesting. A Facebook post will be the same format no matter who posts it. Different posts might include text, or an image, or comments, but the template is the same every time. A developer isn't writing a new `Post` component every time someone makes a new post on Facebook!
 
 There is only one `Post` component. Which means: `Post` has to be reusable. A single feed has to be able render multiple `Post` components. And that's just what we're going to do.
 
@@ -266,18 +259,18 @@ The `Post` component below uses `{}` to embed values from the `postInfo` variabl
 const postInfo = {
   title: "Sample Post Title",
   imageLink: "https://www.stockvault.net/data/2007/03/01/100169/preview16.jpg",
-  description: "This is the description of the post"
+  description: "This is the description of the post",
 };
 
 const Post = () => {
   return (
     <div>
-      <p>{postInfo.title}</p>                
-      <img src={postInfo.imageLink} alt='post' width='200' height='200'></img>
+      <p>{postInfo.title}</p>
+      <img src={postInfo.imageLink} alt="post" width="200" height="200"></img>
       <p>{postInfo.description}</p>
     </div>
-  )        
-}
+  );
+};
 
 export default Post;
 ```
@@ -285,7 +278,7 @@ export default Post;
 With a `Post` class constructed, we can build our `Feed` class that contains multiple `Post`s:
 
 ```jsx
-import Post from './Post.js';
+import Post from "./Post.js";
 
 const Feed = () => {
   return (
@@ -294,13 +287,13 @@ const Feed = () => {
       <Post />
       <Post />
     </div>
-  )
-}
+  );
+};
 
 export default Feed;
 ```
 
-*Exercise: Add the `<Feed />` component to `<App />`, above the contacts list. Returning to your browser, you should see the following image:*
+_Exercise: Add the `<Feed />` component to `<App />`, above the contacts list. Returning to your browser, you should see the following image:_
 
 ![feedImgNoCSS](./images/feedImgNoCSS.png)
 
@@ -356,8 +349,7 @@ function App() {
 }
 ```
 
-
-*Exercise: After applying that `className`, we can create an `App.css` file. `import` it into `App.js`. Add some borders and margins around `App-Div` and other classes to give you a better impression of how the components are laid out. After you're done, the app should look something like this:*
+_Exercise: After applying that `className`, we can create an `App.css` file. `import` it into `App.js`. Add some borders and margins around `App-Div` and other classes to give you a better impression of how the components are laid out. After you're done, the app should look something like this:_
 
 ![styledApp](./images/styledApp.png)
 
