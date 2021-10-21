@@ -102,4 +102,6 @@ console.log(deck);
 
 After reviewing some other strategies for sorting, do any of them represent your pseudo code you wrote during the least lesson for sorting the cards?
 
-### Lab Accumulate Points on Codewars
+### Lab Practice with `.sort()`
+
+- [`.sort()` Practice](https://github.com/joinpursuit/m6-sorting-algos-practice) - may have started this in previous session
