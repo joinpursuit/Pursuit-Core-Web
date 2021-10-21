@@ -8,11 +8,11 @@ Many languages, especially popular and well-established ones like Java and Ruby,
 
 There are certain under the hood mechanics that optimize a language to be Object Oriented.
 
-JavaScript is different. JavaScript is a functional programming language that can be object oriented. It uses prototypes and prototypal inheritance; which is unusual.
+JavaScript is different. JavaScript is a both a functional programming language and object oriented. It uses prototypes and prototypal inheritance; which is unusual.
 
 There is often a debate of whether functional or object oriented programming is better. Both have pros, both have cons. Early in your programming journey it is best to be open minded and explore both. You may find one coming a little easier to you than the other. You may find that one style suits a project or portion of a project better than the other - or it may be all the same to you. Allow yourself the time to grow an informed opinion.
 
-The under the hood mechanics of prototypal inheritance are quite different from object oriented inheritance. These mechanics are both interesting and unnecessary to explore in this introduction. You can explore this topic on your own, but it goes quite deep, gets rather esoteric and while it will help you gain a better appreciation for JavaScript and other programming languages it will be of no immediate use in being able to solve problems on Codewars/Leetcode.
+The under the hood mechanics of prototypal inheritance are quite different from object oriented inheritance. These mechanics are both interesting and unnecessary to explore in this introduction. You can explore this topic on your own, but it goes quite deep, gets rather esoteric and while it will help you gain a better appreciation for JavaScript and other programming languages, it will be of no immediate use in being able to solve problems on Codewars/Leetcode.
 
 ## Very Modern JavaScript: A Brief History
 
@@ -30,7 +30,7 @@ As the internet gained popularity, updates could be sent over the internet, elim
 
 This allowed for smaller updates and bug fixes to be released. Which started to change the way devs thought about updating the language.
 
-However, the need to write and maintain code for old browsers or for browsers that still had not updated to the latest features were an ongoing issue.
+However, the need to write and maintain code for old browsers or for browsers that still had not updated to the latest features was an ongoing issue.
 
 Two things happened that changed things for JavaScript rather quickly. The end of the browser Internet Explorer (a major browser used by a large percentage of computers that could not/would not keep up with latest updates) and [BabelJS](https://babeljs.io).
 
@@ -38,11 +38,11 @@ Babeljs is a JavaScript compiler. It can convert new JavaScript into old JavaScr
 
 This allowed JavaScript developers to use very modern and new features immediately and babel would transform (compile) the new features into an older version that could work in older browsers/ older browser versions. JavaScript developers could finally focus on writing code in a clean and maintainable way and not have to worry about browser compatibility as much.
 
-The trade off is that it could make setting up a new JavaScript project more challenging - since you would need to set up babel to compile the code. If you use webpack, parcel, create-react-app, vue-cli, angular-cli etc. these tend to have babel set up for you.
+The trade off is that it could make setting up a new JavaScript project more challenging - since you would need to set up babel to compile the code. If you use webpack, parcel, create-react-app, vue-cli, angular-cli etc. these tend to have babel (and a few other features) set up for you.
 
-As JavaScript grew in popularity many people who knew other coding languages started learning JavaScript. One thing many of them wanted was a more familiar `class` syntax.
+As JavaScript grew in popularity, many people who knew other coding languages started learning JavaScript. One thing many of them wanted was a more familiar `class` syntax.
 
-JavaScript added a `class` syntax for its object prototypes. Allowing people to write a cleaner (and possibly more familiar syntax).
+JavaScript added a `class` syntax for its object prototypes. This allowed people to write a cleaner (and possibly more familiar syntax).
 
 However, the `class` syntax in JavaScript is just syntactic sugar: it looks cleaner and easier to read, but under the hood it still performs like JavaScript's prototypes.
 
