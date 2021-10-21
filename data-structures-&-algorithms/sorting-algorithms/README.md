@@ -90,6 +90,7 @@ console.log(deck);
 
 [Watch a video about two different sorting algorithms](https://www.youtube.com/watch?v=TZRWRjq2CAg&list=PL2aHrV9pFqNRS2b2XX2BvgQIPKh72xREP&index=8)
 
-## Lab: Accumulate Points on Code Wars
+## Lab: Accumulate Points on Code Wars & Practice with JavaScript's Sort Method
 
 - [Bubble Sort Once](https://www.codewars.com/kata/bubblesort-once)
+- [`.sort()` Practice](https://github.com/joinpursuit/m6-sorting-algos-practice) - please continue next session if not finished
