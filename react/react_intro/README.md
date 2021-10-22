@@ -361,4 +361,4 @@ function App() {
 
 ![styledApp](./images/styledApp.png)
 
-**Contgratulations, you've just created your first React app!**
+**Congratulations, you've just created your first React app!**
