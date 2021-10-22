@@ -52,3 +52,11 @@ If you were not, you either got your username wrong, or you copied the PAT incor
 Later, if the macOS Keychain has a popup, the password it is looking for is your computer login, NOT your PAT.
 
 Happy coding!
+
+## Expired Token Update
+
+You will get an email prompt to update your key that is about to expire.
+
+[Here is a helpful markdown for updaint](https://gist.github.com/jonjack/bf295d4170edeb00e96fb158f9b1ba3c)
+
+
