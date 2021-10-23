@@ -29,7 +29,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 |  1  |                           N/A                           | [Intro to DSA/Problem Solving](./intro-to-data-structures-and-algorithms) [Mock Interview Intro and Prep](./mock-interviews) |
 |  2  |             [Print Primes](./control-flow)              |                                         [Control Flow](./control-flow/lesson-notes)                                          |
 |  3  |            [Find the Median](./math-basics)             |                                          [Math Basics](./math-basics/lesson-notes)                                           |
-|  4  |        [Disemvowel Trolls](./strings-and-regex)         |                                              [Strings](./strings/lesson-notes)                                               |
+|  4  |        [Disemvowel Trolls](./strings)                   |                                              [Strings](./strings/lesson-notes)                                               |
 |  5  |              [Err!0rs](./dealing-w-errors)              |                                          [Errors](./dealing-w-errors/lesson-notes)                                           |
 |  6  | [My Own Find Index Of Function](./arrays-and-callbacks) |                                  [Arrays & Callbacks](./arrays-and-callbacks/lesson-notes)                                   |
 |  7  |          [Count Words](./working-with-objects)          |                                        [Working with Objects](./objects/lesson-notes)                                        |
