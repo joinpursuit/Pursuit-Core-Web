@@ -98,4 +98,16 @@ const catArt = [
 ];
 ```
 
+## Further
+
+[Check out other implementations of Data Structures with JavaScript](https://github.com/trekhleb/javascript-algorithms) - one thing you'll note is that there are some different approaches to each data structure. We focused on simplicity and similar syntax in order to get fundamentals set. Deepen your understanding by looking at other implementations. Keep googling to see even more implementations and you may even find some implementations as npm packages that are meant for production level code - try to see what other considerations need to be accounted for when it comes to putting this kind of code into a project.
+
 ### Lab: Accumulate points on Codewars
+
+Be sure to get enough points to pass the gate, go back and wrap up any unsolved kata.
+
+## Next
+
+If employers do a technical interview that involves a code challenge, the most common platforms are [Leetcode](https://leetcode.com), [Code Signal](https://codesignal.com) an [HackerRank](https://www.hackerrank.com).
+
+It would be prudent to attempt at least one question from each platform. The hiring process is always changing and being updated, different platforms may gain or lose popularity - be sure to keep your finger on the pulse and get practice on the right platform(s).
