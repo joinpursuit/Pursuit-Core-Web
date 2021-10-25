@@ -48,4 +48,6 @@ When we searched a linked list we had `O(n)`
 
 When we learned about binary search trees, we learned that we could find things at `O(log n)`
 
+Can we find things even faster? What if we
+
 ## Further Reading

@@ -1,4 +1,4 @@
-# Searching Algorithms Part 1
+# Sorting Algorithms Part 1
 
 ## Learning Objectives
 
