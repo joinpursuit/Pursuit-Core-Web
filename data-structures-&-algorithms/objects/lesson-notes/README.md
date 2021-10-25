@@ -293,7 +293,7 @@ Would result in:
 ```js
 {
   buffalo: 5,
-  buffalo: 3
+  Buffalo: 3
 }
 ```
 
