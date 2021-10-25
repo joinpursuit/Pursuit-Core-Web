@@ -40,8 +40,8 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 | 12  |             [Linked Lists](./linked-lists)              |                                         [Linked Lists](./linked-lists/lesson-notes)                                          |
 | 13  |         [Stacks & Queues](./stacks-and-queues)          |                                     [Stacks & Queues](./stacks-and-queues/lesson-notes)                                      |
 | 14  |                    [Trees](./trees)                     |                                             [Binary Trees](./trees/lesson-notes)                                             |
-| 15  |           [Bubble Sort](./sorting-algorithms)           |                                  [Searching Algorithms](./sorting-algorithms/lesson-notes)                                   |
-| 16  |          [Sort Part 2](./sorting-algorithms-2)          |                                [Searching Algorithms 2](./sorting-algorithms-2/lesson-notes)                                 |
+| 15  |           [Bubble Sort](./sorting-algorithms)           |                                   [Sorting Algorithms](./sorting-algorithms/lesson-notes)                                    |
+| 16  |          [Sort Part 2](./sorting-algorithms-2)          |                                 [Sorting Algorithms 2](./sorting-algorithms-2/lesson-notes)                                  |
 | 17  |             [Unique Array](./unique-array)              |                                          [Hash Tables](./unique-array/lesson-notes)                                          |
 | 18  |         [Bonus/Advanced](./bonus-and-advanced)          |                                                             N/A                                                              |
 
