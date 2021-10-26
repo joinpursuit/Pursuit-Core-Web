@@ -37,7 +37,7 @@ React is a JavaScript library that was created by Facebook. Developers use React
 ![Facebook homepage redesign](https://cdn.vox-cdn.com/thumbor/0KnV_DIxDm00kPsX8hR0f4ZzMIU=/0x0:2048x1410/920x613/filters:focal(861x542:1187x868):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63696407/facebook_website_redesign_1.9.jpg)
 
 
-There are at least four entirely distant UI elements on the page, including:
+There are at least four entirely distinct UI elements on the page, including:
 
 - the top bar
 - the left sidebar
@@ -361,4 +361,4 @@ function App() {
 
 ![styledApp](./images/styledApp.png)
 
-**Contgratulations, you've just created your first React app!**
+**Congratulations, you've just created your first React app!**

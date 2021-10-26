@@ -179,7 +179,7 @@ This is the entire `ProductItem` component. Pretty clean, right? Let's break thi
 
 We define `ProductItem` as an anonymous function that takes its `props` as an argument. `ProductItem` then uses object destructuring to break out two of those _same props that we passed into `ProductItem` in the `ProductPage` component_. Finally, we place our three items in an `li` tag, which our component returns.
 
-Importantly, what you're seeing on the right-hand side of the sandbox is **four separate instances** of this component, each with different props. We create those instances in our `map` method in our parent component.
+Importantly, what you're seeing rendered is **four separate instances** of this component, each with different props. We create those instances in our `map` method in our parent component.
 
 _Exercise: Notice that the objects in our `products` array have a third key: `manufacturer`. Pass this key down to each `ProductItem` and render it alongside `name` and `price`._
 
