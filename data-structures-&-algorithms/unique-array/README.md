@@ -17,7 +17,18 @@ This time, look up the answer. Try
 - [or this one](https://ajahne.github.io/blog/javascript/2020/02/04/how-to-remove-duplicates-from-an-array-in-javascript.html)
 
 ```js
-const = ['otter', 'dog', 'dog', 'dog', 'parakeet' , 'woodchuck', 'cat', 'tardigrade', 'dog', 'cat', ]
+const animals = [
+  "otter",
+  "dog",
+  "dog",
+  "dog",
+  "parakeet",
+  "woodchuck",
+  "cat",
+  "tardigrade",
+  "dog",
+  "cat",
+];
 ```
 
 Now that you've chosen a possible solution and tested it with the test array. Why did you choose the one you chose?

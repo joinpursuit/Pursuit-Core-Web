@@ -351,6 +351,87 @@ Here are some of the differences between `Map` and JavaScript objects
 - iterable ( can iterate like an array or string)
 - is faster for inserting/deleting
 
+## Unique Array Using Map
+
+With the pre-lesson challenge, you were given some links to some solutions for generating a unique array.
+
+Regardless if your class came to a conclusion that a hash-map would be the best option, let's implement one.
+
+```js
+const animals = [
+  "otter",
+  "dog",
+  "dog",
+  "dog",
+  "parakeet",
+  "woodchuck",
+  "cat",
+  "tardigrade",
+  "dog",
+  "cat",
+];
+
+const uniqueArray = (arr) => {
+  return arr;
+};
+
+console.log(uniqueArray(animals));
+```
+
+What is our strategy? Let's return to Polya's problem solving strategy
+
+1. Do we understand all the words in the problem?
+1. What are we asked to show?
+1. Restate the problem in your own words
+1. Is there enough information for you to find a solution?
+1. What is our plan?
+
+- create an array to store the unique values
+- create a map to store keys (array values)
+- loop over each value in the original array
+- if the key does not exist, add it to the map, set the value of the key to true. Therefore the next instance of the value will not be added to the array.
+
+```js
+const uniqueArray = (arr) => {
+  const map = new Map();
+  const unique = [];
+  for (let item of arr) {
+    if (!map.get(item)) {
+      unique.push(item);
+      map.set(item, true);
+    }
+  }
+  return unique;
+};
+console.log(uniqueArray(animals));
+```
+
+Thought question - could we have done this with a regular JavaScript object?
+
+Is there any reason to have chosen a `map` in this instance (other than demonstration purposes)?
+
+#### Bonus
+
+- What is the Big O for our algorithm?
+
+- Try console logging different values to learn more about `Map`
+
+```js
+const uniqueArray = (arr) => {
+  const map = new Map();
+  const unique = [];
+  for (let item of arr) {
+    if (!map.get(item)) {
+      unique.push(item);
+      map.set(item, true);
+    }
+  }
+  console.log(map);
+  console.log(map["dog"]);
+  return unique;
+};
+```
+
 ## Further Reading
 
 Strong foundations are more important than a shaky understanding of a wider breadth of topics.
