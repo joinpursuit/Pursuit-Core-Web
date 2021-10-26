@@ -580,6 +580,49 @@ let y = "3";
 console.log(typeof +y);
 ```
 
+## Bonus Reading Math Notation
+
+As you continue your studies, you may run into some mathmatical notation. Let's look at a basic example and translate it into code
+
+![](../assets/sigma-notation.png)
+
+This is just like a for loop. Let's break it down
+
+- Sigma `∑` is a greek character that means `the sum of`. We'll set that value to `a`
+
+```js
+let a = 0;
+```
+
+- At the bottom is `i=1` - this is the starting point
+
+```js
+for (let i = 1)
+```
+
+- At the top is the end point `n`.
+- `n` will be defined somewhere - in our case it is all natural numbers (natural numbers are positive integers, which may or may not include 0) up to `n`. This means we will increment by 1, so we can have `1, 2, 3, ... `
+
+```js
+for (let i = 0; i <= n; i++) {}
+```
+
+Putting it all together, let's set `n` to 10 as an example, but `n` can be any positive integer.
+
+```js
+let a = 0;
+const n = 10;
+for (let i = 0; i <= n; i++) {
+  a += i;
+}
+
+console.log(a); // 55
+```
+
+The subscript `i` next to the `a` in the mathematical notation just means each instance, in this particular case:
+
+`a1, a2, a3, ... a10` => `1, 2, 3, ...10`
+
 ## Further Reading
 
 Ignore the grade level, check the topic(s) with which you need to review and review them

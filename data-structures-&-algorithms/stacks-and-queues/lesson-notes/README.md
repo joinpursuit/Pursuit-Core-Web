@@ -254,3 +254,11 @@ console.log(inspect(queue, { colors: true, depth: 12 }));
 ```
 
 ## Further Reading
+
+Stacks and Queues are often implemented using arrays.
+
+Do some reading and try to implement your own using arrays instead of linked lists
+
+[Stack Example](https://www.javascripttutorial.net/javascript-stack/)
+
+[Queue Example](https://www.javascripttutorial.net/javascript-queue/)
