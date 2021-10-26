@@ -623,6 +623,8 @@ The subscript `i` next to the `a` in the mathematical notation just means each i
 
 `a1, a2, a3, ... a10` => `1, 2, 3, ...10`
 
+Again, since we have sigma (`∑`), which means `the sum of`, which is why we know to add the numbers in the range of `i` to `n` together.
+
 ## Further Reading
 
 Ignore the grade level, check the topic(s) with which you need to review and review them
