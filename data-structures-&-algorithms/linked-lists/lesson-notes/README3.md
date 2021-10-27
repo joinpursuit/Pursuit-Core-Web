@@ -95,8 +95,8 @@ class LinkedList {
 Old syntax:
 
 ```js
-function LinkedList() {
-  this.head = null;
+function LinkedList(head) {
+  this.head = head || null;
 }
 ```
 
