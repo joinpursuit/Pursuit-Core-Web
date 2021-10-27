@@ -2,15 +2,18 @@
 
 ### Setting intent
 
-Take a moment to compare where you were when you started. Take 3 minutes to write down everything you can remember about you've learned recently.
+Take a moment to compare where you were when you started. Take 3 minutes to write down everything you can remember about you've learned recently. Be ready to share in a group.
 
 ## Trivia Questions
+
+- What does passed by reference mean?
+- What does passed by value mean?
 
 ## Make an Array of Unique Items
 
 Given an array that has duplicate items, write function `unique` that will return a new array with no duplicates.
 
-This time, look up the answer. Try
+This time, look up the answer. Try your own search and/or check out these possible answers. Adapt the code to be your own and test it.
 
 - [this resource](https://stackoverflow.com/questions/1960473/get-all-unique-values-in-a-javascript-array-remove-duplicates)
 - [or this one](https://stackoverflow.com/questions/2218999/how-to-remove-all-duplicates-from-an-array-of-objects)

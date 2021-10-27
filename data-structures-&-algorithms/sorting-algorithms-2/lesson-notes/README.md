@@ -15,6 +15,20 @@ In taking the time to google and learn other approaches, you are now better at o
 
 The same can be applied to the study of algorithms. Usually our initial approach is along the lines of `brute force` - which is usually checking every single possibility until the right one is found. Using `brute force` to solve a problem is better than not solving the problem. However, taking the time to learn better approaches will make you a better problem solver and coder.
 
+Brute force example:
+
+```js
+const square = (n) => {
+  let k = 0;
+  while (true) {
+    if (k === n * n) {
+      return k;
+    }
+    k++;
+  }
+};
+```
+
 Divide and conquer is a technique where one breaks the problem down (divides) into the smallest pieces possible. Then, one solves the problem by conquering each small problem and then finally, combining the solutions.
 
 Have we seen any divide and conquer strategies with the algorithms we have been practicing so far?

@@ -54,7 +54,7 @@ Hashing functions used in production are very complex and sophisticated. They ar
 
 ### Hash Table and Associated Terms
 
-Across compting languages, there can be different name for the same (or very similar things). For example, we learned earlier that in the language Python, what us JavaScript folks call an `array` is often referred to as a `list` in Python.
+Across compting languages, there can be different name for the same (or very similar things). For example, we learned earlier that in the language Python, what JavaScript coders call an `array` is often referred to as a `list` in Python.
 
 Let's look at some more similar, yet sometimes different, terminology
 
@@ -84,15 +84,15 @@ When we learned about binary search trees, we learned that we could find things 
 
 Can we find things even faster? What if we could find things in constant `O(1)` time?
 
-If we were to think about the kinds of algorithms we built with code to look through an English dictionary for a specific word:
+Let's use an example of an English dictionary. Let's think about how we may implement three algorithms if we were doing them in the real world:
 
-- A linked list is like starting on the first page and going through each page until we find the word
-- A binary search is like we started in the middle, determined if our word was higher or lower in the alphabet and then kept choosing the middle point, until we found our word
+- A linked list is like starting on the first page in a bound book and going through each page until we find the word
+- A binary search is like we started in the middle of a bound book, determined if our word was higher or lower in the alphabet and then kept choosing the next middle point, until we found our word
 - A hash table is like if we had some wall space and we could put the first page of each letter on the wall scan them. Then, if we don't find the word on the first page, we can then go to the next page behind it, until we find our word.
 
-With a hash table, even though the worst case scenario could be `O(N)` it usually isn't. Because it is so unusual to end up with the worst case scenario - this is a time where the average Big O calculation is used to describe it instead of the worst case scenario.
+With a hash table, even though the worst case scenario could be `O(N)` it usually isn't. Because it is so unusual to end up with the worst case scenario (just one stack of pages on a wall) - this is a time where the average Big O calculation is used to describe it instead of the worst case scenario.
 
-One further detail about the analogy of the physical dictionary on the wall: Our dictionary has many more words that start with the letter `s` than the letter `x`. That means that the lookup time for `s` would end up being much longer with our system. Since we want to look things up as fast as possible we can consider that we don't have to limit ourselves to just 26 pages (one for each letter): We could possibly do 100 pages on the wall and still be able to scan them quickly `O(1)`. However, we would need a more complex system to break up the dictionary. This is where we would use something like a hash function - it would help distribute the data more evenly within our 100 pages with a bit more complicated of a system for distributing the data.
+One further detail about the analogy of the physical dictionary on the wall: Our dictionary has many more words that start with the letter `s` than the letter `x`. That means that the lookup time for `s` would end up being much longer with our system. Since we want to look things up as fast as possible, we can consider that we don't have to limit ourselves to just 26 pages (one for each letter): We could possibly do 100 pages on the wall and still be able to scan them quickly `O(1)`. However, we would need a more complex system to break up the dictionary. This is where we would use something like a hash function - it would help distribute the data more evenly within our 100 pages. The system would move away from a purely alphabetical means to a more complicated of a system for distributing the data.
 
 [Hash tables are used for things like database indexing, caches and sets](https://en.wikipedia.org/wiki/Hash_table) - again, with where we are in our coding journey we don't have to build out the functionality of a cache, we just need to know how and where to use the code that someone else has built for us.
 
@@ -102,11 +102,13 @@ Bonus - [What is a cache?](https://www.businessinsider.com/what-is-cache)
 
 To build a hash table, we start with an array, which would represent our pages on the wall.
 
-An important thing to note is that our array size in our hash table is usually pre-set. While JavaScript does not require a pre-determined size of an array, for hash tables, you would have a set size that is optimized for the purpose it is being used for.
+An important thing to note is that our array size in our hash table is usually pre-set. While JavaScript does not require a pre-determined size of an array, for hash tables, you would still have to consider this if you are building your own.
 
 Just like our dictionary on the wall - we don't want the number of pages on the wall to be too small or else the search time would take too long. We also don't want to make it too big, since at some point it takes up so much space, we may end up with a lot of unnecessary blank space on the wall and it no longer becomes useful.
 
-Our very simple hash table with have one property
+We are going to build a basic hash table that will use some arbitrary values for demonstration purposes.
+
+Our very simple hash table with have one property:
 
 - A table, which will store the data, we will limit it to 127 array positions (often referred to as `buckets` in other write-ups)
   - The table will have three properties
@@ -115,7 +117,7 @@ Our very simple hash table with have one property
 
 We will write a very simple hash function to just mock the process of converting a string to another value.
 
-It will take the character code of the letters and concatenate it into one long string and then use the module operator to limit the values to in the range of 0 - 127.
+It will take the character code of the letters and concatenate it into one long string and then use the modulo operator to limit the values to in the range of 0 - 127.
 
 Remember that `A` has a character code of `65`, Z has a character code of `90`. `a` has a character code of `97` and `z` has a character code of `122`.
 
@@ -165,7 +167,7 @@ console.log(hashTable.hash("z")); // 122
 console.log(hashTable.hash("Zugzwang")); // 85
 ```
 
-The usefulness of this hash function on its own is not useful. Someone interacting with our hash table, should not have to use it on its own. Therefore, it should just be a private method used only inside the hash table. While, in JavaScript, we cannot (yet) make a method truly private, we can still mark it as private by changing the function name to have an underscore at the start.
+The usefulness of this hash function on its own is not useful. Someone interacting with our hash table, should not have to use this on its own. Therefore, it should just be a private method used only inside the hash table. In JavaScript, we cannot (yet) make a method truly private, we can still mark it as private by changing the function name to have an underscore at the start.
 
 ```js
 class HashTable {
@@ -234,12 +236,12 @@ Let's add a couple more words
 ```js
 hashTable.set(
   "kerfuffle",
-  `a fuss, especially one caused by conflicting views`
+  `a fuss, especially one caused by conflicting views.`
 );
 
 hashTable.set(
   "whipsawed",
-  `subject to two difficult situations or opposing pressures at the same time`
+  `subject to two difficult situations or opposing pressures at the same time.`
 );
 
 console.log(hashTable.table);
@@ -263,7 +265,7 @@ console.log(hashTable.table);
 ]
 ```
 
-It is an array that has a lot of empty slots. This is referred to as a sparse array.
+The table is an array that has a lot of empty slots. This is referred to as a sparse array.
 
 ### Access Data in Hash Table
 
@@ -332,7 +334,9 @@ this.table[index] = [
 ];
 ```
 
-Coding to get, set and remove these values requires a bit more logic. You can follow along [here](https://www.freecodecamp.org/news/javascript-hash-table-associative-array-hashing-in-js/) or [here](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/hash-table)
+So now we have a 2D array - the outer array contains all the values. The inner arrays always have a length of 2. The first item is the key and the second is the value.
+
+Coding to `get`, `set` and remove these values requires a bit more logic. You can follow along [here](https://www.freecodecamp.org/news/javascript-hash-table-associative-array-hashing-in-js/) or [here](https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/hash-table)
 
 ## JavaScript Map
 
@@ -344,7 +348,7 @@ Notice that the way you get and set values is different than using a regular Jav
 
 Here are some of the differences between `Map` and JavaScript objects
 
-- No accidental keys (if you wanted to create a key called `toString` which is a method on a JavaScript object, you could not do it with a regular object, you would need this `Map`)
+- No accidental keys (if you wanted to create a key called `toString` which is a method on a JavaScript object, you could not do it with a regular object, you would need `Map`)
 - key types - with a regular object you can only use strings, but with `Map` you can use, numbers, functions, objects etc.
 - key order - `Map` maintains the order which keys are entered
 - size - easily determined by using the `size` property
@@ -386,10 +390,10 @@ What is our strategy? Let's return to Polya's problem solving strategy
 1. Is there enough information for you to find a solution?
 1. What is our plan?
 
-- create an array to store the unique values
-- create a map to store keys (array values)
-- loop over each value in the original array
-- if the key does not exist, add it to the map, set the value of the key to true. Therefore the next instance of the value will not be added to the array.
+   - create an array to store the unique values
+   - create a map to store keys (array values)
+   - loop over each value in the original array
+   - if the key does not exist, add it to the map, set the value of the key to true. Therefore the next instance of the value will not be added to the array.
 
 ```js
 const uniqueArray = (arr) => {
@@ -442,17 +446,17 @@ Before entering this program, it is very possible that you did not know what a s
 
 You have been introduced to a lot of things that you need to know about in order to get a junior level position as a developer. Your learning journey is still just beginning.
 
-Feedback from many employers is that they are not impressed by watching someone create `Hello, world` in multiple languages and frameworks without the ability to do more. Nor just being able 'name drop' some latest tech or name of a data structure.
+Feedback from many employers is that they are not typically impressed by watching someone create `Hello, world` in multiple languages and frameworks without the ability to do more. Nor just being able 'name drop' some latest tech or name of a data structure.
 
-Employers tend to prefer to see someone demonstrate strong foundations within their language(s) that they have been learning/studying.
+Employers tend to prefer to see someone demonstrate strong foundations within their language(s)/frameworks that they have been learning/studying.
 
 So be sure you really know your foundations so you can keep growing in way that will align with your career growth. It is ok to go back to old material/concepts and get stronger. Should you need to learn a new language or framework, you'll find that your foundations will help you learn new things faster and better.
 
 - [Pursuit Module 6](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/data-structures-%26-algorithms#labs-and-lessons) - don't be afraid to start again and go through the material again. Sometimes novelty in learning is beneficial, but so is going back and spending time with material again.
 
-- [Pursuit Core Web](https://github.com/joinpursuit/Pursuit-Core-Web)
+- [Pursuit Core Web](https://github.com/joinpursuit/Pursuit-Core-Web) - go all the way back and try to update or redo the labs and projects
 
-- [Eloquent JavaScript](https://eloquentjavascript.net)
+- [Eloquent JavaScript](https://eloquentjavascript.net) - read about JavaScript in more depth
 
 - [Free Code Camp](https://www.freecodecamp.org)
 
@@ -463,3 +467,5 @@ Finally, the best way to learn is to code. Keep making projects. They don't have
 You should have at least one showcase personal project that you are ready to show to employers: It should start very simple, look really nice in terms of CSS/UX/UI and can be quite small in scope (a single model grocery list app). Once you have built a really nice version 1, you can either try a new project that is a bit more complex or you can continue to build on top of your current project.
 
 But you should also just be building things that grab your interest or you want to lean into your discomfort of a topic so you can level up.
+
+Happy coding!
