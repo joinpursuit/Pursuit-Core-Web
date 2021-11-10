@@ -33,5 +33,5 @@ copySeasonsAgain.reverse();
 
 console.log("seasons again", seasonsAgain);
 
-console.log("copied season again", copySeasonAgain);
+console.log("copied season again", copySeasonsAgain);
 ```
