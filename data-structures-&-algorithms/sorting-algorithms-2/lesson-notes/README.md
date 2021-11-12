@@ -98,7 +98,7 @@ const merge = (left, right) => {
   return sortedArray;
 };
 
-console.log(mergeStep([1, 4, 8], [3, 6]));
+console.log(merge([1, 4, 8], [3, 6]));
 // [  1, 3, 4, 6  ]
 ```
 
