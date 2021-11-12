@@ -230,7 +230,7 @@ const mergeSort = (arr) => {
   return [...left, ...right];
 };
 
-// result [ [ 9 ], [ 1, 5 ] ]
+// result [  9 , 1, 5  ]
 ```
 
 Now, we have only been able to divide our arrays once, we need to keep diving them until they are all down to the size of 1. We can use recursion to accomplish this.
