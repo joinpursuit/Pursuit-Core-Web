@@ -8,7 +8,6 @@
 
 ## Objectives
 
-- Use axios to make network calls in a React app
 - Create components that pass the results of networks calls to children
 - Further understanding of the react lifecycle
 
@@ -16,24 +15,9 @@
 
 Last lesson, we saw how lifecycle methods can be used to call functions at specific times. In this lesson, we'll integrate networking into our lifecycle methods to load images asynchronously.
 
-## `axios` Refresher
-
-We will use axios to make our network calls. For more of a refresher, check out the lesson [here](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/html_css_dom/axios+async-await). In brief, we use axios to asynchronously make a network call. The syntax looks like:
-
-```js
-const fireRequest = async () => {
-  try {
-    const posts = await axios.get("https://jsonplaceholder.typicode.com/posts")
-    console.log(posts)
-  } catch (e) {
-    console.log(e)
-  }
-}
-```
-
 # Network Calls Inside a Component
 
-[Project Link](https://codesandbox.io/s/random-dog-pictures-yuo8x)
+[Project Link](https://codesandbox.io/s/random-dog-pictures-xgjdx)
 
 We will start by making an app that loads a random image of a dog, with a button to load a new random image.
 
@@ -51,7 +35,6 @@ We will be making `GET` requests to the [/api/breeds/image/random](https://dog.c
 ## Create a Scaffold
 
 - Create a new project using Create React App.
-- Install axios by running `npm install axios`.
 
 ## App.js
 
@@ -81,9 +64,8 @@ Start by setting up a basic scaffold:
 
 ```js
 import React from "react"
-import axios from "axios"
 
-class Dog extends React.PureComponent {
+class Dog extends React.Component {
   render() {
     return (
       <>
@@ -134,16 +116,18 @@ Initially, because the default value for our `imgURL` is an empty string, the co
 Now, let's add a method to get this image URL and set it in the state:
 
 ```js
-getRandomImage = async () => {
-  try {
-    const { data } = await axios.get("https://dog.ceo/api/breeds/image/random")
-    this.setState({
-      imgURL: data.message,
+getRandomImage = () => {
+  fetch("https://dog.ceo/api/breeds/image/random")
+    .then((response) => response.json())
+    .then((json) => {
+      this.setState({
+        imgURL: json.message,
+      });
     })
-  } catch (e) {
-    console.log(e)
-  }
-}
+    .catch((err) => {
+      console.log("error fetching image");
+    });
+};
 ```
 
 We'll call this method when the component mounts to load an initial image - no button-clicking required:
@@ -196,52 +180,51 @@ render() {
 </summary>
 
 ```js
-import React from "react"
-import axios from "axios"
-
-class Dog extends React.PureComponent {
+class Dog extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      imgURL: "",
-    }
+      imgURL: ""
+    };
   }
 
   componentDidMount() {
-    this.getRandomImage()
+    this.getRandomImage();
   }
 
-  getRandomImage = async () => {
-    try {
-      const { data } = await axios.get(
-        "https://dog.ceo/api/breeds/image/random"
-      )
-      this.setState({
-        imgURL: data.message,
+  getRandomImage = () => {
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({
+          imgURL: json.message
+        });
       })
-    } catch (e) {
-      console.log(e)
-    }
-  }
+      .catch((err) => {
+        console.log("error fetching image");
+      });
+  };
 
   render() {
-    const { imgURL } = this.state
-    const styles = {
-      img: {
-        height: "15em",
-      },
-    }
-
+    const { imgURL } = this.state;
     return (
-      <>
+      <React.Fragment>
         <img style={styles.img} alt="Dog" src={imgURL} />
-        <button onClick={this.getRandomImage}>Load new dog</button>
-      </>
-    )
+        <p>
+          <button onClick={this.getRandomImage}>Load new dog</button>
+        </p>
+      </React.Fragment>
+    );
   }
 }
 
-export default Dog
+const styles = {
+  img: {
+    height: "15em"
+  }
+};
+
+export default Dog;
 ```
 
 </details>
@@ -353,10 +336,6 @@ export default App
   </summary>
 
 ```js
-// Dog.js
-import React from "react";
-import axios from "axios";
-
 class Dog extends React.Component {
   constructor() {
     super();
@@ -370,15 +349,14 @@ class Dog extends React.Component {
   }
 
   getRandomImage = () => {
-    const { dogCount } = this.props
-    axios
-      .get(`https://dog.ceo/api/breeds/image/random/${dogCount}`)
-      .then(response => {
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then((response) => response.json())
+      .then((json) => {
         this.setState({
-          imgURL: response.data.message
+          imgURL: json.message
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("error fetching image");
       });
   };
@@ -490,7 +468,6 @@ export default App;
 
 ```js
 import React from "react";
-import axios from "axios";
 
 class Dog extends React.Component {
   constructor() {
@@ -507,19 +484,19 @@ class Dog extends React.Component {
 
   getRandomImage = () => {
     const { dogCount } = this.props
-    axios
-      .get(`https://dog.ceo/api/breeds/image/random/${dogCount}`)
-      .then(response => {
-        if(typeof response.data.message === "string") {
+    fetch(`https://dog.ceo/api/breeds/image/random/${dogCount}`)
+      .then(response => response.json())
+      .then(({ message }) => {
+        if(typeof message === "string") {
           this.setState({ 
-            imgURL: response.data.message,
+            imgURL: message,
             images: []
           });
         }
         else {
           this.setState({
             imgURL: "",
-            images: response.data.message
+            images: message
           })
         }
       })
