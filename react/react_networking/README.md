@@ -41,8 +41,7 @@ We will be making `GET` requests to the [/api/breeds/image/random](https://dog.c
 Start by creating your main `App` file. This will load a header, then our `Dog` component below it.
 
 ```js
-import React from "react"
-import Dog from "./Dog"
+import Dog from "./Dog";
 
 const App = () => {
   return (
@@ -50,10 +49,10 @@ const App = () => {
       <h1> Random Dog Pictures v1 </h1>
       <Dog />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 ```
 
 But, wait. We're importing `Dog.js` but we don't have a `Dog.js` in our project! Let's fix that:
@@ -63,7 +62,7 @@ But, wait. We're importing `Dog.js` but we don't have a `Dog.js` in our project!
 Start by setting up a basic scaffold:
 
 ```js
-import React from "react"
+import React from "react";
 
 class Dog extends React.Component {
   render() {
@@ -72,11 +71,11 @@ class Dog extends React.Component {
         <p>IMAGE PLACEHOLDER</p>
         <button>Load new Dog</button>
       </>
-    )
+    );
   }
 }
 
-export default Dog
+export default Dog;
 ```
 
 Now, we want to request the API, fetch an image, and render it. But how? When this component is initially rendered, we don't know the image URL yet. We have to set up our `render` function to handle two different instances:
@@ -180,11 +179,13 @@ render() {
 </summary>
 
 ```js
+import React from "react";
+
 class Dog extends React.Component {
   constructor() {
     super();
     this.state = {
-      imgURL: ""
+      imgURL: "",
     };
   }
 
@@ -197,7 +198,7 @@ class Dog extends React.Component {
       .then((response) => response.json())
       .then((json) => {
         this.setState({
-          imgURL: json.message
+          imgURL: json.message,
         });
       })
       .catch((err) => {
@@ -207,22 +208,20 @@ class Dog extends React.Component {
 
   render() {
     const { imgURL } = this.state;
+    const styles = {
+      img: {
+        height: "15em",
+      },
+    };
+
     return (
-      <React.Fragment>
+      <>
         <img style={styles.img} alt="Dog" src={imgURL} />
-        <p>
-          <button onClick={this.getRandomImage}>Load new dog</button>
-        </p>
-      </React.Fragment>
+        <button onClick={this.getRandomImage}>Load new dog</button>
+      </>
     );
   }
 }
-
-const styles = {
-  img: {
-    height: "15em"
-  }
-};
 
 export default Dog;
 ```
@@ -252,23 +251,22 @@ In order to do this, we need to create a new input component. Let's ask ourselve
 - Import and render it in `App.js`
 
 ```js
-import React from "react"
+import React from "react";
 
 function NumberOfDogs(props) {
   return (
     <div>
       <input type="text" name="" id="" />
     </div>
-  )
+  );
 }
 
-export default NumberOfDogs
+export default NumberOfDogs;
 ```
 
 ```js
-import React from "react"
-import NumberOfDogs from "./NumberOfDogs"
-import Dog from "./Dog"
+import Dog from "./Dog";
+import NumberOfDogs from "./NumberOfDogs";
 
 const App = () => {
   return (
@@ -277,10 +275,10 @@ const App = () => {
       <NumberOfDogs />
       <Dog />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 ```
 
 ## Set up initial state
@@ -302,31 +300,31 @@ See the complete component examples below:
 ```js
 // App.js
 
-import React, { Component } from "react"
-import NumberOfDogs from "./NumberOfDogs"
-import Dog from "./Dog"
+import React from "react";
+import NumberOfDogs from "./NumberOfDogs";
+import Dog from "./Dog";
 
-export class App extends Component {
+export class App extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       dogCount: 1,
-    }
+    };
   }
 
   render() {
     return (
       <>
-        <h1> Random Dog Pictures v1 </h1>
+        <h1>Random Dog Pictures v1</h1>
         <NumberOfDogs dogCount={this.state.dogCount} />
         <Dog dogCount={this.state.dogCount} />
       </>
-    )
+    );
   }
 }
 
-export default App
+export default App;
 ```
 </details>
 
@@ -336,11 +334,13 @@ export default App
   </summary>
 
 ```js
+import React from "react";
+
 class Dog extends React.Component {
   constructor() {
     super();
     this.state = {
-      imgURL: ""
+      imgURL: "",
     };
   }
 
@@ -349,11 +349,12 @@ class Dog extends React.Component {
   }
 
   getRandomImage = () => {
-    fetch("https://dog.ceo/api/breeds/image/random")
+    const { dogCount } = this.props;
+    fetch(`https://dog.ceo/api/breeds/image/random/${dogCount}`)
       .then((response) => response.json())
       .then((json) => {
         this.setState({
-          imgURL: json.message
+          imgURL: json.message,
         });
       })
       .catch((err) => {
@@ -363,22 +364,20 @@ class Dog extends React.Component {
 
   render() {
     const { imgURL } = this.state;
+    const styles = {
+      img: {
+        height: "15em",
+      },
+    };
+
     return (
-      <React.Fragment>
+      <>
         <img style={styles.img} alt="Dog" src={imgURL} />
-        <p>
-          <button onClick={this.getRandomImage}>Load new dog</button>
-        </p>
-      </React.Fragment>
+        <button onClick={this.getRandomImage}>Load new dog</button>
+      </>
     );
   }
 }
-
-const styles = {
-  img: {
-    height: "15em"
-  }
-};
 
 export default Dog;
 ```
@@ -425,39 +424,41 @@ We also need to change how the `Dog.js` function handles the new response. The s
   </summary>
 
 ```js
-import React, { Component } from 'react'
-import NumberOfDogs from './NumberOfDogs'
-import Dog from "./Dog"
+import React from "react";
+import NumberOfDogs from "./NumberOfDogs";
+import Dog from "./Dog";
 
-export class App extends Component {
+export class App extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
-      dogCount: 1
-    }
+      dogCount: 1,
+    };
   }
 
   handleDogChange = (e) => {
-    const { value } = e.target
+    const { value } = e.target;
     this.setState({
-      dogCount: value
-    })
-  }
+      dogCount: value,
+    });
+  };
 
   render() {
     return (
       <>
-        <h1> Random Dog Pictures v1 </h1>
-        <NumberOfDogs handleDogChange={this.handleDogChange} dogCount={this.state.dogCount}/>
+        <h1>Random Dog Pictures v1</h1>
+        <NumberOfDogs
+          dogCount={this.state.dogCount}
+          handleDogChange={this.handleDogChange}
+        />
         <Dog dogCount={this.state.dogCount} />
       </>
-    )
+    );
   }
 }
 
 export default App;
-
 ```
 </details>
 
@@ -473,8 +474,7 @@ class Dog extends React.Component {
   constructor() {
     super();
     this.state = {
-      imgURL: "",
-      images: []
+      images: [],
     };
   }
 
@@ -483,58 +483,36 @@ class Dog extends React.Component {
   }
 
   getRandomImage = () => {
-    const { dogCount } = this.props
+    const { dogCount } = this.props;
     fetch(`https://dog.ceo/api/breeds/image/random/${dogCount}`)
-      .then(response => response.json())
+      .then((response) => response.json())
       .then(({ message }) => {
-        if(typeof message === "string") {
-          this.setState({ 
-            imgURL: message,
-            images: []
-          });
-        }
-        else {
-          this.setState({
-            imgURL: "",
-            images: message
-          })
-        }
+        const images = typeof message === "string" ? [message] : message;
+        this.setState({ images });
       })
-      .catch(err => {
-        console.log("error fetching image");
+      .catch((err) => {
+        console.log("Error fetching image", err);
       });
   };
 
-  renderImages = () => {
-    const { imgURL, images } = this.state;
+  render() {
+    const { images } = this.state;
+    const styles = {
+      img: {
+        height: "15em",
+      },
+    };
 
-    if(imgURL) {
-      return <img style={styles.img} alt="Dog" src={imgURL} />
-    }
-    else {
-      return images.map(image => {
-        return <img style={styles.img} alt="Dog" src={image} />
-      })
-    }
-  }
-
-  render() {   
     return (
-      <React.Fragment>
-        {this.renderImages()}
-        <p>
-          <button onClick={this.getRandomImage}>Load new dog</button>
-        </p>
-      </React.Fragment>
+      <>
+        {images.map((image, index) => (
+          <img key={index} style={styles.img} alt="Dog" src={image} />
+        ))}
+        <button onClick={this.getRandomImage}>Load new dog</button>
+      </>
     );
   }
 }
-
-const styles = {
-  img: {
-    height: "15em"
-  }
-};
 
 export default Dog;
 ```
@@ -547,21 +525,23 @@ export default Dog;
   </summary>
 
 ```js
-import React from "react"
+import React from "react";
 
 function NumberOfDogs({ dogCount, handleDogChange }) {
   return (
     <div>
       <input
         type="text"
-        value={dogCount}
+        name=""
+        id=""
         onChange={handleDogChange}
+        value={dogCount}
       />
     </div>
-  )
+  );
 }
 
-export default NumberOfDogs
+export default NumberOfDogs;
 ```
 </details>
 
