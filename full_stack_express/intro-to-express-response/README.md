@@ -11,7 +11,7 @@
 
 ## What is Node?
 
-Node is an open source project that lets us run JavaScript in Terminal. Previous to this project, JavaScript could only be run in the browser.
+Node is an open source project that lets us run JavaScript in Terminal. Previous to nodeJS, JavaScript could only be run in the browser.
 
 By creating Node, companies could hire developers who specialize in JavaScript and they would be able to build front-end Applications and back-end applications.
 
@@ -41,12 +41,12 @@ Now let's make our own. We'll make a server with express! Express is very popula
 
 ### In Terminal
 
-- navigate to your Desktop or other convenient folder
+- Navigate to your Desktop or other convenient folder
 - `git status` to make sure you are not already in a `git` repository
 - `mkdir intro-to-express`
 - `cd intro-to-express`
 
-We use the npm "`init`" command to create a **package.json** file for our application. This file is the meta-data about our project. Who wrote it? What kind of scripts can we run? What are the dependencies we are using?
+We use the npm `init` command to `init`ialize our project. It will create a **package.json** file for our application. This file is the meta-data about our project. Who wrote it? What kind of scripts can we run? What are the dependencies we are using?
 
 This command prompts us for a number of things, including the name and version of the application and the name of the initial entry point file (by default this is **index.js**). For now, we will just accept the defaults:
 
@@ -78,6 +78,8 @@ npm install express
 
 The dependencies section of our **package.json** will now appear at the end of the **package.json** file and will include _Express_.
 
+You can check if you've installed `express` correctly by looking at the `pacakge.json`. It should now have a `dependenies` key that includes an object with `express`
+
 ```json
 {
   "name": "intro-to-express",
@@ -97,7 +99,7 @@ The dependencies section of our **package.json** will now appear at the end of t
 
 A `package-lock.json` file was also created. This is an important file for managing the packages, it is automatically generated and updated. We don't have to worry about its contents or ever edit it directly.
 
-A folder called `node_modules` was created. This is were all the code for `express` will be. If you look inside `node_modules`, you will see there are many files. That's because `express` depends on many other packages in order to work. You can look at all the code in here. But to learn to use it, it is better to look at the documentation.
+A folder called `node_modules` was created. This is were all the code for `express` will be. If you look inside `node_modules`, you will see there are many folders and files. That's because `express` depends on many other packages in order to work. You can look at all the code in here. But to learn to use it, it is better to look at the documentation.
 
 `node_modules` can become very large, and the `source of truth` of these dependencies lives on the `npm registry`. Therefore, there is no reason to track these files with `git`, nor upload them to `GitHub`. We can ignore these files by adding a file called exactly `.gitignore`
 
@@ -128,7 +130,7 @@ Let's create a file to write our code
 
 - `touch app.js`
 
-[Let's head over to the `express npm package documentation](https://www.npmjs.com/package/express)
+[Let's head over to the express npm package documentation](https://www.npmjs.com/package/express)
 
 Along the top we have all the code we need to write a very simple express application.
 
@@ -169,7 +171,7 @@ Even though the documentation uses the `function` keyword, we can write this cal
 
 We are also going to write out `response` and `request` as parameters in our callback.
 
-Later, you'll be writing your own code and you can shorten `response` to `res` and `request` to `req` - but as we are just getting familiar with everything, let's use the full names.
+Later, you'll be writing your own code and you can shorten the variables `response` to `res` and `request` to `req` - but as we are just getting familiar with everything, let's use the full names.
 
 ```js
 const express = require("express");
@@ -179,12 +181,6 @@ app.get("/", (request, response) => {
   response.send("Hello World");
 });
 ```
-
-**Thought Questions**
-
-- How do we access this route?
-- What is the URL?
-- What kind of response will we get?
 
 Finally, let's turn on our app so it is always listening for requests. We're going to use port 3003. We can typically use any port between 3000 and 9999, as they are not being used by other apps on your computer. When you put your app on the internet, this port will be configured for you.
 
@@ -199,7 +195,7 @@ app.get("/", (request, response) => {
 app.listen(3003);
 ```
 
-Let's start this app
+Let's start this app in terminal:
 
 ```bash
 node app.js
@@ -210,6 +206,12 @@ This time, you'll notice that the terminal app now just hangs. The cursor will b
 This means our express app is running and listening for requests on port 3000.
 
 To cancel it, we have to press <kbd>control</kbd> <kbd>c</kbd>
+
+**Thought Questions**
+
+- How do we access this route?
+- What is the URL?
+- What kind of response will we get?
 
 It would be nice to have a status that this app is running. Let's add a `console.log` inside a callback that will be the second argument of the function `app.listen`
 
@@ -222,7 +224,7 @@ app.get("/", (request, response) => {
 });
 
 app.listen(3003, () => {
-  console.log("I am listening for requests on port 3003!");
+  console.log("Listening for requests on port 3003");
 });
 ```
 
@@ -238,7 +240,7 @@ http://localhost:3003
 
 ### Common Errors
 
-A Broken `package.json`
+#### A Broken `package.json`
 
 ![](./assets/broken-package-json.png)
 
@@ -246,11 +248,11 @@ Fix this by going into the `package.json` and making sure all of your JSON is va
 
 You can use [An online JSON Validator to check, if you get really stuck](https://jsonlint.com/?code=)
 
-Express was not properly added as a dependency
+#### Express was not properly added as a dependency
 
 ![](./assets/express-not-installed.png)
 
-Fix it by trying to run `npm install express` - make sure you are in these same directory as `package.json`. If you don't see a `node_modules` folder, you might have forgotten to run `npm init` first. If it is still not working, since you are so early in your project, it may be best to delete the project and start again.
+Fix it by trying to run `npm install express` again - make sure you are in these same directory as `package.json`. If you don't see a `node_modules` folder, you might have forgotten to run `npm init` first. If it is still not working, since you are so early in your project, it may be best to delete the project and start again.
 
 ### Quick Summary Before Moving On
 
@@ -268,13 +270,13 @@ app.get("/", (request, response) => {
 });
 ```
 
-When we refresh the browser, nothing changes!
+When we refresh the browser, nothing changes.
 
 We need to go to terminal, press <kbd>control</kbd> <kbd>c</kbd>, then type `node app.js` EVERY SINLGE TIME WE MAKE A CHANGE.
 
 This isn't a good workflow.
 
-So we're going to install a new package called `nodemon` (short for node monitor - how you pronounce it is up for debate). Nodemon is going to monitor your app for changes to files. When it detects that you've made a change and saved it, it will automatically restart your server for you!
+So we're going to install a new package called `nodemon` (short for node monitor - how you pronounce it is up for debate). Nodemon is going to monitor your app for changes to files. When it detects that you've made a change and saved it, it will automatically restart your server for you.
 
 One more detail. Since we are going to want this for every single express app, we can install nodemon globally so we can use it without having to install it every single time.
 
@@ -287,12 +289,13 @@ The `-g` means install this package globally.
 - Your computer may deny you access to make this change. You can try again by running
 
 - `sudo !!` This will run the last command you typed with `sudo` in front of it. `sudo` means `super user do` - and it is a very powerful command. It can override a lot of safety settings on your computer. You should only use it if you know EXACTLY what you are doing. Improper use can turn your Macbook into a brick that can only be fixed by taking it to Apple (they have the technology to recover your computer back to factory state, you may lose all your unsaved work).
+- it will likely ask you for your computer log-in password. The UI is not great - as you just type and there is no feedback on how many characters you have typed. Press enter when you've entered your password. If you've gotten your password wrong, rerun the above terminal command by pressing the up arrow.
 
-Once you are set up, you can now start your server by typing
+Once you are set up, you can now start your server by typing:
 
 - `nodemon app.js`
 
-Now you should be able to change your message in your `res.send` to ("I love express!") and when you refresh the browser, it should change automatically, you can see `nodemon` giving you messages in terminal that it is restarting.
+Now you should be able to change your message in your `res.send` to ("Hello, express") and when you refresh the browser, it should change automatically, you can see `nodemon` giving you messages in terminal that it is restarting.
 
 <details><summary>Mini BONUS with nodemon</summary>
 
@@ -358,6 +361,8 @@ On the left, you will see the process number, in this case it is `26625`
 Now you can kill the process by typing
 
 - `kill 26625`
+
+Get into good habits of exiting out of programs gracefully in order to avoid having to take extra troubleshooting steps like the ones above.
 
 ### An aside about newer JS syntax
 

@@ -1,11 +1,11 @@
-# Module 4: Full Stack: PERN-Stack Postgres, Express, React
+# Module 4: Full Stack: PERN-Stack: Postgres, Express, React, Node
 
 We're going to be learning about full stack web development.
 
 First, we're going to learn about servers and how to send:
 
-- simple strings
-- very short bits of html
+- Simple strings
+- Very short bits of HTML
 - JSON
 
 We won't be using a database yet. We're going to mock it by just using arrays of objects to represent the way the database would send and receive data. This will allow us to focus on the concepts and code of servers.
@@ -18,17 +18,19 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 ## Learning Outcomes
 
-- Understand how servers work
-- Use Node.js to create and run command line applications
-- Understand what APIs are and how they should be designed
-- Use Express to build an API
-- create views for our API
-- Understand the problem databases solve and build schemas
-- Use SQL to run CRUD operations and JOINs
+- Explain what is the internet
+- Explain the request/response cycle
+- Describe what a server does
+- Use Express to build a server
+- Use Express to build a RESTful API that has full CRUD functionality for one model
+- Create views for the express API using React
+- Explain what is a database
 - Use Postgres to build a database and interact with it through its CLI
+- Use SQL to run CRUD operations and JOINs
 - Use pg-promise npm package to build a web application backed by SQL
+- Build a backend with multiple models that have at least one relationship (one to many)
 
-## Lessons, Quizzes, and Labs
+## Lessons and Labs
 
 |                                            Lesson                                             |                                                                           Lab                                                                           |
 | :-------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -52,15 +54,15 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 ## Individual Project
 
-| Project                                                                   | Standards                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Budget App](https://github.com/joinpursuit/budgeting-app-project-prompt) | <ul><li>Use frequent, descriptive, small commits</li><li> Manipulate and access objects and objects in arrays</li><li>Use HTML input and forms</li><li>Create a responsive UI</li><li> Create an Express app</li><li> Use routes to send responses and errors</li><li> Use middleware to inject code</li><li> Use functions to keep code DRY</li><li> Proper use and understanding of Higher order functions & closures or callbacks</li></ul> |
+| Project                                                                   | Standards                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Budget App](https://github.com/joinpursuit/budgeting-app-project-prompt) | <ul><li>Use frequent, descriptive, small commits to demonstrate best practices with git and GitHub</li><li> Access and manipulate objects and objects in arrays</li><li>Connect a React App to the Express API</li><li>Create a responsive UI that is easy to use and has components that represent the data from the server</li><li> Create an Express app that uses a RESTful pattern to perform CRUD functionality </li><li> Use routes to send responses and errors</li><li> Use middleware to handle critical functionality of the server</li></ul> |
 
 ## Group Project
 
-| Project                                                        | Standards                                                                                                                                                                                                                                                                                                                    |
-| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Store App](https://github.com/joinpursuit/pern-store-project) | <ul><li>Use frequent, descriptive, small commits</li><li>Use a databse connected to the express server to perform full CRUD</li><li>Use HTML input and forms</li><li>Create a responsive UI</li><li> Create an Express app</li><li> Use routes to send responses and errors</li><li> Use middleware to inject code</li></ul> |
+| Project                                                        | Standards                                                                                                                                                                                                                                   |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Store App](https://github.com/joinpursuit/pern-store-project) | <ul><li>Apply all learnings and techniques from last project</li><li>Use a databse connected to the express server to perform full CRUD across the PERN stack</li><li>Develop a more complex and useful app through collaboration</li></ul> |
 
 ## Assessment
 

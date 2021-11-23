@@ -25,7 +25,7 @@ What started in the 1960s as a US military research project, soon evolved into a
 
 The initial purpose was to share articles and research papers. Now the internet has expanded to far more complex applications that are now part of our daily lives.
 
-The internet is made up of two types of computers: <kbd>clients</kbd> and <kbd>servers<kbd>.
+The internet is made up of two types of computer interactions: `clients` and `servers`.
 
 ![Internet](assets/internet.jpg)
 
@@ -42,17 +42,17 @@ There is a lot more that happens under the hood, but we don't need to know it in
 
 ## What is a Client?
 
-A client can be anything that connects to the internet in order to make <kbd>request</kbd>s to servers.
+A client can be anything that connects to the internet in order to make `request`s to servers.
 
 Things like:
 
-- Laptops, desktop computers via web browser like Chrome
+- Laptops and desktop computers via web browsers like Chrome
 - Smart phones via mobile apps
-- IoT (internet of things): Smart fire alarms, smart door lock, smart bicycles etc.
+- IoT (Internet of Things): Smart fire alarms, smart door lock, smart bicycles etc.
 
-## What's a Server?
+## What is a Server?
 
-A server is just a computer designed to take `requests` and send back `responses`.
+A server is just a computer that runs software to take `requests` and send back `responses`.
 
 You can make your own computer into a server. But in order for other computers to make requests to it, it would have to be on all the time in order to have uninterrupted service. And, if your web app gets very popular, your laptop will not be able to handle it, because it wasn't designed to be used for this as its main purpose. Therefore, there are typically dedicated computers for this purpose.
 
@@ -62,7 +62,7 @@ Here is an image server farm that full of computers that are servers:
 
 ### Types of Servers
 
-1. **Web server**: Web servers show pages and run apps through web browsers. The server your browser has made a request to, is a web server that's delivering this page and any images you see on it.
+1. **Web server**: Web servers show pages and run apps through web browsers. For example, if you are viewing this page on GitHub, your computer has made a request to the GitHub server for it to respond with this particular page.
 2. **Email server**: Email servers facilitate the sending and receiving of email messages.
 3. **FTP server**: FTP servers support the moving of files through File Transfer Protocol tools
 
@@ -70,12 +70,12 @@ Here is an image server farm that full of computers that are servers:
 
 There four common types of requests we can make which correspond to four basic ways we typically want to manipulate data
 
-- <kbd>POST</kbd> (Create data) - e.g. make a user account
-- <kbd>GET</kbd>(Read data) - e.g. see user account info
-- <kbd>PUT/PATCH</kbd> (Update data) - e.g. update account info
-- <kbd>DELETE</kbd> (Destroy data) - e.g. delete account
+- `POST` (**C**reate data) - e.g. make a user account
+- `GET`(**R**ead data) - e.g. see user account info
+- `PUT/PATCH` (**U**pdate data) - e.g. update account info
+- `DELETE` (**D**estroy data) - e.g. delete account
 
-This acronym is C.R.U.D.
+This acronym for create, reading, updating and deleting data is C.R.U.D.
 
 ## Different parts of a URL
 
@@ -104,18 +104,20 @@ Let's breakdown the contents of a more complex URL:
 
 We are going to be working with HTTP (`Hyper-Text-Transfer-Protocol`) in order to build APIs.
 
-**Remember** - HTML stands for `Hyper-Text Mark-up Langauge`
+**Remember** - `HTML` stands for `Hyper-Text Mark-up Langauge`
 
-<kbd>HTTP</kbd> primarily sends data as strings. It has two main parts: a <kbd>header</kbd> and a <kbd>body</kbd>
+`HTTP` primarily sends data as strings. It has two main parts: a `header` and a `body`
 
 The header contains important data about the request/response like
 
 - `URL` - From where this resource is coming from
 - `Method` - I.e. a `GET` request
-- `Content-Type` - Types of data allowed. It can just be plain text/html or JSON or other files like images or videos
+- `Content-Type` - Types of data allowed. It can just be plain text/HTML or JSON or other files like images or videos
 - `Status Code` - The status code (see below)
 
 You can look at the headers by opening your browser's dev tools, going to the network tab and selecting a file.
+
+![](./assets/network-tab-status.png)
 
 The body contains any content that may be passing through. For example, the HTML, CSS and JavaScript of a web page or the contents that are coming from a form in the browser.
 
@@ -127,7 +129,7 @@ The status codes from 100 - 399, generally provide information that the request/
 
 The 400s typically denote user error, like trying to access a part of a site without being loggged in.
 
-The 500s typically denote a server error,for example, the server has crashed.
+The 500s typically denote a server error. For example: The server has crashed.
 
 For a memorable introduction see [HTTP Status cats](https://http.cat/), or if you would prefer [HTTP Status Dogs](https://httpstatusdogs.com/)
 
