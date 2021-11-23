@@ -6,7 +6,7 @@ Introductions to:
 
 - [What is the Internet?](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/full-stack-express/intro-to-internet-and-servers/README.md#what-is-the-internet)
 - [Clients](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/full-stack-express/intro-to-internet-and-servers/README.md#what-is-a-client)
-- [Servers](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/full-stack-express/intro-to-internet-and-servers/README.md#whats-a-server)
+- [Servers](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/full-stack-express/intro-to-internet-and-servers/README.md#what-is-a-server)
 - [Requests & Responses](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/full-stack-express/intro-to-internet-and-servers/README.md#types-of-requests)
 - [URLs](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/full-stack-express/intro-to-internet-and-servers/README.md#different-parts-of-a-url)
 - [HTTP](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/full-stack-express/intro-to-internet-and-servers/README.md#http)

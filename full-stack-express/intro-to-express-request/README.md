@@ -82,8 +82,8 @@ We are going to add a little bit more complexity to this set up so that we can s
 - `cd express-minerals`
 - `touch server.js`
 - `npm init -y` (this will automatically say yes to all the npm default settings - this is fine for tutorials, small test builds, etc.)
-- `touch .gitignore` (tell git which files to ignore)
 - `npm install express`
+- `touch .gitignore` (tell git which files to ignore) and add the following to the file:
 
 ```
 node_modules
@@ -92,7 +92,7 @@ node_modules
 
 This is not JavaScript, so don't add semi-colons.
 
-The `.gitgnore` file will determine what files git should not track. This is not JavaScript, so don't add semi-colons.
+**Thought question**: Why and when do we start file/folder names with a `.`?
 
 ### JavaScript Environments
 
@@ -133,8 +133,6 @@ app.get("/", (req, res) => {
 module.exports = app;
 ```
 
-**server.js**
-
 ### Separating Concerns
 
 We will be adding code testing for our next assignments and assessments. In order to set it up properly, we have to set up the server in one file, and then our routes and other logic in other files.
@@ -144,7 +142,7 @@ We can also include code from other files we've created. When it is a file we've
 
 When we set up our `server.js` file, we need to first import our code from our app.js.
 
-Then, we need to configure our app to use our environment varibles.
+Then, we need to configure our app to use our environment variables.
 
 We're using a package called [dotenv](https://www.npmjs.com/package/dotenv)
 
@@ -181,8 +179,6 @@ Data modeling is technique for defining business requirements for a database. In
 - `mkdir models`
 - `touch models/rock.js`
 
-Copy and paste this array into.
-
 We need to assign it to `module.exports` so that we will be able to import it elsewhere in our app.
 
 **models/rock.js**
@@ -197,6 +193,8 @@ module.exports = [
   "Amethist",
 ];
 ```
+
+Copy and paste this array into `rock.js`
 
 **IMPORTANT** if you forget to use `module.exports` or misspell it as `module.export` you will get an empty object. Be sure to check this carefully, as it is a common bug.
 
@@ -236,13 +234,13 @@ Writing a route for each one would be
 - tedious
 - hard to maintain
 
-Instead, we want user input for which rock the user would like to see. We'll just use the array position for now, and have the user type in the url.
+Instead, we want user input for which rock the user would like to see. We'll just use the array position and have the user type in the url, for now. Eventually, we would create a full web page with links and id numbers for our rocks.
 
 Let's try it out.
 
 We create a request parameter by adding a `:` to distinguish it from a regular path.
 
-Whatever value the user types will then be sent with the request and is accessible inside the `response.params` object.
+Whatever value the user types will then be sent with the request and is accessible inside the `request.params` object.
 
 Let's try it:
 
@@ -309,7 +307,7 @@ http://localhost:3333/rocks/not_a_valid_index_position
 ## Place routes in correct order
 
 - Express starts at the top of your `app.js` file and attempts to match the url being used by the browser with routes in the order in which they're defined
-- URL params (e.g. :foo, :example, :index) can be anything, a number or a string
+- URL params (e.g. `:foo`, `:example`, `like `) can be anything, a number or a string
   - Therefore if you have these routes in this order in your `server.js`:
     - `/:color`
     - `/rocks`
@@ -317,7 +315,7 @@ http://localhost:3333/rocks/not_a_valid_index_position
   - To fix this, we put the more specific routes first
     - `/rocks`
     - `/:color`
-      Now, from top to bottom, the more specific route `/rocks` will be triggered when the URL has `rocks` and if it doesn't match `rocks`, it will go to the next route.
+      Now, from top to bottom, the more specific route `/rocks` will be triggered when the URL has `/rocks` and if it doesn't match `/rocks`, it will go to the next route.
 
 Let's code an example of this together:
 
@@ -358,7 +356,7 @@ app.get("/rocks/:index", (req, res) => {
 
 ## Multiple Parameters
 
-We can add more parameters to the req.params object:
+We can add more parameters to the `req.params` object:
 
 ```js
 app.get("/hello/:firstName/:lastName", (req, res) => {
@@ -380,12 +378,14 @@ Query strings go at the end of a path, and they start with a `?`. They are key v
 
 You can add as many as you like by separating them with an ampersand `&`
 
+```js
 app.get("/calculator/:operator", (req, res) => {
-console.log("this is req.params", req.params);
-console.log("this is req.query", req.query);
-const sum = req.query.num1 + req.query.num2;
-res.send("sum is " + sum);
+  console.log("this is req.params", req.params);
+  console.log("this is req.query", req.query);
+  const sum = req.query.num1 + req.query.num2;
+  res.send("sum is " + sum);
 });
+```
 
 http://localhost:3333/calculator/add?num1=5&num2=4
 
