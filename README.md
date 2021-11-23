@@ -1,4 +1,4 @@
-# Pursuit 7.0 Web Technical Curriculum
+# Pursuit 8.0 Web Technical Curriculum
 
 ## Introduction
 
@@ -22,4 +22,4 @@ The core curriculum is separated into six modules:
 ## Additional Resources
 
 - [Pursuit Core Environment Set up](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md)
-- [Set up Personal Access Token](./GitHub-Password-to-PAT.md)
+- [Set up Personal Access Token](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/pat-set-up/README.md)

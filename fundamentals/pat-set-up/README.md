@@ -58,5 +58,3 @@ Happy coding!
 You will get an email prompt to update your key that is about to expire.
 
 [Here is a helpful markdown for updaint](https://gist.github.com/jonjack/bf295d4170edeb00e96fb158f9b1ba3c)
-
-
