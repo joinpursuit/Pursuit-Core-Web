@@ -33,8 +33,8 @@ Finally, we'll connect our server to our database so that we can create full sta
 ## Lessons and Labs
 
 |                                            Lesson                                             |                                                                           Lab                                                                           |
-| :-------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------: | Not Applicable |
-|Kickoff & [Introduction to Boostrap](https://github.com/joinpursuit/Intro-to-Bootstrap-CSS-Code-Along)|
+| :-----------------------------: | :----------------------------------------------: | 
+|Kickoff & [Introduction to Boostrap](https://github.com/joinpursuit/Intro-to-Bootstrap-CSS-Code-Along)|Not Applicable |
 |         1a. [Intro to Internet & Servers](./intro-to-internet-and-servers/README.md)          |                                                                     Not applicable                                                                      |
 |              1b. [npm & Express Response](./intro-to-express-response/README.md)              |                                           [Intro to Express](https://github.com/joinpursuit/intro-to-express)                                           |
 |                  2. [Express Request](./intro-to-express-request/README.md)                   |                                         [99 Pokemon Express](https://github.com/joinpursuit/99-pokemon-express)                                         |
