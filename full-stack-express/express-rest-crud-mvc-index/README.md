@@ -18,10 +18,10 @@ When the owner presses the `submit` button. The browser will send a `request` to
 
 ```js
 {
-    name: 'bismuth',
+    name: 'Bismuth',
     price: 20,
     image: 'bismuth.png',
-    description: 'very cool mineral',
+    description: 'Very cool mineral',
     shopName: 'Rock Shop'
 }
 
@@ -134,18 +134,19 @@ Everyone in the restaurant has a clear idea of what they are responsible for, ot
 
 Even though there is a common pattern for a restaurant, there are many variations, like buffets, drive-through and more. A pattern is a recommendation, not a rule.
 
-So let's get back to our application. We are going to have a place for our models (data), our views (what users will see in the browser) and the contollers (logic between the two).
+So let's get back to our application. We are going to have a place for our models (data), our views (what users will see in the browser) and the controllers (logic between the two).
 
 In terms of code, we will have a folder called `models`, a folder called `controllers` and while it is possible to have a `views` folder (and there are many applications that use this folder), we are going to be serving our views not from inside our app, but with a separate react app.
 
 ## Demonstrating the Working Application
 
 [Demo on YouTube](https://youtu.be/-FrpZpGk82c) - We will be working with an app called Postman in order to be able to make all of our requests. By the end of this multi-day build, your app will allow you to:
-- See a list (array) of all the bookmarks (**R**ead: `index`) 
+
+- See a list (array) of all the bookmarks (**R**ead: `index`)
 - See a single bookmark (**R**ead: `show`)
-- **C**reate a new bookmark 
+- **C**reate a new bookmark
 - **U**pdate a bookmark
-- **D**elete a bookmark 
+- **D**elete a bookmark
 
 ## Set Up Models
 
@@ -156,7 +157,7 @@ We're just going to have one model, with four values:
 - isFavorite: boolean
 - category: string
 
-We can open a new tab in terminal (so we can keep nodemon running while we add these extra files.
+We can open a new tab in terminal, so we can keep nodemon running while we add these extra files: <kbd>command</kbd> <kbd>t</kbd>.
 
 - `ls` - confirm you are in the same directory as `package.json`
 - `mkdir models`
@@ -172,24 +173,24 @@ module.exports = [
     name: "MDN",
     url: "https://developer.mozilla.org/en-US/",
     isFavorite: true,
-    category: "educational"
+    category: "educational",
   },
   {
     name: "Apartment Therapy",
     url: "https://www.apartmenttherapy.com",
     isFavorite: true,
-    category: "inspirational"
+    category: "inspirational",
   },
   {
     name: "DMV",
     url: "https://dmv.ny.gov",
     isFavorite: false,
-    category: "adulting"
+    category: "adulting",
   },
 ];
 ```
 
-Thought question: What does `module.exports` do? What happens if we forget to add it? What kind of error will we get?
+**Thought question:** What does `module.exports` do? What happens if we forget to add it? What kind of error will we get?
 
 ## Set up Controllers
 
@@ -197,7 +198,7 @@ With our simple app, making folders with single files seems a bit over-engineere
 
 Our controllers are going to handle the routes. It's quite common to make a separate file and group similar controllers together. Express makes it easy to set it up.
 
-All of our routes related to our bookmarks are going to be starting with `/bookmarks`. We are going to name our `express.Router()` `bookmarks` to help us remember that this is base of the route. Let's code to understand it better:
+All of our routes related to our bookmarks are going to be starting with `/bookmarks`. We are going to name our `express.Router()` variable `bookmarks` to help us remember that this is base of the route. Let's code to understand it better:
 
 - `ls` - confirm you are in the same directory as `package.json`
 - `mkdir controllers`
@@ -232,9 +233,7 @@ const bookmarksController = require("./controllers/bookmarksController.js");
 app.use("/bookmarks", bookmarksController);
 ```
 
-Now, we should be able to go to
-
-http://localhost:3003/bookmarks
+Now, we should be able to go to http://localhost:3003/bookmarks and see our JSON
 
 ## Error Handling
 

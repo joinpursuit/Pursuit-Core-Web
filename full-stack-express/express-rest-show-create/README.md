@@ -28,9 +28,9 @@ How would you continue to build out the routes if following events happened?
 - February 13, 2020 - half day
 - May 4, 2016 - windstorm/county power outage
 
-Taking a moment to think about it, we'll realize it's hard to organize. So challenging, a computer scientist named Roy Fielding ended up doing his dissertation on [Architechtural Styles and the Design of Network-based Software Architectures](https://en.wikipedia.org/wiki/Representational_state_transfer) - he took feedback from over 500 developers in order to hone down a model to a core set of principles that are now called REST.
+Taking a moment to think about it, we'll realize it's hard to organize. So challenging in fact, a computer scientist named Roy Fielding ended up doing his dissertation on [Architectural Styles and the Design of Network-based Software Architectures](https://en.wikipedia.org/wiki/Representational_state_transfer) - he took feedback from over 500 developers in order to hone down a model to a core set of principles that are now called REST.
 
-REST stands for **Re**presentational **S**tate **T**ransfer - the technical meaning can take a while to study and learn and gets much deeper than we need to worry about today. However, we can easily utilize the pattern of routes in order to start building basic apps that use best practices.
+REST stands for **Re**presentational **S**tate **T**ransfer - the technical meaning can take a while to study and learn and gets much deeper than we need to worry about today. However, we can easily utilize the pattern of routes in order to start building basic apps that use these best practices.
 
 ### Restful Routes
 
@@ -42,11 +42,11 @@ REST stands for **Re**presentational **S**tate **T**ransfer - the technical mean
 |  4  |  Update   | /bookmarks/:id |    PUT    | **U**pdate |             Update a bookmark              |
 |  5  |  Destroy  | /bookmarks/:id |  DELETE   | **D**elete |             Delete a bookmark              |
 
-**Note** This pattern of routes is similar across many technical stacks. If you ever need a refresher, you can easily google it and find a resource [like this one](https://guides.rubyonrails.org/routing.html#crud-verbs-and-actions)
+**Note** This pattern of routes is similar across many technical stacks. If you ever need a refresher, you can easily google it and find a resource [like this one](https://guides.rubyonrails.org/routing.html#crud-verbs-and-actions).
 
 In our app, we've already build the `index` route.
 
-Today we'll build `show` and `create`.
+Today we'll build the `show` and `create` routes.
 
 ## Getting Started
 
@@ -62,22 +62,26 @@ Today we'll build `show` and `create`.
 
 **controllers.js**
 
+When we connect to a database, we'll use the `id` (a unique number./identifier for each item in the database). But for now, we will just use the index position of the array to mock the behavior.
+
 Create a show route based on the array position:
 
 ```js
 // SHOW
 bookmarks.get("/:arrayIndex", (req, res) => {
-  res.json(bookmarksArray[req.params.arrayIndex]);
+  const { arrayIndex } = req.params;
+  res.json(bookmarksArray[arrayIndex]);
 });
 ```
 
-Error Handling:
+**Error Handling:** A large part of making a good application is handling errors and giving users feedback so they can use the app with confidence and ease. We'll demonstrate some simple error handling. In the interest of time we won't cover all the ways to handle errors, but as you work on your projects, you should continue to spend time improving error handling.
 
 ```js
 // SHOW
 bookmarks.get("/:arrayIndex", (req, res) => {
-  if (bookmarkArray[req.params.arrayIndex]) {
-    res.json(bookmarksArray[req.params.arrayIndex]);
+  const { arrayIndex } = req.params;
+  if (bookmarkArray[arrayIndex]) {
+    res.json(bookmarksArray[arrayIndex]);
   } else {
     res.redirect("/404");
   }
@@ -132,9 +136,9 @@ Let's make a get request back to our index:
 
 Uh oh! Rather than putting in our data, we ended up getting a property of null.
 
-The body of the request can come in as a number of formats such as JSON, url-encoded, binary etc. formats. We need to write code that will `parse` thd incoming request body and give us the data we are trying to get. Typically, our data will be collected from a form.
+The body of the request can come in as a number of formats such as JSON, url-encoded, binary etc. formats. We need to write code that will `parse` the incoming request body and give us the data we are trying to get. Typically, our data will be collected from a form.
 
-If we are using a traditional HTML form, it is likely the request will come in as url-encoded. But if we are using a front-end like React, we will be sending our data as JSON.
+If we are using a traditional HTML form, it is likely the request will come in as url-encoded. But if we are using a front-end app like React, we will likely be sending our data as JSON.
 
 We could write the logic to take the incoming data and parse it. But since it is such a common problem, express already has a way to parse the code for us. We just need to configure it properly.
 
@@ -159,7 +163,7 @@ We should also be able to see this change in our browser. Let's visit http://loc
 
 ## Middleware in more depth
 
-Middleware is code that 'runs in the middle' of a request and response. We have a third parameter called `next`. Next is a function that will allow the app to know when it is time to move to the next callback.
+Middleware is code that "runs in the middle" of a request and response. We have a third parameter called `next`. Next is a function that will allow the app to know when it is time to move to the next callback.
 
 It can be set up to run for every route:
 
@@ -174,30 +178,36 @@ app.use((req, res, next) => {
 
 Check terminal to see this `console.log` - it should run every time you make a browser request.
 
-Or you can add it to certain routes only
+Or you can add middleware to certain routes only
 
-**controller/bookmarksController.js** above bookmarks routes
+**controllers/bookmarksController.js**
 
 ```js
-const validateUrl = (req, res, next) => {
-    const http = "http://";
-    const https = "https://";
-    var fullUrl = req.protocol + '://' + req.get('host') + req.url;
-    console.log(`[development] Request URL: ${fullUrl}`);
-    if (
-        fullUrl.substring(0, 7) === http ||
-        fullUrl.substring(0, 8) === https
-    ) {
-        return next();
-    } else {
-        res
-        .status(400)
-        .send(`Oops, you forgot to start your url with http:// or https://`);
-    }
-    };
-
-bookmarks.use(validateUrl);
+const validateURL = (req, res, next) => {
+  if (
+    req.body.url.substring(0, 7) === "http://" ||
+    req.body.url.substring(0, 8) === "https://"
+  ) {
+    return next();
+  } else {
+    res
+      .status(400)
+      .send(`Oops, you forgot to start your url with http:// or https://`);
+  }
+};
 ```
+
+Add this function to `CREATE`
+
+```js
+// CREATE
+bookmarks.post("/", validateURL, (req, res) => {
+  bookmarksArray.push(req.body);
+  res.json(bookmarkArray[bookmarkArray.length - 1]);
+});
+```
+
+### Bonus 1 - Using A Regular Expression To Check for http/https:
 
 <details><summary>Another way to test for http or https</summary>
 
@@ -212,13 +222,3 @@ req.body.url.match(/https?:\/\//);
 [learn more about regular expressions](https://regexone.com/)
 
 </details>
-
-Add this function to `CREATE`
-
-```js
-// CREATE
-bookmarks.post("/", validateURL, (req, res) => {
-  bookmarksArray.push(req.body);
-  res.json(bookmarkArray[bookmarkArray.length - 1]);
-});
-```
