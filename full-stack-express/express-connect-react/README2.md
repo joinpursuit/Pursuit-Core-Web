@@ -1,5 +1,13 @@
 # Express Connect React
 
+## Learning Outcomes
+
+- Complete the remaining RESTful Routes
+  - Show
+  - New
+  - Edit
+  - Delete
+
 ## Continue
 
 So far, we have added functionality to our React app to complete requests and get responses for Index.
@@ -39,7 +47,9 @@ import { apiURL } from "../util/apiURL";
 const API = apiURL();
 ```
 
-Our function for show will be very similar. However, we'll add an error message in case the particular bookmark cannot be found:
+We are also using `useParams` from react-router-dom. This will allow us to use the url parameters (index position of the array)
+
+Our function for show will be very similar. However, we'll add an error message in case the particular bookmark cannot be found. We'll got to `/not-found` which is an invalid index position, which will trigger the 404 route. It still could use even better UI/UX, but this will do for our small build. As a challenge during lab you can work on making this an even nicer experience.
 
 Remember, the structure of the `.then()` function is that it takes two arguments, both callbacks. The first argument is what happens when the promise is successfully resolved (successful API call). The second is when the promise is rejected (unsuccessful API call) . The second callback is optional, but can be very helpful for debugging.
 
@@ -58,6 +68,26 @@ Additionally, if the function only has one line of code, the curly braces can be
 However, this style is very limiting, we can't add any extra lines of code. Se we'll write out the request in a a longer format that is easier to maintain.
 
 **src/Components/BookmarkDetails.js**
+
+Add a function to update bookmark
+
+```js
+const [bookmark, setBookmark] = useState([]);
+```
+
+Add useHistory so we can use the browser's [history api](https://v5.reactrouter.com/web/api/history)
+
+```js
+import { Link, useParams, withRouter, useHistory } from "react-router-dom";
+```
+
+Inside the `BookmarkDetails` function
+
+```js
+let history = useHistory();
+```
+
+Let's fetch one bookmark based on the index position. If the index position is invalid or not found, it will trigger the error callback, in which case, we will send the users to the 404 page.
 
 ```js
 useEffect(() => {
@@ -84,7 +114,13 @@ useEffect(() => {
 
 <br />
 
-Remember, we want to be able to update the list of bookmarks. That means we have to put state all the way up in the shared component of the bookmark form and the list of bookmarks, which is App.js
+When we think of our users, they want to create a bookmark and then want to see some sort of success that their bookmark has been created. So the flow will be:
+
+- A user fills out the create form
+- Presses the submit button
+- Submit sends a post request to the express API
+- Upon successful request, we'll redirect the user back to the index view, where they will see their bookmark added as the last item
+- If there is an error, there will be a message in the console (again, during lab time, you can build a component/use conditional rendering to provide a better user experience, we won't do this in the interest of time)
 
 **src/BookmarkNewForm.js**
 
@@ -101,30 +137,6 @@ const addBookmark = (newBookmark) => {
     .catch((c) => console.warn("catch", c));
 };
 ```
-
-<details><summary>Index page being buggy?</summary>
-
-You may notice that after submitting a new bookmark, the index page does NOT have the new bookmark- sometimes.
-
-If it is only happening sometimes then there is an asynchronous issue some code is executing sooner than expected.
-
-In this case, it may be in the bookmarks api.
-
-What is happening is that the res.json function is being called before `bookmarks.push()` has completed, thus sending out the old array.
-
-We need to await the completion of `bookmarks.push()` in order to be sure we are responding with the right json.
-
-**controllers/bookmarksController.js**
-
-```js
-// CREATE
-bookmarks.post("/", async (req, res) => {
-  const updatedArray = await bookmarkArray.push(req.body);
-  res.json(updatedArray[updatedArray.length - 1]);
-});
-```
-
-</details>
 
 <br>
 
@@ -149,10 +161,9 @@ const API = apiURL();
 ```js
 useEffect(() => {
   axios.get(`${API}/bookmarks/${index}`).then(
-    (response) =>
-      setBookmark(() => {
-        return response.data;
-      }),
+    (response) => {
+      setBookmark(response.data);
+    },
     (error) => history.push(`/not-found`)
   );
 }, [index, history]);
@@ -166,14 +177,12 @@ Now, your form should be pre-loaded with the bookmark data.
 
 </details>
 
-Let's add the edit functionality in App.js so our app can properly update
-
-**src/App.js**
+Let's add the functionality to set a PUT request and update our API. Then we'll have the user return to the show page of the item they updated.
 
 ```js
-const updateBookmark = (updatedBookmark, index) => {
+const updateBookmark = () => {
   axios
-    .put(`${API}/bookmarks/${index}`, updatedBookmark)
+    .put(`${API}/bookmarks/${index}`, bookmark)
     .then(
       (response) => {
         setBookmark(response.data);
@@ -204,3 +213,7 @@ const handleDelete = () => {
     .catch((c) => console.warn("catch", c));
 };
 ```
+
+## Summary
+
+We have now created a full CRUD full-stack application, using an express backend and a create-react-app front end. We utilized all 7 RESTful routes.
