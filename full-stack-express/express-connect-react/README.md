@@ -1,12 +1,21 @@
 # Express Connect React
 
+## Learning Outcomes
+
+- Be able to connect a create-react-app to an express backend
+- Be able to describe all 7 RESTful Routes
+- Be able to set a base URL, that can be easily updated, depending on environment
+- Be able to describe why an easily updated URL is useful
+- Be able to view an index route with data from the express API
+- Be able to describe what is CORS and why the default is to block cross-origin requests
+
 ## Intro
 
 By now we have a nicely working back-end with full CRUD using express. Unfortunately, it isn't the best user experience for non-developers. We need to build a front-end.
 
 ## The Seven RESTful Routes
 
-The seven RESTful routes are often the classic example of a RESTful pattern. Every `GET` request must have a view. We have some new views we must make for our users. For example: Users must be able to see a form in order to make a new bookmark/access the `update` route.
+The seven RESTful routes are often the classic example of a RESTful pattern. Every `GET` request must have a view. Therefore, we have some new views we must make for our users. For example: Users must be able to see a form in order to make a new bookmark/access the `update` route.
 
 While this pattern is classic and we will follow it exactly for learning fundamentals, you will see many variations in the wild. These variations are to meet specific needs of functionality and/or to improve user experience.
 
@@ -28,15 +37,16 @@ The next four are ones that we will build in our front-end:
 | :-: | :----: | :-----------------: | :-------: | :------: | :------------------------------------: |
 |  1  | Index  |     /bookmarks      |    GET    | **R**ead | Get a list (or index) of all bookmarks |
 |  2  |  Show  |   /bookmarks/:id    |    GET    | **R**ead | Get an individual view (show one log)  |
-|  3  |  New   |   /bookmarks/new    |    GET    | **R**ead | Get a form to create a new bookmark    |
-|  4  |  Edit  | /bookmarks/:id/edit |    GET    | **R**ead | Get a form to update a bookmark        |
+|  3  |  New   |   /bookmarks/new    |    GET    | **R**ead |  Get a form to create a new bookmark   |
+|  4  |  Edit  | /bookmarks/:id/edit |    GET    | **R**ead |    Get a form to update a bookmark     |
 
 Which two are new and which ones have we built with express?
 
 ## Getting Started
 
 - Go to your bookmarks app and get it started with `nodemon`
-- Open a new tab in terminal, do not shut down your bookmarks app
+- Open a new tab in terminal <kbd>command</kbd> <kbd>t</kbd>, do not shut down your bookmarks app
+- Note: if you end up having a lot of extra data from testing, just restart your express API (restart nodemon)
 - Fork this [Starter code](https://github.com/joinpursuit/bookmarks-react-starter)
 - `git clone` the forked repository
 - `cd` to the directory where you cloned it
@@ -65,9 +75,11 @@ We can see that we have a view for our index page. But, we need to connect this 
 
 ### The Base URL
 
-Before we get started, we have to think about a problem we are going to have. If we hard code `http://localhost:3003` into our react app, when we change it to be hosted online, we would have to go in to our app and change every single instance of `http://localhost:3003`- further if we decide to host our app on another service, we would have to go in and change it again.
+Before we get started, we have to think about a problem we are going to have. If we hard code `http://localhost:3003` into our react app, when we change it to be hosted online, we would have to go in to our app and change every single instance of `http://localhost:3003`. Further, if we decide to host our app on another service, we would have to go in and change it again. If we are working on our app locally (usually described as a development environment) and having it available online (usually described as a production environment), we would spend a lot of time switching the URLS back and forth.
 
-So, the way we are going to solve this is by using a bit of JavaScript logic.
+We would rather have the right URL depending on our situation set and we would like to include it just in one place, so we only have to update it one place if it changes. The way we are going to solve this is by using a bit of JavaScript logic.
+
+There are a few ways to do this, and depending on the goals (amount of safety, other app features). As you build different apps, you may see different approaches.
 
 There is a new folder inside your `src` folder called `util` - it is short for utility, and it's going to be a simple function that is going to determine the base of our URL.
 
@@ -76,6 +88,8 @@ The function is going to check whether the browser window's location has a `host
 If true, the base url will go to `http://localhost:3003` (where our Bookmarks API is running)
 
 Else, connect it to some online hosted version of the API. When you build your own API and put it on the web, you'll get a different URL. The one listed is just a sample one that you can use as a reference when you are ready to deploy.
+
+**src/util/apiURL.js**
 
 ```js
 export const apiURL = () => {
@@ -87,12 +101,12 @@ export const apiURL = () => {
 
 Bring in this string in to
 
-**src/App.js**
+**src/Bookmarks.js**
 
 At the top:
 
 ```js
-import { apiURL } from "./util/apiURL";
+import { apiURL } from "../util/apiURL";
 
 // further down..., but still above `App` component
 const API = apiURL();
@@ -100,15 +114,21 @@ const API = apiURL();
 
 ### Adding Axios
 
-- open another tab in terminal so you can keep your react app running.
+- open another tab in terminal for your create-react-app so you can keep your react app running.
 - `npm install axios`
 
-**src/App.js**
+**src/Bookmarks.js**
 
 At the top :
 
 ```js
 import axios from "axios";
+```
+
+Inside the `Bookmarks` function, add `setBookmarks` so we can update the state when `bookmarks` changes.
+
+```js
+const [bookmarks, setBookmarks] = useState([]);
 ```
 
 ### Loading the Bookmarks Index on Page Load
@@ -117,13 +137,96 @@ With React, we sometimes have to think about _when_ things happen. For us, we wa
 
 If we made the API call first and the DOM was not fully loaded and state was updated first, we would risk not seeing our data, even though the API call was successful.
 
+Throughout the rest of this module, we'll be using React Hooks for state management, instead of react classes.
+
 React has a built-in function called `useEffect` that is going to control _when_ the functions inside are called.
 
 This is where we are going to add our initial API call in order to get all the bookmarks.
 
-The `useEffect` function is already in **app.js**, but it is empty. Let's add some code
+- Make a `get` request using axios. `then` when there is a `response`, do something. In our case, we want to update state using hooks by using the `setBookmarks` that was declared at the beginning of the `App` component. The state will be updated to be our array of bookmark objects.
 
-- Make a `get` request using axios. `Then` when there is a `response` do something. In our case, we want to update state using hooks by using the `setBookmarks` that was declared at the beginning of the `App` component. The state will be updated to be our array of bookmark objects.
+**BONUS:** Promises or async/await? Which one should we use? It is this author's preference to [Use what the docs recommend](https://axios-http.com/docs/api_intro), in this case, axios uses promises. You will likely find different style guides based on where you are employed. Also, best practices change over time. Learning and practicing the syntax of promises and async/await is as good idea.
+
+**src/Bookmarks.js** - before the `return` statement
+
+`useEffect` takes two arguments, the first is a callback, the second is an array. The callback takes in the code to execute, the array is the dependency array: this is where you store variables that `useEffect` should watch, when there are changes to these variables, the component should be rerendered.
+
+```js
+useEffect(() => {}, []);
+```
+
+Let's make a get request
+
+```js
+useEffect(() => {
+  axios.get(`${API}/bookmarks`);
+}, []);
+```
+
+Once the request is complete, `then`, what should happen?
+
+`.then()` takes two arguments. Both callback functions
+
+```js
+.then(()=> {}, ()=>{})
+```
+
+The first is executed when the promise is fulfilled (in our case, a successful response from the server).
+
+The second is executed if the promise is rejected (in our case some error with our fetch request)
+
+We can then add a final `.catch()` - this will be the final error handling of our fetch request. While we don't need error handling for our app to work, it is very helpful for debugging and also writing some code that would notify users that something has gone wrong.
+
+```js
+.then((response)=> {}, (error)=>{})
+.catch((error)=> {})
+```
+
+Let's put it together with `useEffect` and `axios`
+
+Try to build from the outside in, instead of left to right. Add the callback.
+
+```js
+useEffect(() => {
+  axios.get(`${API}/bookmarks`).then(() => {});
+}, []);
+```
+
+The thing we are waiting on is the response. The response has a lot of extra information, we only need the bookmarks data. Compare and contrast the info given in the two console logs:
+
+```js
+useEffect(() => {
+  axios.get(`${API}/bookmarks`).then((response) => {
+    console.log(response);
+    console.log(response.data);
+  });
+}, []);
+```
+
+We want to set the `bookmarks` in or component to be our response data
+
+```js
+useEffect(() => {
+  axios.get(`${API}/bookmarks`).then((response) => {
+    setBookmarks(response.data);
+  });
+}, []);
+```
+
+Add some error handling:
+
+```js
+useEffect(() => {
+  axios.get(`${API}/bookmarks`).then(
+    (response) => {
+      setBookmarks(response.data);
+    },
+    (error) => console.log("error:", error)
+  );
+}, []);
+```
+
+Add the final error handling:
 
 ```js
 useEffect(() => {
@@ -131,7 +234,7 @@ useEffect(() => {
     .get(`${API}/bookmarks`)
     .then(
       (response) => setBookmarks(response.data),
-      (error) => console.log("get", error)
+      (error) => console.log("error", error)
     )
     .catch((c) => console.warn("catch", c));
 }, []);
@@ -141,7 +244,7 @@ useEffect(() => {
 
 ![](./assets/cors-error.png)
 
-Our React app is making a request from a different origin than where our API is running. This is a great security feature!
+Our React app is making a request from a different origin than where our API is running. This is a great security feature! By default, requests coming from other origins are not allowed.
 
 However, we want to allow our React app to make requests to our API.
 
@@ -177,3 +280,37 @@ This will allow ANY app to make requests to your API. Since we are just building
 </details>
 
 <br />
+
+### One More Thing
+
+Our app is going to show more data than what we have in our mock database.
+
+In our express app let's update to these values:
+
+**models/bookmarksArray.js**
+
+```js
+module.exports = [
+  {
+    name: "MDN",
+    url: "https://developer.mozilla.org/en-US/",
+    isFavorite: true,
+    category: "educational",
+    description: "",
+  },
+  {
+    name: "Apartment Therapy",
+    url: "https://www.apartmenttherapy.com",
+    isFavorite: true,
+    category: "inspirational",
+    description: "",
+  },
+  {
+    name: "DMV",
+    url: "https://dmv.ny.gov",
+    isFavorite: false,
+    category: "adulting",
+    description: "",
+  },
+];
+```
