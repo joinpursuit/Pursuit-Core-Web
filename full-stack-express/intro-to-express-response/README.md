@@ -203,7 +203,7 @@ node app.js
 
 This time, you'll notice that the terminal app now just hangs. The cursor will be in place and you won't get a new line prompt.
 
-This means our express app is running and listening for requests on port 3000.
+This means our express app is running and listening for requests on port 3003.
 
 To cancel it, we have to press <kbd>control</kbd> <kbd>c</kbd>
 
