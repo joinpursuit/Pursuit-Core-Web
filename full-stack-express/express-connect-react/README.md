@@ -51,9 +51,19 @@ Which two are new and which ones have we built with express?
 - `git clone` the forked repository
 - `cd` to the directory where you cloned it
 - `npm install` to install dependencies that are already included in the `package.json`
+- `touch .env`
+
+**.env** (Details below)
+
+```
+REACT_APP_API_URL=http://localhost:3003
+```
+
+(or whatever port your bookmarks api is on)
+
 - `npm start`
 
-## Landing Page/Index
+### Landing Page/Index
 
 <details><summary>Landing Page</summary>
 
@@ -69,7 +79,14 @@ Let's click on `Bookmarks` in the navigation to go to `/bookmarks`
 
 </details>
 
-We can see that we have a view for our index page. But, we need to connect this app to our back-end. We can do so using `axios` much like we did when we were using third party APIs.
+We can see that we have a view for our index page. But, we need to connect this app to our back-end.
+
+We can also go to:
+
+- http://localhost:3000/bookmarks/1 to see an empty show page
+- http://localhost:3000/bookmarks/1/edit to see an empty edit page
+
+We can do so using `axios` much like we did when we were using third party APIs.
 
 ## Setting Up the App to Make Requests
 
@@ -77,47 +94,43 @@ We can see that we have a view for our index page. But, we need to connect this 
 
 Before we get started, we have to think about a problem we are going to have. If we hard code `http://localhost:3003` into our react app, when we change it to be hosted online, we would have to go in to our app and change every single instance of `http://localhost:3003`. Further, if we decide to host our app on another service, we would have to go in and change it again. If we are working on our app locally (usually described as a development environment) and having it available online (usually described as a production environment), we would spend a lot of time switching the URLS back and forth.
 
-We would rather have the right URL depending on our situation set and we would like to include it just in one place, so we only have to update it one place if it changes. The way we are going to solve this is by using a bit of JavaScript logic.
+We would rather have the right URL depending on our situation set and we would like to include it just in one place, so we only have to update it one place if it changes.
 
 There are a few ways to do this, and depending on the goals (amount of safety, other app features). As you build different apps, you may see different approaches.
 
-There is a new folder inside your `src` folder called `util` - it is short for utility, and it's going to be a simple function that is going to determine the base of our URL.
+We are going to use create-react-app's way of setting up these variables.
 
-The function is going to check whether the browser window's location has a `hostname` of `localhost`
+- Create a `.env` on the same level as `package.json`
+- Start all variable names with `REACT_APP_`
+  - `REACT_APP_API_URL` or `REACT_APP_MY_VAR` are acceptable names
+  - `React_App_My_Var` is NOT going to work
 
-If true, the base url will go to `http://localhost:3003` (where our Bookmarks API is running)
+We should have done this as part of our set up, earlier.
 
-Else, connect it to some online hosted version of the API. When you build your own API and put it on the web, you'll get a different URL. The one listed is just a sample one that you can use as a reference when you are ready to deploy.
-
-**src/util/apiURL.js**
-
-```js
-export const apiURL = () => {
-  return window.location.hostname === "localhost"
-    ? "http://localhost:3003"
-    : "https://sheltered-island-89188.herokuapp.com";
-};
-```
-
-Bring in this string in to
-
-**src/Bookmarks.js**
+**src/Components/Bookmarks.js**
 
 At the top:
 
 ```js
-import { apiURL } from "../util/apiURL";
-
-// further down..., but still above `App` component
-const API = apiURL();
+const API = process.env.REACT_APP_API_URL;
 ```
+
+Confirm it is working
+
+```js
+console.log(API);
+```
+
+Remove this console log, once you have confirmed the value.
+
+## Getting Data from the API
 
 ### Adding Axios
 
 - open another tab in terminal for your create-react-app so you can keep your react app running.
 - `npm install axios`
 
-**src/Bookmarks.js**
+**src/Components/Bookmarks.js**
 
 At the top :
 
@@ -147,7 +160,9 @@ This is where we are going to add our initial API call in order to get all the b
 
 **BONUS:** Promises or async/await? Which one should we use? It is this author's preference to [Use what the docs recommend](https://axios-http.com/docs/api_intro), in this case, axios uses promises. You will likely find different style guides based on where you are employed. Also, best practices change over time. Learning and practicing the syntax of promises and async/await is as good idea.
 
-**src/Bookmarks.js** - before the `return` statement
+**src/Components/Bookmarks.js**
+
+Note: Make sure this code is before the `return` statement
 
 `useEffect` takes two arguments, the first is a callback, the second is an array. The callback takes in the code to execute, the array is the dependency array: this is where you store variables that `useEffect` should watch, when there are changes to these variables, the component should be rerendered.
 
@@ -179,12 +194,16 @@ Once the request is complete, `then`, what should happen?
 
 The first is executed when the promise is fulfilled (in our case, a successful response from the server).
 
-The second is executed if the promise is rejected (in our case some error with our fetch request)
+The second is executed if the promise is rejected (in our case some error with our fetch request).
 
-We can then add a final `.catch()` - this will be the final error handling of our fetch request. While we don't need error handling for our app to work, it is very helpful for debugging and also writing some code that would notify users that something has gone wrong.
+We can, instead, add a `.catch()` - this will be the final error handling of our fetch request.
+
+**BONUS** [Take the time to compare and contrast](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+
+While we don't need error handling for our app to work, it is very helpful for debugging and also writing some code that would notify users that something has gone wrong.
 
 ```js
-.then((response)=> {}, (error)=>{})
+.then((response)=> {})
 .catch((error)=> {})
 ```
 
@@ -219,30 +238,14 @@ useEffect(() => {
 }, []);
 ```
 
-Add some error handling:
-
-```js
-useEffect(() => {
-  axios.get(`${API}/bookmarks`).then(
-    (response) => {
-      setBookmarks(response.data);
-    },
-    (error) => console.log("error:", error)
-  );
-}, []);
-```
-
-Add the final error handling:
+Add error handling:
 
 ```js
 useEffect(() => {
   axios
     .get(`${API}/bookmarks`)
-    .then(
-      (response) => setBookmarks(response.data),
-      (error) => console.log("error", error)
-    )
-    .catch((c) => console.warn("catch", c));
+    .then((response) => setBookmarks(response.data))
+    .catch((e) => console.error("catch", e));
 }, []);
 ```
 
