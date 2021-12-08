@@ -77,7 +77,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 ## Additional Resources
 
-- [Algorithm Challenges/Code Wars](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/full_stack_express/algorithm-challenges)
+- [Algorithm Challenges/Code Wars](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/full-stack-express/algorithm-challenges)
 - [Bonus/Misc Lessons/Activities](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/advanced_or_misc/bonus_module_4)
 
 - [Former Module 4 Content Pre 7.0 class](../node/)
