@@ -42,64 +42,100 @@ import axios from "axios";
 ```
 
 ```js
-import { apiURL } from "../util/apiURL";
-
-const API = apiURL();
+const API = process.env.REACT_APP_API_URL;
 ```
 
-We are also using `useParams` from react-router-dom. This will allow us to use the url parameters (index position of the array)
+We are also using `useParams` from react-router-dom. This will allow us to use the url parameters (in our app, this will be the index position of the array)
 
 Our function for show will be very similar. However, we'll add an error message in case the particular bookmark cannot be found. We'll got to `/not-found` which is an invalid index position, which will trigger the 404 route. It still could use even better UI/UX, but this will do for our small build. As a challenge during lab you can work on making this an even nicer experience.
 
-Remember, the structure of the `.then()` function is that it takes two arguments, both callbacks. The first argument is what happens when the promise is successfully resolved (successful API call). The second is when the promise is rejected (unsuccessful API call) . The second callback is optional, but can be very helpful for debugging.
+Remember, the structure of the `.then()` function takes a callback.
 
-This code is typically split across several lines it can be hard to read. Here is the basic structure:
+First, it starts with a promise. The axios library functions `get`, `post`, `put`, `delete` (etc) are all functions that return promises.
+
+A promise is a function that allows you to _WAIT_ for a response and _THEN_ do something. The .`then()` function takes a callback, within that callback you can write code that should run AFTER the first function has been fulfilled (usually by returning a value).
+
+If you pass an argument into `.then()`, it is the return value from the previous function.
+
+Sometimes, things go wrong (for example, your server is not running), in that case, we add a `.catch()` function which will deal with errors that may occur.
 
 ```js
-.then(()=>{}, ()=>{})
+.then(()=>{})
 ```
 
 Additionally, if the function only has one line of code, the curly braces can be skipped and the code can be shortened to:
 
 ```js
-.then(response => response.data, error => error )
+.then(response => response.data)
 ```
 
-However, this style is very limiting, we can't add any extra lines of code. Se we'll write out the request in a a longer format that is easier to maintain.
+However, this style is very limiting, we can't add any extra lines of code easily. Se we'll write out the request in a a longer format that is easier to maintain.
+
+### Hooks vs React Stateful Class Components
+
+If you've worked with array classes you would write
+
+```js
+this.state = {
+  bookmarks: []
+}
+
+updateBookmarks () {
+  this.setState({bookmarks: ['this array is updated']})
+}
+```
+
+With hooks, it does the same thing, but in a cleaner, more readable way.
+
+```js
+const [bookmark, setBookmark] = useState([]);
+//... later in the code
+setBookmark(["this array is updated"]);
+```
+
+### Add a Way to Update State
 
 **src/Components/BookmarkDetails.js**
 
-Add a function to update bookmark
+Inside the `BookmarkDetails` function, update the line of code to be:
 
 ```js
 const [bookmark, setBookmark] = useState([]);
 ```
 
-Add useHistory so we can use the browser's [history api](https://v5.reactrouter.com/web/api/history)
-
-```js
-import { Link, useParams, withRouter, useHistory } from "react-router-dom";
-```
-
-Inside the `BookmarkDetails` function
-
-```js
-let history = useHistory();
-```
+Add useNavigate so we can use the browser's [useNavigate api](https://reactrouter.com/docs/en/v6/api#navigation)
 
 Let's fetch one bookmark based on the index position. If the index position is invalid or not found, it will trigger the error callback, in which case, we will send the users to the 404 page.
 
 ```js
 useEffect(() => {
-  axios.get(`${API}/bookmarks/${index}`).then(
-    (response) => {
+  axios.get(`${API}/bookmarks/${index}`).then((response) => {
+    setBookmark(response.data);
+  });
+}, [index]);
+```
+
+```js
+import { Link, useParams, withRouter, useNavigate } from "react-router-dom";
+```
+
+Inside the `BookmarkDetails` function
+
+```js
+let navigate = useNavigate();
+```
+
+```js
+useEffect(() => {
+  axios
+    .get(`${API}/bookmarks/${index}`)
+    .then((response) => {
       setBookmark(response.data);
-    },
-    (error) => {
-      history.push(`/not-found`);
-    }
-  );
-}, [index, history]);
+    })
+    .catch(() => {
+      navigate("/not-found");
+    });
+}, [index, navigate]);
 ```
 
 <details><summary>Show Page Loaded</summary>
@@ -110,7 +146,7 @@ useEffect(() => {
 
 <br />
 
-### Using the Create Form to Create a new Bookmark
+## Using the Create Form to Create a new Bookmark
 
 <br />
 
@@ -124,6 +160,26 @@ When we think of our users, they want to create a bookmark and then want to see 
 
 **src/BookmarkNewForm.js**
 
+Add axios for fetch request
+
+```js
+import axios from "axios";
+```
+
+Add the URL for the API
+
+```js
+const API = process.env.REACT_APP_API_URL;
+```
+
+Add `useNavigate` so that when a new bookmark is created it navigates back to the index page
+
+```js
+import { useNavigate } from "react-router-dom";
+```
+
+Put it all together
+
 ```js
 const addBookmark = (newBookmark) => {
   axios
@@ -131,10 +187,8 @@ const addBookmark = (newBookmark) => {
     .then(
       () => {
         history.push(`/bookmarks`);
-      },
-      (error) => console.error(error)
-    )
-    .catch((c) => console.warn("catch", c));
+      }
+    .catch((c) => console.error("catch", c));
 };
 ```
 
@@ -150,23 +204,22 @@ At the top:
 
 ```js
 import axios from "axios";
-```
+import { useParams, Link, useNavigate } from "react-router-dom";
+const API = process.env.REACT_APP_API_URL;
 
-```js
-import { apiURL } from "../util/apiURL";
-
-const API = apiURL();
+// inside BookmarkEditForm function
+const navigate = useNavigate();
 ```
 
 ```js
 useEffect(() => {
-  axios.get(`${API}/bookmarks/${index}`).then(
-    (response) => {
+  axios
+    .get(`${API}/bookmarks/${index}`)
+    .then((response) => {
       setBookmark(response.data);
-    },
-    (error) => history.push(`/not-found`)
-  );
-}, [index, history]);
+    })
+    .catch((e) => console.error(e));
+}, [index]);
 ```
 
 Now, your form should be pre-loaded with the bookmark data.
@@ -183,20 +236,26 @@ Let's add the functionality to set a PUT request and update our API. Then we'll 
 const updateBookmark = () => {
   axios
     .put(`${API}/bookmarks/${index}`, bookmark)
-    .then(
-      (response) => {
-        setBookmark(response.data);
-        history.push(`/bookmarks/${index}`);
-      },
-      (error) => console.error(error)
-    )
+    .then((response) => {
+      setBookmark(response.data);
+      navigate(`/bookmarks/${index}`);
+    })
     .catch((c) => console.warn("catch", c));
+};
+```
+
+Call updateBookmark inside `handleSubmit`
+
+```js
+const handleSubmit = (event) => {
+  event.preventDefault();
+  updateBookmark();
 };
 ```
 
 ## Adding Delete Functionality
 
-For delete, we can just add a form on the show page. No separate page is needed.
+For delete, we can just add the functionality on the show page. No separate page is needed.
 
 **src/Components/BookmarkDetails.js**
 
@@ -204,13 +263,10 @@ For delete, we can just add a form on the show page. No separate page is needed.
 const handleDelete = () => {
   axios
     .delete(`${API}/bookmarks/${index}`)
-    .then(
-      () => {
-        history.push(`/bookmarks`);
-      },
-      (error) => console.error(error)
-    )
-    .catch((c) => console.warn("catch", c));
+    .then(() => {
+      navigate(`/bookmarks`);
+    })
+    .catch((e) => console.error(e));
 };
 ```
 
