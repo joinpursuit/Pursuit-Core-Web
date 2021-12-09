@@ -2,8 +2,8 @@
 
 ## Lesson Objectives
 
-- Define databases and their role in a Full Stack App
-- Introduction to Postgresql
+- Define databases and their role in a full stack app
+- Introduction to PostgreSQL
 - Set up and drop (delete) a (sub) database
 - Create table, set columns and drop the table
   - **C**reate a row and put it into the table (insert data)
@@ -22,13 +22,13 @@ For our CRUD apps, so far, we've been hard coding some data to get started with.
 
 We need a way to make our data persist, so that if the database is restarted or shut down we will still have the data. To do this, we'll use a database in order to store and access our data.
 
-There are many databases. A common type is a relational database, which stores data in tables and rows, much like an excel or google spreadsheet. The way we will interact with these databases is using a coding language called SQL (Structured Query Language). There are a few popular like mySQL, Oracle, SQL Server, SQLite and Postgresql.
+There are many databases. A common type is a relational database, which stores data in tables and rows, much like an excel or google spreadsheet. The way we will interact with these databases is using a coding language called SQL (Structured Query Language). There are a few popular like mySQL, Oracle, SQL Server, SQLite and PostgreSQL.
 
 While a google sheet can hold hundreds or thousands of records, it isn't meant to hold millions or billions of records (think about a database that contains all the users of FaceBook). Additionally, we can relate different tables (sheets) which allows us to do very powerful things with data. We'll get to see this in action in the next lesson.
 
-We'll be working with Postgres, which is an open source RDBMS (relational database management system) created at the University of California Berkeley. It started being built in 1982.
+We'll be working with PostgreSQL (a successor to a database called `ingres`), which is an open source RDBMS (relational database management system) created at the University of California Berkeley. It started being built in 1982.
 
-The [Skeuomorphic Representation of a database is](https://en.wikipedia.org/wiki/Skeuomorph) is a stack of disks:
+The [skeuomorphic representation of a database](https://en.wikipedia.org/wiki/Skeuomorph) is a stack of disks:
 
 ![](./assets/noun_database_2262303.png)
 
@@ -38,7 +38,7 @@ It is [ACID-compliant](<https://en.wikipedia.org/wiki/ACID_(computer_science)>) 
 
 ## Getting Started
 
-You should have already downloaded Postgres at the start of this course. [Pursuit Core Environment Set Up](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md#postgresql)
+You should have already downloaded PostgreSQL at the start of this course. [Pursuit Core Environment Set Up](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/fundamentals/local_environment/README.md#postgresql)
 
 It should already be running and you should see an icon of an elephant in your Mac's bar
 
@@ -48,11 +48,11 @@ If you don't see it, but you've installed it use `spotlight` <kbd>command</kbd> 
 
 ![](./assets/spotlight-postgres.png)
 
-You can configure Postgres to always load on startup and stop/start your server from the icon
+You can configure PostgreSQL to always load on startup and stop/start your server from the icon
 
 ![](./assets/postgres-icon-details.png)
 
-Today, we're going to use the Postgres shell in terminal. To launch it, go _anywhere_ in Terminal and type
+Today, we're going to use the PostgreSQL shell in terminal. To launch it, go _anywhere_ in Terminal and type
 
 - `psql`
 
@@ -96,7 +96,7 @@ You'll see a colon that will let you know there is more data, which you can use 
 
 ## Create a Database
 
-Postgres is a Database. When you run the application, you can create `sub-databases` that allow you to work on different projects. For example, you may have one for your bookmarks app, one for your budgeting app and more. These sub-databases are most often referred to as `databases` and to create them you use the keyword `databases`.
+PostgreSQL is a Database. When you run the application, you can create `sub-databases` that allow you to work on different projects. For example, you may have one for your bookmarks app, one for your budgeting app and more. These sub-databases are most often referred to as `databases` and to create them you use the keyword `databases`.
 
 Let's create a database and then drop (delete) it. Then we'll create a new one, connect to it and use it for the rest of this lesson
 
@@ -121,7 +121,7 @@ CREATE DATABASE lesson_db;
 
 As we've been using express and creating our data in the form of arrays inside of objects, we could play it fast and loose with datatypes. We could enter `4` as `4` (a number) or `'4'` - a string. JavaScript didn't care.
 
-Postgres is more strict and expects the correct data types in the columns we will create. here are some of the most common ones
+PostgreSQL is more strict and expects the correct data types in the columns we will create. here are some of the most common ones
 
 1. int - whole number
 1. decimal - float/decimal
@@ -160,7 +160,7 @@ CREATE TABLE
 \d houses;
 ```
 
-Additionally, we are adding an `id` - an id is useful field. All of our data is subject to change, the hotel name can change, there can be a typo that needs fixing. An id is an unique identifier for each row. The key word [serial](https://www.postgresql.org/docs/9.2/datatype-numeric.html) provides us this functionality without us needed to add it every time we create a new row of data.
+Additionally, we are adding an `id` - an id is a useful field. All of our data is subject to change, the hotel name can change, there can be a typo that needs fixing. An id is an unique identifier for each row. The key word [serial](https://www.postgresql.org/docs/9.2/datatype-numeric.html) provides us this functionality of increasing the id number automatically.
 
 ![](./assets/create-and-see-table.png)
 
@@ -168,7 +168,7 @@ Additionally, we are adding an `id` - an id is useful field. All of our data is 
 
 You can make changes to the table you've created.
 
-**IMPORTANT:** You cannot roll back changes or undo deletes with a Postgres database. When working in production, be sure to have back up systems in place.
+**IMPORTANT:** You cannot roll back changes or undo deletes with a PostgreSQL database. When working in production, be sure to have back up systems in place.
 
 ```sql
 -- add an test string column
@@ -192,7 +192,7 @@ See columns in the houses table again
 
 ## Insert Into The Table
 
-You don't have to remember the order of the columns you created, but you have to match the order
+You don't have to remember the order of the columns you created, but you have to match the order when inserting:
 
 ```SQL
 INSERT INTO
@@ -207,9 +207,7 @@ VALUES
 INSERT 0 1
 ```
 
-in your terminal
-
-We can see our data by doing a query. The `*` means show all the columns.
+We can see our data by doing a query. The `*` (star) means show all the columns.
 
 ```SQL
 SELECT * FROM houses;
@@ -232,7 +230,7 @@ SELECT * FROM houses;
 
 again to see the new entry.
 
-Let's add some more houses:
+Let's add some more houses (copy paste from the notes into your terminal):
 
 ```SQL
 INSERT INTO
@@ -328,7 +326,7 @@ DELETE FROM houses WHERE id = 1;
 DELETE FROM houses WHERE pool = false RETURNING address, state;
 ```
 
-## Quit Postgres Shell
+## Quit PostgreSQL Shell
 
 To quit `psql` type `\q`
 

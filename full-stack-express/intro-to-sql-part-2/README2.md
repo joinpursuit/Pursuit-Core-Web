@@ -4,7 +4,7 @@
 
 Next up we can create tables with relationships of many to many. For example a guest can have (book) many hotel rooms and a hotel room can have (be booked by) many guests.
 
-Let's make some guests. We can imagine we'd have info like a first name, last name, credit card number, email, phone, etc. But to keep things simple, our guests will only have one column for their name and whether or not they are traveling with a pet.
+Let's make some guests. We can imagine we'd have info like a first name, last name, credit card number, email, phone, etc. But to keep things simple for this demonstration, our guests will only have one column for their name and whether or not they are traveling with a pet.
 
 ```sql
 CREATE TABLE guests (id SERIAL PRIMARY KEY, name TEXT, pet BOOLEAN);
@@ -87,8 +87,9 @@ ON
 ## Lab Time
 
 ### Part 1
- Finish Regifter, if you haven't
- 
+
+Finish Regifter, if you haven't
+
 ### Part 2
 
 Choose Your Own Learning
