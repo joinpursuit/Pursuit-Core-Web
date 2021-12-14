@@ -6,9 +6,9 @@
 
 ## Getting Started
 
-- get your express server running
-- make sure postgres is running
-- in the browser go to the index route and check that it works
+- Get your express server running
+- Make sure postgres is running
+- In the browse,r go to the index route and check that it works
 
 ## Show
 
@@ -18,7 +18,7 @@ For example, looking at the data we inserted `Apartment Therapy` should have an 
 
 ![](./assets/id-not-array-index.png)
 
-If we were to access it by array position it would be at array position `1`. We did this earlier for simplicity. However, there is never a guarantee that an item will be in a certain order/array position and it can change. So using the `id`, now that we have a database is critical.
+If we were to access it by array position it would be at array position `1`. We used array positions earlier for simplicity. However, there is never a guarantee that an item will be in a certain order/array position and it can change. So using the `id` now that we have a database is critical.
 
 **queries/bookmarks.js**
 
@@ -71,13 +71,17 @@ const getBookmark = async (id) => {
 ```
 
 You may also pass in arguments to your SQL query using an object with named keys like so:
+
 ```
 await db.one("SELECT * FROM bookmarks WHERE id=$[id]", {
       id: id,
     });
 ```
 
+Being aware of this alternate syntax can be useful as you look at other coding examples. When you work on a project, stick with one type of syntax for readability and maintainability.
+
 **controllers/bookmarkController.js**
+
 Import the function
 
 ```js
@@ -121,7 +125,7 @@ bookmarks.get("/:id", async (req, res) => {
 Create an async arrow function and be sure to include it in `module.exports`
 
 ```js
-const newBookmark = async (bookmark) => {
+const createBookmark = async (bookmark) => {
   try {
   } catch (err) {
     return err;
@@ -130,8 +134,8 @@ const newBookmark = async (bookmark) => {
 
 module.exports = {
   getAllBookmarks,
-  getBookmark,
-  newBookmark,
+  createBookmark,
+  createBookmark,
 };
 ```
 
@@ -147,12 +151,60 @@ We are passing two arguments to `db.one`, the first is the SQL query, where the 
 |    $2     |     url     |     `bookmark.url`     |      1      |
 |    $3     | is_favorite | `bookmark.is_favorite` |      2      |
 
+Set up our basic statement:
+
+```js
+// CREATE
+const createBookmark = async (bookmark) => {
+  try {
+  } catch (e) {
+    return e;
+  }
+};
+```
+
+Let's add a bit of error handling. This will inform our user that they forgot to enter a required field.
+
 ```js
 // CREATE
 const createBookmark = async (bookmark) => {
   try {
     if (!bookmark.name) {
-      throw 'You must specify a value for "name"';
+      return { error: 'You must specify a value for "name"' };
+    }
+  } catch (e) {
+    return e;
+  }
+};
+```
+
+Now let's add our query
+
+```js
+// CREATE
+const createBookmark = async (bookmark) => {
+  try {
+    if (!bookmark.name) {
+      return { error: 'You must specify a value for "name"' };
+    } else {
+      const newBookmark = await db.one(
+        "INSERT INTO bookmarks (name, url, is_favorite) VALUES($1, $2, $3) RETURNING *",
+        [bookmark.name, bookmark.url, bookmark.is_favorite]
+      );
+      return newBookmark;
+    }
+  } catch (e) {
+    return e;
+  }
+};
+```
+
+```js
+// CREATE
+const createBookmark = async (bookmark) => {
+  try {
+    if (!bookmark.name) {
+      return { error: 'You must specify a value for "name"' };
     }
     const newBookmark = await db.one(
       "INSERT INTO bookmarks (name, url, is_favorite) VALUES($1, $2, $3) RETURNING *",
@@ -172,11 +224,23 @@ Import the function
 const {
   getAllBookmarks,
   getBookmark,
-  newBookmark,
+  createBookmark,
 } = require("../queries/bookmarks");
 ```
 
 Create the show route and test it with Postman
+
+```js
+// CREATE
+bookmarks.post("/", async (req, res) => {
+  try {
+    const bookmark = await createBookmark(req.body);
+    res.json(bookmark);
+  } catch (e) {
+    res.status(400).json({ error: e });
+  }
+});
+```
 
 Example Bookmark:
 
@@ -190,29 +254,10 @@ Example Bookmark:
 
 Remember to have:
 
-- route POST /bookmarks
-- `body` `raw` `JSON`
+- Route `POST` `/bookmarks`
+- Select: `body`, `raw`, `JSON` from the options
 
 ![](./assets/postman-create.png)
-
-Now add the database call:
-
-```js
-// CREATE
-bookmarks.post("/", async (req, res) => {
-  try {
-    const bookmark = await createBookmark(req.body);
-    if (bookmark["id"]) {
-      res.json(bookmark);
-    } else {
-      console.log(`Database error: ${bookmark}`);
-      throw `Error adding ${req.body} to the database.`;
-    }
-  } catch (e) {
-    res.status(404).json({ error: e });
-  }
-});
-```
 
 ## Lab time!
 

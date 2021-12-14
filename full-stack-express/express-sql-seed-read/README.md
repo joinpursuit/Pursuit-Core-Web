@@ -6,14 +6,18 @@
 
 Earlier in this module, we built two apps: Bookmarks back-end and bookmarks front-end.
 
-We're going to rebuild our Bookmarks API in order to review express and learn how to add a database in with simplicity.
+We're going to rebuild our Bookmarks API in order to review express and learn how to add a database in.
+
+Sometimes, rebuilding something can seem less exciting than trying something new. However, being able to compare and contrast the differences will help solidify what you have already learned and what parts are new.
 
 ## Getting Started
 
 - navigate to your Desktop or other convenient folder
 - `git status` to make sure you are not already in a `git` repository
-- `mkdir bookmarks-pg-api`
-- `cd bookmarks-pg-api`
+- `mkdir bookmarks`
+- `cd bookmarks`
+- `mkdir back-end`
+- `cd back-end`
 - `touch server.js`
 - `npm init -y` (this will automatically say yes to all the npm default settings - this is fine for tutorials, small test builds, etc.)
 - `touch .gitignore app.js .env`
@@ -24,6 +28,7 @@ We're going to rebuild our Bookmarks API in order to review express and learn ho
 ```
 node_modules
 .env
+.DS_Store
 ```
 
 **Review Questions:**
@@ -99,6 +104,8 @@ Test that your app works: http://localhost:3003
 
 ## Bookmarks Controller
 
+Use <kbd>command</kbd> <kbd>t</kbd> to open a new terminal tab so you can continue your work without having to shut your server down (please note that changes to configuration files do require a hard reset of your server).
+
 **Terminal**
 
 - `mkdir controllers`
@@ -135,6 +142,10 @@ app.get("*", (req, res) => {
   res.status(404).send("Page not found");
 });
 ```
+
+Now try: http://localhost:3000/bookmarks
+
+Why did we name our route `/bookmarks`? Is there a reason we name our route(s) this way?
 
 ## Setting up The Database
 
@@ -190,7 +201,7 @@ Run this command
 psql -U postgres -f db/schema.sql
 ```
 
-This says, run the app `psql` use the `U`ser `postgres` and run the `f`ile `db/schema`. 
+This says, run the app `psql` use the `U`ser `postgres` and run the `f`ile `db/schema`.
 
 **Success** should look something like this
 
@@ -320,16 +331,12 @@ module.exports = {};
 Next, we want to set up a `try/catch` block, so that if we have a problem, we can (likely) get a more informative error.
 
 ```js
-const db = require("../db/dbConfig.js");
-
 const getAllBookmarks = async () => {
   try {
   } catch (err) {
     return err;
   }
 };
-
-module.exports = {};
 ```
 
 Finally, let's add our query.
@@ -341,8 +348,6 @@ Finally, let's add our query.
 Be sure to export this function
 
 ```js
-const db = require("../db/dbConfig.js");
-
 const getAllBookmarks = async () => {
   try {
     const allBookmarks = await db.any("SELECT * FROM bookmarks");
@@ -374,7 +379,7 @@ module.exports = bookmarks;
 
 Let's create a new variable `allBookmarks` which will be an array of bookmark objects. Remember we have to `await` for the value to come back from the database.
 
-Then, we'll send it as json to the browser.
+Then, we'll send it as JSON to the browser.
 
 ```js
 const express = require("express");
