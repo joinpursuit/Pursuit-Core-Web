@@ -86,6 +86,20 @@ bookmarks.delete("/:indexArray", (req, res) => {
 
 You should see the updated bookmarks array without the item that was in array position 0
 
+Let's add some error handling
+
+```js
+// DELETE
+bookmarks.delete("/:indexArray", (req, res) => {
+  if (bookmarkArray[req.params.arrayIndex]) {
+    const deletedBookMark = bookmarkArray.splice(req.params.indexArray, 1);
+    res.status(200).json(deletedBookMark);
+  } else {
+    res.status(404).json({ error: "Not found" });
+  }
+});
+```
+
 ## Update
 
 | Action |      URL       | HTTP Verb |    CRUD    |    Description    |
@@ -99,6 +113,20 @@ We will take the array position of the item we want to update. We will set the v
 bookmarks.put("/:arrayIndex", (req, res) => {
   bookmarkArray[req.params.arrayIndex] = req.body;
   res.status(200).json(bookmarkArray[req.params.arrayIndex]);
+});
+```
+
+Let's also make sure that the user enters a valid URL again. Let's reuse the function we built earlier and add some error handling.
+
+```js
+// UPDATE
+bookmarks.put("/:arrayIndex", validateURL, async (req, res) => {
+  if (bookmarkArray[req.params.arrayIndex]) {
+    bookmarkArray[req.params.arrayIndex] = req.body;
+    res.status(200).json(bookmarkArray[req.params.arrayIndex]);
+  } else {
+    res.status(404).json({ error: "Not found" });
+  }
 });
 ```
 

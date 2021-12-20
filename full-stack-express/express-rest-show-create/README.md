@@ -4,19 +4,31 @@
 
 ## Intro
 
-So far, we've learn about the MVC pattern for organizing and maintaining our code. We're going to keep building our app.
+So far, we've learned a little about the MVC pattern for organizing and maintaining our code. We're going to keep building our app, with a very loose adaptation of this pattern.
+
+You may encounter other code libraries or frameworks like Ruby on Rails. Ruby on Rails follows a principle of convention over configuration - meaning if you follow the rules of RoR, things will work _automagically_. ExpressJS is about thinking about what your app needs and organizing it in a sensible way for what you have built. There is no one true way to organize an ExpressJS app, and you have to configure each step. Configuration gives you a lot more control of how to build your app.
+
+## RESTful Routes
 
 We are going to learn about RESTful routes - which is a pattern for naming our `routes` that will help us create an easy to use API.
 
-We'll also need to use `middleware` which is functionality that we want to apply to all our routes.
+We'll also need to use `middleware` which is functionality that we want to apply to either multiple or all our routes.
 
-Finally, we'll work on showing a view of a single bookmark and creating new one.
+Finally, we'll work on showing a view of a single bookmark and then creating new one.
 
 ### Organization of routes
 
-Imagine you are in charge of maintaining a website for a school. Your task is to create pages for all the cancellations/delays to to snow storms/inclement weather
+Imagine you are in charge of maintaining a website for a school. Your task is to create pages for all the cancellations/delays to to snow storms/inclement weather.
 
-How would you create the routes?
+**~5 Minute In-class activity**
+
+How would you create the routes? Here are some examples, think about the following details:
+
+- Are the routes stable, if the number of routes grow, is there a maintainable pattern to follow?
+- Are the routes organized in a way that make sense?
+- Are the routes as simple as possible?
+- Can you reorganize them in a (relatively) easy way?
+- Can both creators and users understand what is going on?
 
 - `/January-Events/20/2019/Snow`
 - `/Snowstorms/Cancellations/Tomorrow`
@@ -28,19 +40,19 @@ How would you continue to build out the routes if following events happened?
 - February 13, 2020 - half day
 - May 4, 2016 - windstorm/county power outage
 
-Taking a moment to think about it, we'll realize it's hard to organize. So challenging in fact, a computer scientist named Roy Fielding ended up doing his dissertation on [Architectural Styles and the Design of Network-based Software Architectures](https://en.wikipedia.org/wiki/Representational_state_transfer) - he took feedback from over 500 developers in order to hone down a model to a core set of principles that are now called REST.
+Taking a moment to think about it, we'll realize it's hard to organize. So challenging in fact, a computer scientist named Roy Fielding ended up doing his dissertation on [Architectural Styles and the Design of Network-based Software Architectures](https://en.wikipedia.org/wiki/Representational_state_transfer). He took feedback from over 500 developers in order to hone down a model to a core set of principles that are now called REST.
 
 REST stands for **Re**presentational **S**tate **T**ransfer - the technical meaning can take a while to study and learn and gets much deeper than we need to worry about today. However, we can easily utilize the pattern of routes in order to start building basic apps that use these best practices.
 
 ### Restful Routes
 
-|  #  |  Action   |      URL       | HTTP Verb |    CRUD    |                Description                 |
-| :-: | :-------: | :------------: | :-------: | :--------: | :----------------------------------------: |
-|  1  |  Create   |   /bookmarks   |   POST    | **C**reate |           Create a new bookmark            |
-|  2  | **Index** |   /bookmarks   |    GET    |  **R**ead  |   Get a list (or index) of all bookmarks   |
-|  3  |   Show    | /bookmarks/:id |    GET    |  **R**ead  | Get an individual view (show one bookmark) |
-|  4  |  Update   | /bookmarks/:id |    PUT    | **U**pdate |             Update a bookmark              |
-|  5  |  Destroy  | /bookmarks/:id |  DELETE   | **D**elete |             Delete a bookmark              |
+|  #  |   Action   |      URL       | HTTP Verb |    CRUD    |                Description                 |
+| :-: | :--------: | :------------: | :-------: | :--------: | :----------------------------------------: |
+|  1  | **Create** |   /bookmarks   |   POST    | **C**reate |           Create a new bookmark            |
+|  2  |  _Index_   |   /bookmarks   |    GET    |  **R**ead  |   Get a list (or index) of all bookmarks   |
+|  3  |  **Show**  | /bookmarks/:id |    GET    |  **R**ead  | Get an individual view (show one bookmark) |
+|  4  |   Update   | /bookmarks/:id |    PUT    | **U**pdate |             Update a bookmark              |
+|  5  |  Destroy   | /bookmarks/:id |  DELETE   | **D**elete |             Delete a bookmark              |
 
 **Note** This pattern of routes is similar across many technical stacks. If you ever need a refresher, you can easily google it and find a resource [like this one](https://guides.rubyonrails.org/routing.html#crud-verbs-and-actions).
 
@@ -79,11 +91,10 @@ bookmarks.get("/:arrayIndex", (req, res) => {
 ```js
 // SHOW
 bookmarks.get("/:arrayIndex", (req, res) => {
-  const { arrayIndex } = req.params;
-  if (bookmarkArray[arrayIndex]) {
-    res.json(bookmarksArray[arrayIndex]);
+  if (bookmarkArray[req.params.arrayIndex]) {
+    res.json(bookmarkArray[req.params.arrayIndex]);
   } else {
-    res.redirect("/404");
+    res.status(404).json({ error: "Not found" });
   }
 });
 ```
@@ -128,7 +139,20 @@ We can also `POST` data using cURL
 
 - `curl -H "Content-Type: application/json" -X POST -d '{"name":"AV Club", "url": "https://www.avclub.com"}' localhost:3003/bookmarks`
 
-  We should get a message that the route was found and returns the new bookmark
+We should get a message that the route was found and returns the new bookmark
+
+<details><summary>Breaking down the cURL request</summary>
+
+Commands in terminal are a bit like sentences.
+
+- `cURL` the application we want to run
+- `-` this is noting that a `flag` is being added. It allows us to add options to our command, we can add multiple flags in a command
+- `-H` means headers. Remember, a request is made up of a header and a body. [A list of request fields for the header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields). In our case, we want to inform the server that we will be sending `JSON` as opposed to plain text, or possibly URL encoded text etc.
+- `-X` what kind of action are we going to send? `GET`, `POST`, `PUT`, `DELETE` or other
+- `-d` is for data, the next thing will be some valid JSON wrapped in single quotes, that is the data we are sending, inside of a web application in a front end, the user would enter this information into a form and then submit it
+- And finally, the location where we are sending the request, in our case, it is `localhost:3003/bookmarks`
+
+</details>
 
 Let's make a get request back to our index:
 
@@ -184,16 +208,9 @@ Or you can add middleware to certain routes only
 
 ```js
 const validateURL = (req, res, next) => {
-  if (
-    req.body.url.substring(0, 7) === "http://" ||
-    req.body.url.substring(0, 8) === "https://"
-  ) {
-    return next();
-  } else {
-    res
-      .status(400)
-      .send(`Oops, you forgot to start your url with http:// or https://`);
-  }
+  console.log(
+    "This function checks the validity of the URL entered by the user"
+  );
 };
 ```
 
@@ -207,7 +224,82 @@ bookmarks.post("/", validateURL, (req, res) => {
 });
 ```
 
-### Bonus 1 - Using A Regular Expression To Check for http/https:
+Now you can test this again by using the up arrow in terminal and rerunning the cURL request and see that it works...almost. We forgot to add the next function
+
+```js
+const validateURL = (req, res, next) => {
+  console.log(
+    "This function checks the validity of the URL entered by the user"
+  );
+  next();
+};
+```
+
+Now it should let us complete the Post request.
+
+### Code Organization
+
+In our file full of routes, suddenly there is a function to validate an input.
+
+If this is our only function, it isn't a big deal to leave it here. But if our app kept growing, this would become hard to manage.
+
+Let's put it in its own file. We can put the file anywhere (inside the `controllers `folder, on the same level as the `package.json` file, we can make a new file etc.), but we'll just put it in the `models` folder, `models` have to do with data, and we are validating incoming data. Again, there are a lot of different ways to organize an express app. We'll just focus on simple patterns to practice.
+
+Make sure you are on the same level as `package.json` in terminal
+
+- `touch models/validations.js`
+
+Cut and paste the `validateURL` function into this file and export it:
+
+```js
+const validateURL = (req, res, next) => {
+  console.log(
+    "This function checks the validity of the URL entered by the user"
+  );
+  next();
+};
+
+module.exports = { validateURL };
+```
+
+**controllers/bookmarkController.js**
+
+```js
+const { validateURL } = require("../models/validations.js");
+```
+
+And now check that the functionality (console log runs on a POST request works)
+
+### Validate URL Logic
+
+Right now, our function doesn't really check for anything.
+
+Let's take a few minutes to write some pseudocode on how to check if the URL entered starts with `http` or `https` and share it as a class.
+
+It is important to work on your problem solving skills and come up with your own way to solve it. Try not to peek until you have come up with your own plan first.
+
+<details><summary>One possible way to do it</summary>
+
+```js
+const validateURL = (req, res, next) => {
+  if (
+    req.body.url.substring(0, 7) === "http://" ||
+    req.body.url.substring(0, 8) === "https://"
+  ) {
+    return next();
+  } else {
+    res
+      .status(400)
+      .send(`Oops, you forgot to start your url with http:// or https://`);
+  }
+};
+```
+
+</details>
+
+### Bonus 1 - Using A Regular Expression
+
+We have not learned about regular expressions yet. But here is a different approach using them.
 
 <details><summary>Another way to test for http or https</summary>
 

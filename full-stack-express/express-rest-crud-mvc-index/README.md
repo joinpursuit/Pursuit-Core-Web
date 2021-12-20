@@ -72,6 +72,7 @@ We are going to be building this app over several sessions, so let's make sure w
 ```
 node_modules
 .env
+.DS_Store
 ```
 
 **.env**
@@ -124,7 +125,7 @@ Our problems are a microcosm of an app that is years old that have had tens or p
 
 **Bonus:** [Read more on software architecture](https://en.wikipedia.org/wiki/Software_architecture)
 
-We are going to be loosely following a very common software design pattern called [MVC](https://en.wikipedia.org/wiki/Model–view–controller) : Model-View-Controller
+We are going to be loosely following a very common software design pattern called [MVC](https://en.wikipedia.org/wiki/Model–view–controller): Model-View-Controller.
 
 This allows developers to separate the concerns of the data, the view and the controller.
 
@@ -244,7 +245,7 @@ Let's add a 404 route. It should be below all the other routes.
 ```js
 // 404 PAGE
 app.get("*", (req, res) => {
-  res.send("Page not found");
+  res.json({ error: "Page not found" });
 });
 ```
 
@@ -257,7 +258,7 @@ But because this is a 404 [page not found](https://http.cat/404), we should make
 ```js
 // 404 PAGE
 app.get("*", (req, res) => {
-  res.status(404).send("Page not found");
+  res.status(404).json({ error: "Page not found" });
 });
 ```
 
