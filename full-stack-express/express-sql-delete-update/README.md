@@ -29,8 +29,8 @@ Create an async arrow function and be sure to include it in `module.exports`
 ```js
 const deleteBookmark = async (id) => {
   try {
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 
@@ -50,8 +50,8 @@ const deleteBookmark = async (id) => {
       id
     );
     return deletedBookmark;
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 ```
@@ -95,6 +95,24 @@ bookmarks.delete("/:id", async (req, res) => {
 });
 ```
 
+Add some error handling
+
+```js
+const { id } = req.params;
+const deletedBookMark = await deleteBookmark(id);
+if (deletedBookmark.id) {
+  res.status(200).json(deletedBookMark);
+} else {
+  res.status(404).json("Bookmark not found");
+}
+```
+
+Test it with Postman
+
+Remember to have:
+
+- route DELETE /bookmarks/:id
+
 ## Update
 
 **queries/bookmarks.js**
@@ -104,8 +122,8 @@ Create an async arrow function and be sure to include it in `module.exports`
 ```js
 const updateBookmark = async (bookmark) => {
   try {
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 
@@ -117,6 +135,8 @@ module.exports = {
   updateBookmark,
 };
 ```
+
+Add the query:
 
 ```js
 const updateBookmark = async (bookmark) => {
@@ -132,8 +152,8 @@ const updateBookmark = async (bookmark) => {
       ]
     );
     return updatedBookmark;
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 ```
@@ -150,14 +170,6 @@ const {
   updateBookmark,
 } = require("../queries/bookmarks");
 ```
-
-Create the delete route and test it with Postman
-
-Remember to have:
-
-- route DELETE /bookmarks/:id
-
-Test that the route works:
 
 ```js
 // UPDATE
@@ -177,6 +189,49 @@ bookmarks.put("/:id", async (req, res) => {
   res.status(200).json(updatedBookmark);
 });
 ```
+
+Test it and remember to have:
+
+- route PUT /bookmarks/:id
+
+```js
+{
+  "name":"Weather",
+  "url": "https://darksky.net/",
+  "is_favorite": "true"
+}
+```
+
+Remember, the same rules apply that applied for create. There must be a name and `is_favorite` must be a boolean.
+
+We can easily update our function to do those checks
+
+```js
+bookmarks.put("/:id", checkName, checkBoolean, async (req, res) => {
+```
+
+## Final Validation
+
+We checked for one more thing the first time we built this app.
+
+We checked if the URL provided starts with `http` or `https`.
+
+```js
+const validateURL = (req, res, next) => {
+  if (
+    req.body.url.substring(0, 7) === "http://" ||
+    req.body.url.substring(0, 8) === "https://"
+  ) {
+    return next();
+  } else {
+    res
+      .status(400)
+      .json({ error: `You forgot to start your url with http:// or https://` });
+  }
+};
+```
+
+Take a few minutes to add in this validation as middleware to the create and update routes.
 
 ## Lab time!
 

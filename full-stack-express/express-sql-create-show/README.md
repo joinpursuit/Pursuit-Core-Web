@@ -320,7 +320,6 @@ module.exports = { checkBoolean, checkName };
 Don't forget to add this to the` bookmarkController.js`
 
 ```js
-
 const { checkBoolean, checkName } = require("../validations/checkBookmarks.js");
 
 
@@ -331,6 +330,10 @@ bookmarks.post("/", checkBoolean, checkName, async (req, res) => {
 Hmmm, not quite right. How can we check if the value of `req.body.is_favorite` is a boolean value?
 
 If you don't know, go ahead and google it.
+
+<details><summary>Possible Solution</summary>
+
+</details>
 
 ## Lab time!
 
