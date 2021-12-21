@@ -333,6 +333,16 @@ If you don't know, go ahead and google it.
 
 <details><summary>Possible Solution</summary>
 
+```js
+const checkBoolean = (req, res, next) => {
+  if (typeof Boolean(req.body.is_favorite) == "boolean" {
+    next();
+  } else {
+    res.status(400).json({ error: "is_favorite must be a boolean value" });
+  }
+};
+```
+
 </details>
 
 ## Lab time!
