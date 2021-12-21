@@ -134,6 +134,7 @@ module.exports = bookmarks;
 **app.js**
 
 ```js
+// Bookmarks ROUTES
 const bookmarksController = require("./controllers/bookmarkController.js");
 app.use("/bookmarks", bookmarksController);
 
@@ -325,8 +326,10 @@ const db = require("../db/dbConfig.js");
 
 const getAllBookmarks = async () => {};
 
-module.exports = {};
+module.exports = { getAllBookmarks };
 ```
+
+**Note**: with `module.exports` we are returning an object, because we are going to return more than one function, therefore, we will store it in an object.
 
 Next, we want to set up a `try/catch` block, so that if we have a problem, we can (likely) get a more informative error.
 
@@ -352,13 +355,9 @@ const getAllBookmarks = async () => {
   try {
     const allBookmarks = await db.any("SELECT * FROM bookmarks");
     return allBookmarks;
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
-};
-
-module.exports = {
-  getAllBookmarks,
 };
 ```
 
@@ -382,17 +381,24 @@ Let's create a new variable `allBookmarks` which will be an array of bookmark ob
 Then, we'll send it as JSON to the browser.
 
 ```js
-const express = require("express");
-const bookmarks = express.Router();
-const { getAllBookmarks } = require("../queries/bookmarks");
-
 // INDEX
 bookmarks.get("/", async (req, res) => {
   const allBookmarks = await getAllBookmarks();
   res.json(allBookmarks);
 });
+```
 
-module.exports = bookmarks;
+Let's do a little error handling
+
+```js
+bookmarks.get("/", async (req, res) => {
+  const allBookmarks = await getAllBookmarks();
+  if (allBookmarks[0]) {
+    res.status(200).json(allBookmarks);
+  } else {
+    res.status(500).json({ error: "server error" });
+  }
+});
 ```
 
 ## Lab time!

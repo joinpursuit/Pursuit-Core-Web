@@ -27,6 +27,7 @@ Create an async arrow function and be sure to include it in `module.exports`
 ```js
 const db = require("../db/dbConfig.js");
 
+// ALL Bookmarks
 const getAllBookmarks = async () => {
   try {
     const allBookmarks = await db.any("SELECT * FROM bookmarks");
@@ -36,6 +37,7 @@ const getAllBookmarks = async () => {
   }
 };
 
+// ONE Bookmark
 const getBookmark = async () => {};
 
 module.exports = {
@@ -70,12 +72,12 @@ const getBookmark = async (id) => {
 };
 ```
 
-You may also pass in arguments to your SQL query using an object with named keys like so:
+**NOTE**: You may also pass in arguments to your SQL query using an object with named keys like so:
 
-```
+```js
 await db.one("SELECT * FROM bookmarks WHERE id=$[id]", {
-      id: id,
-    });
+  id: id,
+});
 ```
 
 Being aware of this alternate syntax can be useful as you look at other coding examples. When you work on a project, stick with one type of syntax for readability and maintainability.
@@ -104,16 +106,11 @@ Add in the query and add some logic for the 404
 // SHOW
 bookmarks.get("/:id", async (req, res) => {
   const { id } = req.params;
-  try {
-    const bookmark = await getBookmark(id);
-    if (bookmark["id"]) {
-      res.json(bookmark);
-    } else {
-      console.log(`Database error: ${bookmark}`);
-      throw `There is no bookmark with id: ${id}`;
-    }
-  } catch (e) {
-    res.status(404).json({ error: "Resource not found.", message: e });
+  const bookmark = await getBookmark(id);
+  if (bookmark) {
+    res.json(bookmark);
+  } else {
+    res.status(404).json({ error: "not found" });
   }
 });
 ```
@@ -127,8 +124,8 @@ Create an async arrow function and be sure to include it in `module.exports`
 ```js
 const createBookmark = async (bookmark) => {
   try {
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 
@@ -141,7 +138,7 @@ module.exports = {
 
 Inserting into the database requires two arguments.
 
-We'll use `db.one()` because we are expecting one row to be returned.
+We'll use `db.one()` because we are expecting one row to be returned. When we return `one`, we get an object, if we return `any` or `many` we get back an array. This will be important as to how we handle accessing our data in the front end.
 
 We are passing two arguments to `db.one`, the first is the SQL query, where the values are represented as `$1`, `$2` etc. In the second, we are passing an array for each value.
 
@@ -157,62 +154,13 @@ Set up our basic statement:
 // CREATE
 const createBookmark = async (bookmark) => {
   try {
-  } catch (e) {
-    return e;
-  }
-};
-```
-
-Let's add a bit of error handling. This will inform our user that they forgot to enter a required field.
-
-```js
-// CREATE
-const createBookmark = async (bookmark) => {
-  try {
-    if (!bookmark.name) {
-      return { error: 'You must specify a value for "name"' };
-    }
-  } catch (e) {
-    return e;
-  }
-};
-```
-
-Now let's add our query
-
-```js
-// CREATE
-const createBookmark = async (bookmark) => {
-  try {
-    if (!bookmark.name) {
-      return { error: 'You must specify a value for "name"' };
-    } else {
-      const newBookmark = await db.one(
-        "INSERT INTO bookmarks (name, url, is_favorite) VALUES($1, $2, $3) RETURNING *",
-        [bookmark.name, bookmark.url, bookmark.is_favorite]
-      );
-      return newBookmark;
-    }
-  } catch (e) {
-    return e;
-  }
-};
-```
-
-```js
-// CREATE
-const createBookmark = async (bookmark) => {
-  try {
-    if (!bookmark.name) {
-      return { error: 'You must specify a value for "name"' };
-    }
     const newBookmark = await db.one(
-      "INSERT INTO bookmarks (name, url, is_favorite) VALUES($1, $2, $3) RETURNING *",
-      [bookmark.name, bookmark.url, bookmark.is_favorite]
+      "INSERT INTO bookmarks (name, url, category, is_favorite) VALUES($1, $2, $3, $4) RETURNING *",
+      [bookmark.name, bookmark.url, bookmark.category, bookmark.is_favorite]
     );
     return newBookmark;
-  } catch (e) {
-    return e;
+  } catch (error) {
+    return error;
   }
 };
 ```
@@ -256,8 +204,133 @@ Remember to have:
 
 - Route `POST` `/bookmarks`
 - Select: `body`, `raw`, `JSON` from the options
+- Valid JSON
 
 ![](./assets/postman-create.png)
+
+## Error Handling/Validating input
+
+Our user can make a bunch of mistakes
+
+Forgetting a name:
+
+```js
+{
+     "url": "https://www.avclub.com",
+     "is_favorite": "false"
+}
+```
+
+We get a hard to read error, what we would like to do is check if there is a name and then send back an appropriate status code and a more human readable error.
+
+We can add this logic to our route, but then our route is doing some validation and sending a response. It would be better to write a separate function that validates it. It also would make sense to put it in its own file for better organization.
+
+- `mkdir validations`
+- `touch validations/checkBookmarks.js`
+
+**validations/checkBookmarks.js**
+
+```js
+const checkName = (req, res, next) => {
+  console.log("checking name...");
+};
+
+module.exports = { checkName };
+```
+
+**controller/bookmarksController.js**
+
+```js
+const { checkName } = require("../validations/checkBookmarks.js");
+```
+
+Add this function as middleware for the create route
+
+```js
+// CREATE
+bookmarks.post("/", checkName, async (req, res) => {
+```
+
+This request will hang because we are not sending a response.
+
+```js
+const checkName = (req, res, next) => {
+  if (req.body.name) {
+    console.log("name is ok");
+  } else {
+    res.status(400).json({ error: "Name is required" });
+  }
+};
+```
+
+Ok, we get our error message. But if we enter a name now, how to we get back to our rote?
+
+We use the `next` function
+
+```js
+const checkName = (req, res, next) => {
+  if (req.body.name) {
+    next();
+  } else {
+    res.status(400).json({ error: "Name is required" });
+  }
+};
+```
+
+Let's try again
+
+```js
+{
+  "name": "Apple",
+  "url": "https://www.apple.com",
+  "is_favorite": "true"
+}
+```
+
+#### Another User Error
+
+We can end up where the user/front end app does not give a Boolean value
+
+```js
+{
+  "name":"Ikea",
+  "url": "https://www.ikea.com",
+  "is_favorite": "Maybe"
+}
+```
+
+PostgreSQL is strict. It will not accept `maybe`
+
+Let's try to create this new bookmark. We get another Postgres error that we can read and understand, but we'd like to again, send back a status and error message.
+
+**validations/checkBookmarks/js**
+
+```js
+const checkBoolean = (req, res, next) => {
+  if (req.body.is_favorite) {
+    next();
+  } else {
+    res.status(400).json({ error: "is_favorite must be a boolean value" });
+  }
+};
+
+module.exports = { checkBoolean, checkName };
+```
+
+Don't forget to add this to the` bookmarkController.js`
+
+```js
+
+const { checkBoolean, checkName } = require("../validations/checkBookmarks.js");
+
+
+// Further down....
+bookmarks.post("/", checkBoolean, checkName, async (req, res) => {
+```
+
+Hmmm, not quite right. How can we check if the value of `req.body.is_favorite` is a boolean value?
+
+If you don't know, go ahead and google it.
 
 ## Lab time!
 

@@ -176,6 +176,8 @@ Add `useNavigate` so that when a new bookmark is created it navigates back to th
 
 ```js
 import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
 ```
 
 Put it all together
@@ -186,7 +188,7 @@ const addBookmark = (newBookmark) => {
     .post(`${API}/bookmarks`, newBookmark)
     .then(
       () => {
-        history.push(`/bookmarks`);
+        navigate(`/bookmarks`);
       }
     .catch((c) => console.error("catch", c));
 };
