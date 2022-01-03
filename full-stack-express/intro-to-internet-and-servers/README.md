@@ -127,7 +127,7 @@ HTTP Status Codes help convey information about requests/responses. For example 
 
 The status codes from 100 - 399, generally provide information that the request/response is normal/going through/successful.
 
-The 400s typically denote user error, like trying to access a part of a site without being loggged in.
+The 400s typically denote user error, like trying to access a part of a site without being logged in.
 
 The 500s typically denote a server error. For example: The server has crashed.
 
