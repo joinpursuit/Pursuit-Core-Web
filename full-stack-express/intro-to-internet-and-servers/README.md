@@ -56,7 +56,7 @@ A server is just a computer that runs software to take `requests` and send back 
 
 You can make your own computer into a server. But in order for other computers to make requests to it, it would have to be on all the time in order to have uninterrupted service. And, if your web app gets very popular, your laptop will not be able to handle it, because it wasn't designed to be used for this as its main purpose. Therefore, there are typically dedicated computers for this purpose.
 
-Here is an image server farm that full of computers that are servers:
+Here's an image of a server farm that's full of computers that are servers:
 
 ![](https://static.timesofisrael.com/www/uploads/2019/07/iStock-985895696-e1563876220293.jpg)
 
