@@ -51,6 +51,12 @@ Which two are new and which ones have we built with express?
 - `cd front-end`
 - `rm -rf .git` - this will remove the git files that track this starter code. This code will now be tracked along the back-end in one `mono-repo`
 - `npm install` to install dependencies that are already included in the `package.json`
+- `touch .env`
+
+**.env**
+```
+PORT=333
+```
 - `npm start`
 
 ## Index
