@@ -233,6 +233,11 @@ const validateURL = (req, res, next) => {
 
 Take a few minutes to add in this validation as middleware to the create and update routes.
 
+## Save it
+
+- `git add -A`
+- `git commit -m 'update and delete complete'`
+
 ## Lab time!
 
 Continue with Tuner
