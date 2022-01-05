@@ -190,7 +190,7 @@ module.exports = [
   "Amber",
   "Malachite",
   "Azurite",
-  "Amethist",
+  "Amethyst",
 ];
 ```
 
