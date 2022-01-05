@@ -22,6 +22,9 @@ Sometimes, rebuilding something can seem less exciting than trying something new
 - `npm init -y` (this will automatically say yes to all the npm default settings - this is fine for tutorials, small test builds, etc.)
 - `touch .gitignore app.js .env`
 - `npm install express dotenv cors`
+- `git init`
+- `git add -A`
+- `git commit -m 'first commit'`
 
 **.gitignore**
 
@@ -400,6 +403,11 @@ bookmarks.get("/", async (req, res) => {
   }
 });
 ```
+
+## Save it
+
+- `git add -A`
+- `git commit -m 'index route complete'`
 
 ## Lab time!
 
