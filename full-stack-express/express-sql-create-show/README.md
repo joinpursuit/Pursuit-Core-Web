@@ -345,6 +345,11 @@ const checkBoolean = (req, res, next) => {
 
 </details>
 
+## Save it
+
+- `git add -A`
+- `git commit -m 'show and create complete'`
+
 ## Lab time!
 
 Continue with Tuner
