@@ -54,9 +54,11 @@ Which two are new and which ones have we built with express?
 - `touch .env`
 
 **.env**
+
 ```
-PORT=333
+REACT_APP_API_URL=http://localhost:3003
 ```
+
 - `npm start`
 
 ## Index
@@ -121,38 +123,29 @@ There are three things that can happen
 - the response is rejected (second callback parameter)
 - something has failed (catch function)
 
-The code will still work without the second `then` parameter and the `catch`, but when you are coding, it's a good idea to include these as the error messages can be very helpful in debugging your code.
+The code will still work without the second `then` parameter and the `catch`, but when you are coding, it's a good idea to include at least one of these as the error messages can be very helpful in debugging your code.
+
+Work outside in. Build the outer functions first.
 
 ```js
 useEffect(() => {
   axios
     .get(`${API}/bookmarks/${id}`)
-    .then(
-      () => {},
-      () => {}
-    )
+    .then(() => {})
     .catch(() => {});
 }, []);
 ```
 
-We will add the `id` and the `API` variables as the dependencies to useEffect. If you are not sure what to put, usually the console in the browser will recommend what variables you should put in there. Typically, these are variables that would change over time, but sometimes there is a false positive like `API`, which should not change over the duration of the app - adding it won't hurt, and it will clean up your console in the browser.
+Add in the functionality in the right places:
 
 ```js
-import { Link, useParams, useHistory, withRouter } from "react-router-dom";
-
-let { id } = useParams();
 useEffect(() => {
   axios
     .get(`${API}/bookmarks`)
-    .then(
-      (response) => setBookmarks(response.data),
-      (error) => console.log("get", error)
-    )
+    .then((response) => setBookmarks(response.data))
     .catch((c) => console.warn("catch", c));
-}, [API]);
+}, []);
 ```
-
-**IMPORTANT** We will be using the bookmark `id` instead of the `index` of the array position. Why?
 
 ## Show
 
@@ -172,7 +165,6 @@ Next to it, let's hard code the bookmark name.
 
 ```js
 import { useState } from "react";
-import { withRouter } from "react-router-dom";
 
 function BookmarkDetails() {
   const [bookmark, setBookmark] = useState([]);
@@ -210,7 +202,7 @@ What is `&nbsp;`?
 Let's add the buttons for edit, delete and back
 
 ```js
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 return (
   <article>
     <h3>{true ? <span>⭐️</span> : null} bookmark.name</h3>
@@ -265,19 +257,18 @@ import { useState, useEffect } from "react";
 
 We are going to, also, require a bit more information from our app in order to make the API call. We need to know where to make the API call and we need the `id` of the bookmark. The `id` of the bookmark will come from the URL.
 
-We will add the `id` and the `API` variables as the dependencies to useEffect. If you are not sure what to put, usually the conosole in the browser will recommend what variables you should put in there.
+We will add the `id` and the `API` variables as the dependencies to useEffect. If you are not sure what to put, usually the console in the browser will recommend what variables you should put in there.
 
 ```js
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useParams, useHistory, withRouter } from "react-router-dom";
-import { apiURL } from "../util/apiURL";
+import { Link, useParams, useNavigate } from "react-router-dom";
+const API = process.env.REACT_APP_API_URL;
 
 // inside the BookmarkDetails function....
 function BookmarkDetails() {
   const [bookmark, setBookmark] = useState([]);
   let { id } = useParams();
-  const API = apiURL();
 
   useEffect(() => {
     axios.get(`${API}/bookmarks/${id}`)
@@ -295,8 +286,8 @@ function BookmarkDetails() {
 
   useEffect(() => {
     axios.get(`${API}/bookmarks/${id}`)
-      .then(()=> {}, () => {}).catch(() =>{})
-  },[]);
+      .then(()=> {}).catch(() =>{})
+  },[id, API]);
   return <article>...</article>;
 });
 
@@ -313,21 +304,12 @@ useEffect(() => {
       () => {}
     )
     .catch((c) => {
-      console.warn("catch", c);
+      console.error("catch", c);
     });
 }, [id, API]);
 ```
 
-add the error handling
-
-```js
-  useEffect(() => {
-    axios.get(`${API}/bookmarks/${id}`)
-      .then(()=> {}, (err) => {console.error(err)).catch((c) =>{ console.warn("catch", c)})
-  }, [id, API]);
-```
-
-add the response
+Add the response
 
 ```js
 useEffect(() => {
@@ -407,15 +389,15 @@ Click the button to check that your click handler works as expected.
 
 We're going to use another `axios` call to make a request for the database to delete the bookmark.
 
-Try to write your code from the outside in, rather than from left to right. Working from outside will let you build the right scaffolding (nesting/braces) and then fill in the functionality. WHen you code left-to right, it can be very hard to keep up with the correct braces.
+When the delete is completed on the back-end, we can think about the user experience. A reasonable way to handle it is to take the user back to the Index page, so they can see that their bookmark has been successfully deleted.
 
-When the delete is completed, we can think about the user experience. A reasonable way to handle it is to take the user back to the Index page, so they can see that their bookmark has been successfully deleted.
+We can do this by using `useNavigate` from React Router.
 
 ```js
 // Top of file
-import { Link, useParams, useHistory, withRouter } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
-let history = useHistory();
+let navigate = useNavigate();
 
 // Inside BookmarkDetails function
 const deleteBookmark = () => {
@@ -423,7 +405,7 @@ const deleteBookmark = () => {
     .delete(`${API}/bookmarks/${id}`)
     .then(
       () => {
-        history.push(`/bookmarks`);
+        navigate(`/bookmarks`);
       },
       (error) => console.error(error)
     )
@@ -444,73 +426,67 @@ const handleDelete = () => {
 ```js
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useParams, useHistory, withRouter } from "react-router-dom";
-import { apiURL } from "../util/apiURL";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import Reviews from "./Reviews";
 
 function BookmarkDetails() {
   const [bookmark, setBookmark] = useState([]);
   let { id } = useParams();
-  let history = useHistory();
-  const API = apiURL();
+  let navigate = useNavigate();
+  const API = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    axios.get(`${API}/bookmarks/${id}`).then(
-      (response) => {
-        setBookmark(response.data);
-      },
-      (error) => {
-        console.log(error);
-        history.push(`/not-found`);
-      }
-    );
-  }, [id, history, API]);
+    axios.get(`${API}/bookmarks/${id}`).then((response) => {
+      setBookmark(response.data);
+    });
+  }, [id, navigate, API]);
   const deleteBookmark = () => {
     axios
       .delete(`${API}/bookmarks/${id}`)
-      .then(
-        () => {
-          history.push(`/bookmarks`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
+      .then(() => {
+        navigate(`/bookmarks`);
+      })
+      .catch((c) => console.error("catch", c));
   };
   const handleDelete = () => {
     deleteBookmark();
   };
   return (
-    <article>
-      <h3>
-        {bookmark.is_favorite ? <span>⭐️</span> : null} {bookmark.name}
-      </h3>
-      <h5>
-        <span>
-          <a href={bookmark.url}>{bookmark.name}</a>
-        </span>{" "}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        {bookmark.url}
-      </h5>
-      <h6>{bookmark.category}</h6>
-      <p>{bookmark.description}</p>
-      <div className="showNavigation">
-        <div>
-          {" "}
-          <Link to={`/bookmarks`}>
-            <button>Back</button>
-          </Link>
+    <>
+      <article>
+        <h3>
+          {bookmark.is_favorite ? <span>⭐️</span> : null} {bookmark.name}
+        </h3>
+        <h5>
+          <span>
+            <a href={bookmark.url}>{bookmark.name}</a>
+          </span>{" "}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {bookmark.url}
+        </h5>
+        <h6>{bookmark.category}</h6>
+        <p>{bookmark.description}</p>
+        <div className="showNavigation">
+          <div>
+            {" "}
+            <Link to={`/bookmarks`}>
+              <button>Back</button>
+            </Link>
+          </div>
+          <div>
+            <Link to={`/bookmarks/${id}/edit`}>
+              <button>Edit</button>
+            </Link>
+          </div>
+          <div>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
         </div>
-        <div>
-          <Link to={`/bookmarks/${id}/edit`}>
-            <button>Edit</button>
-          </Link>
-        </div>
-        <div>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
-      </div>
-    </article>
+      </article>
+      <Reviews />
+    </>
   );
 }
 
-export default withRouter(BookmarkDetails);
+export default BookmarkDetails;
 ```
