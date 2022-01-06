@@ -22,9 +22,6 @@ Sometimes, rebuilding something can seem less exciting than trying something new
 - `npm init -y` (this will automatically say yes to all the npm default settings - this is fine for tutorials, small test builds, etc.)
 - `touch .gitignore app.js .env`
 - `npm install express dotenv cors`
-- `git init`
-- `git add -A`
-- `git commit -m 'first commit'`
 
 **.gitignore**
 
@@ -33,6 +30,14 @@ node_modules
 .env
 .DS_Store
 ```
+
+- `git init`
+- `git add -A`
+- `git commit -m 'first commit'`
+
+**Thought question** - Why is it important to add and commit after setting up the .gitignore?
+
+Follow up question - How would you fix adding and committing folders and files you did not mean to add?
 
 **Review Questions:**
 
