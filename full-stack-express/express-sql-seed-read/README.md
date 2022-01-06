@@ -10,18 +10,19 @@ We're going to rebuild our Bookmarks API in order to review express and learn ho
 
 Sometimes, rebuilding something can seem less exciting than trying something new. However, being able to compare and contrast the differences will help solidify what you have already learned and what parts are new.
 
+## Recommendation
+
+All the code blocks are here to help guide you and help you, if you get stuck.
+
+You will gain the best understanding if you try to type everything out. Even though it takes longer and can feel frustrating, there is much more benefit in trying to do so.
+
 ## Getting Started
 
 - navigate to your Desktop or other convenient folder
 - `git status` to make sure you are not already in a `git` repository
 - `mkdir bookmarks`
 - `cd bookmarks`
-- `mkdir back-end`
-- `cd back-end`
-- `touch server.js`
-- `npm init -y` (this will automatically say yes to all the npm default settings - this is fine for tutorials, small test builds, etc.)
-- `touch .gitignore app.js .env`
-- `npm install express dotenv cors`
+- `touch .gitignore`
 
 **.gitignore**
 
@@ -35,19 +36,30 @@ node_modules
 - `git add -A`
 - `git commit -m 'first commit'`
 
+```
+- `mkdir back-end`
+- `cd back-end`
+- `touch server.js`
+- `npm init -y` (this will automatically say yes to all the npm default settings - this is fine for tutorials, small test builds, etc.)
+- `touch app.js .env`
+- `npm install express dotenv cors`
+
+
 **Thought question** - Why is it important to add and commit after setting up the .gitignore?
 
 Follow up question - How would you fix adding and committing folders and files you did not mean to add?
 
 **Review Questions:**
 
-- What does this file and set up do?
+- What did the above steps do? Try to put it in your own words. It's important to learn to talk about code.
 
 **.env**
 
 ```
+
 PORT=3003
-```
+
+````
 
 **Review Questions:**
 
@@ -74,7 +86,7 @@ app.get("/", (req, res) => {
 
 // EXPORT
 module.exports = app;
-```
+````
 
 **Review Questions:**
 
@@ -156,6 +168,8 @@ Now try: http://localhost:3000/bookmarks
 
 Why did we name our route `/bookmarks`? Is there a reason we name our route(s) this way?
 
+What would happen if we put this code ABOVE the middleware set up?
+
 ## Setting up The Database
 
 We need to create a database and table for our bookmarks in Postgres.
@@ -166,7 +180,7 @@ When might we want to reuse them?
 
 - When collaborating on a group project and you need your partner(s) to have the same set up
 - When you deploy your app in the cloud and want to be sure your db/tables are set up exactly the same way
-- When you want to test your database with .circleci or other automated testing
+- When you want to test your database with CircleCi or other automated testing
 - When you get a new computer and want to set up the project on your new computer
 
 **GOTCHA**: Do not name a database and a table the same name
@@ -210,7 +224,7 @@ Run this command
 psql -U postgres -f db/schema.sql
 ```
 
-This says, run the app `psql` use the `U`ser `postgres` and run the `f`ile `db/schema`.
+This says, run the app `psql` use the `U`ser `postgres` and run the `f`ile `db/schema.sql`.
 
 **Success** should look something like this
 
@@ -408,6 +422,10 @@ bookmarks.get("/", async (req, res) => {
   }
 });
 ```
+
+## Test it
+
+How can you test this route?
 
 ## Save it
 

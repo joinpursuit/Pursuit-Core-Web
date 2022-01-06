@@ -98,13 +98,15 @@ bookmarks.delete("/:id", async (req, res) => {
 Add some error handling
 
 ```js
-const { id } = req.params;
-const deletedBookMark = await deleteBookmark(id);
-if (deletedBookmark.id) {
-  res.status(200).json(deletedBookMark);
-} else {
-  res.status(404).json("Bookmark not found");
-}
+bookmarks.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletedBookMark = await deleteBookmark(id);
+  if (deletedBookmark.id) {
+    res.status(200).json(deletedBookMark);
+  } else {
+    res.status(404).json("Bookmark not found");
+  }
+});
 ```
 
 Test it with Postman
@@ -231,7 +233,9 @@ const validateURL = (req, res, next) => {
 };
 ```
 
-Take a few minutes to add in this validation as middleware to the create and update routes.
+Take a few minutes to add in this validation as middleware to the create and update routes and be sure to test it.
+
+**Thought Question**: Do you need to put these validations in Index, Show or Delete? Why or why not?
 
 ## Save it
 

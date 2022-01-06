@@ -132,7 +132,7 @@ const createBookmark = async (bookmark) => {
 module.exports = {
   getAllBookmarks,
   createBookmark,
-  createBookmark,
+  getBookmark,
 };
 ```
 

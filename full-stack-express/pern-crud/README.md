@@ -43,7 +43,7 @@ Which two are new and which ones have we built with express?
 
 - Go to your bookmarks app and get it started with `nodemon`
 - Open a new tab in terminal, do not shut down your bookmarks app
-- `cd` to the root of this project (where `back-end` folder is)
+- `cd ..` (or similar navigation) to the root of this project (where `back-end` folder is) **IMPORTANT** NOT inside the `back-end` folder, but one level above it
 - Fork this [Starter code](https://github.com/joinpursuit/bookmarks-react-pg-starter)
 - `git clone` the forked repository
 - `mv bookmarks-react-pg-starter front-end` to change the name of this folder to something more appropriate
@@ -58,6 +58,9 @@ Which two are new and which ones have we built with express?
 ```
 REACT_APP_API_URL=http://localhost:3003
 ```
+
+- `git add -A`
+- `git commit -m 'add front end starter code'`
 
 - `npm start`
 
@@ -203,6 +206,9 @@ Let's add the buttons for edit, delete and back
 
 ```js
 import { Link } from "react-router-dom";
+
+// Further down inside the component
+
 return (
   <article>
     <h3>{true ? <span>⭐️</span> : null} bookmark.name</h3>
@@ -273,7 +279,9 @@ function BookmarkDetails() {
   useEffect(() => {
     axios.get(`${API}/bookmarks/${id}`)
   },[id, API]);
-  return <article>...</article>;
+
+  // rest of the component...
+
 });
 ```
 
@@ -282,13 +290,15 @@ function BookmarkDetails() {
 function BookmarkDetails() {
   const [bookmark, setBookmark] = useState([]);
   let { id } = useParams();
-  const API = apiURL();
 
   useEffect(() => {
     axios.get(`${API}/bookmarks/${id}`)
       .then(()=> {}).catch(() =>{})
   },[id, API]);
-  return <article>...</article>;
+
+  // rest of the component...
+
+
 });
 
 ```
@@ -299,10 +309,7 @@ Add the catch statement
 useEffect(() => {
   axios
     .get(`${API}/bookmarks/${id}`)
-    .then(
-      () => {},
-      () => {}
-    )
+    .then(() => {})
     .catch((c) => {
       console.error("catch", c);
     });
@@ -315,15 +322,10 @@ Add the response
 useEffect(() => {
   axios
     .get(`${API}/bookmarks/${id}`)
-    .then(
-      (response) => {
-        console.log(response.data);
-        setBookmark(response.data);
-      },
-      (err) => {
-        console.error(err);
-      }
-    )
+    .then((response) => {
+      console.log(response.data);
+      setBookmark(response.data);
+    })
     .catch((c) => {
       console.warn("catch", c);
     });
