@@ -98,7 +98,7 @@ This is not JavaScript, so don't add semi-colons.
 
 There are many places (environments) to run JavaScript, for example, in the browser, or in terminal. Each place is a different environment: Your computer is a different environment than your friend's computer. Therefore, being able to add a file that stores specific information about running the code the environment it is in is a useful feature.
 
-Let's make our own environmetnal variable folder. We'll call it `.env`. We've already chosen to not track the file in our `.gitignore`. This will allow each environment to keep its own file and if there is sensitive information like passwords or API keys, they will also not be shared on github.
+Let's make our own environmetnal variable file. We'll call it `.env`. We've already chosen to not track the file in our `.gitignore`. This will allow each environment to keep its own file and if there is sensitive information like passwords or API keys, they will also not be shared on github.
 
 - `touch .env`
 - `npm install dotenv`
