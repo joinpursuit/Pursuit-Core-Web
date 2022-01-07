@@ -1,5 +1,9 @@
 # PERN Many to Many
 
+Here we will be adding users to our app. Our users can have many bookmarks, and bookmarks can belong to many users.
+
+We are only going to implement this functionality on the back-end in this lesson.
+
 If we add a model `users`
 
 We can say that `users` have many `reviews`. `reviews` can only belong to one `user` a one to many relationship we've seen with `bookmarks` and reviews.
@@ -366,17 +370,17 @@ We get a lot of extra data, including all the info on the user in every single o
 Change
 
 ```sql
-        SELECT
-            *
-        FROM
+SELECT
+  *
+FROM
 ```
 
 To
 
 ```sql
-        SELECT
-            bookmark_id, user_id, name, is_favorite, category
-        FROM
+SELECT
+  bookmark_id, user_id, name, is_favorite, category
+FROM
 ```
 
 ### Add bookmark to user collection
@@ -391,10 +395,7 @@ We will be adding to the join/lookup table
 addNewBookmarkToUser = async (userId, bookmarkId) => {
   try {
     let add = await db.none(
-      `
-     INSERT INTO users_bookmarks (user_id, bookmark_id)
-     VALUES ($1, $2)
-    `,
+      `INSERT INTO users_bookmarks (user_id, bookmark_id) VALUES ($1, $2)`,
       [userId, bookmarkId]
     );
     // return a value of true since it was successful, db.none always returns null
