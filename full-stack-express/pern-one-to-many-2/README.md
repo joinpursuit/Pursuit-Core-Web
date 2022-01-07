@@ -1,7 +1,16 @@
-# 13 PERN Stack: One to Many - Part 2b Front-end
+# 13 PERN Stack: One to Many - Part 2 Front-end
+
+## Important
+
+Make sure all your routes work as expected. It does not matter how amazing your front-end code is, it cannot repair a broken back end.
+
+It's important to test all your routes with something like Postman to be sure you know what the expected responses are. It is critical that when you encounter a bug you can clearly and easily isolate whether the issue is coming from the back-end or front-end.
+
+## Onwards
 
 We're going to be adding views of reviews only to the `BookmarkDetails` view
 
+- Keep your backend running
 - make sure you are at the root of your react-app (same level as its `package.json`)
 - `touch src/Components/Review.js`
 - `touch src/Components/Reviews.js`
@@ -15,10 +24,9 @@ We're going to be adding views of reviews only to the `BookmarkDetails` view
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { apiURL } from "../util/apiURL";
 import Review from "./Review";
 
-const API = apiURL();
+const API = process.env.REACT_APP_API_URL;
 
 function Reviews() {
   const [reviews, setReviews] = useState([]);
@@ -26,7 +34,8 @@ function Reviews() {
 
   useEffect(() => {
     axios.get(`${API}/bookmarks/${id}/reviews`).then((response) => {
-      setReviews(response.data.allReviews);
+      console.log(response.data);
+      setReviews(response.data);
     });
   }, [id, API]);
   return (
@@ -44,8 +53,7 @@ export default Reviews;
 **src/Review.js**
 
 ```js
-function Review(props) {
-  const { review } = props;
+function Review({ review }) {
   return (
     <div className="Review">
       <h4>
@@ -62,7 +70,13 @@ export default Review;
 
 **src/BookmarkDetails.js**
 
-After the buttons:
+Import `Reviews`
+
+```js
+import Reviews from "./Reviews";
+```
+
+After the buttons and closing `div`s (right above the closing `article` tag):
 
 ```js
 <Reviews />
@@ -107,7 +121,7 @@ Notable details:
 
 When we press submit, we want to update the list of reviews to reflect the changes to the database. For new, we want to add a new review to the reviews list, for edit we want to update the review inside the list. That means we will have to change state in the `Reviews` component and pass the functions that do that down.
 
-Depending on whether we want to add a new review or udpate a review, `handleSubmit` will run a different function. We'll see how the pieces come together as we build the rest out.
+Depending on whether we want to add a new review or update a review, `handleSubmit` will run a different function. We'll see how the pieces come together as we build the rest out.
 
 We want to be able to pre-fill the data if it is the edit form. We can `useEffect` to check if there is data being passed down and update the form inputs.
 
@@ -212,50 +226,34 @@ export default ReviewForm;
 
 **src/Reviews.js**
 
+Here are the new pieces of code. Be sure to place them in their appropriate locations(along the top, inside the function, inside the return..)
+
 ```js
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { apiURL } from "../util/apiURL";
-import Review from "./Review";
 import ReviewForm from "./ReviewForm";
 
-const API = apiURL();
+const handleAdd = (newReview) => {
+  axios
+    .post(`${API}/bookmarks/${id}/reviews`, newReview)
+    .then(
+      (response) => {
+        setReviews([response.data, ...reviews]);
+      },
+      (error) => console.error(error)
+    )
+    .catch((c) => console.warn("catch", c));
+};
 
-function Reviews() {
-  const [reviews, setReviews] = useState([]);
-  let { id } = useParams();
-  const handleAdd = (newReview) => {
-    axios
-      .post(`${API}/bookmarks/${id}/reviews`, newReview)
-      .then(
-        (response) => {
-          setReviews([response.data, ...reviews]);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
-  };
-
-  useEffect(() => {
-    axios.get(`${API}/bookmarks/${id}/reviews`).then((response) => {
-      setReviews(response.data.allReviews);
-    });
-  }, [id]);
-  return (
-    <section className="Reviews">
-      <h2>Reviews</h2>
-      <ReviewForm handleSubmit={handleAdd}>
-        <h3>Add a New Review</h3>
-      </ReviewForm>
-      {reviews.map((review) => (
-        <Review key={review.id} review={review} />
-      ))}
-    </section>
-  );
-}
-
-export default Reviews;
+return (
+  <section className="Reviews">
+    <h2>Reviews</h2>
+    <ReviewForm handleSubmit={handleAdd}>
+      <h3>Add a New Review</h3>
+    </ReviewForm>
+    {reviews.map((review) => (
+      <Review key={review.id} review={review} />
+    ))}
+  </section>
+);
 ```
 
 ## Add Delete Functionality
@@ -277,30 +275,38 @@ const handleDelete = (id) => {
     )
     .catch((c) => console.warn("catch", c));
 };
+```
 
 // in the return
 
-<Review key={review.id} review={review} handleDelete={handleDelete} />;
 ```
+<Review key={review.id} review={review} handleDelete={handleDelete} />
+```
+
+Notice, we have the option of pulling data and functions out of props in the function definition, alternatively, we could access them through `props` or use destructuring as its own line of code.
+
+All three syntaxes do the same thing. Being familiar with these options will help strengthen your understanding of React.
 
 **src/Review.js**
 
 ```js
-return (
-  <div className="Review">
-    <h4>
-      {review.title} <span>{review.rating}</span>
-    </h4>
-    <h5>{review.reviewer}</h5>
-    <p>{review.content}</p>
-    <button onClick={() => props.handleDelete(review.id)}>delete</button>
-  </div>
-);
+function Review({ review, handleDelete }) {
+  return (
+    <div className="Review">
+      <h4>
+        {review.title} <span>{review.rating}</span>
+      </h4>
+      <h5>{review.reviewer}</h5>
+      <p>{review.content}</p>
+      <button onClick={() => handleDelete(review.id)}>delete</button>
+    </div>
+  );
+}
 ```
 
 ## Add Edit Functionality
 
-The way we will approach is to add a button to edit, this will toggle the view from a `review` to a `reviewForm` by using conditional rendering with a ternary operator
+The way we will approach is to add a button to edit, this will toggle the view from a `review` to a `reviewForm` by using conditional rendering with a ternary operator. It will end up looking like this example:
 
 ```js
 {
@@ -310,40 +316,40 @@ The way we will approach is to add a button to edit, this will toggle the view f
 
 <br />
 
+Let's code it:
+
+**Components/Review**
+
 ```js
 import ReviewForm from "./ReviewForm";
 
-function Review(props) {
-const { review, handleSubmit } = props;
-const [viewEditForm, toggleEditForm] = useState(false);
-const toggleView = () => {
-toggleEditForm(!viewEditForm);
-};
-return (
+function Review({ review, handleDelete, handleSubmit }) {
+  const [viewEditForm, toggleEditForm] = useState(false);
 
-<div className="Review">
-<button onClick={toggleView}>edit this review</button>
-{viewEditForm ? () : () }
+  const toggleView = () => {
+    toggleEditForm(!viewEditForm);
+  };
 
-        <div>
-          <h4>
-            {review.title} <span>{review.rating}</span>
-          </h4>
-          <h5>{review.reviewer}</h5>
-          <p>{review.content}</p>
-        </div>
-      }
-      <button onClick={() => props.handleDelete(review.id)}>delete</button>
+  return (
+    <div className="Review">
+      <button onClick={toggleView}>edit this review</button>
+     {viewEditForm ? () : ()}
+
+      <div>
+        <h4>
+          {review.title} <span>{review.rating}</span>
+        </h4>
+        <h5>{review.reviewer}</h5>
+        <p>{review.content}</p>
+      </div><button onClick={() => handleDelete(review.id)}>delete</button>
     </div>
-
-);
+  );
 }
-
 ```
 
 Add the Review form, then add parenthesis and cut and paste the review details into the statement
 
-```js
+```
 {
   viewEditForm ? (
     <ReviewForm reviewDetails={review} />
@@ -355,7 +361,7 @@ Add the Review form, then add parenthesis and cut and paste the review details i
       <h5>{review.reviewer}</h5>
       <p>{review.content}</p>
     </div>
-  );
+  )
 }
 ```
 
@@ -363,7 +369,7 @@ Now you should be able to click the `edit this review` button and toggle between
 
 ### Adding the Edit Functionality
 
-When thinking in react, when we edit, we want to return the view of the review back from the form. And we want to be sure we've updated the list of reviews. Again that means we are going to have to put state in the `reviews` component and pass it down
+When thinking in react, when we edit, we want to return the view of the review back from the form. And we want to be sure we've updated the list of reviews. Again that means we are going to have to put state in the `reviews` component and pass it down and then [lift state up](https://reactjs.org/docs/lifting-state-up.html)
 
 **src/Reviews.js**
 
@@ -371,17 +377,14 @@ When thinking in react, when we edit, we want to return the view of the review b
 const handleEdit = (updatedReview) => {
   axios
     .put(`${API}/bookmarks/${id}/reviews/${updatedReview.id}`, updatedReview)
-    .then(
-      (response) => {
-        const copyReviewArray = [...reviews];
-        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
-          return review.id === updatedReview.id;
-        });
-        copyReviewArray[indexUpdatedReview] = response.data;
-        setReviews(copyReviewArray);
-      },
-      (error) => console.error(error)
-    )
+    .then((response) => {
+      const copyReviewArray = [...reviews];
+      const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+        return review.id === updatedReview.id;
+      });
+      copyReviewArray[indexUpdatedReview] = response.data;
+      setReviews(copyReviewArray);
+    })
     .catch((c) => console.warn("catch", c));
 };
 
@@ -403,9 +406,11 @@ We'll hae to continue to pass the `handleSubmit` function down. Passing props do
 <ReviewForm
   reviewDetails={review}
   toggleView={toggleView}
-  handleSubmit={handleSubmit}
+  handleSubmit={props.handleSubmit}
 />
 ```
+
+**BONUS**: Where else could we pull `handleSubmit` out of `props`?
 
 And that should be it! One way to do full CRUD on a second model that is a one to many relationship .
 
