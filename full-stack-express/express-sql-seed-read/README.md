@@ -36,14 +36,12 @@ node_modules
 - `git add -A`
 - `git commit -m 'first commit'`
 
-```
 - `mkdir back-end`
 - `cd back-end`
 - `touch server.js`
 - `npm init -y` (this will automatically say yes to all the npm default settings - this is fine for tutorials, small test builds, etc.)
 - `touch app.js .env`
 - `npm install express dotenv cors`
-
 
 **Thought question** - Why is it important to add and commit after setting up the .gitignore?
 
@@ -56,10 +54,8 @@ Follow up question - How would you fix adding and committing folders and files y
 **.env**
 
 ```
-
 PORT=3003
-
-````
+```
 
 **Review Questions:**
 
@@ -86,7 +82,7 @@ app.get("/", (req, res) => {
 
 // EXPORT
 module.exports = app;
-````
+```
 
 **Review Questions:**
 

@@ -71,6 +71,10 @@ CREATE TABLE reviews (
 );
 ```
 
+```bash
+psql -U postgres -f db/schema.sql
+```
+
 And insert some reviews. Note, since we are dropping the bookmarks table as well, when we insert the bookmarks again into a new table, we should get bookmarks with `id` of 1, 2 and 3
 
 **db/seed.sql**
@@ -89,6 +93,10 @@ VALUES
 ('2', 'Alison', 'A lifesaver!','Helped me get my stove cleaner than I ever imagiend possible!', 4),
 ('3', 'Hannah', 'Insert Confetti Emoji Here', 'I survived 6 hours at the DMV!', 4),
 ('3', 'Gabi', 'My Friend Hannah', 'Gets a discount if I leave a positive review, so here it is', 5);
+```
+
+```bash
+psql -U postgres -f db/seed.sql
 ```
 
 **Remember** bookmark_id is a foreign key. It is the id of the bookmark that this review belongs to. An `id` for each review will be automatically generated, so we don't have to create it.
@@ -117,8 +125,27 @@ Don't forget to add this to your `app.js`
 **app.js**
 
 ```js
+// Reviews ROUTES
 const reviewsController = require("./controllers/reviewsController.js");
 app.use("/reviews", reviewsController);
 ```
 
+### Don't forget to Test All Your routes
+
+Here is a sample object
+
+```js
+{
+    "reviewer":"Lou",
+     "title": "Fryin Better",
+     "content": "With the great tips and tricks I found here",
+     "bookmark_id": "2",
+     "rating": "4"
+}
+```
+
+Be sure to git add and commit.
+
 Super! We now have two models with full CRUD. But how do we connect them?
+
+[README2.md](./README2.md)

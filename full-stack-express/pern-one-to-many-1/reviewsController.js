@@ -1,69 +1,91 @@
-// DEPENDENCIES
 const express = require("express");
-const reviews = express.Router({ mergeParams: true });
+const bookmarks = express.Router();
 const {
-  getAllReviews,
-  getReview,
-  newReview,
-  updateReview,
-  deleteReview,
-} = require("../queries/reviews");
+  getAllBookmarks,
+  getBookmark,
+  newBookmark,
+  deleteBookmark,
+  updateBookmark,
+} = require("../queries/bookmarks");
 
-// ROUTES
+const validateURL = (req, res, next) => {
+  if (
+    req.body.url.substring(0, 7) === "http://" ||
+    req.body.url.substring(0, 8) === "https://"
+  ) {
+    return next();
+  } else {
+    res
+      .status(400)
+      .send(`Oops, you forgot to start your url with http:// or https://`);
+  }
+};
 
-/* INDEX */
-reviews.get("/", async (req, res) => {
-  try {
-    const allReviews = await getAllReviews();
-    console.log(`controller function call: ${allReviews}`);
-    res.status(200).json(allReviews);
-  } catch (e) {
-    res.status(404).statusMessage(e);
+const reviewsController = require("./reviewsController.js");
+bookmarks.use("/:bookmarkId/reviews", reviewsController);
+
+// INDEX
+bookmarks.get("/", async (req, res) => {
+  const allBookmarks = await getAllBookmarks();
+  if (allBookmarks[0]) {
+    res.status(200).json(allBookmarks);
+  } else {
+    res.status(500).json({ error: "server error" });
+  }
+});
+// SHOW
+bookmarks.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const bookmark = await getBookmark(id);
+  if (bookmark) {
+    res.json(bookmark);
+  } else {
+    res.status(404).json({ error: "not found" });
   }
 });
 
-/* SHOW */
-reviews.get("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const review = await getReview(id);
-    res.status(200).json(review);
-  } catch (e) {
-    res.status(404).statusMessage(e);
+// UPDATE
+bookmarks.put("/:id", validateURL, async (req, res) => {
+  const { id } = req.params;
+  if (!req.body.name) {
+    res.status(400).json({ error: "You must include a name" });
+  } else {
+    const updatedBookmark = await updateBookmark(req.body);
+    if (updatedBookmark.id) {
+      res.status(200).json(updatedBookmark);
+    } else {
+      res.status(404).json("Bookmark not found");
+    }
   }
 });
 
-/* CREATE */
-reviews.post("/", async (req, res) => {
-  try {
-    const review = await newReview(req.body);
-    res.status(200).json(review);
-  } catch (e) {
-    res.status(404).statusMessage(e);
+bookmarks.post("/", validateURL, async (req, res) => {
+  if (!req.body.name) {
+    res.status(400).json({ error: "You must include a name" });
+  } else {
+    const bookmark = await newBookmark(req.body);
+    res.status(200).json(bookmark);
   }
 });
 
-/* UPDATE */
-reviews.put("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const updatedReview = await updateReview(id, req.body);
-    res.status(200).json(updatedReview);
-  } catch (e) {
-    res.status(404).statusMessage(e);
+// DELETE
+bookmarks.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletedBookMark = await deleteBookmark(id);
+  if (deletedBookmark.id) {
+    res.status(200).json(deletedBookMark);
+  } else {
+    res.status(404).json("Bookmark not found");
   }
 });
 
-/* DELETE */
-reviews.delete("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deletedReview = await deleteReview(id);
-    res.status(200).json(deletedReview);
-  } catch (e) {
-    res.status(404).statusMessage(e);
-  }
-});
+// TEST JSON NEW
+// {
+//     "reviewer":"Lou",
+//      "title": "Fryin Better",
+//      "content": "With the great tips and tricks I found here",
+//      "bookmark_id": "2",
+//      "rating": "4"
+// }
 
-// EXPORTS
-module.exports = reviews;
+module.exports = bookmarks;
