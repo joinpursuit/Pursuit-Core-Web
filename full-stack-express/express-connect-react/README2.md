@@ -180,6 +180,12 @@ import { useNavigate } from "react-router-dom";
 const navigate = useNavigate();
 ```
 
+There is a function `handleSubmit`. This is the function that gets called when the form is submitted. 
+
+First, we must prevent the default. When the form does not have the attributes of `action` and `method`, it will default to refreshing the page. 
+
+After that, we want to write some functionality that will make a POST request and send the form data to our backend. THEN, once the request is complete, we want to navigate the user back to the Index page so that they can see that their new bookmark has been added. 
+
 Put it all together
 
 ```js
