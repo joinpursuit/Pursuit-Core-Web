@@ -55,8 +55,8 @@ const getBookmark = async (id) => {
   try {
     const oneBookmark = await db.one("SELECT * FROM bookmarks WHERE id=$1", id);
     return oneBookmark;
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 ```
@@ -173,8 +173,8 @@ bookmarks.post("/", async (req, res) => {
   try {
     const bookmark = await createBookmark(req.body);
     res.json(bookmark);
-  } catch (e) {
-    res.status(400).json({ error: e });
+  } catch (error) {
+    res.status(400).json({ error: error });
   }
 });
 ```
