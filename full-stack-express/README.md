@@ -51,7 +51,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 |                             13. [PERN Stack: CRUD](./pern-crud/README.md)                              |                                              [Tuner Front-End](https://github.com/joinpursuit/tuner-react)                                              |
 |                  14. [PERN Stack: One to Many Part 1](./pern-one-to-many-1/README.md)                  |                   [Tuner Add One to Many](https://github.com/joinpursuit/tuner-api#bonus-part-5-part-4-is-a-react-app-see-other-repo)                   |
 |                  15. [PERN Stack: One to Many Part 2](./pern-one-to-many-2/README.md)                  |                                             [API Planning](https://github.com/joinpursuit/api-planning-lab)                                             |
-|                    BONUS [PERN Stack: Many to Many](./pern-many-to-many/README.md)                     |                                            [Add Functionality to an Existing API](tbd, Wes's photography ap)                                            |
+|                    BONUS [PERN Stack: Many to Many](./pern-many-to-many/README.md)                     |                                            [Add Functionality to an Existing API](https://github.com/joinpursuit/resource-photography-api)                                            |
 
 ## Individual Project/ Mid-Module Assessment
 
