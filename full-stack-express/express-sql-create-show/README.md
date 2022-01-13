@@ -184,8 +184,8 @@ bookmarks.post("/", async (req, res) => {
   try {
     const bookmark = await createBookmark(req.body);
     res.json(bookmark);
-  } catch (e) {
-    res.status(400).json({ error: e });
+  } catch (error) {
+    res.status(400).json({ error: error });
   }
 });
 ```
@@ -335,7 +335,12 @@ If you don't know, go ahead and google it.
 
 ```js
 const checkBoolean = (req, res, next) => {
-  if (typeof Boolean(req.body.is_favorite) == "boolean" {
+  const { is_favorite } = req.body;
+  if (
+    is_favorite == "true" ||
+    is_favorite == "false" ||
+    is_favorite == undefined
+  ) {
     next();
   } else {
     res.status(400).json({ error: "is_favorite must be a boolean value" });

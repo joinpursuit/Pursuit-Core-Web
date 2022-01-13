@@ -381,7 +381,7 @@ const getAllBookmarks = async () => {
 
 **controllers/bookmarkController.js**
 
-require `getAllBookmakrs` function and update `bookmarks.get()` index route to be `async`
+require `getAllBookmarks` function and update `bookmarks.get()` index route to be `async`
 
 ```js
 const express = require("express");

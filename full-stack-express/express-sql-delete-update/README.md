@@ -90,8 +90,8 @@ Now add the database call:
 // DELETE
 bookmarks.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const deletedBookMark = await deleteBookmark(id);
-  res.status(200).json(deletedBookMark);
+  const deletedBookmark = await deleteBookmark(id);
+  res.status(200).json(deletedBookmark);
 });
 ```
 
@@ -100,9 +100,9 @@ Add some error handling
 ```js
 bookmarks.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const deletedBookMark = await deleteBookmark(id);
+  const deletedBookmark = await deleteBookmark(id);
   if (deletedBookmark.id) {
-    res.status(200).json(deletedBookMark);
+    res.status(200).json(deletedBookmark);
   } else {
     res.status(404).json("Bookmark not found");
   }
@@ -122,7 +122,7 @@ Remember to have:
 Create an async arrow function and be sure to include it in `module.exports`
 
 ```js
-const updateBookmark = async (bookmark) => {
+const updateBookmark = async (id, bookmark) => {
   try {
   } catch (error) {
     return error;
@@ -141,17 +141,11 @@ module.exports = {
 Add the query:
 
 ```js
-const updateBookmark = async (bookmark) => {
+const updateBookmark = async (id, bookmark) => {
   try {
     const updatedBookmark = await db.one(
       "UPDATE bookmarks SET name=$1, url=$2, category=$3, is_favorite=$4 where id=$5 RETURNING *",
-      [
-        bookmark.name,
-        bookmark.url,
-        bookmark.category,
-        bookmark.is_favorite,
-        bookmark.id,
-      ]
+      [bookmark.name, bookmark.url, bookmark.category, bookmark.is_favorite, id]
     );
     return updatedBookmark;
   } catch (error) {
@@ -204,7 +198,7 @@ Test it and remember to have:
 }
 ```
 
-Remember, the same rules apply that applied for create. There must be a name and `is_favorite` must be a boolean.
+Remember, the same rules apply that applied for create. There must be a name and `is_favorite` must be a boolean (or undefined - why is undefined an ok option?).
 
 We can easily update our function to do those checks
 
