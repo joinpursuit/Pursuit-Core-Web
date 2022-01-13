@@ -354,8 +354,8 @@ Next, we want to set up a `try/catch` block, so that if we have a problem, we ca
 ```js
 const getAllBookmarks = async () => {
   try {
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 ```

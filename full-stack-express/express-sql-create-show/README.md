@@ -25,17 +25,6 @@ If we were to access it by array position it would be at array position `1`. We 
 Create an async arrow function and be sure to include it in `module.exports`
 
 ```js
-const db = require("../db/dbConfig.js");
-
-// ALL Bookmarks
-const getAllBookmarks = async () => {
-  try {
-    const allBookmarks = await db.any("SELECT * FROM bookmarks");
-    return allBookmarks;
-  } catch (err) {
-    return err;
-  }
-};
 
 // ONE Bookmark
 const getBookmark = async () => {};
@@ -66,8 +55,8 @@ const getBookmark = async (id) => {
   try {
     const oneBookmark = await db.one("SELECT * FROM bookmarks WHERE id=$1", id);
     return oneBookmark;
-  } catch (err) {
-    return err;
+  } catch (error) {
+    return error;
   }
 };
 ```
