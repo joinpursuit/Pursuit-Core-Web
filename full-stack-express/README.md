@@ -63,7 +63,7 @@ Finally, we'll connect our server to our database so that we can create full sta
 
 | Project                                                        | Standards                                                                                                                                                                                                                                   |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Snack-A-Log](https://github.com/joinpursuit/broken-fix-me) | <ul><li>Apply all learnings and techniques from last project</li><li>Use a databse connected to the express server to perform full CRUD across the PERN stack</li><li>Develop a more complex and useful app through collaboration</li></ul> |
+| [Snack-A-Log](https://github.com/joinpursuit/snack-a-log) | <ul><li>Apply all learnings and techniques from last project</li><li>Use a databse connected to the express server to perform full CRUD across the PERN stack</li><li>Develop a more complex and useful app through collaboration</li></ul> |
 
 ## Cumulative Technical Assessment
 
