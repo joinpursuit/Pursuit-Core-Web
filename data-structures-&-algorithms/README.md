@@ -8,7 +8,7 @@ This unit, we'll be working on:
 
 - Reviewing fundamentals
 - Improving problem solving skills
-- Becoming an independent learner
+- Continue becoming an independent learner
 - Practicing talking about code
 - Getting an introduction to computer science topics
 - Doing mock interviews to help prepare for job interviews
@@ -28,7 +28,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 | :-: | :-----------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
 |  1  |                           N/A                           | [Intro to DSA/Problem Solving](./intro-to-data-structures-and-algorithms) [Mock Interview Intro and Prep](./mock-interviews) |
 |  2  |             [Print Primes](./control-flow)              |                                         [Control Flow](./control-flow/lesson-notes)                                          |
-|  3  |            [Find the Median](./math-basics)             |                                          [Math Basics](./math-basics/lesson-notes)                                           |
+|  3  |            [Find the Median](./math-basics)             |                                  [Math For Software Developers](./math-basics/lesson-notes)                                  |
 |  4  |             [Disemvowel Trolls](./strings)              |                                              [Strings](./strings/lesson-notes)                                               |
 |  5  |              [Err!0rs](./dealing-w-errors)              |                                          [Errors](./dealing-w-errors/lesson-notes)                                           |
 |  6  | [My Own Find Index Of Function](./arrays-and-callbacks) |                                  [Arrays & Callbacks](./arrays-and-callbacks/lesson-notes)                                   |
@@ -47,7 +47,7 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 
 ## Individual Project: Code Wars
 
-Your goal will be to accumulate at certain number of points points on code wars (become a rank 5kyu or higher user on Code Wars) during this module.
+Your goal will be to accumulate at certain number of points points on code wars during this module. The more points you acquire the more likely you are to pass a technical interview.
 
 [Ranking system](https://docs.codewars.com/gamification/ranks/)
 

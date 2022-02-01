@@ -20,21 +20,21 @@ const greeting2 = function () {
 greeting2();
 ```
 
-````js
-
 ## Arrow Functions
 
 ### No Arguments
 
 ```js
- const greeting3 = () => {
-  console.log('hello hello hello!')
- }
+const greeting3 = () => {
+  console.log("hello hello hello!");
+};
 
-//  greeting3()
-````
+greeting3();
+```
 
 ### One Argument
+
+The parenthesis around the parameter are optional, though if you are using prettier or es-lint, it will add the parenthesis back:
 
 ```js
 const greeting4 = (str) => {
@@ -65,7 +65,7 @@ const greeting6 = (greeting, personName) => {
 console.log(greeting6("Hey there", "Hadly"))``;
 ```
 
-Returns MUST start on the same line
+Returns MUST start on the same line:
 
 ```js
 const greeting7 = (greeting, personName) => {
@@ -74,21 +74,29 @@ const greeting7 = (greeting, personName) => {
 };
 
 console.log(greeting7("Hey there", "Hadly"));
+```
 
+```js
 const greeting8 = (greeting, personName) => {
   return greeting.toUpperCase() + " " + personName;
 };
 
 console.log(greeting8("Hey there", "Hadly"));
+```
+
+If you want to put the return across multiple lines, you can wrap it in `()` - this is for clarity, and most useful when the return is verbose.
+
+```js
 
 const greeting9 = (greeting, personName) => {
-  return;
-  greeting + " " + personName;
+  return(
+    greeting + " " + personName;
+  )
 };
 
-// console.log(
-// greeting9('Oh, hey?', 'Hadly')
-// )
+console.log(
+   greeting9('Oh, hey?', 'Hadly')
+)
 ```
 
 ### One Line Arrow Functions
@@ -98,9 +106,7 @@ When the arrow function is one line, the curly braces can be skipped. When you s
 ```js
 const greeting10 = (greeting, personName) => `${greeting} ${personName}`;
 
-// console.log(
-// greeting10('What\'s up ', 'Hadly')
-// )
+console.log(greeting10("What's up ", "Hadly"));
 ```
 
 This can lead to very short functions that can look quite odd!
@@ -108,9 +114,7 @@ This can lead to very short functions that can look quite odd!
 ```js
 const greeting11 = (greeting) => greeting;
 
-// console.log(
-// greeting11('WAZZUP')
-// )
+console.log(greeting11("WAZZUP"));
 ```
 
 If one line of code is quite long, it can be wrapped in parenthesis for ease of code maintainability/ readability :
@@ -169,3 +173,7 @@ let newDaysArray = days.map((day) =>
 
 console.log(newDaysArray);
 ```
+
+Even though you can create very short functions, you can easily lose readability. If your interest, as a hobby, is code golf, then it is nice to know these shortcuts.
+
+However, when working at a company, or any professional project is far more important to write readable code that is easy to understand and update.

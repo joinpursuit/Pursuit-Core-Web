@@ -58,9 +58,9 @@ Right now, the only way we can test if our item should move, is by going into th
 
 Functions allow us to create reusable blocks of code that we can control when they run and how many times they run
 
-We can improve this code by putting it in a function.
+Therefore, we can improve this code by putting it in a function.
 
-Refactoring code can be hard, it is still recommended to work outside in order to refactor.
+Refactoring code can be hard, it takes practice. It is still recommended to work outside in order to refactor.
 
 First, create the outer function
 
@@ -68,7 +68,7 @@ First, create the outer function
 const fixIt = () => {};
 ```
 
-Then, copy and paste the above code inside:
+Then, copy and paste the above code inside the `{}` of the function:
 
 ```js
 const fixIt = (moving, shouldBeMoving) => {
@@ -177,7 +177,7 @@ Now that we've reviewed the basic building blocks, let's go through how to solve
 This problem is actually two problems
 
 - determining if a number is prime
-- adding prime numbers, up to some upper limit value, to an array
+- putting prime numbers, up to some upper limit value, into an array
 
 Let's solve the first problem, first by hand. We'll look at two simple test cases: 4 which is NOT prime and 5 which is prime
 
@@ -394,7 +394,9 @@ Right now we are testing
 - 11 % 9
 - 11 % 10
 
-However, 6 x 2 is 12 and 7 x 2 is 14 etc. All numbers above 5 are too big to be evenly divisible.
+However, 6 x 2 is 12 and 7 x 2 is 14 etc. These are bigger than 11. Therefore there is no reason to test them.
+
+In fact, all numbers above 5 are too big to be evenly divisible for 11.
 
 What would be the largest number that could be divisible be?
 
@@ -425,7 +427,7 @@ const isPrime = (num) => {
 console.log(printPrimes(30));
 ```
 
-One final oops! We are now adding perfect squares like 4 and 9 as primes! We need to say that the loop goes to and includes i.
+One final oops! We are now accidentally adding perfect squares like 4 and 9 as primes! We need to say that the loop goes to, and includes i.
 
 ```js
 const isPrime = (num) => {
