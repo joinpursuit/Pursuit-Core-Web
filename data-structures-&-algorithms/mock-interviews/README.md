@@ -18,3 +18,6 @@ During this module, instructors will conduct 3 mock interviews per student. This
 ## Peer to Peer Mock Interviews
 
 In addition to having interviews with your instructors, you will have opportunities to practice interviewing each other. This will also help you gain understanding of what it feels like to be on the other side of the interview, which should help clarify what interviewers are often looking for.
+
+
+[More information](https://github.com/joinpursuit/m6-peer-interviews)
