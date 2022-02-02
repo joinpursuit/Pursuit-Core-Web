@@ -114,7 +114,7 @@ This type of complexity is considered highly efficient.
 
 ### Linear `O(n)`
 
-"What songs are on the album Eponymous Debut?`
+"What songs are on the a playlist of eponymous debuts?`
 
 ```js
 const printSongs = (album) => {
@@ -159,16 +159,25 @@ More complexity:
 ```js
 const PrintSongsWithinAlbumsByArtist = () => {
   for (let i = 0; i < artists.length; i++) {
-    for (let j = 0; j < artist.albums.length; j++) {
-      for (let k = 0; k < artist.album.songs.length; k++) {
+    for (let j = 0; j < artists[i].albums.length; j++) {
+      for (let k = 0; k < artists[i].album[j].songs.length; k++) {
         console.log(artists[i].albums[j].songs[k]);
       }
     }
   }
 };
+
+// Alternative syntax
+  for (let artist of artists) {
+    for (let albums of artist.albums) {
+      for (let songs of album.songs) {
+        console.log(songs);
+      }
+    }
+  }
 ```
 
-Now we have a collection of artists, as we gain each artist with 10 albums and ten songs each artist will have 10 albums. Each time we add an artist we get 10 songs and 10 albums. With 10 artists we get 10 x 10 x 10 = 1000 steps.
+Now we have a collection of artists, as we gain each artist with 10 albums and then 10 songs per album. Each time we add an artist we get 10 songs and 10 albums. With 10 artists we get 10 x 10 x 10 = 1000 steps.
 
 This type of complexity is considered inefficient. It is also important to note, that for this particular ask, there isn't a more efficient way. We want every single song! That's ok.
 
@@ -198,7 +207,11 @@ So we start in the middle, let's say that this middle is songs that start with t
 
 Let's set our next midpoint to be the middle of the remaining songs, and we get songs that start with the letter `F`. Since our song starts with the letter `I`, we can stop searching through songs starting with A - F, and have again, cut our search down by half.
 
-We would keep repeating, removing half of the songs we are looking through until we found our song. This more complicated process is more efficient than looking through every single song and can be represented
+We would keep repeating, removing half of the songs we are looking through until we found our song. This more complicated process is more efficient than looking through every single song and can be represented as this image
+
+![](../assets/binary-search.png)
+
+And as this code:
 
 ```js
 function artistSearch(artists, artist, first = 0, last = null) {
@@ -216,7 +229,7 @@ In this way, if we have 16 songs, the number of steps would be 4 Log(2) of 16 = 
 
 If we have about 1.126 million songs, the number of steps would be just 50!
 
-This type of complexity is considered highly efficient.
+This type of complexity is considered highly efficient. But notice, it is not very efficient at first, it only becomes efficient as the number of items increases. Therefore, this may not be the best solution for smaller data sets.
 
 ![](../assets/Logarithmic.png)
 
@@ -296,10 +309,13 @@ Calculate Big O for yourself, and then check
 
 <details><summary>
 Big O</summary>
+
 - for loop = N
 - two steps inside of for loop  = 2
 
 O(2N)
+
+2 is constant, so we can just write O(N)
 
 </details>
 
@@ -318,6 +334,8 @@ Calculate Big O for yourself, and then check
 
 <details><summary>
 Big O</summary>
+
+
 - first for loop = N
 - one step  inside of for loop  = 1
 - second for loop = N
@@ -327,7 +345,7 @@ O(2N)
 
 </details>
 
-The rate always increases by the number of elements: `N`, the 2 is a constant. We don't need constants - therefore for both of these examples Big O is o(N)
+The rate always increases by the number of elements: `N`, the 2 is a constant. We don't need constants - therefore for both of these examples Big O is O(N)
 
 ### Drop Non-Dominant Terms
 
@@ -342,7 +360,7 @@ Consider an algorithm that has a complexity of
 |  100  |   10000 + 100 = 10100   |
 | 1000  | 1000000+ 1000 = 1001000 |
 
-As N grows, the impact of `N` decreases, while `N^2` dominates the runtime in a worst case scenario. Therefore we would change this Big O to be `O(N^2)
+As N grows, the impact of `N` decreases, while `N^2` dominates the runtime in a worst case scenario. Therefore we would change this Big O to be O(N^2)
 
 ### Adding vs Multiplying
 

@@ -109,7 +109,7 @@ Remember percentage is converted to a decimal by dividing by 100.
 Is this ok?
 
 ```js
-total = total - (total * 10) / 100;
+total = total - total * 10 / 100;
 ```
 
 What will this equal?
@@ -128,7 +128,7 @@ We can use the mnemonic PEMDAS as a quick way to to remember, without having to 
 
 - Parenthesis
 - Exponents
-- Multiplication/Divison
+- Multiplication/Division
 - Addition/Subtraction
 
 Therefore, we don't need to add parenthesis (but it does not hurt to have them).
@@ -555,15 +555,15 @@ console.log(findTheMedian(nums));
 
 Here are some other math methods and concepts you may see on an interview/on Code Wars/ at work
 
-Comparison Operators
+- [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
 
-`Math.pi` - the value of [pi](https://www.scientificamerican.com/article/what-is-pi-and-how-did-it-originate/)
+- `Math.pi` - the value of [pi](https://www.scientificamerican.com/article/what-is-pi-and-how-did-it-originate/)
 
-`Math.pow` or `**` - raise any number to any power
+- `Math.pow` or `**` - raise any number to any power
 
-`Math.random` - generate a random number between 0 and 1
+- `Math.random` - generate a random number between 0 and 1
 
-`Math.sqrt` - get the square root of a number
+- `Math.sqrt` - get the square root of a number
 
 Unary negation - convert a positive number to a negative one, or a negative one into a positive one:
 

@@ -97,7 +97,7 @@ computer.price = 5;
 console.log(computer.price);
 ```
 
-To add a property, we name the property and set a value
+To add a property, we name the key and set a value
 
 ```js
 computer.color = "griege";
@@ -240,7 +240,7 @@ console.log(box);
 
 What if we wanted to make a new object but not change newComputer?
 
-We could put the values in a new object?
+Could we put the values in a new object?
 
 ```js
 const clonedComputer = Object.assign({}, computer);

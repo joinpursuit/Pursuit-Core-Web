@@ -43,7 +43,7 @@ Let's look at some code and figure out how long it takes.
 
 Every computer has a different speed and there are many conditions that can affect how fast some code runs (how many other programs are running? etc.)
 
-Instead, we are going to measure by the number of steps it takes to run the code.
+Instead of using time to measure how long something takes, we are going to measure by the number of steps it takes to run the code.
 
 For example:
 
@@ -157,7 +157,7 @@ Here is a naive coding solution. But it is always going to be the worst case sce
 
 **Note:** - `alert`,`prompt`, and `confirm` are all browser specific functions that will NOT work in `node`. They also `STOP` the code from running until the user does something. This means that the order of events can be a bit unexpected, don't worry about fixing it. This is for demonstration purposes only.
 
-Now that the computer is guessing and we don't need user imput, we'll just use `console.log` instead
+Now that the computer is guessing and we don't need user input, we'll just use `console.log` instead
 
 ```js
 const game = () => {
@@ -194,17 +194,6 @@ If it isn't how you approached it, try to code your approach
 
 ## Lab:
 
-### Part 1
-
-**NOTE** Skip if you have not solved these in class yet.
-
-- What is the time complexity for the previous problems we've solved in class?
-- Print primes?
-- Find the median?
-- Disemvowel trolls?
-- Your own Index Of function
-- Count words?
-
-### Part 2 Accumulate Points on Codewars
+### Accumulate Points on Codewars
 
 Continue to solve assigned problems. Use the [tracker](https://codewars-tracker-fe.herokuapp.com) to find which problems you have to solve.

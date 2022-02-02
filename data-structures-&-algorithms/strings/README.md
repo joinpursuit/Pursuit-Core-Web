@@ -14,7 +14,13 @@ Most of us don't know what the future holds. Worrying about whether in a year or
 - What are the differences between a `single quote`, `double quote`, `smart quote`, and `backtick`?
 - What is the difference between `a` and `'a'` in JavaScript?
 
-## Main Problem
+## Main Problem 1
+
+Write a function that determine if a word is a palindrome.
+
+ This prompt is intentionally vague. Be sure to use Polya's method for problem solving to help you figure out how to solve this question. Write down the clarifying questions you have and be ready to discuss them. You can still build a basic solution, even if you would have to refactor it later. 
+
+## Main Problem 2
 
 [Disemvowel Trolls](https://www.codewars.com/kata/52fba66badcd10859f00097e/javascript)
 

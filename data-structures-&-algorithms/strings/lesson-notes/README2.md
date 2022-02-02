@@ -7,7 +7,7 @@
 
 ## An Introduction to Regular Expressions
 
-Regular Expressions is a fancy term that essentially means "patterns inside of strings". We can create patterns for strings that can be searched for, matched and replaced.
+Regular Expressions is a fancy term that essentially means "patterns of strings". We can create patterns for strings that can be searched for, matched and replaced.
 
 Regular Expressions are very useful, therefore they are included in many coding languages including, JavaScript, Ruby, Python, js, Java, HTML (yes!) and even to a limited extent CSS!
 
@@ -94,15 +94,7 @@ const patternMatch = (word) => {
 ```
 
 ```js
-const patternMatch = (word) => {
-  const regex = /[aeiou]/;
-  if (word.match(regex)) {
-    return `${word} has a vowel in it`;
-  } else {
-    return `${word} does not have a vowel in it`;
-  }
-};
-
+// Test cases
 console.log(patternMatch("ha"));
 console.log(patternMatch("pffft"));
 console.log(patternMatch("eh"));
@@ -115,7 +107,7 @@ console.log(
 );
 ```
 
-We look at our test cases, and `Oh` does not have a vowel in it based on our function. We want to make our search case insensitive. You can apply extra properties to our search (called flags). One of these flags is `i` for insensitive. Flags go after the last `/`
+We look at our test cases, and `Oh` does not have a vowel in it based on our function. We want to make our search case insensitive. You can apply extra properties to our search (called flags). One of these flags is `i` for case **i**nsensitive. Flags go after the last `/`
 
 ```js
 const patternMatch = (word) => {
@@ -172,7 +164,7 @@ Great! We could make it one line, but sometimes it is better to leave it as two,
 
 [reference for email validation](http://emailregex.com)
 
-The above expression is quite complex and would require more study to learn what each part means.
+The above expression is quite complex and would require more study to learn what each part means. Below we can look at how to build a more complex express. There is also nothing wrong with writing multiple expressions and checking for different parts separately, especially if it makes the code more readable/maintainable. 
 
 ## Simple Date Validator
 
@@ -180,7 +172,7 @@ Let's check for a valid date in the form of `mm-dd-yyyy`, where the date is repr
 
 ### Special Characters and How to Use or Escape Them
 
-Finally, for this intro we have special characters, which may or may not have a back slash in front of them:
+We have special characters that help us build regular expressions, sometimes we want to use the actual character and sometimes we want to use the functionality they represent. Let's look at some examples:
 
 - `.` is any character
 - `?` is an optional character
@@ -233,7 +225,7 @@ console.log(validDate("12122112"));
 console.log(validDate("12/12/2112"));
 ```
 
-And it would be nice if the month could be (sort of) limited to 01-12. Note how preventing people from putting 13-19 would add even more complexity to our regular expression. If you feel up to it, think of a way to truly limit it to 01-12. Otherwise, the take away is that it's easy for these expressions to get complex quickly.
+And it would be nice if the month could be (sort of) limited to 01-12. Note how preventing people from putting 13-19 would add even more complexity to our regular expression. If you feel up to it, think of a way to truly limit it to 01-12. Remember, you can write a second regular expression instead of trying to do all testing in one line. Otherwise, the take away is that it's easy for these expressions to get complex quickly.
 
 ```js
 const validDate = (date) => {
@@ -297,9 +289,9 @@ The site allows you to write and test regular expressions and has nice reference
 
 There are some nuanced/esoteric differences with regular expressions across languages and there are often more optimal ways to write regular expressions (look into greedy, nongreedy).
 
-The best way to learn is to practice, start small and work your way up to more complexity and don't worry if you can't learn it all in a day, or a week or a month.
+The best way to learn is to practice, start small and work your way up to more complexity and don't worry if you can't learn it all in a day, or a week or a month. Coding as a career makes you a lifelong learner. 
 
-You are near the end of your time in a bootcamp and soon you'll be tasked with learning things on your own. Hopefully, by now you feel confident in knowing how you learn to code. So feel free to work on any of the following, according to how you learn best.
+You are near the end of your time in a classroom and soon you'll be tasked with learning things on your own. Hopefully, by now you feel confident in knowing how _you_ learn to code. So feel free to work on any of the following, according to how you learn best.
 
 - Here is a good code-along tutorial, that'll start you learning regular expressions from the beginning:
   - [regexone](https://regexone.com/)

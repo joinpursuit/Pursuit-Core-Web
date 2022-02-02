@@ -8,7 +8,7 @@ With all the deadlines and big project ideas, it can feel like there is no time 
 
 ## Technical Debt
 
-Technical Debt is what happens when you build a temporary solution that will need be updated, later. This can help you build faster in the moment, but will eventually catch up to you and your team.
+Technical debt is what happens when you build a temporary solution that will need be updated later. This can help you build faster in the moment, but will eventually catch up to you and your team.
 
 Do your best to solve your problems in a maintainable way. A little bit of research and thought can go a long way.
 
@@ -24,7 +24,7 @@ Both are weekly newsletters that are well-organized and with just a few minutes 
 
 ## Check the Official Documentation
 
-This is the best place to start. This is where you will find best practices and the correct way to use the library/framework API. Many have error codes explained in greater depth. With front-end frameworks, you can often click a link in the error of the console log and it will take you to a more detailed description.
+This is the best place to start. This is where you will find best practices and the correct way to use the library/framework API. Many have error codes explained in greater depth. With front-end frameworks, you can often click a link in the error of the console log and it will take you to a more detailed description. In terminal there is often an `-h` or `--help` flag that will expand some docs, right in Terminal for you.
 
 For basic JavaScript/HTML/CSS - use MDN or W3 schools.
 
@@ -73,7 +73,7 @@ Tips with online tutorials:
 
 - Build what they build:
   - Don't try to double up and use the tutorial to immediately build your project. Complete the tutorial and then use it as a reference to build your project
-  - Follow the tutorial completely. Maybe there is something you don't like (variable names, they are using function declarations, instead of arrow functions...). If you improvise as you go, the further you get into the tutorial, it is easier to get stuck. Also, there may be very good reasons a person is building the tutorial in a specific way, but it won't become clear until later.
+  - Follow the tutorial completely. Maybe there is something you don't like (variable names, they are using function declarations, instead of arrow functions...). If you improvise as you go, the further you get into the tutorial, it will be easier to get stuck. Also, there may be very good reasons a person is building the tutorial in a specific way, but it won't become clear until later.
 - If you have built something by following an online tutorial, do not claim it as your own. Changing some CSS and some text, is not enough to reference it as your own work
 - If you have used the build as a reference to build your own idea that is ok
 
@@ -91,7 +91,7 @@ Older technologies, like jQuery, while not exciting or cool, can be very stable,
 
 jQuery is also used on over 78% of all websites (fall 2021), according to [W3techs](https://w3techs.com/technologies/details/js-jquery). While that number is very likely to change, it also demonstrates that web technologies can be stable.
 
-In fact [Cypress](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress#Querying-by-Text-Content) is built with jQuery and uses the older style of promises (rather than `async`/`await`) - many developers really like Cypress because it is quite stable, despite being fairly new. In part, this is because they used the right tools for their project, rather than building something entirely new from scratch.
+In fact [Cypress](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress#Querying-by-Text-Content) is built with jQuery-like patterns and uses the older style of promises (rather than `async`/`await`) - many developers really like Cypress because it is quite stable, despite being fairly new. In part, this is because they used the right tools for their project, rather than building something entirely new from scratch.
 
 So, pay attention to trends, but don't worry about learning every new thing. Choose things that truly interest you or that really are a good fit for what you are building.
 

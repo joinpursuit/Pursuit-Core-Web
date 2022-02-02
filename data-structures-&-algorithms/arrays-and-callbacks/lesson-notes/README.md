@@ -68,9 +68,9 @@ for (let i = 0; i < nums.length; i++) {
 }
 ```
 
-The `for` loop, is very flexible, you can increment (`i++`), decrement (`i--`) , skip by a certain amount (`i+=3`), go back a step in the code, if needed (we saw this with disemvowel trolls).
+The `for` loop, is very flexible, you can increment (`i++`), decrement (`i--`) , skip by a certain amount (`i+=3`), go back a step in the loop, if needed (we saw this with disemvowel trolls).
 
-But if your goal is to iterate over each item, you can use a `for of` loop.
+But if your goal is to iterate over each item, you can use a `for of` loop for easier readability.
 
 In this control panel, you name a variable and this will represent each item in the loop, one at a time, then `of`, which is a keyword, and finally the variable/array/string that you want to loop over
 

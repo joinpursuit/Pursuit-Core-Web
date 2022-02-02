@@ -17,7 +17,7 @@ You don't have to be the best to make strong positive contributions. You do have
 - Is an array a primitive data type?
 - What is the difference between:
   - `for (let i = 0; i < 5; i++)`
-  - `for (i = 0; i < 5; i++ )`
+  - `for (i = 0; i < 5; i++)`
 
 ## Find the Index in an Array
 
@@ -63,7 +63,7 @@ const letters = [
 
 ## Drills
 
-[Practice array methods with callbacks](./lesson-notes/drills.md)
+[Practice array methods with callbacks](https://github.com/joinpursuit/array-method-drills)
 
 ## Loop the Loop
 

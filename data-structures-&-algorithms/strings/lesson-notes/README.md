@@ -144,15 +144,15 @@ Is a word a palindrome? Write a function that returns `true` if the word is a pa
 - borsch - not a palindrome
 - harpo - a word that has meaning forward and backwards, but not a palindrome
 
-Note, we are just testing for alphabetical letters and single words, not expressions
+Note, we are just testing for alphabetical letters and single words, not sentences or expressions: I.e. is `{}{}` a palindrome?
 
 Note, when writing a function that is supposed to return a true or false value using `is` can be helpful to understand what this function does.
 
 Compare the function names
 
-`palindrome` - this is a noun, it doesn't sound like a function
+`palindrome` - this is a noun, it doesn't sound like a function.
 
-`palindromeTester` - this is a verb, which is generally more accurately descriptive of functions (functions do things), but what is it testing? What will it return?
+`palindromeTester` - this is a verb, which is generally more accurately descriptive of functions (functions do things), but what will it return? The word itself a number?
 
 `isPalindrome` - this can almost be read as English and you can reasonably expect it would return a true or false value:
 
@@ -223,7 +223,7 @@ console.log(isPalindrome("borsch"));
 console.log(isPalindrome("harpo"));
 ```
 
-This kind of refactoring and writing shorter, more elegant code just comes with practice. Its better to start with the simplest way you can write it and then go back and refactor it. The alternative of getting stuck because you want to make it perfect immediately will not server you well.
+This kind of refactoring and writing shorter, more elegant code just comes with practice. Its better to start with the simplest way you can write it and then go back and refactor it. The alternative of getting stuck because you want to make it perfect immediately will not serve you as well.
 
 ### Part 3 - Edge Cases
 
@@ -253,6 +253,8 @@ const isPalindrome = (word) => {
 console.log("Racecar");
 ```
 
+This is getting a bit hard to read. What kinds of things could we do to help clarify what this function does? What would you say "best practices" are?
+
 ## Disemvowel Trolls
 
 [From Code Wars](https://www.codewars.com/kata/52fba66badcd10859f00097e/javascript)
@@ -279,12 +281,12 @@ console.log("Racecar");
 
 - choose some good use cases
 
-  - `ha` => `h` (simplest)
-  - `eh`, `hi`, `oh`, `huh` - test each letter (and first, middle, last position)
+  - `ha` => `h` (simplest - just one vowel: `a`)
+  - `eh`, `hi`, `oh`, `huh` - test each vowel, in each position ]
   - `seen` - test two vowels in a row
   - `pfft` => `pfft` (will not change if no vowels)
-  - `Oh!` => 'h!` (deals with a capital letter)
-  - `My girl wove six dozen plaid jackets before she quit.` => `My grl wv sx dzn pld jckts bfr sh qt.` This is a panagram, it has at least one of each letter in the alphabet. It also has multiple words.
+  - `Oh!` => 'h!` (deals with a capital letter and a non-letter)
+  - `My girl wove six dozen plaid jackets before she quit.` => `My grl wv sx dzn pld jckts bfr sh qt.` This is a pangram, it has at least one of each letter in the alphabet. It also has multiple words.
 
 - loop over each letter
   - check if it is a vowel
@@ -388,7 +390,7 @@ Good progress! Two vowels in a row!
 console.log(disemvowelWord("seen"));
 ```
 
-Uh oh, the second letter is skipped. Why?
+Uh oh, the second letter is skipped. Why? How do we fix it?
 
 <details><summary> hint
 </summary>
