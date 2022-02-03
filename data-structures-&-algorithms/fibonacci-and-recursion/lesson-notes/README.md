@@ -222,9 +222,9 @@ Fibonacci is a classic problem that shows up as examples in coding or as a probl
 Write a function that prints the nth number in the Fibonacci sequence:
 
 - `fibonacci(5)`
-  - 1, 1, 2, 3, 5
+  - 1, 1, 2, 3, **5**
 - `fibonacci(8)`
-  - 1, 1, 2, 3, 5, 8, 13, 21
+  - 1, 1, 2, 3, 5, 8, 13, **21**
 
 1. Do we understand al the words used in stating the problem?
 
@@ -301,7 +301,7 @@ Another way to visualize this is with a tree:
 
 ## Fibonacci Big O
 
-If we calculated Big O for our fibonacci recursive function, we'd end up logarithmic complexity in terms of time O(2^N), which is `exponential`.
+If we calculated Big O for our fibonacci recursive function, we'd end up  complexity in terms of time O(2^N), which is `exponential`.
 
 Note, for our introductory course, just determining a general category for our function: `constant`, `linear`,`exponential`, `quadratic`, `logarithmic`, and `factorial` is a good place to start, especially so that you can describe your thoughts and solutions properly. As you build your skill set, work on refining the value.
 
