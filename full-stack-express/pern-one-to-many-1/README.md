@@ -1,4 +1,6 @@
-# 13 PERN Stack: One to Many - Part 1
+# 13 PERN Stack: One to Many - Part 1 
+
+**Note:** due to the size of this README.md there is a README2.md that continues this lesson. It is in this folder/linked at the bottom. 
 
 ## Adding a Second Model
 
