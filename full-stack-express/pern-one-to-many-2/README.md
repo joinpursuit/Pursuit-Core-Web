@@ -400,7 +400,7 @@ const handleEdit = (updatedReview) => {
 
 **src/Review.js**
 
-We'll hae to continue to pass the `handleSubmit` function down. Passing props down two or more times can be referred to as `props drilling`. A little bit of props drilling is ok. However, if your app grows to be large, there end up being solutions that fit better for a larger application.
+We'll have to continue to pass the `handleSubmit` function down. Passing props down two or more times can be referred to as `props drilling`. A little bit of props drilling is ok. However, if your app grows to be large, there end up being solutions that fit better for a larger application.
 
 ```js
 <ReviewForm
