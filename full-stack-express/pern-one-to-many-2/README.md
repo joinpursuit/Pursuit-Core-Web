@@ -369,7 +369,7 @@ Now you should be able to click the `edit this review` button and toggle between
 
 ### Adding the Edit Functionality
 
-When thinking in react, when we edit, we want to return the view of the review back from the form. And we want to be sure we've updated the list of reviews. Again that means we are going to have to put state in the `reviews` component and pass it down and then [lift state up](https://reactjs.org/docs/lifting-state-up.html)
+When thinking in react, when we edit, we want to return to the view of the review back from the form. And we want to be sure we've updated the list of reviews. Again that means we are going to have to put state in the `reviews` component and pass it down and then [lift state up](https://reactjs.org/docs/lifting-state-up.html)
 
 **src/Reviews.js**
 
