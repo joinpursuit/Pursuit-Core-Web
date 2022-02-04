@@ -28,7 +28,7 @@ Some languages stack on top of each other to build a fully functioning computer/
 
 When we write JavaScript we can write `array.forEach(...)` and JavaScript will iterate through the array for us. This is called `abstraction` - we don't worry about how to iterate, rather we just call the method.
 
-We can see abstraction in our day to day life: When we order a dish with 'diced cucumbers' this is an abstraction, and it is useful because we can just order what we want. The chef, on the other hand, must know what dicing means, what tools are needed for dicing, and the technique to dice. The chef is likely relying on even more people so they can focus on their job - someone to order the cucumbers, maintain the restaurant space, balance the books, schedule the staff and more.
+We can see abstraction in our day to day life: When we order a dish with 'diced cucumbers' this is an abstraction, and it is useful because we can just order what we want. The chef, on the other hand, must know what dicing means, what tools are needed for dicing, and the technique to dice. The chef is likely relying on even more people so they can focus on their job: There is someone to order the cucumbers, another to maintain the restaurant space, then balance the books, and schedule the staff and more.
 
 JavaScript abstracts a lot more than helpful functions, it deals with memory management: we don't have to figure out how to allocate space on the hard drive(s) in order to add, remove or change data: JavaScript does it for us.
 
@@ -79,6 +79,8 @@ We are often considering the speed of:
 Generally, there are solutions that allow us very fast read/lookups which make sense for some applications - ie going to an online dictionary - typically the definitions don't change or change very infrequently, so we would want to be sure we can get the definitions as fast as possible.
 
 In contrast, if we are working on an application that tracks a very large warehouse's stocks of different products, we are likely often updating quantities, adding new items and removing old items. We would want to be able to update things very quickly.
+
+Therefore the above two systems would be built differently - each optimized in the way it makes sense for its objectives. 
 
 ## Nodes
 

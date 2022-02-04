@@ -270,7 +270,7 @@ In this course it can feel like everything is very fast paced, one of the hardes
 
 ## Default Values
 
-Sometimes you want to create default values, that can be overwritten. For example, if a user were creating a profile, but did not include a picture, you would likely want to have a default placeholder image set, that can be updated later.
+Sometimes you want to create default values that can be overwritten. For example, if a user were creating a profile, but did not include a picture, you would likely want to have a default placeholder image set that can be updated later.
 
 Let's look at the code to write a default value
 

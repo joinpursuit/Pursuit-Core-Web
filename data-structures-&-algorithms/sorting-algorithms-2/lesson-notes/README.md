@@ -9,7 +9,7 @@
 
 Certain types of problems appear again and again. There are numerous brilliant people who have spent their lives dedicated to finding optimal solutions. When we study algorithms, we have an opportunity to use what they have learned, which makes our problem solving skills sharper and better. This approach makes us stronger problem solvers.
 
-We do this all the time in our own lives. Perhaps you have a pickle jar that is stuck. Your initial approach may be to smash the jar with a hammer and carefully pick the pickles out. While you did achieve the goal of accessing the pickles, this method is not ideal. Perhaps then, you google 'cannot open pickle jar' and you find numerous solutions like: heating the lid under hot water, using a rubber grip, using a can opener to break the seal on the side of the lid etc.
+We do this all the time in our own lives. Perhaps you have a pickle jar that is stuck. Your initial approach may be to smash the jar with a hammer and carefully pick the pickles out. While you did achieve the goal of accessing the pickles, this method is not ideal. Perhaps then, you google "cannot open pickle jar" and you find numerous solutions like: heating the lid under hot water, using a rubber grip, using a can opener to break the seal on the side of the lid etc.
 
 In taking the time to google and learn other approaches, you are now better at opening pickle jars and can approach other jars for jam, milk, kefier, pickled beets and more better as well.
 

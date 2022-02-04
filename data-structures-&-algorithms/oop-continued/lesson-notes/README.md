@@ -182,7 +182,7 @@ The above is a good start, but we need to make sure we understand the specks
 
 > Write down any questions you have about this model, what information is needed? What other considerations are there?
 
-Cards are objects. They are not simple numbers. They are also 4 sets.
+Cards are objects. They are not simple numbers. There are also 4 sets.
 
 Let's create a `Card` class
 
@@ -284,7 +284,7 @@ We now need a way to shuffle the deck. There is no built-in shuffle method in Ja
 There is a [Fisher-Yates Shuffle](https://bost.ocks.org/mike/shuffle/) - This one is written by Mike Bostock - he wrote the D3 JavaScript library which is used to create a lot of visuals used by the NYT.
 
 ```js
-const shuffle = (array) => {};
+shuffle (array) {};
 ```
 
 ```js
@@ -440,6 +440,8 @@ String.prototype.reverse = function () {
 
 console.log("foMO".reverse());
 ```
+
+Check out [README3.md from the linked list lesson (note: go through linked list lesson to understand the examples provided)](../linked-lists/lesson-notes/README2.md)
 
 Check out this section of [You Don't Know JS: this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/this%20&%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
 

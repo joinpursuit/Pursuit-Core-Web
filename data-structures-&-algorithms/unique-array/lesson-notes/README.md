@@ -54,7 +54,7 @@ Hashing functions used in production are very complex and sophisticated. They ar
 
 ### Hash Table and Associated Terms
 
-Across compting languages, there can be different name for the same (or very similar things). For example, we learned earlier that in the language Python, what JavaScript coders call an `array` is often referred to as a `list` in Python.
+Across compting languages, there can be a different name for the same (or very similar things). For example, we learned earlier that in the language Python, what JavaScript coders call an `array` is often referred to as a `list` in Python.
 
 Let's look at some more similar, yet sometimes different, terminology
 
@@ -94,7 +94,7 @@ With a hash table, even though the worst case scenario could be `O(N)` it usuall
 
 One further detail about the analogy of the physical dictionary on the wall: Our dictionary has many more words that start with the letter `s` than the letter `x`. That means that the lookup time for `s` would end up being much longer with our system. Since we want to look things up as fast as possible, we can consider that we don't have to limit ourselves to just 26 pages (one for each letter): We could possibly do 100 pages on the wall and still be able to scan them quickly `O(1)`. However, we would need a more complex system to break up the dictionary. This is where we would use something like a hash function - it would help distribute the data more evenly within our 100 pages. The system would move away from a purely alphabetical means to a more complicated of a system for distributing the data.
 
-[Hash tables are used for things like database indexing, caches and sets](https://en.wikipedia.org/wiki/Hash_table) - again, with where we are in our coding journey we don't have to build out the functionality of a cache, we just need to know how and where to use the code that someone else has built for us.
+[Hash tables are used for things like database indexing, caches and sets](https://en.wikipedia.org/wiki/Hash_table) - again, with where we are in our coding journey, we don't have to build out the functionality of a cache, we just need to know how and where to use the code that someone else has built for us.
 
 Bonus - [What is a cache?](https://www.businessinsider.com/what-is-cache)
 
@@ -112,8 +112,9 @@ Our very simple hash table with have one property:
 
 - A table, which will store the data, we will limit it to 127 array positions (often referred to as `buckets` in other write-ups)
   - The table will have three properties
-  - The index
-  - an array of size two that stores the `key` and `value`
+    - The index
+    - an array of size two that stores 
+      - `key` and `value` pairs
 
 We will write a very simple hash function to just mock the process of converting a string to another value.
 

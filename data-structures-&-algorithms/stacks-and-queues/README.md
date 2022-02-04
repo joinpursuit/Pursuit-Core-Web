@@ -10,7 +10,7 @@ None today, just pre-reading for lecture
 
 ## Background
 
-Stacks and queues can be built either with linked lists or arrays. Stacks and queues usually are put together because they are quite similar.
+Stacks and queues can be built either with linked lists or arrays. Stacks and queues usually are put together as topics to learn because they are quite similar.
 
 They are a linear data structure (like an array or linked list). What makes them different are some key rules about how to use them
 

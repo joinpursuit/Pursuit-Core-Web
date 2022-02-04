@@ -6,9 +6,10 @@
 - Review breaking the problem down into smaller parts
 - Sort an array of numbers using bubble sort
 
-## Many Sorting Algorithms
+## There are Many Sorting Algorithms
 
-Sorting is often an important part of a good number of applications. For example on a website, you might want to sort a list of shoes by price. If you are working on the front end, you usually have a limited amount of items to sort on a page (less than 100), and so developers would just rely on `.sort()`.
+ 
+Sorting is often an important part of a good number of applications. For example on a website, you might want to sort a list of shoes by price. If you are working on the front end, you usually have a limited amount of items to sort on a page (less than 100), and so developers would just rely on the built-in `.sort()` function, which is an implementation of a sorting algorithm.
 
 Which algorithm does JavaScript use? [It's complicated](https://www.tutorialspoint.com/which-algorithm-does-the-javascript-arrayhashsort-function-use), and can depend on which browser one is using. The engineers who build JavaScript in the browser are the ones who take the time and effort to choose the best algorithm for general use.
 
@@ -36,11 +37,11 @@ const cards = [10, 3, 10, 8, 10, 11, 7, 10, 9, 6, 5, 2, 4];
 
 Bubble sort compares two elements that are next to each other,
 
-- if they are in the correct order, it moves along to the next pair
-- if they are in the wrong order, they are swapped and then it moves along to the next pair
-- it repeats this process over and over again until no swaps have been made, then it has completed its sorting
+- If they are in the correct order, it moves along to the next pair
+- If they are in the wrong order, they are swapped and then it moves along to the next pair
+- It repeats this process over and over again until no swaps have been made, until it has completed its sorting
 
-Let's code it
+Let's code it:
 
 ```js
 const bubbleSort = (arr) {
@@ -98,7 +99,9 @@ Determine Big O on your own then check:
 
 <details><summary>Big O</summary>
 
-Runtime: O(n^2) Memory O(1)
+Runtime: O(n^2)
+
+ Memory O(1)
 
 </details>
 
