@@ -29,7 +29,7 @@ So we would nest the route:
 
 |     | Action |          URL           | HTTP Verb |   CRUD   |                   Description                   |
 | :-: | :----: | :--------------------: | :-------: | :------: | :---------------------------------------------: |
-|  1  |  Read  | /bookmarks/:id/reviews |   POST    | **R**ead | See reviews all reviews belonging to a bookmark |
+|  1  |  Read  | /bookmarks/:id/reviews |   GET    | **R**ead | See reviews all reviews belonging to a bookmark |
 
 If we think about it, there isn't much use for just `/reviews` as a resource. Reviews without the bookmark don't provide us with helpful information.
 
