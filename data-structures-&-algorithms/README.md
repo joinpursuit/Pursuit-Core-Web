@@ -1,4 +1,4 @@
-# Module 6: Data Structures & Algorithms
+# Module 5: Data Structures & Algorithms
 
 We're almost at the end of our learning journey at Pursuit.
 
