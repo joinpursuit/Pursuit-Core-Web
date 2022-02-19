@@ -134,10 +134,14 @@ Let's try a simple get request
 - `curl http://localhost:3003/bookmarks`
 
 Nice! We can see our data in terminal.
-
+ 
 We can also `POST` data using cURL
 
 - `curl -H "Content-Type: application/json" -X POST -d '{"name":"AV Club", "url": "https://www.avclub.com"}' localhost:3003/bookmarks`
+
+Or, if you have the lastest version of curl:
+
+- `curl --json '{"name":"AV Club", "url": "https://www.avclub.com"}' -X POST localhost:3003/bookmarks`
 
 We should get a message that the route was found and returns the new bookmark
 
@@ -152,6 +156,9 @@ Commands in terminal are a bit like sentences.
 - `-d` is for data, the next thing will be some valid JSON wrapped in single quotes, that is the data we are sending, inside of a web application in a front end, the user would enter this information into a form and then submit it
 - And finally, the location where we are sending the request, in our case, it is `localhost:3003/bookmarks`
 
+  
+For more info on the [--json flag](https://daniel.haxx.se/blog/2022/02/02/curl-dash-dash-json/)
+  
 </details>
 
 Let's make a get request back to our index:
