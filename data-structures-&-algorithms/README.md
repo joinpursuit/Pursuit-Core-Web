@@ -36,13 +36,8 @@ To pass this unit, you will need to gain a minimum number of points on code wars
 |  8  |               [Guess My Number](./big-o)                |                                                [Big O](./big-o/lesson-notes)                                                 |
 |  9  |         [Fibonacci](./fibonacci-and-recursion)          |                                 [Intro to Recursion](./fibonacci-and-recursion/lesson-notes)                                 |
 | 10  |      [Model a Vending Machine, Cards](./oop-intro)      |                                               [OOP](./oop-intro/lesson-notes)                                                |
-<<<<<<< HEAD
 | 11  |             [Cards Cont.](./oop-continued)              |                                        [OOP Continued](./oop-continued/lesson-notes)                                         |
 | 12  |                  [OOP Lab](./oop-lab)                   |                             [OOP Continued](https://github.com/joinpursuit/oop-fruits-pets-lab)                              |
-=======
-| 11  |             [Cards Cont.](./oop-continued)              |                                        [OOP Continued](./oop-continued/lesson-notes)   
-| 12  |             [OOP Full Day Lab](./tbd)              |                                        [OOP Full Day Lab](./tbd)  |
->>>>>>> a1a48916b0fe154ca20a6f52eccecba85275a534
 | 13  |             [Linked Lists](./linked-lists)              |                                         [Linked Lists](./linked-lists/lesson-notes)                                          |
 | 14  |         [Stacks & Queues](./stacks-and-queues)          |                                     [Stacks & Queues](./stacks-and-queues/lesson-notes)                                      |
 | 15  |                    [Trees](./trees)                     |                                             [Binary Trees](./trees/lesson-notes)                                             |
