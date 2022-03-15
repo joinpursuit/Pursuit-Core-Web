@@ -164,7 +164,7 @@ Great! We could make it one line, but sometimes it is better to leave it as two,
 
 [reference for email validation](http://emailregex.com)
 
-The above expression is quite complex and would require more study to learn what each part means. Below we can look at how to build a more complex express. There is also nothing wrong with writing multiple expressions and checking for different parts separately, especially if it makes the code more readable/maintainable. 
+The above expression is quite complex and would require more study to learn what each part means. Below we can look at how to build a more complex expression. There is also nothing wrong with writing multiple expressions and checking for different parts separately, especially if it makes the code more readable/maintainable. 
 
 ## Simple Date Validator
 
