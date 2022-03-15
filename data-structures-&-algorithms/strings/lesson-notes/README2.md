@@ -37,7 +37,7 @@ console.log(patternMatch("aloha"));
 console.log(patternMatch("pfft"));
 ```
 
-Let's use a regular expression (often abbreviated regex) and the method `.match`, match will return `true` or `false` if there is a match.
+Let's use a regular expression (often abbreviated regex) and the method `.match`, match will return either an array of the matched values or null, depending on if there is a match.
 
 First, let's just try the letter a.
 
