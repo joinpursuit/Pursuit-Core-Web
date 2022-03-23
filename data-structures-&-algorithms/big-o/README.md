@@ -35,7 +35,7 @@ undefined
 Why is the last item `undefined`?
 
 - What is the `spread operator`? When/how is it used?
-- What ist he `rest operator`? When/how is it used?
+- What is the `rest operator`? When/how is it used?
 
 ## Main Problem
 
