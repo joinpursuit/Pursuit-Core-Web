@@ -22,4 +22,4 @@ The core curriculum is separated into six modules:
 ## Additional Resources
 
 - [Pursuit Core Environment Set up](./computer-set-up)
-- [Set up Personal Access Token for GitHub](.computer-set-up/pat-set-up/README.md)
+- [Set up Personal Access Token for GitHub](./computer-set-up/pat-set-up/README.md)
