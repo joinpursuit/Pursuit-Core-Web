@@ -13,7 +13,7 @@ Sorting is often an important part of a good number of applications. For example
 
 Which algorithm does JavaScript use? [It's complicated](https://www.tutorialspoint.com/which-algorithm-does-the-javascript-arrayhashsort-function-use), and can depend on which browser one is using. The engineers who build JavaScript in the browser are the ones who take the time and effort to choose the best algorithm for general use.
 
-A large part of determining the right algorithm goes back to the concepts of Big O and choosing the right one in terms of time and space efficiency. There are other factors that are also considered, like how likely is what is being sorted already somewhat sorted or very random?
+A large part of determining the right algorithm goes back to the concepts of Big O and choosing the right one in terms of time and space efficiency. There are other factors that are also considered, like how likely is what is being sorted already somewhat sorted or very random? [Here is a visualization of the performance of a few sorting algorithms and different types of sorted data sets](https://www.toptal.com/developers/sorting-algorithms)
 
 Today we'll look at one of the the simpler sorting algorithms: Bubble sort.
 
