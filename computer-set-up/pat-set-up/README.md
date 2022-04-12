@@ -4,7 +4,7 @@ On [August 13, 2021](https://docs.github.com/en/github/authenticating-to-github/
 
 If this is your issue, your error looks something like this:
 
-![Error on the command line showing "support for password authentication was removed."](./github-pat-error.png)
+![Error on the command line showing "support for password authentication was removed."](./assets/github-pat-error.png)
 
 ## Steps To Take On GitHub's Page
 
