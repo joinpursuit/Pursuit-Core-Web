@@ -35,7 +35,7 @@ undefined
 Why is the last item `undefined`?
 
 - What is the `spread operator`? When/how is it used?
-- What ist he `rest operator`? When/how is it used?
+- What is the `rest operator`? When/how is it used?
 
 ## Main Problem
 
@@ -193,6 +193,12 @@ How close is this solution to the one you used when trying it yourself? If it ma
 If it isn't how you approached it, try to code your approach
 
 ## Lab:
+
+### Figure Out the Big O Notation of Solutions to Some Problems You've Solved in the Past.
+
+This is the lab that you'll submit to Canvas. https://canvas.instructure.com/courses/2919273/assignments/27946573
+
+After you've completed and submitted the lab, you can continue onto the next step:
 
 ### Accumulate Points on Codewars
 

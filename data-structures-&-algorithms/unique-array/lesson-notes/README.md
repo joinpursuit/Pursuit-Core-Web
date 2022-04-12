@@ -413,7 +413,9 @@ console.log(uniqueArray(animals));
 
 Thought question - could we have done this with a regular JavaScript object?
 
-Is there any reason to have chosen a `map` in this instance (other than demonstration purposes)?
+Is there any other reason to have chosen a `Map` in this instance (other than demonstration purposes)? **Hint** - what if one of the words was `length`?
+
+When implementing a solution for unique array, there are many options. If you end up in a technical interview and are asked to explain your design choices, this is the kind of reasoning they are looking for (why did you use Map? Why not a regular object, what about Set?...). You don't need a perfect answer, but you should be able to explain your reasoning. 
 
 #### Bonus
 
