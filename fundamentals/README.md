@@ -14,7 +14,7 @@
 
 | Lesson                                                                  | Lab                                                                      |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| 1. [Local Environment Setup](./local_environment/README.md)             | Not applicable.                                                          |
+| 1. [Local Environment Setup](../computer-set-up/README.md)              | Not applicable.                                                          |
 | 2. [The Command Line](./the_command_line/README.md)                     | [link](https://github.com/joinpursuit/Command-Line-Lab)                  |
 | 3. [Git and GitHub](./git_and_github/README.md)                         | [link](https://github.com/joinpursuit/git_github_assignment)             |
 | 4. [Values, Types, and Operators](./values_types_operators/README.md)   | [link](https://github.com/joinpursuit/values_types_operators_assignment) |
