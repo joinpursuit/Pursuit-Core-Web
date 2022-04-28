@@ -74,6 +74,8 @@ If it is not installed, it will give an error saying something along the lines o
 
 Homebrew is a package manager for macOS. This means we can use it to install other software from the terminal.
 
+First open terminal/iTerm (teminal is a generic term, iTerm is a specific app for terminal) and type `git` - you may be prompted to install X-Code. Follow the prompts to install X-Code. X-Code will install a number of deloper-specific software needed to download and run other things we will install. If you just get `usage:` message, go to the next step. 
+
 Go to https://brew.sh and paste the install command into your terminal.
 
 ![Install Homebrew command](./assets/install-homebrew-command.png)
