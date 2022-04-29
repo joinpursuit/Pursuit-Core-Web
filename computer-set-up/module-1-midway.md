@@ -90,6 +90,10 @@ Click `Install` to download and install Xcode command line tools.
 
 After this process finishes, follow the remaining setup instructions that are displayed in the terminal, if there are any.
 
+They will be in terminal like so
+
+![Additional brew instructions](./assets/additional-brew.png)
+
 ### Git
 
 Git is a version control system that allows us to track, commit and revert changes to files within a directory.
@@ -126,6 +130,10 @@ $ git config --global user.name "your name here"
 # use the email associated with your GitHub account
 $ git config --global user.email your_email_here
 
+
+# Optional - this will open VS code to allow you to write
+# longer commit messages, rather than the default
+# Text editor that is inside terminal
 # use vscode as default editor
 $ git config --global core.editor "code --wait"
 ```
