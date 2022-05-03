@@ -26,7 +26,7 @@ You can lock the icon in your dock for easy access. Two finger click on the icon
 
 ![Keep in Dock](./assets/keep-in-dock.png)
 
-**Note:** `terminal` and `iTerm` can be used interchangeably in documentation.
+**Note:** `terminal` and `iTerm` can be used interchangeably in the course documentation.
 
 ### [Oh My Zsh](https://ohmyz.sh)
 
