@@ -22,16 +22,20 @@ These are useful, but not required:
 
 Download the app. You don't need to sign up or sign in to use this app. However, the `skip` sign up/log in button can be hard to find!
 
+Be sure to move into the `Applications` folder if prompted.
+
 ### PostgreSQL
 
 PostgreSQL is a fast, feature-rich, open-source database application. It is a scalable application that we can use for development and production apps. We will be using PostgreSQL for most of our web-apps.
 
 Fortunately for MacOS X, we can use [postgres-app](https://postgresapp.com/), which provides the database application and a command line interface (CLI) so we can interact with it. To install Postgres.app, download and follow the installation instructions from the website.
 
-Paste this command into the terminal. Note: it's all one line.
+Open the app and choose `initialize`
+
+Then, paste this command into the terminal. Note: it's all one line.
 
 ```sh
-$ sudo mkdir -p /etc/paths.d &&
+sudo mkdir -p /etc/paths.d &&
 echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
 ```
 

@@ -74,6 +74,8 @@ If it is not installed, it will give an error saying something along the lines o
 
 Homebrew is a package manager for macOS. This means we can use it to install other software from the terminal.
 
+First open terminal/iTerm (teminal is a generic term, iTerm is a specific app for terminal) and type `git` - you may be prompted to install X-Code. Follow the prompts to install X-Code. X-Code will install a number of deloper-specific software needed to download and run other things we will install. If you just get `usage:` message, go to the next step. 
+
 Go to https://brew.sh and paste the install command into your terminal.
 
 ![Install Homebrew command](./assets/install-homebrew-command.png)
@@ -89,6 +91,10 @@ Click `Install` to download and install Xcode command line tools.
 > **Note:** this may take a very long time!
 
 After this process finishes, follow the remaining setup instructions that are displayed in the terminal, if there are any.
+
+They will be in terminal like so
+
+![Additional brew instructions](./assets/additional-brew.png)
 
 ### Git
 
@@ -126,6 +132,10 @@ $ git config --global user.name "your name here"
 # use the email associated with your GitHub account
 $ git config --global user.email your_email_here
 
+
+# Optional - this will open VS code to allow you to write
+# longer commit messages, rather than the default
+# Text editor that is inside terminal
 # use vscode as default editor
 $ git config --global core.editor "code --wait"
 ```
