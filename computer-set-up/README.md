@@ -1,41 +1,52 @@
 # Pursuit Core Environment Setup
 
-Welcome to Pursuit! We can't wait to begin this journey with you. Before we dive right in and begin programming it is important that we first get our machines up to date and setup. Please follow the instructions below so we can all start with the same setup.
+Welcome to Pursuit! We can't wait to begin this journey with you. Before diving right into programming, it is important to first ready your tools. In this program, your key tool is going to be your computer.
 
-We will be installing programs that we need about 4 times throughout the duration of the program. We will only be installing what we need for the upcoming work we will be doing.
+At multiple points throughout this course, you will install a variety of programs and tools. You will also sign up for different free services. You will only install or sign up for what you need when you need it.
 
-Times we will do some installations:
+If an installation process doesn't work, reach out to an instructor for help.
 
-- At the very beginning of the course.
-- Mid-way through Module 1
-- During later modules
-
-## List of things we're installing
+## Installation guides
 
 Click on the links for more details
 
-### [Beginning of Module 1](./beginning-of-course.md)
+### Core tools
+
+These tools are necessary for completing the beginning of the course. For a full installation guide, click the link below.
+
+- [Core tools installation guide](./core-tools.md)
+
+The above installation guide covers the following installations and sign up processes:
 
 - Zoom
 - Slack
 - Google Chrome
+- Replit
 
-### [Later in Module 1](./module-1-midway.md)
+### Local environment
+
+These tools are necessary for the remainder of the course. For a full installation guide, click the link below.
+
+- [Local environment installation guide](./local-environment.md)
+
+The above installation guide covers the following installations and sign up processes:
 
 - iTerm2
-- oh-my-zsh
-- Visual Studio Code (with some additional plug-ins)
-- Node.js
+- Oh My Zsh
+- Visual Studio Code
+- NodeJS
 - Homebrew
-- git
+- Git
 - GitHub
 
-### [Later in the Course](./later-in-the-course.md)
+### Full stack web development
+
+Later on in the course you will need the following tools for developing full stack web applications. For a full installation guide, click the link below.
+
+- [Full stack web development installation guide](./full-stack.md)
+
+The above installation guide covers the following installations and sign up processes:
 
 - Chrome browser extensions
 - Postman
-- postgreSQL
-
-## Final Note
-
-Make sure you have everything installed! If you don't have everything installed, you won't be able to participate in class or do your assignments. Ask your instructor if you have any questions!
+- PostgreSQL
