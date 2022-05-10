@@ -30,4 +30,4 @@ Please create accounts on the following websites. Whenever possible, you should 
 
 Replit is an online developer environment where you can write and run your code. In the beginning of the program, you will use Replit to practice what you are learning and complete assignments.
 
-- [Replit home page)
+- [Replit home page](https://www.replit.com/)
