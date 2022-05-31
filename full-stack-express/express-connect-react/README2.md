@@ -86,6 +86,7 @@ updateBookmarks () {
   // Do some stuff
   // ...
   // Update state:
+  // use generic this.setState() function, inside the function set which property will be updated
   this.setState({bookmarks: ["This array is updated"]})
 }
 ```
@@ -95,12 +96,14 @@ With hooks, it does the same thing, but in a cleaner, more readable way.
 ```js
 // Declare state for bookmarks only. If you want to add more properties, you would create a new line and call useState() again.
 // Set default value bookmarks to be an empty array
+// Set the name of the funciton that will be in charge of updating bookmarks
 const [bookmarks, setBookmarks] = useState([]);
 
 updateBookmarks() {
   // Do some stuff
   // ...
   // Update state:
+  // Use the function you created and named to update just bookmarks, if you have other properties to update, you would call their specific functions as well
   setBookmarks(["This array is updated"]);
 }
 ```
