@@ -76,6 +76,8 @@ However, this style is very limiting, we can't add any extra lines of code easil
 If you've worked with array classes you would write
 
 ```js
+// Declare state, where you can add more properties
+// Set default value of this.state.bookmarks to be an empty array
 this.state = {
   bookmarks: []
 }
@@ -91,6 +93,8 @@ updateBookmarks () {
 With hooks, it does the same thing, but in a cleaner, more readable way.
 
 ```js
+// Declare state for bookmarks only. If you want to add more properties, you would create a new line and call useState() again.
+// Set default value bookmarks to be an empty array
 const [bookmarks, setBookmarks] = useState([]);
 
 updateBookmarks() {
