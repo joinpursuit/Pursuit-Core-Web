@@ -81,7 +81,10 @@ this.state = {
 }
 
 updateBookmarks () {
-  this.setState({bookmarks: ['This array is updated']})
+  // Do some stuff
+  // ...
+  // Update state:
+  this.setState({bookmarks: ["This array is updated"]})
 }
 ```
 
@@ -89,8 +92,13 @@ With hooks, it does the same thing, but in a cleaner, more readable way.
 
 ```js
 const [bookmarks, setBookmarks] = useState([]);
-//... later in the code
-setBookmarks(["This array is updated"]);
+
+updateBookmarks() {
+  // Do some stuff
+  // ...
+  // Update state:
+  setBookmarks(["This array is updated"]);
+}
 ```
 
 ### Add a Way to Update State
