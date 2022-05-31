@@ -60,7 +60,7 @@ If you pass an argument into `.then()`, it is the return value from the previous
 Sometimes, things go wrong (for example, your server is not running), in that case, we add a `.catch()` function which will deal with errors that may occur.
 
 ```js
-.then(()=>{})
+.catch(()=>{})
 ```
 
 Additionally, if the function only has one line of code, the curly braces can be skipped and the code can be shortened to:
@@ -81,16 +81,16 @@ this.state = {
 }
 
 updateBookmarks () {
-  this.setState({bookmarks: ['this array is updated']})
+  this.setState({bookmarks: ['This array is updated']})
 }
 ```
 
 With hooks, it does the same thing, but in a cleaner, more readable way.
 
 ```js
-const [bookmark, setBookmark] = useState([]);
+const [bookmarks, setBookmarks] = useState([]);
 //... later in the code
-setBookmark(["this array is updated"]);
+setBookmarks(["This array is updated"]);
 ```
 
 ### Add a Way to Update State
