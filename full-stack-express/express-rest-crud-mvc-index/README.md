@@ -139,6 +139,21 @@ So let's get back to our application. We are going to have a place for our model
 
 In terms of code, we will have a folder called `models`, a folder called `controllers` and while it is possible to have a `views` folder (and there are many applications that use this folder), we are going to be serving our views not from inside our app, but with a separate react app.
 
+**NOTE:** With ExpressJs, you are free to name your files and folders whatever you want. If you want to name your `controllers` folder `asdf` and your `models` folder `batman` - you can. However, no one will understand how your code is organized with names that don't make sense/are note semantic.
+
+Because ExpressJS is unopinionated, you will likely see a variety of names for different files. For example, when it comes to controllers, you may see:
+
+- birdController.js
+- birdsController.js
+- birds.js
+- birds-controller.js
+- birds-controllers.js
+- birds.controller.js
+
+When you join a company, they will have chosen a naming strategy and you should follow it. Within your own work, your naming should be consistent within each project.
+
+As this curriculum is being built and improved, it can be obvious that it was initially built without concensus on naming conventions. The curriculum is slowly being updated to follow conventions. By building before planning and agreeing as a company, this curriculum generated something called `technical debt` (choosing to deliver work A.S.A.P and deciding to fix things later), where every individual contributing chose the style they liked. Any project will typically have some technical debt. However, over time, technical debt makes things harder to maintain and can generate a lot of additional work. Notice your own experience using the materials here and take a moment to think about how consistency would likely improve your experience, then try to carry this knowledge with you into your future proejcts. 
+
 ## Demonstrating the Working Application
 
 [Demo on YouTube](https://youtu.be/-FrpZpGk82c) - We will be working with an app called Postman in order to be able to make all of our requests. By the end of this multi-day build, your app will allow you to:
