@@ -279,7 +279,7 @@ app.get("*", (req, res) => {
 
 ## Lab Time!
 
-[Captain's Log](https://github.com/joinpursuit/captains-log) - During lab, you'll be building an app that has similar functionality as the one we are building in class. This lab will span several sessions.
+[Express Fitness](https://github.com/joinpursuit/express-fitness) - During lab, you'll be building an app that has similar functionality as the one we are building in class. This lab will span several sessions.
 
 If you already have had experience with express or another back-end, you may find the first few activities going by quite quickly.
 
