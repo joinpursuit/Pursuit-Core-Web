@@ -2,7 +2,7 @@
 
 ## Where io means indoors/outdoors!
 
-![](./assets/untitled-18.jpeg)
+![](../assets/untitled-18.jpeg)
 
 ### API Planning Lab - Set Sail on a Code-Free Lab Activity
 
