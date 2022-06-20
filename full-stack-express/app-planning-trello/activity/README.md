@@ -1,7 +1,5 @@
 # Activity
 
-Your instructor will deicide if you will do more practice app planning with [this activity](https://github.com/joinpursuit/api-planning-lab) or if you should go to the next activity
-
 ## Planning a simple app
 
 Think back to the [Veterinarian API](https://github.com/joinpursuit/resource-veterinarian-api) - use this app description as a reference to plan a new version of this app.
