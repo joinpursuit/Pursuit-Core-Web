@@ -217,7 +217,7 @@ const addBookmark = (newBookmark) => {
 
 <br>
 
-### Using the Edit Form to Create a new Bookmark
+### Using the Edit Form to Update a Bookmark
 
 The edit form is very similar to the create form. However, for better user experience, it should be pre-filled with the values, rather than requiring the user to type everything from scratch.
 
