@@ -150,7 +150,7 @@ CREATE TABLE foo ( name TEXT ); -- create a table called 'foo' with one column c
 -- drop a table
 DROP TABLE foo;
 
--- 'houses' table has an id column `serial`, which is just a number that increases with each addition, and columns for address, city, st, price, and boolean properties for pool and for_sale.
+-- 'houses' table has an id column `serial`, which is just a number that increases with each addition, and columns for address, city, state, price, and boolean properties for pool and for_sale.
 
 CREATE TABLE
   Houses
