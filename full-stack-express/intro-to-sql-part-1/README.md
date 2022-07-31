@@ -154,7 +154,7 @@ DROP TABLE foo;
 
 CREATE TABLE
   Houses
-  ( id serial, address TEXT NOT NULL, city TEXT, state varchar(2), price INT, pool BOOLEAN DEFAULT false, for_sale BOOLEAN);
+  ( id serial, address TEXT NOT NULL, city TEXT, st varchar(2), price INT, pool BOOLEAN DEFAULT false, for_sale BOOLEAN);
 
 -- show description of columns for the table houses
 \d houses;
