@@ -430,4 +430,4 @@ How can you test this route?
 
 ## Lab time!
 
-[Link to Lab](https://github.com/joinpursuit/tuner-api)
+[Link to Lab](https://github.com/joinpursuit/tuner-full-stack-app)
