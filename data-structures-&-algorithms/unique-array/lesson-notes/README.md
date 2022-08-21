@@ -455,7 +455,7 @@ Employers tend to prefer to see someone demonstrate strong foundations within th
 
 So be sure you really know your foundations so you can keep growing in way that will align with your career growth. It is ok to go back to old material/concepts and get stronger. Should you need to learn a new language or framework, you'll find that your foundations will help you learn new things faster and better.
 
-- [Pursuit Module 6](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/data-structures-%26-algorithms#labs-and-lessons) - don't be afraid to start again and go through the material again. Sometimes novelty in learning is beneficial, but so is going back and spending time with material again.
+- [Pursuit Module 5](https://github.com/joinpursuit/Pursuit-Core-Web/tree/master/data-structures-%26-algorithms#labs-and-lessons) - don't be afraid to start again and go through the material again. Sometimes novelty in learning is beneficial, but so is going back and spending time with material again.
 
 - [Pursuit Core Web](https://github.com/joinpursuit/Pursuit-Core-Web) - go all the way back and try to update or redo the labs and projects
 
