@@ -196,10 +196,10 @@ If it isn't how you approached it, try to code your approach
 
 ### Figure Out the Big O Notation of Solutions to Some Problems You've Solved in the Past.
 
-This is the lab that you'll submit to Canvas. https://canvas.instructure.com/courses/2919273/assignments/27946573
+Go to Canvas for the assignment.
 
 After you've completed and submitted the lab, you can continue onto the next step:
 
 ### Accumulate Points on Codewars
 
-Continue to solve assigned problems. Use the [tracker](https://codewars-tracker-fe.herokuapp.com) to find which problems you have to solve.
+Continue to solve assigned problems. 
