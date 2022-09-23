@@ -537,7 +537,7 @@ const nums = [
 const findTheMedian = (numArray) => {
   numArray.sort();
   if (numArray.length % 2 !== 0) {
-    return Math.round(numArray.length / 2);
+    return numArray[Math.round(numArray.length / 2)];
   } else {
     const firstNum = numArray[Math.round(numArray.length / 2) - 1];
     const secondNum = numArray[Math.round(numArray.length / 2)];
