@@ -57,6 +57,8 @@ None, take time to solve any problems you got stuck on with a partner.
 
 ## Arrays & callbacks
 
+- [Unit Tested Array Drills](https://github.com/joinpursuit/array-method-drills)
+
 ### Codewars
 
 - [Gravity Flip](https://www.codewars.com/kata/5f70c883e10f9e0001c89673)
