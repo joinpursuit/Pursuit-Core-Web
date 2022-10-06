@@ -65,7 +65,7 @@ Now that we understand the general principles of these two data structures, the 
 
 ### Bonus
 
-There are several problems you should work through to gain a thorough understanding of Stacks and Queues. You can find the Codewars problems linked here on the [Fellow Tracker](https://codewars-tracker-fe.herokuapp.com) under you name card.
+There are several problems you should work through to gain a thorough understanding of Stacks and Queues. You can find the Codewars problems linked here on the [Fellow Tracker](https://pursuit.codetrack.dev) under you name card.
 
 From Codewars:
 

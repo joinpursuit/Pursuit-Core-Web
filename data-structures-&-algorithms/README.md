@@ -52,7 +52,7 @@ Your goal will be to accumulate at certain number of points points on code wars 
 
 [Ranking system](https://docs.codewars.com/gamification/ranks/)
 
-You will be tracked with [Pursuit's Code Wars Tracker](https://codewars-tracker-fe.herokuapp.com)
+You will be tracked with [Pursuit's Code Wars Tracker](https://pursuit.codetrack.dev)
 
 ## Assessment: Mock Interviews
 
