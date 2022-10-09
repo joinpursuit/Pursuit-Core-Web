@@ -253,7 +253,7 @@ Now, let's add the different suits:
 class DeckOfCards {
   constructor() {
     this.cards = [];
-    this.crecards();
+    this.createDeck();
   }
   createDeck() {
     const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
