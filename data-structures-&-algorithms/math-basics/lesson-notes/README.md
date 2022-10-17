@@ -5,6 +5,7 @@
 - Review math concepts that developers are expected to know
 - Review what is NaN
 - Learn to use built in math methods in order to build solutions to problems containing math
+- Roman numerals
 
 ![Subway NaN](../assets/SubwayNaN.jpeg)
 
@@ -579,6 +580,18 @@ Coercion into a number from a string
 let y = "3";
 console.log(typeof +y);
 ```
+
+## Roman Numerals
+
+Roman numerals are a way of expressing numbers using letters. Though their popularity has waned, there are a few times they still appear:
+
+- The Superbowl number
+- The year a movie was copywrited
+- Code challenges
+
+[Roman Numerals on Wikipedia](https://en.wikipedia.org/wiki/Roman_numerals)
+
+Take the time to learn how to write out 1 to 5000, in Roman numerals. That way, if you get a problem that uses them, you will only have to jog your memory, rather than learn it on the spot. 
 
 ## Bonus Reading Math Notation
 
